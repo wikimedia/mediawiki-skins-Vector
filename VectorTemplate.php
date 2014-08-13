@@ -33,12 +33,10 @@ class VectorTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the (X)HTML page
 	 */
 	public function execute() {
-		global $wgVectorUseIconWatch;
-
 		// Build additional attributes for navigation urls
 		$nav = $this->data['content_navigation'];
 
-		if ( $wgVectorUseIconWatch ) {
+		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
 			$mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
 				? 'unwatch'
 				: 'watch';
@@ -362,8 +360,6 @@ class VectorTemplate extends BaseTemplate {
 	 * @param array $elements
 	 */
 	protected function renderNavigation( $elements ) {
-		global $wgVectorUseSimpleSearch;
-
 		// If only one element was given, wrap it in an array, allowing more
 		// flexible arguments
 		if ( !is_array( $elements ) ) {
@@ -546,7 +542,7 @@ class VectorTemplate extends BaseTemplate {
 
 						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 							<?php
-							if ( $wgVectorUseSimpleSearch ) {
+							if ( $this->config->get( 'VectorUseSimpleSearch' ) ) {
 							?>
 							<div id="simpleSearch">
 								<?php

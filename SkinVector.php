@@ -30,6 +30,14 @@ class SkinVector extends SkinTemplate {
 	public $skinname = 'vector';
 	public $stylename = 'Vector';
 	public $template = 'VectorTemplate';
+	/**
+	 * @var Config
+	 */
+	private $config;
+
+	public function __construct( Config $config ) {
+		$this->config = $config;
+	}
 
 	protected static $bodyClasses = array( 'vector-animateLayout' );
 
@@ -38,8 +46,6 @@ class SkinVector extends SkinTemplate {
 	 * @param OutputPage $out Object to initialize
 	 */
 	public function initPage( OutputPage $out ) {
-		global $wgLocalStylePath;
-
 		parent::initPage( $out );
 
 		// Append CSS which includes IE only behavior fixes for hover support -
@@ -48,7 +54,7 @@ class SkinVector extends SkinTemplate {
 		$min = $this->getRequest()->getFuzzyBool( 'debug' ) ? '' : '.min';
 		$out->addHeadItem( 'csshover',
 			'<!--[if lt IE 7]><style type="text/css">body{behavior:url("' .
-				htmlspecialchars( $wgLocalStylePath ) .
+				htmlspecialchars( $this->getConfig()->get( 'LocalStylePath' ) ) .
 				"/{$this->stylename}/csshover{$min}.htc\")}</style><![endif]-->"
 		);
 
@@ -65,6 +71,13 @@ class SkinVector extends SkinTemplate {
 		$styles = array( 'mediawiki.skinning.interface', 'skins.vector.styles' );
 		wfRunHooks( 'SkinVectorStyleModules', array( $this, &$styles ) );
 		$out->addModuleStyles( $styles );
+	}
+
+	/**
+	 * Override to pass our Config instance to it
+	 */
+	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
+		return new $classname( $this->config );
 	}
 
 	/**

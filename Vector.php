@@ -38,7 +38,29 @@ $wgAutoloadClasses['VectorTemplate'] = __DIR__ . '/VectorTemplate.php';
 $wgMessagesDirs['Vector'] = __DIR__ . '/i18n';
 
 // Register skin
-$wgValidSkinNames['vector'] = 'Vector';
+SkinFactory::getDefaultInstance()->register( 'vector', 'Vector', function(){
+	$config = ConfigFactory::getDefaultInstance()->makeConfig( 'vector' );
+	return new SkinVector( $config );
+} );
+
+// Register config
+$wgConfigRegistry['vector'] = 'GlobalVarConfig::newInstance';
+
+// Configuration options
+/**
+ * Search form look.
+ *  - true = use an icon search button
+ *  - false = use Go & Search buttons
+ */
+$wgVectorUseSimpleSearch = true;
+
+/**
+ * Watch and unwatch as an icon rather than a link.
+ *  - true = use an icon watch/unwatch button
+ *  - false = use watch/unwatch text link
+ */
+$wgVectorUseIconWatch = true;
+
 
 // Register modules
 $wgResourceModules['skins.vector.styles'] = array(
@@ -86,19 +108,3 @@ $wgResourceModuleSkinStyles['vector'] = array(
 	'remoteSkinPath' => 'Vector',
 	'localBasePath' => __DIR__,
 );
-
-// Configuration options
-
-/**
- * Search form look.
- *  - true = use an icon search button
- *  - false = use Go & Search buttons
- */
-$wgVectorUseSimpleSearch = true;
-
-/**
- * Watch and unwatch as an icon rather than a link.
- *  - true = use an icon watch/unwatch button
- *  - false = use watch/unwatch text link
- */
-$wgVectorUseIconWatch = true;
