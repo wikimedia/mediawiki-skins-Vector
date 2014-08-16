@@ -33,10 +33,10 @@ class SkinVector extends SkinTemplate {
 	/**
 	 * @var Config
 	 */
-	private $config;
+	private $vectorConfig;
 
 	public function __construct( Config $config ) {
-		$this->config = $config;
+		$this->vectorConfig = $config;
 	}
 
 	protected static $bodyClasses = array( 'vector-animateLayout' );
@@ -77,7 +77,7 @@ class SkinVector extends SkinTemplate {
 	 * Override to pass our Config instance to it
 	 */
 	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
-		return new $classname( $this->config );
+		return new $classname( $this->vectorConfig );
 	}
 
 	/**
