@@ -5,6 +5,7 @@
 			"Xuacu"
 		]
 	},
+	"skinname-vector": "Vector",
 	"vector-skin-desc": "Versión moderna de MonoBook, con un aspeutu frescu y munchos ameyoramientos d'usabilidá",
 	"vector.css": "/* Los CSS allugaos equí afeutarán a los usuarios del aspeutu Vector */",
 	"vector.js": "/* Cualesquier JavaScript que tea equí se cargará pa los usuarios del aspeutu Vector */",
