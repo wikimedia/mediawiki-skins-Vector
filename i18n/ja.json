@@ -6,10 +6,12 @@
 			"Penn Station",
 			"Shirayuki",
 			"Whym",
-			"青子守歌"
+			"青子守歌",
+			"Takot"
 		]
 	},
 	"skinname-vector": "ベクター",
+	"vector-skin-desc": "新しい見た目でユーザビリティが改善された、モダンバージョンのMonobook。",
 	"vector.css": "/* ここに記述したCSSはベクター外装の利用者に影響します */",
 	"vector.js": "/* ここにあるすべてのJavaScriptは、ベクター外装を使用している利用者に対して読み込まれます */",
 	"vector-action-addsection": "話題追加",
