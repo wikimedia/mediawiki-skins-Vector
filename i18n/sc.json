@@ -4,7 +4,8 @@
 			"Andria",
 			"Marzedu",
 			"Via maxima",
-			"Uharteko"
+			"Uharteko",
+			"Taxandru"
 		]
 	},
 	"vector-action-addsection": "Giunghe cuntierra",
@@ -16,6 +17,6 @@
 	"vector-view-edit": "Càmbia",
 	"vector-view-history": "Càstia istòria",
 	"vector-view-view": "Leghe",
-	"vector-view-viewsource": "Càstia testu codificadu",
+	"vector-view-viewsource": "Càstia mitza",
 	"vector-more-actions": "Prus"
 }

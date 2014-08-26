@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yejianfei"
+			"Yejianfei",
+			"唐吉訶德的侍從"
 		]
 	},
 	"vector-action-addsection": "加話題",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "修改",
 	"vector-view-history": "看歷史",
 	"vector-view-view": "讀",
-	"vector-view-viewsource": "看源代碼"
+	"vector-view-viewsource": "看源代碼",
+	"vector-more-actions": "介看"
 }
