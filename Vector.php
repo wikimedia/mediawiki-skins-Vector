@@ -22,7 +22,7 @@
  * @ingroup Skins
  */
 
-$wgExtensionCredits['skin'][] = array(
+$GLOBALS['wgExtensionCredits']['skin'][] = array(
 	'path' => __FILE__,
 	'name' => 'Vector',
 	'namemsg' => 'skinname-vector',
@@ -33,9 +33,9 @@ $wgExtensionCredits['skin'][] = array(
 );
 
 // Register files
-$wgAutoloadClasses['SkinVector'] = __DIR__ . '/SkinVector.php';
-$wgAutoloadClasses['VectorTemplate'] = __DIR__ . '/VectorTemplate.php';
-$wgMessagesDirs['Vector'] = __DIR__ . '/i18n';
+$GLOBALS['wgAutoloadClasses']['SkinVector'] = __DIR__ . '/SkinVector.php';
+$GLOBALS['wgAutoloadClasses']['VectorTemplate'] = __DIR__ . '/VectorTemplate.php';
+$GLOBALS['wgMessagesDirs']['Vector'] = __DIR__ . '/i18n';
 
 // Register skin
 SkinFactory::getDefaultInstance()->register( 'vector', 'Vector', function(){
@@ -44,7 +44,7 @@ SkinFactory::getDefaultInstance()->register( 'vector', 'Vector', function(){
 } );
 
 // Register config
-$wgConfigRegistry['vector'] = 'GlobalVarConfig::newInstance';
+$GLOBALS['wgConfigRegistry']['vector'] = 'GlobalVarConfig::newInstance';
 
 // Configuration options
 /**
@@ -52,18 +52,17 @@ $wgConfigRegistry['vector'] = 'GlobalVarConfig::newInstance';
  *  - true = use an icon search button
  *  - false = use Go & Search buttons
  */
-$wgVectorUseSimpleSearch = true;
+$GLOBALS['wgVectorUseSimpleSearch'] = true;
 
 /**
  * Watch and unwatch as an icon rather than a link.
  *  - true = use an icon watch/unwatch button
  *  - false = use watch/unwatch text link
  */
-$wgVectorUseIconWatch = true;
-
+$GLOBALS['wgVectorUseIconWatch'] = true;
 
 // Register modules
-$wgResourceModules['skins.vector.styles'] = array(
+$GLOBALS['wgResourceModules']['skins.vector.styles'] = array(
 	'styles' => array(
 		'screen.less' => array( 'media' => 'screen' ),
 		'screen-hd.less' => array( 'media' => 'screen and (min-width: 982px)' ),
@@ -71,7 +70,8 @@ $wgResourceModules['skins.vector.styles'] = array(
 	'remoteSkinPath' => 'Vector',
 	'localBasePath' => __DIR__,
 );
-$wgResourceModules['skins.vector.js'] = array(
+
+$GLOBALS['wgResourceModules']['skins.vector.js'] = array(
 	'scripts' => array(
 		'collapsibleTabs.js',
 		'vector.js',
@@ -86,7 +86,7 @@ $wgResourceModules['skins.vector.js'] = array(
 );
 
 // Apply module customizations
-$wgResourceModuleSkinStyles['vector'] = array(
+$GLOBALS['wgResourceModuleSkinStyles']['vector'] = array(
 	'jquery.tipsy' => 'skinStyles/jquery.tipsy.less',
 	'jquery.ui.core' => array(
 		'skinStyles/jquery.ui/jquery.ui.core.css',
