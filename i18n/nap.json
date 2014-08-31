@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chelin"
+			"Chelin",
+			"C.R."
 		]
 	},
 	"vector-action-addsection": "Aggiunge chiacchierata",
@@ -13,6 +14,6 @@
 	"vector-view-create": "Cria",
 	"vector-view-edit": "Càgna",
 	"vector-view-history": "Vere cronologgia",
-	"vector-view-view": "Legge",
+	"vector-view-view": "Liegge",
 	"vector-view-viewsource": "Vere sorgente"
 }
