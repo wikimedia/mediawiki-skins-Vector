@@ -5,6 +5,7 @@
 		]
 	},
 	"skinname-vector": "Vektor",
+	"vector-skin-desc": "En modärne Väsjohn vun de Monobooch-Bedeenbovverfläsch met enem neue Ußsinn un Verbäßeronge bem Bedehne.",
 	"vector.css": "/* CSS heh aan dä Stell wirrek nur op de Ovverflääsch „Vector“ */",
 	"vector.js": "/* De JavaSkrippte fun hee krijje alle Sigge met de Ovverflääsch \"Vector\" jescheck */",
 	"vector-action-addsection": "Ne neue Afschnet onge draan!",
@@ -17,5 +18,6 @@
 	"vector-view-edit": "Ändere!",
 	"vector-view-history": "Versione zeije!",
 	"vector-view-view": "Lesse!",
-	"vector-view-viewsource": "Wikitex aanlooere!"
+	"vector-view-viewsource": "Wikitex aanlooere!",
+	"vector-more-actions": "Mieh"
 }
