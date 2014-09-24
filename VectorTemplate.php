@@ -102,6 +102,7 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			}
 			?>
+			<?php echo $this->getIndicators(); ?>
 			<h1 id="firstHeading" class="firstHeading" lang="<?php
 			$this->data['pageLanguage'] =
 				$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
