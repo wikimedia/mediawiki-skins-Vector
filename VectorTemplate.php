@@ -254,7 +254,7 @@ class VectorTemplate extends BaseTemplate {
 
 	</body>
 </html>
-	<?php
+<?php
 	}
 
 	/**
