@@ -22,8 +22,8 @@
  * @ingroup Skins
  */
 
-if ( version_compare( $wgVersion, '1.25c', '<' ) ) {
-	echo 'This version of the Vector skin requires at least MediaWiki 1.25, you have ' . $wgVersion .
+if ( version_compare( $GLOBALS['wgVersion'], '1.25c', '<' ) ) {
+	echo 'This version of the Vector skin requires at least MediaWiki 1.25, you have ' . $GLOBALS['wgVersion'] .
 		'. You can download a more appropriate version here: https://www.mediawiki.org/wiki/Special:SkinDistributor/Vector';
 	exit();
 }
