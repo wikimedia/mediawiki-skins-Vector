@@ -126,7 +126,9 @@ div.emptyPortlet {
 
 ul {
 	list-style-type: disc;
-	.list-style-image('images/bullet-icon.png');
+	list-style-image: url(images/bullet-icon.svg);
+	/* Fallback to PNG bullet for IE 8 and below using CSS hack */
+	list-style-image: url(images/bullet-icon.png)\9;
 }
 
 pre, .mw-code {
