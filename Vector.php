@@ -38,10 +38,7 @@ $GLOBALS['wgAutoloadClasses']['VectorTemplate'] = __DIR__ . '/VectorTemplate.php
 $GLOBALS['wgMessagesDirs']['Vector'] = __DIR__ . '/i18n';
 
 // Register skin
-SkinFactory::getDefaultInstance()->register( 'vector', 'Vector', function(){
-	$config = ConfigFactory::getDefaultInstance()->makeConfig( 'vector' );
-	return new SkinVector( $config );
-} );
+$GLOBALS['wgValidSkinNames']['vector'] = 'Vector';
 
 // Register config
 $GLOBALS['wgConfigRegistry']['vector'] = 'GlobalVarConfig::newInstance';
