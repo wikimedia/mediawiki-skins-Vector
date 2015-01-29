@@ -29,7 +29,7 @@ $GLOBALS['wgExtensionCredits']['skin'][] = array(
 	'descriptionmsg' => 'vector-skin-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Skin:Vector',
 	'author' => array( 'Trevor Parscal', 'Roan Kattouw', '...' ),
-	'license-name' => 'GPLv2+',
+	'license-name' => 'GPL-2.0+',
 );
 
 // Register files
