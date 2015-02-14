@@ -34,11 +34,6 @@ jQuery( function ( $ ) {
 	} );
 
 	/**
-	 * Sidebar
-	 */
-	$( '#mw-panel > .portal:first' ).addClass( 'first' );
-
-	/**
 	 * Collapsible tabs
 	 */
 	var $cactions = $( '#p-cactions' ),
