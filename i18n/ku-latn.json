@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ferhengvan",
-			"Gomada"
+			"Gomada",
+			"Bikarhêner"
 		]
 	},
 	"vector-action-addsection": "Mijarekê lê zêde bike",
@@ -15,5 +16,6 @@
 	"vector-view-edit": "Biguherîne",
 	"vector-view-history": "Dîrokê bibîne",
 	"vector-view-view": "Bixwîne",
-	"vector-view-viewsource": "Çavkaniyan bibîne"
+	"vector-view-viewsource": "Çavkaniyan bibîne",
+	"vector-more-actions": "Bêhtir"
 }
