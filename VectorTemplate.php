@@ -341,7 +341,7 @@ class VectorTemplate extends BaseTemplate {
 						<?php
 						}
 						if ( $hook !== null ) {
-							wfRunHooks( $hook, array( &$this, true ) );
+							Hooks::run( $hook, array( &$this, true ) );
 						}
 						?>
 					</ul>
