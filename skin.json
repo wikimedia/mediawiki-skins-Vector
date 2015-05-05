@@ -27,6 +27,7 @@
 	},
 	"ResourceModules": {
 		"skins.vector.styles": {
+			"position": "top",
 			"styles": {
 				"screen.less": {
 					"media": "screen"
