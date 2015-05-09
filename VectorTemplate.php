@@ -106,12 +106,14 @@ class VectorTemplate extends BaseTemplate {
 			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
 				echo $this->getIndicators();
 			}
+			if ( !empty( $this->data['title'] ) ) {
 			?>
 			<h1 id="firstHeading" class="firstHeading" lang="<?php
 			$this->data['pageLanguage'] =
 				$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 			$this->text( 'pageLanguage' );
 			?>"><?php $this->html( 'title' ) ?></h1>
+			<?php } ?>
 			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
 				<?php
