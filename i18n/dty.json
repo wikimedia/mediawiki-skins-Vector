@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"जनक राज भट्ट",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"रमेश सिंह बोहरा"
 		]
 	},
 	"vector-view-edit": "सम्पादन",
+	"vector-view-history": "इतिहास हेद्य्या",
+	"vector-view-view": "पढ्या",
 	"vector-more-actions": "झिक्क"
 }
