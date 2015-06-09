@@ -112,8 +112,11 @@ class VectorTemplate extends BaseTemplate {
 			}
 			if ( !empty( $this->data['title'] ) ) {
 			?>
-			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php $this->html( 'title' ) ?></h1>
-			<?php } ?>
+			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
+				<?php $this->html( 'title' ) ?>
+			</h1>
+			<?php
+			} ?>
 			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
 				<?php
@@ -123,7 +126,9 @@ class VectorTemplate extends BaseTemplate {
 				<?php
 				}
 				?>
-				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' ) ?></div>
+				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
+					<?php $this->html( 'subtitle' ) ?>
+				</div>
 				<?php
 				if ( $this->data['undelete'] ) {
 					?>
@@ -140,7 +145,9 @@ class VectorTemplate extends BaseTemplate {
 				?>
 				<div id="jump-to-nav" class="mw-jump">
 					<?php $this->msg( 'jumpto' ) ?>
-					<a href="#mw-head"><?php $this->msg( 'jumptonavigation' ) ?></a><?php $this->msg( 'comma-separator' ) ?>
+					<a href="#mw-head">
+						<?php $this->msg( 'jumptonavigation' ) ?>
+					</a><?php $this->msg( 'comma-separator' ) ?>
 					<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
 				</div>
 				<?php
@@ -192,7 +199,9 @@ class VectorTemplate extends BaseTemplate {
 			foreach ( $this->getFooterLinks() as $category => $links ) {
 				?>
 				<ul id="footer-<?php echo $category ?>">
-					<?php foreach ( $links as $link ) { ?>
+					<?php
+					foreach ( $links as $link ) {
+						?>
 						<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
 					<?php
 					}
@@ -383,7 +392,9 @@ class VectorTemplate extends BaseTemplate {
 							}
 						}
 						?>
-						<h3 id="p-variants-label"><span><?php echo htmlspecialchars( $variantLabel ) ?></span><a href="#"></a></h3>
+						<h3 id="p-variants-label">
+							<span><?php echo htmlspecialchars( $variantLabel ) ?></span><a href="#"></a>
+						</h3>
 
 						<div class="menu">
 							<ul>
