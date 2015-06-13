@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anjoeli9806"
+			"Anjoeli9806",
+			"Redhotchili23"
 		]
 	},
 	"vector-action-addsection": "Magdugang sang topiko",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "Ilisan",
 	"vector-view-history": "Lantawon ang kasaysayan",
 	"vector-view-view": "Magbasa",
-	"vector-view-viewsource": "Lantawon ang ginhalinan"
+	"vector-view-viewsource": "Lantawon ang ginhalinan",
+	"vector-more-actions": "Dugang Pa"
 }
