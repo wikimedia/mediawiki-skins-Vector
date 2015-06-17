@@ -112,9 +112,9 @@ class VectorTemplate extends BaseTemplate {
 			}
 			if ( !empty( $this->data['title'] ) ) {
 			?>
-			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>">
-				<?php $this->html( 'title' ) ?>
-			</h1>
+			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
+				 $this->html( 'title' )
+			?></h1>
 			<?php
 			} ?>
 			<?php $this->html( 'prebodyhtml' ) ?>
@@ -126,9 +126,9 @@ class VectorTemplate extends BaseTemplate {
 				<?php
 				}
 				?>
-				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>>
-					<?php $this->html( 'subtitle' ) ?>
-				</div>
+				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
+					$this->html( 'subtitle' )
+				?></div>
 				<?php
 				if ( $this->data['undelete'] ) {
 					?>
@@ -145,9 +145,9 @@ class VectorTemplate extends BaseTemplate {
 				?>
 				<div id="jump-to-nav" class="mw-jump">
 					<?php $this->msg( 'jumpto' ) ?>
-					<a href="#mw-head">
-						<?php $this->msg( 'jumptonavigation' ) ?>
-					</a><?php $this->msg( 'comma-separator' ) ?>
+					<a href="#mw-head"><?php
+						$this->msg( 'jumptonavigation' )
+					?></a><?php $this->msg( 'comma-separator' ) ?>
 					<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
 				</div>
 				<?php
