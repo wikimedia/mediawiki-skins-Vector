@@ -4,12 +4,13 @@
 			"CERminator",
 			"DzWiki",
 			"KWiki",
-			"Edinwiki"
+			"Edinwiki",
+			"Srdjan m"
 		]
 	},
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
-	"vector-action-move": "Preusmjeri",
+	"vector-action-move": "Premjesti",
 	"vector-action-protect": "Zaštiti",
 	"vector-action-undelete": "Vrati obrisano",
 	"vector-action-unprotect": "Promijeni zaštitu",
