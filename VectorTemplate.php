@@ -110,7 +110,7 @@ class VectorTemplate extends BaseTemplate {
 			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
 				echo $this->getIndicators();
 			}
-			if ( !empty( $this->data['title'] ) ) {
+			if ( isset( $this->data['title'] ) ) {
 			?>
 			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
 				 $this->html( 'title' )
