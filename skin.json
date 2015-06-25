@@ -23,20 +23,16 @@
 	},
 	"AutoloadClasses": {
 		"SkinVector": "SkinVector.php",
-		"VectorTemplate": "VectorTemplate.php"
+		"VectorTemplate": "VectorTemplate.php",
+		"VectorHooks": "Vector.hooks.php"
 	},
+	"Hooks": {
+		"ResourceLoaderRegisterModules": [
+			"VectorHooks::onResourceLoaderRegisterModules"
+		]
+	},
+	"@note": "skins.vector.styles module registered via a hook",
 	"ResourceModules": {
-		"skins.vector.styles": {
-			"position": "top",
-			"styles": {
-				"screen.less": {
-					"media": "screen"
-				},
-				"screen-hd.less": {
-					"media": "screen and (min-width: 982px)"
-				}
-			}
-		},
 		"skins.vector.js": {
 			"scripts": [
 				"collapsibleTabs.js",
@@ -81,7 +77,8 @@
 	},
 	"config": {
 		"VectorUseSimpleSearch": true,
-		"VectorUseIconWatch": true
+		"VectorUseIconWatch": true,
+		"VectorResponsive": false
 	},
 	"manifest_version": 1
 }
