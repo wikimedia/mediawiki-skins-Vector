@@ -110,7 +110,8 @@ class VectorTemplate extends BaseTemplate {
 			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
 				echo $this->getIndicators();
 			}
-			if ( isset( $this->data['title'] ) ) {
+			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
+			if ( $this->data['title'] != '' ) {
 			?>
 			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
 				 $this->html( 'title' )
