@@ -6,7 +6,8 @@
 			"Celekan",
 			"Siklawy",
 			"GR44 Luc",
-			"SamGamgee"
+			"SamGamgee",
+			"SmartNart12"
 		]
 	},
 	"vector-action-addsection": "1офтхьабз",
@@ -19,5 +20,6 @@
 	"vector-view-edit": "Хэ1эзыхь",
 	"vector-view-history": "Тарихъым eплъ",
 	"vector-view-view": "Едж",
-	"vector-view-viewsource": "Еплъ лъапсэм"
+	"vector-view-viewsource": "Еплъ лъапсэм",
+	"vector-more-actions": "Джыри"
 }
