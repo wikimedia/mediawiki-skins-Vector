@@ -47,7 +47,7 @@ class SkinVector extends SkinTemplate {
 		parent::initPage( $out );
 
 		if ( $this->getConfig()->get( 'VectorResponsive' ) ) {
-			$out->addMeta( 'viewport', 'width=device-width; initial-scale=1;' );
+			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 
 		// Append CSS which includes IE only behavior fixes for hover support -
