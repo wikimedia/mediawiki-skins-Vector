@@ -4,12 +4,13 @@
 ( function ( $ ) {
 	var rtl = $( 'html' ).attr( 'dir' ) === 'rtl';
 	$.fn.collapsibleTabs = function ( options ) {
+		// Merge options into the defaults
+		var settings = $.extend( {}, $.collapsibleTabs.defaults, options );
+
 		// return if the function is called on an empty jquery object
 		if ( !this.length ) {
 			return this;
 		}
-		// Merge options into the defaults
-		var settings = $.extend( {}, $.collapsibleTabs.defaults, options );
 
 		this.each( function () {
 			var $el = $( this );
@@ -160,8 +161,8 @@
 				.css( 'width', '1px' )
 				.data( 'collapsibleTabsSettings', data )
 				.animate( { width: expandedWidth + 'px' }, 'normal', function () {
-					$( this ).attr( 'style', 'display: block;' );
 					var data, expContainerSettings;
+					$( this ).attr( 'style', 'display: block;' );
 					data = $.collapsibleTabs.getSettings( $( this ) );
 					if ( data ) {
 						expContainerSettings = $.collapsibleTabs.getSettings( $( data.expandedContainer ) );
