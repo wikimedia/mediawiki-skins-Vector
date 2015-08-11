@@ -51,17 +51,7 @@ class SkinVector extends SkinTemplate {
 			$out->addModuleStyles( 'skins.vector.styles.responsive' );
 		}
 
-		// Append CSS which includes IE only behavior fixes for hover support -
-		// this is better than including this in a CSS file since it doesn't
-		// wait for the CSS file to load before fetching the HTC file.
-		$min = $this->getRequest()->getFuzzyBool( 'debug' ) ? '' : '.min';
-		$out->addHeadItem( 'csshover',
-			'<!--[if lt IE 7]><style type="text/css">body{behavior:url("' .
-				htmlspecialchars( $this->getConfig()->get( 'LocalStylePath' ) ) .
-				"/{$this->stylename}/csshover{$min}.htc\")}</style><![endif]-->"
-		);
-
-		$out->addModules( array( 'skins.vector.js' ) );
+		$out->addModules( 'skins.vector.js' );
 	}
 
 	/**
