@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Denö"
+			"Denö",
+			"Ilja.mos"
 		]
 	},
-	"vector-view-edit": "Korjata"
+	"vector-view-edit": "Korjata",
+	"vector-view-history": "Kačo histourii",
+	"vector-view-view": "Luve",
+	"vector-more-actions": "Vie"
 }
