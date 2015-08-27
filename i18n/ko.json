@@ -12,7 +12,7 @@
 	"vector.js": "/* 이 자바스크립트 설정은 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
 	"vector-action-addsection": "주제 추가",
 	"vector-action-delete": "삭제",
-	"vector-action-move": "옮기기",
+	"vector-action-move": "이동",
 	"vector-action-protect": "보호",
 	"vector-action-undelete": "삭제 취소",
 	"vector-action-unprotect": "보호 설정 바꾸기",
