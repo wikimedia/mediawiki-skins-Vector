@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Denö",
-			"Ilja.mos"
+			"Ilja.mos",
+			"Mashoi7"
 		]
 	},
 	"vector-action-addsection": "Ližiä aihe",
+	"vector-action-move": "Siirrä",
 	"vector-view-create": "Luadie",
 	"vector-view-edit": "Korjata",
 	"vector-view-history": "Kačo histourii",
