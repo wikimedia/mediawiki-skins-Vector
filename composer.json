@@ -1,0 +1,30 @@
+{
+	"name": "mediawiki/vector-skin",
+	"type": "mediawiki-skin",
+	"description": "Modern version of the MonoBook skin",
+	"keywords": [
+		"wiki",
+		"MediaWiki",
+		"skin"
+	],
+	"homepage": "https://www.mediawiki.org/wiki/Skin:Vector",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Trevor Parscal"
+		},
+		{
+			"name": "Roan Kattouw"
+		}
+	],
+	"support": {
+		"wiki": "https://www.mediawiki.org/wiki/Skin:Vector",
+		"forum": "https://www.mediawiki.org/wiki/Skin_talk:Vector",
+		"source": "https://git.wikimedia.org/summary/mediawiki%2Fskins%2FVector",
+		"irc": "irc://irc.freenode.org/mediawiki"
+	},
+	"scripts": {
+		"test": []
+	}
+
+}
