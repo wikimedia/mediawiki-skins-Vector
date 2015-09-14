@@ -84,6 +84,7 @@
 			"jquery.ui.tooltips": "skinStyles/jquery.ui/jquery.ui.tooltips.css",
 			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
 			"+mediawiki.sectionAnchor": "skinStyles/mediawiki.sectionAnchor.less",
+			"ooui": "skinStyles/ooui.less",
 			"mediawiki.special": "skinStyles/mediawiki.special.less",
 			"mediawiki.special.preferences": "skinStyles/mediawiki.special.preferences.less"
 		}
