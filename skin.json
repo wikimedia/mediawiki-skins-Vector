@@ -10,6 +10,9 @@
 	"namemsg": "skinname-vector",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.25.0"
+	},
 	"ConfigRegistry": {
 		"vector": "GlobalVarConfig::newInstance"
 	},
