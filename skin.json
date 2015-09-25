@@ -1,5 +1,6 @@
 {
 	"name": "Vector",
+	"namemsg": "vector-skinname",
 	"author": [
 		"Trevor Parscal",
 		"Roan Kattouw",
@@ -7,7 +8,6 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Skin:Vector",
 	"descriptionmsg": "vector-skin-desc",
-	"namemsg": "skinname-vector",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
 	"requires": {
