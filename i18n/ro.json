@@ -9,7 +9,7 @@
 			"ImGelu"
 		]
 	},
-	"vector-skinname": "Vector",
+	"skinname-vector": "Vector",
 	"vector-skin-desc": "Versiunea modernă pentru MonoBook cu o înfățișare reîmprospătată și multe îmbunătățiri de uzabilitate",
 	"vector.css": "/* CSS plasate aici vor afecta utilizatorii stilului Vector */",
 	"vector-action-addsection": "Mesaj nou",
