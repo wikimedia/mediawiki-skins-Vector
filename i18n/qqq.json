@@ -10,7 +10,7 @@
 			"Liuxinyu970226"
 		]
 	},
-	"vector-skinname": "{{optional}}",
+	"skinname-vector": "{{optional}}",
 	"vector-skin-desc": "{{desc|what=skin|name=Vector|url=https://www.mediawiki.org/wiki/Skin:Vector}}",
 	"vector.css": "{{optional}}",
 	"vector.js": "{{optional}}",
