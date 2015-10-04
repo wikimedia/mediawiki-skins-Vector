@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mashoi7"
+			"Mashoi7",
+			"Ilja.mos"
 		]
 	},
 	"vector-view-create": "Luaji",
-	"vector-view-view": "Luve"
+	"vector-view-view": "Luve",
+	"vector-more-actions": "Vielä"
 }
