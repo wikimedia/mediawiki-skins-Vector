@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ricardo gs"
+			"Ricardo gs",
+			"Taresi"
 		]
 	},
 	"vector-action-delete": "Ticpolōz",
 	"vector-action-move": "Ticzacāz",
 	"vector-action-protect": "Ticquīxtīz",
-	"vector-view-create": "Ticchīhuāz",
-	"vector-view-edit": "Ticpatlāz",
-	"vector-view-history": "Tlahcuilōlli tlahcuilōlloh",
+	"vector-view-create": "Ticchīhuaz",
+	"vector-view-edit": "Ticpatlaz",
+	"vector-view-history": "Tiquittaz tlahtōllōtl",
 	"vector-view-view": "Tāmapōhuaz",
 	"vector-view-viewsource": "Tiquittāz in mēyalli"
 }
