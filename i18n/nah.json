@@ -5,13 +5,16 @@
 			"Taresi"
 		]
 	},
+	"vector-action-addsection": "Xicahxilti netlahtōlpepechtiliztli",
 	"vector-action-delete": "Xicpolo",
 	"vector-action-move": "Xiczaca",
 	"vector-action-protect": "Xicpiya",
 	"vector-action-undelete": "Xicmāquīxti",
+	"vector-action-unprotect": "Xicpatla tlapiyaliztli",
 	"vector-view-create": "Ticchīhuaz",
 	"vector-view-edit": "Ticpatlaz",
 	"vector-view-history": "Tiquittaz tlahtōllōtl",
 	"vector-view-view": "Tāmapōhuaz",
-	"vector-view-viewsource": "Xiquitta mēyalli"
+	"vector-view-viewsource": "Xiquitta mēyalli",
+	"vector-more-actions": "Ocnō"
 }
