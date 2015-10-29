@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"NamwikiTL",
-			"VASANTH S.N."
+			"VASANTH S.N.",
+			"Vishwanatha Badikana"
 		]
 	},
 	"vector-action-addsection": "ವಿಷಯ ಸೇರಾಲೆ",
@@ -14,7 +15,7 @@
 	"vector-view-create": " ಸುರು ಮಲ್ಪುಲೆ",
 	"vector-view-edit": "ಸಂಪಾದನೆ ಮಲ್ಪುಲೆ",
 	"vector-view-history": "ಇತಿಹಾಸೊನು ತೂಲೆ",
-	"vector-view-view": "ಓದ್ಲೇ",
+	"vector-view-view": "ಓದ್‍ಲೆ",
 	"vector-view-viewsource": "ಮೂಲೊನು ತೂಲೆ",
 	"vector-more-actions": "ನನಲಾ"
 }
