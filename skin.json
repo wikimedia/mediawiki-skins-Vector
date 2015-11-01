@@ -89,7 +89,7 @@
 			"+mediawiki.sectionAnchor": "skinStyles/mediawiki.sectionAnchor.less",
 			"ooui": "skinStyles/ooui.less",
 			"mediawiki.special": "skinStyles/mediawiki.special.less",
-			"mediawiki.special.preferences": "skinStyles/mediawiki.special.preferences.less"
+			"+mediawiki.special.preferences.styles": "skinStyles/mediawiki.special.preferences.styles.less"
 		}
 	},
 	"config": {

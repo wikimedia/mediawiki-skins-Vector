@@ -6,14 +6,13 @@
  * preftoc id was more human readable like preferences-toc for instance,
  * howerver this would require backporting the other skins.
  */
-
-#preftoc {
+.client-js #preftoc {
 	/* Tabs */
 	width: 100%;
 	float: left;
 	clear: both;
-	margin: 0 !important;
-	padding: 0 !important;
+	margin: 0;
+	padding: 0;
 	.background-image('../images/preferences/break.png');
 	background-position: bottom left;
 	background-repeat: no-repeat;
@@ -43,7 +42,6 @@
 				background-position: bottom;
 				background-repeat: repeat-x;
 				color: #333;
-				text-decoration: none;
 			}
 		}
 	}
@@ -65,7 +63,7 @@
 	}
 }
 
-#preferences {
+.client-js #preferences {
 	float: left;
 	width: 100%;
 	margin: 0;
@@ -77,15 +75,15 @@
 	fieldset {
 		border: none;
 		border-top: solid 1px #ccc;
+	}
 
-		&.prefsection {
-			border: none;
-			padding: 0;
-			margin: 1em;
+	>fieldset {
+		border: none;
+		padding: 0;
+		margin: 1em;
 
-			legend.mainLegend {
-				display: none;
-			}
+		>legend {
+			display: none;
 		}
 	}
 
