@@ -4,10 +4,12 @@
 			"Asmen",
 			"Calak",
 			"Erdemaslancan",
-			"Mirzali"
+			"Mirzali",
+			"Gorizon"
 		]
 	},
 	"skinname-vector": "Vektor",
+	"vector-skin-desc": "Modern asayisa Monobookiya newe u karnayiso wes muhtewa beno",
 	"vector-action-addsection": "Mewzu vıraze",
 	"vector-action-delete": "Bestere",
 	"vector-action-move": "Bere",
