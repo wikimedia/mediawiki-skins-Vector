@@ -30,7 +30,8 @@
 	"extra": {
 		"branch-alias": {
 			"dev-master": "1.x-dev"
-		}
+		},
+		"installer-name": "Vector"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "0.9.*",
