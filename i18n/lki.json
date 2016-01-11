@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Hosseinblue",
-			"Arash71"
+			"Arash71",
+			"Lakzon"
 		]
 	},
 	"vector-skin-desc": "نسخه مدرن منوبوک با نگاه تازه و بهبود قابلیت استفاده",
@@ -13,9 +14,9 @@
 	"vector-action-undelete": "گلآدائن حةذف/واگردانی حذف",
 	"vector-action-unprotect": "گؤەڕانن/تغییر سطح حفاظت",
 	"vector-view-create": "دؤِرس کردن/سازین",
-	"vector-view-edit": "دةسکاری",
+	"vector-view-edit": "دەسکاری",
 	"vector-view-history": "سئرکردن تاریخچۀ-ویرگار",
-	"vector-view-view": "خوۀنن",
+	"vector-view-view": "خووەنن",
 	"vector-view-viewsource": "سئرکردن بِنچۀک/مۀنبۀع",
 	"vector-more-actions": "ویشتر/فرۀتر"
 }
