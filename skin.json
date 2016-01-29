@@ -31,6 +31,7 @@
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
 		"skins.vector.styles": {
+			"targets": [ "desktop", "mobile" ],
 			"position": "top",
 			"styles": {
 				"screen.less": {
@@ -42,6 +43,7 @@
 			}
 		},
 		"skins.vector.styles.responsive": {
+			"targets": [ "desktop", "mobile" ],
 			"position": "top",
 			"styles": {
 				"responsive.less": {
