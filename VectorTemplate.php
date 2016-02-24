@@ -499,9 +499,31 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
+
+							$notLoggedIn = '';
+
+							if ( !$this->getSkin()->getUser()->isLoggedIn() &&
+								User::groupHasPermission( '*', 'edit' ) ){
+
+								$notLoggedIn =
+									Html::rawElement( 'li',
+										[ 'id' => 'pt-anonuserpage' ],
+										$this->getMsg( 'notloggedin' )->escaped()
+									);
+
+							}
+
+							if ( !$this->data[ 'rtl' ] ) {
+								echo $notLoggedIn;
+							}
+
 							$personalTools = $this->getPersonalTools();
 							foreach ( $personalTools as $key => $item ) {
 								echo $this->makeListItem( $key, $item );
+							}
+
+							if ( $this->data[ 'rtl' ] ) {
+								echo $notLoggedIn;
 							}
 							?>
 						</ul>
