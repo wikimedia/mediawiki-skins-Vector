@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Sapral Mikail"
+			"Sapral Mikail",
+			"Умар"
 		]
 	},
 	"vector-action-addsection": "БӀагал тӀатоха",
@@ -13,7 +14,8 @@
 	"vector-action-unprotect": "Лорам хувца",
 	"vector-view-create": "Кхолларле",
 	"vector-view-edit": "Хувцам",
-	"vector-view-history": "Искар",
+	"vector-view-history": "Истори",
 	"vector-view-view": "Дешар",
-	"vector-view-viewsource": "Зембакхама бӀаргтассам"
+	"vector-view-viewsource": "Зембакхама бӀаргтассам",
+	"vector-more-actions": "ДукхагIа"
 }
