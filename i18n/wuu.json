@@ -6,6 +6,7 @@
 			"飞舞回堂前"
 		]
 	},
+	"vector.css": "/* 放勒伊𡍲个CSS会影响用Vector皮肤个用户 */",
 	"vector-action-addsection": "加話題",
 	"vector-action-delete": "刪",
 	"vector-action-move": "移动",
