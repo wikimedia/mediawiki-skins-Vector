@@ -107,7 +107,7 @@ class VectorTemplate extends BaseTemplate {
 			}
 			?>
 			<?php
-			if ( is_callable( array( $this, 'getIndicators' ) ) ) {
+			if ( is_callable( [ $this, 'getIndicators' ] ) ) {
 				echo $this->getIndicators();
 			}
 			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
@@ -180,10 +180,10 @@ class VectorTemplate extends BaseTemplate {
 			<div id="mw-head">
 				<?php $this->renderNavigation( 'PERSONAL' ); ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
+					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
 				</div>
 				<div id="right-navigation">
-					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS', 'SEARCH' ) ); ?>
+					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
 				</div>
 			</div>
 			<div id="mw-panel">
@@ -316,7 +316,7 @@ class VectorTemplate extends BaseTemplate {
 							echo $this->makeListItem( $key, $val );
 						}
 						if ( $hook !== null ) {
-							Hooks::run( $hook, array( &$this, true ) );
+							Hooks::run( $hook, [ &$this, true ] );
 						}
 						?>
 					</ul>
@@ -342,7 +342,7 @@ class VectorTemplate extends BaseTemplate {
 		// If only one element was given, wrap it in an array, allowing more
 		// flexible arguments
 		if ( !is_array( $elements ) ) {
-			$elements = array( $elements );
+			$elements = [ $elements ];
 			// If there's a series of elements, reverse them when in RTL mode
 		} elseif ( $this->data['rtl'] ) {
 			$elements = array_reverse( $elements );
@@ -518,7 +518,7 @@ class VectorTemplate extends BaseTemplate {
 						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 							<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
 							<?php
-							echo $this->makeSearchInput( array( 'id' => 'searchInput' ) );
+							echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
 							echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
 							// We construct two buttons (for 'go' and 'fulltext' search modes),
 							// but only one will be visible and actionable at a time (they are
@@ -533,11 +533,11 @@ class VectorTemplate extends BaseTemplate {
 							//   cause it to be used.
 							echo $this->makeSearchButton(
 								'fulltext',
-								array( 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' )
+								[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
 							);
 							echo $this->makeSearchButton(
 								'go',
-								array( 'id' => 'searchButton', 'class' => 'searchButton' )
+								[ 'id' => 'searchButton', 'class' => 'searchButton' ]
 							);
 							?>
 							</div>
