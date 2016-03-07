@@ -211,7 +211,7 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			}
 			?>
-			<?php $footericons = $this->getFooterIcons( "icononly" );
+			<?php $footericons = $this->getFooterIcons( 'icononly' );
 			if ( count( $footericons ) > 0 ) {
 				?>
 				<ul id="footer-icons" class="noprint">
