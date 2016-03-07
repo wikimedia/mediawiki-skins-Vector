@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Sasan700",
-			"Умар"
+			"Умар",
+			"Исмаил Садуев"
 		]
 	},
 	"skinname-vector": "Векторан",
-	"vector-action-addsection": "ТӀетоха хьедар",
+	"vector-action-addsection": "Тема тӀетоха",
 	"vector-action-delete": "ДӀаяккхар",
 	"vector-action-move": "ЦӀе хийцар",
 	"vector-action-protect": "Ларъяр",
