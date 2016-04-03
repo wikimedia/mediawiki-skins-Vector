@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Sapral Mikail",
-			"Умар"
+			"Умар",
+			"Adam-Yourist"
 		]
 	},
 	"vector-action-addsection": "БӀагал тӀатоха",
@@ -13,7 +14,7 @@
 	"vector-action-undelete": "Юхаоттаде",
 	"vector-action-unprotect": "Лорам хувца",
 	"vector-view-create": "Кхолларле",
-	"vector-view-edit": "Хувцам",
+	"vector-view-edit": "Нийсъе",
 	"vector-view-history": "Истори",
 	"vector-view-view": "Дешар",
 	"vector-view-viewsource": "Зембакхама бӀаргтассам",
