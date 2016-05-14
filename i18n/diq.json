@@ -5,7 +5,8 @@
 			"Calak",
 			"Erdemaslancan",
 			"Mirzali",
-			"Gorizon"
+			"Gorizon",
+			"Kumkumuk"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -18,7 +19,7 @@
 	"vector-action-unprotect": "Starkerdışi bıvurne",
 	"vector-view-create": "Vıraze",
 	"vector-view-edit": "Bıvurne",
-	"vector-view-history": "Tarixê pele bıvêne",
+	"vector-view-history": "Verori bıvêne",
 	"vector-view-view": "Bıwane",
 	"vector-view-viewsource": "Çımey bıvêne",
 	"vector-more-actions": "Zêde"
