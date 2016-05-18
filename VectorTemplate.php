@@ -513,17 +513,26 @@ class VectorTemplate extends BaseTemplate {
 
 							}
 
+							$personalTools = $this->getPersonalTools();
+
+							$langSelector = '';
+							if ( array_key_exists( 'uls', $personalTools ) ) {
+								$langSelector = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+								unset( $personalTools[ 'uls' ] );
+							}
+
 							if ( !$this->data[ 'rtl' ] ) {
+								echo $langSelector;
 								echo $notLoggedIn;
 							}
 
-							$personalTools = $this->getPersonalTools();
 							foreach ( $personalTools as $key => $item ) {
 								echo $this->makeListItem( $key, $item );
 							}
 
 							if ( $this->data[ 'rtl' ] ) {
 								echo $notLoggedIn;
+								echo $langSelector;
 							}
 							?>
 						</ul>
