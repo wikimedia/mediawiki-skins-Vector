@@ -7,16 +7,16 @@
 			"Adam-Yourist"
 		]
 	},
-	"vector-action-addsection": "БӀагал тӀатоха",
+	"vector-action-addsection": "ТематӀатоха",
 	"vector-action-delete": "ДӀадаккха",
 	"vector-action-move": "ЦӀи хувца",
 	"vector-action-protect": "Лораде",
 	"vector-action-undelete": "Юхаоттаде",
-	"vector-action-unprotect": "Лорам хувца",
+	"vector-action-unprotect": "Лорадар (гIо) хувца",
 	"vector-view-create": "Хьакхолла",
 	"vector-view-edit": "Нийсъе",
 	"vector-view-history": "Истори",
 	"vector-view-view": "Де́ша",
-	"vector-view-viewsource": "Зембакхама бӀаргтассам",
+	"vector-view-viewsource": "Хьалххе бӀаргтохара разметкага хьажар",
 	"vector-more-actions": "Кхы а"
 }
