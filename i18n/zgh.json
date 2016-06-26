@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amara-Amaziɣ"
+			"Amara-Amaziɣ",
+			"ⵕⴰⵊⵉ"
 		]
 	},
 	"vector-view-create": "ⵙⵏⵓⵍⴼⵓ",
 	"vector-view-edit": "ⵙⵏⴼⵍ",
 	"vector-view-history": "ⵙⴽⵏ ⴰⵎⵣⵔⴰⵢ",
-	"vector-view-view": "ⵖⵔ",
+	"vector-view-view": "ⵖⵕ",
 	"vector-more-actions": "ⵓⴳⴳⴰⵔ"
 }
