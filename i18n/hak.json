@@ -3,7 +3,8 @@
 		"authors": [
 			"Anson2812",
 			"Jetlag",
-			"Hakka"
+			"Hakka",
+			"唐吉訶德的侍從"
 		]
 	},
 	"vector-action-addsection": "Kâ-ngi̍p fa-thì",
@@ -14,8 +15,8 @@
 	"vector-action-unprotect": "更改保護",
 	"vector-view-create": "Kien-li̍p",
 	"vector-view-edit": "Phiên-siá",
-	"vector-view-history": "Chhà-khon li̍t-sṳ́",
-	"vector-view-view": "Ye̍t-thu̍k",
-	"vector-view-viewsource": "Chhà-khon ngièn-ma",
+	"vector-view-history": "Khon li̍t-sṳ́",
+	"vector-view-view": "Thu̍k",
+	"vector-view-viewsource": "Khon ngièn-sṳ́-mâ",
 	"vector-more-actions": "Kiên-tô"
 }
