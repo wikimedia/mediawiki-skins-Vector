@@ -11,9 +11,9 @@
 		]
 	},
 	"skinname-vector": "Vektor",
-	"vector-skin-desc": "Modern versiyonê MonoBooki ya ferah asayış u rehat karkerdışa şenê bıgurweynê",
+	"vector-skin-desc": "Asayışo de newe be versiyonê MonoBookiyo modern ra û weşkerdışê ke şenê bıgureniyê",
 	"vector-action-addsection": "Mewzu vıraze",
-	"vector-action-delete": "Bıesternê",
+	"vector-action-delete": "Bestern",
 	"vector-action-move": "Bıkırışê",
 	"vector-action-protect": "Bısıtarne",
 	"vector-action-undelete": "Peyser biya",
@@ -21,7 +21,7 @@
 	"vector-view-create": "Vıraştış",
 	"vector-view-edit": "Vurnayış",
 	"vector-view-history": "Tarixê cı bıvêne",
-	"vector-view-view": "Wanayış",
-	"vector-view-viewsource": "Rêçi bıvin",
-	"vector-more-actions": "Dehana"
+	"vector-view-view": "Bıwane",
+	"vector-view-viewsource": "Çemey bıvin",
+	"vector-more-actions": "Tayêna"
 }
