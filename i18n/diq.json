@@ -13,7 +13,7 @@
 	"skinname-vector": "Vektor",
 	"vector-skin-desc": "Asayışo de newe be versiyonê MonoBookiyo modern ra û weşkerdışê ke şenê bıgureniyê",
 	"vector-action-addsection": "Mewzu vıraze",
-	"vector-action-delete": "Esternë",
+	"vector-action-delete": "Bestere",
 	"vector-action-move": "Bıkırışê",
 	"vector-action-protect": "Bısıtarne",
 	"vector-action-undelete": "Peyser biya",
@@ -21,7 +21,7 @@
 	"vector-view-create": "Vıraştış",
 	"vector-view-edit": "Vurnayış",
 	"vector-view-history": "Tarixê cı bıvêne",
-	"vector-view-view": "Bıwene",
-	"vector-view-viewsource": "Rêçey bıvênen",
+	"vector-view-view": "Bıwane",
+	"vector-view-viewsource": "Çımey bıvêne",
 	"vector-more-actions": "Tayêna"
 }
