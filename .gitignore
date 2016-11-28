@@ -18,11 +18,10 @@ sublime-*
 sftp-config.json
 
 # Building & testing
-node_modules/
-
-# Composer
-/vendor
 /composer.lock
+/docs
+/node_modules
+/vendor
 
 # Operating systems
 ## Mac OS X

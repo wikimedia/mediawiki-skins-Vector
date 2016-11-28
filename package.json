@@ -1,6 +1,8 @@
 {
+  "private": true,
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "doc": "jsduck"
   },
   "devDependencies": {
     "grunt": "0.4.5",
