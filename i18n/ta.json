@@ -6,12 +6,13 @@
 			"Surya Prakash.S.A.",
 			"TRYPPN",
 			"Jayarathina",
-			"Kaartic"
+			"Kaartic",
+			"ElangoRamanujam"
 		]
 	},
 	"vector-action-addsection": "தலைப்பைச் சேர்",
 	"vector-action-delete": "நீக்குக",
-	"vector-action-move": "இடம் பெயர்கவும்",
+	"vector-action-move": "நகர்த்தவும்",
 	"vector-action-protect": "காக்கவும்",
 	"vector-action-undelete": "நீக்கத்தை நிறுத்து",
 	"vector-action-unprotect": "காப்பை மாற்று",
