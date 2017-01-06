@@ -195,6 +195,7 @@ class VectorTemplate extends BaseTemplate {
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			</div>
 		</div>
+		<?php Hooks::run( 'VectorBeforeFooter' ); ?>
 		<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php
 			foreach ( $this->getFooterLinks() as $category => $links ) {
@@ -271,6 +272,7 @@ class VectorTemplate extends BaseTemplate {
 					break;
 				case 'TOOLBOX':
 					$this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
+					Hooks::run( 'VectorAfterToolbox' );
 					break;
 				case 'LANGUAGES':
 					if ( $this->data['language_urls'] !== false ) {
