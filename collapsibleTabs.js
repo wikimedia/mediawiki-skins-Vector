@@ -172,8 +172,15 @@
 				.data( 'collapsibleTabsSettings', data )
 				.animate( { width: expandedWidth + 'px' }, 'normal', function () {
 					$( this ).attr( 'style', 'display: block;' );
-					expContainerSettings.shifting = false;
-					rAF( $.collapsibleTabs.handleResize );
+					rAF( function () {
+						// Update the 'expandedWidth' in case someone was brazen enough to change the tab's
+						// contents after the page load *gasp* (T71729). This doesn't prevent a tab from
+						// collapsing back and forth once, but at least it won't continue to do that forever.
+						data.expandedWidth = $moving.width();
+						$moving.data( 'collapsibleTabsSettings', data );
+						expContainerSettings.shifting = false;
+						$.collapsibleTabs.handleResize();
+					} );
 				} )
 			);
 		},
