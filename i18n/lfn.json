@@ -5,6 +5,8 @@
 			"Katxis"
 		]
 	},
+	"vector-action-addsection": "Ajunta sujeto",
+	"vector-action-move": "Move",
 	"vector-view-create": "Crea",
 	"vector-view-edit": "Edita",
 	"vector-view-history": "Vide istoria",
