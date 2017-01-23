@@ -1,9 +1,9 @@
 /* eslint-env node */
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'skin.json' );
+	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
 	grunt.loadNpmTasks( 'grunt-jsonlint' );
-	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-stylelint' );
 
 	grunt.initConfig( {
