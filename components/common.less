@@ -9,7 +9,7 @@
  * the child selector. You can spot this by looking for the "OVERRIDDEN BY COMPLIANT BROWSERS" and
  * "IGNORED BY IE6" comments.
  */
-@import "mediawiki.mixins";
+@import 'mediawiki.mixins';
 
 /* Framework */
 html {
@@ -127,7 +127,7 @@ body {
 	.mw-indicator {
 		display: inline-block;
 		zoom: 1;
-		*display: inline;
+		*display: inline; // stylelint-disable declaration-block-no-duplicate-properties
 	}
 }
 

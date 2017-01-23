@@ -1,4 +1,4 @@
-@import "mediawiki.mixins";
+@import 'mediawiki.mixins';
 
 /* Search */
 #p-search {
@@ -30,9 +30,9 @@ div#simpleSearch {
 	position: relative;
 	min-height: 1px; /* Gotta trigger hasLayout for IE7 */
 	border: solid 1px #aaa;
-	color: black;
-	background-color: white;
-	.background-image('images/search-fade.png');
+	color: #000;
+	background-color: #fff;
+	.background-image( 'images/search-fade.png' );
 	background-position: top left;
 	background-repeat: repeat-x;
 
@@ -42,7 +42,7 @@ div#simpleSearch {
 		padding: 0;
 		border: 0;
 		background-color: transparent;
-		color: black;
+		color: #000;
 	}
 
 	// The search input
@@ -66,11 +66,11 @@ div#simpleSearch {
 			color: #999;
 		}
 		// Distinguish placeholder text in IE10+
-		&:-ms-input-placeholder {
+		&:-ms-input-placeholder { // stylelint-disable-line selector-no-vendor-prefix
 			color: #999;
 		}
 		// Distinguish placeholder text in Firefox 18-
-		&:-moz-placeholder {
+		&:-moz-placeholder { // stylelint-disable-line selector-no-vendor-prefix
 			color: #999;
 		}
 

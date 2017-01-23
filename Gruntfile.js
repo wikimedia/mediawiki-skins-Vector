@@ -23,9 +23,14 @@ module.exports = function ( grunt ) {
 		},
 		banana: conf.MessagesDirs,
 		stylelint: {
+			options: {
+				syntax: 'less'
+			},
 			all: [
 				'*.{le,c}ss',
-				'skinStyles/*.{le,c}ss'
+				'**/*.{le,c}ss',
+				'!node_modules/**',
+				'!skinStyles/jquery.ui/**'
 			]
 		}
 	} );

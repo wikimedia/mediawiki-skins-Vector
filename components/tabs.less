@@ -1,6 +1,6 @@
-/*
-Styling for namespace tabs (page, discussion) and views (read, edit, view history, watch and other actions)
-*/
+/**
+ * Styling for namespace tabs (page, discussion) and views (read, edit, view history, watch and other actions)
+ */
 
 /* Navigation Labels */
 div.vectorTabs h3 {
@@ -54,7 +54,7 @@ div.vectorTabs {
 	li {
 		&.new {
 			a,
-			a:visited{
+			a:visited {
 				color: #a55858;
 			}
 		}
@@ -62,7 +62,7 @@ div.vectorTabs {
 		&.selected {
 			.background-image('images/tab-current-fade.png');
 			a,
-			a:visited{
+			a:visited {
 				color: #333;
 				text-decoration: none;
 			}
@@ -99,7 +99,7 @@ div.vectorTabs {
 		background-repeat: no-repeat;
 		height: 100%;
 
-		a  {
+		a {
 			/* For IE6, overridden later to display:block by modern browsers */
 			display: inline-block;
 			padding-top: 1.25em;
@@ -179,8 +179,8 @@ div.vectorMenu div.menu {
 	position: absolute;
 	top: 2.5em;
 	left: -1px;
-	background-color: white;
-	border: solid 1px silver;
+	background-color: #fff;
+	border: solid 1px #c0c0c0;
 	border-top-width: 0;
 	clear: both;
 	text-align: left;
@@ -203,6 +203,8 @@ div.vectorMenu ul {
 	text-align: left;
 }
 
+// stylelint-disable selector-no-vendor-prefix
+
 /* Fixes old versions of FireFox */
 div.vectorMenu ul,
 x:-moz-any-link {
@@ -215,6 +217,8 @@ x:-moz-any-link,
 x:default {
 	min-width: 0;
 }
+
+// stylelint-enable selector-no-vendor-prefix
 
 div.vectorMenu li {
 	padding: 0;
