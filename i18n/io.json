@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Malafaya",
-			"Lakaoso"
+			"Lakaoso",
+			"Joao Xavier"
 		]
 	},
 	"vector-action-addsection": "Adjuntar topiko",
@@ -15,5 +16,6 @@
 	"vector-view-edit": "Redaktar",
 	"vector-view-history": "Vidar versionaro",
 	"vector-view-view": "Lektar",
-	"vector-view-viewsource": "Vidar fonto"
+	"vector-view-viewsource": "Vidar fonto",
+	"vector-more-actions": "Pluse"
 }
