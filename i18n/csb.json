@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kaszeba",
-			"Kuvaly"
+			"Kuvaly",
+			"Kirsan"
 		]
 	},
 	"vector-action-addsection": "Dodôj témã",
@@ -15,5 +16,6 @@
 	"vector-view-edit": "Edicëjô",
 	"vector-view-history": "Historëjô lopka",
 	"vector-view-view": "Czëtôj",
-	"vector-view-viewsource": "Zdrojowi tekst"
+	"vector-view-viewsource": "Zdrojowi tekst",
+	"vector-more-actions": "Wiãcy"
 }
