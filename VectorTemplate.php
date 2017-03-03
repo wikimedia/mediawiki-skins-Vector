@@ -102,7 +102,7 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			if ( $this->data['sitenotice'] ) {
 				?>
-				<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
+				<div id="siteNotice" class="mw-body-content"><?php $this->html( 'sitenotice' ) ?></div>
 			<?php
 			}
 			?>
