@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"علاء"
+			"علاء",
+			"Csisc"
 		]
 	},
 	"vector-action-addsection": "أضف موضوعاً",
@@ -11,5 +12,7 @@
 	"vector-action-undelete": "استرجع الحذف",
 	"vector-action-unprotect": "غير الحماية",
 	"vector-view-create": "أنشئ",
+	"vector-view-edit": "بدّل",
+	"vector-view-view": "أقرا",
 	"vector-view-viewsource": "اعرض المصدر"
 }
