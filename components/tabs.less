@@ -63,7 +63,7 @@ div.vectorTabs {
 			.background-image('images/tab-current-fade.png');
 			a,
 			a:visited {
-				color: #333;
+				color: #222;
 				text-decoration: none;
 			}
 		}
@@ -179,10 +179,11 @@ div.vectorMenu div.menu {
 	position: absolute;
 	top: 2.5em;
 	left: -1px;
-	background-color: #fff;
-	border: solid 1px #c0c0c0;
+	background-color: @body-background-color;
+	border: 1px solid #a2a9b1;
 	border-top-width: 0;
 	clear: both;
+	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 	text-align: left;
 	display: none;
 	// overlap indicators (which has z-index 1, too)
@@ -244,7 +245,7 @@ div.vectorMenu li > a {
 
 div.vectorMenu li.selected a,
 div.vectorMenu li.selected a:visited {
-	color: #333;
+	color: #222;
 	text-decoration: none;
 }
 
