@@ -129,16 +129,17 @@ body {
 		font-size: 100%; /* (reset) */
 	}
 
-	.mw-editsection,
-	.mw-editsection-like {
-		font-family: @content-font-family;
-	}
-
 	#toc h2,
 	.toc h2 {
 		font-size: 100%; /* (reset) */
 		font-family: @content-font-family;
 	}
+}
+
+/* Allow edit sections outside of mw-body-content (T160269) */
+.mw-editsection,
+.mw-editsection-like {
+	font-family: @content-font-family;
 }
 
 /* Hide empty portlets */
