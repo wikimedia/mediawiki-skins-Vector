@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benoit Rochon"
+			"Benoit Rochon",
+			"Amqui"
 		]
 	},
+	"vector-action-move": "Erikam",
 	"vector-view-edit": "Meckotcita",
 	"vector-view-history": "E pe isparik",
 	"vector-view-view": "Tapwatcike",
