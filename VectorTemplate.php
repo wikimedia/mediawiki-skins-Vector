@@ -114,7 +114,7 @@ class VectorTemplate extends BaseTemplate {
 			if ( $this->data['title'] != '' ) {
 			?>
 			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
-				 $this->html( 'title' )
+				$this->html( 'title' )
 			?></h1>
 			<?php
 			} ?>
