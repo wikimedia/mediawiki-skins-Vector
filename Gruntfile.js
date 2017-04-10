@@ -27,8 +27,8 @@ module.exports = function ( grunt ) {
 				syntax: 'less'
 			},
 			all: [
-				'*.{le,c}ss',
-				'**/*.{le,c}ss',
+				'*.{less,css}',
+				'**/*.{less,css}',
 				'!node_modules/**',
 				'!skinStyles/jquery.ui/**'
 			]
