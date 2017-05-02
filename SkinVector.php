@@ -72,4 +72,13 @@ class SkinVector extends SkinTemplate {
 	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
 		return new $classname( $this->vectorConfig );
 	}
+
+	/**
+	 * Whether the logo should be preloaded with an HTTP link header or not
+	 * @since 1.29
+	 * @return bool
+	 */
+	public function shouldPreloadLogo() {
+		return true;
+	}
 }
