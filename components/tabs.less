@@ -167,8 +167,7 @@ div.vectorMenu h3 {
 	}
 }
 
-div.vectorMenu .vectorMenuCheckbox:checked + h3 span:after,
-div.vectorMenu.menuForceShow h3 span:after {
+div.vectorMenu .vectorMenuCheckbox:checked + h3 span:after {
 	transform: scaleY( -1 );
 }
 
@@ -195,8 +194,7 @@ div.vectorMenu div.menu {
 	z-index: 2;
 }
 
-div.vectorMenu:hover div.menu,
-div.vectorMenu.menuForceShow div.menu {
+div.vectorMenu:hover div.menu {
 	display: block;
 }
 // This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above

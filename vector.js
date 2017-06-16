@@ -25,25 +25,6 @@ jQuery( function ( $ ) {
 	 */
 	$( '#searchInput' ).attr( 'tabindex', $( document ).lastTabIndex() + 1 );
 
-	/**
-	 * Dropdown menu accessibility
-	 */
-	$( 'div.vectorMenu' ).each( function () {
-		var $el = $( this );
-		if ( $el.find( '.vectorMenuCheckbox' ).length ) {
-			return;
-		}
-		$el.find( '> h3 > span' ).parent()
-			.attr( 'tabindex', '0' )
-			// For accessibility, show the menu when the h3 is clicked (bug 24298/46486)
-			.on( 'click keypress', function ( e ) {
-				if ( e.type === 'click' || e.which === 13 ) {
-					$el.toggleClass( 'menuForceShow' );
-					e.preventDefault();
-				}
-			} );
-	} );
-
 	// Bind callback functions to animate our drop down menu in and out
 	// and then call the collapsibleTabs function on the menu
 	$tabContainer
