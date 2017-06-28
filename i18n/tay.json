@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Corainn"
+			"Corainn",
+			"Hitaypayan"
 		]
 	},
+	"vector-action-delete": "’muyut",
 	"vector-view-create": "ps’rux",
 	"vector-view-edit": "Smr’zyut miru’",
-	"vector-view-view": "lpgun"
+	"vector-view-view": "lpgun",
+	"vector-more-actions": "pzyux na’"
 }
