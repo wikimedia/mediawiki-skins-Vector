@@ -444,6 +444,9 @@ class VectorTemplate extends BaseTemplate {
 										if ( isset ( $link['rel'] ) ) {
 											echo ' rel="' . htmlspecialchars( $link['rel'] ) . '"';
 										}
+										if ( isset ( $link['target'] ) ) {
+											echo ' target="' . htmlspecialchars( $link['target'] ) . '"';
+										}
 										?>><?php
 											// $link['text'] can be undefined - bug 27764
 											if ( array_key_exists( 'text', $link ) ) {
