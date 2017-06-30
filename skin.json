@@ -25,8 +25,14 @@
 		]
 	},
 	"AutoloadClasses": {
+		"VectorHooks": "Hooks.php",
 		"SkinVector": "SkinVector.php",
 		"VectorTemplate": "VectorTemplate.php"
+	},
+	"Hooks": {
+		"BeforePageDisplayMobile": [
+			"VectorHooks::onBeforePageDisplayMobile"
+		]
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {

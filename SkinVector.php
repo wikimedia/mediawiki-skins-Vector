@@ -34,9 +34,22 @@ class SkinVector extends SkinTemplate {
 	 * @var Config
 	 */
 	private $vectorConfig;
+	private $responsiveMode = false;
 
 	public function __construct() {
 		$this->vectorConfig = ConfigFactory::getDefaultInstance()->makeConfig( 'vector' );
+	}
+
+	/**
+	 * Enables the responsive mode
+	 */
+	public function enableResponsiveMode() {
+		if ( !$this->responsiveMode ) {
+			$out = $this->getOutput();
+			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
+			$out->addModuleStyles( 'skins.vector.styles.responsive' );
+			$this->responsiveMode = true;
+		}
 	}
 
 	/**
@@ -47,8 +60,7 @@ class SkinVector extends SkinTemplate {
 		parent::initPage( $out );
 
 		if ( $this->vectorConfig->get( 'VectorResponsive' ) ) {
-			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-			$out->addModuleStyles( 'skins.vector.styles.responsive' );
+			$this->enableResponsiveMode();
 		}
 
 		$out->addModules( 'skins.vector.js' );
