@@ -30,7 +30,7 @@ jQuery( function ( $ ) {
 	 */
 	$( 'div.vectorMenu' ).each( function () {
 		var $el = $( this );
-		$el.find( '> h3 > div' ).parent()
+		$el.find( '> h3 > span' ).parent()
 			.attr( 'tabindex', '0' )
 			// For accessibility, show the menu when the h3 is clicked (bug 24298/46486)
 			.on( 'click keypress', function ( e ) {
@@ -41,10 +41,10 @@ jQuery( function ( $ ) {
 			} )
 			// When the heading has focus, also set a class that will change the arrow icon
 			.focus( function () {
-				$el.find( '> div' ).addClass( 'vectorMenuFocus' );
+				$el.find( '> span' ).addClass( 'vectorMenuFocus' );
 			} )
 			.blur( function () {
-				$el.find( '> div' ).removeClass( 'vectorMenuFocus' );
+				$el.find( '> span' ).removeClass( 'vectorMenuFocus' );
 			} );
 	} );
 
