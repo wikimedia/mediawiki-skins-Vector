@@ -4,6 +4,7 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamComment"/>
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag"/>
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn"/>
+		<exclude name="MediaWiki.Usage.ReferenceThis.Found"/>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
