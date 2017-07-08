@@ -60,9 +60,6 @@ div#mw-head {
 
 /* Logo */
 #p-logo {
-	position: absolute;
-	top: -160px;
-	left: 0;
 	width: 10em;
 	height: 160px;
 
@@ -80,8 +77,7 @@ div#mw-head {
 div#mw-panel {
 	font-size: @menu-main-font-size;
 	position: absolute;
-	top: 160px;
-	padding-top: 1em;
+	top: 0;
 	width: 10em;
 	left: 0;
 
@@ -135,7 +131,7 @@ div#mw-panel {
 	/* First sidebar portlet. Not using :first-of-type for IE<=8 support. */
 	#p-logo + div.portal {
 		background-image: none;
-		margin-top: 0;
+		margin-top: 1em;
 		h3 {
 			display: none;
 		}
