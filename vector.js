@@ -30,8 +30,7 @@ jQuery( function ( $ ) {
 	 */
 	$( 'div.vectorMenu' ).each( function () {
 		var $el = $( this );
-		// FIXME: Remove > a selector in 1wk (T44241)
-		$el.find( '> h3 > div, > h3 > a' ).parent()
+		$el.find( '> h3 > div' ).parent()
 			.attr( 'tabindex', '0' )
 			// For accessibility, show the menu when the h3 is clicked (bug 24298/46486)
 			.on( 'click keypress', function ( e ) {
@@ -42,17 +41,11 @@ jQuery( function ( $ ) {
 			} )
 			// When the heading has focus, also set a class that will change the arrow icon
 			.focus( function () {
-				// FIXME: Remove > a selector in 1wk (T44241)
-				$el.find( '> div, > a' ).addClass( 'vectorMenuFocus' );
+				$el.find( '> div' ).addClass( 'vectorMenuFocus' );
 			} )
 			.blur( function () {
-				// FIXME: Remove > a selector in 1wk (T44241)
-				$el.find( '> div, > a' ).removeClass( 'vectorMenuFocus' );
-			} )
-			// FIXME: Remove > a selector in 1wk (T44241)
-			.find( '> a:first' )
-			// As the h3 can already be focused there's no need for the link to be focusable
-			.attr( 'tabindex', '-1' );
+				$el.find( '> div' ).removeClass( 'vectorMenuFocus' );
+			} );
 	} );
 
 	// Bind callback functions to animate our drop down menu in and out
