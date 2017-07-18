@@ -123,7 +123,7 @@ class VectorTemplate extends BaseTemplate {
 				<?php
 				if ( $this->data['isarticle'] ) {
 					?>
-					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+					<div id="siteSub" class="noprint"><?php $this->msg( 'tagline' ) ?></div>
 				<?php
 				}
 				?>
