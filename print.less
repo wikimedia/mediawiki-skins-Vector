@@ -39,6 +39,22 @@
 			line-height: 28pt;
 			margin-bottom: 20px;
 			padding-bottom: 5px;
+
+			// We could also use a CSS background to display the logo.
+			// The problem is that the logo won't be printed unless the user prints the background too.
+			// Note. This specification does not fully define the interaction of :before and :after with
+			// replaced elements (such as IMG in HTML). This will be defined in more detail in a future
+			// specification. See https://www.w3.org/TR/CSS2/generate.html#before-after-content
+			& when( @printLogo = 1 ) {
+				&:before {
+					content: @printLogoUrl;
+					display: block;
+					height: ~'@{printLogoHeight}px';
+					line-height: 0;  // line-height is needed for correctly displaying the size of the content box.
+					margin-bottom: 10px;
+					width: ~'@{printLogoWidth}px';
+				}
+			}
 		}
 
 		// Headings
