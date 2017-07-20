@@ -153,9 +153,9 @@ div#mw-head div.vectorMenu h3 {
 	background-position: bottom right;
 	font-size: 1em;
 	height: 2.5em;
-	// This effectively moves the "background border" outside of the element to act like a real
-	// border. It is necessary for the dropdown (div.vectorMenu div.menu) to align well.
-	padding-right: 1px;
+	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to act like a real
+	// border. It is necessary for `div.vectorMenu div.menu` dropdown to align well.
+	padding-right: 0.5em; // equals `8px` as visually harmonically with `padding-left` in `div.vectorMenu h3 span`
 	margin-right: -1px;
 
 	.vector-nav-directionality & {
@@ -163,21 +163,25 @@ div#mw-head div.vectorMenu h3 {
 	}
 }
 
-div.vectorMenu h3 span {
-	display: block;
-	font-size: 0.8em;
-	padding-left: 0.7em;
-	padding-top: 1.25em;
-	padding-right: 20px;
-	font-weight: normal;
-	color: @menu-main-heading-color;
-	.background-image-svg('images/arrow-down-icon.svg', 'images/arrow-down-icon.png');
-	background-position: 100% 100%;
-	background-repeat: no-repeat;
-}
+div.vectorMenu h3 {
+	span {
+		display: block;
+		font-size: 0.8em;
+		padding-left: 0.7em;
+		padding-top: 1.25em;
+		padding-right: 16px;
+		font-weight: normal;
+		color: @content-font-color;
+		.background-image-svg('images/arrow-down.svg', 'images/arrow-down.png');
+		background-position: 100% 87%;
+		background-repeat: no-repeat;
+		opacity: 0.85; // equals `#434343` on `#fff` background, closest to `#444`
+	}
 
-div.vectorMenuFocus h3 span {
-	.background-image-svg('images/arrow-down-focus-icon.svg', 'images/arrow-down-focus-icon.png');
+	&:hover span,
+	&:focus span {
+		opacity: 1;
+	}
 }
 
 div.vectorMenu div.menu {

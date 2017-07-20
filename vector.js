@@ -38,13 +38,6 @@ jQuery( function ( $ ) {
 					$el.toggleClass( 'menuForceShow' );
 					e.preventDefault();
 				}
-			} )
-			// When the heading has focus, also set a class that will change the arrow icon
-			.focus( function () {
-				$el.addClass( 'vectorMenuFocus' );
-			} )
-			.blur( function () {
-				$el.removeClass( 'vectorMenuFocus' );
 			} );
 	} );
 
