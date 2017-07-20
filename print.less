@@ -82,5 +82,62 @@
 				font-size: 10pt;
 			}
 		}
+
+		// Using #toc rather than .toc to override default print style
+		#toc {
+			page-break-before: always;
+			page-break-after: always;
+			font-family: serif;
+			background: none;
+			border: 0;
+			display: block;
+
+			a {
+				border: 0;
+				font-weight: normal;
+			}
+
+			> ul {
+
+				> li {
+					margin-bottom: 20px;
+					font-weight: bold;
+
+					> ul {
+						padding-left: 0;
+					}
+				}
+			}
+
+			ul {
+				margin: 0;
+				list-style: none;
+
+				ul {
+					padding-left: 30px;
+
+					li {
+						padding-left: 30px;
+					}
+					.tocnumber {
+						min-width: 30px;
+					}
+				}
+			}
+
+			li.toclevel-1 {
+				> a {
+					font-weight: bold;
+					font-size: 16px;
+				}
+			}
+
+			.tocnumber {
+				padding-right: 0;
+				text-align: right;
+				margin-right: 30px;
+				display: inline-block;
+			}
+		}
 	}
 }
