@@ -48,6 +48,13 @@
 				}
 			}
 		},
+		"skins.vector.styles.experimental.print": {
+			"targets": [ "desktop", "mobile" ],
+			"position": "top",
+			"styles": [
+				"print.less"
+			]
+		},
 		"skins.vector.styles.responsive": {
 			"targets": [ "desktop", "mobile" ],
 			"position": "top",
@@ -101,6 +108,8 @@
 	"config": {
 		"VectorUseSimpleSearch": true,
 		"VectorUseIconWatch": true,
+		"@VectorExperimentalPrintStyles": "Temporary config variable to feature flag new print styles (T154965)",
+		"VectorExperimentalPrintStyles": false,
 		"VectorResponsive": false
 	},
 	"manifest_version": 1

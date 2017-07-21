@@ -40,6 +40,15 @@ class SkinVector extends SkinTemplate {
 		$this->vectorConfig = ConfigFactory::getDefaultInstance()->makeConfig( 'vector' );
 	}
 
+	/** @inheritdoc */
+	public function getPageClasses( $title ) {
+		$className = parent::getPageClasses( $title );
+		if ( $this->vectorConfig->get( 'VectorExperimentalPrintStyles' ) ) {
+			$className .= ' vector-experimental-print-styles';
+		}
+		return $className;
+	}
+
 	/**
 	 * Enables the responsive mode
 	 */
@@ -61,6 +70,14 @@ class SkinVector extends SkinTemplate {
 
 		if ( $this->vectorConfig->get( 'VectorResponsive' ) ) {
 			$this->enableResponsiveMode();
+		}
+
+		// Print styles are feature flagged.
+		// This flag can be removed when T169732 is resolved.
+		if ( $this->vectorConfig->get( 'VectorExperimentalPrintStyles' ) ) {
+			// Note, when deploying (T169732) we'll want to fold the stylesheet into
+			// skins.vector.styles and remove this module altogether.
+			$out->addModuleStyles( 'skins.vector.styles.experimental.print' );
 		}
 
 		$out->addModules( 'skins.vector.js' );
