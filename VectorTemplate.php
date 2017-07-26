@@ -33,50 +33,22 @@ class VectorTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the (X)HTML page
 	 */
 	public function execute() {
-		// Build additional attributes for navigation urls
-		$nav = $this->data['content_navigation'];
+		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
+		$this->data['view_urls'] = $this->data['content_navigation']['views'];
+		$this->data['action_urls'] = $this->data['content_navigation']['actions'];
+		$this->data['variant_urls'] = $this->data['content_navigation']['variants'];
 
+		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
 		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
 			$mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
 				? 'unwatch'
 				: 'watch';
 
-			if ( isset( $nav['actions'][$mode] ) ) {
-				$nav['views'][$mode] = $nav['actions'][$mode];
-				$nav['views'][$mode]['class'] = rtrim( 'icon ' . $nav['views'][$mode]['class'], ' ' );
-				$nav['views'][$mode]['primary'] = true;
-				unset( $nav['actions'][$mode] );
+			if ( isset( $this->data['action_urls'][$mode] ) ) {
+				$this->data['view_urls'][$mode] = $this->data['action_urls'][$mode];
+				unset( $this->data['action_urls'][$mode] );
 			}
 		}
-
-		$xmlID = '';
-		foreach ( $nav as $section => $links ) {
-			foreach ( $links as $key => $link ) {
-				if ( $section == 'views' && !( isset( $link['primary'] ) && $link['primary'] ) ) {
-					$link['class'] = rtrim( 'collapsible ' . $link['class'], ' ' );
-				}
-
-				$xmlID = isset( $link['id'] ) ? $link['id'] : 'ca-' . $xmlID;
-				$nav[$section][$key]['attributes'] =
-					' id="' . Sanitizer::escapeId( $xmlID ) . '"';
-				if ( $link['class'] ) {
-					$nav[$section][$key]['attributes'] .=
-						' class="' . htmlspecialchars( $link['class'] ) . '"';
-					unset( $nav[$section][$key]['class'] );
-				}
-				if ( isset( $link['tooltiponly'] ) && $link['tooltiponly'] ) {
-					$nav[$section][$key]['key'] =
-						Linker::tooltip( $xmlID );
-				} else {
-					$nav[$section][$key]['key'] =
-						Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( $xmlID ) );
-				}
-			}
-		}
-		$this->data['namespace_urls'] = $nav['namespaces'];
-		$this->data['view_urls'] = $nav['views'];
-		$this->data['action_urls'] = $nav['actions'];
-		$this->data['variant_urls'] = $nav['variants'];
 
 		// Reverse horizontally rendered navigation elements
 		if ( $this->data['rtl'] ) {
@@ -361,19 +333,10 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-namespaces-label"><?php $this->msg( 'namespaces' ) ?></h3>
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
-							foreach ( $this->data['namespace_urls'] as $link ) {
-								?>
-								<li <?php echo $link['attributes'] ?>><span><a href="<?php
-										echo htmlspecialchars( $link['href'] )
-										?>" <?php
-										echo $link['key'];
-										if ( isset ( $link['rel'] ) ) {
-											echo ' rel="' . htmlspecialchars( $link['rel'] ) . '"';
-										}
-										?>><?php
-											echo htmlspecialchars( $link['text'] )
-											?></a></span></li>
-							<?php
+							foreach ( $this->data['namespace_urls'] as $key => $item ) {
+								echo "\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item, [
+									'vector-wrap' => true,
+								] ) . "\n";
 							}
 							?>
 						</ul>
@@ -390,9 +353,9 @@ class VectorTemplate extends BaseTemplate {
 						<?php
 						// Replace the label with the name of currently chosen variant, if any
 						$variantLabel = $this->getMsg( 'variants' )->text();
-						foreach ( $this->data['variant_urls'] as $link ) {
-							if ( stripos( $link['attributes'], 'selected' ) !== false ) {
-								$variantLabel = $link['text'];
+						foreach ( $this->data['variant_urls'] as $item ) {
+							if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
+								$variantLabel = $item['text'];
 								break;
 							}
 						}
@@ -404,20 +367,8 @@ class VectorTemplate extends BaseTemplate {
 						<div class="menu">
 							<ul>
 								<?php
-								foreach ( $this->data['variant_urls'] as $link ) {
-									?>
-									<li<?php echo $link['attributes'] ?>><a href="<?php
-										echo htmlspecialchars( $link['href'] )
-										?>" lang="<?php
-										echo htmlspecialchars( $link['lang'] )
-										?>" hreflang="<?php
-										echo htmlspecialchars( $link['hreflang'] )
-										?>" <?php
-										echo $link['key']
-										?>><?php
-											echo htmlspecialchars( $link['text'] )
-											?></a></li>
-								<?php
+								foreach ( $this->data['variant_urls'] as $key => $item ) {
+									echo "\t\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item ) . "\n";
 								}
 								?>
 							</ul>
@@ -435,27 +386,11 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-views-label"><?php $this->msg( 'views' ) ?></h3>
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
-							foreach ( $this->data['view_urls'] as $link ) {
-								?>
-								<li<?php echo $link['attributes'] ?>><span><a href="<?php
-										echo htmlspecialchars( $link['href'] )
-										?>" <?php
-										echo $link['key'];
-										if ( isset ( $link['rel'] ) ) {
-											echo ' rel="' . htmlspecialchars( $link['rel'] ) . '"';
-										}
-										if ( isset ( $link['target'] ) ) {
-											echo ' target="' . htmlspecialchars( $link['target'] ) . '"';
-										}
-										?>><?php
-											// $link['text'] can be undefined - bug 27764
-											if ( array_key_exists( 'text', $link ) ) {
-												echo array_key_exists( 'img', $link )
-													? '<img src="' . $link['img'] . '" alt="' . $link['text'] . '" />'
-													: htmlspecialchars( $link['text'] );
-											}
-											?></a></span></li>
-							<?php
+							foreach ( $this->data['view_urls'] as $key => $item ) {
+								echo "\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item, [
+									'vector-wrap' => true,
+									'vector-collapsible' => true,
+								] ) . "\n";
 							}
 							?>
 						</ul>
@@ -476,16 +411,8 @@ class VectorTemplate extends BaseTemplate {
 						<div class="menu">
 							<ul<?php $this->html( 'userlangattributes' ) ?>>
 								<?php
-								foreach ( $this->data['action_urls'] as $link ) {
-									?>
-									<li<?php echo $link['attributes'] ?>>
-										<a href="<?php
-										echo htmlspecialchars( $link['href'] )
-										?>" <?php
-										echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] )
-											?></a>
-									</li>
-								<?php
+								foreach ( $this->data['action_urls'] as $key => $item ) {
+									echo "\t\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item ) . "\n";
 								}
 								?>
 							</ul>
@@ -582,5 +509,44 @@ class VectorTemplate extends BaseTemplate {
 					break;
 			}
 		}
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function makeLink( $key, $item, $options = [] ) {
+		$html = parent::makeLink( $key, $item, $options );
+		// Add an extra wrapper because our CSS is weird
+		if ( isset( $options['vector-wrap'] ) && $options['vector-wrap'] ) {
+			$html = Html::rawElement( 'span', [], $html );
+		}
+		return $html;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function makeListItem( $key, $item, $options = [] ) {
+		// For fancy styling of watch/unwatch star
+		if (
+			$this->config->get( 'VectorUseIconWatch' )
+			&& ( $key === 'watch' || $key === 'unwatch' )
+		) {
+			$item['class'] = rtrim( 'icon ' . $item['class'], ' ' );
+			$item['primary'] = true;
+		}
+
+		// Add CSS class 'collapsible' to links which are not marked as "primary"
+		if (
+			isset( $options['vector-collapsible'] ) && $options['vector-collapsible']
+			&& !( isset( $item['primary'] ) && $item['primary'] )
+		) {
+			$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
+		}
+
+		// We don't use this, prevent it from popping up in HTML output
+		unset( $item['redundant'] );
+
+		return parent::makeListItem( $key, $item, $options );
 	}
 }
