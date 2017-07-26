@@ -1,16 +1,20 @@
 @html-font-size: 100%;
 
+@font-family-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
+@font-family-sans-serif: sans-serif;
+
 // Page content
 // FIXME: Use global variable since Echo and CentralNotice use this variable
 @content-border-color: #a7d7f9;
 // FIXME: Find an open font that works with this stack and is readable by Windows users
-@content-font-family: sans-serif;
+@content-font-family: @font-family-sans-serif;
 @content-font-color: #222;
 @content-font-size: 0.875em;
+@pureBlack: #000;
 @content-line-height: 1.6;
 @content-padding: 1em;
 @content-heading-font-size: 1.8em;
-@content-heading-font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+@content-heading-font-family: @font-family-serif;
 @content-heading-font-family-generic: sans-serif;
 @body-background-color: #fff;
 @heading-line-height: 1.3;
