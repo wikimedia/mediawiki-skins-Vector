@@ -37,7 +37,8 @@ class SkinVector extends SkinTemplate {
 	private $responsiveMode = false;
 
 	public function __construct() {
-		$this->vectorConfig = ConfigFactory::getDefaultInstance()->makeConfig( 'vector' );
+		$this->vectorConfig = \MediaWiki\MediaWikiServices::getInstance()->getConfigFactory()
+			->makeConfig( 'vector' );
 	}
 
 	/** @inheritdoc */
