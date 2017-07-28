@@ -1,4 +1,5 @@
 @import 'variables.less';
+@footerColor: #eee;
 
 @media print {
 
@@ -159,5 +160,43 @@
 				display: inline-block;
 			}
 		}
+	}
+
+	.printfooter {
+		margin-top: 10px;
+		border-top: 3px solid @pureBlack;
+		padding-top: 10px;
+		font-size: 10pt;
+	}
+
+	#footer {
+		margin-top: 12px;
+		border-top: 1px solid @footerColor;
+		padding-top: 5px;
+	}
+
+	#footer-info {
+		margin: 0;
+		padding: 0;
+
+		li {
+			color: @colorGray9;
+			list-style: none;
+			display: block;
+			padding-bottom: 10px;
+			font-size: 10pt;
+
+			a {
+				// override default black print style.
+				color: @colorGray9 !important; /* stylelint-disable-line declaration-no-important */
+			}
+		}
+	}
+
+	// Last updated as primary info.
+	#footer-info-lastmod {
+		color: @pureBlack;
+		font-size: 12pt;
+		font-weight: bold;
 	}
 }
