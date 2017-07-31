@@ -538,9 +538,7 @@ class VectorTemplate extends BaseTemplate {
 
 		// Add CSS class 'collapsible' to links which are not marked as "primary"
 		if (
-			isset( $options['vector-collapsible'] ) && $options['vector-collapsible']
-			&& !( isset( $item['primary'] ) && $item['primary'] )
-		) {
+			isset( $options['vector-collapsible'] ) && $options['vector-collapsible'] ) {
 			$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
 		}
 
