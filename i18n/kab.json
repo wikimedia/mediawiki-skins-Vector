@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mmistmurt"
+			"Mmistmurt",
+			"Belkacem77"
 		]
 	},
 	"vector-action-addsection": "Rnud ameggay",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "Ẓẓiẓreg",
 	"vector-view-history": "Ẓeṛ amazray",
 	"vector-view-view": "Ɣer",
-	"vector-view-viewsource": "Ẓer aɣbalu"
+	"vector-view-viewsource": "Ẓer aɣbalu",
+	"vector-more-actions": "Ugar"
 }
