@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Corainn",
-			"Hitaypayan"
+			"Hitaypayan",
+			"Translatealcd"
 		]
 	},
 	"vector-action-delete": "’muyut",
+	"vector-action-move": "Smhzi’",
 	"vector-view-create": "ps’rux",
 	"vector-view-edit": "Smr’zyut miru’",
 	"vector-view-history": "Psbzinah mita’ kwara’ binrwan sraral",
