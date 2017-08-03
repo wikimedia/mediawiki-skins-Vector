@@ -11,14 +11,17 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.js',
 				'**/*.js',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		jsonlint: {
 			all: [
 				'*.json',
 				'**/*.json',
-				'!node_modules/**'
+				'.stylelintrc',
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 		banana: conf.MessagesDirs,
@@ -30,7 +33,8 @@ module.exports = function ( grunt ) {
 				'*.{less,css}',
 				'**/*.{less,css}',
 				'!node_modules/**',
-				'!skinStyles/jquery.ui/**'
+				'!skinStyles/jquery.ui/**',
+				'!vendor/**'
 			]
 		}
 	} );
