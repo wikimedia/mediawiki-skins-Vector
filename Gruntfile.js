@@ -19,7 +19,6 @@ module.exports = function ( grunt ) {
 			all: [
 				'*.json',
 				'**/*.json',
-				'.stylelintrc',
 				'!node_modules/**',
 				'!vendor/**'
 			]
