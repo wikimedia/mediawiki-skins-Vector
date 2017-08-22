@@ -142,8 +142,8 @@
 
 		// Using #toc rather than .toc to override default print style
 		#toc {
-			page-break-before: always;
-			page-break-after: always;
+			page-break-before: avoid;
+			page-break-after: avoid;
 			background: none;
 			border: 0;
 			display: block;
@@ -156,7 +156,7 @@
 			> ul {
 
 				> li {
-					margin-bottom: 20px;
+					margin-bottom: 4px;
 					font-weight: bold;
 
 					> ul {
@@ -184,7 +184,7 @@
 			li.toclevel-1 {
 				> a {
 					font-weight: bold;
-					font-size: 16px;
+					font-size: 10pt;
 				}
 			}
 
