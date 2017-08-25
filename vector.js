@@ -54,10 +54,10 @@ jQuery( function ( $ ) {
 		.on( 'beforeTabCollapse', function () {
 			// If the dropdown was hidden, show it
 			if ( $cactions.hasClass( 'emptyPortlet' ) ) {
-				$cactions
-					.removeClass( 'emptyPortlet' )
-					.find( 'h3' )
-						.css( 'width', '1px' ).animate( { width: initialCactionsWidth() }, 'normal' );
+				$cactions.removeClass( 'emptyPortlet' );
+				$cactions.find( 'h3' )
+					.css( 'width', '1px' )
+					.animate( { width: initialCactionsWidth() }, 'normal' );
 			}
 		} )
 		.on( 'beforeTabExpand', function () {
