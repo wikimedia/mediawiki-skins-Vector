@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Benel",
-			"Bunukwiki"
+			"Bunukwiki",
+			"Tokoabibi"
 		]
 	},
-	"vector-action-delete": "masipu",
+	"vector-action-delete": "misipu",
 	"vector-action-move": "milimad",
 	"vector-action-protect": "midiput",
 	"vector-view-create": "patizeng",
-	"vector-view-edit": "mikawaway tu kalumyiti",
+	"vector-view-edit": "mikawaway-kalumyiti",
 	"vector-view-history": "ciwsace nazipa’an",
 	"vector-view-view": "miasip",
 	"vector-more-actions": "yadah"
