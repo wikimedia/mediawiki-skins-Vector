@@ -514,7 +514,7 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function makeLink( $key, $item, $options = [] ) {
 		$html = parent::makeLink( $key, $item, $options );
@@ -526,7 +526,7 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @inheritdoc
+	 * @inheritDoc
 	 */
 	public function makeListItem( $key, $item, $options = [] ) {
 		// For fancy styling of watch/unwatch star
