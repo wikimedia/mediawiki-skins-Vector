@@ -41,7 +41,7 @@ class SkinVector extends SkinTemplate {
 			->makeConfig( 'vector' );
 	}
 
-	/** @inheritdoc */
+	/** @inheritDoc */
 	public function getPageClasses( $title ) {
 		$className = parent::getPageClasses( $title );
 		if ( $this->vectorConfig->get( 'VectorExperimentalPrintStyles' ) ) {
@@ -98,6 +98,10 @@ class SkinVector extends SkinTemplate {
 
 	/**
 	 * Override to pass our Config instance to it
+	 * @param string $classname
+	 * @param bool|string $repository
+	 * @param bool|string $cache_dir
+	 * @return QuickTemplate
 	 */
 	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
 		return new $classname( $this->vectorConfig );
