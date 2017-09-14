@@ -122,6 +122,21 @@
 			line-height: 16pt;
 			margin-top: 5px;
 			text-align: justify;
+
+			// T175008
+			// When a paragraph is surrounded by floating elements from both
+			// sides, we want to make sure that there is at least some space
+			// before showing the text. Otherwise, small lengths of text may show
+			// between the surrounding elements, making the reading experience less
+			// enjoyable. If there is not enough space the following code will push
+			// the paragraph contents until after the floating element(s).
+			@paragraphMinWidth: 120pt;
+			&:before {
+				content: '';
+				display: block;
+				overflow: hidden;
+				width: @paragraphMinWidth;
+			}
 		}
 
 		blockquote {
