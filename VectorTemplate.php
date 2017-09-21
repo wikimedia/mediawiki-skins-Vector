@@ -49,17 +49,6 @@ class VectorTemplate extends BaseTemplate {
 				unset( $this->data['action_urls'][$mode] );
 			}
 		}
-
-		// Reverse horizontally rendered navigation elements
-		if ( $this->data['rtl'] ) {
-			$this->data['view_urls'] =
-				array_reverse( $this->data['view_urls'] );
-			$this->data['namespace_urls'] =
-				array_reverse( $this->data['namespace_urls'] );
-			$this->data['personal_urls'] =
-				array_reverse( $this->data['personal_urls'] );
-		}
-
 		$this->data['pageLanguage'] =
 			$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
@@ -308,7 +297,7 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Render one or more navigations elements by name, automatically reveresed
+	 * Render one or more navigations elements by name, automatically reversed by css
 	 * when UI is in RTL mode
 	 *
 	 * @param array $elements
@@ -318,9 +307,6 @@ class VectorTemplate extends BaseTemplate {
 		// flexible arguments
 		if ( !is_array( $elements ) ) {
 			$elements = [ $elements ];
-			// If there's a series of elements, reverse them when in RTL mode
-		} elseif ( $this->data['rtl'] ) {
-			$elements = array_reverse( $elements );
 		}
 		// Render elements
 		foreach ( $elements as $name => $element ) {
