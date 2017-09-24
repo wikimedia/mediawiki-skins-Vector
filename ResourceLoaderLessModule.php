@@ -22,7 +22,6 @@
 
 namespace Vector;
 
-use ConfigFactory;
 use CSSMin;
 use MediaWiki\MediaWikiServices;
 use ResourceLoaderContext;
