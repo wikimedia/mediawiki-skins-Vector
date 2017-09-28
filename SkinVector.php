@@ -47,6 +47,7 @@ class SkinVector extends SkinTemplate {
 		if ( $this->vectorConfig->get( 'VectorExperimentalPrintStyles' ) ) {
 			$className .= ' vector-experimental-print-styles';
 		}
+		$className .= ' vector-nav-directionality';
 		return $className;
 	}
 

@@ -9,6 +9,7 @@ div.vectorTabs h3 {
 
 /* Namespaces and Views */
 div.vectorTabs {
+	/* @noflip */
 	float: left;
 	height: 2.5em;
 	.background-image('images/tab-break.png');
@@ -16,7 +17,12 @@ div.vectorTabs {
 	background-repeat: no-repeat;
 	padding-left: 1px;
 
+	.vector-nav-directionality & {
+		float: left;
+	}
+
 	ul {
+		/* @noflip */
 		float: left;
 		height: 100%;
 		list-style-type: none;
@@ -27,7 +33,12 @@ div.vectorTabs {
 		background-position: right bottom;
 		background-repeat: no-repeat;
 
+		.vector-nav-directionality & {
+			float: left;
+		}
+
 		li {
+			/* @noflip */
 			float: left;
 			line-height: 1.125em;
 			/* For IE6, overridden later to display:block by modern browsers */
@@ -40,6 +51,10 @@ div.vectorTabs {
 			background-position: bottom left;
 			background-repeat: repeat-x;
 			white-space: nowrap;
+
+			.vector-nav-directionality & {
+				float: left;
+			}
 		}
 
 		/* IGNORED BY IE6 which doesn't support child selector */
@@ -104,19 +119,31 @@ div.vectorTabs {
 
 		/* Ignored by IE6 which doesn't support child selector */
 		> a {
+			/* @noflip */
 			float: left;
 			display: block;
+
+			.vector-nav-directionality & {
+				float: left;
+			}
 		}
 	}
 }
 
 /* Variants and Actions */
 div.vectorMenu {
+	/* @noflip */
 	direction: ltr;
+	/* @noflip */
 	float: left;
 	cursor: pointer;
 	position: relative;
 	line-height: 1.125em;
+
+	.vector-nav-directionality & {
+		direction: ltr;
+		float: left;
+	}
 }
 
 body.rtl div.vectorMenu {
@@ -125,6 +152,7 @@ body.rtl div.vectorMenu {
 }
 
 div#mw-head div.vectorMenu h3 {
+	/* @noflip */
 	float: left;
 	.background-image('images/tab-break.png');
 	background-repeat: no-repeat;
@@ -135,6 +163,10 @@ div#mw-head div.vectorMenu h3 {
 	// border. It is necessary for the dropdown (div.vectorMenu div.menu) to align well.
 	padding-right: 1px;
 	margin-right: -1px;
+
+	.vector-nav-directionality & {
+		float: left;
+	}
 }
 
 div.vectorMenu h3 span {
