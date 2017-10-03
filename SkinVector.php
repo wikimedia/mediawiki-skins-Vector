@@ -44,7 +44,6 @@ class SkinVector extends SkinTemplate {
 	/** @inheritDoc */
 	public function getPageClasses( $title ) {
 		$className = parent::getPageClasses( $title );
-		$className .= ' vector-nav-directionality';
 		return $className;
 	}
 
