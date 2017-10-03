@@ -41,10 +41,10 @@ jQuery( function ( $ ) {
 			} )
 			// When the heading has focus, also set a class that will change the arrow icon
 			.focus( function () {
-				$el.find( '> span' ).addClass( 'vectorMenuFocus' );
+				$el.addClass( 'vectorMenuFocus' );
 			} )
 			.blur( function () {
-				$el.find( '> span' ).removeClass( 'vectorMenuFocus' );
+				$el.removeClass( 'vectorMenuFocus' );
 			} );
 	} );
 
