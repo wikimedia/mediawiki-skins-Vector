@@ -438,18 +438,10 @@ class VectorTemplate extends BaseTemplate {
 								unset( $personalTools[ 'uls' ] );
 							}
 
-							if ( !$this->data[ 'rtl' ] ) {
-								echo $langSelector;
-								echo $notLoggedIn;
-							}
-
+							echo $langSelector;
+							echo $notLoggedIn;
 							foreach ( $personalTools as $key => $item ) {
 								echo $this->makeListItem( $key, $item );
-							}
-
-							if ( $this->data[ 'rtl' ] ) {
-								echo $notLoggedIn;
-								echo $langSelector;
 							}
 							?>
 						</ul>
