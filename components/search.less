@@ -29,12 +29,18 @@ div#simpleSearch {
 	margin-top: 0.65em;
 	position: relative;
 	min-height: 1px; /* Gotta trigger hasLayout for IE7 */
-	border: solid 1px #aaa;
+	border: 1px solid @colorGray10;
+	border-radius: @borderRadius;
 	color: #000;
 	background-color: #fff;
 	.background-image( 'images/search-fade.png' );
 	background-position: top left;
 	background-repeat: repeat-x;
+	.transition( border-color 250ms );
+
+	&:hover {
+		border-color: @colorGray7;
+	}
 
 	// Styles for both the search input and the button
 	input {
