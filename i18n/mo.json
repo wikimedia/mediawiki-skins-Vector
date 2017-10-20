@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"TheChampionMan1234"
+			"TheChampionMan1234",
+			"Cybernenea11"
 		]
 	},
-	"vector-view-edit": "Едитязэ",
+	"vector-view-edit": "Редактаре",
 	"vector-view-history": "Историк",
 	"vector-view-view": "Лектурэ",
 	"vector-more-actions": "Май мулт"
