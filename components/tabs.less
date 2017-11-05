@@ -90,8 +90,8 @@ div.vectorTabs {
 			/* For IE6, overridden later to display:block by modern browsers */
 			display: inline-block;
 			height: 1.9em;
-			padding-left: 0.5em;
-			padding-right: 0.5em;
+			padding-left: 0.625em; // equals `8px` at computed `font-size` of `12.8px`
+			padding-right: 0.625em;
 			color: @menu-link-color;
 			cursor: pointer;
 			font-size: 0.8em;
@@ -155,7 +155,7 @@ div#mw-head div.vectorMenu h3 {
 	height: 2.5em;
 	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to act like a real
 	// border. It is necessary for `div.vectorMenu div.menu` dropdown to align well.
-	padding-right: 0.5em; // equals `8px` as visually harmonically with `padding-left` in `div.vectorMenu h3 span`
+	padding-right: 0.5em; // equals `8px` at computed `font-size` of `14px` as visually harmonically with `padding-left` in `div.vectorMenu h3 span`
 	margin-right: -1px;
 
 	.vector-nav-directionality & {
@@ -167,7 +167,7 @@ div.vectorMenu h3 {
 	span {
 		display: block;
 		font-size: 0.8em;
-		padding-left: 0.7em;
+		padding-left: 0.625em;
 		padding-top: 1.25em;
 		padding-right: 16px;
 		font-weight: normal;
@@ -242,7 +242,7 @@ div.vectorMenu li {
 /* OVERRIDDEN BY COMPLIANT BROWSERS */
 div.vectorMenu li a {
 	display: inline-block;
-	padding: 0.5em;
+	padding: 0.625em;
 	white-space: nowrap;
 	color: @menu-link-color;
 	cursor: pointer;
