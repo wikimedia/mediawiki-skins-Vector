@@ -165,22 +165,37 @@ div#mw-head div.vectorMenu h3 {
 
 div.vectorMenu h3 {
 	span {
+		position: relative;
 		display: block;
 		font-size: 0.8em;
 		padding-left: 0.625em;
 		padding-top: 1.25em;
 		padding-right: 16px;
 		font-weight: normal;
-		color: @content-font-color;
-		.background-image-svg('images/arrow-down.svg', 'images/arrow-down.png');
-		background-position: 100% 87%;
-		background-repeat: no-repeat;
-		opacity: 0.85; // equals `#434343` on `#fff` background, closest to `#444`
+		color: #444;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			.background-image-svg('images/arrow-down.svg', 'images/arrow-down.png');
+			background-position: 100% 87%;
+			background-repeat: no-repeat;
+			// Modify the color of the image from the default #222 to approx. #444 to match the text.
+			opacity: 0.85;
+		}
 	}
 
 	&:hover span,
 	&:focus span {
-		opacity: 1;
+		color: @content-font-color;
+
+		&:after {
+			opacity: 1;
+		}
 	}
 }
 
