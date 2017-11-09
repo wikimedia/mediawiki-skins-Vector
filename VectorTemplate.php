@@ -59,7 +59,6 @@ class VectorTemplate extends BaseTemplate {
 		<div id="mw-head-base" class="noprint"></div>
 		<div id="content" class="mw-body" role="main">
 			<a id="top"></a>
-
 			<?php
 			if ( $this->data['sitenotice'] ) {
 				?>
@@ -137,7 +136,6 @@ class VectorTemplate extends BaseTemplate {
 		</div>
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-
 			<div id="mw-head">
 				<?php $this->renderNavigation( 'PERSONAL' ); ?>
 				<div id="left-navigation">
@@ -159,16 +157,16 @@ class VectorTemplate extends BaseTemplate {
 		<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php
 			foreach ( $this->getFooterLinks() as $category => $links ) {
+			?>
+			<ul id="footer-<?php echo $category ?>">
+				<?php
+				foreach ( $links as $link ) {
 				?>
-				<ul id="footer-<?php echo $category ?>">
-					<?php
-					foreach ( $links as $link ) {
-						?>
-						<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
-					<?php
-					}
-					?>
-				</ul>
+				<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
+				<?php
+				}
+				?>
+			</ul>
 			<?php
 			}
 			?>
@@ -178,14 +176,14 @@ class VectorTemplate extends BaseTemplate {
 				<ul id="footer-icons" class="noprint">
 					<?php
 					foreach ( $footericons as $blockName => $footerIcons ) {
+					?>
+					<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
+						<?php
+						foreach ( $footerIcons as $icon ) {
+							echo $this->getSkin()->makeFooterIcon( $icon );
+						}
 						?>
-						<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-							<?php
-							foreach ( $footerIcons as $icon ) {
-								echo $this->getSkin()->makeFooterIcon( $icon );
-							}
-							?>
-						</li>
+					</li>
 					<?php
 					}
 					?>
@@ -193,7 +191,7 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			}
 			?>
-			<div style="clear:both"></div>
+			<div style="clear: both;"></div>
 		</div>
 		<?php $this->printTrail(); ?>
 
@@ -266,23 +264,22 @@ class VectorTemplate extends BaseTemplate {
 			<h3<?php $this->html( 'userlangattributes' ) ?> id='<?php echo $labelId ?>'><?php
 				echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $msg );
 				?></h3>
-
 			<div class="body">
 				<?php
 				if ( is_array( $content ) ) {
+				?>
+				<ul>
+					<?php
+					foreach ( $content as $key => $val ) {
+						echo $this->makeListItem( $key, $val );
+					}
+					if ( $hook !== null ) {
+						// Avoid PHP 7.1 warning
+						$skin = $this;
+						Hooks::run( $hook, [ &$skin, true ] );
+					}
 					?>
-					<ul>
-						<?php
-						foreach ( $content as $key => $val ) {
-							echo $this->makeListItem( $key, $val );
-						}
-						if ( $hook !== null ) {
-							// Avoid PHP 7.1 warning
-							$skin = $this;
-							Hooks::run( $hook, [ &$skin, true ] );
-						}
-						?>
-					</ul>
+				</ul>
 				<?php
 				} else {
 					// Allow raw HTML block to be defined by extensions
@@ -322,9 +319,9 @@ class VectorTemplate extends BaseTemplate {
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
 							foreach ( $this->data['namespace_urls'] as $key => $item ) {
-								echo "\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item, [
+								echo $this->makeListItem( $key, $item, [
 									'vector-wrap' => true,
-								] ) . "\n";
+								] );
 							}
 							?>
 						</ul>
@@ -351,12 +348,11 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-variants-label">
 							<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
 						</h3>
-
 						<div class="menu">
 							<ul>
 								<?php
 								foreach ( $this->data['variant_urls'] as $key => $item ) {
-									echo "\t\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item ) . "\n";
+									echo $this->makeListItem( $key, $item );
 								}
 								?>
 							</ul>
@@ -375,10 +371,10 @@ class VectorTemplate extends BaseTemplate {
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
 							foreach ( $this->data['view_urls'] as $key => $item ) {
-								echo "\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item, [
+								echo $this->makeListItem( $key, $item, [
 									'vector-wrap' => true,
 									'vector-collapsible' => true,
-								] ) . "\n";
+								] );
 							}
 							?>
 						</ul>
@@ -395,12 +391,11 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-cactions-label"><span><?php
 							$this->msg( 'vector-more-actions' )
 						?></span></h3>
-
 						<div class="menu">
 							<ul<?php $this->html( 'userlangattributes' ) ?>>
 								<?php
 								foreach ( $this->data['action_urls'] as $key => $item ) {
-									echo "\t\t\t\t\t\t\t\t" . $this->makeListItem( $key, $item ) . "\n";
+									echo $this->makeListItem( $key, $item );
 								}
 								?>
 							</ul>
@@ -454,33 +449,32 @@ class VectorTemplate extends BaseTemplate {
 						<h3<?php $this->html( 'userlangattributes' ) ?>>
 							<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
 						</h3>
-
 						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 							<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
-							<?php
-							echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
-							echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
-							/* We construct two buttons (for 'go' and 'fulltext' search modes),
-							 * but only one will be visible and actionable at a time (they are
-							 * overlaid on top of each other in CSS).
-							 * * Browsers will use the 'fulltext' one by default (as it's the
-							 *   first in tree-order), which is desirable when they are unable
-							 *   to show search suggestions (either due to being broken or
-							 *   having JavaScript turned off).
-							 * * The mediawiki.searchSuggest module, after doing tests for the
-							 *   broken browsers, removes the 'fulltext' button and handles
-							 *   'fulltext' search itself; this will reveal the 'go' button and
-							 *   cause it to be used.
-							 */
-							echo $this->makeSearchButton(
-								'fulltext',
-								[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-							);
-							echo $this->makeSearchButton(
-								'go',
-								[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-							);
-							?>
+								<?php
+								echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
+								echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
+								/* We construct two buttons (for 'go' and 'fulltext' search modes),
+								 * but only one will be visible and actionable at a time (they are
+								 * overlaid on top of each other in CSS).
+								 * * Browsers will use the 'fulltext' one by default (as it's the
+								 *   first in tree-order), which is desirable when they are unable
+								 *   to show search suggestions (either due to being broken or
+								 *   having JavaScript turned off).
+								 * * The mediawiki.searchSuggest module, after doing tests for the
+								 *   broken browsers, removes the 'fulltext' button and handles
+								 *   'fulltext' search itself; this will reveal the 'go' button and
+								 *   cause it to be used.
+								 */
+								echo $this->makeSearchButton(
+									'fulltext',
+									[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+								);
+								echo $this->makeSearchButton(
+									'go',
+									[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+								);
+								?>
 							</div>
 						</form>
 					</div>
