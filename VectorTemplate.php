@@ -61,30 +61,40 @@ class VectorTemplate extends BaseTemplate {
 			<a id="top"></a>
 			<?php
 			if ( $this->data['sitenotice'] ) {
-				?>
-				<div id="siteNotice" class="mw-body-content"><?php $this->html( 'sitenotice' ) ?></div>
-			<?php
+				echo Html::rawElement( 'div',
+					[ 'class' => 'mw-body-content' ],
+					// Raw HTML
+					$this->get( 'sitenotice' )
+				);
 			}
-			?>
-			<?php
 			if ( is_callable( [ $this, 'getIndicators' ] ) ) {
 				echo $this->getIndicators();
 			}
 			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
 			if ( $this->data['title'] != '' ) {
+				echo Html::rawElement( 'h1',
+					[
+						'id' => 'firstHeading',
+						'class' => 'firstHeading',
+						'lang' => $this->get( 'pageLanguage' ),
+					],
+					// Raw HTML
+					$this->get( 'title' )
+				);
+			}
+
+			$this->html( 'prebodyhtml' );
 			?>
-			<h1 id="firstHeading" class="firstHeading" lang="<?php $this->text( 'pageLanguage' ); ?>"><?php
-				$this->html( 'title' )
-			?></h1>
-			<?php
-			} ?>
-			<?php $this->html( 'prebodyhtml' ) ?>
 			<div id="bodyContent" class="mw-body-content">
 				<?php
 				if ( $this->data['isarticle'] ) {
-					?>
-					<div id="siteSub" class="noprint"><?php $this->msg( 'tagline' ) ?></div>
-				<?php
+					echo Html::element( 'div',
+						[
+							'id' => 'siteSub',
+							'class' => 'noprint',
+						],
+						$this->getMsg( 'tagline' )->text()
+					);
 				}
 				?>
 				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
@@ -92,16 +102,18 @@ class VectorTemplate extends BaseTemplate {
 				?></div>
 				<?php
 				if ( $this->data['undelete'] ) {
-					?>
-					<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-				<?php
+					echo Html::rawElement( 'div',
+						[ 'id' => 'contentSub2' ],
+						// Raw HTML
+						$this->get( 'undelete' )
+					);
 				}
-				?>
-				<?php
 				if ( $this->data['newtalk'] ) {
-					?>
-					<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
-				<?php
+					echo Html::rawElement( 'div',
+						[ 'class' => 'usermessage' ],
+						// Raw HTML
+						$this->get( 'newtalk' )
+					);
 				}
 				?>
 				<div id="jump-to-nav" class="mw-jump">
