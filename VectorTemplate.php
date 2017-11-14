@@ -62,7 +62,10 @@ class VectorTemplate extends BaseTemplate {
 			<?php
 			if ( $this->data['sitenotice'] ) {
 				echo Html::rawElement( 'div',
-					[ 'class' => 'mw-body-content' ],
+					[
+						'id' => 'siteNotice',
+						'class' => 'mw-body-content',
+					],
 					// Raw HTML
 					$this->get( 'sitenotice' )
 				);
