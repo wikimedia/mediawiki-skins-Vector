@@ -145,12 +145,12 @@ div.vectorMenu h3 {
 		&:after {
 			content: '';
 			position: absolute;
-			top: 0;
+			top: 1.25em;
 			right: 0;
 			bottom: 0;
 			left: 0;
 			.background-image-svg('images/arrow-down.svg', 'images/arrow-down.png');
-			background-position: 100% 87%;
+			background-position: 100% 50%;
 			background-repeat: no-repeat;
 			// Modify the color of the image from the default #222 to approx. #444 to match the text.
 			opacity: 0.85;
@@ -165,6 +165,10 @@ div.vectorMenu h3 {
 			opacity: 1;
 		}
 	}
+}
+
+div.vectorMenu.menuForceShow h3 span:after {
+	transform: scaleY( -1 );
 }
 
 div.vectorMenu div.menu {
