@@ -3,7 +3,9 @@
 		"authors": [
 			"Albinus",
 			"Samar88",
-			"Srabony90"
+			"Srabony90",
+			"Manik Soren",
+			"Ramjit Tudu"
 		]
 	},
 	"vector-action-addsection": "Asol katha joṛaome",
@@ -13,9 +15,9 @@
 	"vector-action-undelete": "Bań getgiḍi",
 	"vector-action-unprotect": "Bodol rukhiyạ",
 	"vector-view-create": "Tearme",
-	"vector-view-edit": "So̠mpado̠n",
-	"vector-view-history": "Jạṛ ńelme",
-	"vector-view-view": "Paṛhaḱme",
+	"vector-view-edit": "ᱥᱟᱯᱲᱟᱣ",
+	"vector-view-history": "ᱱᱟᱜᱟᱢ ᱧᱮᱞᱢᱮ",
+	"vector-view-view": "ᱯᱟᱲᱦᱟᱣᱢᱮ",
 	"vector-view-viewsource": "Ńamoḱaḱ ńelme",
-	"vector-more-actions": "Arhõ bạṛtite"
+	"vector-more-actions": "ᱵᱟᱹᱲᱛᱤᱛᱮ"
 }
