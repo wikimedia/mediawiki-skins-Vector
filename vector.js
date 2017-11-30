@@ -82,22 +82,28 @@ jQuery( function ( $ ) {
 				}
 			},
 			collapseCondition: function () {
+				var collapsibleWidth = 0;
+
 				// (This looks a bit awkward because we're doing expensive queries as late as possible.)
 				// TODO The dropdown itself should probably "fold" to just the down-arrow (hiding the text)
 				// if it can't fit on the line?
 
-				// If there's an overlap, collapse.
-				if ( $.collapsibleTabs.calculateTabDistance() < 0 ) {
-					// But only if the width of the tab to collapse is smaller than the width of the dropdown
-					// we would have to insert. An example language where this happens is Lithuanian (lt).
-					if ( $cactions.hasClass( 'emptyPortlet' ) ) {
-						return $tabContainer.children( 'li.collapsible:last' ).width() > initialCactionsWidth();
-					} else {
-						return true;
-					}
-				} else {
+				// Never collapse if there is no overlap.
+				if ( $.collapsibleTabs.calculateTabDistance() >= 0 ) {
 					return false;
 				}
+
+				// Always collapse if the "More" button is already shown.
+				if ( !$cactions.hasClass( 'emptyPortlet' ) ) {
+					return true;
+				}
+
+				$tabContainer.children( 'li.collapsible' ).each( function ( index, element ) {
+					collapsibleWidth += $( element ).width();
+					// Stop this possibly expensive loop the moment the condition is met.
+					return !( collapsibleWidth > initialCactionsWidth() );
+				} );
+				return collapsibleWidth > initialCactionsWidth();
 			}
 		} );
 } );
