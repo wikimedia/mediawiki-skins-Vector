@@ -1,6 +1,6 @@
 <?php
 /**
- * Hooks.php
+ * VectorHooks.php
  */
 
 /**

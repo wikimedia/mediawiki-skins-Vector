@@ -25,7 +25,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"VectorHooks": "Hooks.php",
+		"VectorHooks": "VectorHooks.php",
 		"SkinVector": "SkinVector.php",
 		"VectorTemplate": "VectorTemplate.php",
 		"Vector\\ResourceLoaderLessModule": "ResourceLoaderLessModule.php"
