@@ -148,6 +148,12 @@
 		li {
 			padding: 2px 0;
 			font-size: 10pt;
+
+			// T178667: Inline lists in new print styles should not
+			// have a smaller font size than surrounding content
+			table & {
+				font-size: inherit;
+			}
 		}
 	}
 
