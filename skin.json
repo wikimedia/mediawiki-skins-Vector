@@ -38,7 +38,6 @@
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
 		"skins.vector.styles": {
-			"class": "Vector\\ResourceLoaderLessModule",
 			"targets": [ "desktop", "mobile" ],
 			"position": "top",
 			"styles": {
@@ -47,11 +46,17 @@
 				},
 				"screen-hd.less": {
 					"media": "screen and (min-width: 982px)"
-				},
-				"print.less": {}
+				}
 			}
 		},
-
+		"skins.vector.styles.experimental.print": {
+			"class": "Vector\\ResourceLoaderLessModule",
+			"targets": [ "desktop", "mobile" ],
+			"position": "top",
+			"styles": [
+				"print.less"
+			]
+		},
 		"skins.vector.styles.responsive": {
 			"targets": [ "desktop", "mobile" ],
 			"position": "top",
@@ -105,6 +110,8 @@
 	"config": {
 		"VectorUseSimpleSearch": true,
 		"VectorUseIconWatch": true,
+		"@VectorExperimentalPrintStyles": "Temporary config variable to feature flag new print styles (T154965)",
+		"VectorExperimentalPrintStyles": false,
 		"VectorResponsive": false,
 		"VectorPrintLogo": false
 	},
