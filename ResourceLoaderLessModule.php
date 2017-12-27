@@ -24,11 +24,16 @@ namespace Vector;
 
 use CSSMin;
 use MediaWiki\MediaWikiServices;
+use ConfigException;
 use ResourceLoaderContext;
 use ResourceLoaderFileModule;
 
 /**
  * ResourceLoader module for print styles.
+ *
+ * This class is also used when rendering styles for the MediaWiki installer.
+ * Do not rely on any of the normal global state, services, etc., and make sure
+ * to test the installer after making any changes here.
  */
 class ResourceLoaderLessModule extends ResourceLoaderFileModule {
 	/**
@@ -39,8 +44,13 @@ class ResourceLoaderLessModule extends ResourceLoaderFileModule {
 	 */
 	protected function getLessVars( ResourceLoaderContext $context ) {
 		$lessVars = parent::getLessVars( $context );
-		$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'vector' );
-		$printLogo = $config->get( 'VectorPrintLogo' );
+		try {
+			$config = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'vector' );
+			$printLogo = $config->get( 'VectorPrintLogo' );
+		} catch ( ConfigException $e ) {
+			// Config is not available when running in the context of the MediaWiki installer. (T183640)
+			$printLogo = false;
+		}
 		if ( $printLogo ) {
 			$lessVars[ 'printLogo' ] = true;
 			$lessVars[ 'printLogoUrl' ] = CSSMin::buildUrlValue( $printLogo['url'] );
