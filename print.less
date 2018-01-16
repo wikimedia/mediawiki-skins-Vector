@@ -51,7 +51,15 @@
 		font-family: @font-family-sans-serif;
 	}
 
-	// Images, such as formulas, render best in serif.
+	// Images, such as formulas, render best in serif. Math fallback images, for example, have an
+	// inline style attribute setting their dimensions in ex (x-height) units, which is relative the
+	// font size:
+	// 	<img
+	// 		src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d03b01348b751e6f4eaff085b3effa9542e2935d"
+	// 		class="mwe-math-fallback-image-inline"
+	// 		aria-hidden="true"
+	// 		style="vertical-align: -2.171ex; width:11.418ex; height:5.676ex;"
+	// 		alt="r_{s}={\frac {2GM}{c^{2}}}">
 	img {
 		font-family: @font-family-serif;
 	}
