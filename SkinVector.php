@@ -81,7 +81,7 @@ class SkinVector extends SkinTemplate {
 		parent::setupSkinUserCss( $out );
 
 		$styles = [ 'mediawiki.skinning.interface', 'skins.vector.styles' ];
-		Hooks::run( 'SkinVectorStyleModules', [ $this, &$styles ] );
+		Hooks::run( 'SkinVectorStyleModules', [ $this, &$styles ], '1.31' );
 		$out->addModuleStyles( $styles );
 	}
 
