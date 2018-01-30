@@ -152,7 +152,7 @@ class VectorTemplate extends BaseTemplate {
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 			<div id="mw-head">
-				<?php $this->renderNavigation( 'PERSONAL' ); ?>
+				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
 					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
 				</div>
@@ -221,7 +221,7 @@ class VectorTemplate extends BaseTemplate {
 	 *
 	 * @param array $portals
 	 */
-	protected function renderPortals( $portals ) {
+	protected function renderPortals( array $portals ) {
 		// Force the rendering of the following portals
 		if ( !isset( $portals['SEARCH'] ) ) {
 			$portals['SEARCH'] = true;
@@ -262,7 +262,7 @@ class VectorTemplate extends BaseTemplate {
 
 	/**
 	 * @param string $name
-	 * @param array $content
+	 * @param array|string $content
 	 * @param null|string $msg
 	 * @param null|string|array $hook
 	 */
@@ -316,12 +316,7 @@ class VectorTemplate extends BaseTemplate {
 	 *
 	 * @param array $elements
 	 */
-	protected function renderNavigation( $elements ) {
-		// If only one element was given, wrap it in an array, allowing more
-		// flexible arguments
-		if ( !is_array( $elements ) ) {
-			$elements = [ $elements ];
-		}
+	protected function renderNavigation( array $elements ) {
 		// Render elements
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
