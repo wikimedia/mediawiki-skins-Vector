@@ -23,7 +23,7 @@
  */
 
 /**
- * SkinTemplate class for Vector skin
+ * Skin subclass for Vector
  * @ingroup Skins
  */
 class SkinVector extends SkinTemplate {

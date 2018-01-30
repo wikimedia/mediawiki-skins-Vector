@@ -23,7 +23,7 @@
  */
 
 /**
- * QuickTemplate class for Vector skin
+ * QuickTemplate subclass for Vector
  * @ingroup Skins
  */
 class VectorTemplate extends BaseTemplate {
