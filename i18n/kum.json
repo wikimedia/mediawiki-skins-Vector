@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arsenekoumyk"
+			"Arsenekoumyk",
+			"ArslanX"
 		]
 	},
 	"vector-action-addsection": "Мавзу къошмакъ",
+	"vector-action-delete": "Тайдырмакъ",
 	"vector-action-move": "Атын алышдырмакъ",
+	"vector-action-protect": "Якъламакъ",
 	"vector-view-create": "Яратмакъ",
 	"vector-view-edit": "Тюзлемек",
 	"vector-view-history": "Тарихына къарамакъ",
