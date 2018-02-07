@@ -167,8 +167,15 @@ div.vectorMenu h3 {
 	}
 }
 
+div.vectorMenu .vectorMenuCheckbox:checked + h3 span:after,
 div.vectorMenu.menuForceShow h3 span:after {
 	transform: scaleY( -1 );
+}
+
+div.vectorMenu .vectorMenuCheckbox:focus + h3 {
+	// Simulate browser focus ring
+	outline: dotted 1px; // Firefox style
+	outline: auto -webkit-focus-ring-color; // Webkit style
 }
 
 div.vectorMenu div.menu {
@@ -188,9 +195,13 @@ div.vectorMenu div.menu {
 	z-index: 2;
 }
 
-/* Enable forcing showing of the menu for accessibility */
 div.vectorMenu:hover div.menu,
 div.vectorMenu.menuForceShow div.menu {
+	display: block;
+}
+// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
+// Support: IE8
+div.vectorMenu .vectorMenuCheckbox:checked ~ div.menu {
 	display: block;
 }
 
@@ -245,6 +256,27 @@ div.vectorMenu li.selected a,
 div.vectorMenu li.selected a:visited {
 	color: #222;
 	text-decoration: none;
+}
+
+// Invisible checkbox covering the dropdown menu handle
+.vectorMenuCheckbox {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	// Hide the checkbox completely in browsers that don't support :checked
+	display: none;
+}
+
+:not( :checked ) > .vectorMenuCheckbox {
+	// When the browser supports :checked, display it
+	display: block;
 }
 
 // Expand vectorMenu as basic tabs in IE6

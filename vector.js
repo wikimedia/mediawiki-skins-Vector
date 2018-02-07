@@ -30,6 +30,9 @@ jQuery( function ( $ ) {
 	 */
 	$( 'div.vectorMenu' ).each( function () {
 		var $el = $( this );
+		if ( $el.find( '.vectorMenuCheckbox' ).length ) {
+			return;
+		}
 		$el.find( '> h3 > span' ).parent()
 			.attr( 'tabindex', '0' )
 			// For accessibility, show the menu when the h3 is clicked (bug 24298/46486)

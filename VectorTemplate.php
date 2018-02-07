@@ -357,6 +357,7 @@ class VectorTemplate extends BaseTemplate {
 							}
 						}
 						?>
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
 						<h3 id="p-variants-label">
 							<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
 						</h3>
@@ -400,6 +401,7 @@ class VectorTemplate extends BaseTemplate {
 						echo ' emptyPortlet';
 					}
 					?>" aria-labelledby="p-cactions-label">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
 						<h3 id="p-cactions-label"><span><?php
 							$this->msg( 'vector-more-actions' )
 						?></span></h3>
