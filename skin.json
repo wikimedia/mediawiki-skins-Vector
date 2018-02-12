@@ -40,7 +40,6 @@
 		"skins.vector.styles": {
 			"class": "Vector\\ResourceLoaderLessModule",
 			"targets": [ "desktop", "mobile" ],
-			"position": "top",
 			"styles": {
 				"screen.less": {
 					"media": "screen"
@@ -54,7 +53,6 @@
 
 		"skins.vector.styles.responsive": {
 			"targets": [ "desktop", "mobile" ],
-			"position": "top",
 			"styles": [
 				"responsive.less"
 			]
@@ -64,7 +62,6 @@
 				"collapsibleTabs.js",
 				"vector.js"
 			],
-			"position": "top",
 			"dependencies": [
 				"jquery.throttle-debounce",
 				"jquery.tabIndex"
