@@ -8,7 +8,7 @@
 	"url": "https://www.mediawiki.org/wiki/Skin:Vector",
 	"descriptionmsg": "vector-skin-desc",
 	"namemsg": "skinname-vector",
-	"license-name": "GPL-2.0+",
+	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
 		"MediaWiki": ">= 1.29.0"

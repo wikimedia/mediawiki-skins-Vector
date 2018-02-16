@@ -8,7 +8,7 @@
 		"skin"
 	],
 	"homepage": "https://www.mediawiki.org/wiki/Skin:Vector",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Trevor Parscal"
