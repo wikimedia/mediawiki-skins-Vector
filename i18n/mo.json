@@ -5,6 +5,9 @@
 			"Cybernenea11"
 		]
 	},
+	"vector-action-delete": "Штерӂере",
+	"vector-action-move": "Реденумире",
+	"vector-action-protect": "Протежаре",
 	"vector-view-create": "Креаре",
 	"vector-view-edit": "Редактаре",
 	"vector-view-history": "Историк",
