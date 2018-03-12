@@ -1,7 +1,10 @@
 <?php
-/**
- * VectorHooks.php
- */
+
+namespace Vector;
+
+use OutputPage;
+use SkinTemplate;
+use SkinVector;
 
 /**
  * Hook handlers for Vector skin.
@@ -9,8 +12,7 @@
  * Hook handler method names should be in the form of:
  *	on<HookName>()
  */
-
-class VectorHooks {
+class Hooks {
 	/**
 	 * BeforePageDisplayMobile hook handler
 	 *
