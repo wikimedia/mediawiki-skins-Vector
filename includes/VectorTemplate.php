@@ -223,9 +223,6 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	protected function renderPortals( array $portals ) {
 		// Force the rendering of the following portals
-		if ( !isset( $portals['SEARCH'] ) ) {
-			$portals['SEARCH'] = true;
-		}
 		if ( !isset( $portals['TOOLBOX'] ) ) {
 			$portals['TOOLBOX'] = true;
 		}
