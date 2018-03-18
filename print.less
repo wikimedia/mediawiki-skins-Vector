@@ -29,7 +29,7 @@
 	/* These styles retain the existing typography in screen.less
 	In future (when deploying these styles) we may want to refactor skins.vector.styles
 	to apply certain styles in print as well as screen mode. */
-	#toc,
+	.toc,
 	body {
 		padding: 10px;
 		font-family: @font-family-serif;
@@ -170,8 +170,7 @@
 		}
 	}
 
-	// Using #toc rather than .toc to override default print style
-	#toc {
+	.toc {
 		page-break-before: avoid;
 		page-break-after: avoid;
 		background: none;
