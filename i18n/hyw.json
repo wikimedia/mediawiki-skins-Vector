@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Azniv Stepanian"
+			"Azniv Stepanian",
+			"ArmenBakkalian"
 		]
 	},
+	"vector-view-create": "Ստեղծել",
 	"vector-view-edit": "Խմբագրել",
+	"vector-view-history": "Դիտել պատմութիւնը",
 	"vector-view-view": "Կարդալ",
 	"vector-more-actions": "Աւելին"
 }
