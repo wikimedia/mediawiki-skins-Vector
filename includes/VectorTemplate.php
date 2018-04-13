@@ -268,14 +268,15 @@ class VectorTemplate extends BaseTemplate {
 			$msg = $name;
 		}
 		$msgObj = wfMessage( $msg );
-		$labelId = Sanitizer::escapeId( "p-$name-label" );
+		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
 		?>
-		<div class="portal" role="navigation" id='<?php
-		echo Sanitizer::escapeId( "p-$name" )
-		?>'<?php
+		<div class="portal" role="navigation" id="<?php
+		echo htmlspecialchars( Sanitizer::escapeIdForAttribute( "p-$name" ) )
+		?>"<?php
 		echo Linker::tooltip( 'p-' . $name )
-		?> aria-labelledby='<?php echo $labelId ?>'>
-			<h3<?php $this->html( 'userlangattributes' ) ?> id='<?php echo $labelId ?>'><?php
+		?> aria-labelledby="<?php echo htmlspecialchars( $labelId ) ?>">
+			<h3<?php $this->html( 'userlangattributes' ) ?> id="<?php echo htmlspecialchars( $labelId )
+				?>"><?php
 				echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $msg );
 				?></h3>
 			<div class="body">
