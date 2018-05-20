@@ -44,6 +44,9 @@
 			]
 		}
 	},
+	"SkinLessImportPaths": {
+		"vector": "resources/mediawiki.less"
+	},
 	"MessagesDirs": {
 		"Vector": [
 			"i18n"

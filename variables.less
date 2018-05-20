@@ -1,4 +1,5 @@
 @import 'mediawiki.ui/variables.less';
+@import 'mediawiki.skin.variables.less';
 
 // Sizing calculation primitives.
 @font-size-root: 100%;
@@ -33,7 +34,7 @@
 // Body content uses the user setting in browser / operating system default sans-serif font:
 // For example, Arial on Windows, Roboto on Android.
 // FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
-@font-family-sans: sans-serif;
+// @font-family-sans is set in mediawiki.variables/variables.less
 
 // Fallback for headings, language: ja,he,ko. See T73240, T65817, T65843, T65844, T65827.
 @font-family-sans--fallback: sans-serif;
