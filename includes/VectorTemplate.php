@@ -118,14 +118,12 @@ class VectorTemplate extends BaseTemplate {
 						$this->get( 'newtalk' )
 					);
 				}
+				// Keep this empty `div` for compatibility with gadgets and user scripts
+				// using this place to insert extra elements before.
+				echo Html::element( 'div', [ 'id' => 'jump-to-nav' ] );
 				?>
-				<div id="jump-to-nav" class="mw-jump">
-					<?php $this->msg( 'jumpto' ) ?>
-					<a href="#mw-head"><?php
-						$this->msg( 'jumptonavigation' )
-					?></a><?php $this->msg( 'comma-separator' ) ?>
-					<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
-				</div>
+				<a class="mw-jump-link" href="#mw-head"><?php $this->msg( 'vector-jumptonavigation' ) ?></a>
+				<a class="mw-jump-link" href="#p-search"><?php $this->msg( 'vector-jumptosearch' ) ?></a>
 				<?php
 				$this->html( 'bodycontent' );
 
