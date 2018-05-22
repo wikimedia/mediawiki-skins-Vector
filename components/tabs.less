@@ -68,11 +68,11 @@
 		a {
 			display: block;
 			height: 1.9em;
-			padding-left: 0.625em; // equals `8px` at computed `font-size` of `12.8px`
-			padding-right: 0.625em;
+			padding-left: 0.615em; // equals `8px` at computed `font-size` of `13px` below
+			padding-right: 0.615em;
 			color: @menu-link-color;
 			cursor: pointer;
-			font-size: 0.8em;
+			font-size: 0.8125em; // equals `13px` at browser default of `16px`
 		}
 	}
 
@@ -117,8 +117,8 @@
 	span {
 		position: relative;
 		display: block;
-		font-size: 0.8em;
-		padding-left: 0.625em;
+		font-size: 0.8125em;
+		padding-left: 0.615em;
 		padding-top: 1.25em;
 		padding-right: 16px;
 		font-weight: normal;
@@ -223,7 +223,7 @@ x:default {
 	white-space: nowrap;
 	color: @menu-link-color;
 	cursor: pointer;
-	font-size: 0.8em;
+	font-size: 0.8125em;
 }
 
 .vectorMenu li.selected a,
