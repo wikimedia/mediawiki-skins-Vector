@@ -30,8 +30,7 @@ div.vectorTabs {
 		li {
 			float: left;
 			line-height: 1.125em;
-			/* For IE6, overridden later to display:block by modern browsers */
-			display: inline-block;
+			display: block;
 			height: 100%;
 			margin: 0;
 			padding: 0;
@@ -39,11 +38,6 @@ div.vectorTabs {
 			background-position: bottom left;
 			background-repeat: repeat-x;
 			white-space: nowrap;
-		}
-
-		/* IGNORED BY IE6 which doesn't support child selector */
-		> li {
-			display: block;
 		}
 	}
 
@@ -72,19 +66,13 @@ div.vectorTabs {
 		}
 
 		a {
-			/* For IE6, overridden later to display:block by modern browsers */
-			display: inline-block;
+			display: block;
 			height: 1.9em;
 			padding-left: 0.625em; // equals `8px` at computed `font-size` of `12.8px`
 			padding-right: 0.625em;
 			color: @menu-link-color;
 			cursor: pointer;
 			font-size: 0.8em;
-		}
-
-		/* Ignored by IE6 which doesn't support child selector */
-		> a {
-			display: block;
 		}
 	}
 
@@ -96,15 +84,9 @@ div.vectorTabs {
 		height: 100%;
 
 		a {
-			/* For IE6, overridden later to display:block by modern browsers */
-			display: inline-block;
-			padding-top: 1.25em;
-		}
-
-		/* Ignored by IE6 which doesn't support child selector */
-		> a {
 			float: left;
 			display: block;
+			padding-top: 1.25em;
 		}
 	}
 }
@@ -235,19 +217,13 @@ div.vectorMenu li {
 	line-height: 1em;
 }
 
-/* OVERRIDDEN BY COMPLIANT BROWSERS */
 div.vectorMenu li a {
-	display: inline-block;
+	display: block;
 	padding: 0.625em;
 	white-space: nowrap;
 	color: @menu-link-color;
 	cursor: pointer;
 	font-size: 0.8em;
-}
-
-/* IGNORED BY IE6 */
-div.vectorMenu li > a {
-	display: block;
 }
 
 div.vectorMenu li.selected a,
@@ -275,25 +251,6 @@ div.vectorMenu li.selected a:visited {
 :not( :checked ) > .vectorMenuCheckbox {
 	// When the browser supports :checked, display it
 	display: block;
-}
-
-// Expand vectorMenu as basic tabs in IE6
-// (IE6 doesn't support :hover on DIV)
-* html div.vectorMenu div.menu {
-	display: block;
-	position: static;
-	border: 0;
-}
-* html div#mw-head div.vectorMenu h3 {
-	display: none;
-}
-* html div.vectorMenu li {
-	float: left;
-	line-height: 1.125em;
-	border-right: 1px solid #a7d7f9;
-}
-* html div.vectorMenu li a {
-	padding-top: 1.25em;
 }
 
 @import 'watchstar.less';
