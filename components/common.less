@@ -54,6 +54,12 @@ body {
 		&:lang( ko ) { /* See T65827 */
 			font-family: @content-heading-font-family-generic;
 		}
+
+		/* Burmese (Myanmar) language headlines would be cropped with set `line-height` */
+		/* See T193270 */
+		&:lang( my ) {
+			line-height: normal;
+		}
 	}
 
 	& h1,
