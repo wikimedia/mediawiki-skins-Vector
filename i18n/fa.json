@@ -6,7 +6,8 @@
 			"Huji",
 			"Reza1615",
 			"Zack90",
-			"DEXi"
+			"DEXi",
+			"Alireza Ivaz"
 		]
 	},
 	"skinname-vector": "وکتور",
@@ -17,12 +18,14 @@
 	"vector-action-delete": "حذف",
 	"vector-action-move": "انتقال",
 	"vector-action-protect": "محافظت",
-	"vector-action-undelete": "احیا",
+	"vector-action-undelete": "بازیابی",
 	"vector-action-unprotect": "تغییر سطح حفاظت",
-	"vector-view-create": "ایجاد",
+	"vector-view-create": "ساختن",
 	"vector-view-edit": "ویرایش",
 	"vector-view-history": "نمایش تاریخچه",
 	"vector-view-view": "خواندن",
-	"vector-view-viewsource": "نمایش مبدأ",
+	"vector-view-viewsource": "نمایش خاستگاه",
+	"vector-jumptonavigation": "پرش به ناوبری",
+	"vector-jumptosearch": "پرش به جستجو",
 	"vector-more-actions": "بیشتر"
 }
