@@ -107,10 +107,12 @@
 	background-position: bottom right;
 	font-size: 1em;
 	height: 2.5em;
-	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to act like a real
-	// border. It is necessary for `.vectorMenu .menu` dropdown to align well.
-	padding-right: 0.5em; // equals `8px` at computed `font-size` of `14px` as visually harmonically with `padding-left` in `.vectorMenu h3 span`
-	margin-right: -1px;
+	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to
+	// act like a real border. It is necessary for `.vectorMenu .menu` dropdown to align well.
+	// 0.5em equals `8px` at computed `font-size` of `14px` as visually harmonically with
+	// `padding-left` in `.vectorMenu h3 span`
+	padding: 0 0.5em 0 0;
+	margin: 0 -1px 0 0;
 }
 
 .vectorMenu h3 {
