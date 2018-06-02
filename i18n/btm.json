@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Simartampua"
+			"Simartampua",
+			"Apundung"
 		]
 	},
 	"vector-action-addsection": "Baen tema",
@@ -12,5 +13,5 @@
 	"vector-view-edit": "Pature",
 	"vector-view-history": "Sise sejarah",
 	"vector-view-view": "Baca",
-	"vector-more-actions": "Dope"
+	"vector-more-actions": "Lainna"
 }
