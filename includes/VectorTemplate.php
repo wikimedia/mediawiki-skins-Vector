@@ -429,9 +429,9 @@ class VectorTemplate extends BaseTemplate {
 								User::groupHasPermission( '*', 'edit' )
 							) {
 								$notLoggedIn =
-									Html::rawElement( 'li',
+									Html::element( 'li',
 										[ 'id' => 'pt-anonuserpage' ],
-										$this->getMsg( 'notloggedin' )->escaped()
+										$this->getMsg( 'notloggedin' )->text()
 									);
 							}
 
