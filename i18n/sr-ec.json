@@ -6,7 +6,8 @@
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
 			"Obsuser",
-			"Acamicamacaraca"
+			"Acamicamacaraca",
+			"BadDog"
 		]
 	},
 	"skinname-vector": "Векторска",
@@ -23,6 +24,6 @@
 	"vector-view-edit": "Уреди",
 	"vector-view-history": "Историја",
 	"vector-view-view": "Читај",
-	"vector-view-viewsource": "Изворни код",
+	"vector-view-viewsource": "Изворни кôд",
 	"vector-more-actions": "Више"
 }
