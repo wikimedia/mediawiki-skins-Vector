@@ -5,7 +5,8 @@
 			"Milicevic01",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"Obsuser"
 		]
 	},
 	"skinname-vector": "Vektorska",
@@ -22,6 +23,6 @@
 	"vector-view-edit": "Uredi",
 	"vector-view-history": "Istorija",
 	"vector-view-view": "Čitaj",
-	"vector-view-viewsource": "Izvorni kod",
+	"vector-view-viewsource": "Pogledaj izvornik",
 	"vector-more-actions": "Više"
 }
