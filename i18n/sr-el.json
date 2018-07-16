@@ -10,7 +10,7 @@
 		]
 	},
 	"skinname-vector": "Vektorska",
-	"vector-skin-desc": "Moderno izdanje Monobuka sa svežim izgledom i mnogo korisnih poboljšanja",
+	"vector-skin-desc": "Moderna verzija Monobuka sa svežim izgledom i mnogo korisnih poboljšanja",
 	"vector.css": "/* CSS postavljen ovde će uticati na sve korisnike vektorske teme */",
 	"vector.js": "/* Javaskript postavljen ovde će se učitati za sve one koji koriste vektorsku temu */",
 	"vector-action-addsection": "Dodaj temu",
