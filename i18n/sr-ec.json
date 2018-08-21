@@ -15,7 +15,7 @@
 	"vector.css": "/* CSS постављен овде ће утицати на све кориснике векторске теме */",
 	"vector.js": "/* Јаваскрипт постављен овде ће се учитати за све оне који користе векторску тему */",
 	"vector-action-addsection": "Додај тему",
-	"vector-action-delete": "Обриши",
+	"vector-action-delete": "Избриши",
 	"vector-action-move": "Премести",
 	"vector-action-protect": "Заштити",
 	"vector-action-undelete": "Врати",
