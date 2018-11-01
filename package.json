@@ -5,7 +5,7 @@
 		"doc": "jsduck"
 	},
 	"devDependencies": {
-		"eslint-config-wikimedia": "0.7.2",
+		"eslint-config-wikimedia": "0.8.1",
 		"grunt": "1.0.3",
 		"grunt-banana-checker": "0.6.0",
 		"grunt-eslint": "21.0.0",
