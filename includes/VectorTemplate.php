@@ -357,15 +357,13 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-variants-label">
 							<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
 						</h3>
-						<div class="menu">
-							<ul>
-								<?php
-								foreach ( $this->data['variant_urls'] as $key => $item ) {
-									echo $this->makeListItem( $key, $item );
-								}
-								?>
-							</ul>
-						</div>
+						<ul class="menu">
+							<?php
+							foreach ( $this->data['variant_urls'] as $key => $item ) {
+								echo $this->makeListItem( $key, $item );
+							}
+							?>
+						</ul>
 					</div>
 					<?php
 					break;
@@ -401,15 +399,13 @@ class VectorTemplate extends BaseTemplate {
 						<h3 id="p-cactions-label"><span><?php
 							$this->msg( 'vector-more-actions' )
 						?></span></h3>
-						<div class="menu">
-							<ul<?php $this->html( 'userlangattributes' ) ?>>
-								<?php
-								foreach ( $this->data['action_urls'] as $key => $item ) {
-									echo $this->makeListItem( $key, $item );
-								}
-								?>
-							</ul>
-						</div>
+						<ul class="menu"<?php $this->html( 'userlangattributes' ) ?>>
+							<?php
+							foreach ( $this->data['action_urls'] as $key => $item ) {
+								echo $this->makeListItem( $key, $item );
+							}
+							?>
+						</ul>
 					</div>
 					<?php
 					break;

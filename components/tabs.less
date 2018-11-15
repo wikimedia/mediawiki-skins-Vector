@@ -162,15 +162,18 @@
 }
 
 .vectorMenu .menu {
+	list-style: none none;
+	background-color: @body-background-color;
+	clear: both;
 	// Match the width of the dropdown "heading" (the tab)
 	min-width: 100%;
 	position: absolute;
 	top: 2.5em;
 	left: -1px;
-	background-color: @body-background-color;
+	margin: 0;
 	border: 1px solid #a2a9b1;
 	border-top-width: 0;
-	clear: both;
+	padding: 0;
 	box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 	text-align: left;
 	display: none;
@@ -187,6 +190,7 @@
 	display: block;
 }
 
+// FIXME: `.vectorMenu ul` can be removed with purged HTML cache
 .vectorMenu ul {
 	list-style: none none;
 	padding: 0;
