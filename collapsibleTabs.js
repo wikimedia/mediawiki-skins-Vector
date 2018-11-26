@@ -95,7 +95,7 @@
 			return settings;
 		},
 		handleResize: function () {
-			$.each( $.collapsibleTabs.instances, function ( i, $el ) {
+			$.collapsibleTabs.instances.forEach( function ( $el ) {
 				var data = $.collapsibleTabs.getSettings( $el );
 				if ( data.shifting ) {
 					return;
