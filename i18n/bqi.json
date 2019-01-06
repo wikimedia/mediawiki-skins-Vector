@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mogoeilor"
+			"Mogoeilor",
+			"Isevand"
 		]
 	},
 	"vector-action-addsection": "داسون اضاف کونین",
 	"vector-action-move": "جابجا کردن",
+	"vector-action-protect": "هناڌاری ۉ پٱلڌاری",
 	"vector-view-create": "راس كردن",
 	"vector-view-edit": "ڤیرایئشت کاری",
 	"vector-view-history": "ديئن ڤیرگار",
