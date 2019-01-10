@@ -1,3 +1,5 @@
+@import 'mediawiki.mixins';
+
 /**
  * Styling for namespace tabs (page, discussion) and views (read, edit, view history, watch and other actions)
  */
@@ -149,19 +151,23 @@
 		padding: 0;
 		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 		text-align: left;
-		display: none;
+		opacity: 0;
+		visibility: hidden;
+		.transition( opacity 100ms );
 		// Menus must overlap indicators (z-index: 1) and VisualEditor toolbar (z-index: 2)
 		z-index: 2;
 	}
 
 	&:hover .menu {
-		display: block;
+		opacity: 1;
+		visibility: visible;
 	}
 
 	// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
 	// Support: IE8
 	.vectorMenuCheckbox:checked ~ .menu {
-		display: block;
+		opacity: 1;
+		visibility: visible;
 	}
 
 	// FIXME: `.vectorMenu ul` can be removed with purged HTML cache
