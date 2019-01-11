@@ -143,12 +143,13 @@
 
 			// Remove the element from where it's at and put it in the dropdown menu
 			target = outerData.collapsedContainer;
+			// eslint-disable-next-line jquery/no-animate
 			$moving.css( 'position', 'relative' )
 				.css( ( isRTL ? 'left' : 'right' ), 0 )
 				.animate( { width: '1px' }, 'normal', function () {
 					$( this ).hide();
 					// add the placeholder
-					$( '<span class="placeholder" style="display: none;"></span>' ).insertAfter( this );
+					$( '<span>' ).addClass( 'placeholder' ).css( 'display', 'none' ).insertAfter( this );
 					$( this ).detach().prependTo( target ).data( 'collapsibleTabsSettings', outerData );
 					$( this ).attr( 'style', 'display: list-item;' );
 					expContainerSettings.shifting = false;
@@ -174,6 +175,7 @@
 			expandedWidth = data.expandedWidth;
 			$moving.css( 'position', 'relative' ).css( ( isRTL ? 'right' : 'left' ), 0 ).css( 'width', '1px' );
 			$target.replaceWith(
+				// eslint-disable-next-line jquery/no-animate
 				$moving
 					.detach()
 					.css( 'width', '1px' )
