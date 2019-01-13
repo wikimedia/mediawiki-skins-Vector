@@ -411,11 +411,11 @@ class VectorTemplate extends BaseTemplate {
 					break;
 				case 'PERSONAL':
 					?>
-					<div id="p-personal" role="navigation" class="<?php
+					<div id="p-personal" role="navigation"<?php
 					if ( count( $this->data['personal_urls'] ) == 0 ) {
-						echo ' emptyPortlet';
+						echo ' class="emptyPortlet"';
 					}
-					?>" aria-labelledby="p-personal-label">
+					?> aria-labelledby="p-personal-label">
 						<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
