@@ -161,7 +161,7 @@ class VectorTemplate extends BaseTemplate {
 			<div id="mw-panel">
 				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="<?php
 					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
-					?>" <?php
+					?>"<?php
 					echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
 					?>></a></div>
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
