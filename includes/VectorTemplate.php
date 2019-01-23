@@ -79,9 +79,8 @@ class VectorTemplate extends BaseTemplate {
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 			'html-newtalk' => $this->get( 'newtalk', '' ) ?: null,
 
-			// TODO: Use text() instead of escaped() for these two simple messages.
-			'html-msg-jumptonavigation' => $this->getMsg( 'vector-jumptonavigation' )->escaped(),
-			'html-msg-jumptosearch' => $this->getMsg( 'vector-jumptosearch' )->escaped(),
+			'msg-jumptonavigation' => $this->getMsg( 'vector-jumptonavigation' )->text(),
+			'msg-jumptosearch' => $this->getMsg( 'vector-jumptosearch' )->text(),
 
 			// Result of OutputPage::addHTML calls
 			'html-bodycontent' => $this->get( 'bodycontent' ),
