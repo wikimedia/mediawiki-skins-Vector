@@ -58,10 +58,7 @@ class VectorTemplate extends BaseTemplate {
 		$params = [
 			'html-headelement' => $this->get( 'headelement', '' ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
-			'html-indicators' => ( is_callable( [ $this, 'getIndicators' ] )
-				? $this->getIndicators()
-				: ''
-			),
+			'html-indicators' => $this->getIndicators(),
 			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => !!$this->data['isarticle'],
 
