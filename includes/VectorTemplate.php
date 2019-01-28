@@ -27,9 +27,10 @@
  * @ingroup Skins
  */
 class VectorTemplate extends BaseTemplate {
+	/* Functions */
 
 	/**
-	 * Outputs the entire contents of the HTML page
+	 * Outputs the entire contents of the (X)HTML page
 	 */
 	public function execute() {
 		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
@@ -48,55 +49,102 @@ class VectorTemplate extends BaseTemplate {
 				unset( $this->data['action_urls'][$mode] );
 			}
 		}
+		$this->data['pageLanguage'] =
+			$this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode();
 
-		// Naming conventions for Mustache parameters:
-		// - Prefix "is" for boolean values.
-		// - Prefix "msg-" for interface messages.
-		// - Prefix "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
-		// - Prefix "html-" for raw HTML (in front of other keys, if applicable).
-		// - Conditional values are null if absent.
-		$params = [
-			'html-headelement' => $this->get( 'headelement', '' ),
-			'html-sitenotice' => $this->get( 'sitenotice', null ),
-			'html-indicators' => $this->getIndicators(),
-			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
-			'page-isarticle' => !!$this->data['isarticle'],
-
-			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
-			'html-title' => ( $this->data['title'] != '' ? $this->get( 'title' ) : null ),
-
-			'html-prebodyhtml' => $this->get( 'prebodyhtml', '' ),
-			'msg-tagline' => $this->getMsg( 'tagline' )->text(),
-			// TODO: mediawiki/SkinTemplate should expose langCode and langDir properly.
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			// From OutputPage::getSubtitle()
-			'html-subtitle' => $this->get( 'subtitle', '' ),
-
-			// TODO: Use directly Skin::getUndeleteLink() directly.
-			// Always returns string, cast to null if empty.
-			'html-undelete' => $this->get( 'undelete', null ) ?: null,
-
-			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
-			'html-newtalk' => $this->get( 'newtalk', '' ) ?: null,
-
-			'msg-jumptonavigation' => $this->getMsg( 'vector-jumptonavigation' )->text(),
-			'msg-jumptosearch' => $this->getMsg( 'vector-jumptosearch' )->text(),
-
-			// Result of OutputPage::addHTML calls
-			'html-bodycontent' => $this->get( 'bodycontent' ),
-
-			'html-printfooter' => $this->get( 'printfooter', null ),
-			'html-catlinks' => $this->get( 'catlinks', '' ),
-			'html-dataAfterContent' => $this->get( 'dataAfterContent', '' ),
-			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
-			'html-debuglog' => $this->get( 'debughtml', '' ),
-			// From BaseTemplate::getTrail (handles bottom JavaScript)
-			'html-printtail' => $this->getTrail(),
-		];
-
-		// TODO: Convert the rest to Mustache
-		ob_start();
+		// Output HTML Page
+		$this->html( 'headelement' );
 		?>
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<?php
+			if ( $this->data['sitenotice'] ) {
+				echo Html::rawElement( 'div',
+					[
+						'id' => 'siteNotice',
+						'class' => 'mw-body-content',
+					],
+					// Raw HTML
+					$this->get( 'sitenotice' )
+				);
+			}
+			echo $this->getIndicators();
+			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
+			if ( $this->data['title'] != '' ) {
+				echo Html::rawElement( 'h1',
+					[
+						'id' => 'firstHeading',
+						'class' => 'firstHeading',
+						'lang' => $this->get( 'pageLanguage' ),
+					],
+					// Raw HTML
+					$this->get( 'title' )
+				);
+			}
+
+			$this->html( 'prebodyhtml' );
+			?>
+			<div id="bodyContent" class="mw-body-content">
+				<?php
+				if ( $this->data['isarticle'] ) {
+					echo Html::element( 'div',
+						[
+							'id' => 'siteSub',
+							'class' => 'noprint',
+						],
+						$this->getMsg( 'tagline' )->text()
+					);
+				}
+				?>
+				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php
+					$this->html( 'subtitle' )
+				?></div>
+				<?php
+				if ( $this->data['undelete'] ) {
+					echo Html::rawElement( 'div',
+						[ 'id' => 'contentSub2' ],
+						// Raw HTML
+						$this->get( 'undelete' )
+					);
+				}
+				if ( $this->data['newtalk'] ) {
+					echo Html::rawElement( 'div',
+						[ 'class' => 'usermessage' ],
+						// Raw HTML
+						$this->get( 'newtalk' )
+					);
+				}
+				// Keep this empty `div` for compatibility with gadgets and user scripts
+				// using this place to insert extra elements before.
+				echo Html::element( 'div', [ 'id' => 'jump-to-nav' ] );
+				?>
+				<a class="mw-jump-link" href="#mw-head"><?php $this->msg( 'vector-jumptonavigation' ) ?></a>
+				<a class="mw-jump-link" href="#p-search"><?php $this->msg( 'vector-jumptosearch' ) ?></a>
+				<?php
+				$this->html( 'bodycontent' );
+
+				if ( $this->data['printfooter'] ) {
+					?>
+					<div class="printfooter">
+						<?php $this->html( 'printfooter' ); ?>
+					</div>
+				<?php
+				}
+
+				if ( $this->data['catlinks'] ) {
+					$this->html( 'catlinks' );
+				}
+
+				if ( $this->data['dataAfterContent'] ) {
+					$this->html( 'dataAfterContent' );
+				}
+				?>
+				<div class="visualClear"></div>
+				<?php $this->html( 'debughtml' ); ?>
+			</div>
+		</div>
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 			<div id="mw-head">
@@ -157,13 +205,11 @@ class VectorTemplate extends BaseTemplate {
 			?>
 			<div style="clear: both;"></div>
 		</div>
-		<?php
-		$params['html-unported'] = ob_get_contents();
-		ob_end_clean();
+		<?php $this->printTrail(); ?>
 
-		// Prepare and output the HTML response
-		$templates = new TemplateParser( __DIR__ . '/templates' );
-		echo $templates->processTemplate( 'index', $params );
+	</body>
+</html>
+<?php
 	}
 
 	/**
