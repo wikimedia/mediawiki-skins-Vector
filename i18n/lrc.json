@@ -5,7 +5,7 @@
 			"Beyronvan"
 		]
 	},
-	"vector-action-addsection": "داسون اضاف بكيد",
+	"vector-action-addsection": "سالفاٛ اْزاف بٱکؽد",
 	"vector-action-delete": "پاکسا کردن",
 	"vector-action-move": "جا ڤ جا بۊئیت",
 	"vector-action-protect": "پر و پیم بكيد",
@@ -13,8 +13,8 @@
 	"vector-action-unprotect": "حمايت آلشت بكيد",
 	"vector-view-create": "راس كردن",
 	"vector-view-edit": "ڤیرایشت",
-	"vector-view-history": "دیاٛن ڤیرگار",
-	"vector-view-view": "هنن",
+	"vector-view-history": "دیین ڤیرگار",
+	"vector-view-view": "ڤٱناْ(هٱناْ)",
 	"vector-view-viewsource": "سرچشمه نه بوينيت",
-	"vector-more-actions": "بیشتر"
+	"vector-more-actions": "بؽشتر"
 }
