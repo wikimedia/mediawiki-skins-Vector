@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Mogoeilor",
-			"Beyronvan"
+			"Beyronvan",
+			"Lorestani"
 		]
 	},
-	"vector-action-addsection": "سالفاٛ اْزاف بٱکؽد",
+	"vector-action-addsection": "سالفٱ اْزاف بٱکؽت",
 	"vector-action-delete": "پاکسا کردن",
 	"vector-action-move": "جا ڤ جا بۊئیت",
 	"vector-action-protect": "پر و پیم بكيد",
