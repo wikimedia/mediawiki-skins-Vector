@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Youssoufkadialy"
+			"Youssoufkadialy",
+			"Lanciné.kounfantoh.fofana"
 		]
 	},
+	"vector-view-create": "ߟߊߘߊ߲߫",
 	"vector-view-edit": "ߊ߬ ߡߊߝߊ߬ߟߋ߲߬",
 	"vector-view-history": "ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߫ ߦߌ߬ߘߊ߬",
 	"vector-view-view": "ߊ߬ ߞߊ߬ߙߊ߲߬",
