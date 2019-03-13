@@ -1,7 +1,7 @@
 /**
  * Vector-specific scripts
  */
-/* eslint-disable jquery/no-global-selector */
+/* eslint-disable no-jquery/no-global-selector */
 $( function () {
 
 	/**
@@ -33,7 +33,7 @@ $( function () {
 			// If the dropdown was hidden, show it
 			if ( $cactions.hasClass( 'emptyPortlet' ) ) {
 				$cactions.removeClass( 'emptyPortlet' );
-				// eslint-disable-next-line jquery/no-animate
+				// eslint-disable-next-line no-jquery/no-animate
 				$cactions.find( 'h3' )
 					.css( 'width', '1px' )
 					.animate( { width: initialCactionsWidth() }, 'normal' );
@@ -42,7 +42,7 @@ $( function () {
 		.on( 'beforeTabExpand', function () {
 			// If we're removing the last child node right now, hide the dropdown
 			if ( $cactions.find( 'li' ).length === 1 ) {
-				// eslint-disable-next-line jquery/no-animate
+				// eslint-disable-next-line no-jquery/no-animate
 				$cactions.find( 'h3' ).animate( { width: '1px' }, 'normal', function () {
 					$( this ).attr( 'style', '' )
 						.parent().addClass( 'emptyPortlet' );

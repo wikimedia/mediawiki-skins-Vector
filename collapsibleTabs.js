@@ -143,7 +143,7 @@
 
 			// Remove the element from where it's at and put it in the dropdown menu
 			target = outerData.collapsedContainer;
-			// eslint-disable-next-line jquery/no-animate
+			// eslint-disable-next-line no-jquery/no-animate
 			$moving.css( 'position', 'relative' )
 				.css( ( isRTL ? 'left' : 'right' ), 0 )
 				.animate( { width: '1px' }, 'normal', function () {
@@ -175,7 +175,7 @@
 			expandedWidth = data.expandedWidth;
 			$moving.css( 'position', 'relative' ).css( ( isRTL ? 'right' : 'left' ), 0 ).css( 'width', '1px' );
 			$target.replaceWith(
-				// eslint-disable-next-line jquery/no-animate
+				// eslint-disable-next-line no-jquery/no-animate
 				$moving
 					.detach()
 					.css( 'width', '1px' )
