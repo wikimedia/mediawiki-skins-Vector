@@ -16,9 +16,4 @@
  *
  */
 
-$cfg = require __DIR__ . '/../../vendor/mediawiki/mediawiki-phan-config/src/config.php';
-
-// phan doesn't support @inheritDoc yet
-$cfg['suppress_issue_types'][] = 'PhanParamSignatureMismatch';
-
-return $cfg;
+return require __DIR__ . '/../vendor/mediawiki/mediawiki-phan-config/src/config.php';
