@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"LeGuyanaisPure"
+			"LeGuyanaisPure",
+			"Léon973"
 		]
 	},
 	"vector-action-addsection": "Ajouté roun sijè",
@@ -9,7 +10,7 @@
 	"vector-action-move": "Rounonmen",
 	"vector-action-protect": "Protéjé",
 	"vector-view-create": "Kréyé",
-	"vector-view-edit": "Chanjé",
+	"vector-view-edit": "Modifyé",
 	"vector-view-history": "Afiché listorik",
 	"vector-view-view": "Li",
 	"vector-more-actions": "Plis"
