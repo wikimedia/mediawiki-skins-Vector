@@ -62,8 +62,9 @@ class VectorTemplate extends BaseTemplate {
 			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$this->data['isarticle'],
 
-			// Loose comparison with '!=' is intentional, to catch null and false too, but not '0'
-			'html-title' => ( $this->data['title'] != '' ? $this->get( 'title' ) : null ),
+			// Remember that the string '0' is a valid title.
+			// From OutputPage::getPageTitle, via ::setPageTitle().
+			'html-title' => $this->get( 'title', '' ),
 
 			'html-prebodyhtml' => $this->get( 'prebodyhtml', '' ),
 			'msg-tagline' => $this->getMsg( 'tagline' )->text(),
