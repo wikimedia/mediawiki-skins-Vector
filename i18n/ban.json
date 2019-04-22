@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Adi Mayndra",
-			"BASAbali"
+			"BASAbali",
+			"Carma citrawati"
 		]
 	},
 	"vector-action-addsection": "imbuhin indik wacana",
@@ -13,5 +14,6 @@
 	"vector-view-edit": "mecikang",
 	"vector-view-history": "indik sane lintang",
 	"vector-view-view": "Waca",
-	"vector-view-viewsource": "cingak witnyane"
+	"vector-view-viewsource": "cingak witnyane",
+	"vector-more-actions": "lianan"
 }
