@@ -4,17 +4,18 @@
 			"Adi Mayndra",
 			"BASAbali",
 			"Carma citrawati",
-			"Joseagush"
+			"Joseagush",
+			"NoiX180"
 		]
 	},
 	"vector-action-addsection": "imbuhin indik wacana",
 	"vector-action-delete": "ngapus",
 	"vector-action-move": "kisidang",
 	"vector-action-protect": "nyaga",
-	"vector-view-create": "ngawe",
-	"vector-view-edit": "mecikang",
-	"vector-view-history": "indik sane lintang",
-	"vector-view-view": "Waca",
-	"vector-view-viewsource": "cingak witnyane",
+	"vector-view-create": "Karyanin",
+	"vector-view-edit": "Uah",
+	"vector-view-history": "Cingak babad",
+	"vector-view-view": "Wacén",
+	"vector-view-viewsource": "Cingak wit",
 	"vector-more-actions": "Lianan"
 }
