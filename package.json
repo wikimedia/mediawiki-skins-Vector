@@ -10,6 +10,6 @@
 		"grunt-banana-checker": "0.7.0",
 		"grunt-eslint": "21.0.0",
 		"grunt-stylelint": "0.10.1",
-		"stylelint-config-wikimedia": "0.5.0"
+		"stylelint-config-wikimedia": "0.6.0"
 	}
 }
