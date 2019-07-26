@@ -94,7 +94,8 @@
 			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
 			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "skinStyles/ooui.less",
-			"mediawiki.special": "skinStyles/mediawiki.special.less"
+			"mediawiki.special": "skinStyles/mediawiki.special.less",
+			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less"
 		}
 	},
 	"config": {
