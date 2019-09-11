@@ -4,8 +4,8 @@
  * @class jQuery.plugin.collapsibleTabs
  */
 ( function () {
-	var isRTL = document.documentElement.dir === 'rtl',
-		boundEvent = false,
+	var boundEvent,
+		isRTL = document.documentElement.dir === 'rtl',
 		rAF = window.requestAnimationFrame || setTimeout;
 
 	/**
@@ -50,7 +50,7 @@
 		// if we haven't already bound our resize handler, bind it now
 		if ( !boundEvent ) {
 			boundEvent = true;
-			$( window ).on( 'resize', $.debounce( 100, function () {
+			$( window ).on( 'resize', mw.util.debounce( 100, function () {
 				rAF( $.collapsibleTabs.handleResize );
 			} ) );
 		}

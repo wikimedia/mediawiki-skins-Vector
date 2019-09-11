@@ -63,7 +63,7 @@
 				"vector.js"
 			],
 			"dependencies": [
-				"jquery.throttle-debounce",
+				"mediawiki.util",
 				"jquery.tabIndex"
 			]
 		}
