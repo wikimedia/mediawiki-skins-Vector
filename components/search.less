@@ -38,15 +38,16 @@
 }
 
 // The search input.
+
 #searchInput {
 	width: 100%;
 	.box-sizing( border-box );
 	border: @border-width-base solid @colorGray10;
 	border-radius: @borderRadius;
 	// `padding-right` equals to `#searchbutton` width below.
-	padding: 0.4em 1.818em 0.4em 0.4em;
+	padding: 0.4em @width-search-button 0.4em 0.4em;
 	.box-shadow( @boxShadowWidget );
-	font-size: 0.8125em; // Equals to `13px` at browser default of `16px`.
+	font-size: @font-size-search-input;
 	direction: ltr;
 	.transition( ~'border-color 250ms, box-shadow 250ms' );
 	// Support: Webkit browsers. Undo the proprietary styles applied to `type=search` fields,
@@ -84,12 +85,15 @@
 	position: absolute;
 	top: @border-width-base;
 	bottom: @border-width-base;
+	// `@border-width-base * 2` is in regards to harmonize position start and end.
 	right: @border-width-base;
-	min-width: 20px;
-	width: 1.818em; // Equals to `20px` at `11px` base.
+	min-width: 24px;
+	width: @width-search-button;
 	border: 0;
 	padding: 0;
 	cursor: pointer;
+	// Equal `font-size` to search input for `padding` calculationo.
+	font-size: @font-size-search-input;
 	/* Opera 12 on RTL flips the text in a funny way without this. */
 	/* @noflip */
 	direction: ltr;
