@@ -1,6 +1,6 @@
 @import 'mediawiki.ui/variables';
 
-@html-font-size: 100%;
+@font-size-root: 100%;
 @font-size-browser: 16; // Assumed browser default of `16px`
 
 @font-family-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
@@ -44,3 +44,7 @@
 @background-position-menu-personal-icon: left ( 4 / @font-size-browser / @font-size-menu-personal );
 @font-size-menu-personal: 0.75em;
 @line-height-menu-personal: 14 / @font-size-browser / @font-size-menu-personal; // equals `1.667em`≈`14px`
+
+// Search
+@width-search-button: 24 / @font-size-browser / @font-size-search-input;
+@font-size-search-input: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
