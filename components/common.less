@@ -15,7 +15,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: @content-font-family;
+	font-family: @font-family-sans;
 }
 
 body {
@@ -48,17 +48,17 @@ body {
 	& h1,
 	&-content h1,
 	&-content h2 {
-		font-family: @content-heading-font-family;
+		font-family: @font-family-serif;
 		line-height: @heading-line-height;
 		margin-bottom: 0.25em;
 		padding: 0;
 
-		/* Fallback heading font for scripts which render poorly in @content-heading-font-family. */
-		/* See T73240 */
+		// Fallback heading font for scripts which render poorly in `@font-family-serif`.
+		// See T73240
 		&:lang( ja ), /* See T65817 */
 		&:lang( he ), /* See T65843 and T65844 */
 		&:lang( ko ) { /* See T65827 */
-			font-family: @content-heading-font-family-generic;
+			font-family: @font-family-sans--fallback;
 		}
 
 		/* Burmese (Myanmar) language headlines would be cropped with set `line-height` */
@@ -141,15 +141,15 @@ body {
 	}
 
 	.toc h2 {
+		font-family: @font-family-sans;
 		font-size: 100%; /* (reset) */
-		font-family: @content-font-family;
 	}
 }
 
 /* Allow edit sections outside of mw-body-content (T160269) */
 .mw-editsection,
 .mw-editsection-like {
-	font-family: @content-font-family;
+	font-family: @font-family-sans;
 }
 
 /* Hide empty portlets */
