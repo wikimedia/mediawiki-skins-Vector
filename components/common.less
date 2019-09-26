@@ -70,7 +70,7 @@ body {
 
 	& h1,
 	&-content h1 {
-		font-size: @content-heading-font-size;
+		font-size: @font-size-heading-first;
 	}
 
 	.firstHeading {
@@ -80,8 +80,8 @@ body {
 
 	.mw-indicators {
 		float: right;
+		font-size: @font-size-base;
 		line-height: @content-line-height;
-		font-size: @content-font-size;
 		/* Ensure that this is displayed on top of .mw-body-content and clickable */
 		position: relative;
 		z-index: 1;
@@ -97,8 +97,8 @@ body {
 
 .mw-body-content {
 	position: relative;
+	font-size: @font-size-base;
 	line-height: @content-line-height;
-	font-size: @content-font-size;
 	z-index: 0;
 
 	p {
@@ -111,8 +111,8 @@ body {
 	}
 
 	h2 {
-		font-size: 1.5em;
 		margin-top: 1em;
+		font-size: @font-size-heading-2;
 	}
 
 	h3,
@@ -126,7 +126,7 @@ body {
 	}
 
 	h3 {
-		font-size: 1.2em;
+		font-size: @font-size-heading-3;
 	}
 
 	h3,
@@ -137,12 +137,12 @@ body {
 	h4,
 	h5,
 	h6 {
-		font-size: 100%; /* (reset) */
+		font-size: @font-size-reset; // Reset.
 	}
 
 	.toc h2 {
 		font-family: @font-family-sans;
-		font-size: 100%; /* (reset) */
+		font-size: @font-size-reset; // Reset.
 	}
 }
 
@@ -168,5 +168,5 @@ pre,
 
 /* Site Notice (includes notices from CentralNotice extension) */
 #siteNotice {
-	font-size: 0.8em;
+	font-size: @font-size-site-notice;
 }

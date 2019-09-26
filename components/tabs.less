@@ -72,7 +72,7 @@
 			padding-left: 0.615em; // Equals `8px` at computed `font-size` of `13px` below
 			padding-right: 0.615em;
 			cursor: pointer;
-			font-size: 0.8125em; // Equals `13px` at browser default of `16px`
+			font-size: @font-size-tabs;
 		}
 	}
 
@@ -104,10 +104,10 @@
 		span {
 			position: relative;
 			display: block;
-			font-size: 0.8125em;
 			padding-left: 0.615em;
 			padding-top: 1.25em;
 			padding-right: 16px;
+			font-size: @font-size-tabs;
 			font-weight: normal;
 			color: #444;
 
@@ -182,7 +182,7 @@
 			padding: 0.625em;
 			white-space: nowrap;
 			cursor: pointer;
-			font-size: 0.8125em;
+			font-size: @font-size-tabs;
 		}
 
 		&.selected a,
@@ -198,7 +198,7 @@
 	.background-image('images/tab-break.png');
 	background-repeat: no-repeat;
 	background-position: bottom right;
-	font-size: 1em;
+	font-size: @font-size-reset;
 	height: 2.5em;
 	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to
 	// act like a real border. It is necessary for `.vectorMenu .menu` dropdown to align well.

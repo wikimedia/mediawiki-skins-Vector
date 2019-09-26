@@ -72,11 +72,11 @@
 
 /* Panel */
 #mw-panel {
-	font-size: @menu-main-font-size;
 	position: absolute;
 	top: 0;
 	width: 10em;
 	left: 0;
+	font-size: @font-size-menu-main;
 
 	.portal {
 		margin: 0 0.6em 0 0.7em;
@@ -86,13 +86,13 @@
 		background-repeat: no-repeat;
 
 		h3 {
-			font-size: @menu-main-heading-font-size;
 			color: @menu-main-heading-color;
 			font-weight: normal;
-			margin: 0.5em 0 0 (@menu-main-body-margin-left/@menu-main-heading-font-size);
+			margin: 0.5em 0 0 ( @menu-main-body-margin-left / @font-size-menu-main-heading );
 			padding: 0.25em 0;
 			cursor: default;
 			border: 0;
+			font-size: @font-size-menu-main-heading;
 		}
 
 		.body {
@@ -111,7 +111,7 @@
 				line-height: 1.125em;
 				margin: 0;
 				padding: 0.25em 0;
-				font-size: @menu-main-body-font-size;
+				font-size: @font-size-menu-main-body;
 				word-wrap: break-word;
 
 				a {
