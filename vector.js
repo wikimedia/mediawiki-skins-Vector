@@ -20,11 +20,6 @@ $( function () {
 
 	mw.requestIdleCallback( initialCactionsWidth );
 
-	/**
-	 * Focus search input at the very end
-	 */
-	$( '#searchInput' ).attr( 'tabindex', $( document ).lastTabIndex() + 1 );
-
 	// Bind callback functions to animate our drop down menu in and out
 	// and then call the collapsibleTabs function on the menu
 	$tabContainer
