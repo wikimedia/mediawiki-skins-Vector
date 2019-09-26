@@ -16,12 +16,12 @@
 /* Head */
 #mw-page-base {
 	height: 5em;
-	background-position: bottom left;
-	background-repeat: repeat-x;
+	background-color: @background-color-base;
 	/* This image is only a fallback (for IE 6-9), so we do not @embed it. */
 	background-image: url( images/page-fade.png );
-	.vertical-gradient( @body-background-color, @menu-background-color, 50%, 100% );
-	background-color: @body-background-color;
+	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
+	background-position: bottom left;
+	background-repeat: repeat-x;
 }
 
 #mw-head-base {
@@ -115,10 +115,10 @@
 				word-wrap: break-word;
 
 				a {
-					color: @menu-main-body-link-color;
+					color: @color-link;
 
 					&:visited {
-						color: @menu-main-body-link-visited-color;
+						color: @color-link-visited;
 					}
 				}
 			}

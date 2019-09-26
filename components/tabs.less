@@ -53,7 +53,7 @@
 
 			a,
 			a:visited {
-				color: #222;
+				color: @color-link-selected;
 				text-decoration: none;
 			}
 		}
@@ -66,11 +66,11 @@
 		}
 
 		a {
+			color: @color-link;
 			display: block;
 			height: 1.9em;
 			padding-left: 0.615em; // Equals `8px` at computed `font-size` of `13px` below
 			padding-right: 0.615em;
-			color: @menu-link-color;
 			cursor: pointer;
 			font-size: 0.8125em; // Equals `13px` at browser default of `16px`
 		}
@@ -128,7 +128,7 @@
 
 		&:hover span,
 		&:focus span {
-			color: @content-font-color;
+			color: @color-base;
 
 			&:after {
 				opacity: 1;
@@ -138,7 +138,7 @@
 
 	.menu {
 		list-style: none none;
-		background-color: @body-background-color;
+		background-color: @background-color-base;
 		clear: both;
 		// Match the width of the dropdown "heading" (the tab)
 		min-width: 100%;
@@ -177,17 +177,17 @@
 		line-height: 1em;
 
 		a {
+			color: @color-link;
 			display: block;
 			padding: 0.625em;
 			white-space: nowrap;
-			color: @menu-link-color;
 			cursor: pointer;
 			font-size: 0.8125em;
 		}
 
 		&.selected a,
 		&.selected a:visited {
-			color: #222;
+			color: @color-link-selected;
 			text-decoration: none;
 		}
 	}
