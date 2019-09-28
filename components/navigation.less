@@ -84,7 +84,7 @@
 		h3 {
 			color: @menu-main-heading-color;
 			font-weight: normal;
-			margin: 0.5em 0 0 ( @menu-main-body-margin-left / @font-size-menu-main-heading );
+			margin: 0.5em 0 0 ( @margin-left-menu-main-body / @font-size-menu-main-heading );
 			padding: 0.25em 0;
 			cursor: default;
 			border: 0;
@@ -92,7 +92,7 @@
 		}
 
 		.body {
-			margin-left: @menu-main-body-margin-left;
+			margin-left: @margin-left-menu-main-body;
 			padding-top: 0;
 			background-image: url( images/portal-break.png );
 			background-repeat: no-repeat;
@@ -100,7 +100,7 @@
 			ul {
 				list-style: none none;
 				margin: 0;
-				padding: @menu-main-body-padding;
+				padding-top: 0.3em;
 			}
 
 			li {
@@ -132,7 +132,7 @@
 
 		.body {
 			background-image: none;
-			margin-left: @menu-main-body-margin-left;
+			margin-left: @margin-left-menu-main-body;
 		}
 	}
 }
