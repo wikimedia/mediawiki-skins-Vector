@@ -38,10 +38,10 @@ body {
 
 .mw-body {
 	/* Border on top, left, and bottom side */
-	border: 1px solid @content-border-color;
+	border: @border-width-base @border-style-base @border-color-content;
 	border-right-width: 0;
 	/* Merge the border with tabs' one (in their background image) */
-	margin-top: -1px;
+	margin-top: -@border-width-base;
 
 	// h1's can exist outside of mw-body-content so some heading styles
 	// need to be defined in mw-body as well
