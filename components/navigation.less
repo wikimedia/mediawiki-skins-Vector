@@ -1,5 +1,5 @@
 @import 'mediawiki.mixins';
-@import 'personalMenu';
+@import 'personalNavigation';
 @import 'search';
 @import 'tabs';
 
@@ -72,7 +72,7 @@
 	top: 0;
 	width: 10em;
 	left: 0;
-	font-size: @font-size-menu-main;
+	font-size: @font-size-nav-main;
 
 	.portal {
 		margin: 0 0.6em 0 0.7em;
@@ -82,17 +82,17 @@
 		background-repeat: no-repeat;
 
 		h3 {
-			color: @color-navigation-subtle;
+			color: @color-nav-subtle;
 			font-weight: normal;
-			margin: 0.5em 0 0 ( @margin-left-menu-main-body / @font-size-menu-main-heading );
+			margin: 0.5em 0 0 ( @margin-left-nav-main-body / @font-size-nav-main-heading );
 			padding: 0.25em 0;
 			cursor: default;
 			border: 0;
-			font-size: @font-size-menu-main-heading;
+			font-size: @font-size-nav-main-heading;
 		}
 
 		.body {
-			margin-left: @margin-left-menu-main-body;
+			margin-left: @margin-left-nav-main-body;
 			padding-top: 0;
 			background-image: url( images/portal-break.png );
 			background-repeat: no-repeat;
@@ -106,8 +106,8 @@
 			li {
 				margin: 0;
 				padding: 0.25em 0;
-				font-size: @font-size-menu-main-body;
-				line-height: @line-height-navigation;
+				font-size: @font-size-nav-main-body;
+				line-height: @line-height-nav;
 				word-wrap: break-word;
 
 				a {
@@ -132,7 +132,7 @@
 
 		.body {
 			background-image: none;
-			margin-left: @margin-left-menu-main-body;
+			margin-left: @margin-left-nav-main-body;
 		}
 	}
 }
