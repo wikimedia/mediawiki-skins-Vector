@@ -41,30 +41,6 @@
 		line-height: @line-height-nav;
 		white-space: nowrap;
 
-		&.new {
-			a,
-			a:visited {
-				color: @color-link-new;
-			}
-		}
-
-		&.selected {
-			.background-image('images/tab-current-fade.png');
-
-			a,
-			a:visited {
-				color: @color-link-selected;
-				text-decoration: none;
-			}
-		}
-
-		&.icon {
-			a {
-				background-position: bottom right;
-				background-repeat: no-repeat;
-			}
-		}
-
 		a {
 			color: @color-link;
 			display: block;
@@ -73,6 +49,30 @@
 			padding-right: 0.615em;
 			cursor: pointer;
 			font-size: @font-size-tabs;
+		}
+	}
+
+	.new {
+		a,
+		a:visited {
+			color: @color-link-new;
+		}
+	}
+
+	.selected {
+		.background-image('images/tab-current-fade.png');
+
+		a,
+		a:visited {
+			color: @color-link-selected;
+			text-decoration: none;
+		}
+	}
+
+	.icon {
+		a {
+			background-position: bottom right;
+			background-repeat: no-repeat;
 		}
 	}
 
@@ -184,12 +184,12 @@
 			cursor: pointer;
 			font-size: @font-size-tabs;
 		}
+	}
 
-		&.selected a,
-		&.selected a:visited {
-			color: @color-link-selected;
-			text-decoration: none;
-		}
+	.selected a,
+	.selected a:visited {
+		color: @color-link-selected;
+		text-decoration: none;
 	}
 }
 
