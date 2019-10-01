@@ -92,8 +92,10 @@
 		.body {
 			margin-left: @margin-left-nav-main-body;
 			padding-top: 0;
-			background-image: url( images/portal-break.png );
+			background-image: url( images/portal-separator.png ); // Support: IE 8 & 9, Fx 3.6-15, Safari 5.1-6, Chrome 10-25
+			background-image: linear-gradient( to right, transparent 0, #c8ccd1 35%, #c8ccd1 70%, transparent 100% ); // Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
 			background-repeat: no-repeat;
+			background-size: 100% @border-width-base;
 
 			ul {
 				list-style: none none;
