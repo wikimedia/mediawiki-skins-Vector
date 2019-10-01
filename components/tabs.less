@@ -6,12 +6,11 @@
 
 /* Namespaces and Views */
 .vectorTabs {
+	// Tab separator: Outer start border (left in LTR) of tab row.
+	background-position: left bottom;
 	float: left;
 	height: 2.5em;
-	.background-image('images/tab-break.png');
-	background-position: bottom left;
-	background-repeat: no-repeat;
-	padding-left: 1px;
+	padding-left: @border-width-base;
 
 	/* Navigation Labels */
 	h3 {
@@ -24,20 +23,19 @@
 		list-style: none none;
 		margin: 0;
 		padding: 0;
-		.background-image('images/tab-break.png');
-		background-position: right bottom;
-		background-repeat: no-repeat;
 	}
 
 	li {
+		// Tab fade background: Fade inside from light grey to white.
+		background-image: url( images/tab-normal-fade.png ); // Support: IE 8 & 9, Fx 3.6-15, Safari 5.1-6, Chrome 10-25
+		background-image: linear-gradient( to top, @border-color-content--tabs-inactive 0, #e8f2f8 1px, #fff 100% ); // Support: Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
+		background-position: left bottom;
+		background-repeat: repeat-x;
 		float: left;
 		display: block;
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		.background-image('images/tab-normal-fade.png');
-		background-position: bottom left;
-		background-repeat: repeat-x;
 		line-height: @line-height-nav;
 		white-space: nowrap;
 
@@ -60,7 +58,10 @@
 	}
 
 	.selected {
-		.background-image('images/tab-current-fade.png');
+		// Replace tab fade with flat color (matching top of would-be fade).
+		background-image: url( images/tab-current-fade.png );
+		// Overwrite above in browsers that support `rgba()`.
+		background: rgba( 255, 255, 255, 1 ); // stylelint-disable-line declaration-block-no-shorthand-property-overrides
 
 		a,
 		a:visited {
@@ -71,16 +72,15 @@
 
 	.icon {
 		a {
-			background-position: bottom right;
+			background-position: right bottom;
 			background-repeat: no-repeat;
 		}
 	}
 
+	// Tab separator: Border between tabs and outer right border.
 	span {
+		background-position: right bottom;
 		display: inline-block;
-		.background-image('images/tab-break.png');
-		background-position: bottom right;
-		background-repeat: no-repeat;
 		height: 100%;
 
 		a {
@@ -194,18 +194,31 @@
 }
 
 #mw-head .vectorMenu h3 {
+	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
+	background-position: right bottom;
 	float: left;
-	.background-image('images/tab-break.png');
-	background-repeat: no-repeat;
-	background-position: bottom right;
 	font-size: @font-size-reset;
 	height: 2.5em;
+	margin: 0 -@border-width-base 0 0;
 	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to
 	// act like a real border. It is necessary for `.vectorMenu .menu` dropdown to align well.
 	// 0.5em equals `8px` at computed `font-size` of `14px` as visually harmonically with
 	// `padding-left` in `.vectorMenu h3 span`
 	padding: 0 0.5em 0 0;
-	margin: 0 -1px 0 0;
+}
+
+// Tab Separators
+// `.vectorTabs`: Outer start border (left in LTR) of tab row.
+// `.vectorTabs span`: Border between tabs and outer end (right in LTR) border.
+// `#mw-head .vectorMenu h3`: // Outer end (right in LTR) border of "Actions" menu.
+.vectorTabs,
+.vectorTabs span,
+#mw-head .vectorMenu h3 {
+	background-image: url( images/tab-separator.png );
+	background-image: linear-gradient( to bottom, rgba( 167, 215, 249, 0 ) 0, @border-color-content 100% );
+	background-repeat: no-repeat;
+	// Contain gradient to 1px × 100% size and draw from top to bottom-left or -right corner.
+	background-size: @border-width-base 100%;
 }
 
 // Invisible checkbox covering the dropdown menu handle
