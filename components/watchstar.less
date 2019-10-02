@@ -6,6 +6,8 @@
 .vectorTabs {
 	// `#ca-unwatch` & `#ca-watch` both carry `.mw-watchlink` as well.
 	.mw-watchlink.icon a {
+		background-position: 5px 60%;
+		background-repeat: no-repeat;
 		margin: 0;
 		padding: 0;
 		display: block;
@@ -15,8 +17,6 @@
 		padding-top: 2.5em / 0.8125;
 		height: 0;
 		overflow: hidden;
-		background-position: 5px 60%;
-		background-repeat: no-repeat;
 	}
 
 	#ca-unwatch.icon a {
@@ -41,12 +41,12 @@
 	#ca-unwatch.icon .loading,
 	#ca-watch.icon .loading {
 		background-image: url( images/watch-icon-loading.svg );
+		background-position: 50% 60%;
 		.rotation( 700ms );
 		/* Suppress the hilarious rotating focus outline on Firefox */
 		outline: 0;
 		cursor: default;
 		pointer-events: none;
-		background-position: 50% 60%;
 		-webkit-transform-origin: 50% 57%;
 		transform-origin: 50% 57%;
 	}

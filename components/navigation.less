@@ -15,8 +15,8 @@
 
 /* Head */
 #mw-page-base {
-	height: 5em;
 	background-position: bottom left;
+	height: 5em;
 	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
 }
 
@@ -57,11 +57,11 @@
 	height: 160px;
 
 	a {
+		background-position: center center;
+		background-repeat: no-repeat;
 		display: block;
 		width: 10em;
 		height: 160px;
-		background-repeat: no-repeat;
-		background-position: center center;
 		text-decoration: none;
 	}
 }
@@ -90,12 +90,12 @@
 		}
 
 		.body {
-			margin-left: @margin-left-nav-main-body;
-			padding-top: 0;
 			background-image: url( images/portal-separator.png ); // Support: IE 8 & 9, Fx 3.6-15, Safari 5.1-6, Chrome 10-25
 			background-image: linear-gradient( to right, transparent 0, #c8ccd1 35%, #c8ccd1 70%, transparent 100% ); // Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
 			background-repeat: no-repeat;
 			background-size: 100% @border-width-base;
+			margin-left: @margin-left-nav-main-body;
+			padding-top: 0;
 
 			ul {
 				list-style: none none;
