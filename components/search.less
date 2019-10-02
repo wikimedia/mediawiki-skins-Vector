@@ -29,17 +29,16 @@
 
 	// Styles for both the search input and the button.
 	input {
-		// Support IE6-8: Fallback for browsers, which don't support `rgba()`.
-		background-color: @background-color-base;
-		background-color: rgba( 0, 0, 0, 0 );
-		color: @color-base--emphasized;
 		margin: 0;
 	}
 }
 
 // The search input.
-
 #searchInput {
+	// Support IE6-8: Fallback for browsers, which don't support `rgba()`.
+	background-color: @background-color-base;
+	background-color: rgba( 255, 255, 255, 0.5 );
+	color: @color-base--emphasized;
 	width: 100%;
 	.box-sizing( border-box );
 	border: @border-width-base @border-style-base @colorGray10;
@@ -105,6 +104,7 @@
 }
 
 #searchButton {
+	background-color: transparent;
 	.background-image-svg( 'images/search.svg', 'images/search.png' );
 	background-position: center center;
 	background-repeat: no-repeat;
