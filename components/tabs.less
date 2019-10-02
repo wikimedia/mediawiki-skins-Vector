@@ -113,14 +113,14 @@
 
 			&:after {
 				content: '';
+				.background-image-svg( 'images/arrow-down.svg', 'images/arrow-down.png' );
+				background-position: 100% 50%;
+				background-repeat: no-repeat;
 				position: absolute;
 				top: 1.25em;
 				right: 0;
 				bottom: 0;
 				left: 0;
-				.background-image-svg('images/arrow-down.svg', 'images/arrow-down.png');
-				background-position: 100% 50%;
-				background-repeat: no-repeat;
 				// Modify the color of the image from the default #222 to approx. #444 to match the text.
 				opacity: 0.85;
 			}
@@ -137,8 +137,8 @@
 	}
 
 	.menu {
-		list-style: none none;
 		background-color: @background-color-base;
+		list-style: none none;
 		clear: both;
 		// Match the width of the dropdown "heading" (the tab)
 		min-width: 100%;
