@@ -63,8 +63,7 @@
 				"vector.js"
 			],
 			"dependencies": [
-				"mediawiki.util",
-				"jquery.tabIndex"
+				"mediawiki.util"
 			]
 		}
 	},
