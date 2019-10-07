@@ -5,6 +5,6 @@
 		"wikimedia/jquery"
 	],
 	"globals": {
-		"mw": false
+		"mw": "readonly"
 	}
 }

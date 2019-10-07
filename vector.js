@@ -27,6 +27,7 @@ $( function () {
 		.on( 'beforeTabCollapse', function () {
 			var expandedWidth;
 			// If the dropdown was hidden, show it
+			// eslint-disable-next-line no-jquery/no-class-state
 			if ( $cactions.hasClass( 'emptyPortlet' ) ) {
 				$cactions.removeClass( 'emptyPortlet' );
 				// Now that it is visible, force-render it virtually
@@ -84,6 +85,7 @@ $( function () {
 				}
 
 				// Always collapse if the "More" button is already shown.
+				// eslint-disable-next-line no-jquery/no-class-state
 				if ( !$cactions.hasClass( 'emptyPortlet' ) ) {
 					return true;
 				}
