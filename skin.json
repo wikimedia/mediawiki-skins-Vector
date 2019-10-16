@@ -74,22 +74,22 @@
 	"ResourceModuleSkinStyles": {
 		"vector": {
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
-			"jquery.ui.core": [
+			"jquery.ui": [
 				"skinStyles/jquery.ui/jquery.ui.core.css",
-				"skinStyles/jquery.ui/jquery.ui.theme.css"
+				"skinStyles/jquery.ui/jquery.ui.theme.css",
+				"skinStyles/jquery.ui/jquery.ui.accordion.css",
+				"skinStyles/jquery.ui/jquery.ui.autocomplete.css",
+				"skinStyles/jquery.ui/jquery.ui.button.css",
+				"skinStyles/jquery.ui/jquery.ui.datepicker.css",
+				"skinStyles/jquery.ui/jquery.ui.dialog.css",
+				"skinStyles/jquery.ui/jquery.ui.menu.css",
+				"skinStyles/jquery.ui/jquery.ui.progressbar.css",
+				"skinStyles/jquery.ui/jquery.ui.resizable.css",
+				"skinStyles/jquery.ui/jquery.ui.selectable.css",
+				"skinStyles/jquery.ui/jquery.ui.slider.css",
+				"skinStyles/jquery.ui/jquery.ui.tabs.css",
+				"skinStyles/jquery.ui/jquery.ui.tooltip.css"
 			],
-			"jquery.ui.accordion": "skinStyles/jquery.ui/jquery.ui.accordion.css",
-			"jquery.ui.autocomplete": "skinStyles/jquery.ui/jquery.ui.autocomplete.css",
-			"jquery.ui.button": "skinStyles/jquery.ui/jquery.ui.button.css",
-			"jquery.ui.datepicker": "skinStyles/jquery.ui/jquery.ui.datepicker.css",
-			"jquery.ui.dialog": "skinStyles/jquery.ui/jquery.ui.dialog.css",
-			"jquery.ui.menu": "skinStyles/jquery.ui/jquery.ui.menu.css",
-			"jquery.ui.progressbar": "skinStyles/jquery.ui/jquery.ui.progressbar.css",
-			"jquery.ui.resizable": "skinStyles/jquery.ui/jquery.ui.resizable.css",
-			"jquery.ui.selectable": "skinStyles/jquery.ui/jquery.ui.selectable.css",
-			"jquery.ui.slider": "skinStyles/jquery.ui/jquery.ui.slider.css",
-			"jquery.ui.tabs": "skinStyles/jquery.ui/jquery.ui.tabs.css",
-			"jquery.ui.tooltip": "skinStyles/jquery.ui/jquery.ui.tooltip.css",
 			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
 			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "skinStyles/ooui.less",
