@@ -280,9 +280,7 @@ class VectorTemplate extends BaseTemplate {
 						<ul<?php $this->html( 'userlangattributes' ) ?>>
 							<?php
 							foreach ( $this->data['namespace_urls'] as $key => $item ) {
-								echo $this->makeListItem( $key, $item, [
-									'vector-wrap' => true,
-								] );
+								echo $this->makeListItem( $key, $item );
 							}
 							?>
 						</ul>
@@ -332,7 +330,6 @@ class VectorTemplate extends BaseTemplate {
 							<?php
 							foreach ( $this->data['view_urls'] as $key => $item ) {
 								echo $this->makeListItem( $key, $item, [
-									'vector-wrap' => true,
 									'vector-collapsible' => true,
 								] );
 							}
@@ -442,18 +439,6 @@ class VectorTemplate extends BaseTemplate {
 					break;
 			}
 		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function makeLink( $key, $item, $options = [] ) {
-		$html = parent::makeLink( $key, $item, $options );
-		// Add an extra wrapper because our CSS is weird
-		if ( isset( $options['vector-wrap'] ) && $options['vector-wrap'] ) {
-			$html = Html::rawElement( 'span', [], $html );
-		}
-		return $html;
 	}
 
 	/**
