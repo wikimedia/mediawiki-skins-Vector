@@ -1,3 +1,4 @@
+@import '../variables';
 @import 'mediawiki.mixins';
 
 /**
@@ -40,13 +41,19 @@
 		white-space: nowrap;
 
 		a {
+			// Tab separator: Border between tabs and outer right border.
+			background-position: right bottom;
 			color: @color-link;
+			.box-sizing( border-box );
 			display: block;
-			height: 1.9em;
-			padding-left: 0.615em; // Equals `8px` at computed `font-size` of `13px` below
-			padding-right: 0.615em;
-			cursor: pointer;
+			float: left;
+			height: unit( 40 / @font-size-tabs / @font-size-browser, em );
+			position: relative;
+			padding-top: 1.25em;
+			padding-left: 8px;
+			padding-right: 8px;
 			font-size: @font-size-tabs;
+			cursor: pointer;
 		}
 	}
 
@@ -76,20 +83,6 @@
 			background-repeat: no-repeat;
 		}
 	}
-
-	// Tab separator: Border between tabs and outer right border.
-	span {
-		background-position: right bottom;
-		display: inline-block;
-		height: 100%;
-
-		a {
-			float: left;
-			display: block;
-			position: relative;
-			padding-top: 1.25em;
-		}
-	}
 }
 
 /* Variants and Actions */
@@ -101,33 +94,33 @@
 	line-height: 1.125em;
 
 	h3 {
-		span {
-			color: @color-nav-subtle;
-			position: relative;
-			display: block;
-			padding-left: 0.615em;
-			padding-top: 1.25em;
-			padding-right: 16px;
-			font-size: @font-size-tabs;
-			font-weight: normal;
+		color: @color-nav-subtle;
+		position: relative;
+		display: block;
+		.box-sizing( border-box );
+		// `padding-top` needs to scale with font-size.
+		padding-top: 1.25em;
+		padding-left: 8px;
+		padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+		font-size: @font-size-tabs;
+		font-weight: normal;
 
-			&:after {
-				content: '';
-				.background-image-svg( 'images/arrow-down.svg', 'images/arrow-down.png' );
-				background-position: 100% 50%;
-				background-repeat: no-repeat;
-				position: absolute;
-				top: 1.25em;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				// Modify the color of the image from the default #222 to approx. #444 to match the text.
-				opacity: 0.85;
-			}
+		&:after {
+			content: '';
+			.background-image-svg( 'images/arrow-down.svg', 'images/arrow-down.png' );
+			background-position: 100% 50%;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: unit( 10 / @font-size-tabs / @font-size-browser, em );
+			right: 8px;
+			bottom: 0;
+			width: unit( 16 / @font-size-tabs / @font-size-browser, em );
+			// Modify the color of the image from the default #222 to approx. #444 to match the text.
+			opacity: 0.85;
 		}
 
-		&:hover span,
-		&:focus span {
+		&:hover,
+		&:focus {
 			color: @color-base;
 
 			&:after {
@@ -196,22 +189,21 @@
 	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
 	background-position: right bottom;
 	float: left;
-	font-size: @font-size-reset;
-	height: 2.5em;
+	height: unit( 40 / @font-size-tabs / @font-size-browser, em );
 	margin: 0 -@border-width-base 0 0;
 	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to
 	// act like a real border. It is necessary for `.vectorMenu .menu` dropdown to align well.
 	// 0.5em equals `8px` at computed `font-size` of `14px` as visually harmonically with
-	// `padding-left` in `.vectorMenu h3 span`
-	padding: 0 0.5em 0 0;
+	// `padding-left` in `.vectorMenu h3 a`
+	padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
 }
 
 // Tab Separators
 // `.vectorTabs`: Outer start border (left in LTR) of tab row.
-// `.vectorTabs span`: Border between tabs and outer end (right in LTR) border.
+// `.vectorTabs a`: Border between tabs and outer end (right in LTR) border.
 // `#mw-head .vectorMenu h3`: // Outer end (right in LTR) border of "Actions" menu.
 .vectorTabs,
-.vectorTabs span,
+.vectorTabs a,
 #mw-head .vectorMenu h3 {
 	background-image: url( images/tab-separator.png );
 	background-image: linear-gradient( to bottom, rgba( 167, 215, 249, 0 ) 0, @border-color-content 100% );
