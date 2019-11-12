@@ -64,7 +64,6 @@ class SkinVector extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 		// add vector skin styles and vector module
-		$modules['styles']['skin'][] = 'mediawiki.skinning.interface';
 		$modules['styles']['skin'][] = 'skins.vector.styles';
 		$modules['core'][] = 'skins.vector.js';
 

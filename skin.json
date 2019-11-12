@@ -24,8 +24,7 @@
 	"AutoloadClasses": {
 		"Vector\\Hooks": "includes/Hooks.php",
 		"SkinVector": "includes/SkinVector.php",
-		"VectorTemplate": "includes/VectorTemplate.php",
-		"Vector\\ResourceLoaderLessModule": "includes/ResourceLoaderLessModule.php"
+		"VectorTemplate": "includes/VectorTemplate.php"
 	},
 	"Hooks": {
 		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile"
@@ -33,7 +32,8 @@
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
 		"skins.vector.styles": {
-			"class": "Vector\\ResourceLoaderLessModule",
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "elements", "content", "interface", "logo" ],
 			"targets": [
 				"desktop",
 				"mobile"
