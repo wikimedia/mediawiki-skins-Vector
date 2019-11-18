@@ -449,16 +449,29 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	private function renderSearchComponent() {
+		$searchHeaderAttrs = $this->data[ 'userlangattributes' ] ?? '';
+		$searchAction = htmlspecialchars( $this->data[ 'wgScript' ] ?? '' );
+		$searchDivID = $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '';
+		$searchInputHTML = $this->makeSearchInput( [ 'id' => 'searchInput' ] );
+		$titleHTML = Html::hidden( 'title', $this->get( 'searchtitle' ) );
+		$fallbackSearchButtonHTML = $this->makeSearchButton(
+			'fulltext',
+			[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+		);
+		$searchButtonHTML = $this->makeSearchButton(
+			'go',
+			[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+		);
 		?>
 		<div id="p-search" role="search">
-			<h3<?php $this->html( 'userlangattributes' ) ?>>
+			<h3<?php echo $searchHeaderAttrs ?>>
 				<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
 			</h3>
-			<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-				<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
+			<form action="<?php echo $searchAction ?>" id="searchform">
+				<div id="<?php echo $searchDivID ?>">
 					<?php
-					echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
-					echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
+					echo $searchInputHTML;
+					echo $titleHTML;
 					/* We construct two buttons (for 'go' and 'fulltext' search modes),
 					 * but only one will be visible and actionable at a time (they are
 					 * overlaid on top of each other in CSS).
@@ -471,14 +484,8 @@ class VectorTemplate extends BaseTemplate {
 					 *   'fulltext' search itself; this will reveal the 'go' button and
 					 *   cause it to be used.
 					 */
-					echo $this->makeSearchButton(
-						'fulltext',
-						[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-					);
-					echo $this->makeSearchButton(
-						'go',
-						[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-					);
+					echo $fallbackSearchButtonHTML;
+					echo $searchButtonHTML;
 					?>
 				</div>
 			</form>
