@@ -270,172 +270,22 @@ class VectorTemplate extends BaseTemplate {
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
 				case 'NAMESPACES':
-					?>
-					<div id="p-namespaces" role="navigation" class="vectorTabs<?php
-					if ( count( $this->data['namespace_urls'] ) == 0 ) {
-						echo ' emptyPortlet';
-					}
-					?>" aria-labelledby="p-namespaces-label">
-						<h3 id="p-namespaces-label"><?php $this->msg( 'namespaces' ) ?></h3>
-						<ul<?php $this->html( 'userlangattributes' ) ?>>
-							<?php
-							foreach ( $this->data['namespace_urls'] as $key => $item ) {
-								echo $this->makeListItem( $key, $item );
-							}
-							?>
-						</ul>
-					</div>
-					<?php
+					$this->renderNamespacesComponent();
 					break;
 				case 'VARIANTS':
-					?>
-					<div id="p-variants" role="navigation" class="vectorMenu<?php
-					if ( count( $this->data['variant_urls'] ) == 0 ) {
-						echo ' emptyPortlet';
-					}
-					?>" aria-labelledby="p-variants-label">
-						<?php
-						// Replace the label with the name of currently chosen variant, if any
-						$variantLabel = $this->getMsg( 'variants' )->text();
-						foreach ( $this->data['variant_urls'] as $item ) {
-							if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
-								$variantLabel = $item['text'];
-								break;
-							}
-						}
-						?>
-						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
-						<h3 id="p-variants-label">
-							<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
-						</h3>
-						<ul class="menu">
-							<?php
-							foreach ( $this->data['variant_urls'] as $key => $item ) {
-								echo $this->makeListItem( $key, $item );
-							}
-							?>
-						</ul>
-					</div>
-					<?php
+					$this->renderVariantsComponent();
 					break;
 				case 'VIEWS':
-					?>
-					<div id="p-views" role="navigation" class="vectorTabs<?php
-					if ( count( $this->data['view_urls'] ) == 0 ) {
-						echo ' emptyPortlet';
-					}
-					?>" aria-labelledby="p-views-label">
-						<h3 id="p-views-label"><?php $this->msg( 'views' ) ?></h3>
-						<ul<?php $this->html( 'userlangattributes' ) ?>>
-							<?php
-							foreach ( $this->data['view_urls'] as $key => $item ) {
-								echo $this->makeListItem( $key, $item, [
-									'vector-collapsible' => true,
-								] );
-							}
-							?>
-						</ul>
-					</div>
-					<?php
+					$this->renderViewsComponent();
 					break;
 				case 'ACTIONS':
-					?>
-					<div id="p-cactions" role="navigation" class="vectorMenu<?php
-					if ( count( $this->data['action_urls'] ) == 0 ) {
-						echo ' emptyPortlet';
-					}
-					?>" aria-labelledby="p-cactions-label">
-						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
-						<h3 id="p-cactions-label"><span><?php
-							$this->msg( 'vector-more-actions' )
-						?></span></h3>
-						<ul class="menu"<?php $this->html( 'userlangattributes' ) ?>>
-							<?php
-							foreach ( $this->data['action_urls'] as $key => $item ) {
-								echo $this->makeListItem( $key, $item );
-							}
-							?>
-						</ul>
-					</div>
-					<?php
+					$this->renderActionsComponent();
 					break;
 				case 'PERSONAL':
-					?>
-					<div id="p-personal" role="navigation"<?php
-					if ( count( $this->data['personal_urls'] ) == 0 ) {
-						echo ' class="emptyPortlet"';
-					}
-					?> aria-labelledby="p-personal-label">
-						<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
-						<ul<?php $this->html( 'userlangattributes' ) ?>>
-							<?php
-							$notLoggedIn = '';
-
-							if ( !$this->getSkin()->getUser()->isLoggedIn() &&
-								User::groupHasPermission( '*', 'edit' )
-							) {
-								$notLoggedIn =
-									Html::element( 'li',
-										[ 'id' => 'pt-anonuserpage' ],
-										$this->getMsg( 'notloggedin' )->text()
-									);
-							}
-
-							$personalTools = $this->getPersonalTools();
-
-							$langSelector = '';
-							if ( array_key_exists( 'uls', $personalTools ) ) {
-								$langSelector = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
-								unset( $personalTools[ 'uls' ] );
-							}
-
-							echo $langSelector;
-							echo $notLoggedIn;
-							foreach ( $personalTools as $key => $item ) {
-								echo $this->makeListItem( $key, $item );
-							}
-							?>
-						</ul>
-					</div>
-					<?php
+					$this->renderPersonalComponent();
 					break;
 				case 'SEARCH':
-					?>
-					<div id="p-search" role="search">
-						<h3<?php $this->html( 'userlangattributes' ) ?>>
-							<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
-						</h3>
-						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-							<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
-								<?php
-								echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
-								echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
-								/* We construct two buttons (for 'go' and 'fulltext' search modes),
-								 * but only one will be visible and actionable at a time (they are
-								 * overlaid on top of each other in CSS).
-								 * * Browsers will use the 'fulltext' one by default (as it's the
-								 *   first in tree-order), which is desirable when they are unable
-								 *   to show search suggestions (either due to being broken or
-								 *   having JavaScript turned off).
-								 * * The mediawiki.searchSuggest module, after doing tests for the
-								 *   broken browsers, removes the 'fulltext' button and handles
-								 *   'fulltext' search itself; this will reveal the 'go' button and
-								 *   cause it to be used.
-								 */
-								echo $this->makeSearchButton(
-									'fulltext',
-									[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-								);
-								echo $this->makeSearchButton(
-									'go',
-									[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-								);
-								?>
-							</div>
-						</form>
-					</div>
-					<?php
-
+					$this->renderSearchComponent();
 					break;
 			}
 		}
@@ -461,5 +311,178 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		return parent::makeListItem( $key, $item, $options );
+	}
+
+	private function renderNamespacesComponent() {
+		?>
+		<div id="p-namespaces" role="navigation" class="vectorTabs<?php
+		if ( count( $this->data['namespace_urls'] ) == 0 ) {
+			echo ' emptyPortlet';
+		}
+		?>" aria-labelledby="p-namespaces-label">
+			<h3 id="p-namespaces-label"><?php $this->msg( 'namespaces' ) ?></h3>
+			<ul<?php $this->html( 'userlangattributes' ) ?>>
+				<?php
+				foreach ( $this->data['namespace_urls'] as $key => $item ) {
+					echo $this->makeListItem( $key, $item );
+				}
+				?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	private function renderVariantsComponent() {
+		?>
+		<div id="p-variants" role="navigation" class="vectorMenu<?php
+		if ( count( $this->data['variant_urls'] ) == 0 ) {
+			echo ' emptyPortlet';
+		}
+		?>" aria-labelledby="p-variants-label">
+			<?php
+			// Replace the label with the name of currently chosen variant, if any
+			$variantLabel = $this->getMsg( 'variants' )->text();
+			foreach ( $this->data['variant_urls'] as $item ) {
+				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
+					$variantLabel = $item['text'];
+					break;
+				}
+			}
+			?>
+			<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
+			<h3 id="p-variants-label">
+				<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
+			</h3>
+			<ul class="menu">
+				<?php
+				foreach ( $this->data['variant_urls'] as $key => $item ) {
+					echo $this->makeListItem( $key, $item );
+				}
+				?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	private function renderViewsComponent() {
+		?>
+		<div id="p-views" role="navigation" class="vectorTabs<?php
+		if ( count( $this->data['view_urls'] ) == 0 ) {
+			echo ' emptyPortlet';
+		}
+		?>" aria-labelledby="p-views-label">
+			<h3 id="p-views-label"><?php $this->msg( 'views' ) ?></h3>
+			<ul<?php $this->html( 'userlangattributes' ) ?>>
+				<?php
+				foreach ( $this->data['view_urls'] as $key => $item ) {
+					echo $this->makeListItem( $key, $item, [
+						'vector-collapsible' => true,
+					] );
+				}
+				?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	private function renderActionsComponent() {
+		?>
+		<div id="p-cactions" role="navigation" class="vectorMenu<?php
+		if ( count( $this->data['action_urls'] ) == 0 ) {
+			echo ' emptyPortlet';
+		}
+		?>" aria-labelledby="p-cactions-label">
+			<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
+			<h3 id="p-cactions-label"><span><?php
+				$this->msg( 'vector-more-actions' )
+			?></span></h3>
+			<ul class="menu"<?php $this->html( 'userlangattributes' ) ?>>
+				<?php
+				foreach ( $this->data['action_urls'] as $key => $item ) {
+					echo $this->makeListItem( $key, $item );
+				}
+				?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	private function renderPersonalComponent() {
+		?>
+		<div id="p-personal" role="navigation"<?php
+		if ( count( $this->data['personal_urls'] ) == 0 ) {
+			echo ' class="emptyPortlet"';
+		}
+		?> aria-labelledby="p-personal-label">
+			<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
+			<ul<?php $this->html( 'userlangattributes' ) ?>>
+				<?php
+				$notLoggedIn = '';
+
+				if ( !$this->getSkin()->getUser()->isLoggedIn() &&
+					User::groupHasPermission( '*', 'edit' )
+				) {
+					$notLoggedIn =
+						Html::element( 'li',
+							[ 'id' => 'pt-anonuserpage' ],
+							$this->getMsg( 'notloggedin' )->text()
+						);
+				}
+
+				$personalTools = $this->getPersonalTools();
+
+				$langSelector = '';
+				if ( array_key_exists( 'uls', $personalTools ) ) {
+					$langSelector = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+					unset( $personalTools[ 'uls' ] );
+				}
+
+				echo $langSelector;
+				echo $notLoggedIn;
+				foreach ( $personalTools as $key => $item ) {
+					echo $this->makeListItem( $key, $item );
+				}
+				?>
+			</ul>
+		</div>
+		<?php
+	}
+
+	private function renderSearchComponent() {
+		?>
+		<div id="p-search" role="search">
+			<h3<?php $this->html( 'userlangattributes' ) ?>>
+				<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
+			</h3>
+			<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+				<div<?php echo $this->config->get( 'VectorUseSimpleSearch' ) ? ' id="simpleSearch"' : '' ?>>
+					<?php
+					echo $this->makeSearchInput( [ 'id' => 'searchInput' ] );
+					echo Html::hidden( 'title', $this->get( 'searchtitle' ) );
+					/* We construct two buttons (for 'go' and 'fulltext' search modes),
+					 * but only one will be visible and actionable at a time (they are
+					 * overlaid on top of each other in CSS).
+					 * * Browsers will use the 'fulltext' one by default (as it's the
+					 *   first in tree-order), which is desirable when they are unable
+					 *   to show search suggestions (either due to being broken or
+					 *   having JavaScript turned off).
+					 * * The mediawiki.searchSuggest module, after doing tests for the
+					 *   broken browsers, removes the 'fulltext' button and handles
+					 *   'fulltext' search itself; this will reveal the 'go' button and
+					 *   cause it to be used.
+					 */
+					echo $this->makeSearchButton(
+						'fulltext',
+						[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+					);
+					echo $this->makeSearchButton(
+						'go',
+						[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+					);
+					?>
+				</div>
+			</form>
+		</div>
+		<?php
 	}
 }
