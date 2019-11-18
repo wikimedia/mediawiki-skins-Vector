@@ -42,12 +42,6 @@ class SkinVector extends SkinTemplate {
 			->makeConfig( 'vector' );
 	}
 
-	/** @inheritDoc */
-	public function getPageClasses( $title ) {
-		$className = parent::getPageClasses( $title );
-		return $className;
-	}
-
 	/**
 	 * Enables the responsive mode
 	 */
