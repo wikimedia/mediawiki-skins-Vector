@@ -30,17 +30,8 @@ class SkinVector extends SkinTemplate {
 	public $skinname = 'vector';
 	public $stylename = 'Vector';
 	public $template = 'VectorTemplate';
-	/**
-	 * @var Config
-	 */
-	private $vectorConfig;
-	private $responsiveMode = false;
 
-	public function __construct() {
-		parent::__construct( ...func_get_args() );
-		$this->vectorConfig = \MediaWiki\MediaWikiServices::getInstance()->getConfigFactory()
-			->makeConfig( 'vector' );
-	}
+	private $responsiveMode = false;
 
 	/** @inheritDoc */
 	public function getPageClasses( $title ) {
@@ -67,7 +58,7 @@ class SkinVector extends SkinTemplate {
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
 
-		if ( $this->vectorConfig->get( 'VectorResponsive' ) ) {
+		if ( $this->getConfig()->get( 'VectorResponsive' ) ) {
 			$this->enableResponsiveMode();
 		}
 
@@ -85,17 +76,6 @@ class SkinVector extends SkinTemplate {
 			'mediawiki.skinning.interface',
 			'skins.vector.styles',
 		] );
-	}
-
-	/**
-	 * Override to pass our Config instance to it
-	 * @param string $classname
-	 * @param bool|string $repository
-	 * @param bool|string $cache_dir
-	 * @return QuickTemplate
-	 */
-	public function setupTemplate( $classname, $repository = false, $cache_dir = false ) {
-		return new $classname( $this->vectorConfig );
 	}
 
 	/**

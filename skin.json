@@ -13,9 +13,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
-	"ConfigRegistry": {
-		"vector": "GlobalVarConfig::newInstance"
-	},
 	"ValidSkinNames": {
 		"vector": "Vector"
 	},
