@@ -32,6 +32,8 @@ class VectorTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the HTML page
 	 */
 	public function execute() {
+		$templateParser = new TemplateParser( __DIR__ . '/templates' );
+
 		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
 		$this->data['view_urls'] = $this->data['content_navigation']['views'];
 		$this->data['action_urls'] = $this->data['content_navigation']['actions'];
@@ -101,12 +103,12 @@ class VectorTemplate extends BaseTemplate {
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 			<div id="mw-head">
-				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
+				<?php $this->renderNavigation( $templateParser, [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
+					<?php $this->renderNavigation( $templateParser, [ 'NAMESPACES', 'VARIANTS' ] ); ?>
 				</div>
 				<div id="right-navigation">
-					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
+					<?php $this->renderNavigation( $templateParser, [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
 				</div>
 			</div>
 			<div id="mw-panel">
@@ -163,8 +165,7 @@ class VectorTemplate extends BaseTemplate {
 		ob_end_clean();
 
 		// Prepare and output the HTML response
-		$templates = new TemplateParser( __DIR__ . '/templates' );
-		echo $templates->processTemplate( 'index', $params );
+		echo $templateParser->processTemplate( 'index', $params );
 	}
 
 	/**
@@ -263,9 +264,10 @@ class VectorTemplate extends BaseTemplate {
 	 * Render one or more navigations elements by name, automatically reversed by css
 	 * when UI is in RTL mode
 	 *
+	 * @param TemplateParser $templateParser
 	 * @param array $elements
 	 */
-	protected function renderNavigation( array $elements ) {
+	protected function renderNavigation( TemplateParser $templateParser, array $elements ) {
 		// Render elements
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
@@ -285,7 +287,7 @@ class VectorTemplate extends BaseTemplate {
 					$this->renderPersonalComponent();
 					break;
 				case 'SEARCH':
-					$this->renderSearchComponent();
+					$this->renderSearchComponent( $templateParser );
 					break;
 			}
 		}
@@ -448,48 +450,26 @@ class VectorTemplate extends BaseTemplate {
 		<?php
 	}
 
-	private function renderSearchComponent() {
-		$searchHeaderAttrs = $this->data[ 'userlangattributes' ] ?? '';
-		$searchAction = htmlspecialchars( $this->data[ 'wgScript' ] ?? '' );
-		$searchDivID = $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '';
-		$searchInputHTML = $this->makeSearchInput( [ 'id' => 'searchInput' ] );
-		$titleHTML = Html::hidden( 'title', $this->get( 'searchtitle' ) );
-		$fallbackSearchButtonHTML = $this->makeSearchButton(
-			'fulltext',
-			[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-		);
-		$searchButtonHTML = $this->makeSearchButton(
-			'go',
-			[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-		);
-		?>
-		<div id="p-search" role="search">
-			<h3<?php echo $searchHeaderAttrs ?>>
-				<label for="searchInput"><?php $this->msg( 'search' ) ?></label>
-			</h3>
-			<form action="<?php echo $searchAction ?>" id="searchform">
-				<div id="<?php echo $searchDivID ?>">
-					<?php
-					echo $searchInputHTML;
-					echo $titleHTML;
-					/* We construct two buttons (for 'go' and 'fulltext' search modes),
-					 * but only one will be visible and actionable at a time (they are
-					 * overlaid on top of each other in CSS).
-					 * * Browsers will use the 'fulltext' one by default (as it's the
-					 *   first in tree-order), which is desirable when they are unable
-					 *   to show search suggestions (either due to being broken or
-					 *   having JavaScript turned off).
-					 * * The mediawiki.searchSuggest module, after doing tests for the
-					 *   broken browsers, removes the 'fulltext' button and handles
-					 *   'fulltext' search itself; this will reveal the 'go' button and
-					 *   cause it to be used.
-					 */
-					echo $fallbackSearchButtonHTML;
-					echo $searchButtonHTML;
-					?>
-				</div>
-			</form>
-		</div>
-		<?php
+	/**
+	 * @param TemplateParser $templateParser
+	 */
+	private function renderSearchComponent( TemplateParser $templateParser ) {
+		$props = [
+			'searchHeaderAttrs' => $this->data[ 'userlangattributes' ] ?? '',
+			'searchAction' => $this->data[ 'wgScript' ] ?? '',
+			'searchDivID' => $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
+			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
+			'titleHTML' => Html::hidden( 'title', $this->data[ 'searchtitle' ] ?? null ),
+			'fallbackSearchButtonHTML' => $this->makeSearchButton(
+				'fulltext',
+				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+			),
+			'searchButtonHTML' => $this->makeSearchButton(
+				'go',
+				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+			),
+			'searchInputLabel' => $this->getMsg( 'search' )
+		];
+		echo $templateParser->processTemplate( 'SearchComponent', $props );
 	}
 }
