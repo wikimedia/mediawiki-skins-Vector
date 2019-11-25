@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mestos"
+			"Mestos",
+			"Palmtree222"
 		]
 	},
 	"vector-action-addsection": "Lissää aine",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "Mookkaa",
 	"vector-view-history": "Näytä histuuria",
 	"vector-view-view": "Lue",
-	"vector-view-viewsource": "Näytä lähekooti"
+	"vector-view-viewsource": "Näytä lähekooti",
+	"vector-more-actions": "Lissää"
 }
