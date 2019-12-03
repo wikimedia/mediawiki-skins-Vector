@@ -272,13 +272,13 @@ class VectorTemplate extends BaseTemplate {
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
 				case 'NAMESPACES':
-					$this->renderNamespacesComponent();
+					$this->renderNamespacesComponent( $templateParser );
 					break;
 				case 'VARIANTS':
 					$this->renderVariantsComponent();
 					break;
 				case 'VIEWS':
-					$this->renderViewsComponent();
+					$this->renderViewsComponent( $templateParser );
 					break;
 				case 'ACTIONS':
 					$this->renderActionsComponent();
@@ -315,23 +315,24 @@ class VectorTemplate extends BaseTemplate {
 		return parent::makeListItem( $key, $item, $options );
 	}
 
-	private function renderNamespacesComponent() {
-		?>
-		<div id="p-namespaces" role="navigation" class="vectorTabs<?php
-		if ( count( $this->data['namespace_urls'] ) == 0 ) {
-			echo ' emptyPortlet';
-		}
-		?>" aria-labelledby="p-namespaces-label">
-			<h3 id="p-namespaces-label"><?php $this->msg( 'namespaces' ) ?></h3>
-			<ul<?php $this->html( 'userlangattributes' ) ?>>
-				<?php
-				foreach ( $this->data['namespace_urls'] as $key => $item ) {
-					echo $this->makeListItem( $key, $item );
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+	/**
+	 * @param TemplateParser $templateParser
+	 */
+	private function renderNamespacesComponent( TemplateParser $templateParser ) {
+		$props = [
+			'tabs-id' => 'p-namespaces',
+			'empty-portlet' => ( count( $this->data['namespace_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'label-id' => 'p-namespaces-label',
+			'msg-label' => $this->getMsg( 'namespaces' )->text(),
+			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-items' => '',
+		];
+
+		foreach ( $this->data['namespace_urls'] as $key => $item ) {
+			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
+		};
+
+		echo $templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
 	private function renderVariantsComponent() {
@@ -366,25 +367,26 @@ class VectorTemplate extends BaseTemplate {
 		<?php
 	}
 
-	private function renderViewsComponent() {
-		?>
-		<div id="p-views" role="navigation" class="vectorTabs<?php
-		if ( count( $this->data['view_urls'] ) == 0 ) {
-			echo ' emptyPortlet';
-		}
-		?>" aria-labelledby="p-views-label">
-			<h3 id="p-views-label"><?php $this->msg( 'views' ) ?></h3>
-			<ul<?php $this->html( 'userlangattributes' ) ?>>
-				<?php
-				foreach ( $this->data['view_urls'] as $key => $item ) {
-					echo $this->makeListItem( $key, $item, [
-						'vector-collapsible' => true,
-					] );
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+	/**
+	 * @param TemplateParser $templateParser
+	 */
+	private function renderViewsComponent( TemplateParser $templateParser ) {
+		$props = [
+			'tabs-id' => 'p-views',
+			'empty-portlet' => ( count( $this->data['view_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'label-id' => 'p-views-label',
+			'msg-label' => $this->getMsg( 'views' )->text(),
+			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-items' => '',
+		];
+
+		foreach ( $this->data['view_urls'] as $key => $item ) {
+			$props[ 'html-items' ] .= $this->makeListItem( $key, $item, [
+				'vector-collapsible' => true,
+			] );
+		};
+
+		echo $templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
 	private function renderActionsComponent() {
