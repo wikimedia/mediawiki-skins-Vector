@@ -324,7 +324,7 @@ class VectorTemplate extends BaseTemplate {
 			'empty-portlet' => ( count( $this->data['namespace_urls'] ) == 0 ) ? 'emptyPortlet' : '',
 			'label-id' => 'p-namespaces-label',
 			'msg-label' => $this->getMsg( 'namespaces' )->text(),
-			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
 			'html-items' => '',
 		];
 
@@ -376,7 +376,7 @@ class VectorTemplate extends BaseTemplate {
 			'empty-portlet' => ( count( $this->data['view_urls'] ) == 0 ) ? 'emptyPortlet' : '',
 			'label-id' => 'p-views-label',
 			'msg-label' => $this->getMsg( 'views' )->text(),
-			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
 			'html-items' => '',
 		];
 
