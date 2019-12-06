@@ -1,8 +1,18 @@
+{{!
+	string|null searchHeaderAttrsHTML
+	string|null searchInputLabel
+	string searchActionURL
+	string searchDivID
+	string|null searchInputHTML
+	string|null titleHTML
+	string|null fallbackSearchButtonHTML
+	string|null searchButtonHTML
+}}
 <div id="p-search" role="search">
-	<h3 {{{searchHeaderAttrs}}}>
+	<h3 {{{searchHeaderAttrsHTML}}}>
 		<label for="searchInput">{{searchInputLabel}}</label>
 	</h3>
-	<form action="{{searchAction}}" id="searchform">
+	<form action="{{searchActionURL}}" id="searchform">
 		<div id="{{searchDivID}}">
 			{{{searchInputHTML}}}
 			{{{titleHTML}}}

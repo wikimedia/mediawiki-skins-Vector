@@ -457,8 +457,8 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function renderSearchComponent( TemplateParser $templateParser ) {
 		$props = [
-			'searchHeaderAttrs' => $this->data[ 'userlangattributes' ] ?? '',
-			'searchAction' => $this->data[ 'wgScript' ] ?? '',
+			'searchHeaderAttrsHTML' => $this->data[ 'userlangattributes' ] ?? '',
+			'searchActionURL' => $this->data[ 'wgScript' ] ?? '',
 			'searchDivID' => $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
 			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
 			'titleHTML' => Html::hidden( 'title', $this->data[ 'searchtitle' ] ?? null ),
