@@ -472,6 +472,6 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'searchInputLabel' => $this->getMsg( 'search' )
 		];
-		echo $templateParser->processTemplate( 'SearchComponent', $props );
+		echo $templateParser->processTemplate( 'SearchBox', $props );
 	}
 }
