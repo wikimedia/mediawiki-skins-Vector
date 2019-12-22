@@ -302,6 +302,9 @@ class VectorTemplate extends BaseTemplate {
 			$this->config->get( 'VectorUseIconWatch' )
 			&& ( $key === 'watch' || $key === 'unwatch' )
 		) {
+			if ( !isset( $item['class'] ) ) {
+				$item['class'] = '';
+			}
 			$item['class'] = rtrim( 'icon ' . $item['class'], ' ' );
 			$item['primary'] = true;
 		}
@@ -309,6 +312,9 @@ class VectorTemplate extends BaseTemplate {
 		// Add CSS class 'collapsible' to links which are not marked as "primary"
 		if (
 			isset( $options['vector-collapsible'] ) && $options['vector-collapsible'] ) {
+			if ( !isset( $item['class'] ) ) {
+				$item['class'] = '';
+			}
 			$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
 		}
 
