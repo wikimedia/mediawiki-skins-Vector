@@ -347,35 +347,27 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	private function renderVariantsComponent() {
-		?>
-		<div id="p-variants" role="navigation" class="vectorMenu<?php
-		if ( count( $this->data['variant_urls'] ) == 0 ) {
-			echo ' emptyPortlet';
-		}
-		?>" aria-labelledby="p-variants-label">
-			<?php
-			// Replace the label with the name of currently chosen variant, if any
-			$variantLabel = $this->getMsg( 'variants' )->text();
-			foreach ( $this->data['variant_urls'] as $item ) {
-				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
-					$variantLabel = $item['text'];
-					break;
-				}
+		$props = [
+			'empty-portlet' => ( count( $this->data['variant_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'menu-id' => 'p-variants',
+			'menu-label-id' => 'p-variants-label',
+			'msg-label' => $this->getMsg( 'variants' )->text(),
+			'html-items' => '',
+		];
+
+		// Replace the label with the name of currently chosen variant, if any
+		foreach ( $this->data['variant_urls'] as $item ) {
+			if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
+				$props['msg-label'] = $item['text'];
+				break;
 			}
-			?>
-			<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label" />
-			<h3 id="p-variants-label">
-				<span><?php echo htmlspecialchars( $variantLabel ) ?></span>
-			</h3>
-			<ul class="menu">
-				<?php
-				foreach ( $this->data['variant_urls'] as $key => $item ) {
-					echo $this->makeListItem( $key, $item );
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+		}
+
+		foreach ( $this->data['variant_urls'] as $key => $item ) {
+			$props['html-items'] .= $this->makeListItem( $key, $item );
+		}
+
+		echo $this->templateParser->processTemplate( 'VectorMenu', $props );
 	}
 
 	private function renderViewsComponent() {
@@ -398,25 +390,20 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	private function renderActionsComponent() {
-		?>
-		<div id="p-cactions" role="navigation" class="vectorMenu<?php
-		if ( count( $this->data['action_urls'] ) == 0 ) {
-			echo ' emptyPortlet';
+		$props = [
+			'empty-portlet' => ( count( $this->data['action_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'msg-label' => $this->getMsg( 'vector-more-actions' )->text(),
+			'menu-id' => 'p-cactions',
+			'menu-label-id' => 'p-cactions-label',
+			'html-userlangattributes' => $this->data[ 'userlangattributes' ] ?? '',
+			'html-items' => '',
+		];
+
+		foreach ( $this->data['action_urls'] as $key => $item ) {
+			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
-		?>" aria-labelledby="p-cactions-label">
-			<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label" />
-			<h3 id="p-cactions-label"><span><?php
-				$this->msg( 'vector-more-actions' )
-			?></span></h3>
-			<ul class="menu"<?php $this->html( 'userlangattributes' ) ?>>
-				<?php
-				foreach ( $this->data['action_urls'] as $key => $item ) {
-					echo $this->makeListItem( $key, $item );
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+
+		echo $this->templateParser->processTemplate( 'VectorMenu', $props );
 	}
 
 	private function renderPersonalComponent() {

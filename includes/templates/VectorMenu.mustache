@@ -1,0 +1,17 @@
+{{!
+	string|null empty-portlet
+	string msg-label
+	string menu-id
+	string menu-label-id
+	string|null html-items
+	string|null html-userlangattributes
+}}
+<div id="{{menu-id}}" role="navigation" class="vectorMenu {{empty-portlet}}" aria-labelledby="{{menu-label-id}}">
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{menu-label-id}}" />
+	<h3 id="{{menu-label-id}}">
+		<span>{{msg-label}}</span>
+	</h3>
+	<ul class="menu" {{{html-userlangattributes}}}>
+		{{{html-items}}}
+	</ul>
+</div>
