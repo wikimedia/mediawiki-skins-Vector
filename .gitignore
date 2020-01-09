@@ -40,3 +40,7 @@ Thumbs.db
 /.htaccess
 /.htpasswd
 .eslintcache
+
+# storybook
+/.storybook/resolve-less-imports/
+/.storybook/integration.less

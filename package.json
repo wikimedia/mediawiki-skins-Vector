@@ -1,15 +1,23 @@
 {
 	"private": true,
 	"scripts": {
-		"test": "grunt test",
-		"doc": "jsduck"
+		"storybook": "./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
+		"test": "grunt test && npm run build-storybook",
+		"doc": "jsduck && npm run build-storybook",
+		"build-storybook": "./dev-scripts/setup-storybook.sh && build-storybook -o docs/"
 	},
 	"devDependencies": {
+		"@babel/core": "7.7.7",
+		"@storybook/html": "5.2.8",
+		"babel-loader": "8.0.6",
 		"eslint-config-wikimedia": "0.15.0",
 		"grunt": "1.0.4",
 		"grunt-banana-checker": "0.8.1",
 		"grunt-eslint": "22.0.0",
 		"grunt-stylelint": "0.13.0",
+		"less": "3.8.1",
+		"less-loader": "4.1.0",
+		"mustache": "3.0.1",
 		"stylelint-config-wikimedia": "0.8.0"
 	}
 }

@@ -1,0 +1,11 @@
+{
+	"rules": {
+		"one-var": "off",
+		"single-quote": "off",
+		"quotes": "off"
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 6
+	}
+}
