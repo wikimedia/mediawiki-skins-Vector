@@ -1,0 +1,17 @@
+{{!
+	string|null empty-portlet
+	string msg-label
+	string|null html-userlangattributes
+	string|null html-lang-selector
+	string|null html-loggedin
+	string|null html-personal-tools
+}}
+
+<div id="p-personal" role="navigation" {{#empty-portlet}}class="{{empty-portlet}}"{{/empty-portlet}} aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">{{msg-label}}</h3>
+	<ul {{{html-userlangattributes}}}>
+		{{{html-lang-selector}}}
+		{{{html-loggedin}}}
+		{{{html-personal-tools}}}
+	</ul>
+</div>

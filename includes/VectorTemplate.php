@@ -284,7 +284,7 @@ class VectorTemplate extends BaseTemplate {
 					$this->renderActionsComponent();
 					break;
 				case 'PERSONAL':
-					$this->renderPersonalComponent();
+					$this->renderPersonalComponent( $templateParser );
 					break;
 				case 'SEARCH':
 					$this->renderSearchComponent( $templateParser );
@@ -417,45 +417,39 @@ class VectorTemplate extends BaseTemplate {
 		<?php
 	}
 
-	private function renderPersonalComponent() {
-		?>
-		<div id="p-personal" role="navigation"<?php
-		if ( count( $this->data['personal_urls'] ) == 0 ) {
-			echo ' class="emptyPortlet"';
+	/**
+	 * @param TemplateParser $templateParser
+	 */
+	private function renderPersonalComponent( TemplateParser $templateParser ) {
+		$personalTools = $this->getPersonalTools();
+		$props = [
+			'empty-portlet' => ( count( $this->data['personal_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'msg-label' => $this->getMsg( 'personaltools' )->text(),
+			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-loggedin' => '',
+			'html-personal-tools' => '',
+			'html-lang-selector' => '',
+
+		];
+
+		if ( !$this->getSkin()->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
+			$props['html-loggedin'] =
+				Html::element( 'li',
+					[ 'id' => 'pt-anonuserpage' ],
+					$this->getMsg( 'notloggedin' )->text()
+				);
+		};
+
+		if ( array_key_exists( 'uls', $personalTools ) ) {
+			$props['html-lang-selector'] = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+			unset( $personalTools[ 'uls' ] );
 		}
-		?> aria-labelledby="p-personal-label">
-			<h3 id="p-personal-label"><?php $this->msg( 'personaltools' ) ?></h3>
-			<ul<?php $this->html( 'userlangattributes' ) ?>>
-				<?php
-				$notLoggedIn = '';
 
-				if ( !$this->getSkin()->getUser()->isLoggedIn() &&
-					User::groupHasPermission( '*', 'edit' )
-				) {
-					$notLoggedIn =
-						Html::element( 'li',
-							[ 'id' => 'pt-anonuserpage' ],
-							$this->getMsg( 'notloggedin' )->text()
-						);
-				}
+		foreach ( $personalTools as $key => $item ) {
+			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
+		}
 
-				$personalTools = $this->getPersonalTools();
-
-				$langSelector = '';
-				if ( array_key_exists( 'uls', $personalTools ) ) {
-					$langSelector = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
-					unset( $personalTools[ 'uls' ] );
-				}
-
-				echo $langSelector;
-				echo $notLoggedIn;
-				foreach ( $personalTools as $key => $item ) {
-					echo $this->makeListItem( $key, $item );
-				}
-				?>
-			</ul>
-		</div>
-		<?php
+		echo $templateParser->processTemplate( 'PersonalMenu', $props );
 	}
 
 	/**
