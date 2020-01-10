@@ -228,45 +228,39 @@ class VectorTemplate extends BaseTemplate {
 		if ( $msg === null ) {
 			$msg = $name;
 		}
-		$msgObj = $this->getMsg( $msg );
-		$labelId = Sanitizer::escapeIdForAttribute( "p-$name-label" );
-		?>
-		<div class="portal" role="navigation" id="<?php
-		echo htmlspecialchars( Sanitizer::escapeIdForAttribute( "p-$name" ) )
-		?>"<?php
-		echo Linker::tooltip( 'p-' . $name )
-		?> aria-labelledby="<?php echo htmlspecialchars( $labelId ) ?>">
-			<h3<?php $this->html( 'userlangattributes' ) ?> id="<?php echo htmlspecialchars( $labelId )
-				?>"><?php
-				echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $msg );
-				?></h3>
-			<div class="body">
-				<?php
-				if ( is_array( $content ) ) {
-				?>
-				<ul>
-					<?php
-					foreach ( $content as $key => $val ) {
-						echo $this->makeListItem( $key, $val );
-					}
-					if ( $hook !== null ) {
-						// Avoid PHP 7.1 warning
-						$skin = $this;
-						Hooks::run( $hook, [ &$skin, true ] );
-					}
-					?>
-				</ul>
-				<?php
-				} else {
-					// Allow raw HTML block to be defined by extensions
-					echo $content;
-				}
 
-				$this->renderAfterPortlet( $name );
-				?>
-			</div>
-		</div>
-	<?php
+		$msgObj = $this->getMsg( $msg );
+
+		$props = [
+			'portal-id' => "p-$name",
+			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
+			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
+			'msg-label-id' => "p-$name-label",
+			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
+			'html-portal-content' => '',
+			'html-after-portal' => $this->getAfterPortlet( $name ),
+		];
+
+		if ( is_array( $content ) ) {
+			$props['html-portal-content'] .= '<ul>';
+			foreach ( $content as $key => $val ) {
+				$props['html-portal-content'] .= $this->makeListItem( $key, $val );
+			}
+			if ( $hook !== null ) {
+				// Avoid PHP 7.1 warning
+				$skin = $this;
+				ob_start();
+				Hooks::run( $hook, [ &$skin, true ] );
+				$params['html-portal-content'] .= ob_get_contents();
+				ob_end_clean();
+			}
+			$props['html-portal-content'] .= '</ul>';
+		} else {
+			// Allow raw HTML block to be defined by extensions
+			$props['html-portal-content'] = $content;
+		}
+
+		echo $this->templateParser->processTemplate( 'Portal', $props );
 	}
 
 	/**
