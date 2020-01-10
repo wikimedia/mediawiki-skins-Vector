@@ -425,7 +425,7 @@ class VectorTemplate extends BaseTemplate {
 		$props = [
 			'empty-portlet' => ( count( $this->data['personal_urls'] ) == 0 ) ? 'emptyPortlet' : '',
 			'msg-label' => $this->getMsg( 'personaltools' )->text(),
-			'html-userlangattributes' => $this->html( 'userlangattributes' ),
+			'html-userlangattributes' => $this->data[ 'userlangattributes' ] ?? '',
 			'html-loggedin' => '',
 			'html-personal-tools' => '',
 			'html-lang-selector' => '',
