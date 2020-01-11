@@ -39,7 +39,10 @@
 	"ResourceModules": {
 		"skins.vector.styles": {
 			"class": "Vector\\ResourceLoaderLessModule",
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"styles": {
 				"screen.less": {
 					"media": "screen"
@@ -47,12 +50,14 @@
 				"screen-hd.less": {
 					"media": "screen and ( min-width: 982px )"
 				},
-				"print.less": {}
+				"print.less": []
 			}
 		},
-
 		"skins.vector.styles.responsive": {
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"styles": [
 				"responsive.less"
 			]
@@ -98,10 +103,18 @@
 		}
 	},
 	"config": {
-		"VectorUseSimpleSearch": true,
-		"VectorUseIconWatch": true,
-		"VectorResponsive": false,
-		"VectorPrintLogo": false
+		"VectorUseSimpleSearch": {
+			"value": true
+		},
+		"VectorUseIconWatch": {
+			"value": true
+		},
+		"VectorResponsive": {
+			"value": false
+		},
+		"VectorPrintLogo": {
+			"value": false
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
