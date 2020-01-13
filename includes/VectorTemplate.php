@@ -28,12 +28,21 @@
  */
 class VectorTemplate extends BaseTemplate {
 
+	/** @var TemplateParser */
+	private $templateParser;
+
+	/**
+	 * @param Config|null $config
+	 */
+	public function __construct( Config $config = null ) {
+		parent::__construct( $config );
+		$this->templateParser = new TemplateParser( __DIR__ . '/templates' );
+	}
+
 	/**
 	 * Outputs the entire contents of the HTML page
 	 */
 	public function execute() {
-		$templateParser = new TemplateParser( __DIR__ . '/templates' );
-
 		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
 		$this->data['view_urls'] = $this->data['content_navigation']['views'];
 		$this->data['action_urls'] = $this->data['content_navigation']['actions'];
@@ -103,12 +112,12 @@ class VectorTemplate extends BaseTemplate {
 		<div id="mw-navigation">
 			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
 			<div id="mw-head">
-				<?php $this->renderNavigation( $templateParser, [ 'PERSONAL' ] ); ?>
+				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
 				<div id="left-navigation">
-					<?php $this->renderNavigation( $templateParser, [ 'NAMESPACES', 'VARIANTS' ] ); ?>
+					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
 				</div>
 				<div id="right-navigation">
-					<?php $this->renderNavigation( $templateParser, [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
+					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
 				</div>
 			</div>
 			<div id="mw-panel">
@@ -165,7 +174,7 @@ class VectorTemplate extends BaseTemplate {
 		ob_end_clean();
 
 		// Prepare and output the HTML response
-		echo $templateParser->processTemplate( 'index', $params );
+		echo $this->templateParser->processTemplate( 'index', $params );
 	}
 
 	/**
@@ -264,30 +273,29 @@ class VectorTemplate extends BaseTemplate {
 	 * Render one or more navigations elements by name, automatically reversed by css
 	 * when UI is in RTL mode
 	 *
-	 * @param TemplateParser $templateParser
 	 * @param array $elements
 	 */
-	protected function renderNavigation( TemplateParser $templateParser, array $elements ) {
+	protected function renderNavigation( array $elements ) {
 		// Render elements
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
 				case 'NAMESPACES':
-					$this->renderNamespacesComponent( $templateParser );
+					$this->renderNamespacesComponent();
 					break;
 				case 'VARIANTS':
 					$this->renderVariantsComponent();
 					break;
 				case 'VIEWS':
-					$this->renderViewsComponent( $templateParser );
+					$this->renderViewsComponent();
 					break;
 				case 'ACTIONS':
 					$this->renderActionsComponent();
 					break;
 				case 'PERSONAL':
-					$this->renderPersonalComponent( $templateParser );
+					$this->renderPersonalComponent();
 					break;
 				case 'SEARCH':
-					$this->renderSearchComponent( $templateParser );
+					$this->renderSearchComponent();
 					break;
 			}
 		}
@@ -321,10 +329,7 @@ class VectorTemplate extends BaseTemplate {
 		return parent::makeListItem( $key, $item, $options );
 	}
 
-	/**
-	 * @param TemplateParser $templateParser
-	 */
-	private function renderNamespacesComponent( TemplateParser $templateParser ) {
+	private function renderNamespacesComponent() {
 		$props = [
 			'tabs-id' => 'p-namespaces',
 			'empty-portlet' => ( count( $this->data['namespace_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -338,7 +343,7 @@ class VectorTemplate extends BaseTemplate {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $templateParser->processTemplate( 'VectorTabs', $props );
+		echo $this->templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
 	private function renderVariantsComponent() {
@@ -373,10 +378,7 @@ class VectorTemplate extends BaseTemplate {
 		<?php
 	}
 
-	/**
-	 * @param TemplateParser $templateParser
-	 */
-	private function renderViewsComponent( TemplateParser $templateParser ) {
+	private function renderViewsComponent() {
 		$props = [
 			'tabs-id' => 'p-views',
 			'empty-portlet' => ( count( $this->data['view_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -392,7 +394,7 @@ class VectorTemplate extends BaseTemplate {
 			] );
 		}
 
-		echo $templateParser->processTemplate( 'VectorTabs', $props );
+		echo $this->templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
 	private function renderActionsComponent() {
@@ -417,10 +419,7 @@ class VectorTemplate extends BaseTemplate {
 		<?php
 	}
 
-	/**
-	 * @param TemplateParser $templateParser
-	 */
-	private function renderPersonalComponent( TemplateParser $templateParser ) {
+	private function renderPersonalComponent() {
 		$personalTools = $this->getPersonalTools();
 		$props = [
 			'empty-portlet' => ( count( $this->data['personal_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -449,13 +448,10 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $templateParser->processTemplate( 'PersonalMenu', $props );
+		echo $this->templateParser->processTemplate( 'PersonalMenu', $props );
 	}
 
-	/**
-	 * @param TemplateParser $templateParser
-	 */
-	private function renderSearchComponent( TemplateParser $templateParser ) {
+	private function renderSearchComponent() {
 		$props = [
 			'searchHeaderAttrsHTML' => $this->data[ 'userlangattributes' ] ?? '',
 			'searchActionURL' => $this->data[ 'wgScript' ] ?? '',
@@ -472,6 +468,6 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'searchInputLabel' => $this->getMsg( 'search' )
 		];
-		echo $templateParser->processTemplate( 'SearchBox', $props );
+		echo $this->templateParser->processTemplate( 'SearchBox', $props );
 	}
 }
