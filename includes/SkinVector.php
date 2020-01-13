@@ -64,21 +64,20 @@ class SkinVector extends SkinTemplate {
 		if ( $this->vectorConfig->get( 'VectorResponsive' ) ) {
 			$this->enableResponsiveMode();
 		}
-
-		$out->addModules( 'skins.vector.js' );
 	}
 
 	/**
-	 * Loads skin and user CSS files.
-	 * @param OutputPage $out
+	 * @inheritDoc
+	 * @return array
 	 */
-	public function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
+	public function getDefaultModules() {
+		$modules = parent::getDefaultModules();
+		// add vector skin styles and vector module
+		$modules['styles']['skin'][] = 'mediawiki.skinning.interface';
+		$modules['styles']['skin'][] = 'skins.vector.styles';
+		$modules['core'][] = 'skins.vector.js';
 
-		$out->addModuleStyles( [
-			'mediawiki.skinning.interface',
-			'skins.vector.styles',
-		] );
+		return $modules;
 	}
 
 	/**
