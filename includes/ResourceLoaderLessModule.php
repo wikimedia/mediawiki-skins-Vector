@@ -22,9 +22,9 @@
 
 namespace Vector;
 
+use ConfigException;
 use CSSMin;
 use MediaWiki\MediaWikiServices;
-use ConfigException;
 use ResourceLoaderContext;
 use ResourceLoaderFileModule;
 

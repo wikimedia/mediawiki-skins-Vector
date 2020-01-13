@@ -336,7 +336,7 @@ class VectorTemplate extends BaseTemplate {
 
 		foreach ( $this->data['namespace_urls'] as $key => $item ) {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
-		};
+		}
 
 		echo $templateParser->processTemplate( 'VectorTabs', $props );
 	}
@@ -390,7 +390,7 @@ class VectorTemplate extends BaseTemplate {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item, [
 				'vector-collapsible' => true,
 			] );
-		};
+		}
 
 		echo $templateParser->processTemplate( 'VectorTabs', $props );
 	}
@@ -438,7 +438,7 @@ class VectorTemplate extends BaseTemplate {
 					[ 'id' => 'pt-anonuserpage' ],
 					$this->getMsg( 'notloggedin' )->text()
 				);
-		};
+		}
 
 		if ( array_key_exists( 'uls', $personalTools ) ) {
 			$props['html-lang-selector'] = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
