@@ -260,7 +260,7 @@ class VectorTemplate extends BaseTemplate {
 				$skin = $this;
 				ob_start();
 				Hooks::run( $hook, [ &$skin, true ] );
-				$params['html-portal-content'] .= ob_get_contents();
+				$props['html-portal-content'] .= ob_get_contents();
 				ob_end_clean();
 			}
 			$props['html-portal-content'] .= '</ul>';
