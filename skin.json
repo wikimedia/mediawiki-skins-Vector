@@ -28,9 +28,7 @@
 		"Vector\\ResourceLoaderLessModule": "includes/ResourceLoaderLessModule.php"
 	},
 	"Hooks": {
-		"BeforePageDisplayMobile": [
-			"Vector\\Hooks::onBeforePageDisplayMobile"
-		]
+		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
