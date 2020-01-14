@@ -22,6 +22,8 @@
  * @ingroup Skins
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * QuickTemplate subclass for Vector
  * @ingroup Skins
@@ -50,9 +52,16 @@ class VectorTemplate extends BaseTemplate {
 
 		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
 		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
-			$mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
-				? 'unwatch'
-				: 'watch';
+			$mode = ( $this->getSkin()->getRelevantTitle()->isWatchable() &&
+						MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
+							$this->getSkin()->getUser(),
+							'viewmywatchlist'
+						) &&
+						MediaWikiServices::getInstance()->getWatchedItemStore()->isWatched(
+							$this->getSkin()->getUser(),
+							$this->getSkin()->getRelevantTitle()
+						)
+					) ? 'unwatch' : 'watch';
 
 			if ( isset( $this->data['action_urls'][$mode] ) ) {
 				$this->data['view_urls'][$mode] = $this->data['action_urls'][$mode];
