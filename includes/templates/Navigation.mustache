@@ -1,0 +1,25 @@
+{{!
+  string html-navigation-heading heading for entire navigation that is
+    usually hidden to screen readers
+  string html-personal-menu content that appears as the first child of mw-head
+  string html-navigation-left-tabs that appears inside #left-navigation (namespaces and variants)
+  string html-navigation-right-tabs that appears inside #right-navigation (page actions and search)
+  string html-logo for site logo
+  string html-portals for portal(s) that appear in the main menu for Vector
+}}
+<div id="mw-navigation">
+    <h2>{{{html-navigation-heading}}}</h2>
+    <div id="mw-head">
+        {{{html-personal-menu}}}
+        <div id="left-navigation">
+            {{{html-navigation-left-tabs}}}
+        </div>
+        <div id="right-navigation">
+            {{{html-navigation-right-tabs}}}
+        </div>
+    </div>
+    <div id="mw-panel">
+        {{{html-logo}}}
+        {{{html-portals}}}
+    </div>
+</div>

@@ -126,34 +126,19 @@ class VectorTemplate extends BaseTemplate {
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			] ),
+			'html-navigation' => $this->templateParser->processTemplate( 'Navigation', [
+				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
+				'html-personal-menu' => $this->renderNavigation( [ 'PERSONAL' ] ),
+				'html-navigation-left-tabs' => $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ),
+				'html-navigation-right-tabs' => $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ),
+				'html-logo' => '<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="' .
+					htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) .
+					'"' .
+					Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) .
+					'></a></div>',
+				'html-portals' => $this->renderPortals( $this->data['sidebar'] ),
+			] ),
 		];
-
-		// TODO: Convert the rest to Mustache
-		ob_start();
-		?>
-		<div id="mw-navigation">
-			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-			<div id="mw-head">
-				<?php $this->renderNavigation( [ 'PERSONAL' ] ); ?>
-				<div id="left-navigation">
-					<?php $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ); ?>
-				</div>
-				<div id="right-navigation">
-					<?php $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ); ?>
-				</div>
-			</div>
-			<div id="mw-panel">
-				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="<?php
-					echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
-					?>"<?php
-					echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) )
-					?>></a></div>
-				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
-			</div>
-		</div>
-		<?php
-		$params['html-unported'] = ob_get_contents();
-		ob_end_clean();
 
 		// Prepare and output the HTML response
 		echo $this->templateParser->processTemplate( 'index', $params );
@@ -212,8 +197,10 @@ class VectorTemplate extends BaseTemplate {
 	 * Render a series of portals
 	 *
 	 * @param array $portals
+	 * @return string
 	 */
 	protected function renderPortals( array $portals ) {
+		$html = '';
 		// Force the rendering of the following portals
 		if ( !isset( $portals['TOOLBOX'] ) ) {
 			$portals['TOOLBOX'] = true;
@@ -234,19 +221,24 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
-					$this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
+					$html .= $this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
+					ob_start();
 					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
+					$html .= ob_get_clean();
 					break;
 				case 'LANGUAGES':
 					if ( $this->data['language_urls'] !== false ) {
-						$this->renderPortal( 'lang', $this->data['language_urls'], 'otherlanguages' );
+						$html .= $this->renderPortal(
+							'lang', $this->data['language_urls'], 'otherlanguages'
+						);
 					}
 					break;
 				default:
-					$this->renderPortal( $name, $content );
+					$html .= $this->renderPortal( $name, $content );
 					break;
 			}
 		}
+		return $html;
 	}
 
 	/**
@@ -254,6 +246,7 @@ class VectorTemplate extends BaseTemplate {
 	 * @param array|string $content
 	 * @param null|string $msg
 	 * @param null|string|array $hook
+	 * @return string
 	 */
 	protected function renderPortal( $name, $content, $msg = null, $hook = null ) {
 		if ( $msg === null ) {
@@ -291,7 +284,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-portal-content'] = $content;
 		}
 
-		echo $this->templateParser->processTemplate( 'Portal', $props );
+		return $this->templateParser->processTemplate( 'Portal', $props );
 	}
 
 	/**
@@ -299,31 +292,34 @@ class VectorTemplate extends BaseTemplate {
 	 * when UI is in RTL mode
 	 *
 	 * @param array $elements
+	 * @return string
 	 */
 	protected function renderNavigation( array $elements ) {
+		$html = '';
 		// Render elements
 		foreach ( $elements as $name => $element ) {
 			switch ( $element ) {
 				case 'NAMESPACES':
-					$this->renderNamespacesComponent();
+					$html .= $this->renderNamespacesComponent();
 					break;
 				case 'VARIANTS':
-					$this->renderVariantsComponent();
+					$html .= $this->renderVariantsComponent();
 					break;
 				case 'VIEWS':
-					$this->renderViewsComponent();
+					$html .= $this->renderViewsComponent();
 					break;
 				case 'ACTIONS':
-					$this->renderActionsComponent();
+					$html .= $this->renderActionsComponent();
 					break;
 				case 'PERSONAL':
-					$this->renderPersonalComponent();
+					$html .= $this->renderPersonalComponent();
 					break;
 				case 'SEARCH':
-					$this->renderSearchComponent();
+					$html .= $this->renderSearchComponent();
 					break;
 			}
 		}
+		return $html;
 	}
 
 	/**
@@ -354,6 +350,9 @@ class VectorTemplate extends BaseTemplate {
 		return parent::makeListItem( $key, $item, $options );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function renderNamespacesComponent() {
 		$props = [
 			'tabs-id' => 'p-namespaces',
@@ -368,9 +367,12 @@ class VectorTemplate extends BaseTemplate {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $this->templateParser->processTemplate( 'VectorTabs', $props );
+		return $this->templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function renderVariantsComponent() {
 		$props = [
 			'empty-portlet' => ( count( $this->data['variant_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -392,9 +394,12 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $this->templateParser->processTemplate( 'VectorMenu', $props );
+		return $this->templateParser->processTemplate( 'VectorMenu', $props );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function renderViewsComponent() {
 		$props = [
 			'tabs-id' => 'p-views',
@@ -411,9 +416,12 @@ class VectorTemplate extends BaseTemplate {
 			] );
 		}
 
-		echo $this->templateParser->processTemplate( 'VectorTabs', $props );
+		return $this->templateParser->processTemplate( 'VectorTabs', $props );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function renderActionsComponent() {
 		$props = [
 			'empty-portlet' => ( count( $this->data['action_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -428,9 +436,12 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $this->templateParser->processTemplate( 'VectorMenu', $props );
+		return $this->templateParser->processTemplate( 'VectorMenu', $props );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function renderPersonalComponent() {
 		$personalTools = $this->getPersonalTools();
 		$props = [
@@ -460,7 +471,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
 		}
 
-		echo $this->templateParser->processTemplate( 'PersonalMenu', $props );
+		return $this->templateParser->processTemplate( 'PersonalMenu', $props );
 	}
 
 	private function renderSearchComponent() {
@@ -480,6 +491,6 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'searchInputLabel' => $this->getMsg( 'search' )
 		];
-		echo $this->templateParser->processTemplate( 'SearchBox', $props );
+		return $this->templateParser->processTemplate( 'SearchBox', $props );
 	}
 }
