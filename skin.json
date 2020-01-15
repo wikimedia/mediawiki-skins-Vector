@@ -39,13 +39,13 @@
 				"mobile"
 			],
 			"styles": {
-				"screen.less": {
+				"resources/skins.vector.styles/screen.less": {
 					"media": "screen"
 				},
-				"screen-hd.less": {
+				"resources/skins.vector.styles/screen-hd.less": {
 					"media": "screen and ( min-width: 982px )"
 				},
-				"print.less": []
+				"resources/skins.vector.styles/print.less": []
 			}
 		},
 		"skins.vector.styles.responsive": {
@@ -54,13 +54,13 @@
 				"mobile"
 			],
 			"styles": [
-				"responsive.less"
+				"resources/skins.vector.styles.responsive.less"
 			]
 		},
 		"skins.vector.js": {
 			"scripts": [
-				"collapsibleTabs.js",
-				"vector.js"
+				"resources/skins.vector.js/collapsibleTabs.js",
+				"resources/skins.vector.js/vector.js"
 			],
 			"dependencies": [
 				"mediawiki.util"
