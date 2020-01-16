@@ -112,7 +112,7 @@ class VectorTemplate extends BaseTemplate {
 			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
 			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
-			'html-printtail' => $this->getTrail(),
+			'html-printtail' => $this->getTrail() . '</body></html>',
 		];
 
 		// TODO: Convert the rest to Mustache
