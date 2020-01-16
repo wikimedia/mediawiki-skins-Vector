@@ -3,13 +3,14 @@
 		"authors": [
 			"Bua333",
 			"Mucalexx",
-			"Joe Watzmo"
+			"Joe Watzmo",
+			"WikiBayer"
 		]
 	},
 	"vector-action-addsection": "An Obschnitt dazua doa",
 	"vector-action-delete": "Leschn",
 	"vector-action-move": "Vaschiabm",
-	"vector-action-protect": "Schitzn",
+	"vector-action-protect": "schitzn",
 	"vector-action-undelete": "Wiederherstön",
 	"vector-action-unprotect": "freigeem",
 	"vector-view-create": "Aufbaun",
