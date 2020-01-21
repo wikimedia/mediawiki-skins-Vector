@@ -4,7 +4,9 @@
 			"Joanmp17"
 		]
 	},
+	"vector-action-delete": "ሰረዘ",
 	"vector-view-create": "ፈጠረ",
 	"vector-view-edit": "የዐርይ",
-	"vector-view-view": "ኣንበበ"
+	"vector-view-view": "ኣንበበ",
+	"vector-more-actions": "ተወሳኺ"
 }
