@@ -69,11 +69,19 @@ class VectorTemplate extends BaseTemplate {
 			}
 		}
 
+		ob_start();
+		Hooks::run( 'VectorBeforeFooter' );
+		$htmlHookVectorBeforeFooter = ob_get_contents();
+		ob_end_clean();
+
 		// Naming conventions for Mustache parameters:
 		// - Prefix "is" for boolean values.
 		// - Prefix "msg-" for interface messages.
 		// - Prefix "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
-		// - Prefix "html-" for raw HTML (in front of other keys, if applicable).
+		// - Prefix "hook-" for any thing generated from a hook.
+		//    It should be followed by the name of the hook in hyphenated lowercase.
+		// - Prefix "html-" for raw HTML (in front of other keys excluding `array-`, if applicable).
+		// - Prefix "array-" for anything that is iterable (in front of other keys is applicable)
 		// - Conditional values are null if absent.
 		$params = [
 			'html-headelement' => $this->get( 'headelement', '' ),
@@ -113,6 +121,11 @@ class VectorTemplate extends BaseTemplate {
 			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
 			'html-printtail' => $this->getTrail() . '</body></html>',
+			'html-footer' => $this->templateParser->processTemplate( 'Footer', [
+				'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
+				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
+				'array-footer-rows' => $this->getTemplateFooterRows(),
+			] ),
 		];
 
 		// TODO: Convert the rest to Mustache
@@ -138,52 +151,61 @@ class VectorTemplate extends BaseTemplate {
 				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			</div>
 		</div>
-		<?php Hooks::run( 'VectorBeforeFooter' ); ?>
-		<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
-			<?php
-			foreach ( $this->getFooterLinks() as $category => $links ) {
-			?>
-			<ul id="footer-<?php echo $category ?>">
-				<?php
-				foreach ( $links as $link ) {
-				?>
-				<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
-				<?php
-				}
-				?>
-			</ul>
-			<?php
-			}
-			?>
-			<?php $footericons = $this->getFooterIcons( 'icononly' );
-			if ( count( $footericons ) > 0 ) {
-				?>
-				<ul id="footer-icons" class="noprint">
-					<?php
-					foreach ( $footericons as $blockName => $footerIcons ) {
-					?>
-					<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-						<?php
-						foreach ( $footerIcons as $icon ) {
-							echo $this->getSkin()->makeFooterIcon( $icon );
-						}
-						?>
-					</li>
-					<?php
-					}
-					?>
-				</ul>
-			<?php
-			}
-			?>
-			<div style="clear: both;"></div>
-		</div>
 		<?php
 		$params['html-unported'] = ob_get_contents();
 		ob_end_clean();
 
 		// Prepare and output the HTML response
 		echo $this->templateParser->processTemplate( 'index', $params );
+	}
+
+	/**
+	 * Get rows that make up the footer
+	 * @return array for use in Mustache template describing the footer elements.
+	 */
+	private function getTemplateFooterRows() {
+		$footerRows = [];
+		foreach ( $this->getFooterLinks() as $category => $links ) {
+			$items = [];
+			$rowId = "footer-$category";
+
+			foreach ( $links as $link ) {
+				$items[] = [
+					'id' => "$rowId-$link",
+					'html' => $this->get( $link, '' ),
+				];
+			}
+
+			$footerRows[] = [
+				'id' => $rowId,
+				'className' => '',
+				'array-items' => $items
+			];
+		}
+
+		// If footer icons are enabled append to the end of the rows
+		$footerIcons = $this->getFooterIcons( 'icononly' );
+		if ( count( $footerIcons ) > 0 ) {
+			$items = [];
+			foreach ( $footerIcons as $blockName => $blockIcons ) {
+				$html = '';
+				foreach ( $blockIcons as $icon ) {
+					$html .= $this->getSkin()->makeFooterIcon( $icon );
+				}
+				$items[] = [
+					'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
+					'html' => $html,
+				];
+			}
+
+			$footerRows[] = [
+				'id' => 'footer-icons',
+				'className' => 'noprint',
+				'array-items' => $items,
+			];
+		}
+
+		return $footerRows;
 	}
 
 	/**
