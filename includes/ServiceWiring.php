@@ -23,10 +23,14 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 
 return [
-	'Vector.FeatureManager' => function ( MediaWikiServices $services ) {
+	Constants::SERVICE_CONFIG => function ( MediaWikiServices $services ) {
+		return $services->getService( 'ConfigFactory' )->makeConfig( Constants::SKIN_NAME );
+	},
+	Constants::SERVICE_FEATURE_MANAGER => function ( MediaWikiServices $services ) {
 		return new FeatureManager();
 	}
 ];
