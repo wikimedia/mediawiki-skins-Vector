@@ -70,7 +70,7 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		ob_start();
-		Hooks::run( 'VectorBeforeFooter' );
+		Hooks::run( 'VectorBeforeFooter', [], '1.35' );
 		$htmlHookVectorBeforeFooter = ob_get_contents();
 		ob_end_clean();
 
@@ -235,7 +235,7 @@ class VectorTemplate extends BaseTemplate {
 					break;
 				case 'TOOLBOX':
 					$this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
-					Hooks::run( 'VectorAfterToolbox' );
+					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
 					break;
 				case 'LANGUAGES':
 					if ( $this->data['language_urls'] !== false ) {
