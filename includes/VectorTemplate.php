@@ -131,11 +131,12 @@ class VectorTemplate extends BaseTemplate {
 				'html-personal-menu' => $this->renderNavigation( [ 'PERSONAL' ] ),
 				'html-navigation-left-tabs' => $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ),
 				'html-navigation-right-tabs' => $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ),
-				'html-logo' => '<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="' .
-					htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) .
-					'"' .
-					Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) .
-					'></a></div>',
+				'html-logo-attributes' => Xml::expandAttributes(
+					Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
+						'class' => 'mw-wiki-logo',
+						'href' => Skin::makeMainPageUrl(),
+					]
+				),
 				'html-portals' => $this->renderPortals( $this->data['sidebar'] ),
 			] ),
 		];
