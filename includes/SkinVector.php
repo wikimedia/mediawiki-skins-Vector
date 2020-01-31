@@ -72,6 +72,18 @@ class SkinVector extends SkinTemplate {
 	}
 
 	/**
+	 * Set up the VectorTemplate
+	 *
+	 * @param string $classname
+	 * @return VectorTemplate
+	 */
+	public function setupTemplate( $classname ) {
+		$template = new VectorTemplate( $this->getConfig() );
+		$template->setTemplateParser( new TemplateParser( __DIR__ . '/templates' ) );
+		return $template;
+	}
+
+	/**
 	 * Whether the logo should be preloaded with an HTTP link header or not
 	 * @since 1.29
 	 * @return bool

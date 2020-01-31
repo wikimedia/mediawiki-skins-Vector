@@ -34,11 +34,24 @@ class VectorTemplate extends BaseTemplate {
 	private $templateParser;
 
 	/**
-	 * @param Config|null $config
+	 * @param TemplateParser $parser
 	 */
-	public function __construct( Config $config = null ) {
-		parent::__construct( $config );
-		$this->templateParser = new TemplateParser( __DIR__ . '/templates' );
+	public function setTemplateParser( TemplateParser $parser ) {
+		$this->templateParser = $parser;
+	}
+
+	/**
+	 * The template parser might be undefined. This function will check if it set first
+	 *
+	 * @return TemplateParser
+	 */
+	protected function getTemplateParser() {
+		if ( $this->templateParser === null ) {
+			throw new \LogicException(
+				'TemplateParser has to be set first via setTemplateParser method'
+			);
+		}
+		return $this->templateParser;
 	}
 
 	/**
@@ -121,12 +134,12 @@ class VectorTemplate extends BaseTemplate {
 			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
 			'html-printtail' => $this->getTrail() . '</body></html>',
-			'html-footer' => $this->templateParser->processTemplate( 'Footer', [
+			'html-footer' => $this->getTemplateParser()->processTemplate( 'Footer', [
 				'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			] ),
-			'html-navigation' => $this->templateParser->processTemplate( 'Navigation', [
+			'html-navigation' => $this->getTemplateParser()->processTemplate( 'Navigation', [
 				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
 				'html-personal-menu' => $this->renderNavigation( [ 'PERSONAL' ] ),
 				'html-navigation-left-tabs' => $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ),
@@ -142,7 +155,7 @@ class VectorTemplate extends BaseTemplate {
 		];
 
 		// Prepare and output the HTML response
-		echo $this->templateParser->processTemplate( 'index', $params );
+		echo $this->getTemplateParser()->processTemplate( 'index', $params );
 	}
 
 	/**
@@ -285,7 +298,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-portal-content'] = $content;
 		}
 
-		return $this->templateParser->processTemplate( 'Portal', $props );
+		return $this->getTemplateParser()->processTemplate( 'Portal', $props );
 	}
 
 	/**
@@ -368,7 +381,7 @@ class VectorTemplate extends BaseTemplate {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->templateParser->processTemplate( 'VectorTabs', $props );
+		return $this->getTemplateParser()->processTemplate( 'VectorTabs', $props );
 	}
 
 	/**
@@ -395,7 +408,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->templateParser->processTemplate( 'VectorMenu', $props );
+		return $this->getTemplateParser()->processTemplate( 'VectorMenu', $props );
 	}
 
 	/**
@@ -417,7 +430,7 @@ class VectorTemplate extends BaseTemplate {
 			] );
 		}
 
-		return $this->templateParser->processTemplate( 'VectorTabs', $props );
+		return $this->getTemplateParser()->processTemplate( 'VectorTabs', $props );
 	}
 
 	/**
@@ -437,7 +450,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->templateParser->processTemplate( 'VectorMenu', $props );
+		return $this->getTemplateParser()->processTemplate( 'VectorMenu', $props );
 	}
 
 	/**
@@ -472,7 +485,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->templateParser->processTemplate( 'PersonalMenu', $props );
+		return $this->getTemplateParser()->processTemplate( 'PersonalMenu', $props );
 	}
 
 	private function renderSearchComponent() {
@@ -492,6 +505,6 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'searchInputLabel' => $this->getMsg( 'search' )
 		];
-		return $this->templateParser->processTemplate( 'SearchBox', $props );
+		return $this->getTemplateParser()->processTemplate( 'SearchBox', $props );
 	}
 }
