@@ -7,7 +7,8 @@
 			"Stultiwikia",
 			"Vito Genovese",
 			"Rapsar",
-			"Kumkumuk"
+			"Kumkumuk",
+			"BaRaN6161 TURK"
 		]
 	},
 	"vector-skin-desc": "MonoBook Modern versiyonu ile taze bir görünüm ve iyi bir kullanım kolaylığı",
@@ -15,7 +16,7 @@
 	"vector-action-delete": "Sil",
 	"vector-action-move": "Taşı",
 	"vector-action-protect": "Koru",
-	"vector-action-undelete": "Silinmeyi geri al",
+	"vector-action-undelete": "Geri al",
 	"vector-action-unprotect": "Korumayı değiştir",
 	"vector-view-create": "Oluştur",
 	"vector-view-edit": "Düzenle",
