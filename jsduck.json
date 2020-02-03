@@ -5,6 +5,6 @@
 	"--warnings-exit-nonzero": true,
 	"--warnings": ["-nodoc(class,public)"],
 	"--": [
-		"collapsibleTabs.js"
+		"./resources/skins.vector.js/collapsibleTabs.js"
 	]
 }
