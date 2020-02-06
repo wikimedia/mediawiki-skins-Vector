@@ -1,10 +1,28 @@
 Vector Skin
 ========================
 
-Configuration options
----------------------
+Installation
+------------
 
-### $wgVectorPrintLogo
+See <https://www.mediawiki.org/wiki/Skin:Vector>
+
+Development
+-----------
+
+### Coding conventions
+
+We strive for compliance with MediaWiki conventions:
+
+<https://www.mediawiki.org/wiki/Manual:Coding_conventions>
+
+Additions and deviations from those conventions that are more tailored to this
+project are noted at:
+
+<https://www.mediawiki.org/wiki/Reading/Web/Coding_conventions>
+
+### Configuration options
+
+#### $wgVectorPrintLogo
 
 Logo used in print styles. Keys are `url`, `width`, and `height` (in
 pixels). Note that this solution only works correctly if the image
