@@ -2,9 +2,10 @@
 	"private": true,
 	"scripts": {
 		"storybook": "./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
-		"test": "grunt test && npm run build-storybook",
-		"doc": "jsduck && npm run build-storybook",
-		"build-storybook": "./dev-scripts/setup-storybook.sh && build-storybook -o docs/"
+		"test": "grunt test && npm run doc",
+		"jsdoc": "jsdoc -c jsdoc.json",
+		"doc": "npm run jsdoc && npm run build-storybook",
+		"build-storybook": "./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui"
 	},
 	"devDependencies": {
 		"@babel/core": "7.7.7",
@@ -15,6 +16,7 @@
 		"grunt-banana-checker": "0.8.1",
 		"grunt-eslint": "22.0.0",
 		"grunt-stylelint": "0.13.0",
+		"jsdoc": "3.6.3",
 		"less": "3.8.1",
 		"less-loader": "4.1.0",
 		"mustache": "3.0.1",

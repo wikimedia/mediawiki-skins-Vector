@@ -1,30 +1,18 @@
-/**
- * Collapsible Tabs for the Vector skin.
- *
- * @class jQuery.plugin.collapsibleTabs
- */
 ( function () {
 	var boundEvent,
 		isRTL = document.documentElement.dir === 'rtl',
 		rAF = window.requestAnimationFrame || setTimeout;
 
 	/**
-	 * @event beforeTabCollapse
-	 */
-
-	/**
-	 * @event afterTabCollapse
-	 */
-
-	/**
+	 * A jQuery plugin that makes collapsible tabs for the Vector skin.
+	 *
+	 * @class jQuery.plugin.collapsibleTabs
 	 * @param {Object} [options]
-	 * @param {string} [options.expandedContainer="#p-views ul"] List of tabs
-	 * @param {string} [options.collapsedContainer="#p-cactions ul"] List of menu items
-	 * @param {string} [options.collapsible="li.collapsible"] Match tabs that are collapsible
+	 * @param {string} [options.expandedContainer=#p-views ul] List of tabs
+	 * @param {string} [options.collapsedContainer=#p-cactions ul] List of menu items
+	 * @param {string} [options.collapsible=li.collapsible] Match tabs that are collapsible
 	 * @param {Function} [options.expandCondition]
 	 * @param {Function} [options.collapseCondition]
-	 * @return {jQuery}
-	 * @chainable
 	 */
 	$.fn.collapsibleTabs = function ( options ) {
 		// Merge options into the defaults
@@ -105,8 +93,14 @@
 
 				// if the two navigations are colliding
 				if ( $el.children( data.collapsible ).length && data.collapseCondition() ) {
+					/**
+					 * Fired before tabs are moved to "collapsedContainer".
+					 *
+					 * @event beforeTabCollapse
+					 * @memberof jQuery.plugin.collapsibleTabs
+					 */
 					$el.trigger( 'beforeTabCollapse' );
-					// move the element to the dropdown menu
+					// Move the element to the dropdown menu.
 					$.collapsibleTabs.moveToCollapsed( $el.children( data.collapsible ).last() );
 				}
 
@@ -119,7 +113,12 @@
 						$.collapsibleTabs.getSettings( $tab ).expandedWidth
 					)
 				) {
-					// move the element from the dropdown to the tab
+					/**
+					 * Fired before tabs are moved to "expandedContainer".
+					 *
+					 * @event beforeTabExpand
+					 * @memberof jQuery.plugin.collapsibleTabs
+					 */
 					$el.trigger( 'beforeTabExpand' );
 					$.collapsibleTabs.moveToExpanded( $tab );
 				}
@@ -222,10 +221,4 @@
 			return rightStart - leftEnd;
 		}
 	};
-
-	/**
-	 * @class jQuery
-	 * @mixins jQuery.plugin.collapsibleTabs
-	 */
-
 }() );

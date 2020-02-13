@@ -25,6 +25,7 @@ module.exports = function ( grunt ) {
 				'*.{less,css}',
 				'**/*.{less,css}',
 				'!node_modules/**',
+				'!docs/**',
 				'!skinStyles/jquery.ui/**',
 				'!vendor/**'
 			]
