@@ -87,6 +87,7 @@ class VectorTemplate extends BaseTemplate {
 		$htmlHookVectorBeforeFooter = ob_get_contents();
 		ob_end_clean();
 
+		$tp = $this->getTemplateParser();
 		// Naming conventions for Mustache parameters:
 		// - Prefix "is" for boolean values.
 		// - Prefix "msg-" for interface messages.
@@ -134,37 +135,43 @@ class VectorTemplate extends BaseTemplate {
 			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
 			'html-printtail' => $this->getTrail() . '</body></html>',
-			'html-footer' => $this->getTemplateParser()->processTemplate( 'Footer', [
+			'html-footer' => $tp->processTemplate( 'Footer', [
 				'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			] ),
-			'html-navigation' => $this->getTemplateParser()->processTemplate( 'Navigation', [
+			'html-navigation' => $tp->processTemplate( 'Navigation', [
 				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-				'html-personal-menu' => $this->renderPersonalComponent(),
-				'html-navigation-left-tabs' => $this->renderNamespacesComponent() .
-					$this->renderVariantsComponent(),
-				'html-navigation-right-tabs' => $this->renderViewsComponent()
-					. $this->renderActionsComponent() . $this->renderSearchComponent(),
-				'html-logo-attributes' => Xml::expandAttributes(
-					Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
-						'class' => 'mw-wiki-logo',
-						'href' => Skin::makeMainPageUrl(),
-					]
+				'html-personal-menu' => $tp->processTemplate( 'PersonalMenu', $this->buildPersonalProps() ),
+				'html-navigation-left-tabs' =>
+					$tp->processTemplate( 'VectorTabs', $this->buildNamespacesProps() )
+					. $tp->processTemplate( 'VectorMenu', $this->buildVariantsProps() ),
+				'html-navigation-right-tabs' =>
+					$tp->processTemplate( 'VectorTabs', $this->buildViewsProps() )
+					. $tp->processTemplate( 'VectorMenu', $this->buildActionsProps() )
+					. $tp->processTemplate( 'SearchBox', $this->buildSearchProps() ),
+				'html-sidebar' => $tp->processTemplate( 'Sidebar',
+					[
+						'html-logo-attributes' => Xml::expandAttributes(
+							Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
+								'class' => 'mw-wiki-logo',
+								'href' => Skin::makeMainPageUrl(),
+							]
+						),
+					] + $this->buildSidebarProps( $this->data['sidebar'] )
 				),
-				'html-portals' => $this->renderPortals( $this->data['sidebar'] ),
 			] ),
 		];
 
 		// Prepare and output the HTML response
-		echo $this->getTemplateParser()->processTemplate( 'index', $params );
+		echo $tp->processTemplate( 'index', $params );
 	}
 
 	/**
 	 * Get rows that make up the footer
 	 * @return array for use in Mustache template describing the footer elements.
 	 */
-	private function getTemplateFooterRows() {
+	private function getTemplateFooterRows() : array {
 		$footerRows = [];
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$items = [];
@@ -213,10 +220,10 @@ class VectorTemplate extends BaseTemplate {
 	 * Render a series of portals
 	 *
 	 * @param array $portals
-	 * @return string
+	 * @return array
 	 */
-	protected function renderPortals( array $portals ) {
-		$html = '';
+	private function buildSidebarProps( array $portals ) : array {
+		$props = [];
 		// Force the rendering of the following portals
 		if ( !isset( $portals['TOOLBOX'] ) ) {
 			$portals['TOOLBOX'] = true;
@@ -237,24 +244,29 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
-					$html .= $this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
+					$portal = $this->buildPortalProps( 'tb', $this->getToolbox(), 'toolbox',
+						'SkinTemplateToolboxEnd' );
 					ob_start();
 					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
-					$html .= ob_get_clean();
+					$props[] = $portal + [
+						'html-hook-vector-after-toolbox' => ob_get_clean(),
+					];
 					break;
 				case 'LANGUAGES':
 					if ( $this->data['language_urls'] !== false ) {
-						$html .= $this->renderPortal(
+						$props[] = $this->buildPortalProps(
 							'lang', $this->data['language_urls'], 'otherlanguages'
 						);
 					}
 					break;
 				default:
-					$html .= $this->renderPortal( $name, $content );
+					$props[] = $this->buildPortalProps( $name, $content );
 					break;
 			}
 		}
-		return $html;
+		return [
+			'array-portals' => $props,
+		];
 	}
 
 	/**
@@ -262,9 +274,9 @@ class VectorTemplate extends BaseTemplate {
 	 * @param array|string $content
 	 * @param null|string $msg
 	 * @param null|string|array $hook
-	 * @return string
+	 * @return array
 	 */
-	protected function renderPortal( $name, $content, $msg = null, $hook = null ) {
+	private function buildPortalProps( $name, $content, $msg = null, $hook = null ) : array {
 		if ( $msg === null ) {
 			$msg = $name;
 		}
@@ -300,7 +312,7 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-portal-content'] = $content;
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'Portal', $props );
+		return $props;
 	}
 
 	/**
@@ -332,9 +344,9 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return string
+	 * @return array
 	 */
-	private function renderNamespacesComponent() {
+	private function buildNamespacesProps() : array {
 		$props = [
 			'tabs-id' => 'p-namespaces',
 			'empty-portlet' => ( count( $this->data['namespace_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -348,13 +360,13 @@ class VectorTemplate extends BaseTemplate {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'VectorTabs', $props );
+		return $props;
 	}
 
 	/**
-	 * @return string
+	 * @return array
 	 */
-	private function renderVariantsComponent() {
+	private function buildVariantsProps() : array {
 		$props = [
 			'empty-portlet' => ( count( $this->data['variant_urls'] ) == 0 ) ? 'emptyPortlet' : '',
 			'menu-id' => 'p-variants',
@@ -375,13 +387,13 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'VectorMenu', $props );
+		return $props;
 	}
 
 	/**
-	 * @return string
+	 * @return array
 	 */
-	private function renderViewsComponent() {
+	private function buildViewsProps() : array {
 		$props = [
 			'tabs-id' => 'p-views',
 			'empty-portlet' => ( count( $this->data['view_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -397,13 +409,13 @@ class VectorTemplate extends BaseTemplate {
 			] );
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'VectorTabs', $props );
+		return $props;
 	}
 
 	/**
-	 * @return string
+	 * @return array
 	 */
-	private function renderActionsComponent() {
+	private function buildActionsProps() : array {
 		$props = [
 			'empty-portlet' => ( count( $this->data['action_urls'] ) == 0 ) ? 'emptyPortlet' : '',
 			'msg-label' => $this->getMsg( 'vector-more-actions' )->text(),
@@ -417,13 +429,13 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'VectorMenu', $props );
+		return $props;
 	}
 
 	/**
-	 * @return string
+	 * @return array
 	 */
-	private function renderPersonalComponent() {
+	private function buildPersonalProps() : array {
 		$personalTools = $this->getPersonalTools();
 		$props = [
 			'empty-portlet' => ( count( $this->data['personal_urls'] ) == 0 ) ? 'emptyPortlet' : '',
@@ -452,10 +464,13 @@ class VectorTemplate extends BaseTemplate {
 			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
 		}
 
-		return $this->getTemplateParser()->processTemplate( 'PersonalMenu', $props );
+		return $props;
 	}
 
-	private function renderSearchComponent() {
+	/**
+	 * @return array
+	 */
+	private function buildSearchProps() : array {
 		$props = [
 			'searchHeaderAttrsHTML' => $this->data[ 'userlangattributes' ] ?? '',
 			'searchActionURL' => $this->data[ 'wgScript' ] ?? '',
@@ -472,6 +487,6 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'searchInputLabel' => $this->getMsg( 'search' )
 		];
-		return $this->getTemplateParser()->processTemplate( 'SearchBox', $props );
+		return $props;
 	}
 }

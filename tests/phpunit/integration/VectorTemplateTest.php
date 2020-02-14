@@ -124,29 +124,25 @@ class VectorTemplateTest extends \MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers ::renderViewsComponent
+	 * @covers ::buildViewsProps
 	 */
-	public function testRenderViewsComponent() {
+	public function testbuildViewsProps() {
 		$langAttrs = 'LANG_ATTRIBUTES';
-		$templateParserMock = $this->createMock( \TemplateParser::class );
-		$templateParserMock->expects( $this->once() )
-			->method( 'processTemplate' )
-			->with( 'VectorTabs', $this->callback( function ( $data ) use ( $langAttrs ){
-				if ( !array_key_exists( 'empty-portlet', $data ) ) {
-					return false;
-				}
-				return $data['empty-portlet'] == 'emptyPortlet' &&
-					   $data['html-userlangattributes'] == $langAttrs;
-			} ) );
-
 		$vectorTemplate = new \VectorTemplate( \GlobalVarConfig::newInstance() );
-		$vectorTemplate->setTemplateParser( $templateParserMock );
 		$vectorTemplate->set( 'view_urls', [] );
 		$vectorTemplate->set( 'skin', new \SkinVector() );
 		$vectorTemplate->set( 'userlangattributes', $langAttrs );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
-		$openVectorTemplate->renderViewsComponent();
+		$props = $openVectorTemplate->buildViewsProps();
+		$this->assertSame( $props, [
+			'tabs-id' => 'p-views',
+			'empty-portlet' => 'emptyPortlet',
+			'label-id' => 'p-views-label',
+			'msg-label' => 'Views',
+			'html-userlangattributes' => $langAttrs,
+			'html-items' => '',
+		] );
 	}
 
 }

@@ -4,11 +4,7 @@ import '../resources/skins.vector.styles/navigation.less';
 import '../.storybook/common.less';
 import { placeholder, htmluserlangattributes } from './utils';
 
-export default {
-	title: 'Portals'
-};
-
-const wrapPortlet = ( data ) => {
+export const wrapPortlet = ( data ) => {
 	const node = document.createElement( 'div' );
 	node.setAttribute( 'id', 'mw-panel' );
 	node.innerHTML = mustache.render( portalTemplate, data );
@@ -19,8 +15,8 @@ const portletAfter = ( html ) => {
 	return `<div class="after-portlet after-portlet-tb">${html}</div>`;
 };
 
-export const portal = () => wrapPortlet(
-	{
+export const PORTALS = {
+	example: {
 		'portal-id': 'p-example',
 		'html-tooltip': 'Message tooltip-p-example acts as tooltip',
 		'msg-label': 'Portal title',
@@ -34,11 +30,8 @@ export const portal = () => wrapPortlet(
 		'html-after-portal': portletAfter(
 			placeholder( `<p>Beware: The <a href="https://codesearch.wmflabs.org/search/?q=BaseTemplateAfterPortlet&i=nope&files=&repos=">BaseTemplateAfterPortlet hook</a> can be used to inject arbitary HTML here for any portlet.</p>`, 60 )
 		)
-	}
-);
-
-export const navigationPortal = () => wrapPortlet(
-	{
+	},
+	navigation: {
 		'portal-id': 'p-navigation',
 		'msg-label': 'Navigation',
 		'msg-label-id': 'p-navigation-label',
@@ -47,11 +40,8 @@ export const navigationPortal = () => wrapPortlet(
 		<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [⌃⌥z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [⌃⌥x]" accesskey="x">Random page</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>
 </ul>`,
 		'html-after-portal': portletAfter( placeholder( 'Possible hook output (navigation)', 50 ) )
-	}
-);
-
-export const toolbox = () => wrapPortlet(
-	{
+	},
+	toolbox: {
 		'portal-id': 'p-tb',
 		'html-tooltip': 'A message tooltip-p-tb must exist for this to appear',
 		'msg-label': 'Tools',
@@ -61,11 +51,8 @@ export const toolbox = () => wrapPortlet(
 <li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Spain" title="A list of all wiki pages that link here [⌃⌥j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Spain" rel="nofollow" title="Recent changes in pages linked from this page [⌃⌥k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [⌃⌥u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [⌃⌥q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Spain&amp;oldid=935087243" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Spain&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q29" title="Link to connected data repository item [⌃⌥g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Spain&amp;id=935087243" title="Information on how to cite this page">Cite this page</a></li>
 </ul>`,
 		'html-after-portal': portletAfter( placeholder( 'Possible hook output (tb)', 50 ) )
-	}
-);
-
-export const langlinks = () => wrapPortlet(
-	{
+	},
+	langlinks: {
 		'portal-id': 'p-lang',
 		'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
 		'msg-label': 'In other languages',
@@ -81,11 +68,8 @@ export const langlinks = () => wrapPortlet(
 			`<span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q29#sitelinks-wikipedia" title="Edit interlanguage links (provided by WikiBase extension)" class="wbc-editpage">Edit links</a></span></div>
 ${placeholder( `<p>Further hook output possible (lang)</p>`, 60 )}`
 		)
-	}
-);
-
-export const otherProjects = () => wrapPortlet(
-	{
+	},
+	otherProjects: {
 		'portal-id': 'p-wikibase-otherprojects',
 		'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
 		'msg-label': 'In other projects',
@@ -95,4 +79,4 @@ export const otherProjects = () => wrapPortlet(
 		<li class="wb-otherproject-link wb-otherproject-commons"><a href="https://commons.wikimedia.org/wiki/Category:Spain" hreflang="en">Wikimedia Commons</a></li><li class="wb-otherproject-link wb-otherproject-wikinews"><a href="https://en.wikinews.org/wiki/Category:Spain" hreflang="en">Wikinews</a></li><li class="wb-otherproject-link wb-otherproject-wikiquote"><a href="https://en.wikiquote.org/wiki/Spain" hreflang="en">Wikiquote</a></li><li class="wb-otherproject-link wb-otherproject-wikivoyage"><a href="https://en.wikivoyage.org/wiki/Spain" hreflang="en">Wikivoyage</a></li></ul>`,
 		'html-after-portal': ''
 	}
-);
+};
