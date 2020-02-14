@@ -141,9 +141,11 @@ class VectorTemplate extends BaseTemplate {
 			] ),
 			'html-navigation' => $this->getTemplateParser()->processTemplate( 'Navigation', [
 				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-				'html-personal-menu' => $this->renderNavigation( [ 'PERSONAL' ] ),
-				'html-navigation-left-tabs' => $this->renderNavigation( [ 'NAMESPACES', 'VARIANTS' ] ),
-				'html-navigation-right-tabs' => $this->renderNavigation( [ 'VIEWS', 'ACTIONS', 'SEARCH' ] ),
+				'html-personal-menu' => $this->renderPersonalComponent(),
+				'html-navigation-left-tabs' => $this->renderNamespacesComponent() .
+					$this->renderVariantsComponent(),
+				'html-navigation-right-tabs' => $this->renderViewsComponent()
+					. $this->renderActionsComponent() . $this->renderSearchComponent(),
 				'html-logo-attributes' => Xml::expandAttributes(
 					Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
 						'class' => 'mw-wiki-logo',
@@ -299,41 +301,6 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		return $this->getTemplateParser()->processTemplate( 'Portal', $props );
-	}
-
-	/**
-	 * Render one or more navigations elements by name, automatically reversed by css
-	 * when UI is in RTL mode
-	 *
-	 * @param array $elements
-	 * @return string
-	 */
-	protected function renderNavigation( array $elements ) {
-		$html = '';
-		// Render elements
-		foreach ( $elements as $name => $element ) {
-			switch ( $element ) {
-				case 'NAMESPACES':
-					$html .= $this->renderNamespacesComponent();
-					break;
-				case 'VARIANTS':
-					$html .= $this->renderVariantsComponent();
-					break;
-				case 'VIEWS':
-					$html .= $this->renderViewsComponent();
-					break;
-				case 'ACTIONS':
-					$html .= $this->renderActionsComponent();
-					break;
-				case 'PERSONAL':
-					$html .= $this->renderPersonalComponent();
-					break;
-				case 'SEARCH':
-					$html .= $this->renderSearchComponent();
-					break;
-			}
-		}
-		return $html;
 	}
 
 	/**
