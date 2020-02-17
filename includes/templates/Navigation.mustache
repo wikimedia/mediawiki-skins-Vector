@@ -9,13 +9,30 @@
 <div id="mw-navigation">
     <h2>{{{html-navigation-heading}}}</h2>
     <div id="mw-head">
-        {{{html-personal-menu}}}
+        {{#data-personal-menu}}
+        {{>PersonalMenu}}
+        {{/data-personal-menu}}
         <div id="left-navigation">
-            {{{html-navigation-left-tabs}}}
+            {{#data-namespace-tabs}}
+            {{>VectorTabs}}
+            {{/data-namespace-tabs}}
+            {{#data-variants}}
+            {{>VectorMenu}}
+            {{/data-variants}}
         </div>
         <div id="right-navigation">
-            {{{html-navigation-right-tabs}}}
+            {{#data-page-actions}}
+            {{>VectorTabs}}
+            {{/data-page-actions}}
+            {{#data-page-actions-more}}
+            {{>VectorMenu}}
+            {{/data-page-actions-more}}
+            {{#data-search-box}}
+            {{>SearchBox}}
+            {{/data-search-box}}
         </div>
     </div>
-    {{{html-sidebar}}}
+    {{#data-sidebar}}
+    {{>Sidebar}}
+    {{/data-sidebar}}
 </div>

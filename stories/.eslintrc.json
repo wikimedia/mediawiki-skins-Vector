@@ -2,6 +2,7 @@
 	"rules": {
 		"one-var": "off",
 		"single-quote": "off",
+		"no-restricted-properties": "off",
 		"quotes": "off"
 	},
 	"parserOptions": {

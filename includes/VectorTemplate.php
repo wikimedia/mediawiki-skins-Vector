@@ -98,9 +98,12 @@ class VectorTemplate extends BaseTemplate {
 		// - Prefix "msg-" for interface messages.
 		// - Prefix "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
 		// - Prefix "hook-" for any thing generated from a hook.
-		//    It should be followed by the name of the hook in hyphenated lowercase.
+		//   It should be followed by the name of the hook in hyphenated lowercase.
 		// - Prefix "html-" for raw HTML (in front of other keys excluding `array-`, if applicable).
+		//   Should be avoided where possible.
 		// - Prefix "array-" for anything that is iterable (in front of other keys is applicable)
+		// - Prefix "data-" for an object of template data that can be passed directly
+		//   to a template partial.
 		// - Conditional values are null if absent.
 		$params = [
 			'html-headelement' => $this->get( 'headelement', '' ),
@@ -140,32 +143,28 @@ class VectorTemplate extends BaseTemplate {
 			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
 			'html-printtail' => $this->getTrail() . '</body></html>',
-			'html-footer' => $tp->processTemplate( 'Footer', [
+			'data-footer' => [
 				'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
-			] ),
-			'html-navigation' => $tp->processTemplate( 'Navigation', [
+			],
+			'data-navigation' => [
 				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-				'html-personal-menu' => $tp->processTemplate( 'PersonalMenu', $this->buildPersonalProps() ),
-				'html-navigation-left-tabs' =>
-					$tp->processTemplate( 'VectorTabs', $this->buildNamespacesProps() )
-					. $tp->processTemplate( 'VectorMenu', $this->buildVariantsProps() ),
-				'html-navigation-right-tabs' =>
-					$tp->processTemplate( 'VectorTabs', $this->buildViewsProps() )
-					. $tp->processTemplate( 'VectorMenu', $this->buildActionsProps() )
-					. $tp->processTemplate( 'SearchBox', $this->buildSearchProps() ),
-				'html-sidebar' => $tp->processTemplate( 'Sidebar',
-					[
+				'data-personal-menu' => $this->buildPersonalProps(),
+				'data-namespace-tabs' => $this->buildNamespacesProps(),
+				'data-variants' => $this->buildVariantsProps(),
+				'data-page-actions' => $this->buildViewsProps(),
+				'data-page-actions-more' => $this->buildActionsProps(),
+				'data-search-box' => $this->buildSearchProps(),
+				'data-sidebar' => [
 						'html-logo-attributes' => Xml::expandAttributes(
 							Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
 								'class' => 'mw-wiki-logo',
 								'href' => Skin::makeMainPageUrl(),
 							]
-						),
-					] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) )
-				),
-			] ),
+						)
+				] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
+			],
 		];
 
 		// Prepare and output the HTML response

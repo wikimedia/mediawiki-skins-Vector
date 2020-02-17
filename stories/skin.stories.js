@@ -4,8 +4,13 @@ import skinTemplate from '!!raw-loader!../includes/templates/index.mustache';
 import { placeholder } from './utils';
 
 import '../resources/skins.vector.styles/screen.less';
-import { navigationLoggedOutWithVariants, navigationLoggedInWithMore } from './navigation.stories';
-import { footer } from './footer.stories';
+import { NAVIGATION_TEMPLATE_DATA, navTemplate, NAVIGATION_TEMPLATE_PARTIALS } from './navigation.stories.data';
+import { FOOTER_TEMPLATE_DATA, footerTemplate } from './footer.stories.data';
+
+const TEMPLATE_PARTIALS = Object.assign( {}, NAVIGATION_TEMPLATE_PARTIALS, {
+	Navigation: navTemplate,
+	Footer: footerTemplate
+} );
 
 export default {
 	title: 'Skin'
@@ -37,10 +42,10 @@ export const vector2019LoggedOut = () => mustache.render( skinTemplate, {
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
-	'html-navigation': navigationLoggedOutWithVariants(),
+	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedOutWithVariants,
 
 	// site specific
-	'html-footer': footer(),
+	'data-footer': FOOTER_TEMPLATE_DATA,
 	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
 
 	// article dependent
@@ -53,7 +58,7 @@ export const vector2019LoggedOut = () => mustache.render( skinTemplate, {
 	'html-dataAfterContent': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
 	'html-indicators': HTML_INDICATORS,
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
-} );
+}, TEMPLATE_PARTIALS );
 
 export const vector2019LoggedIn = () => mustache.render( skinTemplate, {
 	'html-title': 'Vector 2019',
@@ -62,14 +67,14 @@ export const vector2019LoggedIn = () => mustache.render( skinTemplate, {
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
-	'html-navigation': navigationLoggedInWithMore(),
+	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedInWithMoreActions,
 
 	// site specific
-	'html-footer': footer(),
+	'data-footer': FOOTER_TEMPLATE_DATA,
 	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
 
 	// article dependent
 	'html-bodycontent': placeholder( 'Article content goes here' ),
 	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
 	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
-} );
+}, TEMPLATE_PARTIALS );

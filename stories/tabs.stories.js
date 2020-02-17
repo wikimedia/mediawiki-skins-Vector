@@ -1,6 +1,5 @@
 import mustache from 'mustache';
-import { htmluserlangattributes } from './utils';
-import vectorTabsTemplate from '!!raw-loader!../includes/templates/VectorTabs.mustache';
+import { namespaceTabsData, pageActionsData, vectorTabsTemplate } from './tabs.stories.data';
 import '../resources/skins.vector.styles/tabs.less';
 import '../.storybook/common.less';
 
@@ -8,31 +7,6 @@ export default {
 	title: 'Tabs'
 };
 
-export const viewTabs = () => mustache.render( vectorTabsTemplate, {
-	'tabs-id': 'p-views',
-	'empty-portlet': '',
-	'label-id': 'p-views-label',
-	'msg-label': 'Views',
-	'html-userlangattributes': htmluserlangattributes,
-	'html-items': `<li id="ca-view" class="collapsible selected">
-		<a href="/wiki/Main_Page">Read</a>
-</li>
-<li id="ca-viewsource" class="collapsible">
-	<a href="/w/index.php?title=Main_Page&amp;action=edit" title="This page is protected.
-You can view its source [⌃⌥e]" accesskey="e">View source</a></li>
-<li id="ca-history" class="collapsible">
-	<a href="/w/index.php?title=Main_Page&amp;action=history" title="Past revisions of this page [⌃⌥h]" accesskey="h">View history</a>
-</li>
-<li id="ca-unwatch" class="collapsible icon mw-watchlink"><a href="/w/index.php?title=Main_Page&amp;action=unwatch" data-mw="interface" title="Remove this page from your watchlist [⌃⌥w]" accesskey="w">Unwatch</a></li>
-`
-} );
+export const pageActionTabs = () => mustache.render( vectorTabsTemplate, pageActionsData );
 
-export const namespaceTabs = () => mustache.render( vectorTabsTemplate, {
-	'tabs-id': 'p-namespaces',
-	'empty-portlet': '',
-	'label-id': 'p-namespaces-label',
-	'msg-label': 'Namespaces',
-	'html-userlangattributes': htmluserlangattributes,
-	'html-items': `<li id="ca-nstab-main" class="selected"><a href="/wiki/Main_Page" title="View the content page [⌃⌥c]" accesskey="c">Main page</a></li>
-<li id="ca-talk"><a href="/wiki/Talk:Main_Page" rel="discussion" title="Discussion about the content page [⌃⌥t]" accesskey="t">Talk (3)</a></li>`
-} );
+export const namespaceTabs = () => mustache.render( vectorTabsTemplate, namespaceTabsData );
