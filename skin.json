@@ -106,9 +106,6 @@
 		},
 		"VectorResponsive": {
 			"value": false
-		},
-		"VectorPrintLogo": {
-			"value": false
 		}
 	},
 	"manifest_version": 2
