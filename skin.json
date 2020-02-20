@@ -26,6 +26,9 @@
 		"SkinVector": "includes/SkinVector.php",
 		"VectorTemplate": "includes/VectorTemplate.php"
 	},
+	"AutoloadNamespaces": {
+		"Vector\\FeatureManagement\\": "includes/FeatureManagement/"
+	},
 	"Hooks": {
 		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile"
 	},
@@ -108,5 +111,8 @@
 			"value": false
 		}
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"manifest_version": 2
 }
