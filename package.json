@@ -2,7 +2,11 @@
 	"private": true,
 	"scripts": {
 		"storybook": "./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
-		"test": "grunt test && npm run doc",
+		"test": "npm -s run lint && npm run doc",
+		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
+		"lint:js": "eslint --cache --max-warnings 0 .",
+		"lint:styles": "stylelint \"**/*.{less,css}\"",
+		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"jsdoc": "jsdoc -c jsdoc.json",
 		"doc": "npm run jsdoc && npm run build-storybook",
 		"build-storybook": "./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui"
@@ -12,14 +16,12 @@
 		"@storybook/html": "5.2.8",
 		"babel-loader": "8.0.6",
 		"eslint-config-wikimedia": "0.15.0",
-		"grunt": "1.0.4",
 		"grunt-banana-checker": "0.8.1",
-		"grunt-eslint": "22.0.0",
-		"grunt-stylelint": "0.13.0",
 		"jsdoc": "3.6.3",
 		"less": "3.8.1",
 		"less-loader": "4.1.0",
 		"mustache": "3.0.1",
-		"stylelint-config-wikimedia": "0.8.0"
+		"stylelint": "10.0.1",
+		"stylelint-config-wikimedia": "0.9.0"
 	}
 }
