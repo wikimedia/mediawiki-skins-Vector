@@ -6,6 +6,8 @@
 
 use Vector\Hooks;
 
+const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
+
 /**
  * Integration tests for Vector Hooks.
  *
@@ -53,7 +55,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'type' => 'toggle',
 					'label-message' => 'prefs-vector-enable-vector-1-label',
 					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => 'rendering/skin-prefs',
+					'section' => SKIN_PREFS_SECTION,
 					// '1' is enabled which means Legacy.
 					'default' => '1',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]
@@ -89,7 +91,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'type' => 'toggle',
 					'label-message' => 'prefs-vector-enable-vector-1-label',
 					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => 'rendering/skin-prefs',
+					'section' => SKIN_PREFS_SECTION,
 					// '1' is enabled which means Legacy.
 					'default' => '1',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]
@@ -130,7 +132,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'type' => 'toggle',
 					'label-message' => 'prefs-vector-enable-vector-1-label',
 					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => 'rendering/skin-prefs',
+					'section' => SKIN_PREFS_SECTION,
 					// '0' is disabled (which means latest).
 					'default' => '0',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]

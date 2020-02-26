@@ -54,7 +54,7 @@ class Hooks {
 				'help-message' => 'prefs-vector-enable-vector-1-help',
 				// The tab location and title of the section to insert the checkbox. The bit after the slash
 				// indicates that a prefs-skin-prefs string will be provided.
-				'section' => 'rendering/skin-prefs',
+				'section' => 'rendering/skin/skin-prefs',
 				// Convert the preference string to a boolean presentation.
 				'default' =>
 					$user->getOption( Constants::PREF_KEY_SKIN_VERSION ) === Constants::SKIN_VERSION_LATEST ?
