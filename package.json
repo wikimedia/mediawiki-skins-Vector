@@ -17,6 +17,7 @@
 		"grunt-eslint": "22.0.0",
 		"grunt-stylelint": "0.13.0",
 		"jsdoc": "3.6.3",
+		"jsdoc-wmf-theme": "0.0.3",
 		"less": "3.8.1",
 		"less-loader": "4.1.0",
 		"mustache": "3.0.1",
