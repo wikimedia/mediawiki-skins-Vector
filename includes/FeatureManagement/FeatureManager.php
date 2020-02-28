@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -91,7 +92,7 @@ final class FeatureManager {
 	 * @throws \InvalidArgumentException If the feature references a requirement that isn't
 	 *  registered
 	 */
-	public function registerFeature( $feature, $requirements ) {
+	public function registerFeature( string $feature, $requirements ) {
 		//
 		// Validation
 		if ( array_key_exists( $feature, $this->features ) ) {
@@ -129,7 +130,7 @@ final class FeatureManager {
 	 *
 	 * @throws \InvalidArgumentException If the feature isn't registered
 	 */
-	public function isFeatureEnabled( $feature ) {
+	public function isFeatureEnabled( string $feature ) : bool {
 		if ( !array_key_exists( $feature, $this->features ) ) {
 			throw new \InvalidArgumentException( "The feature \"{$feature}\" isn't registered." );
 		}
@@ -161,12 +162,10 @@ final class FeatureManager {
 	 *
 	 * @throws \LogicException If the requirement has already been registered
 	 */
-	public function registerRequirement( $name, $isMet ) {
+	public function registerRequirement( string $name, bool $isMet ) {
 		if ( array_key_exists( $name, $this->requirements ) ) {
 			throw new \LogicException( "The requirement \"{$name}\" is already registered." );
 		}
-
-		Assert::parameterType( 'boolean', $isMet, 'isMet' );
 
 		$this->requirements[$name] = $isMet;
 	}
@@ -179,7 +178,7 @@ final class FeatureManager {
 	 *
 	 * @throws \InvalidArgumentException If the requirement isn't registered
 	 */
-	public function isRequirementMet( $name ) {
+	public function isRequirementMet( string $name ) : bool {
 		if ( !array_key_exists( $name, $this->requirements ) ) {
 			throw new \InvalidArgumentException( "Requirement \"{$name}\" isn't registered." );
 		}
