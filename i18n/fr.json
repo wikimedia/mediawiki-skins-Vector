@@ -8,11 +8,15 @@
 			"Jean-Frédéric",
 			"Od1n",
 			"DePlusJean",
-			"Niridya"
+			"Niridya",
+			"Eneelk"
 		]
 	},
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "Version moderne de MonoBook avec un aspect rajeuni et beaucoup d’améliorations ergonomiques",
+	"prefs-skin-prefs": "Préférences de l’habillage Vector",
+	"prefs-vector-enable-vector-1-label": "Utiliser la version héritée de Vector",
+	"prefs-vector-enable-vector-1-help": "Dans les années à venir, nous mettrons progressivement à jour l’habillage Vector. La version héritée de Vector vous permet de voir l’ancien habillage de Vector (tel qu’il était en décembre 2019). Pour en savoir plus, rendez-vous sur [[mw:Reading/Web/Desktop_Improvements|project page]].",
 	"vector.css": "/* Le CSS placé ici affectera les utilisateurs de l’habillage Vector. */",
 	"vector.js": "/* Tout code JavaScript placé ici sera chargé pour les utilisateurs de l’habillage Vector */",
 	"vector-action-addsection": "Ajouter un sujet",
