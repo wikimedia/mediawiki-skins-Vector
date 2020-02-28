@@ -58,10 +58,11 @@ class VectorTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the HTML page
 	 */
 	public function execute() {
-		$this->data['namespace_urls'] = $this->data['content_navigation']['namespaces'];
-		$this->data['view_urls'] = $this->data['content_navigation']['views'];
-		$this->data['action_urls'] = $this->data['content_navigation']['actions'];
-		$this->data['variant_urls'] = $this->data['content_navigation']['variants'];
+		$contentNavigation = $this->get( 'content_navigation', [] );
+		$this->set( 'namespace_urls', $contentNavigation[ 'namespaces' ] );
+		$this->set( 'view_urls', $contentNavigation[ 'views' ] );
+		$this->set( 'action_urls', $contentNavigation[ 'actions' ] );
+		$this->set( 'variant_urls', $contentNavigation[ 'variants' ] );
 
 		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
 		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
@@ -76,9 +77,13 @@ class VectorTemplate extends BaseTemplate {
 						)
 					) ? 'unwatch' : 'watch';
 
-			if ( isset( $this->data['action_urls'][$mode] ) ) {
-				$this->data['view_urls'][$mode] = $this->data['action_urls'][$mode];
-				unset( $this->data['action_urls'][$mode] );
+			$actionUrls = $this->get( 'action_urls', [] );
+			if ( array_key_exists( $mode, $actionUrls ) ) {
+				$viewUrls = $this->get( 'view_urls' );
+				$viewUrls[ $mode ] = $actionUrls[ $mode ];
+				unset( $actionUrls[ $mode ] );
+				$this->set( 'view_urls', $viewUrls );
+				$this->set( 'action_urls', $actionUrls );
 			}
 		}
 
@@ -102,7 +107,7 @@ class VectorTemplate extends BaseTemplate {
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
 			'html-indicators' => $this->getIndicators(),
 			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
-			'page-isarticle' => (bool)$this->data['isarticle'],
+			'page-isarticle' => (bool)$this->get( 'isarticle' ),
 
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
@@ -158,7 +163,7 @@ class VectorTemplate extends BaseTemplate {
 								'href' => Skin::makeMainPageUrl(),
 							]
 						),
-					] + $this->buildSidebarProps( $this->data['sidebar'] )
+					] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) )
 				),
 			] ),
 		];
@@ -253,9 +258,9 @@ class VectorTemplate extends BaseTemplate {
 					];
 					break;
 				case 'LANGUAGES':
-					if ( $this->data['language_urls'] !== false ) {
+					if ( $this->get( 'language_urls' ) !== false ) {
 						$props[] = $this->buildPortalProps(
-							'lang', $this->data['language_urls'], 'otherlanguages'
+							'lang', $this->get( 'language_urls' ), 'otherlanguages'
 						);
 					}
 					break;
@@ -288,7 +293,7 @@ class VectorTemplate extends BaseTemplate {
 			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
 			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
 			'msg-label-id' => "p-$name-label",
-			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-portal-content' => '',
 			'html-after-portal' => $this->getAfterPortlet( $name ),
 		];
@@ -349,14 +354,14 @@ class VectorTemplate extends BaseTemplate {
 	private function buildNamespacesProps() : array {
 		$props = [
 			'tabs-id' => 'p-namespaces',
-			'empty-portlet' => ( count( $this->data['namespace_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'empty-portlet' => ( count( $this->get( 'namespace_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
 			'label-id' => 'p-namespaces-label',
 			'msg-label' => $this->getMsg( 'namespaces' )->text(),
-			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
 
-		foreach ( $this->data['namespace_urls'] as $key => $item ) {
+		foreach ( $this->get( 'namespace_urls', [] ) as $key => $item ) {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
 		}
 
@@ -368,7 +373,7 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildVariantsProps() : array {
 		$props = [
-			'empty-portlet' => ( count( $this->data['variant_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'empty-portlet' => ( count( $this->get( 'variant_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
 			'menu-id' => 'p-variants',
 			'menu-label-id' => 'p-variants-label',
 			'msg-label' => $this->getMsg( 'variants' )->text(),
@@ -376,14 +381,15 @@ class VectorTemplate extends BaseTemplate {
 		];
 
 		// Replace the label with the name of currently chosen variant, if any
-		foreach ( $this->data['variant_urls'] as $item ) {
+		$variantUrls = $this->get( 'variant_urls', [] );
+		foreach ( $variantUrls as $item ) {
 			if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
 				$props['msg-label'] = $item['text'];
 				break;
 			}
 		}
 
-		foreach ( $this->data['variant_urls'] as $key => $item ) {
+		foreach ( $variantUrls as $key => $item ) {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
@@ -396,14 +402,14 @@ class VectorTemplate extends BaseTemplate {
 	private function buildViewsProps() : array {
 		$props = [
 			'tabs-id' => 'p-views',
-			'empty-portlet' => ( count( $this->data['view_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'empty-portlet' => ( count( $this->get( 'view_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
 			'label-id' => 'p-views-label',
 			'msg-label' => $this->getMsg( 'views' )->text(),
-			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
-
-		foreach ( $this->data['view_urls'] as $key => $item ) {
+		$viewUrls = $this->get( 'view_urls', [] );
+		foreach ( $viewUrls as $key => $item ) {
 			$props[ 'html-items' ] .= $this->makeListItem( $key, $item, [
 				'vector-collapsible' => true,
 			] );
@@ -417,15 +423,16 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildActionsProps() : array {
 		$props = [
-			'empty-portlet' => ( count( $this->data['action_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'empty-portlet' => ( count( $this->get( 'action_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
 			'msg-label' => $this->getMsg( 'vector-more-actions' )->text(),
 			'menu-id' => 'p-cactions',
 			'menu-label-id' => 'p-cactions-label',
-			'html-userlangattributes' => $this->data[ 'userlangattributes' ] ?? '',
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
 
-		foreach ( $this->data['action_urls'] as $key => $item ) {
+		$actionUrls = $this->get( 'action_urls', [] );
+		foreach ( $actionUrls as $key => $item ) {
 			$props['html-items'] .= $this->makeListItem( $key, $item );
 		}
 
@@ -438,9 +445,9 @@ class VectorTemplate extends BaseTemplate {
 	private function buildPersonalProps() : array {
 		$personalTools = $this->getPersonalTools();
 		$props = [
-			'empty-portlet' => ( count( $this->data['personal_urls'] ) == 0 ) ? 'emptyPortlet' : '',
+			'empty-portlet' => ( count( $this->get( 'personal_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
 			'msg-label' => $this->getMsg( 'personaltools' )->text(),
-			'html-userlangattributes' => $this->data[ 'userlangattributes' ] ?? '',
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-loggedin' => '',
 			'html-personal-tools' => '',
 			'html-lang-selector' => '',
@@ -472,11 +479,11 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildSearchProps() : array {
 		$props = [
-			'searchHeaderAttrsHTML' => $this->data[ 'userlangattributes' ] ?? '',
-			'searchActionURL' => $this->data[ 'wgScript' ] ?? '',
+			'searchHeaderAttrsHTML' => $this->get( 'userlangattributes', '' ),
+			'searchActionURL' => $this->get( 'wgScript', '' ),
 			'searchDivID' => $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
 			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'titleHTML' => Html::hidden( 'title', $this->data[ 'searchtitle' ] ?? null ),
+			'titleHTML' => Html::hidden( 'title', $this->get( 'searchtitle', null ) ),
 			'fallbackSearchButtonHTML' => $this->makeSearchButton(
 				'fulltext',
 				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
