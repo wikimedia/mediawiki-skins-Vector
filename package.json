@@ -1,15 +1,15 @@
 {
 	"private": true,
 	"scripts": {
-		"storybook": "./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
 		"test": "npm -s run lint && npm run doc",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:js": "eslint --cache --max-warnings 0 .",
 		"lint:styles": "stylelint \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
-		"jsdoc": "jsdoc -c jsdoc.json",
-		"doc": "npm run jsdoc && npm run build-storybook",
-		"build-storybook": "./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui"
+
+		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
+		"storybook": "bash ./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
+		"build-storybook": "bash ./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui"
 	},
 	"devDependencies": {
 		"@babel/core": "7.7.7",
