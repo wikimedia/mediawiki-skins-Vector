@@ -1,10 +1,10 @@
 import mustache from 'mustache';
-import { personalMenuTemplate, PERSONAL_MENU_TEMPLATE_DATA } from './personalNavigation.stories.data';
+import { personalMenuTemplate, PERSONAL_MENU_TEMPLATE_DATA } from './PersonalMenu.stories.data';
 import '../resources/skins.vector.styles/PersonalMenu.less';
 import '../.storybook/common.less';
 
 export default {
-	title: 'Personal Navigation'
+	title: 'Personal Menu'
 };
 
 export const loggedOut = () => mustache.render( personalMenuTemplate,

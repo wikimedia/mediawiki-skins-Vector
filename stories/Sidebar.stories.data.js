@@ -1,6 +1,6 @@
 import sidebarTemplate from '!!raw-loader!../includes/templates/Sidebar.mustache';
 import portalTemplate from '!!raw-loader!../includes/templates/Portal.mustache';
-import { PORTALS } from './portal.stories.data';
+import { PORTALS } from './Portal.stories.data';
 
 const HTML_LOGO_ATTRIBUTES = `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`;
 const SIDEBAR_BEFORE_OUTPUT_HOOKINFO = `Beware: Portals can be added, removed or reordered using

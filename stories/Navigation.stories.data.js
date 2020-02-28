@@ -1,9 +1,9 @@
 import navTemplate from '!!raw-loader!../includes/templates/Navigation.mustache';
-import { PERSONAL_MENU_TEMPLATE_DATA, personalMenuTemplate } from './personalNavigation.stories.data';
-import { pageActionsData, namespaceTabsData, vectorTabsTemplate } from './tabs.stories.data';
-import { vectorMenuTemplate, moreData, variantsData } from './menu.stories.data';
-import { searchBoxData, searchBoxTemplate } from './searchBox.stories.data';
-import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './sidebar.stories.data';
+import { PERSONAL_MENU_TEMPLATE_DATA, personalMenuTemplate } from './PersonalMenu.stories.data';
+import { pageActionsData, namespaceTabsData, vectorTabsTemplate } from './VectorTabs.stories.data';
+import { vectorMenuTemplate, moreData, variantsData } from './VectorMenu.stories.data';
+import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
+import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './Sidebar.stories.data';
 
 export const NAVIGATION_TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	SearchBox: searchBoxTemplate,

@@ -2,7 +2,7 @@ import mustache from 'mustache';
 import '../.storybook/common.less';
 import '../resources/skins.vector.styles/Sidebar.less';
 import '../resources/skins.vector.styles/Portal.less';
-import { sidebarTemplate, SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS } from './sidebar.stories.data';
+import { sidebarTemplate, SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS } from './Sidebar.stories.data';
 
 export default {
 	title: 'Sidebar'
