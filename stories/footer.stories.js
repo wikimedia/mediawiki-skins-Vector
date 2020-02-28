@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import { FOOTER_TEMPLATE_DATA, footerTemplate } from './footer.stories.data';
-import '../resources/skins.vector.styles/footer.less';
+import '../resources/skins.vector.styles/Footer.less';
 import '../.storybook/common.less';
 
 export default {

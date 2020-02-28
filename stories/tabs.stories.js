@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import { namespaceTabsData, pageActionsData, vectorTabsTemplate } from './tabs.stories.data';
-import '../resources/skins.vector.styles/tabs.less';
+import '../resources/skins.vector.styles/VectorTabs.less';
 import '../.storybook/common.less';
 
 export default {

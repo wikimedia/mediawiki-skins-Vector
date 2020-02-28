@@ -1,5 +1,5 @@
 import mustache from 'mustache';
-import '../resources/skins.vector.styles/navigation.less';
+import '../resources/skins.vector.styles/VectorMenu.less';
 import '../.storybook/common.less';
 import { vectorMenuTemplate, moreData, variantsData } from './menu.stories.data';
 

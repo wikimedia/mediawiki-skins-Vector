@@ -2,7 +2,7 @@ import mustache from 'mustache';
 import { navTemplate, NAVIGATION_TEMPLATE_DATA,
 	NAVIGATION_TEMPLATE_PARTIALS } from './navigation.stories.data';
 import '../.storybook/common.less';
-import '../resources/skins.vector.styles/navigation.less';
+import '../resources/skins.vector.styles/Navigation.less';
 
 export default {
 	title: 'Navigation (Header + Sidebar)'

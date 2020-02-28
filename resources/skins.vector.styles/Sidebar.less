@@ -1,0 +1,40 @@
+@import '../../variables.less';
+
+/* Logo */
+#p-logo {
+	width: 10em;
+	height: 160px;
+
+	a {
+		background-position: center center;
+		background-repeat: no-repeat;
+		display: block;
+		width: 10em;
+		height: 160px;
+		text-decoration: none;
+	}
+}
+
+/* Panel */
+#mw-panel {
+	position: absolute;
+	top: 0;
+	width: 10em;
+	left: 0;
+	font-size: @font-size-nav-main;
+
+	/* First sidebar portlet. Not using :first-of-type for IE<=8 support. */
+	#p-logo + .portal {
+		background-image: none;
+		margin-top: 1em;
+
+		h3 {
+			display: none;
+		}
+
+		.body {
+			background-image: none;
+			margin-left: @margin-left-nav-main-body;
+		}
+	}
+}

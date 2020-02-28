@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import { personalMenuTemplate, PERSONAL_MENU_TEMPLATE_DATA } from './personalNavigation.stories.data';
-import '../resources/skins.vector.styles/personalNavigation.less';
+import '../resources/skins.vector.styles/PersonalMenu.less';
 import '../.storybook/common.less';
 
 export default {

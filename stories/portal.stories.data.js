@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import portalTemplate from '!!raw-loader!../includes/templates/Portal.mustache';
-import '../resources/skins.vector.styles/navigation.less';
+import '../resources/skins.vector.styles/Portal.less';
 import '../.storybook/common.less';
 import { placeholder, htmluserlangattributes } from './utils';
 
