@@ -11,7 +11,6 @@
 	},
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "現代版的 MonoBook，有著較新穎的外觀與許多使用性的改進",
-	"prefs-skin-prefs": "Vector 外觀偏好設定",
 	"prefs-vector-enable-vector-1-label": "使用先前的 Vector",
 	"prefs-vector-enable-vector-1-help": "在接下來的幾年，我們會逐步更新 Vector 外觀。先前的 Vector 能讓您觀看舊版本 Vector（截至 2019 年 12 月）。要了解更多更新方面內容，請前往我們的[[mw:Reading/Web/Desktop_Improvements|專案頁面]]。",
 	"vector.css": "/* 此 CSS 會影響使用 Vector 介面外觀的使用者 */",
