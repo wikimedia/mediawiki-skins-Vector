@@ -32,6 +32,7 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::registerRequirement
+	 * @covers ::registerComplexRequirement
 	 */
 	public function testRegisterRequirementThrowsWhenRequirementIsRegisteredTwice() {
 		$this->expectException( \LogicException::class );

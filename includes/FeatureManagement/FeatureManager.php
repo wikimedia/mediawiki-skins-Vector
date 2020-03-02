@@ -38,8 +38,8 @@ use Wikimedia\Assert\Assert;
 final class FeatureManager {
 
 	/**
-	 * A map of feature name to the array of requirements. A feature is only considered enabled when
-	 * all of its requirements are met.
+	 * A map of feature name to the array of requirements (referenced by name). A feature is only
+	 * considered enabled when all of its requirements are met.
 	 *
 	 * See FeatureManager::registerFeature for additional detail.
 	 *
@@ -48,9 +48,12 @@ final class FeatureManager {
 	private $features = [];
 
 	/**
-	 * A map of requirement name to whether the requirement is met.
+	 * A map of requirement name to the Requirement instance that represents it.
 	 *
-	 * @var Array<string,bool>
+	 * The names of requirements are assumed to be static for the lifetime of the request. Therefore
+	 * we can use them to look up Requirement instances quickly.
+	 *
+	 * @var Array<string,Requirement>
 	 */
 	private $requirements = [];
 
@@ -138,7 +141,7 @@ final class FeatureManager {
 		$requirements = $this->features[$feature];
 
 		foreach ( $requirements as $name ) {
-			if ( !$this->requirements[$name] ) {
+			if ( !$this->requirements[$name]->isMet() ) {
 				return false;
 			}
 		}
@@ -147,15 +150,37 @@ final class FeatureManager {
 	}
 
 	/**
+	 * Register a complex requirement.
+	 *
+	 * A complex requirement is one that depends on object that may or may not be fully loaded
+	 * while the application is booting, e.g. see `User::isSafeToLoad`.
+	 *
+	 * Such requirements are expected to be registered during a hook that is run early on in the
+	 * application lifecycle, e.g. the `BeforePerformAction` and `APIBeforeMain` hooks.
+	 *
+	 * @see FeatureManager::registerRequirement
+	 *
+	 * @param Requirement $requirement
+	 *
+	 * @throws \LogicException If the requirement has already been registered
+	 */
+	public function registerComplexRequirement( Requirement $requirement ) {
+		$name = $requirement->getName();
+
+		if ( array_key_exists( $name, $this->requirements ) ) {
+			throw new \LogicException( "The requirement \"{$name}\" is already registered." );
+		}
+
+		$this->requirements[$name] = $requirement;
+	}
+
+	/**
 	 * Register a requirement.
 	 *
 	 * A requirement is some condition of the application state that a feature requires to be true
 	 * or false.
 	 *
-	 * At the moment, these conditions can only be evaluated when the requirement is being defined,
-	 * i.e. at boot time. At that time, certain objects mightn't have been fully loaded (see
-	 * User::isSafeToLoad). See TODO.md for the proposed list of steps to allow this feature
-	 * manager to handle that scenario.
+	 * @see FeatureManager::registerComplexRequirement
 	 *
 	 * @param string $name The name of the requirement
 	 * @param bool $isMet Whether the requirement is met
@@ -163,11 +188,7 @@ final class FeatureManager {
 	 * @throws \LogicException If the requirement has already been registered
 	 */
 	public function registerRequirement( string $name, bool $isMet ) {
-		if ( array_key_exists( $name, $this->requirements ) ) {
-			throw new \LogicException( "The requirement \"{$name}\" is already registered." );
-		}
-
-		$this->requirements[$name] = $isMet;
+		$this->registerComplexRequirement( new SimpleRequirement( $name, $isMet ) );
 	}
 
 	/**
@@ -183,6 +204,6 @@ final class FeatureManager {
 			throw new \InvalidArgumentException( "Requirement \"{$name}\" isn't registered." );
 		}
 
-		return $this->requirements[$name];
+		return $this->requirements[$name]->isMet();
 	}
 }
