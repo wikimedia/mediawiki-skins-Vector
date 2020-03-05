@@ -3,6 +3,7 @@
 	"scripts": {
 		"test": "npm -s run lint && npm run doc",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
+		"lint:fix": "npm -s run lint:js -- --fix && npm -s run lint:styles -- --fix",
 		"lint:js": "eslint --cache --max-warnings 0 .",
 		"lint:styles": "stylelint \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
