@@ -3,6 +3,7 @@ import { navTemplate, NAVIGATION_TEMPLATE_DATA,
 	NAVIGATION_TEMPLATE_PARTIALS } from './Navigation.stories.data';
 import '../.storybook/common.less';
 import '../resources/skins.vector.styles/Navigation.less';
+import '../resources/skins.vector.styles/watchstar.less';
 
 export default {
 	title: 'Navigation (Header + Sidebar)'
