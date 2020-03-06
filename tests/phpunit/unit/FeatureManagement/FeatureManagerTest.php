@@ -31,24 +31,24 @@ use Vector\FeatureManagement\FeatureManager;
 class FeatureManagerTest extends \MediaWikiUnitTestCase {
 
 	/**
-	 * @covers ::registerSet
+	 * @covers ::registerRequirement
 	 */
-	public function testRegisterSetThrowsWhenSetIsRegisteredTwice() {
+	public function testRegisterRequirementThrowsWhenRequirementIsRegisteredTwice() {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager();
-		$featureManager->registerSet( 'setA', true );
-		$featureManager->registerSet( 'setA', true );
+		$featureManager->registerRequirement( 'requirementA', true );
+		$featureManager->registerRequirement( 'requirementA', true );
 	}
 
 	/**
-	 * @covers ::registerSet
+	 * @covers ::registerRequirement
 	 */
-	public function testRegisterSetValidatesIsEnabled() {
+	public function testRegisterRequirementValidatesIsEnabled() {
 		$this->expectException( \Wikimedia\Assert\ParameterAssertionException::class );
 
 		$featureManager = new FeatureManager();
-		$featureManager->registerSet( 'setA', 'foo' );
+		$featureManager->registerRequirement( 'requirementA', 'foo' );
 	}
 
 	public static function provideInvalidFeatureConfig() {
@@ -60,7 +60,7 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 				[ 1 ],
 			],
 
-			// The "bar" set hasn't been registered.
+			// The "bar" requirement hasn't been registered.
 			[
 				\InvalidArgumentException::class,
 				[
@@ -78,30 +78,30 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( $expectedExceptionType );
 
 		$featureManager = new FeatureManager();
-		$featureManager->registerSet( 'set', true );
+		$featureManager->registerRequirement( 'requirement', true );
 		$featureManager->registerFeature( 'feature', $config );
 	}
 
 	/**
-	 * @covers ::isSetEnabled
+	 * @covers ::isRequirementMet
 	 */
-	public function testIsSetEnabled() {
+	public function testIsRequirementMet() {
 		$featureManager = new FeatureManager();
-		$featureManager->registerSet( 'enabled', true );
-		$featureManager->registerSet( 'disabled', false );
+		$featureManager->registerRequirement( 'enabled', true );
+		$featureManager->registerRequirement( 'disabled', false );
 
-		$this->assertTrue( $featureManager->isSetEnabled( 'enabled' ) );
-		$this->assertFalse( $featureManager->isSetEnabled( 'disabled' ) );
+		$this->assertTrue( $featureManager->isRequirementMet( 'enabled' ) );
+		$this->assertFalse( $featureManager->isRequirementMet( 'disabled' ) );
 	}
 
 	/**
-	 * @covers ::isSetEnabled
+	 * @covers ::isRequirementMet
 	 */
-	public function testIsSetEnabledThrowsExceptionWhenSetIsntRegistered() {
+	public function testIsRequirementMetThrowsExceptionWhenRequirementIsntRegistered() {
 		$this->expectException( \InvalidArgumentException::class );
 
 		$featureManager = new FeatureManager();
-		$featureManager->isSetEnabled( 'foo' );
+		$featureManager->isRequirementMet( 'foo' );
 	}
 
 	/**
@@ -120,25 +120,25 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsFeatureEnabled() {
 		$featureManager = new FeatureManager();
-		$featureManager->registerSet( 'foo', false );
+		$featureManager->registerRequirement( 'foo', false );
 		$featureManager->registerFeature( 'requiresFoo', 'foo' );
 
 		$this->assertFalse(
 			$featureManager->isFeatureEnabled( 'requiresFoo' ),
-			'A feature is disabled when the set that it requires is disabled.'
+			'A feature is disabled when the requirement that it requires is disabled.'
 		);
 
 		// ---
 
-		$featureManager->registerSet( 'bar', true );
-		$featureManager->registerSet( 'baz', true );
+		$featureManager->registerRequirement( 'bar', true );
+		$featureManager->registerRequirement( 'baz', true );
 
 		$featureManager->registerFeature( 'requiresFooBar', [ 'foo', 'bar' ] );
 		$featureManager->registerFeature( 'requiresBarBaz', [ 'bar', 'baz' ] );
 
 		$this->assertFalse(
 			$featureManager->isFeatureEnabled( 'requiresFooBar' ),
-			'A feature is disabled when at least one set that it requires is disabled.'
+			'A feature is disabled when at least one requirement that it requires is disabled.'
 		);
 
 		$this->assertTrue( $featureManager->isFeatureEnabled( 'requiresBarBaz' ) );
