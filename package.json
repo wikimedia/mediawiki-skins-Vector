@@ -8,7 +8,6 @@
 		"lint:js": "eslint --cache --max-warnings 0 .",
 		"lint:styles": "stylelint \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
-
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"storybook": "bash ./dev-scripts/setup-storybook.sh && start-storybook -p 6006",
 		"build-storybook": "bash ./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui",
