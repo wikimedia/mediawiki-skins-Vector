@@ -4,6 +4,22 @@ import '../resources/skins.vector.styles/Portal.less';
 import '../.storybook/common.less';
 import { placeholder, htmluserlangattributes } from './utils';
 
+/**
+ * @typedef {Object} PortletContext
+ * @prop {string} portal-id
+ * @prop {string} html-tooltip
+ * @prop {string} msg-label-id
+ * @prop {string} [html-userlangattributes]
+ * @prop {string} msg-label
+ * @prop {string} html-portal-content
+ * @prop {string} [html-after-portal]
+ * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal.
+ */
+
+/**
+ * @param {PortletContext} data
+ * @return {HTMLElement}
+ */
 export const wrapPortlet = ( data ) => {
 	const node = document.createElement( 'div' );
 	node.setAttribute( 'id', 'mw-panel' );
@@ -11,6 +27,10 @@ export const wrapPortlet = ( data ) => {
 	return node;
 };
 
+/**
+ * @param {string} html
+ * @return {string}
+ */
 const portletAfter = ( html ) => {
 	return `<div class="after-portlet after-portlet-tb">${html}</div>`;
 };
@@ -33,6 +53,7 @@ export const PORTALS = {
 	},
 	navigation: {
 		'portal-id': 'p-navigation',
+		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		'msg-label': 'Navigation',
 		'msg-label-id': 'p-navigation-label',
 		'html-userlangattributes': htmluserlangattributes,
@@ -71,7 +92,7 @@ ${placeholder( `<p>Further hook output possible (lang)</p>`, 60 )}`
 	},
 	otherProjects: {
 		'portal-id': 'p-wikibase-otherprojects',
-		'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
+		'html-tooltip': 'A message tooltip-p-wikibase-otherprojects must exist for this to appear',
 		'msg-label': 'In other projects',
 		'msg-label-id': 'p-wikibase-otherprojects-label',
 		'html-userlangattributes': htmluserlangattributes,
