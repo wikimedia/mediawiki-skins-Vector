@@ -1,18 +1,15 @@
-import mustache from 'mustache';
 import { htmluserlangattributes } from './utils';
-import skinTemplate from '!!raw-loader!../includes/templates/index.mustache';
-import legacySkinTemplate from '!!raw-loader!../includes/templates/legacy.mustache';
 import { placeholder } from './utils';
 
-import '../resources/skins.vector.styles/index.less';
 import { PERSONAL_MENU_TEMPLATE_DATA, personalMenuTemplate } from './PersonalMenu.stories.data';
 import { pageActionsData, namespaceTabsData, vectorTabsTemplate } from './VectorTabs.stories.data';
 import { vectorMenuTemplate, moreData, variantsData } from './VectorMenu.stories.data';
 import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
 import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './Sidebar.stories.data';
 import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
+import { logoTemplate } from './Logo.stories.data';
 
-const NAVIGATION_TEMPLATE_DATA = {
+export const NAVIGATION_TEMPLATE_DATA = {
 	loggedInWithVariantsAndOptOut: {
 		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
 		'data-namespace-tabs': namespaceTabsData,
@@ -45,7 +42,8 @@ const NAVIGATION_TEMPLATE_DATA = {
 	}
 };
 
-const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
+export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
+	Logo: logoTemplate,
 	SearchBox: searchBoxTemplate,
 	Sidebar: sidebarTemplate,
 	VectorTabs: vectorTabsTemplate,
@@ -53,10 +51,6 @@ const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	PersonalMenu: personalMenuTemplate,
 	Footer: footerTemplate
 } );
-
-export default {
-	title: 'Skin'
-};
 
 const HTML_INDICATORS = `<div class="mw-indicators mw-body-content">
 <div id="mw-indicator-good-star" class="mw-indicator">
@@ -77,7 +71,7 @@ const HTML_INDICATORS = `<div class="mw-indicators mw-body-content">
 </div>
 `;
 
-export const vectorLegacyLoggedOut = () => mustache.render( legacySkinTemplate, Object.assign( {
+export const LEGACY_TEMPLATE_DATA = {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
@@ -99,27 +93,9 @@ export const vectorLegacyLoggedOut = () => mustache.render( legacySkinTemplate, 
 	'html-dataAfterContent': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
 	'html-indicators': HTML_INDICATORS,
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
-}, NAVIGATION_TEMPLATE_DATA.loggedOutWithVariants ), TEMPLATE_PARTIALS );
+};
 
-export const vectorLegacyLoggedIn = () => mustache.render( legacySkinTemplate, Object.assign( {
-	'html-title': 'Vector 2019',
-	'page-isarticle': true,
-	'msg-tagline': 'From Wikipedia, the free encyclopedia',
-	'html-userlangattributes': htmluserlangattributes,
-	'msg-jumptonavigation': 'Jump to navigation',
-	'msg-jumptosearch': 'Jump to search',
-
-	// site specific
-	'data-footer': FOOTER_TEMPLATE_DATA,
-	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
-
-	// article dependent
-	'html-bodycontent': placeholder( 'Article content goes here' ),
-	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
-	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
-}, NAVIGATION_TEMPLATE_DATA.loggedInWithMoreActions ), TEMPLATE_PARTIALS );
-
-export const vectorLoggedIn = () => mustache.render( skinTemplate, Object.assign( {
+export const MODERN_TEMPLATE_DATA = {
 	'html-title': 'Vector 2020',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
@@ -135,4 +111,4 @@ export const vectorLoggedIn = () => mustache.render( skinTemplate, Object.assign
 	'html-bodycontent': placeholder( 'Article content goes here' ),
 	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
 	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
-}, NAVIGATION_TEMPLATE_DATA.loggedInWithVariantsAndOptOut ), TEMPLATE_PARTIALS );
+};

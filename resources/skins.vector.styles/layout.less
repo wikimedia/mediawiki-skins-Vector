@@ -6,41 +6,44 @@
 
 // Modern layout variables
 @height-tabs: 2.5em; // Keep in sync with .vectorTabs height
+@margin-top-sidebar: 0.5em;
 
 // Header sizes defined in the description of T246170 and comment T246170#5957100
-@padding-horizontal-header: 24px;
-@padding-top-header: 10px;
-@padding-bottom-header: 5px;
-@height-header--inner: 54px;
-@height-logo-icon: 50px;  // Logo sizes per specification in T245190.
-@height-header: @height-header--inner +
-	@padding-top-header + @padding-bottom-header;  // 54px + 10px + 5px = 69px;
+@padding-left-sidebar: 0.5em;
+@padding-horizontal-header: @margin-end-portal +
+	@padding-left-sidebar +
+	( @margin-start-nav-main-body / @font-size-nav-main-heading );
+@padding-vertical-header: 0.125em;
+@margin-top-header: 0.625em;
+@margin-bottom-header: 0.3125em;
+@height-logo-icon: 3.125em; // Logo sizes per specification in T245190.
+@height-header: @height-logo-icon +
+	@margin-top-header + @margin-bottom-header +
+	2 * @padding-vertical-header;
 @width-grid-column-one: 11em;
 
 /* Space for header above content */
 .mw-header-placeholder {
 	// Reserve space for the absolute positioned header and tabs.
-	height: @height-header;  // Pixels.
-	padding-bottom: @height-tabs;  // Different unit: em.
+	height: @height-header + @height-tabs;
 }
 
 /* Header layout */
 .mw-header {
 	position: absolute;
-	z-index: @z-index-header;
 	top: 0;
 	left: 0;
 	right: 0;
-	height: @height-header--inner;
-
-	// Padding is outside the sizing box (content-box).
-	padding: @padding-top-header @padding-horizontal-header @padding-bottom-header;
-
+	// A height is set to account for projects where no icon is set.
+	height: @height-logo-icon;
+	margin: @margin-top-header 0 @margin-bottom-header;
+	padding: @padding-vertical-header @padding-horizontal-header;
 	// Vertical centering of header elements (IE>=11), requires flex.
 	// Non-flex fallback for IE<=9: float rule on the child elements.
 	.flex-display();
 	// https://caniuse.com/#search=align-items
 	align-items: center;
+	z-index: @z-index-header;
 }
 
 /* Main column */
@@ -96,10 +99,18 @@
 
 #mw-panel {
 	position: absolute;
-	z-index: @z-index-sidebar;
-	top: 0;
-	width: @width-grid-column-one;
+	top: @height-header;
 	left: 0;
+	width: @width-grid-column-one;
+	.box-sizing( border-box );
+	margin-top: @margin-top-sidebar;
+	padding-left: @padding-left-sidebar;
+	z-index: @z-index-sidebar;
+}
+
+#footer {
+	margin-left: @width-grid-column-one;
+	margin-top: 0;
 }
 
 #footer, /* FIXME: Remove 2 weeks after deployment. */

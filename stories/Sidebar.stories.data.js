@@ -19,7 +19,7 @@ export const SIDEBAR_DATA = {
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortalsAndOptOut: {
-		'has-logo': true,
+		'has-logo': false,
 		'array-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
