@@ -50,12 +50,7 @@
 				"mobile"
 			],
 			"styles": {
-				"resources/skins.vector.styles/screen.less": {
-					"media": "screen"
-				},
-				"resources/skins.vector.styles/screen-hd.less": {
-					"media": "screen and ( min-width: 982px )"
-				},
+				"resources/skins.vector.styles/screen.less": [],
 				"resources/skins.vector.styles/print.less": []
 			}
 		},
