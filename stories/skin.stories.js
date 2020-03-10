@@ -3,7 +3,7 @@ import { htmluserlangattributes } from './utils';
 import skinTemplate from '!!raw-loader!../includes/templates/index.mustache';
 import { placeholder } from './utils';
 
-import '../resources/skins.vector.styles/screen.less';
+import '../resources/skins.vector.styles/index.less';
 import { NAVIGATION_TEMPLATE_DATA, navTemplate, NAVIGATION_TEMPLATE_PARTIALS } from './Navigation.stories.data';
 import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
 
