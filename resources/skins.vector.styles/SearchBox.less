@@ -49,9 +49,12 @@
 	font-size: @font-size-search-input;
 	direction: ltr;
 	.transition( ~'border-color 250ms, box-shadow 250ms' );
-	// Support: Webkit browsers. Undo the proprietary styles applied to `type=search` fields,
-	// we provide our own.
-	-webkit-appearance: textfield;
+
+	// Undo the proprietary styles, we provide our own.
+	// Support: Safari/iOS `none` needed, Chrome would accept `textfield` as well. See T247299.
+	-webkit-appearance: none;
+	// Support: Firefox.
+	-moz-appearance: textfield;
 
 	#simpleSearch:hover & {
 		border-color: @colorGray7;
