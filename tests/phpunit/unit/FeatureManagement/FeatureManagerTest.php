@@ -41,16 +41,6 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$featureManager->registerRequirement( 'requirementA', true );
 	}
 
-	/**
-	 * @covers ::registerRequirement
-	 */
-	public function testRegisterRequirementValidatesIsEnabled() {
-		$this->expectException( \Wikimedia\Assert\ParameterAssertionException::class );
-
-		$featureManager = new FeatureManager();
-		$featureManager->registerRequirement( 'requirementA', 'foo' );
-	}
-
 	public static function provideInvalidFeatureConfig() {
 		return [
 
