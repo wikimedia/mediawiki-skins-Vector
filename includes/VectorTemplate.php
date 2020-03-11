@@ -272,8 +272,10 @@ class VectorTemplate extends BaseTemplate {
 					break;
 			}
 		}
+
 		return [
-			'array-portals' => $props,
+			'array-portals-rest' => array_slice( $props, 1 ),
+			'array-portals-first' => $props[0] ?? null,
 		];
 	}
 

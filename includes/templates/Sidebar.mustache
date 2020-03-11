@@ -7,7 +7,10 @@
 	<div id="p-logo" role="banner">
 		<a {{{html-logo-attributes}}}></a>
 	</div>
-	{{#array-portals}}
+	{{#array-portals-first}}
 	{{>Portal}}
-	{{/array-portals}}
+	{{/array-portals-first}}
+	{{#array-portals-rest}}
+	{{>Portal}}
+	{{/array-portals-rest}}
 </div>

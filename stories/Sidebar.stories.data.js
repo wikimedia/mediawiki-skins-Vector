@@ -14,12 +14,12 @@ export const SIDEBAR_TEMPLATE_PARTIALS = {
 
 export const SIDEBAR_DATA = {
 	withNoPortals: {
-		'array-portals': [],
+		'array-portals-rest': [],
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortals: {
-		'array-portals': [
-			PORTALS.navigation,
+		'array-portals-first': PORTALS.navigation,
+		'array-portals-rest': [
 			PORTALS.toolbox,
 			PORTALS.otherProjects,
 			PORTALS.langlinks
@@ -27,7 +27,7 @@ export const SIDEBAR_DATA = {
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	thirdParty: {
-		'array-portals': [
+		'array-portals-rest': [
 			PORTALS.toolbox,
 			PORTALS.navigation,
 			{
