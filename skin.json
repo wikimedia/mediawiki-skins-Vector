@@ -49,19 +49,14 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": {
-				"resources/skins.vector.styles/screen.less": [],
-				"resources/skins.vector.styles/print.less": []
-			}
+			"styles": [ "resources/skins.vector.styles/index.less" ]
 		},
 		"skins.vector.styles.responsive": {
 			"targets": [
 				"desktop",
 				"mobile"
 			],
-			"styles": [
-				"resources/skins.vector.styles.responsive.less"
-			]
+			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
 		"skins.vector.js": {
 			"scripts": [
