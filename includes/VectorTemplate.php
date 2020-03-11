@@ -93,18 +93,22 @@ class VectorTemplate extends BaseTemplate {
 		ob_end_clean();
 
 		$tp = $this->getTemplateParser();
-		// Naming conventions for Mustache parameters:
+		// Naming conventions for Mustache parameters.
+		//
+		// Value type (first segment):
 		// - Prefix "is" for boolean values.
-		// - Prefix "msg-" for interface messages.
-		// - Prefix "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
-		// - Prefix "hook-" for any thing generated from a hook.
-		//   It should be followed by the name of the hook in hyphenated lowercase.
-		// - Prefix "html-" for raw HTML (in front of other keys excluding `array-`, if applicable).
-		//   Should be avoided where possible.
-		// - Prefix "array-" for anything that is iterable (in front of other keys is applicable)
-		// - Prefix "data-" for an object of template data that can be passed directly
+		// - Prefix "msg-" for interface message text.
+		// - Prefix "html-" for raw HTML.
+		// - Prefix "data-" for an array of template parameters that should be passed directly
 		//   to a template partial.
-		// - Conditional values are null if absent.
+		// - Prefix "array-" for lists of any values.
+		//
+		// Source of value (first or second segment)
+		// - Segment "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
+		// - Segment "hook-" for any thing generated from a hook.
+		//   It should be followed by the name of the hook in hyphenated lowercase.
+		//
+		// Conditionally used values must use null to indicate absence (not false or '').
 		$params = [
 			'html-headelement' => $this->get( 'headelement', '' ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
