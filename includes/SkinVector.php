@@ -21,6 +21,7 @@
  * @file
  * @ingroup Skins
  */
+use Vector\Constants;
 
 /**
  * Skin subclass for Vector
@@ -64,7 +65,9 @@ class SkinVector extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 		// add vector skin styles and vector module
-		$modules['styles']['skin'][] = 'skins.vector.styles';
+		$module = $this->getUser()->getOption( Constants::PREF_KEY_SKIN_VERSION )
+			=== Constants::SKIN_VERSION_LEGACY ? 'skins.vector.styles.legacy' : 'skins.vector.styles';
+		$modules['styles']['skin'][] = $module;
 		$modules['core'][] = 'skins.vector.js';
 
 		return $modules;
