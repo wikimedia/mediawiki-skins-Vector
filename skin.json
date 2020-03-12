@@ -42,6 +42,15 @@
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
+		"skins.vector.styles.legacy": {
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "elements", "content", "interface", "logo" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [ "resources/skins.vector.styles/legacy.less" ]
+		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
 			"features": [ "elements", "content", "interface", "logo", "legacy" ],
