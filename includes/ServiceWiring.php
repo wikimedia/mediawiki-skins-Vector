@@ -25,12 +25,22 @@
 use MediaWiki\MediaWikiServices;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
+use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 
 return [
 	Constants::SERVICE_CONFIG => function ( MediaWikiServices $services ) {
 		return $services->getService( 'ConfigFactory' )->makeConfig( Constants::SKIN_NAME );
 	},
 	Constants::SERVICE_FEATURE_MANAGER => function ( MediaWikiServices $services ) {
-		return new FeatureManager();
+		$requirement = new DynamicConfigRequirement(
+			$services->getMainConfig(),
+			Constants::CONFIG_KEY_FULLY_INITIALISED,
+			Constants::REQUIREMENT_FULLY_INITIALISED
+		);
+
+		$featureManager = new FeatureManager();
+		$featureManager->registerComplexRequirement( $requirement );
+
+		return $featureManager;
 	}
 ];
