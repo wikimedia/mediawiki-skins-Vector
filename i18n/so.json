@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maax"
+			"Maax",
+			"Abdullahi"
 		]
 	},
 	"vector-action-addsection": "Hadal ku dar",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "Wax ka bedel",
 	"vector-view-history": "Itusi taariikhda",
 	"vector-view-view": "Akhri",
-	"vector-view-viewsource": "Itusi xogta"
+	"vector-view-viewsource": "Itusi xogta",
+	"vector-more-actions": "Dheeraad"
 }
