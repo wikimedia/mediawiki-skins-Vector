@@ -14,7 +14,7 @@ $( function () {
 			// must not return 0 if hidden, but rather virtually render it
 			// and compute its width, then hide it again. jQuery width() does
 			// all that for us.
-			var width = $cactions.width();
+			var width = $cactions.width() || 0;
 			initialCactionsWidth = function () {
 				return width;
 			};
@@ -98,8 +98,8 @@ $( function () {
 				// 3. and, the left-navigation and right-navigation are overlapping
 				//    each other, e.g. when making the window very narrow, or if a gadget
 				//    added a lot of tabs.
-				$tabContainer.children( 'li.collapsible' ).each( function ( index, element ) {
-					collapsibleWidth += $( element ).width();
+				$tabContainer.children( 'li.collapsible' ).each( function ( _index, element ) {
+					collapsibleWidth += $( element ).width() || 0;
 					if ( collapsibleWidth > initialCactionsWidth() ) {
 						// We've found one or more collapsible links that are wider
 						// than the "More" menu would be if it were made visible,
@@ -108,6 +108,7 @@ $( function () {
 						// Stop this possibly expensive loop the moment the condition is met once.
 						return false;
 					}
+					return;
 				} );
 				return doCollapse;
 			}

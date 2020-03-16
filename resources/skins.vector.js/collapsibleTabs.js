@@ -1,19 +1,9 @@
+/** @interface CollapsibleTabsOptions */
 ( function () {
-	var boundEvent,
-		isRTL = document.documentElement.dir === 'rtl',
-		rAF = window.requestAnimationFrame || setTimeout;
+	/** @type {boolean|undefined} */ var boundEvent;
+	var isRTL = document.documentElement.dir === 'rtl';
+	var rAF = window.requestAnimationFrame || setTimeout;
 
-	/**
-	 * A jQuery plugin that makes collapsible tabs for the Vector skin.
-	 *
-	 * @class jQuery.plugin.collapsibleTabs
-	 * @param {Object} [options]
-	 * @param {string} [options.expandedContainer=#p-views ul] List of tabs
-	 * @param {string} [options.collapsedContainer=#p-cactions ul] List of menu items
-	 * @param {string} [options.collapsible=li.collapsible] Match tabs that are collapsible
-	 * @param {Function} [options.expandCondition]
-	 * @param {Function} [options.collapseCondition]
-	 */
 	$.fn.collapsibleTabs = function ( options ) {
 		// Merge options into the defaults
 		var settings = $.extend( {}, $.collapsibleTabs.defaults, options );
@@ -54,6 +44,7 @@
 			collapsedContainer: '#p-cactions ul',
 			collapsible: 'li.collapsible',
 			shifting: false,
+			expandedWidth: 0,
 			expandCondition: function ( eleWidth ) {
 				// If there are at least eleWidth + 1 pixels of free space, expand.
 				// We add 1 because .width() will truncate fractional values but .offset() will not.
@@ -125,19 +116,21 @@
 			} );
 		},
 		moveToCollapsed: function ( $moving ) {
-			var outerData, expContainerSettings, target;
+			/** @type {CollapsibleTabsOptions} */ var outerData;
+			/** @type {CollapsibleTabsOptions} */ var collapsedContainerSettings;
+			/** @type {string} */ var target;
 
 			outerData = $.collapsibleTabs.getSettings( $moving );
 			if ( !outerData ) {
 				return;
 			}
-			expContainerSettings = $.collapsibleTabs.getSettings(
+			collapsedContainerSettings = $.collapsibleTabs.getSettings(
 				$( outerData.expandedContainer )
 			);
-			if ( !expContainerSettings ) {
+			if ( !collapsedContainerSettings ) {
 				return;
 			}
-			expContainerSettings.shifting = true;
+			collapsedContainerSettings.shifting = true;
 
 			// Remove the element from where it's at and put it in the dropdown menu
 			target = outerData.collapsedContainer;
@@ -150,22 +143,26 @@
 					$( '<span>' ).addClass( 'placeholder' ).css( 'display', 'none' ).insertAfter( this );
 					$( this ).detach().prependTo( target ).data( 'collapsibleTabsSettings', outerData );
 					$( this ).attr( 'style', 'display: list-item;' );
-					expContainerSettings.shifting = false;
+					collapsedContainerSettings.shifting = false;
 					rAF( $.collapsibleTabs.handleResize );
 				} );
 		},
 		moveToExpanded: function ( $moving ) {
-			var data, expContainerSettings, $target, expandedWidth;
+			/** @type {CollapsibleTabsOptions} */ var data;
+			/** @type {CollapsibleTabsOptions} */ var expandedContainerSettings;
+			var $target;
+			var expandedWidth;
 
 			data = $.collapsibleTabs.getSettings( $moving );
 			if ( !data ) {
 				return;
 			}
-			expContainerSettings = $.collapsibleTabs.getSettings( $( data.expandedContainer ) );
-			if ( !expContainerSettings ) {
+			expandedContainerSettings =
+				$.collapsibleTabs.getSettings( $( data.expandedContainer ) );
+			if ( !expandedContainerSettings ) {
 				return;
 			}
-			expContainerSettings.shifting = true;
+			expandedContainerSettings.shifting = true;
 
 			// grab the next appearing placeholder so we can use it for replacing
 			$target = $( data.expandedContainer ).find( 'span.placeholder' ).first();
@@ -184,9 +181,9 @@
 							// change the tab's contents after the page load *gasp* (T71729). This
 							// doesn't prevent a tab from collapsing back and forth once, but at
 							// least it won't continue to do that forever.
-							data.expandedWidth = $moving.width();
+							data.expandedWidth = $moving.width() || 0;
 							$moving.data( 'collapsibleTabsSettings', data );
-							expContainerSettings.shifting = false;
+							expandedContainerSettings.shifting = false;
 							$.collapsibleTabs.handleResize();
 						} );
 					} )
@@ -215,10 +212,12 @@
 				leftTab = document.getElementById( 'right-navigation' );
 				rightTab = document.getElementById( 'left-navigation' );
 			}
-
-			leftEnd = leftTab.getBoundingClientRect().right;
-			rightStart = rightTab.getBoundingClientRect().left;
-			return rightStart - leftEnd;
+			if ( leftTab && rightTab ) {
+				leftEnd = leftTab.getBoundingClientRect().right;
+				rightStart = rightTab.getBoundingClientRect().left;
+				return rightStart - leftEnd;
+			}
+			return 0;
 		}
 	};
 }() );
