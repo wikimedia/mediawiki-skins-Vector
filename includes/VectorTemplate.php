@@ -29,15 +29,38 @@ use MediaWiki\MediaWikiServices;
  * @ingroup Skins
  */
 class VectorTemplate extends BaseTemplate {
+	/**
+	 * T243281: Code used to track clicks to opt-out link.
+	 *
+	 * The "vct" substring is used to describe the newest "Vector" (non-legacy)
+	 * feature. The "w" describes the web platform. The "1" describes the version
+	 * of the feature.
+	 *
+	 * @see https://wikitech.wikimedia.org/wiki/Provenance
+	 * @var string
+	 */
+	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
 	/** @var TemplateParser */
 	private $templateParser;
 
+	/** @var bool */
+	private $isLegacy;
+
 	/**
-	 * @param TemplateParser $parser
+	 * @param Config $config
+	 * @param TemplateParser $templateParser
+	 * @param bool $isLegacy
 	 */
-	public function setTemplateParser( TemplateParser $parser ) {
-		$this->templateParser = $parser;
+	public function __construct(
+		Config $config,
+		TemplateParser $templateParser,
+		bool $isLegacy
+	) {
+		parent::__construct( $config );
+
+		$this->templateParser = $templateParser;
+		$this->isLegacy = $isLegacy;
 	}
 
 	/**
@@ -55,9 +78,10 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Outputs the entire contents of the HTML page
+	 * @return array Returns an array of data shared between Vector and legacy
+	 * Vector.
 	 */
-	public function execute() {
+	private function getSkinData() : array {
 		$contentNavigation = $this->get( 'content_navigation', [] );
 		$this->set( 'namespace_urls', $contentNavigation[ 'namespaces' ] );
 		$this->set( 'view_urls', $contentNavigation[ 'views' ] );
@@ -92,7 +116,6 @@ class VectorTemplate extends BaseTemplate {
 		$htmlHookVectorBeforeFooter = ob_get_contents();
 		ob_end_clean();
 
-		$tp = $this->getTemplateParser();
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -109,7 +132,7 @@ class VectorTemplate extends BaseTemplate {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
-		$params = [
+		$commonSkinData = [
 			'html-headelement' => $this->get( 'headelement', '' ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
 			'html-indicators' => $this->getIndicators(),
@@ -171,8 +194,30 @@ class VectorTemplate extends BaseTemplate {
 			],
 		];
 
-		// Prepare and output the HTML response
-		echo $tp->processTemplate( 'index', $params );
+		// The following logic is unqiue to Vector (not used by legacy Vector) and
+		// is planned to be moved in a follow-up patch.
+		if ( !$this->isLegacy && $this->getSkin()->getUser()->isLoggedIn() ) {
+			$commonSkinData['data-navigation']['data-sidebar']['data-emphasized-sidebar-action'] = [
+				'href' => SpecialPage::getTitleFor(
+					'Preferences',
+					false,
+					// FIXME: should be mw-prefsection-rendering-skin-skin-prefs but this doesn't currently work
+					// possibly due to the issues T246491
+					'mw-prefsection-rendering'
+				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
+				'text' => $this->getMsg( 'vector-opt-out' )->text()
+			];
+		}
+
+		return $commonSkinData;
+	}
+
+	/**
+	 * Renders the entire contents of the HTML page.
+	 */
+	public function execute() {
+		$tp = $this->getTemplateParser();
+		echo $tp->processTemplate( 'index', $this->getSkinData() );
 	}
 
 	/**

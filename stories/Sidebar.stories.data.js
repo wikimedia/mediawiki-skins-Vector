@@ -17,6 +17,19 @@ export const SIDEBAR_DATA = {
 		'array-portals-rest': [],
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
+	withPortalsAndOptOut: {
+		'array-portals-first': PORTALS.navigation,
+		'data-emphasized-sidebar-action': {
+			href: '#',
+			text: 'Switch to old look'
+		},
+		'array-portals-rest': [
+			PORTALS.toolbox,
+			PORTALS.otherProjects,
+			PORTALS.langlinks
+		],
+		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
+	},
 	withPortals: {
 		'array-portals-first': PORTALS.navigation,
 		'array-portals-rest': [

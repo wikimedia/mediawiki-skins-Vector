@@ -1,6 +1,10 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
+use GlobalVarConfig;
+use MediaWikiIntegrationTestCase;
+use TemplateParser;
+use VectorTemplate;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -11,14 +15,17 @@ use Wikimedia\TestingAccessWrapper;
  *
  * @coversDefaultClass \VectorTemplate
  */
-class VectorTemplateTest extends \MediaWikiTestCase {
+class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @return \VectorTemplate
 	 */
 	private function provideVectorTemplateObject() {
-		$template = new \VectorTemplate( \GlobalVarConfig::newInstance() );
-		$template->setTemplateParser( new \TemplateParser() );
+		$template = new VectorTemplate(
+			GlobalVarConfig::newInstance(),
+			new TemplateParser(),
+			true
+		);
 		return $template;
 	}
 
@@ -128,7 +135,7 @@ class VectorTemplateTest extends \MediaWikiTestCase {
 	 */
 	public function testbuildViewsProps() {
 		$langAttrs = 'LANG_ATTRIBUTES';
-		$vectorTemplate = new \VectorTemplate( \GlobalVarConfig::newInstance() );
+		$vectorTemplate = $this->provideVectorTemplateObject();
 		$vectorTemplate->set( 'view_urls', [] );
 		$vectorTemplate->set( 'skin', new \SkinVector() );
 		$vectorTemplate->set( 'userlangattributes', $langAttrs );

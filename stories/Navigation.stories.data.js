@@ -14,6 +14,16 @@ export const NAVIGATION_TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_
 } );
 
 export const NAVIGATION_TEMPLATE_DATA = {
+	loggedInWithVariantsAndOptOut: {
+		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
+		'data-namespace-tabs': namespaceTabsData,
+		'data-page-actions': pageActionsData,
+		'data-variants': variantsData,
+		'data-search-box': searchBoxData,
+		'data-sidebar': SIDEBAR_DATA.withPortalsAndOptOut,
+		'html-navigation-heading': 'Navigation menu',
+		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
+	},
 	loggedOutWithVariants: {
 		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
 		'data-namespace-tabs': namespaceTabsData,

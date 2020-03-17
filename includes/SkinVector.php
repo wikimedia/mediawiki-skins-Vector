@@ -67,8 +67,7 @@ class SkinVector extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 		// add vector skin styles and vector module
-		$module = $this->getUser()->getOption( Constants::PREF_KEY_SKIN_VERSION )
-			=== Constants::SKIN_VERSION_LEGACY ? 'skins.vector.styles.legacy' : 'skins.vector.styles';
+		$module = $this->isLegacy() ? 'skins.vector.styles.legacy' : 'skins.vector.styles';
 		$modules['styles']['skin'][] = $module;
 		$modules['core'][] = 'skins.vector.js';
 
@@ -85,9 +84,10 @@ class SkinVector extends SkinTemplate {
 	 * @return VectorTemplate
 	 */
 	protected function setupTemplate( $classname ) {
-		$template = new VectorTemplate( $this->getConfig() );
-		$template->setTemplateParser( new TemplateParser( __DIR__ . '/templates' ) );
-		return $template;
+		$tp = new TemplateParser( __DIR__ . '/templates' );
+		$vectorTemplate = new VectorTemplate( $this->getConfig(), $tp, $this->isLegacy() );
+
+		return $vectorTemplate;
 	}
 
 	/**
@@ -97,5 +97,16 @@ class SkinVector extends SkinTemplate {
 	 */
 	public function shouldPreloadLogo() {
 		return true;
+	}
+
+	/**
+	 * Whether or not the legacy skin is being used.
+	 *
+	 * @return bool
+	 */
+	private function isLegacy() {
+		// Note: This will be replaced with FeatureManager when it is ready.
+		return $this->getUser()->getOption( Constants::PREF_KEY_SKIN_VERSION )
+			=== Constants::SKIN_VERSION_LEGACY;
 	}
 }
