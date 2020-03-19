@@ -44,7 +44,7 @@
 	"ResourceModules": {
 		"skins.vector.styles.legacy": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "logo" ],
+			"features": [ "elements", "content", "interface", "logo", "legacy" ],
 			"targets": [
 				"desktop",
 				"mobile"
