@@ -5,7 +5,7 @@
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "Modern version of MonoBook with fresh look and many usability improvements",
 	"prefs-vector-enable-vector-1-label": "Use Legacy Vector",
-  "prefs-vector-enable-vector-1-help": "Over the next few years, we will be gradually updating the Vector skin. Legacy Vector will allow you to view the old version of Vector (as of December 2019). To learn more about the updates, go to our [[mw:Reading/Web/Desktop_Improvements|project page]].",
+	"prefs-vector-enable-vector-1-help": "Over the next few years, we will be gradually updating the Vector skin. Legacy Vector will allow you to view the old version of Vector (as of December 2019). To learn more about the updates, go to our [[mw:Reading/Web/Desktop_Improvements|project page]].",
 	"vector.css": "/* All CSS here will be loaded for users of the Vector skin */",
 	"vector.js": "/* All JavaScript here will be loaded for users of the Vector skin */",
 	"vector-action-addsection": "Add topic",
