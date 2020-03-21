@@ -33,27 +33,27 @@
 	}
 
 	#ca-unwatch.icon a:before {
-		.background-image-svg( 'images/unwatch-icon.svg', 'images/unwatch-icon.png' );
+		background-image: linear-gradient( transparent, transparent ), url( images/unwatch-icon.svg );
 	}
 
 	#ca-watch.icon a:before {
-		.background-image-svg( 'images/watch-icon.svg', 'images/watch-icon.png' );
+		background-image: linear-gradient( transparent, transparent ), url( images/watch-icon.svg );
 	}
 
 	#ca-unwatch.icon a:hover:before,
 	#ca-unwatch.icon a:focus:before {
-		.background-image-svg( 'images/unwatch-icon-hl.svg', 'images/unwatch-icon-hl.png' );
+		background-image: linear-gradient( transparent, transparent ), url( images/unwatch-icon-hl.svg );
 	}
 
 	#ca-watch.icon a:hover:before,
 	#ca-watch.icon a:focus:before {
-		.background-image-svg( 'images/watch-icon-hl.svg', 'images/watch-icon-hl.png' );
+		background-image: linear-gradient( transparent, transparent ), url( images/watch-icon-hl.svg );
 	}
 
 	// Loading watchstar link class.
 	#ca-unwatch.icon .loading:before,
 	#ca-watch.icon .loading:before {
-		background-image: url( images/watch-icon-loading.svg );
+		background-image: linear-gradient( transparent, transparent ), url( images/watch-icon-loading.svg );
 		.rotation( 700ms );
 		/* Suppress the hilarious rotating focus outline on Firefox */
 		outline: 0;
