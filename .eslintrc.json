@@ -6,7 +6,6 @@
 		"wikimedia/mediawiki"
 	],
 	"rules": {
-		// Interferes with @type annotations.
 		"one-var": "off"
 	}
 }
