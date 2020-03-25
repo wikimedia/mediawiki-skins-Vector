@@ -60,6 +60,17 @@ final class Constants {
 	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
+	// These are used in the Feature Management System.
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_FULLY_INITIALISED = 'FullyInitialised';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_FULLY_INITIALISED = 'FullyInitialised';
+
 	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
