@@ -31,19 +31,22 @@ use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
  */
 class DynamicConfigRequirementTest extends \MediaWikiUnitTestCase {
 
+	public static function providesBooleanStates(): array {
+		return [ [ false ], [ true ] ];
+	}
+
 	/**
+	 * @dataProvider providesBooleanStates
 	 * @covers ::isMet
 	 */
-	public function testItFetchesAndReturnsConfigValue() {
-		$config = $this->createMock( \Config::class );
-		$config->expects( $this->once() )
-			->method( 'get' )
-			->with( 'Foo' )
-			->willReturn( true );
+	public function testItFetchesAndReturnsConfigValue( bool $configValue ) {
+		$config = new \HashConfig( [
+			'Foo' => $configValue,
+		] );
 
 		$requirement = new DynamicConfigRequirement( $config, 'Foo', 'Bar' );
 
-		$this->assertTrue( $requirement->isMet() );
+		$this->assertEquals( $requirement->isMet(), $configValue );
 	}
 
 	/**

@@ -25,7 +25,7 @@ namespace Vector\FeatureManagement\Requirements;
 use Vector\FeatureManagement\Requirement;
 
 /**
- * Some application state changes throughout the lifetime of the application, e.g.
+ * Some application state changes throughout the lifetime of the application, e.g. `wgSitename` or
  * `wgFullyInitialised`, which signals whether the application boot process has finished and
  * critical resources like database connections are available.
  *
@@ -36,14 +36,25 @@ use Vector\FeatureManagement\Requirement;
  * $featureManager->registerComplexRequirement(
  *   new DynamicConfigRequirement(
  *     $config,
- *     'FullyInitialised',
+ *     'Sitename',
  *     'Foo'
  *   )
  * );
  * ```
  *
  * registers a requirement that will evaluate to true only when `mediawiki/includes/Setup.php` has
- * finished executing (after all service wiring has executed).
+ * finished executing (after all service wiring has executed). I.e., every call to
+ * `Requirement->isMet()` reinterrogates the Config object for the current state and returns it.
+ * Contrast to
+ *
+ * ```lang=php
+ * $featureManager->registerRequirement(
+ *   'Foo',
+ *   $config->get( 'Sitename' )
+ * );
+ * ```
+ *
+ * wherein state is evaluated only once at registration time and permanently cached.
  *
  * NOTE: This API hasn't settled. It may change at any time without warning. Please don't bind to
  * it unless you absolutely need to
@@ -72,8 +83,11 @@ final class DynamicConfigRequirement implements Requirement {
 
 	/**
 	 * @param \Config $config
-	 * @param string $configName
-	 * @param string $requirementName The name of the requirement presented to the Feature Manager
+	 * @param string $configName Any `Config` key. This name is used to query `$config` state. E.g.,
+	 *   `'DBname'`. See https://www.mediawiki.org/wiki/Manual:Configuration_settings
+	 * @param string $requirementName The name of the requirement presented to FeatureManager.
+	 *   This name _usually_ matches the `$configName` parameter for simplicity but allows for
+	 *   abstraction as needed. See `Requirement->getName()`.
 	 */
 	public function __construct( \Config $config, string $configName, string $requirementName ) {
 		$this->config = $config;

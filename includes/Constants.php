@@ -62,6 +62,7 @@ final class Constants {
 
 	// These are used in the Feature Management System.
 	/**
+	 * Also known as `$wgFullyInitialised`. Set to true in core/includes/Setup.php.
 	 * @var string
 	 */
 	public const CONFIG_KEY_FULLY_INITIALISED = 'FullyInitialised';
