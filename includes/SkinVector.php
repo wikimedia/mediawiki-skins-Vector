@@ -26,6 +26,8 @@ use Vector\Constants;
 /**
  * Skin subclass for Vector
  * @ingroup Skins
+ * @final skins extending SkinVector are not supported
+ * @unstable
  */
 class SkinVector extends SkinTemplate {
 	public $skinname = 'vector';
@@ -74,12 +76,15 @@ class SkinVector extends SkinTemplate {
 	}
 
 	/**
-	 * Set up the VectorTemplate
+	 * Set up the VectorTemplate. Overrides the default behaviour of SkinTemplate allowing
+	 * the safe calling of constructor with additional arguments. If dropping this method
+	 * please ensure that VectorTemplate constructor arguments match those in SkinTemplate.
 	 *
+	 * @internal
 	 * @param string $classname
 	 * @return VectorTemplate
 	 */
-	public function setupTemplate( $classname ) {
+	protected function setupTemplate( $classname ) {
 		$template = new VectorTemplate( $this->getConfig() );
 		$template->setTemplateParser( new TemplateParser( __DIR__ . '/templates' ) );
 		return $template;
