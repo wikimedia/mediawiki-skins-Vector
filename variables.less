@@ -74,7 +74,18 @@
 @font-size-nav-main-heading: unit( 12 / @font-size-browser, em ); // Equals `0.75em`.
 
 @font-size-nav-main-body: unit( 12 / @font-size-browser, em );
-@margin-left-nav-main-body: 0.5em;
+@margin-start-nav-main-body: 0.5em;
+
+// Navigation: Portal
+// Font size of the Portal links.
+@font-size-portal-list-item: @font-size-nav-main-body;
+
+// Margin space from the start of the Portal (left edge in LTR
+// languages).
+@margin-start-portal: 0.7em;
+
+// Margin space from the start of the Portal body (left edge in LTR languages).
+@margin-start-portal-body: @margin-start-nav-main-body;
 
 // Navigation: Personal tools
 @background-position-nav-personal-icon: left ( 4 / @font-size-browser / @font-size-nav-personal );

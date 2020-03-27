@@ -1,6 +1,11 @@
 {{!
+	@typedef object emphasized-sidebar-action
+	@prop string href
+	@prop string text
+
 	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
 	array array-portals contains options for Portal template
+	emphasized-sidebar-action data-emphasized-sidebar-action For displaying an emphasized action in the sidebar.
 }}
 
 <div id="mw-panel">
@@ -10,6 +15,11 @@
 	{{#array-portals-first}}
 	{{>Portal}}
 	{{/array-portals-first}}
+	{{#data-emphasized-sidebar-action}}
+	<div class="vector-emphasized-sidebar-action">
+		<a class="vector-emphasized-sidebar-action-link" href="{{href}}">{{text}}</a>
+	</div>
+	{{/data-emphasized-sidebar-action}}
 	{{#array-portals-rest}}
 	{{>Portal}}
 	{{/array-portals-rest}}

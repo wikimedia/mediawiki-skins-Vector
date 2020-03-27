@@ -2,14 +2,14 @@
 @import 'mediawiki.mixins.less';
 
 .portal {
-	margin: 0 0.6em 0 0.7em;
+	margin: 0 0.6em  0 @margin-start-portal;
 	padding: 0.25em 0;
 	direction: ltr;
 
 	h3 {
 		color: @color-nav-subtle;
 		font-weight: normal;
-		margin: 0.5em 0 0 ( @margin-left-nav-main-body / @font-size-nav-main-heading );
+		margin: 0.5em 0 0 ( @margin-start-nav-main-body / @font-size-nav-main-heading );
 		padding: 0.25em 0;
 		cursor: default;
 		border: 0;
@@ -21,7 +21,7 @@
 		background-image: linear-gradient( to right, transparent 0, #c8ccd1 35%, #c8ccd1 70%, transparent 100% ); // Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
 		background-repeat: no-repeat;
 		background-size: 100% @border-width-base;
-		margin-left: @margin-left-nav-main-body;
+		margin-left: @margin-start-portal-body;
 		padding-top: 0;
 
 		ul {
@@ -33,7 +33,7 @@
 		li {
 			margin: 0;
 			padding: 0.25em 0;
-			font-size: @font-size-nav-main-body;
+			font-size: @font-size-portal-list-item;
 			line-height: @line-height-nav;
 			word-wrap: break-word;
 

@@ -35,7 +35,7 @@ const HTML_INDICATORS = `<div class="mw-indicators mw-body-content">
 </div>
 `;
 
-export const vector2019LoggedOut = () => mustache.render( skinTemplate, {
+export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
@@ -60,7 +60,7 @@ export const vector2019LoggedOut = () => mustache.render( skinTemplate, {
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
 }, TEMPLATE_PARTIALS );
 
-export const vector2019LoggedIn = () => mustache.render( skinTemplate, {
+export const vectorLegacyLoggedIn = () => mustache.render( skinTemplate, {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
@@ -68,6 +68,25 @@ export const vector2019LoggedIn = () => mustache.render( skinTemplate, {
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
 	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedInWithMoreActions,
+
+	// site specific
+	'data-footer': FOOTER_TEMPLATE_DATA,
+	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
+
+	// article dependent
+	'html-bodycontent': placeholder( 'Article content goes here' ),
+	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
+	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
+}, TEMPLATE_PARTIALS );
+
+export const vectorLoggedIn = () => mustache.render( skinTemplate, {
+	'html-title': 'Vector 2020',
+	'page-isarticle': true,
+	'msg-tagline': 'From Wikipedia, the free encyclopedia',
+	'html-userlangattributes': htmluserlangattributes,
+	'msg-jumptonavigation': 'Jump to navigation',
+	'msg-jumptosearch': 'Jump to search',
+	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedInWithVariantsAndOptOut,
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
