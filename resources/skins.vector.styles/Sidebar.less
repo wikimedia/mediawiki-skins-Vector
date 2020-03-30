@@ -1,5 +1,8 @@
 @import '../../variables.less';
+@import 'mediawiki.mixins.less';
+@import './layout.less';
 @import 'legacy/Sidebar.less';
+@import 'checkboxHack.less';
 
 .mw-sidebar-action {
 	// Align with the portal heading/links
@@ -10,4 +13,68 @@
 .mw-sidebar-action-link {
 	font-size: @font-size-portal-list-item;
 	font-weight: bold;
+}
+
+// FIXME please add a class, .mw-navigation, and use that instead of this identifier.
+#mw-navigation {
+	.mw-checkbox-hack-checkbox,
+	.mw-checkbox-hack-button {
+		// The icon is only 44px tall but the header is 50px. Offset by the difference from the logo
+		// icon and center with respect to the header.
+		top: @height-logo-icon - @size-sidebar-button + ( @height-header - @height-logo-icon ) / 2;
+		// Some made up value to be revised by Alex.
+		left: 10px;
+	}
+
+	.mw-checkbox-hack-button {
+		position: absolute;
+		z-index: @z-index-sidebar-button;
+		// Override minimum dimensions set by mw-ui-icon.mw-ui-icon-element.
+		min-width: @size-sidebar-button;
+		min-height: @size-sidebar-button;
+		width: @size-sidebar-button;
+		height: @size-sidebar-button;
+		border: 1px solid transparent;
+		border-radius: @border-radius-base;
+
+		&:before {
+			// Center it.
+			margin: 12px;
+			// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
+			// As soon as mediawiki.ui is standardized, remove this override. See T191021.
+			min-height: 20px;
+			opacity: 0.87;
+		}
+
+		&:hover {
+			background-color: @background-color-frameless--hover;
+		}
+
+		.transition( background-color @transition-duration-base, border-color @transition-duration-base, box-shadow @transition-duration-base; );
+	}
+
+	.mw-checkbox-hack-checkbox:focus ~ .mw-checkbox-hack-button {
+		// Next two rules from OOUI, frameless, icon-only button widget.
+		border-color: @color-primary;
+		.box-shadow( inset 0 0 0 1px @color-primary );
+	}
+
+	// Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
+	// checkbox input for the menu panel.
+	.mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-sidebar {
+		// Turn off presentation so that screen readers get the same effect as visually hiding.
+		// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
+		// instead to avoid hidden rendering.
+		visibility: hidden;
+		opacity: 0;
+		.transform( translateX( -100% ) );
+	}
+}
+
+.mw-sidebar {
+	// Enable animations on desktop width only.
+	@media ( min-width: @width-breakpoint-desktop  ) {
+		@timing: @transition-duration-base ease-out;
+		.transition( transform @timing, opacity @timing, visibility @timing; );
+	}
 }

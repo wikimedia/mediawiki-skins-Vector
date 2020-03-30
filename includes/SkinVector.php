@@ -80,11 +80,17 @@ class SkinVector extends SkinTemplate {
 	 */
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
-		// add vector skin styles and vector module
-		$module = $this->isLegacy()
-			? 'skins.vector.styles.legacy' : 'skins.vector.styles';
-		$modules['styles']['skin'][] = $module;
-		$modules['core'][] = $this->isLegacy() ? 'skins.vector.legacy.js' : 'skins.vector.js';
+
+		if ( $this->isLegacy() ) {
+			$modules['styles']['skin'][] = 'skins.vector.styles.legacy';
+			$modules[Constants::SKIN_NAME] = 'skins.vector.legacy.js';
+		} else {
+			$modules['styles'] = array_merge(
+				$modules['styles'],
+				[ 'skins.vector.styles', 'mediawiki.ui.icon', 'skins.vector.icons' ]
+			);
+			$modules[Constants::SKIN_NAME][] = 'skins.vector.js';
+		}
 
 		return $modules;
 	}

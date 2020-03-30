@@ -1,5 +1,6 @@
 @import '../../variables.less';
 @import 'mediawiki.mixins.less';
+@import './layout.less';
 
 .mw-logo {
 	.flex-display();
@@ -8,6 +9,8 @@
 	height: 100%;
 	// Center vertically.
 	align-items: center;
+	// Make room for the sidebar menu button.
+	margin-left: @size-sidebar-button;
 }
 
 .mw-logo-icon {

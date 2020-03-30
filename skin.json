@@ -58,6 +58,15 @@
 			],
 			"styles": [ "resources/skins.vector.styles/index.less" ]
 		},
+		"skins.vector.icons": {
+			"class": "ResourceLoaderImageModule",
+			"selector": ".mw-ui-icon-wikimedia-{name}-base20:before",
+			"defaultColor": "#54595d",
+			"images": {
+				"menu": "resources/skins.vector.icons/menu.svg",
+				"collapseHorizontal": "resources/skins.vector.icons/collapseHorizontal.svg"
+			}
+		},
 		"skins.vector.styles.responsive": {
 			"targets": [
 				"desktop",
@@ -72,7 +81,8 @@
 				"resources/skins.vector.legacy.js/vector.js"
 			],
 			"dependencies": [
-				"mediawiki.util"
+				"mediawiki.util",
+				"mediawiki.page.ready"
 			]
 		},
 		"skins.vector.legacy.js": {

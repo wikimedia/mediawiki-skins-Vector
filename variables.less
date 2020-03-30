@@ -43,6 +43,10 @@
 @color-link-new: #a55858;
 @color-link-selected: @color-base;
 
+// See oojs/ui/src/themes/wikimediaui/common.less.
+@background-color-frameless--hover: rgba( 0, 24, 73, 7/255 ); // equivalent to @wmui-color-base90 on white
+@color-primary: #36c; // wikimedia-ui-base.less
+
 @font-size-base: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 @font-size-reset: @font-size-root;
 @font-size-heading-1: 1.8em;
@@ -125,8 +129,14 @@
 // @z-index-ui-slider-handle: 2;
 // Display on top of page tabs (T39158, T50078).
 @z-index-personal: 100;
+@z-index-sidebar-button: 101;
 // See skinStyles/jquery.ui/jquery.ui.selectable.css.
 // @z-index-ui-selectable-helper: 100;
 @z-index-overlay: 101;
 // See skinStyles/jquery.ui/jquery.ui.tooltip.css.
 // @z-index-ui-tooltip: 9999;
+
+// Transitions
+@transition-duration-base: 100ms;
+
+@size-sidebar-button: 2.75em; // 44px
