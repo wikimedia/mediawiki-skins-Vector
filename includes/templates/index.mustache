@@ -20,7 +20,15 @@
   string html-catlinks
   string html-debuglog
   string html-dataAfterContent
-  object data-navigation for navigation template partial. see Navigation.mustache for documentation.
+  string html-navigation-heading heading for entire navigation that is
+    usually hidden to screen readers
+  object data-personal-menu See PersonalMenu.mustache for documentation.
+  object data-namespace-tabs. See VectorTabs.mustache for documentation.
+  object data-variants. See VectorMenu.mustache for documentation.
+  object data-page-actions. See VectorTabs.mustache for documentation.
+  object data-page-actions-more. See VectorMenu.mustache for documentation.
+  object data-search-box. See SearchBox.mustache for documentation.
+  object data-sidebar. See Sidebar.mustache for documentation.
   object data-footer for footer template partial. see Footer.mustache for documentation.
   string html-printtail HTML to render at the end of the page contained necessary script tags for ResourceLoader
     terminated with `</body></html>`.
@@ -57,9 +65,36 @@
 	</div>
 </div>
 {{{html-dataAfterContent}}}
-{{#data-navigation}}
-{{>Navigation}}
-{{/data-navigation}}
+<div id="mw-navigation">
+    <h2>{{{html-navigation-heading}}}</h2>
+    <div id="mw-head">
+        {{#data-personal-menu}}
+        {{>PersonalMenu}}
+        {{/data-personal-menu}}
+        <div id="left-navigation">
+            {{#data-namespace-tabs}}
+            {{>VectorTabs}}
+            {{/data-namespace-tabs}}
+            {{#data-variants}}
+            {{>VectorMenu}}
+            {{/data-variants}}
+        </div>
+        <div id="right-navigation">
+            {{#data-page-actions}}
+            {{>VectorTabs}}
+            {{/data-page-actions}}
+            {{#data-page-actions-more}}
+            {{>VectorMenu}}
+            {{/data-page-actions-more}}
+            {{#data-search-box}}
+            {{>SearchBox}}
+            {{/data-search-box}}
+        </div>
+    </div>
+    {{#data-sidebar}}
+    {{>Sidebar}}
+    {{/data-sidebar}}
+</div>
 {{#data-footer}}
 {{>Footer}}
 {{/data-footer}}

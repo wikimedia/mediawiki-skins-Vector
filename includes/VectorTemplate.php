@@ -175,29 +175,27 @@ class VectorTemplate extends BaseTemplate {
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			],
-			'data-navigation' => [
-				'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-				'data-personal-menu' => $this->buildPersonalProps(),
-				'data-namespace-tabs' => $this->buildNamespacesProps(),
-				'data-variants' => $this->buildVariantsProps(),
-				'data-page-actions' => $this->buildViewsProps(),
-				'data-page-actions-more' => $this->buildActionsProps(),
-				'data-search-box' => $this->buildSearchProps(),
-				'data-sidebar' => [
-						'html-logo-attributes' => Xml::expandAttributes(
-							Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
-								'class' => 'mw-wiki-logo',
-								'href' => Skin::makeMainPageUrl(),
-							]
-						)
-				] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
-			],
+			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
+			'data-personal-menu' => $this->buildPersonalProps(),
+			'data-namespace-tabs' => $this->buildNamespacesProps(),
+			'data-variants' => $this->buildVariantsProps(),
+			'data-page-actions' => $this->buildViewsProps(),
+			'data-page-actions-more' => $this->buildActionsProps(),
+			'data-search-box' => $this->buildSearchProps(),
+			'data-sidebar' => [
+					'html-logo-attributes' => Xml::expandAttributes(
+						Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
+							'class' => 'mw-wiki-logo',
+							'href' => Skin::makeMainPageUrl(),
+						]
+					)
+			] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
 		];
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
 		// is planned to be moved in a follow-up patch.
 		if ( !$this->isLegacy && $this->getSkin()->getUser()->isLoggedIn() ) {
-			$commonSkinData['data-navigation']['data-sidebar']['data-emphasized-sidebar-action'] = [
+			$commonSkinData['data-sidebar']['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,

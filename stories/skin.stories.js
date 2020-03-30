@@ -4,11 +4,52 @@ import skinTemplate from '!!raw-loader!../includes/templates/index.mustache';
 import { placeholder } from './utils';
 
 import '../resources/skins.vector.styles/index.less';
-import { NAVIGATION_TEMPLATE_DATA, navTemplate, NAVIGATION_TEMPLATE_PARTIALS } from './Navigation.stories.data';
+import { PERSONAL_MENU_TEMPLATE_DATA, personalMenuTemplate } from './PersonalMenu.stories.data';
+import { pageActionsData, namespaceTabsData, vectorTabsTemplate } from './VectorTabs.stories.data';
+import { vectorMenuTemplate, moreData, variantsData } from './VectorMenu.stories.data';
+import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
+import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './Sidebar.stories.data';
 import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
 
-const TEMPLATE_PARTIALS = Object.assign( {}, NAVIGATION_TEMPLATE_PARTIALS, {
-	Navigation: navTemplate,
+const NAVIGATION_TEMPLATE_DATA = {
+	loggedInWithVariantsAndOptOut: {
+		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
+		'data-namespace-tabs': namespaceTabsData,
+		'data-page-actions': pageActionsData,
+		'data-variants': variantsData,
+		'data-search-box': searchBoxData,
+		'data-sidebar': SIDEBAR_DATA.withPortalsAndOptOut,
+		'html-navigation-heading': 'Navigation menu',
+		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
+	},
+	loggedOutWithVariants: {
+		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
+		'data-namespace-tabs': namespaceTabsData,
+		'data-page-actions': pageActionsData,
+		'data-variants': variantsData,
+		'data-search-box': searchBoxData,
+		'data-sidebar': SIDEBAR_DATA.withPortals,
+		'html-navigation-heading': 'Navigation menu',
+		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
+	},
+	loggedInWithMoreActions: {
+		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
+		'data-namespace-tabs': namespaceTabsData,
+		'data-page-actions': pageActionsData,
+		'data-page-actions-more': moreData,
+		'data-search-box': searchBoxData,
+		'data-sidebar': SIDEBAR_DATA.withPortals,
+		'html-navigation-heading': 'Navigation menu',
+		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
+	}
+};
+
+const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
+	SearchBox: searchBoxTemplate,
+	Sidebar: sidebarTemplate,
+	VectorTabs: vectorTabsTemplate,
+	VectorMenu: vectorMenuTemplate,
+	PersonalMenu: personalMenuTemplate,
 	Footer: footerTemplate
 } );
 
@@ -35,14 +76,13 @@ const HTML_INDICATORS = `<div class="mw-indicators mw-body-content">
 </div>
 `;
 
-export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, {
+export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, Object.assign( {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
-	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedOutWithVariants,
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
@@ -58,16 +98,15 @@ export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, {
 	'html-dataAfterContent': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
 	'html-indicators': HTML_INDICATORS,
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
-}, TEMPLATE_PARTIALS );
+}, NAVIGATION_TEMPLATE_DATA.loggedOutWithVariants ), TEMPLATE_PARTIALS );
 
-export const vectorLegacyLoggedIn = () => mustache.render( skinTemplate, {
+export const vectorLegacyLoggedIn = () => mustache.render( skinTemplate, Object.assign( {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
-	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedInWithMoreActions,
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
@@ -77,16 +116,15 @@ export const vectorLegacyLoggedIn = () => mustache.render( skinTemplate, {
 	'html-bodycontent': placeholder( 'Article content goes here' ),
 	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
 	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
-}, TEMPLATE_PARTIALS );
+}, NAVIGATION_TEMPLATE_DATA.loggedInWithMoreActions ), TEMPLATE_PARTIALS );
 
-export const vectorLoggedIn = () => mustache.render( skinTemplate, {
+export const vectorLoggedIn = () => mustache.render( skinTemplate, Object.assign( {
 	'html-title': 'Vector 2020',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-jumptonavigation': 'Jump to navigation',
 	'msg-jumptosearch': 'Jump to search',
-	'data-navigation': NAVIGATION_TEMPLATE_DATA.loggedInWithVariantsAndOptOut,
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
@@ -96,4 +134,4 @@ export const vectorLoggedIn = () => mustache.render( skinTemplate, {
 	'html-bodycontent': placeholder( 'Article content goes here' ),
 	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
 	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
-}, TEMPLATE_PARTIALS );
+}, NAVIGATION_TEMPLATE_DATA.loggedInWithVariantsAndOptOut ), TEMPLATE_PARTIALS );
