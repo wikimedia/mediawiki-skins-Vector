@@ -21,7 +21,7 @@
  * @file
  * @ingroup Skins
  */
-use Vector\Constants;
+use Vector\SkinVersionLookup;
 
 /**
  * Skin subclass for Vector
@@ -35,6 +35,21 @@ class SkinVector extends SkinTemplate {
 	public $template = 'VectorTemplate';
 
 	private $responsiveMode = false;
+
+	/**
+	 * @var SkinVersionLookup
+	 */
+	private $skinVersionLookup;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function __construct( $skinname = null ) {
+		parent::__construct( $skinname );
+
+		$this->skinVersionLookup =
+			new SkinVersionLookup( $this->getRequest(), $this->getUser(), $this->getConfig() );
+	}
 
 	/**
 	 * Enables the responsive mode
@@ -67,7 +82,8 @@ class SkinVector extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 		// add vector skin styles and vector module
-		$module = $this->isLegacy() ? 'skins.vector.styles.legacy' : 'skins.vector.styles';
+		$module = $this->skinVersionLookup->isLegacy()
+			? 'skins.vector.styles.legacy' : 'skins.vector.styles';
 		$modules['styles']['skin'][] = $module;
 		$modules['core'][] = 'skins.vector.js';
 
@@ -85,9 +101,7 @@ class SkinVector extends SkinTemplate {
 	 */
 	protected function setupTemplate( $classname ) {
 		$tp = new TemplateParser( __DIR__ . '/templates' );
-		$vectorTemplate = new VectorTemplate( $this->getConfig(), $tp, $this->isLegacy() );
-
-		return $vectorTemplate;
+		return new VectorTemplate( $this->getConfig(), $tp, $this->skinVersionLookup->isLegacy() );
 	}
 
 	/**
@@ -97,16 +111,5 @@ class SkinVector extends SkinTemplate {
 	 */
 	public function shouldPreloadLogo() {
 		return true;
-	}
-
-	/**
-	 * Whether or not the legacy skin is being used.
-	 *
-	 * @return bool
-	 */
-	private function isLegacy() {
-		// Note: This will be replaced with FeatureManager when it is ready.
-		return $this->getUser()->getOption( Constants::PREF_KEY_SKIN_VERSION )
-			=== Constants::SKIN_VERSION_LEGACY;
 	}
 }

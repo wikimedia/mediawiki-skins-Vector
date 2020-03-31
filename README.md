@@ -28,7 +28,8 @@ URL query parameters
 --------------------
 
 - `useskinversion`: Like `useskin` but for overriding the Vector skin version
-  user preference and configuration.
+  user preference and configuration. E.g.,
+  http://localhost:8181?useskin=vector&useskinversion=2.
 
 Skin preferences
 ----------------

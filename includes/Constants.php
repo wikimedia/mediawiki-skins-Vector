@@ -72,6 +72,13 @@ final class Constants {
 	 */
 	public const REQUIREMENT_FULLY_INITIALISED = 'FullyInitialised';
 
+	// These are used for query parameters.
+	/**
+	 * Override the skin version user preference and site Config. See readme.
+	 * @var string
+	 */
+	public const QUERY_PARAM_SKIN_VERSION = 'useskinversion';
+
 	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
