@@ -5,10 +5,12 @@
 			"Tivek",
 			"Bugoslav",
 			"BadDog",
-			"MaGa"
+			"MaGa",
+			"Neptune, the Mystic"
 		]
 	},
 	"vector-skin-desc": "Osuvremenjena inačica MonoBooka s obnovljenim dizajnom i mnogim poboljšanjima u upotrebljivosti",
+	"vector-opt-out": "Prebaci na stari izgled",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Premjesti",
