@@ -43,8 +43,8 @@ class VectorTemplate extends BaseTemplate {
 
 	/** @var TemplateParser */
 	private $templateParser;
-	/** @var string */
-	private $templateRoot = 'index';
+	/** @var string File name of the root (master) template without folder path and extension */
+	private $templateRoot;
 
 	/** @var bool */
 	private $isLegacy;
@@ -63,9 +63,7 @@ class VectorTemplate extends BaseTemplate {
 
 		$this->templateParser = $templateParser;
 		$this->isLegacy = $isLegacy;
-		if ( $isLegacy ) {
-			$this->templateRoot = 'legacy';
-		}
+		$this->templateRoot = $isLegacy ? 'legacy' : 'index';
 	}
 
 	/**
