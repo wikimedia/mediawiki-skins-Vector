@@ -43,6 +43,8 @@ class VectorTemplate extends BaseTemplate {
 
 	/** @var TemplateParser */
 	private $templateParser;
+	/** @var string */
+	private $templateRoot = 'index';
 
 	/** @var bool */
 	private $isLegacy;
@@ -61,6 +63,9 @@ class VectorTemplate extends BaseTemplate {
 
 		$this->templateParser = $templateParser;
 		$this->isLegacy = $isLegacy;
+		if ( $isLegacy ) {
+			$this->templateRoot = 'legacy';
+		}
 	}
 
 	/**
@@ -215,7 +220,7 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		$tp = $this->getTemplateParser();
-		echo $tp->processTemplate( 'index', $this->getSkinData() );
+		echo $tp->processTemplate( $this->templateRoot, $this->getSkinData() );
 	}
 
 	/**

@@ -1,6 +1,7 @@
 import mustache from 'mustache';
 import { htmluserlangattributes } from './utils';
 import skinTemplate from '!!raw-loader!../includes/templates/index.mustache';
+import legacySkinTemplate from '!!raw-loader!../includes/templates/legacy.mustache';
 import { placeholder } from './utils';
 
 import '../resources/skins.vector.styles/index.less';
@@ -76,7 +77,7 @@ const HTML_INDICATORS = `<div class="mw-indicators mw-body-content">
 </div>
 `;
 
-export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, Object.assign( {
+export const vectorLegacyLoggedOut = () => mustache.render( legacySkinTemplate, Object.assign( {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
@@ -100,7 +101,7 @@ export const vectorLegacyLoggedOut = () => mustache.render( skinTemplate, Object
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
 }, NAVIGATION_TEMPLATE_DATA.loggedOutWithVariants ), TEMPLATE_PARTIALS );
 
-export const vectorLegacyLoggedIn = () => mustache.render( skinTemplate, Object.assign( {
+export const vectorLegacyLoggedIn = () => mustache.render( legacySkinTemplate, Object.assign( {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
