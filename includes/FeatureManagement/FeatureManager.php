@@ -22,6 +22,7 @@
 
 namespace Vector\FeatureManagement;
 
+use Vector\FeatureManagement\Requirements\SimpleRequirement;
 use Wikimedia\Assert\Assert;
 
 /**
