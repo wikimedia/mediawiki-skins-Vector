@@ -109,3 +109,25 @@
 // FIXME: Currently calculates at 11.2px, which is worth nothing and unreadable for a big
 // part of our audiences. Push up _at least_ to 12px.
 @font-size-footer: 0.7em;
+
+// Z-indices
+// See skinStyles/jquery.ui/jquery.ui.datepicker.css.
+// @z-index-ui-datepicker-cover: -1;
+@z-index-base: 0;
+@z-index-menu-checkbox: 1;
+@z-index-search-button: 1;
+// Ensure that this is displayed on top of .mw-body-content and clickable.
+@z-index-indicators: 1;
+// See skinStyles/jquery.ui/jquery.ui.slider.css.
+// @z-index-ui-slider-range: 1;
+// Menus must overlap indicators (@z-index-indicators) and VisualEditor toolbar (z-index: 2).
+@z-index-menu: 2;
+// See skinStyles/jquery.ui/jquery.ui.slider.css.
+// @z-index-ui-slider-handle: 2;
+// Display on top of page tabs (T39158, T50078).
+@z-index-personal: 100;
+// See skinStyles/jquery.ui/jquery.ui.selectable.css.
+// @z-index-ui-selectable-helper: 100;
+@z-index-overlay: 101;
+// See skinStyles/jquery.ui/jquery.ui.tooltip.css.
+// @z-index-ui-tooltip: 9999;

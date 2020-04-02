@@ -104,15 +104,11 @@
 	text-indent: -99999px;
 	white-space: nowrap;
 	overflow: hidden;
-	z-index: 1;
+	z-index: @z-index-search-button;
 }
 
 #searchButton {
 	.background-image-svg( 'images/search.svg', 'images/search.png' );
 	background-position: center center;
 	background-repeat: no-repeat;
-}
-
-#mw-searchButton {
-	z-index: 1;
 }

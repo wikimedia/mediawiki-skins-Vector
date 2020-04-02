@@ -62,8 +62,7 @@
 		opacity: 0;
 		visibility: hidden;
 		.transition( opacity 100ms );
-		// Menus must overlap indicators (z-index: 1) and VisualEditor toolbar (z-index: 2)
-		z-index: 2;
+		z-index: @z-index-menu;
 	}
 
 	&:hover .menu {
@@ -134,7 +133,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: @z-index-menu-checkbox;
 	opacity: 0;
 	width: 100%;
 	height: 100%;

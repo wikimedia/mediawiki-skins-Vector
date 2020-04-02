@@ -84,9 +84,8 @@ body {
 		float: right;
 		font-size: @font-size-base;
 		line-height: @line-height-base;
-		/* Ensure that this is displayed on top of .mw-body-content and clickable */
 		position: relative;
-		z-index: 1;
+		z-index: @z-index-indicators;
 	}
 
 	.mw-indicator {
@@ -101,7 +100,7 @@ body {
 	// `calc` enables to set correct calculation in place again. See T102364.
 	font-size: calc( 1em ~'*' unit( @font-size-base ) );
 	line-height: @line-height-base;
-	z-index: 0;
+	z-index: @z-index-base;
 
 	p {
 		margin: 0.5em 0;
