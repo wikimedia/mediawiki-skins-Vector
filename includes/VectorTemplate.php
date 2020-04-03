@@ -29,6 +29,13 @@ use MediaWiki\MediaWikiServices;
  * @ingroup Skins
  */
 class VectorTemplate extends BaseTemplate {
+	/* @var int */
+	private const MENU_TYPE_DEFAULT = 0;
+	/* @var int */
+	private const MENU_TYPE_TABS = 1;
+	/* @var int */
+	private const MENU_TYPE_DROPDOWN = 2;
+
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
 	 *
@@ -179,7 +186,6 @@ class VectorTemplate extends BaseTemplate {
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			],
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-			'data-personal-menu' => $this->buildPersonalProps(),
 			'data-namespace-tabs' => $this->buildNamespacesProps(),
 			'data-variants' => $this->buildVariantsProps(),
 			'data-page-actions' => $this->buildViewsProps(),
@@ -193,7 +199,7 @@ class VectorTemplate extends BaseTemplate {
 						]
 					)
 			] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
-		];
+		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
 		// is planned to be moved in a follow-up patch.
@@ -491,38 +497,80 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * @param string $label to be used to derive the id and human readable label of the menu
+	 * @param array $urls to convert to list items stored as string in html-items key
+	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
+	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
+	 * @param array $options (optional) to be passed to makeListItem
 	 * @return array
 	 */
-	private function buildPersonalProps() : array {
-		$personalTools = $this->getPersonalTools();
-		$props = [
-			'empty-portlet' => ( count( $this->get( 'personal_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
-			'msg-label' => $this->getMsg( 'personaltools' )->text(),
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			'html-loggedin' => '',
-			'html-personal-tools' => '',
-			'html-lang-selector' => '',
-
+	private function getMenuData(
+		string $label, array $urls = [],
+		int $type = self::MENU_TYPE_DEFAULT, array $options = []
+	) : array {
+		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
+		$extraClasses = [
+			self::MENU_TYPE_DROPDOWN => 'vectorMenu',
+			self::MENU_TYPE_TABS => 'vectorTabs',
+			self::MENU_TYPE_DEFAULT => '',
 		];
 
+		$props = [
+			'id' => "p-$label",
+			'label-id' => "p-{$label}-label",
+			'label' => $this->getMsg( $label )->text(),
+			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
+			'html-items' => '',
+			'class' => trim( "$class $extraClasses[$type]" ),
+		];
+
+		foreach ( $urls as $key => $item ) {
+			$props['html-items'] .= $this->makeListItem( $key, $item, $options );
+		}
+		return $props;
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getMenuProps() : array {
+		$personalTools = $this->getPersonalTools();
+
+		// For logged out users Vector shows a "Not logged in message"
+		// This should be upstreamed to core, with instructions for how to hide it for skins
+		// that do not want it.
+		// For now we create a dedicated list item to avoid having to sync the API internals
+		// of makeListItem.
 		if ( !$this->getSkin()->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
-			$props['html-loggedin'] =
+			$loggedIn =
 				Html::element( 'li',
 					[ 'id' => 'pt-anonuserpage' ],
 					$this->getMsg( 'notloggedin' )->text()
 				);
+		} else {
+			$loggedIn = '';
 		}
 
+		// This code doesn't belong here, it belongs in the UniversalLanguageSelector
+		// It is here to workaround the fact that it wants to be the first item in the personal menus.
 		if ( array_key_exists( 'uls', $personalTools ) ) {
-			$props['html-lang-selector'] = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+			$uls = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
 			unset( $personalTools[ 'uls' ] );
+		} else {
+			$uls = '';
 		}
 
-		foreach ( $personalTools as $key => $item ) {
-			$props['html-personal-tools'] .= $this->makeListItem( $key, $item );
-		}
+		$ptools = $this->getMenuData( 'personal', $personalTools );
+		// Append additional link items if present.
+		$ptools['html-items'] = $uls . $loggedIn . $ptools['html-items'];
+		// Unlike other menu items, there is no language key corresponding with its menu key.
+		// Inconsistently this language key lives inside `personaltools`
+		// This line can be removed once the core message `personal` has been added.
+		$ptools['label'] = $this->getMsg( 'personaltools' )->text();
 
-		return $props;
+		return [
+			'data-personal-menu' => $ptools,
+		];
 	}
 
 	/**

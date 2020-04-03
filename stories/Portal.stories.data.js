@@ -5,18 +5,6 @@ import '../.storybook/common.less';
 import { placeholder, htmluserlangattributes } from './utils';
 
 /**
- * @typedef {Object} PortletContext
- * @prop {string} portal-id
- * @prop {string} html-tooltip
- * @prop {string} msg-label-id
- * @prop {string} [html-userlangattributes]
- * @prop {string} msg-label
- * @prop {string} html-portal-content
- * @prop {string} [html-after-portal]
- * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal.
- */
-
-/**
  * @param {PortletContext} data
  * @return {HTMLElement}
  */
