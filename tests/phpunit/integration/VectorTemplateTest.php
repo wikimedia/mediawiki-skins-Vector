@@ -131,24 +131,27 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::buildViewsProps
-	 * @covers ::buildActionsProps
-	 * @covers ::buildVariantsProps
-	 * @covers ::buildNamespacesProps
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {
 		$langAttrs = 'LANG_ATTRIBUTES';
 		$vectorTemplate = $this->provideVectorTemplateObject();
-		$vectorTemplate->set( 'view_urls', [] );
+		// used internally by getPersonalTools
 		$vectorTemplate->set( 'personal_urls', [] );
+		$vectorTemplate->set( 'content_navigation', [
+			'actions' => [],
+			'namespaces' => [],
+			'variants' => [],
+			'views' => [],
+		] );
 		$vectorTemplate->set( 'skin', new \SkinVector() );
 		$vectorTemplate->set( 'userlangattributes', $langAttrs );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
 		$props = $openVectorTemplate->getMenuProps();
-		$views = $openVectorTemplate->buildViewsProps();
-		$namespaces = $openVectorTemplate->buildNamespacesProps();
+		$views = $props['data-page-actions'];
+		$namespaces = $props['data-namespace-tabs'];
+
 		$this->assertSame( $views, [
 			'id' => 'p-views',
 			'class' => 'emptyPortlet vectorTabs',
@@ -159,8 +162,8 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'class' => 'emptyPortlet vectorTabs',
 		] );
 
-		$variants = $openVectorTemplate->buildVariantsProps();
-		$actions = $openVectorTemplate->buildActionsProps();
+		$variants = $props['data-variants'];
+		$actions = $props['data-page-actions-more'];
 		$this->assertSame( $namespaces['class'],
 			'emptyPortlet vectorTabs' );
 		$this->assertSame( $variants['class'],

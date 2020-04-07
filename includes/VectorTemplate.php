@@ -29,11 +29,16 @@ use MediaWiki\MediaWikiServices;
  * @ingroup Skins
  */
 class VectorTemplate extends BaseTemplate {
-	/* @var int */
+	/** @var array of alternate message keys for menu labels */
+	private const MENU_LABEL_KEYS = [
+		'cactions' => 'vector-more-actions',
+		'personal' => 'personaltools',
+	];
+	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
-	/* @var int */
+	/** @var int */
 	private const MENU_TYPE_TABS = 1;
-	/* @var int */
+	/** @var int */
 	private const MENU_TYPE_DROPDOWN = 2;
 
 	/**
@@ -93,10 +98,6 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function getSkinData() : array {
 		$contentNavigation = $this->get( 'content_navigation', [] );
-		$this->set( 'namespace_urls', $contentNavigation[ 'namespaces' ] );
-		$this->set( 'view_urls', $contentNavigation[ 'views' ] );
-		$this->set( 'action_urls', $contentNavigation[ 'actions' ] );
-		$this->set( 'variant_urls', $contentNavigation[ 'variants' ] );
 
 		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
 		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
@@ -111,13 +112,14 @@ class VectorTemplate extends BaseTemplate {
 						)
 					) ? 'unwatch' : 'watch';
 
-			$actionUrls = $this->get( 'action_urls', [] );
+			$actionUrls = $contentNavigation[ 'actions' ] ?? [];
 			if ( array_key_exists( $mode, $actionUrls ) ) {
-				$viewUrls = $this->get( 'view_urls' );
+				$viewUrls = $contentNavigation[ 'views' ] ?? [];
 				$viewUrls[ $mode ] = $actionUrls[ $mode ];
 				unset( $actionUrls[ $mode ] );
-				$this->set( 'view_urls', $viewUrls );
-				$this->set( 'action_urls', $actionUrls );
+				$contentNavigation['actions'] = $actionUrls;
+				$contentNavigation['views'] = $viewUrls;
+				$this->set( 'content_navigation', $contentNavigation );
 			}
 		}
 
@@ -186,10 +188,6 @@ class VectorTemplate extends BaseTemplate {
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			],
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
-			'data-namespace-tabs' => $this->buildNamespacesProps(),
-			'data-variants' => $this->buildVariantsProps(),
-			'data-page-actions' => $this->buildViewsProps(),
-			'data-page-actions-more' => $this->buildActionsProps(),
 			'data-search-box' => $this->buildSearchProps(),
 			'data-sidebar' => [
 				'has-logo' => true,
@@ -411,111 +409,21 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return array
-	 */
-	private function buildNamespacesProps() : array {
-		$props = [
-			'id' => 'p-namespaces',
-			'class' => ( count( $this->get( 'namespace_urls', [] ) ) == 0 ) ?
-				'emptyPortlet vectorTabs' : 'vectorTabs',
-			'label-id' => 'p-namespaces-label',
-			'label' => $this->getMsg( 'namespaces' )->text(),
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			'html-items' => '',
-		];
-
-		foreach ( $this->get( 'namespace_urls', [] ) as $key => $item ) {
-			$props[ 'html-items' ] .= $this->makeListItem( $key, $item );
-		}
-
-		return $props;
-	}
-
-	/**
-	 * @return array
-	 */
-	private function buildVariantsProps() : array {
-		$props = [
-			'class' => ( count( $this->get( 'variant_urls', [] ) ) == 0 ) ?
-				'emptyPortlet vectorMenu' : 'vectorMenu',
-			'id' => 'p-variants',
-			'label-id' => 'p-variants-label',
-			'label' => $this->getMsg( 'variants' )->text(),
-			'html-items' => '',
-		];
-
-		// Replace the label with the name of currently chosen variant, if any
-		$variantUrls = $this->get( 'variant_urls', [] );
-		foreach ( $variantUrls as $item ) {
-			if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
-				$props['msg-label'] = $item['text'];
-				break;
-			}
-		}
-
-		foreach ( $variantUrls as $key => $item ) {
-			$props['html-items'] .= $this->makeListItem( $key, $item );
-		}
-
-		return $props;
-	}
-
-	/**
-	 * @return array
-	 */
-	private function buildViewsProps() : array {
-		$props = [
-			'id' => 'p-views',
-			'class' => ( count( $this->get( 'view_urls', [] ) ) == 0 ) ?
-				'emptyPortlet vectorTabs' : 'vectorTabs',
-			'label-id' => 'p-views-label',
-			'label' => $this->getMsg( 'views' )->text(),
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			'html-items' => '',
-		];
-		$viewUrls = $this->get( 'view_urls', [] );
-		foreach ( $viewUrls as $key => $item ) {
-			$props[ 'html-items' ] .= $this->makeListItem( $key, $item, [
-				'vector-collapsible' => true,
-			] );
-		}
-
-		return $props;
-	}
-
-	/**
-	 * @return array
-	 */
-	private function buildActionsProps() : array {
-		$props = [
-			'class' => ( count( $this->get( 'action_urls', [] ) ) == 0 ) ?
-				'emptyPortlet vectorMenu' : 'vectorMenu',
-			'label' => $this->getMsg( 'vector-more-actions' )->text(),
-			'id' => 'p-cactions',
-			'label-id' => 'p-cactions-label',
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			'html-items' => '',
-		];
-
-		$actionUrls = $this->get( 'action_urls', [] );
-		foreach ( $actionUrls as $key => $item ) {
-			$props['html-items'] .= $this->makeListItem( $key, $item );
-		}
-
-		return $props;
-	}
-
-	/**
 	 * @param string $label to be used to derive the id and human readable label of the menu
 	 * @param array $urls to convert to list items stored as string in html-items key
 	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
 	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
 	 * @param array $options (optional) to be passed to makeListItem
+	 * @param bool $setLabelToSelected (optional) the menu label will take the value of the
+	 *  selected item if found.
 	 * @return array
 	 */
 	private function getMenuData(
-		string $label, array $urls = [],
-		int $type = self::MENU_TYPE_DEFAULT, array $options = []
+		string $label,
+		array $urls = [],
+		int $type = self::MENU_TYPE_DEFAULT,
+		array $options = [],
+		bool $setLabelToSelected = false
 	) : array {
 		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
 		$extraClasses = [
@@ -526,15 +434,26 @@ class VectorTemplate extends BaseTemplate {
 
 		$props = [
 			'id' => "p-$label",
+			'class' => trim( "$class $extraClasses[$type]" ),
 			'label-id' => "p-{$label}-label",
-			'label' => $this->getMsg( $label )->text(),
+			// For some menu items, there is no language key corresponding with its menu key.
+			// These inconsitencies are captured in MENU_LABEL_KEYS
+			'label' => $this->getMsg( self::MENU_LABEL_KEYS[ $label ] ?? $label )->text(),
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
-			'class' => trim( "$class $extraClasses[$type]" ),
 		];
 
 		foreach ( $urls as $key => $item ) {
 			$props['html-items'] .= $this->makeListItem( $key, $item, $options );
+
+			// Check the class of the item for a `selected` class and if so, propagate the items
+			// label to the main label.
+			if ( $setLabelToSelected ) {
+				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
+					$props['label'] = $item['text'];
+					break;
+				}
+			}
 		}
 		return $props;
 	}
@@ -543,6 +462,7 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function getMenuProps() : array {
+		$contentNavigation = $this->get( 'content_navigation', [] );
 		$personalTools = $this->getPersonalTools();
 
 		// For logged out users Vector shows a "Not logged in message"
@@ -572,13 +492,32 @@ class VectorTemplate extends BaseTemplate {
 		$ptools = $this->getMenuData( 'personal', $personalTools );
 		// Append additional link items if present.
 		$ptools['html-items'] = $uls . $loggedIn . $ptools['html-items'];
-		// Unlike other menu items, there is no language key corresponding with its menu key.
-		// Inconsistently this language key lives inside `personaltools`
-		// This line can be removed once the core message `personal` has been added.
-		$ptools['label'] = $this->getMsg( 'personaltools' )->text();
 
 		return [
 			'data-personal-menu' => $ptools,
+			'data-namespace-tabs' => $this->getMenuData(
+				'namespaces',
+				$contentNavigation[ 'namespaces' ] ?? [],
+				self::MENU_TYPE_TABS
+			),
+			'data-variants' => $this->getMenuData(
+				'variants',
+				$contentNavigation[ 'variants' ] ?? [],
+				self::MENU_TYPE_DROPDOWN,
+				[], true
+			),
+			'data-page-actions' => $this->getMenuData(
+				'views',
+				$contentNavigation[ 'views' ] ?? [],
+				self::MENU_TYPE_TABS, [
+					'vector-collapsible' => true,
+				]
+			),
+			'data-page-actions-more' => $this->getMenuData(
+				'cactions',
+				$contentNavigation[ 'actions' ] ?? [],
+				self::MENU_TYPE_DROPDOWN
+			),
 		];
 	}
 
