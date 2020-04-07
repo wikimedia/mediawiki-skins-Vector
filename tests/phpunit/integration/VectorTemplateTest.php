@@ -161,6 +161,9 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'html-items' => '',
 			'class' => 'emptyPortlet vector-menu-tabs vectorTabs',
 			'is-dropdown' => false,
+			'html-tooltip' => '',
+			'is-portal' => false,
+			'html-after-portal' => ''
 		] );
 
 		$variants = $props['data-variants'];

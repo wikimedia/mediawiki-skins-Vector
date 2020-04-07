@@ -28,19 +28,11 @@
  * @prop {string} label-id
  * @prop {string} label
  * @prop {string} html-items
+ * @prop {string} [html-tooltip]
  * @prop {string} [class] of menu
  * @prop {string} [html-userlangattributes]
  * @prop {boolean} [is-dropdown]
- */
-
-/**
- * @typedef {Object} PortletContext
- * @prop {string} portal-id
- * @prop {string} html-tooltip
- * @prop {string} msg-label-id
- * @prop {string} [html-userlangattributes]
- * @prop {string} msg-label
- * @prop {string} html-portal-content
- * @prop {string} [html-after-portal]
- * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal.
+ * @prop {boolean} [is-portal]
+ * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal menu.
+ * @prop {string} [html-after-portal] Additional HTML specific to portal menus.
  */

@@ -1,7 +1,7 @@
-import { PORTALS, wrapPortlet } from './Portal.stories.data';
+import { PORTALS, wrapPortlet } from './MenuPortal.stories.data';
 
 export default {
-	title: 'Portal'
+	title: 'MenuPortal'
 };
 
 export const portal = () => wrapPortlet( PORTALS.example );

@@ -1,17 +1,27 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<nav id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}">
+<nav id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
-	<h3 id="{{label-id}}">
+	<h3 id="{{label-id}}" {{{html-userlangattributes}}}>
 		<span>{{label}}</span>
 	</h3>
 	{{/is-dropdown}}
 	{{^is-dropdown}}
 	<h3 id="{{label-id}}">{{label}}</h3>
 	{{/is-dropdown}}
+	{{#is-portal}}
+	<div class="body">
+		<ul>{{{html-items}}}</ul>
+		{{{html-after-portal}}}
+	</div>
+	{{/is-portal}}
+	{{^is-portal}}
 	<ul class="menu" {{{html-userlangattributes}}}>
 		{{{html-items}}}
 	</ul>
+	{{/is-portal}}
 </nav>
+{{! Note: html-hook-vector-after-toolbox is deprecated. }}
+{{{html-hook-vector-after-toolbox}}}

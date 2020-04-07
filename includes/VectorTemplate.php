@@ -32,7 +32,9 @@ class VectorTemplate extends BaseTemplate {
 	/** @var array of alternate message keys for menu labels */
 	private const MENU_LABEL_KEYS = [
 		'cactions' => 'vector-more-actions',
+		'tb' => 'toolbox',
 		'personal' => 'personaltools',
+		'lang' => 'otherlanguages',
 	];
 	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
@@ -40,6 +42,7 @@ class VectorTemplate extends BaseTemplate {
 	private const MENU_TYPE_TABS = 1;
 	/** @var int */
 	private const MENU_TYPE_DROPDOWN = 2;
+	private const MENU_TYPE_PORTAL = 3;
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -324,8 +327,16 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
-					$portal = $this->buildPortalProps( 'tb', $this->getToolbox(), 'toolbox',
-						'SkinTemplateToolboxEnd' );
+					$portal = $this->getMenuData(
+						'tb',  $this->getToolbox(), self::MENU_TYPE_PORTAL
+					);
+					// Run deprecated hooks.
+					$vectorTemplate = $this;
+					ob_start();
+					// Use SidebarBeforeOutput instead.
+					Hooks::run( 'SkinTemplateToolboxEnd', [ &$vectorTemplate, true ], '1.35' );
+					$htmlhookitems = ob_get_clean();
+					$portal['html-items'] .= $htmlhookitems;
 					ob_start();
 					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
 					$props[] = $portal + [
@@ -336,15 +347,34 @@ class VectorTemplate extends BaseTemplate {
 					// @phan-suppress-next-line PhanUndeclaredMethod
 					$languages = $skin->getLanguages();
 					if ( count( $languages ) ) {
-						$props[] = $this->buildPortalProps(
+						$props[] = $this->getMenuData(
 							'lang',
 							$languages,
-							'otherlanguages'
+							self::MENU_TYPE_PORTAL
 						);
 					}
 					break;
 				default:
-					$props[] = $this->buildPortalProps( $name, $content );
+					// Historically some portals have been defined using HTML rather than arrays.
+					// Let's move away from that to a uniform definition.
+					if ( !is_array( $content ) ) {
+						$html = $content;
+						$content = [];
+						wfDeprecated(
+							"`content` field in portal $name must be array."
+								. "Previously it could be a string but this is no longer supported.",
+							'1.35.0'
+						);
+					} else {
+						$html = false;
+					}
+					$portal = $this->getMenuData(
+						$name, $content, self::MENU_TYPE_PORTAL
+					);
+					if ( $html ) {
+						$portal['html-items'] .= $html;
+					}
+					$props[] = $portal;
 					break;
 			}
 		}
@@ -363,55 +393,8 @@ class VectorTemplate extends BaseTemplate {
 				]
 			),
 			'array-portals-rest' => array_slice( $props, 1 ),
-			'array-portals-first' => $firstPortal,
+			'data-portals-first' => $firstPortal,
 		];
-	}
-
-	/**
-	 * @param string $name
-	 * @param array|string $content
-	 * @param null|string $msg
-	 * @param null|string|array $hook
-	 * @return array
-	 */
-	private function buildPortalProps( $name, $content, $msg = null, $hook = null ) : array {
-		if ( $msg === null ) {
-			$msg = $name;
-		}
-
-		$msgObj = $this->getMsg( $msg );
-
-		$props = [
-			'portal-id' => "p-$name",
-			'class' => 'portal',
-			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
-			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
-			'msg-label-id' => "p-$name-label",
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			'html-portal-content' => '',
-			'html-after-portal' => $this->getAfterPortlet( $name ),
-		];
-
-		if ( is_array( $content ) ) {
-			$props['html-portal-content'] .= '<ul>';
-			foreach ( $content as $key => $val ) {
-				$props['html-portal-content'] .= $this->makeListItem( $key, $val );
-			}
-			if ( $hook !== null ) {
-				// Avoid PHP 7.1 warning
-				$skin = $this;
-				ob_start();
-				Hooks::run( $hook, [ &$skin, true ] );
-				$props['html-portal-content'] .= ob_get_contents();
-				ob_end_clean();
-			}
-			$props['html-portal-content'] .= '</ul>';
-		} else {
-			// Allow raw HTML block to be defined by extensions
-			$props['html-portal-content'] = $content;
-		}
-
-		return $props;
 	}
 
 	/**
@@ -444,6 +427,8 @@ class VectorTemplate extends BaseTemplate {
 
 	/**
 	 * @param string $label to be used to derive the id and human readable label of the menu
+	 *  If the key has an entry in the constant MENU_LABEL_KEYS then that message will be used for the
+	 *  human readable text instead.
 	 * @param array $urls to convert to list items stored as string in html-items key
 	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
 	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
@@ -465,8 +450,10 @@ class VectorTemplate extends BaseTemplate {
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vector-menu-tabs vectorTabs',
+			self::MENU_TYPE_PORTAL => 'vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
+		$isPortal = self::MENU_TYPE_PORTAL === $type;
 
 		$props = [
 			'id' => "p-$label",
@@ -478,6 +465,8 @@ class VectorTemplate extends BaseTemplate {
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
+			'html-tooltip' => Linker::tooltip( 'p-' . $label ),
+			'is-portal' => $isPortal,
 		];
 
 		foreach ( $urls as $key => $item ) {
@@ -492,6 +481,9 @@ class VectorTemplate extends BaseTemplate {
 				}
 			}
 		}
+
+		$props['html-after-portal'] = $isPortal ? $this->getAfterPortlet( $label ) : '';
+
 		return $props;
 	}
 

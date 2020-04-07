@@ -1,6 +1,6 @@
 import sidebarTemplate from '!!raw-loader!../includes/templates/Sidebar.mustache';
-import portalTemplate from '!!raw-loader!../includes/templates/Portal.mustache';
-import { PORTALS } from './Portal.stories.data';
+import { vectorMenuTemplate } from './MenuDropdown.stories.data';
+import { PORTALS } from './MenuPortal.stories.data';
 
 const HTML_LOGO_ATTRIBUTES = `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`;
 const SIDEBAR_BEFORE_OUTPUT_HOOKINFO = `Beware: Portals can be added, removed or reordered using
@@ -9,7 +9,7 @@ SidebarBeforeOutput hook as in this example.`;
 export { sidebarTemplate };
 
 export const SIDEBAR_TEMPLATE_PARTIALS = {
-	Portal: portalTemplate
+	Menu: vectorMenuTemplate
 };
 
 export const SIDEBAR_DATA = {
@@ -20,7 +20,7 @@ export const SIDEBAR_DATA = {
 	},
 	withPortalsAndOptOut: {
 		'has-logo': false,
-		'array-portals-first': PORTALS.navigation,
+		'data-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
 			text: 'Switch to old look',
@@ -35,7 +35,7 @@ export const SIDEBAR_DATA = {
 	},
 	withPortals: {
 		'has-logo': true,
-		'array-portals-first': PORTALS.navigation,
+		'data-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
 			PORTALS.toolbox,
 			PORTALS.otherProjects,
