@@ -79,6 +79,18 @@ body {
 		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
 		overflow: visible;
 	}
+
+	.mw-indicators {
+		float: right;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		position: relative;
+		z-index: @z-index-indicators;
+	}
+
+	.mw-indicator {
+		display: inline-block;
+	}
 }
 
 .mw-body-content {
@@ -158,21 +170,6 @@ pre,
 /* Site Notice (includes notices from CentralNotice extension) */
 #siteNotice {
 	font-size: @font-size-site-notice;
-}
-
-.mw-indicators {
-	float: right;
-	z-index: @z-index-indicators;
-
-	// FIXME: Delete in 2 weeks time from when this comment was added
-	// and merge #firstHeading .mw-indicator rule into above, see T248761
-	#firstHeading + & {
-		margin-top: @margin-top-indicators;
-	}
-}
-
-.mw-indicator {
-	display: inline-block;
 }
 
 .mw-jump-link:not( :focus ) {
