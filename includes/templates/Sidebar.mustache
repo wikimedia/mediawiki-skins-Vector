@@ -12,15 +12,11 @@
 	<div id="p-logo" role="banner">
 		<a {{{html-logo-attributes}}}></a>
 	</div>
-	{{#array-portals-first}}
-	{{>Portal}}
-	{{/array-portals-first}}
+	{{#array-portals-first}}{{>Portal}}{{/array-portals-first}}
 	{{#data-emphasized-sidebar-action}}
 	<div class="vector-emphasized-sidebar-action">
 		<a class="vector-emphasized-sidebar-action-link" href="{{href}}">{{text}}</a>
 	</div>
 	{{/data-emphasized-sidebar-action}}
-	{{#array-portals-rest}}
-	{{>Portal}}
-	{{/array-portals-rest}}
+	{{#array-portals-rest}}{{>Portal}}{{/array-portals-rest}}
 </div>

@@ -1,17 +1,17 @@
 {{!
-  @typedef object footerItem
-  @prop string id of list item element
-  @prop string html of list item
-  @prop footerItem[] items
+	@typedef object footerItem
+	@prop string id of list item element
+	@prop string html of list item
+	@prop footerItem[] items
 
-  @typedef object footerRow
-  @prop string className of list element
-  @prop string id of list element
-  @prop footerItem[] array-items
+	@typedef object footerRow
+	@prop string className of list element
+	@prop string id of list element
+	@prop footerItem[] array-items
 
-  string html-hook-vector-before-footer output of VectorBeforeFooter hook
-  string|null html-userlangattributes a string of attribute HTML
-  footerRow[] array-footer-rows iterable list of footer rows
+	string html-hook-vector-before-footer output of VectorBeforeFooter hook
+	string|null html-userlangattributes a string of attribute HTML
+	footerRow[] array-footer-rows iterable list of footer rows
 }}
 {{{html-hook-vector-before-footer}}}
 <div id="footer" role="contentinfo" {{{html-userlangattributes}}}>
