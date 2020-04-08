@@ -138,6 +138,7 @@ class VectorTemplate extends BaseTemplate {
 		$commonSkinData = [
 			'html-headelement' => $this->get( 'headelement', '' ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
+			'html-indicators' => $this->getIndicators(),
 			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$this->get( 'isarticle' ),
 
@@ -151,7 +152,6 @@ class VectorTemplate extends BaseTemplate {
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			// From OutputPage::getSubtitle()
 			'html-subtitle' => $this->get( 'subtitle', '' ),
-			'html-indicators' => $this->getIndicators(),
 
 			// TODO: Use directly Skin::getUndeleteLink() directly.
 			// Always returns string, cast to null if empty.
