@@ -2,10 +2,41 @@
 // The rules here should only define the layout, not color or typography.
 
 @import 'mediawiki.mixins.less';
+@import '../../../variables.less';
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-y: scroll;
+}
+
+.mw-body,
+.parsoid-body {
+	// General background/foreground color definition as one exception to the rule.
+	background-color: @background-color-base;
+	color: @color-base;
+	direction: ltr;
+	padding: @padding-content;
+}
 
 .mw-body,
 #mw-data-after-content {
 	margin-left: 10em;
+}
+
+.mw-body {
+	/* Merge the border with tabs' one (in their background image) */
+	margin-top: -@border-width-base;
+
+	.firstHeading {
+		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
+		overflow: visible;
+	}
 }
 
 .mw-indicators {

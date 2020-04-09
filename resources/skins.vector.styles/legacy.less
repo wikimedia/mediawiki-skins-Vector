@@ -1,20 +1,31 @@
-@import '../../variables.less';
+// Legacy Vector stylesheets
 
-/* Vector screen styles */
+@import '../../variables.less';
+@import 'mediawiki.mixins.less';
+
 @media screen {
-	@import 'common.less';
 	@import 'legacy/layout.less';
+	@import 'legacy/background-gradient.less';
+	@import 'common/content.less';
+	@import 'common/typography.less';
+
+	// Components
+	@import 'Indicators.less';
+	@import 'SiteNotice.less';
 	@import 'Menu.less';
 	@import 'SearchBox.less';
 	@import 'MenuTabs.less';
-	@import 'watchstar.less';
+	@import 'TabWatchstarLink.less';
 	@import 'MenuDropdown.less';
 	@import 'Portal.less';
 	@import 'Sidebar.less';
 	@import 'SidebarLogo.less';
 	@import 'Footer.less';
-	@import 'externalLinks.less';
 }
 
-@import 'watchstar-ie8.less';
-@import 'print.less';
+// Support: IE8
+// Media query hack required.
+@import 'TabWatchstarLink-ie8.less';
+
+// Media: Print
+@import 'common/print.less';

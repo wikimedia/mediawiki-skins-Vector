@@ -1,0 +1,50 @@
+@import '../../../variables.less';
+
+html {
+	font-size: @font-size-root;
+}
+
+html,
+body {
+	font-family: @font-family-sans;
+}
+
+.mw-body-content {
+	font-size: @font-size-base;
+	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
+	// `calc` enables to set correct calculation in place again. See T102364.
+	font-size: calc( 1em ~'*' unit( @font-size-base ) );
+	line-height: @line-height-base;
+}
+
+.mw-body {
+	// h1's can exist outside of mw-body-content so some heading styles
+	// need to be defined in mw-body as well
+	& h1,
+	&-content h1,
+	&-content h2 {
+		margin-bottom: 0.25em;
+		padding: 0;
+		font-family: @font-family-serif;
+		line-height: @line-height-heading;
+
+		// Fallback heading font for scripts which render poorly in `@font-family-serif`.
+		// See T73240
+		&:lang( ja ), /* See T65817 */
+		&:lang( he ), /* See T65843 and T65844 */
+		&:lang( ko ) { /* See T65827 */
+			font-family: @font-family-sans--fallback;
+		}
+
+		/* Burmese (Myanmar) language headlines would be cropped with set `line-height` */
+		/* See T193270 */
+		&:lang( my ) {
+			line-height: normal;
+		}
+	}
+
+	& h1,
+	&-content h1 {
+		font-size: @font-size-heading-1;
+	}
+}
