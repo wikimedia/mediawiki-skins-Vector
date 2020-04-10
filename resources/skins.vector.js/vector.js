@@ -1,10 +1,10 @@
 /**
  * Collapsible tabs for Vector
  */
-/* eslint-disable no-jquery/no-global-selector */
-$( function () {
-
+function init() {
+	// eslint-disable-next-line no-jquery/no-global-selector
 	var $cactions = $( '#p-cactions' ),
+		// eslint-disable-next-line no-jquery/no-global-selector
 		$tabContainer = $( '#p-views ul' ),
 		initialCactionsWidth = function () {
 			// HACK: This depends on a discouraged feature of jQuery width().
@@ -113,4 +113,6 @@ $( function () {
 				return doCollapse;
 			}
 		} );
-} );
+}
+
+module.exports = Object.freeze( { init: init } );

@@ -69,7 +69,8 @@
 			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
 		"skins.vector.js": {
-			"scripts": [
+			"packageFiles": [
+				"resources/skins.vector.js/index.js",
 				"resources/skins.vector.js/collapsibleTabs.js",
 				"resources/skins.vector.js/vector.js"
 			],

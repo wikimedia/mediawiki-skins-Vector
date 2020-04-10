@@ -1,5 +1,5 @@
 /** @interface CollapsibleTabsOptions */
-( function () {
+function init() {
 	/** @type {boolean|undefined} */ var boundEvent;
 	var isRTL = document.documentElement.dir === 'rtl';
 	var rAF = window.requestAnimationFrame || setTimeout;
@@ -220,4 +220,6 @@
 			return 0;
 		}
 	};
-}() );
+}
+
+module.exports = Object.freeze( { init: init } );
