@@ -33,11 +33,6 @@ body {
 	direction: ltr;
 }
 
-.mw-body,
-#mw-data-after-content {
-	margin-left: 10em;
-}
-
 .mw-body {
 	/* Border on top, left, and bottom side */
 	border: @border-width-base @border-style-base @border-color-content;
@@ -81,11 +76,9 @@ body {
 	}
 
 	.mw-indicators {
-		float: right;
 		font-size: @font-size-base;
 		line-height: @line-height-base;
 		position: relative;
-		z-index: @z-index-indicators;
 	}
 
 	.mw-indicator {
@@ -94,13 +87,11 @@ body {
 }
 
 .mw-body-content {
-	position: relative;
 	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
 	// `calc` enables to set correct calculation in place again. See T102364.
 	font-size: calc( 1em ~'*' unit( @font-size-base ) );
 	line-height: @line-height-base;
-	z-index: @z-index-base;
 
 	p {
 		margin: 0.5em 0;
@@ -179,43 +170,5 @@ pre,
 /* Head */
 #mw-page-base {
 	background-position: bottom left;
-	height: 5em;
 	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
-}
-
-#mw-head-base {
-	margin-top: -5em;
-	margin-left: 10em;
-	height: 5em;
-}
-
-/* Hide, but keep accessible for screen-readers */
-#mw-navigation h2 {
-	position: absolute;
-	top: -9999px;
-}
-
-#mw-head {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-}
-
-/* Navigation Containers */
-#left-navigation {
-	float: left;
-	margin-left: 10em;
-	margin-top: 2.5em;
-	/* When right nav would overlap left nav, it's placed below it
-	   (normal CSS floats behavior). This rule ensures that no empty space
-	   is shown between them due to right nav's margin-top. Page layout
-	   is still broken, but at least the nav overlaps only the page title
-	   instead of half the content. */
-	margin-bottom: -2.5em;
-}
-
-#right-navigation {
-	float: right;
-	margin-top: 2.5em;
 }
