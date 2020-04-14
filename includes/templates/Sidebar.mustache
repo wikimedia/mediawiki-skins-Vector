@@ -6,12 +6,15 @@
 	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
 	array array-portals contains options for Portal template
 	emphasized-sidebar-action data-emphasized-sidebar-action For displaying an emphasized action in the sidebar.
+	@prop boolean has-logo whether to show a logo or not.
 }}
 
 <div id="mw-panel">
+	{{#has-logo}}
 	<div id="p-logo" role="banner">
 		<a {{{html-logo-attributes}}}></a>
 	</div>
+	{{/has-logo}}
 	{{#array-portals-first}}{{>Portal}}{{/array-portals-first}}
 	{{#data-emphasized-sidebar-action}}
 	<div class="vector-emphasized-sidebar-action">

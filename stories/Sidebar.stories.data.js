@@ -14,10 +14,12 @@ export const SIDEBAR_TEMPLATE_PARTIALS = {
 
 export const SIDEBAR_DATA = {
 	withNoPortals: {
+		'has-logo': true,
 		'array-portals-rest': [],
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortalsAndOptOut: {
+		'has-logo': true,
 		'array-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
@@ -31,6 +33,7 @@ export const SIDEBAR_DATA = {
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortals: {
+		'has-logo': true,
 		'array-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
 			PORTALS.toolbox,
@@ -39,7 +42,17 @@ export const SIDEBAR_DATA = {
 		],
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
+	withoutLogo: {
+		'has-logo': false,
+		'array-portals-first': PORTALS.navigation,
+		'array-portals-rest': [
+			PORTALS.toolbox,
+			PORTALS.otherProjects,
+			PORTALS.langlinks
+		]
+	},
 	thirdParty: {
+		'has-logo': true,
 		'array-portals-rest': [
 			PORTALS.toolbox,
 			PORTALS.navigation,
