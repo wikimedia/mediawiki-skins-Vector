@@ -325,9 +325,14 @@ class VectorTemplate extends BaseTemplate {
 			}
 		}
 
+		$firstPortal = $props[0] ?? null;
+		if ( $firstPortal ) {
+			$firstPortal[ 'class' ] .= ' portal-first';
+		}
+
 		return [
 			'array-portals-rest' => array_slice( $props, 1 ),
-			'array-portals-first' => $props[0] ?? null,
+			'array-portals-first' => $firstPortal,
 		];
 	}
 
@@ -347,6 +352,7 @@ class VectorTemplate extends BaseTemplate {
 
 		$props = [
 			'portal-id' => "p-$name",
+			'class' => 'portal',
 			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
 			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
 			'msg-label-id' => "p-$name-label",

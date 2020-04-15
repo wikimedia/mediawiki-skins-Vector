@@ -26,6 +26,7 @@ const portletAfter = ( html ) => {
 export const PORTALS = {
 	example: {
 		'portal-id': 'p-example',
+		class: 'portal',
 		'html-tooltip': 'Message tooltip-p-example acts as tooltip',
 		'msg-label': 'Portal title',
 		'msg-label-id': 'p-example-label',
@@ -41,6 +42,7 @@ export const PORTALS = {
 	},
 	navigation: {
 		'portal-id': 'p-navigation',
+		class: 'portal portal-first',
 		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		'msg-label': 'Navigation',
 		'msg-label-id': 'p-navigation-label',
@@ -52,6 +54,7 @@ export const PORTALS = {
 	},
 	toolbox: {
 		'portal-id': 'p-tb',
+		class: 'portal',
 		'html-tooltip': 'A message tooltip-p-tb must exist for this to appear',
 		'msg-label': 'Tools',
 		'msg-label-id': 'p-tb-label',
@@ -63,6 +66,7 @@ export const PORTALS = {
 	},
 	langlinks: {
 		'portal-id': 'p-lang',
+		class: 'portal',
 		'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
 		'msg-label': 'In other languages',
 		'msg-label-id': 'p-lang-label',
@@ -80,6 +84,7 @@ ${placeholder( `<p>Further hook output possible (lang)</p>`, 60 )}`
 	},
 	otherProjects: {
 		'portal-id': 'p-wikibase-otherprojects',
+		class: 'portal',
 		'html-tooltip': 'A message tooltip-p-wikibase-otherprojects must exist for this to appear',
 		'msg-label': 'In other projects',
 		'msg-label-id': 'p-wikibase-otherprojects-label',

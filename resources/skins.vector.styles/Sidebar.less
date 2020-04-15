@@ -19,7 +19,8 @@
 #mw-panel {
 	font-size: @font-size-nav-main;
 
-	/* First sidebar portlet. Not using :first-of-type for IE<=8 support. */
+	.portal-first,
+	/* FIXME: For caching. Can be removed in a week from the git blame commit id of this line. */
 	#p-logo + .portal {
 		background-image: none;
 		margin-top: 1em;
