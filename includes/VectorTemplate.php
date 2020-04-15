@@ -209,9 +209,7 @@ class VectorTemplate extends BaseTemplate {
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
-					// FIXME: should be mw-prefsection-rendering-skin-skin-prefs but this doesn't currently work
-					// possibly due to the issues T246491
-					'mw-prefsection-rendering'
+					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
 				'text' => $this->getMsg( 'vector-opt-out' )->text()
 			];
