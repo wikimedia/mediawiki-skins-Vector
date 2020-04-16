@@ -154,28 +154,27 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( $views, [
 			'id' => 'p-views',
-			'class' => 'emptyPortlet vector-menu-tabs vectorTabs',
+			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 			'label-id' => 'p-views-label',
 			'label' => 'Views',
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
-			'class' => 'emptyPortlet vector-menu-tabs vectorTabs',
+			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 			'is-dropdown' => false,
 			'html-tooltip' => '',
-			'is-portal' => false,
 			'html-after-portal' => ''
 		] );
 
 		$variants = $props['data-variants'];
 		$actions = $props['data-page-actions-more'];
 		$this->assertSame( $namespaces['class'],
-			'emptyPortlet vector-menu-tabs vectorTabs' );
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs' );
 		$this->assertSame( $variants['class'],
-			'emptyPortlet vector-menu-dropdown vectorMenu' );
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu' );
 		$this->assertSame( $actions['class'],
-			'emptyPortlet vector-menu-dropdown vectorMenu' );
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu' );
 		$this->assertSame( $props['data-personal-menu']['class'],
-			'emptyPortlet vector-menu' );
+			'vector-menu-empty emptyPortlet vector-menu' );
 	}
 
 }

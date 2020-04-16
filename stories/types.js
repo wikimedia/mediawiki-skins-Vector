@@ -32,7 +32,6 @@
  * @prop {string} [class] of menu
  * @prop {string} [html-userlangattributes]
  * @prop {boolean} [is-dropdown]
- * @prop {boolean} [is-portal]
  * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal menu.
  * @prop {string} [html-after-portal] Additional HTML specific to portal menus.
  */

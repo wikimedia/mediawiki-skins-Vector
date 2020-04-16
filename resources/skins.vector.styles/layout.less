@@ -131,6 +131,24 @@ body {
 	margin-top: @height-header;
 }
 
+#p-personal {
+	position: absolute;
+	top: @top-personal-tools;
+	right: 0.75em;
+	z-index: @z-index-personal;
+
+	ul {
+		// Keep from spilling out into the first column
+		// For completeness this should also include the width of the logo.
+		// As a result it is possible for the personal tools to overlap the logo.
+		padding-left: @width-grid-column-one;
+	}
+
+	li {
+		float: left;
+	}
+}
+
 #mw-panel {
 	position: absolute;
 	top: @height-header;

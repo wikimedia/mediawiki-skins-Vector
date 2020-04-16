@@ -1,27 +1,22 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<div id="{{id}}" role="navigation" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}>
+<div id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}
+	 {{{html-userlangattributes}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
-	<h3 id="{{label-id}}" {{{html-userlangattributes}}}>
+	{{/is-dropdown}}
+	<h3 id="{{label-id}}">
 		<span>{{label}}</span>
 	</h3>
-	{{/is-dropdown}}
-	{{^is-dropdown}}
-	<h3 id="{{label-id}}">{{label}}</h3>
-	{{/is-dropdown}}
-	{{#is-portal}}
-	<div class="body">
-		<ul>{{{html-items}}}</ul>
+	{{! `body` class for backwards compatibility but let editors know not to use
+	 it via HTML comment below: }}
+	<!-- Please do not use the .body class, it is deprecated. -->
+	<div class="body vector-menu-content">
+		<!-- Please do not use the .menu class, it is deprecated. -->
+		<ul class="menu vector-menu-content-list">{{{html-items}}}</ul>
 		{{{html-after-portal}}}
 	</div>
-	{{/is-portal}}
-	{{^is-portal}}
-	<ul class="menu" {{{html-userlangattributes}}}>
-		{{{html-items}}}
-	</ul>
-	{{/is-portal}}
 </div>
 {{! Note: html-hook-vector-after-toolbox is deprecated. }}
 {{{html-hook-vector-after-toolbox}}}

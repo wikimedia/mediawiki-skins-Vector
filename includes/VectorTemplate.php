@@ -445,13 +445,11 @@ class VectorTemplate extends BaseTemplate {
 		array $options = [],
 		bool $setLabelToSelected = false
 	) : array {
-		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
-		// FIXME: All menus should carry vector-menu, but this can only be done when
-		// Menu.less CSS has been generalised to not include layout.
+		$class = ( count( $urls ) == 0 ) ? 'vector-menu-empty emptyPortlet' : '';
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vector-menu-dropdown vectorMenu',
-			self::MENU_TYPE_TABS => 'vector-menu-tabs vectorTabs',
-			self::MENU_TYPE_PORTAL => 'vector-menu-portal portal',
+			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
+			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
+			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
 		$isPortal = self::MENU_TYPE_PORTAL === $type;
@@ -467,7 +465,6 @@ class VectorTemplate extends BaseTemplate {
 			'html-items' => '',
 			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
 			'html-tooltip' => Linker::tooltip( 'p-' . $label ),
-			'is-portal' => $isPortal,
 		];
 
 		foreach ( $urls as $key => $item ) {
@@ -483,7 +480,6 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		$props['html-after-portal'] = $isPortal ? $this->getAfterPortlet( $label ) : '';
-
 		return $props;
 	}
 

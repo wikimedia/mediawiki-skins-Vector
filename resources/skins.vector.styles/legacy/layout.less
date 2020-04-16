@@ -25,6 +25,21 @@ body {
 	padding: @padding-content;
 }
 
+#p-personal {
+	position: absolute;
+	top: @top-personal-tools;
+	right: 0.75em;
+	z-index: @z-index-personal;
+
+	ul {
+		padding-left: 10em; /* Keep from overlapping logo */
+	}
+
+	li {
+		float: left;
+	}
+}
+
 .mw-body,
 #mw-data-after-content {
 	margin-left: 10em;

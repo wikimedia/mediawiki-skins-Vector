@@ -2,7 +2,9 @@
 @import 'mediawiki.mixins.less';
 
 /* Hide empty portlets */
-.emptyPortlet {
+// FIXME: Remove when cache cleared.
+.emptyPortlet,
+.vector-menu-empty {
 	display: none;
 }
 
@@ -10,11 +12,8 @@
 .vector-menu,
 /* FIXME: Remove p-personal selector when cache has cleared. */
 #p-personal {
-	position: absolute;
-	top: @top-personal-tools;
-	right: 0.75em;
-	z-index: @z-index-personal;
-
+	// Hidden by default, but displayed by certain menus
+	// e.g. MenuPortal
 	h3 {
 		display: none;
 	}
@@ -22,16 +21,13 @@
 	ul {
 		list-style: none none;
 		margin: 0;
-		padding-left: 10em; /* Keep from overlapping logo */
 	}
 
 	li {
-		float: left;
 		margin-left: 0.75em;
 		// `padding-top` instead of `margin-top` necessary for
 		// anonymous user icon position below
 		padding-top: 0.5em;
-		font-size: @font-size-nav-personal;
 		line-height: @line-height-nav-personal;
 		white-space: nowrap;
 	}
