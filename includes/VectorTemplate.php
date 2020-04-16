@@ -129,7 +129,7 @@ class VectorTemplate extends BaseTemplate {
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
-		// - Prefix "is" for boolean values.
+		// - Prefix "is" or "has" for boolean values.
 		// - Prefix "msg-" for interface message text.
 		// - Prefix "html-" for raw HTML.
 		// - Prefix "data-" for an array of template parameters that should be passed directly
@@ -192,6 +192,7 @@ class VectorTemplate extends BaseTemplate {
 			'data-page-actions-more' => $this->buildActionsProps(),
 			'data-search-box' => $this->buildSearchProps(),
 			'data-sidebar' => [
+					'has-logo' => true,
 					'html-logo-attributes' => Xml::expandAttributes(
 						Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
 							'class' => 'mw-wiki-logo',
