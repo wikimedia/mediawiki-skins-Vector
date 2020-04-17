@@ -192,13 +192,13 @@ class VectorTemplate extends BaseTemplate {
 			'data-page-actions-more' => $this->buildActionsProps(),
 			'data-search-box' => $this->buildSearchProps(),
 			'data-sidebar' => [
-					'has-logo' => true,
-					'html-logo-attributes' => Xml::expandAttributes(
-						Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
-							'class' => 'mw-wiki-logo',
-							'href' => Skin::makeMainPageUrl(),
-						]
-					)
+				'has-logo' => true,
+				'html-logo-attributes' => Xml::expandAttributes(
+					Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
+						'class' => 'mw-wiki-logo',
+						'href' => Skin::makeMainPageUrl(),
+					]
+				)
 			] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
 		] + $this->getMenuProps();
 
