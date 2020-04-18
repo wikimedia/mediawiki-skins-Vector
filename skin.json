@@ -22,14 +22,11 @@
 		]
 	},
 	"AutoloadClasses": {
-		"Vector\\Constants": "includes/Constants.php",
-		"Vector\\Hooks": "includes/Hooks.php",
-		"Vector\\SkinVersionLookup": "includes/SkinVersionLookup.php",
 		"SkinVector": "includes/SkinVector.php",
 		"VectorTemplate": "includes/VectorTemplate.php"
 	},
 	"AutoloadNamespaces": {
-		"Vector\\FeatureManagement\\": "includes/FeatureManagement/"
+		"Vector\\": "includes/"
 	},
 	"ConfigRegistry": {
 		"vector": "GlobalVarConfig::newInstance"
