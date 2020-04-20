@@ -72,6 +72,16 @@ final class Constants {
 	 */
 	public const REQUIREMENT_FULLY_INITIALISED = 'FullyInitialised';
 
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LATEST_SKIN_VERSION = 'LatestSkinVersion';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_LATEST_SKIN = 'LatestSkin';
+
 	// These are used for query parameters.
 	/**
 	 * Override the skin version user preference and site Config. See readme.

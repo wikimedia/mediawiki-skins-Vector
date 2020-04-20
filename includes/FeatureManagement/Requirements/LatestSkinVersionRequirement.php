@@ -20,36 +20,43 @@
  * @since 1.35
  */
 
-namespace Vector;
+namespace Vector\FeatureManagement\Requirements;
 
 use Config;
 use User;
+use Vector\Constants;
+use Vector\FeatureManagement\Requirement;
 use WebRequest;
 
 /**
- * Given initial dependencies, retrieve the current skin version. This class does no parsing, just
- * the lookup.
+ * Retrieve the skin version for the request and compare it with `Constants::SKIN_VERSION_LATEST`.
+ * This requirement is met if the two are equal.
  *
  * Skin version is evaluated in the following order:
  *
- * - useskinversion URL query parameter override. See readme.
+ * - `useskinversion` URL query parameter override. See `README.md`.
  *
- * - User preference. The User object for new and existing accounts are updated by hook according to
- *   VectorDefaultSkinVersionForNewAccounts and VectorDefaultSkinVersionForExistingAccounts. See
- *   Hooks and skin.json.
+ * - User preference. The `User` object for new and existing accounts are updated by hook according
+ *   to the `VectorDefaultSkinVersionForNewAccounts` and
+ *  `VectorDefaultSkinVersionForExistingAccounts` config values. See the `Vector\Hooks` class and
+ *  `skin.json`.
  *
- *   If the skin version is evaluated prior to User preference hook invocations, an incorrect
+ *   If the skin version is evaluated prior to `User` preference hook invocations, an incorrect
  *   version may be returned as only query parameter and site configuration will be known.
  *
- * - Site configuration default. The default is controlled by VectorDefaultSkinVersion. This is used
- *   for anonymous users and as a fallback configuration. See skin.json.
+ * - Site configuration default. The default is controlled by the `VectorDefaultSkinVersion` config
+ *   value. This is used for anonymous users and as a fallback configuration. See `skin.json`.
+ *
+ * This majority of this class is taken from Stephen Niedzielski's `Vector\SkinVersionLookup` class,
+ * which was introduced in `d1072d0fdfb1`.
  *
  * @unstable
  *
- * @package Vector
+ * @package Vector\FeatureManagement\Requirements
  * @internal
  */
-final class SkinVersionLookup {
+final class LatestSkinVersionRequirement implements Requirement {
+
 	/**
 	 * @var WebRequest
 	 */
@@ -64,8 +71,7 @@ final class SkinVersionLookup {
 	private $config;
 
 	/**
-	 * This constructor accepts all dependencies needed to obtain the skin version. The dependencies
-	 * are lazily evaluated, not cached, meaning they always return the current results.
+	 * This constructor accepts all dependencies needed to obtain the skin version.
 	 *
 	 * @param WebRequest $request
 	 * @param User $user
@@ -78,24 +84,30 @@ final class SkinVersionLookup {
 	}
 
 	/**
-	 * Whether or not the legacy skin is being used.
-	 *
-	 * @return bool
-	 * @throws \ConfigException
+	 * @inheritDoc
 	 */
-	public function isLegacy() {
-		return $this->getVersion() === Constants::SKIN_VERSION_LEGACY;
+	public function getName() : string {
+		return Constants::REQUIREMENT_LATEST_SKIN_VERSION;
 	}
 
 	/**
-	 * The skin version as a string. E.g., `Constants::SKIN_VERSION_LEGACY`,
-	 * `Constants::SKIN_VERSION_LATEST`, or maybe 'beta'. Note: it's likely someone will put arbitrary
-	 * strings in the query parameter which means this function returns those strings as is.
+	 * @inheritDoc
+	 * @throws \ConfigException
+	 */
+	public function isMet() : bool {
+		return $this->getVersion() === Constants::SKIN_VERSION_LATEST;
+	}
+
+	/**
+	 * The skin version as a string. E.g., `Constants::SKIN_VERSION_LATEST`,
+	 * `Constants::SKIN_VERSION_LATEST`, or maybe 'beta'. Note: it's likely someone will put
+	 * arbitrary strings in the query parameter which means this function returns those strings as
+	 * is.
 	 *
 	 * @return string
 	 * @throws \ConfigException
 	 */
-	public function getVersion() {
+	private function getVersion() : string {
 		// Obtain the skin version from the `useskinversion` URL query parameter override, the user
 		// preference, or the configured default.
 		return (string)$this->request->getVal(
