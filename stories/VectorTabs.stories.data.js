@@ -3,11 +3,14 @@ import vectorTabsTemplate from '!!raw-loader!../includes/templates/VectorTabs.mu
 
 export { vectorTabsTemplate };
 
+/**
+ * @type {MenuDefinition}
+ */
 export const pageActionsData = {
-	'tabs-id': 'p-views',
-	'empty-portlet': '',
+	id: 'p-views',
+	class: 'vectorTabs',
 	'label-id': 'p-views-label',
-	'msg-label': 'Views',
+	label: 'Views',
 	'html-userlangattributes': htmluserlangattributes,
 	'html-items': `<li id="ca-view" class="collapsible selected">
 		<a href="/wiki/Main_Page">Read</a>
@@ -22,11 +25,14 @@ You can view its source [⌃⌥e]" accesskey="e">View source</a></li>
 `
 };
 
+/**
+ * @type {MenuDefinition}
+ */
 export const namespaceTabsData = {
-	'tabs-id': 'p-namespaces',
-	'empty-portlet': '',
+	id: 'p-namespaces',
+	class: 'vectorTabs',
 	'label-id': 'p-namespaces-label',
-	'msg-label': 'Namespaces',
+	label: 'Namespaces',
 	'html-userlangattributes': htmluserlangattributes,
 	'html-items': `<li id="ca-nstab-main" class="selected"><a href="/wiki/Main_Page" title="View the content page [⌃⌥c]" accesskey="c">Main page</a></li>
 <li id="ca-talk"><a href="/wiki/Talk:Main_Page" rel="discussion" title="Discussion about the content page [⌃⌥t]" accesskey="t">Talk (3)</a></li>`

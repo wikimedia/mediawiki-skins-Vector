@@ -134,6 +134,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::buildViewsProps
 	 * @covers ::buildActionsProps
 	 * @covers ::buildVariantsProps
+	 * @covers ::buildNamespacesProps
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {
@@ -147,17 +148,21 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 		$props = $openVectorTemplate->getMenuProps();
 		$views = $openVectorTemplate->buildViewsProps();
+		$namespaces = $openVectorTemplate->buildNamespacesProps();
 		$this->assertSame( $views, [
-			'tabs-id' => 'p-views',
-			'empty-portlet' => 'emptyPortlet',
+			'id' => 'p-views',
+			'class' => 'emptyPortlet vectorTabs',
 			'label-id' => 'p-views-label',
-			'msg-label' => 'Views',
+			'label' => 'Views',
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
+			'class' => 'emptyPortlet vectorTabs',
 		] );
 
 		$variants = $openVectorTemplate->buildVariantsProps();
 		$actions = $openVectorTemplate->buildActionsProps();
+		$this->assertSame( $namespaces['class'],
+			'emptyPortlet vectorTabs' );
 		$this->assertSame( $variants['class'],
 			'emptyPortlet vectorMenu' );
 		$this->assertSame( $actions['class'],
