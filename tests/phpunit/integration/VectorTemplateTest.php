@@ -132,17 +132,22 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers ::buildViewsProps
+	 * @covers ::buildActionsProps
+	 * @covers ::buildVariantsProps
+	 * @covers ::getMenuProps
 	 */
-	public function testbuildViewsProps() {
+	public function testGetMenuProps() {
 		$langAttrs = 'LANG_ATTRIBUTES';
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$vectorTemplate->set( 'view_urls', [] );
+		$vectorTemplate->set( 'personal_urls', [] );
 		$vectorTemplate->set( 'skin', new \SkinVector() );
 		$vectorTemplate->set( 'userlangattributes', $langAttrs );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
-		$props = $openVectorTemplate->buildViewsProps();
-		$this->assertSame( $props, [
+		$props = $openVectorTemplate->getMenuProps();
+		$views = $openVectorTemplate->buildViewsProps();
+		$this->assertSame( $views, [
 			'tabs-id' => 'p-views',
 			'empty-portlet' => 'emptyPortlet',
 			'label-id' => 'p-views-label',
@@ -150,6 +155,15 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
 		] );
+
+		$variants = $openVectorTemplate->buildVariantsProps();
+		$actions = $openVectorTemplate->buildActionsProps();
+		$this->assertSame( $variants['class'],
+			'emptyPortlet vectorMenu' );
+		$this->assertSame( $actions['class'],
+			'emptyPortlet vectorMenu' );
+		$this->assertSame( $props['data-personal-menu']['class'],
+			'emptyPortlet' );
 	}
 
 }
