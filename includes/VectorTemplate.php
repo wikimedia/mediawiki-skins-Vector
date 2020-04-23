@@ -243,7 +243,7 @@ class VectorTemplate extends BaseTemplate {
 
 			$footerRows[] = [
 				'id' => $rowId,
-				'className' => '',
+				'className' => null,
 				'array-items' => $items
 			];
 		}
