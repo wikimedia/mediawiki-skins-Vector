@@ -435,10 +435,11 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildVariantsProps() : array {
 		$props = [
-			'empty-portlet' => ( count( $this->get( 'variant_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
-			'menu-id' => 'p-variants',
-			'menu-label-id' => 'p-variants-label',
-			'msg-label' => $this->getMsg( 'variants' )->text(),
+			'class' => ( count( $this->get( 'variant_urls', [] ) ) == 0 ) ?
+				'emptyPortlet vectorMenu' : 'vectorMenu',
+			'id' => 'p-variants',
+			'label-id' => 'p-variants-label',
+			'label' => $this->getMsg( 'variants' )->text(),
 			'html-items' => '',
 		];
 
@@ -485,10 +486,11 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildActionsProps() : array {
 		$props = [
-			'empty-portlet' => ( count( $this->get( 'action_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
-			'msg-label' => $this->getMsg( 'vector-more-actions' )->text(),
-			'menu-id' => 'p-cactions',
-			'menu-label-id' => 'p-cactions-label',
+			'class' => ( count( $this->get( 'action_urls', [] ) ) == 0 ) ?
+				'emptyPortlet vectorMenu' : 'vectorMenu',
+			'label' => $this->getMsg( 'vector-more-actions' )->text(),
+			'id' => 'p-cactions',
+			'label-id' => 'p-cactions-label',
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];

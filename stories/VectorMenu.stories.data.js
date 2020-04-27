@@ -3,11 +3,14 @@ import { htmluserlangattributes } from './utils';
 
 export { vectorMenuTemplate };
 
+/**
+ * @type {MenuDefinition}
+ */
 export const moreData = {
-	'empty-portlet': '',
-	'msg-label': 'More',
-	'menu-id': 'p-cactions',
-	'menu-label-id': 'p-cactions-label',
+	class: 'vectorMenu',
+	label: 'More',
+	id: 'p-cactions',
+	'label-id': 'p-cactions-label',
 	'html-userlangattributes': htmluserlangattributes,
 	'html-items': `<li id="ca-delete">
 	<a href="/w/index.php?title=Main_Page&amp;action=delete"
@@ -23,10 +26,14 @@ export const moreData = {
 </li>`
 };
 
+/**
+ * @type {MenuDefinition}
+ */
 export const variantsData = {
-	'msg-label': '新加坡简体',
-	'menu-id': 'p-variants',
-	'menu-label-id': 'p-variants-label',
+	class: 'vectorMenu',
+	label: '新加坡简体',
+	id: 'p-variants',
+	'label-id': 'p-variants-label',
 	'html-userlangattributes': htmluserlangattributes,
 	'html-items': `<li id="ca-varlang-0">
 	<a href="/zh/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD"
