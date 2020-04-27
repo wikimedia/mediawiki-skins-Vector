@@ -1,13 +1,8 @@
 {{!
-	string tabs-id
-	string|null empty-portlet
-	string label-id
-	string|null msg-label
-	string|null html-userlangattributes
-	string|null html-items
+	See @typedef MenuDefinition
 }}
-<div id="{{tabs-id}}" role="navigation" class="vectorTabs {{empty-portlet}}" aria-labelledby="{{label-id}}">
-	<h3 id="{{label-id}}">{{msg-label}}</h3>
+<div id="{{id}}" role="navigation" class="{{class}}" aria-labelledby="{{label-id}}">
+	<h3 id="{{label-id}}">{{label}}</h3>
 	<ul {{{html-userlangattributes}}}>
 		{{{html-items}}}
 	</ul>

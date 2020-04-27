@@ -415,10 +415,11 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildNamespacesProps() : array {
 		$props = [
-			'tabs-id' => 'p-namespaces',
-			'empty-portlet' => ( count( $this->get( 'namespace_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
+			'id' => 'p-namespaces',
+			'class' => ( count( $this->get( 'namespace_urls', [] ) ) == 0 ) ?
+				'emptyPortlet vectorTabs' : 'vectorTabs',
 			'label-id' => 'p-namespaces-label',
-			'msg-label' => $this->getMsg( 'namespaces' )->text(),
+			'label' => $this->getMsg( 'namespaces' )->text(),
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
@@ -464,10 +465,11 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildViewsProps() : array {
 		$props = [
-			'tabs-id' => 'p-views',
-			'empty-portlet' => ( count( $this->get( 'view_urls', [] ) ) == 0 ) ? 'emptyPortlet' : '',
+			'id' => 'p-views',
+			'class' => ( count( $this->get( 'view_urls', [] ) ) == 0 ) ?
+				'emptyPortlet vectorTabs' : 'vectorTabs',
 			'label-id' => 'p-views-label',
-			'msg-label' => $this->getMsg( 'views' )->text(),
+			'label' => $this->getMsg( 'views' )->text(),
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
