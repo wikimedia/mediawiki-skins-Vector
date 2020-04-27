@@ -3,81 +3,79 @@
 
 @import 'mediawiki.mixins.less';
 
-@media screen {
-	.mw-body,
-	#mw-data-after-content {
-		margin-left: 10em;
-	}
+.mw-body,
+#mw-data-after-content {
+	margin-left: 10em;
+}
 
-	.mw-indicators {
-		float: right;
-		z-index: @z-index-indicators;
-	}
+.mw-indicators {
+	float: right;
+	z-index: @z-index-indicators;
+}
 
-	.mw-body-content {
-		position: relative;
-		z-index: @z-index-base;
-	}
+.mw-body-content {
+	position: relative;
+	z-index: @z-index-base;
+}
 
-	/* Head */
-	#mw-page-base {
-		height: 5em;
-	}
+/* Head */
+#mw-page-base {
+	height: 5em;
+}
 
-	#mw-head-base {
-		margin-top: -5em;
-		margin-left: 10em;
-		height: 5em;
-	}
+#mw-head-base {
+	margin-top: -5em;
+	margin-left: 10em;
+	height: 5em;
+}
 
-	/* Hide, but keep accessible for screen-readers */
-	#mw-navigation h2 {
-		position: absolute;
-		top: -9999px;
-	}
+/* Hide, but keep accessible for screen-readers */
+#mw-navigation h2 {
+	position: absolute;
+	top: -9999px;
+}
 
-	#mw-head {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 100%;
-	}
+#mw-head {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+}
 
-	/* Navigation Containers */
-	#left-navigation {
-		float: left;
-		margin-left: 10em;
-		margin-top: 2.5em;
-		/* When right nav would overlap left nav, it's placed below it
-		(normal CSS floats behavior). This rule ensures that no empty space
-		is shown between them due to right nav's margin-top. Page layout
-		is still broken, but at least the nav overlaps only the page title
-		instead of half the content. */
-		margin-bottom: -2.5em;
-	}
+/* Navigation Containers */
+#left-navigation {
+	float: left;
+	margin-left: 10em;
+	margin-top: 2.5em;
+	/* When right nav would overlap left nav, it's placed below it
+	(normal CSS floats behavior). This rule ensures that no empty space
+	is shown between them due to right nav's margin-top. Page layout
+	is still broken, but at least the nav overlaps only the page title
+	instead of half the content. */
+	margin-bottom: -2.5em;
+}
 
-	#right-navigation {
-		float: right;
-		margin-top: 2.5em;
-	}
+#right-navigation {
+	float: right;
+	margin-top: 2.5em;
+}
 
-	#mw-panel {
-		position: absolute;
-		top: 0;
-		width: 10em;
-		left: 0;
-	}
+#mw-panel {
+	position: absolute;
+	top: 0;
+	width: 10em;
+	left: 0;
+}
 
-	#footer, /* FIXME: Remove 2 weeks after deployment. */
-	.mw-footer {
-		margin-left: 10em;
-		margin-top: 0;
-	}
+#footer, /* FIXME: Remove 2 weeks after deployment. */
+.mw-footer {
+	margin-left: 10em;
+	margin-top: 0;
 }
 
 /* Vector screen styles for high definition displays. These rules cross the above components and are
    grouped together here only for the sake of the media query common to each. */
-@media screen and ( min-width: 982px ) {
+@media ( min-width: 982px ) {
 	.mw-body,
 	#mw-head-base,
 	#left-navigation,
