@@ -1,5 +1,6 @@
 {
 	"name": "Vector",
+	"version": "1.0.0",
 	"author": [
 		"Trevor Parscal",
 		"Roan Kattouw",
@@ -14,7 +15,23 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"ValidSkinNames": {
-		"vector": "Vector"
+		"vector": {
+			"class": "SkinTemplateVector",
+			"@args": "See SkinTemplateVector::__construct for more detail.",
+			"args": [
+				{
+					"name": "vector",
+					"scripts": [
+						"skins.vector.js"
+					],
+					"styles": [
+						"skins.vector.styles",
+						"mediawiki.ui.icon",
+						"skins.vector.icons"
+					]
+				}
+			]
+		}
 	},
 	"MessagesDirs": {
 		"Vector": [
@@ -22,8 +39,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinVector": "includes/SkinVector.php",
-		"VectorTemplate": "includes/VectorTemplate.php"
+		"SkinTemplateVector": "includes/SkinTemplateVector.php"
 	},
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"

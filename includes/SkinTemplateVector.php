@@ -22,15 +22,15 @@
  * @ingroup Skins
  */
 
+use MediaWiki\MediaWikiServices;
 use Vector\Constants;
 
 /**
- * QuickTemplate subclass for Vector
+ * Skin subclass for Vector
  * @ingroup Skins
- * @deprecated Since 1.35, duplicate class locally if its functionality is needed.
- * Extensions or skins should extend it under no circumstances.
  */
-class VectorTemplate extends BaseTemplate {
+class SkinTemplateVector extends SkinMustache {
+
 	/** @var array of alternate message keys for menu labels */
 	private const MENU_LABEL_KEYS = [
 		'cactions' => 'vector-more-actions',
@@ -58,61 +58,46 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
-	/** @var TemplateParser */
-	private $templateParser;
-	/** @var string File name of the root (master) template without folder path and extension */
-	private $templateRoot;
-
 	/** @var bool */
 	private $isLegacy;
 
 	/**
-	 * @param Config $config
-	 * @param TemplateParser $templateParser
-	 * @param bool $isLegacy
-	 */
-	public function __construct(
-		Config $config,
-		TemplateParser $templateParser,
-		bool $isLegacy
-	) {
-		parent::__construct( $config );
-
-		$this->templateParser = $templateParser;
-		$this->isLegacy = $isLegacy;
-		$this->templateRoot = $isLegacy ? 'skin-legacy' : 'skin';
-	}
-
-	/**
-	 * @return Config
-	 */
-	private function getConfig() {
-		return $this->config;
-	}
-
-	/**
-	 * The template parser might be undefined. This function will check if it set first
+	 * Whether or not the legacy version of the skin is being used.
 	 *
-	 * @return TemplateParser
+	 * @return bool
 	 */
-	protected function getTemplateParser() {
-		if ( $this->templateParser === null ) {
-			throw new \LogicException(
-				'TemplateParser has to be set first via setTemplateParser method'
-			);
-		}
-		return $this->templateParser;
+	private function isLegacy() : bool {
+		$isLatestSkinFeatureEnabled = MediaWikiServices::getInstance()
+			->getService( Constants::SERVICE_FEATURE_MANAGER )
+			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
+
+		return !$isLatestSkinFeatureEnabled;
 	}
 
 	/**
-	 * @deprecated Please use Skin::getTemplateData instead
-	 * @return array Returns an array of data shared between Vector and legacy
-	 * Vector.
+	 * Overrides template, styles and scripts module when skin operates
+	 * in legacy mode.
+	 *
+	 * @inheritDoc
 	 */
-	private function getSkinData() : array {
-		// @phan-suppress-next-line PhanUndeclaredMethod
-		$contentNavigation = $this->getSkin()->getMenuProps();
-		$skin = $this->getSkin();
+	public function __construct( $options = [] ) {
+		// Legacy overrides
+		$this->isLegacy = $this->isLegacy();
+		if ( $this->isLegacy ) {
+			$options['scripts'] = [ 'skins.vector.legacy.js' ];
+			$options['styles'] = [ 'skins.vector.styles.legacy' ];
+			$options['template'] = 'skin-legacy';
+		}
+		$options['templateDirectory'] = __DIR__ . '/templates';
+		parent::__construct( $options );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getTemplateData() : array {
+		$contentNavigation = $this->buildContentNavigationUrls();
+		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 
@@ -136,9 +121,7 @@ class VectorTemplate extends BaseTemplate {
 		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 		$newTalksHtml = $skin->getNewtalks() ?: null;
 
-		// @phan-suppress-next-line PhanUndeclaredMethod
-		$commonSkinData = $skin->getTemplateData() + [
-			'html-headelement' => $out->headElement( $skin ),
+		$commonSkinData = parent::getTemplateData() + [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 
@@ -156,7 +139,6 @@ class VectorTemplate extends BaseTemplate {
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
 			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
-			'data-search-box' => $this->buildSearchProps(),
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
@@ -187,29 +169,24 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Renders the entire contents of the HTML page.
-	 */
-	public function execute() {
-		$tp = $this->getTemplateParser();
-		echo $tp->processTemplate( $this->templateRoot, $this->getSkinData() );
-	}
-
-	/**
 	 * Get rows that make up the footer
 	 * @return array for use in Mustache template describing the footer elements.
 	 */
 	private function getFooterData() : array {
-		$skin = $this->getSkin();
+		$skin = $this;
 		$footerRows = [];
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$items = [];
 			$rowId = "footer-$category";
 
-			foreach ( $links as $link ) {
-				$items[] = [
-					'id' => "$rowId-$link",
-					'html' => $this->get( $link, '' ),
-				];
+			foreach ( $links as $key => $link ) {
+				// Link may be null. If so don't include it.
+				if ( $link ) {
+					$items[] = [
+						'id' => "$rowId-$key",
+						'html' => $link,
+					];
+				}
 			}
 
 			$footerRows[] = [
@@ -220,25 +197,39 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		// If footer icons are enabled append to the end of the rows
-		$footerIcons = $this->getFooterIcons( 'icononly' );
+		$footerIcons = $this->getFooterIcons();
+
 		if ( count( $footerIcons ) > 0 ) {
 			$items = [];
 			foreach ( $footerIcons as $blockName => $blockIcons ) {
 				$html = '';
 				foreach ( $blockIcons as $icon ) {
-					$html .= $skin->makeFooterIcon( $icon );
+					// Only output icons which have an image.
+					// For historic reasons this mimics the `icononly` option
+					// for BaseTemplate::getFooterIcons.
+					if ( is_string( $icon ) || isset( $icon['src'] ) ) {
+						$html .= $skin->makeFooterIcon( $icon );
+					}
 				}
-				$items[] = [
-					'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
-					'html' => $html,
-				];
+				// For historic reasons this mimics the `icononly` option
+				// for BaseTemplate::getFooterIcons. Empty rows should not be output.
+				if ( $html ) {
+					$items[] = [
+						'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
+						'html' => $html,
+					];
+				}
 			}
 
-			$footerRows[] = [
-				'id' => 'footer-icons',
-				'className' => 'noprint',
-				'array-items' => $items,
-			];
+			// Empty rows should not be output.
+			// This is how Vector has behaved historically but we can revisit.
+			if ( count( $items ) > 0 ) {
+				$footerRows[] = [
+					'id' => 'footer-icons',
+					'className' => 'noprint',
+					'array-items' => $items,
+				];
+			}
 		}
 
 		ob_start();
@@ -286,9 +277,9 @@ class VectorTemplate extends BaseTemplate {
 	 *
 	 * @return array
 	 */
-	private function buildSidebar() : array {
-		$skin = $this->getSkin();
-		$portals = $skin->buildSidebar();
+	public function buildSidebar() {
+		$skin = $this;
+		$portals = parent::buildSidebar();
 		$props = [];
 		$languages = null;
 
@@ -433,7 +424,23 @@ class VectorTemplate extends BaseTemplate {
 			}
 		}
 
-		$props['html-after-portal'] = $isPortal ? $this->getAfterPortlet( $label ) : '';
+		$afterPortal = '';
+		if ( $isPortal ) {
+			// The BaseTemplate::getAfterPortlet method ran the SkinAfterPortlet
+			// hook and if content is added appends it to the html-after-portal method.
+			// This replicates that historic behaviour.
+			// This code should eventually be upstreamed to SkinMustache in core.
+			// Currently in production this supports the Wikibase 'edit' link.
+			$content = $this->getAfterPortlet( $label );
+			if ( $content !== '' ) {
+				$afterPortal = Html::rawElement(
+					'div',
+					[ 'class' => [ 'after-portlet', 'after-portlet-' . $label ] ],
+					$content
+				);
+			}
+		}
+		$props['html-after-portal'] = $afterPortal;
 
 		// Mark the portal as empty if it has no content
 		$class = ( count( $urls ) == 0 && !$props['html-after-portal'] )
@@ -446,10 +453,11 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function getMenuProps() : array {
-		// @phan-suppress-next-line PhanUndeclaredMethod
-		$contentNavigation = $this->getSkin()->getMenuProps();
-		$personalTools = $this->getPersonalTools();
-		$skin = $this->getSkin();
+		$contentNavigation = $this->buildContentNavigationUrls();
+		$personalTools = self::getPersonalToolsForMakeListItem(
+			$this->buildPersonalUrls()
+		);
+		$skin = $this;
 
 		// For logged out users Vector shows a "Not logged in message"
 		// This should be upstreamed to core, with instructions for how to hide it for skins
@@ -505,28 +513,5 @@ class VectorTemplate extends BaseTemplate {
 				self::MENU_TYPE_DROPDOWN
 			),
 		];
-	}
-
-	/**
-	 * @return array
-	 */
-	private function buildSearchProps() : array {
-		$config = $this->getConfig();
-		$skin = $this->getSkin();
-		$props = [
-			'form-action' => $config->get( 'Script' ),
-			'html-button-search-fallback' => $this->makeSearchButton(
-				'fulltext',
-				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-			),
-			'html-button-search' => $this->makeSearchButton(
-				'go',
-				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-			),
-			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'msg-search' => $skin->msg( 'search' ),
-			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
-		];
-		return $props;
 	}
 }

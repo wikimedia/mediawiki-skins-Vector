@@ -1,6 +1,4 @@
 {{!
-	string html-headelement a string of attribute HTML that begins with `<html>` and ends with
-		`</head>` and contains `meta` tags and ResourceLoader internals.
 	string|null html-site-notice the contents of a banner defined in MediaWiki:Sitenotice.
 		Also used by CentralNotice to inject banners into Vector.
 	Indicator[] array-indicators wiki-defined badges such as "good article",
@@ -27,11 +25,7 @@
 	object data-search-box. See SearchBox.mustache for documentation.
 	object data-sidebar. See Sidebar.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
-	string html-printtail HTML to render at the end of the page contained necessary script tags for
-		ResourceLoader terminated with `</body></html>`.
 }}
-
-{{{html-headelement}}}
 <div id="mw-page-base" class="noprint"></div>
 <div id="mw-head-base" class="noprint"></div>
 <div id="content" class="mw-body" role="main">
@@ -73,4 +67,3 @@
 	{{#data-sidebar}}{{>legacy/Sidebar}}{{/data-sidebar}}
 </div>
 {{#data-footer}}{{>Footer}}{{/data-footer}}
-{{{html-printtail}}}

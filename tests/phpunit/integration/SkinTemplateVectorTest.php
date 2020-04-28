@@ -1,12 +1,10 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use GlobalVarConfig;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
-use TemplateParser;
+use SkinTemplateVector;
 use Title;
-use VectorTemplate;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -15,20 +13,15 @@ use Wikimedia\TestingAccessWrapper;
  * @group Vector
  * @group Skins
  *
- * @coversDefaultClass \VectorTemplate
+ * @coversDefaultClass \SkinTemplateVector
  */
-class VectorTemplateTest extends MediaWikiIntegrationTestCase {
+class SkinTemplateVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @return \VectorTemplate
 	 */
 	private function provideVectorTemplateObject() {
-		$template = new VectorTemplate(
-			GlobalVarConfig::newInstance(),
-			new TemplateParser(),
-			true
-		);
-		$template->set( 'skin', new \SkinVector() );
+		$template = new SkinTemplateVector();
 		return $template;
 	}
 
@@ -102,9 +95,13 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( $title );
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
-		// used internally by getPersonalTools
-		$vectorTemplate->set( 'personal_urls', [] );
+
 		$this->setMwGlobals( 'wgHooks', [
+			'PersonalUrls' => [
+				function ( &$personal_urls, &$title, $skin ) {
+					$personal_urls = [];
+				}
+			],
 			'SkinTemplateNavigation' => [
 				function ( &$skinTemplate, &$content_navigation ) {
 					$content_navigation = [

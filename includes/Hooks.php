@@ -9,7 +9,7 @@ use OutputPage;
 use RequestContext;
 use Skin;
 use SkinTemplate;
-use SkinVector;
+use SkinTemplateVector;
 use User;
 
 /**
@@ -29,7 +29,7 @@ class Hooks {
 	 * @param SkinTemplate $sk
 	 */
 	public static function onBeforePageDisplay( OutputPage $out, $sk ) {
-		if ( !$sk instanceof SkinVector ) {
+		if ( !$sk instanceof SkinTemplateVector ) {
 			return;
 		}
 
@@ -236,7 +236,7 @@ class Hooks {
 	 * @param OutputPage $out OutputPage instance calling the hook
 	 */
 	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
-		if ( $out->getSkin() instanceof SkinVector ) {
+		if ( $out->getSkin() instanceof SkinTemplateVector ) {
 			$skinVersionLookup = new SkinVersionLookup(
 				$out->getRequest(),
 				$out->getUser(),
