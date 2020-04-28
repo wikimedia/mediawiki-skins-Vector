@@ -35,7 +35,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionFoundLegacy() {
 		$config = new HashConfig( [
 			'VectorShowSkinPreferences' => true,
-			// Required by test user's onUserGetDefaultOptions() hook but unused for this test.
+			// '1' is Legacy.
 			'VectorDefaultSkinVersionForExistingAccounts' => '1',
 		] );
 		$this->setService( 'Vector.Config', $config );
@@ -72,7 +72,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLegacy() {
 		$config = new HashConfig( [
 			'VectorShowSkinPreferences' => true,
-			// Required by test user's onUserGetDefaultOptions() hook but unused for this test.
+			// '1' is Legacy.
 			'VectorDefaultSkinVersionForExistingAccounts' => '1',
 		] );
 		$this->setService( 'Vector.Config', $config );
@@ -107,8 +107,8 @@ class VectorHooksTest extends \MediaWikiTestCase {
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLatest() {
 		$config = new HashConfig( [
 			'VectorShowSkinPreferences' => true,
-			// Required by test user's onUserGetDefaultOptions() hook but unused for this test.
-			'VectorDefaultSkinVersionForExistingAccounts' => '1',
+			// '2' is latest.
+			'VectorDefaultSkinVersionForExistingAccounts' => '2',
 		] );
 		$this->setService( 'Vector.Config', $config );
 
@@ -116,13 +116,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'foo' => [],
 			'bar' => [],
 		];
-		$user = $this->createMock( \User::class );
-		$user->expects( $this->once() )
-			->method( 'getOption' )
-			->with( 'VectorSkinVersion' )
-			// '2' is latest.
-			->will( $this->returnValue( '2' ) );
-		Hooks::onGetPreferences( $user, $prefs );
+		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
 		$this->assertSame(
 			$prefs,
 			[
@@ -238,36 +232,6 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		];
 
 		Hooks::onPreferencesFormPreSave( $formData, $form, $user, $result, $oldPreferences );
-	}
-
-	/**
-	 * @covers ::onUserGetDefaultOptions
-	 */
-	public function testOnUserGetDefaultOptionsLegacy() {
-		$config = new HashConfig( [
-			// '1' is Legacy.
-			'VectorDefaultSkinVersionForExistingAccounts' => '1',
-		] );
-		$this->setService( 'Vector.Config', $config );
-
-		$prefs = [];
-		Hooks::onUserGetDefaultOptions( $prefs );
-		$this->assertSame( $prefs, [ 'VectorSkinVersion' => '1' ], 'Version is Legacy.' );
-	}
-
-	/**
-	 * @covers ::onUserGetDefaultOptions
-	 */
-	public function testOnUserGetDefaultOptionsLatest() {
-		$config = new HashConfig( [
-			// '2' is latest.
-			'VectorDefaultSkinVersionForExistingAccounts' => '2',
-		] );
-		$this->setService( 'Vector.Config', $config );
-
-		$prefs = [];
-		Hooks::onUserGetDefaultOptions( $prefs );
-		$this->assertSame( $prefs, [ 'VectorSkinVersion' => '2' ], 'Version is latest.' );
 	}
 
 	/**

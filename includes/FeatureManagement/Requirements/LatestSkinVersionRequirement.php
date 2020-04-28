@@ -22,11 +22,9 @@
 
 namespace Vector\FeatureManagement\Requirements;
 
-use Config;
-use User;
 use Vector\Constants;
 use Vector\FeatureManagement\Requirement;
-use WebRequest;
+use Vector\SkinVersionLookup;
 
 /**
  * Retrieve the skin version for the request and compare it with `Constants::SKIN_VERSION_LATEST`.
@@ -58,29 +56,17 @@ use WebRequest;
 final class LatestSkinVersionRequirement implements Requirement {
 
 	/**
-	 * @var WebRequest
+	 * @var SkinVersionLookup
 	 */
-	private $request;
-	/**
-	 * @var User
-	 */
-	private $user;
-	/**
-	 * @var Config
-	 */
-	private $config;
+	private $skinVersionLookup;
 
 	/**
 	 * This constructor accepts all dependencies needed to obtain the skin version.
 	 *
-	 * @param WebRequest $request
-	 * @param User $user
-	 * @param Config $config
+	 * @param SkinVersionLookup $skinVersionLookup
 	 */
-	public function __construct( WebRequest $request, User $user, Config $config ) {
-		$this->request = $request;
-		$this->user = $user;
-		$this->config = $config;
+	public function __construct( SkinVersionLookup $skinVersionLookup ) {
+		$this->skinVersionLookup = $skinVersionLookup;
 	}
 
 	/**
@@ -95,27 +81,6 @@ final class LatestSkinVersionRequirement implements Requirement {
 	 * @throws \ConfigException
 	 */
 	public function isMet() : bool {
-		return $this->getVersion() === Constants::SKIN_VERSION_LATEST;
-	}
-
-	/**
-	 * The skin version as a string. E.g., `Constants::SKIN_VERSION_LATEST`,
-	 * `Constants::SKIN_VERSION_LATEST`, or maybe 'beta'. Note: it's likely someone will put
-	 * arbitrary strings in the query parameter which means this function returns those strings as
-	 * is.
-	 *
-	 * @return string
-	 * @throws \ConfigException
-	 */
-	private function getVersion() : string {
-		// Obtain the skin version from the `useskinversion` URL query parameter override, the user
-		// preference, or the configured default.
-		return (string)$this->request->getVal(
-			Constants::QUERY_PARAM_SKIN_VERSION,
-			$this->user->getOption(
-				Constants::PREF_KEY_SKIN_VERSION,
-				$this->config->get( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION )
-			)
-		);
+		return $this->skinVersionLookup->getVersion() === Constants::SKIN_VERSION_LATEST;
 	}
 }

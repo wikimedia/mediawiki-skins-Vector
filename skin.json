@@ -35,7 +35,6 @@
 		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
-		"UserGetDefaultOptions": "Vector\\Hooks::onUserGetDefaultOptions",
 		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
@@ -122,15 +121,15 @@
 		},
 		"VectorDefaultSkinVersion": {
 			"value": "2",
-			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to use for anonymous users and as a fallback."
+			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to use for anonymous users and as a fallback. The value is _not_ persisted."
 		},
 		"VectorDefaultSkinVersionForExistingAccounts": {
 			"value": "2",
-			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to use when an existing user has not specified a preference. This configuration is not used for new accounts (see VectorDefaultSkinVersionForNewAccounts) and is impermanent. In the future, this field may contains versions such as \"beta\" which when specified and the BetaFeatures extension is installed, and the user is enrolled, the latest version is used otherwise legacy."
+			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to use when an existing user has not specified a preference. This configuration is not used for new accounts (see VectorDefaultSkinVersionForNewAccounts) and is impermanent. In the future, this field may contains versions such as \"beta\" which when specified and the BetaFeatures extension is installed, and the user is enrolled, the latest version is used otherwise legacy. The value is _not_ persisted."
 		},
 		"VectorDefaultSkinVersionForNewAccounts": {
 			"value": "2",
-			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. This configuration is not used for preexisting accounts (see VectorDefaultSkinVersion) and only ever executed once at new account creation time."
+			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersion) and only ever executed once at new account creation time."
 		}
 	},
 	"ServiceWiringFiles": [

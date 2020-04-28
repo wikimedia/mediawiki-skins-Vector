@@ -20,6 +20,7 @@
  */
 
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
+use Vector\SkinVersionLookup;
 
 /**
  * @group Vector
@@ -29,73 +30,27 @@ class LatestSkinVersionRequirementTest extends \MediaWikiTestCase {
 
 	/**
 	 * @covers ::isMet
-	 * @covers ::getVersion
 	 */
-	public function testRequest() {
-		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
-		$request
-			->expects( $this->exactly( 1 ) )
-			->method( 'getVal' )
-			->with( $this->anything(), $this->equalTo( '1' ) )
-			->willReturn( 'beta' );
+	public function testUnmet() {
+		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => '1' ] );
 
-		$user = $this->createMock( \User::class );
-		$user
-			->expects( $this->exactly( 1 ) )
-			->method( 'getOption' )
-			->with( $this->anything(), $this->equalTo( '2' ) )
-			->willReturn( '1' );
-
-		$config = new \HashConfig( [ 'VectorDefaultSkinVersion' => '2' ] );
-
-		$requirement = new LatestSkinVersionRequirement( $request, $user, $config );
-
-		$this->assertFalse(
-			$requirement->isMet(),
-			'WebRequest::getVal takes precedence. "beta" isn\'t considered latest.'
+		$requirement = new LatestSkinVersionRequirement(
+			new SkinVersionLookup( new WebRequest(), $this->getTestUser()->getUser(), $config )
 		);
+
+		$this->assertFalse( $requirement->isMet(), '"1" isn\'t considered latest.' );
 	}
 
 	/**
 	 * @covers ::isMet
-	 * @covers ::getVersion
 	 */
-	public function testUserPreference() {
-		$request = new WebRequest();
+	public function testMet() {
+		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => '2' ] );
 
-		$user = $this->createMock( \User::class );
-		$user
-			->expects( $this->exactly( 1 ) )
-			->method( 'getOption' )
-			->with( $this->anything(), $this->equalTo( '2' ) )
-			->willReturn( '1' );
-
-		$config = new \HashConfig( [ 'VectorDefaultSkinVersion' => '2' ] );
-
-		$requirement = new LatestSkinVersionRequirement( $request, $user, $config );
-
-		$this->assertFalse(
-			$requirement->isMet(),
-			'User preference takes second place. "1" (legacy) isn\'t considered latest.'
+		$requirement = new LatestSkinVersionRequirement(
+			new SkinVersionLookup( new WebRequest(), $this->getTestUser()->getUser(), $config )
 		);
-	}
 
-	/**
-	 * @covers ::isMet
-	 * @covers ::getVersion
-	 */
-	public function testConfig() {
-		$request = new WebRequest();
-		$user = \MediaWikiTestCase::getTestUser()
-			->getUser();
-
-		$config = new HashConfig( [ 'VectorDefaultSkinVersion' => '2' ] );
-
-		$requirement = new LatestSkinVersionRequirement( $request, $user, $config );
-
-		$this->assertTrue(
-			$requirement->isMet(),
-			'Config takes third place. "2" is considered latest.'
-		);
+		$this->assertTrue( $requirement->isMet(), '"2" is considered latest.' );
 	}
 }
