@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Daniel Harahap",
+			"Salomo Christian Hutajulu",
 			"WBT003Bugari",
 			"WBT006Hendra",
 			"WBT009Anju"
@@ -17,5 +18,6 @@
 	"vector-view-edit": "Paubah",
 	"vector-view-history": "Patudu andorang na",
 	"vector-view-view": "Jaha",
-	"vector-view-viewsource": "Ida haroanna"
+	"vector-view-viewsource": "Ida haroanna",
+	"vector-more-actions": "Lobian"
 }
