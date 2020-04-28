@@ -47,3 +47,6 @@ version is called "Legacy Vector." The related preference defaults are
 configurable via the configurations prefixed with `VectorDefaultSkinVersion`.
 Version preference and configuration may be overridden by the `useskinversion`
 URL query parameter.
+
+### Hooks
+See [hooks.txt](hooks.txt).
