@@ -79,6 +79,23 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Amends the default behavior of BaseTemplate to return rather
+	 * than echo.
+	 * @param string $key
+	 * @return Message
+	 */
+	public function msg( $key ) {
+		return $this->getMsg( $key );
+	}
+
+	/**
+	 * @return Config
+	 */
+	private function getConfig() {
+		return $this->config;
+	}
+
+	/**
 	 * The template parser might be undefined. This function will check if it set first
 	 *
 	 * @return TemplateParser
@@ -100,7 +117,7 @@ class VectorTemplate extends BaseTemplate {
 		$contentNavigation = $this->get( 'content_navigation', [] );
 
 		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
-		if ( $this->config->get( 'VectorUseIconWatch' ) ) {
+		if ( $this->getConfig()->get( 'VectorUseIconWatch' ) ) {
 			$mode = ( $this->getSkin()->getRelevantTitle()->isWatchable() &&
 						MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
 							$this->getSkin()->getUser(),
@@ -156,7 +173,7 @@ class VectorTemplate extends BaseTemplate {
 			'html-title' => $this->get( 'title', '' ),
 
 			'html-prebodyhtml' => $this->get( 'prebodyhtml', '' ),
-			'msg-tagline' => $this->getMsg( 'tagline' )->text(),
+			'msg-tagline' => $this->msg( 'tagline' )->text(),
 			// TODO: mediawiki/SkinTemplate should expose langCode and langDir properly.
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			// From OutputPage::getSubtitle()
@@ -169,8 +186,8 @@ class VectorTemplate extends BaseTemplate {
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 			'html-newtalk' => $this->get( 'newtalk', '' ) ?: null,
 
-			'msg-jumptonavigation' => $this->getMsg( 'vector-jumptonavigation' )->text(),
-			'msg-jumptosearch' => $this->getMsg( 'vector-jumptosearch' )->text(),
+			'msg-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
+			'msg-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
 
 			// Result of OutputPage::addHTML calls
 			'html-bodycontent' => $this->get( 'bodycontent' ),
@@ -187,7 +204,7 @@ class VectorTemplate extends BaseTemplate {
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			],
-			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
+			'html-navigation-heading' => $this->msg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),
 			'data-sidebar' => $this->buildSidebar(),
 		] + $this->getMenuProps();
@@ -201,7 +218,7 @@ class VectorTemplate extends BaseTemplate {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'text' => $this->getMsg( 'vector-opt-out' )->text()
+				'text' => $this->msg( 'vector-opt-out' )->text()
 			];
 		}
 
@@ -385,7 +402,7 @@ class VectorTemplate extends BaseTemplate {
 	public function makeListItem( $key, $item, $options = [] ) {
 		// For fancy styling of watch/unwatch star
 		if (
-			$this->config->get( 'VectorUseIconWatch' )
+			$this->getConfig()->get( 'VectorUseIconWatch' )
 			&& ( $key === 'watch' || $key === 'unwatch' )
 		) {
 			if ( !isset( $item['class'] ) ) {
@@ -437,7 +454,7 @@ class VectorTemplate extends BaseTemplate {
 			'label-id' => "p-{$label}-label",
 			// For some menu items, there is no language key corresponding with its menu key.
 			// These inconsitencies are captured in MENU_LABEL_KEYS
-			'label' => $this->getMsg( self::MENU_LABEL_KEYS[ $label ] ?? $label )->text(),
+			'label' => $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label )->text(),
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 		];
@@ -473,7 +490,7 @@ class VectorTemplate extends BaseTemplate {
 			$loggedIn =
 				Html::element( 'li',
 					[ 'id' => 'pt-anonuserpage' ],
-					$this->getMsg( 'notloggedin' )->text()
+					$this->msg( 'notloggedin' )->text()
 				);
 		} else {
 			$loggedIn = '';
@@ -527,7 +544,7 @@ class VectorTemplate extends BaseTemplate {
 		$props = [
 			'searchHeaderAttrsHTML' => $this->get( 'userlangattributes', '' ),
 			'searchActionURL' => $this->get( 'wgScript', '' ),
-			'searchDivID' => $this->config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
+			'searchDivID' => $this->getConfig()->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
 			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
 			'titleHTML' => Html::hidden( 'title', $this->get( 'searchtitle', null ) ),
 			'fallbackSearchButtonHTML' => $this->makeSearchButton(
@@ -538,7 +555,7 @@ class VectorTemplate extends BaseTemplate {
 				'go',
 				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
 			),
-			'searchInputLabel' => $this->getMsg( 'search' )
+			'searchInputLabel' => $this->msg( 'search' )
 		];
 		return $props;
 	}
