@@ -115,17 +115,20 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function getSkinData() : array {
 		$contentNavigation = $this->get( 'content_navigation', [] );
+		$skin = $this->getSkin();
+		$out = $skin->getOutput();
+		$title = $out->getTitle();
 
 		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
 		if ( $this->getConfig()->get( 'VectorUseIconWatch' ) ) {
-			$mode = ( $this->getSkin()->getRelevantTitle()->isWatchable() &&
+			$mode = ( $skin->getRelevantTitle()->isWatchable() &&
 						MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
-							$this->getSkin()->getUser(),
+							$skin->getUser(),
 							'viewmywatchlist'
 						) &&
 						MediaWikiServices::getInstance()->getWatchedItemStore()->isWatched(
-							$this->getSkin()->getUser(),
-							$this->getSkin()->getRelevantTitle()
+							$skin->getUser(),
+							$skin->getRelevantTitle()
 						)
 					) ? 'unwatch' : 'watch';
 
@@ -163,29 +166,29 @@ class VectorTemplate extends BaseTemplate {
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
 		$commonSkinData = [
-			'html-headelement' => $this->get( 'headelement', '' ),
+			'html-headelement' => $out->headElement( $skin ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
 			'html-indicators' => $this->getIndicators(),
-			'page-langcode' => $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode(),
-			'page-isarticle' => (bool)$this->get( 'isarticle' ),
+			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
+			'page-isarticle' => (bool)$out->isArticle(),
 
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
-			'html-title' => $this->get( 'title', '' ),
+			'html-title' => $out->getPageTitle(),
 
 			'html-prebodyhtml' => $this->get( 'prebodyhtml', '' ),
 			'msg-tagline' => $this->msg( 'tagline' )->text(),
-			// TODO: mediawiki/SkinTemplate should expose langCode and langDir properly.
+			// TODO: Use Skin::prepareUserLanguageAttributes() when available.
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			// From OutputPage::getSubtitle()
 			'html-subtitle' => $this->get( 'subtitle', '' ),
 
-			// TODO: Use directly Skin::getUndeleteLink() directly.
+			// TODO: Use Skin::prepareUndeleteLink() when available
 			// Always returns string, cast to null if empty.
 			'html-undelete' => $this->get( 'undelete', null ) ?: null,
 
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
-			'html-newtalk' => $this->get( 'newtalk', '' ) ?: null,
+			'html-newtalk' => $skin->getNewtalks() ?: null,
 
 			'msg-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
 			'msg-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
@@ -193,8 +196,8 @@ class VectorTemplate extends BaseTemplate {
 			// Result of OutputPage::addHTML calls
 			'html-bodycontent' => $this->get( 'bodycontent' ),
 
-			'html-printfooter' => $this->get( 'printfooter', null ),
-			'html-catlinks' => $this->get( 'catlinks', '' ),
+			'html-printfooter' => $skin->printSource(),
+			'html-catlinks' => $skin->getCategories(),
 			'html-dataAfterContent' => $this->get( 'dataAfterContent', '' ),
 			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
 			'html-debuglog' => $this->get( 'debughtml', '' ),
@@ -219,7 +222,7 @@ class VectorTemplate extends BaseTemplate {
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
 		// is planned to be moved in a follow-up patch.
-		if ( !$this->isLegacy && $this->getSkin()->getUser()->isLoggedIn() ) {
+		if ( !$this->isLegacy && $skin->getUser()->isLoggedIn() ) {
 			$commonSkinData['data-sidebar']['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
@@ -246,6 +249,7 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array for use in Mustache template describing the footer elements.
 	 */
 	private function getTemplateFooterRows() : array {
+		$skin = $this->getSkin();
 		$footerRows = [];
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$items = [];
@@ -272,7 +276,7 @@ class VectorTemplate extends BaseTemplate {
 			foreach ( $footerIcons as $blockName => $blockIcons ) {
 				$html = '';
 				foreach ( $blockIcons as $icon ) {
-					$html .= $this->getSkin()->makeFooterIcon( $icon );
+					$html .= $skin->makeFooterIcon( $icon );
 				}
 				$items[] = [
 					'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
@@ -296,6 +300,7 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function buildSidebar() : array {
+		$skin = $this->getSkin();
 		$portals = $this->get( 'sidebar', [] );
 		$props = [];
 		// Force the rendering of the following portals
@@ -327,9 +332,13 @@ class VectorTemplate extends BaseTemplate {
 					];
 					break;
 				case 'LANGUAGES':
-					if ( $this->get( 'language_urls' ) !== false ) {
+					// @phan-suppress-next-line PhanUndeclaredMethod
+					$languages = $skin->getLanguages();
+					if ( count( $languages ) ) {
 						$props[] = $this->buildPortalProps(
-							'lang', $this->get( 'language_urls' ), 'otherlanguages'
+							'lang',
+							$languages,
+							'otherlanguages'
 						);
 					}
 					break;
@@ -488,13 +497,14 @@ class VectorTemplate extends BaseTemplate {
 	private function getMenuProps() : array {
 		$contentNavigation = $this->get( 'content_navigation', [] );
 		$personalTools = $this->getPersonalTools();
+		$skin = $this->getSkin();
 
 		// For logged out users Vector shows a "Not logged in message"
 		// This should be upstreamed to core, with instructions for how to hide it for skins
 		// that do not want it.
 		// For now we create a dedicated list item to avoid having to sync the API internals
 		// of makeListItem.
-		if ( !$this->getSkin()->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
+		if ( !$skin->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
 			$loggedIn =
 				Html::element( 'li',
 					[ 'id' => 'pt-anonuserpage' ],
@@ -549,12 +559,13 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function buildSearchProps() : array {
+		global $wgScript;
 		$props = [
 			'searchHeaderAttrsHTML' => $this->get( 'userlangattributes', '' ),
-			'searchActionURL' => $this->get( 'wgScript', '' ),
+			'searchActionURL' => $wgScript,
 			'searchDivID' => $this->getConfig()->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
 			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'titleHTML' => Html::hidden( 'title', $this->get( 'searchtitle', null ) ),
+			'titleHTML' => Html::hidden( 'title', SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey() ),
 			'fallbackSearchButtonHTML' => $this->makeSearchButton(
 				'fulltext',
 				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
