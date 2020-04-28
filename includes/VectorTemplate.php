@@ -189,15 +189,7 @@ class VectorTemplate extends BaseTemplate {
 			],
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),
-			'data-sidebar' => [
-				'has-logo' => true,
-				'html-logo-attributes' => Xml::expandAttributes(
-					Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
-						'class' => 'mw-wiki-logo',
-						'href' => Skin::makeMainPageUrl(),
-					]
-				)
-			] + $this->buildSidebarProps( $this->get( 'sidebar', [] ) ),
+			'data-sidebar' => $this->buildSidebar(),
 		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
@@ -276,10 +268,10 @@ class VectorTemplate extends BaseTemplate {
 	/**
 	 * Render a series of portals
 	 *
-	 * @param array $portals
 	 * @return array
 	 */
-	private function buildSidebarProps( array $portals ) : array {
+	private function buildSidebar() : array {
+		$portals = $this->get( 'sidebar', [] );
 		$props = [];
 		// Force the rendering of the following portals
 		if ( !isset( $portals['TOOLBOX'] ) ) {
@@ -328,6 +320,13 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		return [
+			'has-logo' => true,
+			'html-logo-attributes' => Xml::expandAttributes(
+				Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
+					'class' => 'mw-wiki-logo',
+					'href' => Skin::makeMainPageUrl(),
+				]
+			),
 			'array-portals-rest' => array_slice( $props, 1 ),
 			'array-portals-first' => $firstPortal,
 		];
