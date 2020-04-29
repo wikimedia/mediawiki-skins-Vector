@@ -5,6 +5,7 @@ namespace Vector;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
+use RequestContext;
 use SkinTemplate;
 use SkinVector;
 use User;
@@ -44,6 +45,10 @@ class Hooks {
 			return;
 		}
 
+		$skinVersionLookup = new SkinVersionLookup(
+			RequestContext::getMain()->getRequest(), $user, self::getServiceConfig()
+		);
+
 		// Preferences to add.
 		$vectorPrefs = [
 			Constants::PREF_KEY_SKIN_VERSION => [
@@ -56,10 +61,7 @@ class Hooks {
 				// indicates that a prefs-skin-prefs string will be provided.
 				'section' => 'rendering/skin/skin-prefs',
 				// Convert the preference string to a boolean presentation.
-				'default' =>
-					$user->getOption( Constants::PREF_KEY_SKIN_VERSION ) === Constants::SKIN_VERSION_LATEST ?
-						'0' :
-						'1',
+				'default' => $skinVersionLookup->isLegacy() ? '1' : '0',
 				// Only show this section when the Vector skin is checked. The JavaScript client also uses
 				// this state to determine whether to show or hide the whole section.
 				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
@@ -120,16 +122,6 @@ class Hooks {
 	}
 
 	/**
-	 * Called on each pageview to populate preference defaults for existing users.
-	 *
-	 * @param array &$defaultPrefs
-	 */
-	public static function onUserGetDefaultOptions( array &$defaultPrefs ) {
-		$default = self::getConfig( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_EXISTING_ACCOUNTS );
-		$defaultPrefs[ Constants::PREF_KEY_SKIN_VERSION ] = $default;
-	}
-
-	/**
 	 * Called one time when initializing a users preferences for a newly created account.
 	 *
 	 * @param User $user Newly created user object.
@@ -150,8 +142,13 @@ class Hooks {
 	 * @throws \ConfigException
 	 */
 	private static function getConfig( $name ) {
-		/* @var Config */ $service =
-			MediaWikiServices::getInstance()->getService( Constants::SERVICE_CONFIG );
-		return $service->get( $name );
+		return self::getServiceConfig()->get( $name );
+	}
+
+	/**
+	 * @return \Config
+	 */
+	private static function getServiceConfig() {
+		return MediaWikiServices::getInstance()->getService( Constants::SERVICE_CONFIG );
 	}
 }

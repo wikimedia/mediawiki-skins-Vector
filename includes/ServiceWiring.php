@@ -27,6 +27,7 @@ use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
+use Vector\SkinVersionLookup;
 
 return [
 	Constants::SERVICE_CONFIG => function ( MediaWikiServices $services ) {
@@ -49,9 +50,11 @@ return [
 
 		$featureManager->registerRequirement(
 			new LatestSkinVersionRequirement(
-				$context->getRequest(),
-				$context->getUser(),
-				$context->getConfig()
+				new SkinVersionLookup(
+					$context->getRequest(),
+					$context->getUser(),
+					$services->getService( Constants::SERVICE_CONFIG )
+				)
 			)
 		);
 
