@@ -165,7 +165,7 @@ final class FeatureManager {
 	 *
 	 * @throws \LogicException If the requirement has already been registered
 	 */
-	public function registerComplexRequirement( Requirement $requirement ) {
+	public function registerRequirement( Requirement $requirement ) {
 		$name = $requirement->getName();
 
 		if ( array_key_exists( $name, $this->requirements ) ) {
@@ -188,8 +188,8 @@ final class FeatureManager {
 	 *
 	 * @throws \LogicException If the requirement has already been registered
 	 */
-	public function registerRequirement( string $name, bool $isMet ) {
-		$this->registerComplexRequirement( new SimpleRequirement( $name, $isMet ) );
+	public function registerSimpleRequirement( string $name, bool $isMet ) {
+		$this->registerRequirement( new SimpleRequirement( $name, $isMet ) );
 	}
 
 	/**

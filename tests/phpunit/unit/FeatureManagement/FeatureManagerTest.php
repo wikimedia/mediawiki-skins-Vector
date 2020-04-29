@@ -31,15 +31,15 @@ use Vector\FeatureManagement\FeatureManager;
 class FeatureManagerTest extends \MediaWikiUnitTestCase {
 
 	/**
+	 * @covers ::registerSimpleRequirement
 	 * @covers ::registerRequirement
-	 * @covers ::registerComplexRequirement
 	 */
-	public function testRegisterRequirementThrowsWhenRequirementIsRegisteredTwice() {
+	public function testRegisterSimpleRequirementThrowsWhenRequirementIsRegisteredTwice() {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager();
-		$featureManager->registerRequirement( 'requirementA', true );
-		$featureManager->registerRequirement( 'requirementA', true );
+		$featureManager->registerSimpleRequirement( 'requirementA', true );
+		$featureManager->registerSimpleRequirement( 'requirementA', true );
 	}
 
 	public static function provideInvalidFeatureConfig() {
@@ -69,7 +69,7 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( $expectedExceptionType );
 
 		$featureManager = new FeatureManager();
-		$featureManager->registerRequirement( 'requirement', true );
+		$featureManager->registerSimpleRequirement( 'requirement', true );
 		$featureManager->registerFeature( 'feature', $config );
 	}
 
@@ -78,8 +78,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsRequirementMet() {
 		$featureManager = new FeatureManager();
-		$featureManager->registerRequirement( 'enabled', true );
-		$featureManager->registerRequirement( 'disabled', false );
+		$featureManager->registerSimpleRequirement( 'enabled', true );
+		$featureManager->registerSimpleRequirement( 'disabled', false );
 
 		$this->assertTrue( $featureManager->isRequirementMet( 'enabled' ) );
 		$this->assertFalse( $featureManager->isRequirementMet( 'disabled' ) );
@@ -111,7 +111,7 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsFeatureEnabled() {
 		$featureManager = new FeatureManager();
-		$featureManager->registerRequirement( 'foo', false );
+		$featureManager->registerSimpleRequirement( 'foo', false );
 		$featureManager->registerFeature( 'requiresFoo', 'foo' );
 
 		$this->assertFalse(
@@ -121,8 +121,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 
 		// ---
 
-		$featureManager->registerRequirement( 'bar', true );
-		$featureManager->registerRequirement( 'baz', true );
+		$featureManager->registerSimpleRequirement( 'bar', true );
+		$featureManager->registerSimpleRequirement( 'baz', true );
 
 		$featureManager->registerFeature( 'requiresFooBar', [ 'foo', 'bar' ] );
 		$featureManager->registerFeature( 'requiresBarBaz', [ 'bar', 'baz' ] );

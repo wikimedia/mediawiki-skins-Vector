@@ -35,18 +35,19 @@ return [
 	Constants::SERVICE_FEATURE_MANAGER => function ( MediaWikiServices $services ) {
 		$featureManager = new FeatureManager();
 
-		$requirement = new DynamicConfigRequirement(
+		$featureManager->registerRequirement(
+			new DynamicConfigRequirement(
 				$services->getMainConfig(),
 				Constants::CONFIG_KEY_FULLY_INITIALISED,
 				Constants::REQUIREMENT_FULLY_INITIALISED
-			);
-		$featureManager->registerComplexRequirement( $requirement );
+			)
+		);
 
 		// Feature: Latest skin
 		// ====================
 		$context = RequestContext::getMain();
 
-		$featureManager->registerComplexRequirement(
+		$featureManager->registerRequirement(
 			new LatestSkinVersionRequirement(
 				$context->getRequest(),
 				$context->getUser(),
