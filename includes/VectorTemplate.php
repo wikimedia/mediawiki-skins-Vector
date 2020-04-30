@@ -144,6 +144,7 @@ class VectorTemplate extends BaseTemplate {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
+		$mainPageHref = Skin::makeMainPageUrl();
 		$commonSkinData = [
 			'html-headelement' => $this->get( 'headelement', '' ),
 			'html-sitenotice' => $this->get( 'sitenotice', null ),
@@ -189,6 +190,13 @@ class VectorTemplate extends BaseTemplate {
 			],
 			'html-navigation-heading' => $this->getMsg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),
+
+			// Header
+			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->config ),
+			'msg-sitetitle' => $this->getMsg( 'sitetitle' )->text(),
+			'msg-sitesubtitle' => $this->getMsg( 'sitesubtitle' )->text(),
+			'main-page-href' => $mainPageHref,
+
 			'data-sidebar' => $this->buildSidebar(),
 		] + $this->getMenuProps();
 
@@ -320,7 +328,7 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		return [
-			'has-logo' => true,
+			'has-logo' => $this->isLegacy,
 			'html-logo-attributes' => Xml::expandAttributes(
 				Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
 					'class' => 'mw-wiki-logo',

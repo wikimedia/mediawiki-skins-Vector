@@ -22,6 +22,7 @@
 	string html-dataAfterContent
 	string html-navigation-heading heading for entire navigation that is usually hidden to screen
 		readers
+	LogoOptions data-logos
 	MenuDefinition data-personal-menu See PersonalMenu.mustache for documentation.
 	object data-namespace-tabs. See VectorTabs.mustache for documentation.
 	object data-variants. See VectorMenu.mustache for documentation.
@@ -70,6 +71,7 @@
 {{{html-dataAfterContent}}}
 
 <header class="mw-header">
+{{>Logo}}
 </header>
 
 <div id="mw-navigation">
