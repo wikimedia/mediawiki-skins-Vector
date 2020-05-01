@@ -209,9 +209,9 @@ class VectorTemplate extends BaseTemplate {
 			'data-search-box' => $this->buildSearchProps(),
 
 			// Header
-			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->config ),
-			'msg-sitetitle' => $this->getMsg( 'sitetitle' )->text(),
-			'msg-sitesubtitle' => $this->getMsg( 'sitesubtitle' )->text(),
+			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
+			'msg-sitetitle' => $this->msg( 'sitetitle' )->text(),
+			'msg-sitesubtitle' => $this->msg( 'sitesubtitle' )->text(),
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->buildSidebar(),
