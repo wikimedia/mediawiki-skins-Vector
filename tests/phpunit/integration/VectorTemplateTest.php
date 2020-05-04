@@ -26,6 +26,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			new TemplateParser(),
 			true
 		);
+		$template->set( 'skin', new \SkinVector() );
 		return $template;
 	}
 
@@ -144,7 +145,6 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'variants' => [],
 			'views' => [],
 		] );
-		$vectorTemplate->set( 'skin', new \SkinVector() );
 		$vectorTemplate->set( 'userlangattributes', $langAttrs );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
