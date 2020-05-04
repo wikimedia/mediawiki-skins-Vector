@@ -23,7 +23,8 @@ export const SIDEBAR_DATA = {
 		'array-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
-			text: 'Switch to old look'
+			text: 'Switch to old look',
+			title: 'Change your settings to go back to the old look of the skin (legacy Vector)'
 		},
 		'array-portals-rest': [
 			PORTALS.toolbox,

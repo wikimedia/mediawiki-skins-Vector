@@ -226,7 +226,8 @@ class VectorTemplate extends BaseTemplate {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'text' => $this->msg( 'vector-opt-out' )->text()
+				'text' => $this->msg( 'vector-opt-out' )->text(),
+				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
 			];
 		}
 
