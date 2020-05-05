@@ -463,7 +463,7 @@ class VectorTemplate extends BaseTemplate {
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vectorMenu',
 			self::MENU_TYPE_TABS => 'vectorTabs',
-			self::MENU_TYPE_DEFAULT => '',
+			self::MENU_TYPE_DEFAULT => 'vectorMenu-default',
 		];
 
 		$props = [

@@ -1,4 +1,4 @@
-import personalMenuTemplate from '!!raw-loader!../includes/templates/PersonalMenu.mustache';
+import menuTemplate from '!!raw-loader!../includes/templates/Menu.mustache';
 import { htmluserlangattributes } from './utils';
 
 /**
@@ -6,7 +6,7 @@ import { htmluserlangattributes } from './utils';
  */
 const loggedOut = {
 	id: 'p-personal',
-	class: '',
+	class: 'vectorMenu-default',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,
@@ -18,6 +18,7 @@ const loggedOut = {
  */
 const loggedInWithEcho = {
 	id: 'p-personal',
+	class: 'vectorMenu-default',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,
@@ -29,8 +30,23 @@ const ULS_LANGUAGE_SELECTOR = '<li class="uls-trigger active"><a href="#">Englis
 /**
  * @type {MenuDefinition}
  */
+const defaultMenu = {
+	id: 'p-generic',
+	class: 'vectorMenu-default',
+	'label-id': 'p-generic-label',
+	label: 'Menu label',
+	'html-userlangattributes': htmluserlangattributes,
+	'html-items': `<li><a href='#'>Item 1</a></li>
+<li><a href='#'>Item 2</a></li>
+<li><a href='#'>Item 3</a></li>`
+};
+
+/**
+ * @type {MenuDefinition}
+ */
 const loggedInWithULS = {
 	id: 'p-personal',
+	class: 'vectorMenu-default',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,
@@ -42,8 +58,9 @@ const loggedInWithULS = {
  */
 const PERSONAL_MENU_TEMPLATE_DATA = {
 	loggedOut,
+	defaultMenu,
 	loggedInWithEcho,
 	loggedInWithULS
 };
 
-export { PERSONAL_MENU_TEMPLATE_DATA, personalMenuTemplate };
+export { PERSONAL_MENU_TEMPLATE_DATA, menuTemplate };

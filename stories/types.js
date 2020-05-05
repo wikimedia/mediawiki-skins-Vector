@@ -30,6 +30,7 @@
  * @prop {string} html-items
  * @prop {string} [class] of menu
  * @prop {string} [html-userlangattributes]
+ * @prop {boolean} [is-dropdown]
  */
 
 /**
