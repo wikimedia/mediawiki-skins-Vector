@@ -160,6 +160,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
 			'class' => 'emptyPortlet vectorMenu-tabs vectorTabs',
+			'is-dropdown' => false,
 		] );
 
 		$variants = $props['data-variants'];
@@ -167,9 +168,9 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $namespaces['class'],
 			'emptyPortlet vectorMenu-tabs vectorTabs' );
 		$this->assertSame( $variants['class'],
-			'emptyPortlet vectorMenu' );
+			'emptyPortlet vectorMenu-dropdown vectorMenu' );
 		$this->assertSame( $actions['class'],
-			'emptyPortlet vectorMenu' );
+			'emptyPortlet vectorMenu-dropdown vectorMenu' );
 		$this->assertSame( $props['data-personal-menu']['class'],
 			'emptyPortlet vectorMenu-default' );
 	}

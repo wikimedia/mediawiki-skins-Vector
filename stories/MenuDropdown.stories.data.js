@@ -1,4 +1,4 @@
-import vectorMenuTemplate from '!!raw-loader!../includes/templates/VectorMenu.mustache';
+import vectorMenuTemplate from '!!raw-loader!../includes/templates/Menu.mustache';
 import { htmluserlangattributes } from './utils';
 
 export { vectorMenuTemplate };
@@ -7,7 +7,8 @@ export { vectorMenuTemplate };
  * @type {MenuDefinition}
  */
 export const moreData = {
-	class: 'vectorMenu',
+	'is-dropdown': true,
+	class: 'vectorMenu-dropdown vectorMenu',
 	label: 'More',
 	id: 'p-cactions',
 	'label-id': 'p-cactions-label',
@@ -30,7 +31,8 @@ export const moreData = {
  * @type {MenuDefinition}
  */
 export const variantsData = {
-	class: 'vectorMenu',
+	'is-dropdown': true,
+	class: 'vectorMenu-dropdown vectorMenu',
 	label: '新加坡简体',
 	id: 'p-variants',
 	'label-id': 'p-variants-label',

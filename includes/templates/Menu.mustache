@@ -1,10 +1,17 @@
 {{!
-	@see MenuDefinition
+	See @typedef MenuDefinition
 }}
-
 <div id="{{id}}" role="navigation" class="{{class}}" aria-labelledby="{{label-id}}">
+	{{#is-dropdown}}
+	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
+	<h3 id="{{label-id}}">
+		<span>{{label}}</span>
+	</h3>
+	{{/is-dropdown}}
+	{{^is-dropdown}}
 	<h3 id="{{label-id}}">{{label}}</h3>
-	<ul {{{html-userlangattributes}}}>
+	{{/is-dropdown}}
+	<ul class="menu" {{{html-userlangattributes}}}>
 		{{{html-items}}}
 	</ul>
 </div>

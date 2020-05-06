@@ -24,9 +24,9 @@
 		usually hidden to screen readers
 	MenuDefinition data-personal-menu
 	MenuDefinition data-namespace-tabs
-	object data-variants. See VectorMenu.mustache for documentation.
+	MenuDefinition data-variants
 	MenuDefinition data-page-actions
-	object data-page-actions-more. See VectorMenu.mustache for documentation.
+	MenuDefinition data-page-actions-more
 	object data-search-box. See SearchBox.mustache for documentation.
 	object data-sidebar. See Sidebar.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
@@ -73,11 +73,11 @@
 		{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
 		<div id="left-navigation">
 			{{#data-namespace-tabs}}{{>Menu}}{{/data-namespace-tabs}}
-			{{#data-variants}}{{>VectorMenu}}{{/data-variants}}
+			{{#data-variants}}{{>Menu}}{{/data-variants}}
 		</div>
 		<div id="right-navigation">
 			{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
-			{{#data-page-actions-more}}{{>VectorMenu}}{{/data-page-actions-more}}
+			{{#data-page-actions-more}}{{>Menu}}{{/data-page-actions-more}}
 			{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
 		</div>
 	</div>

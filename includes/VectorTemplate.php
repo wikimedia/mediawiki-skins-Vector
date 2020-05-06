@@ -461,7 +461,7 @@ class VectorTemplate extends BaseTemplate {
 	) : array {
 		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vectorMenu',
+			self::MENU_TYPE_DROPDOWN => 'vectorMenu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vectorMenu-tabs vectorTabs',
 			self::MENU_TYPE_DEFAULT => 'vectorMenu-default',
 		];
@@ -475,6 +475,7 @@ class VectorTemplate extends BaseTemplate {
 			'label' => $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label )->text(),
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
+			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
 		];
 
 		foreach ( $urls as $key => $item ) {
