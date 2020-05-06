@@ -1,11 +1,12 @@
 import mustache from 'mustache';
-import { namespaceTabsData, pageActionsData, vectorTabsTemplate } from './VectorTabs.stories.data';
-import '../resources/skins.vector.styles/VectorTabs.less';
+import { menuTemplate as vectorTabsTemplate } from './Menu.stories.data';
+import { namespaceTabsData, pageActionsData } from './MenuTabs.stories.data';
+import '../resources/skins.vector.styles/MenuTabs.less';
 import '../resources/skins.vector.styles/watchstar.less';
 import '../.storybook/common.less';
 
 export default {
-	title: 'Tabs'
+	title: 'MenuTabs'
 };
 
 export const pageActionTabs = () => mustache.render( vectorTabsTemplate, pageActionsData );

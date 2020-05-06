@@ -24,9 +24,9 @@
 		readers
 	LogoOptions data-logos
 	MenuDefinition data-personal-menu
-	object data-namespace-tabs. See VectorTabs.mustache for documentation.
+	MenuDefinition data-namespace-tabs
 	object data-variants. See VectorMenu.mustache for documentation.
-	object data-page-actions. See VectorTabs.mustache for documentation.
+	MenuDefinition data-page-actions
 	object data-page-actions-more. See VectorMenu.mustache for documentation.
 	object data-search-box. See SearchBox.mustache for documentation.
 	object data-sidebar. See Sidebar.mustache for documentation.
@@ -79,11 +79,11 @@
 	<div id="mw-head">
 		{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
 		<div id="left-navigation">
-			{{#data-namespace-tabs}}{{>VectorTabs}}{{/data-namespace-tabs}}
+			{{#data-namespace-tabs}}{{>Menu}}{{/data-namespace-tabs}}
 			{{#data-variants}}{{>VectorMenu}}{{/data-variants}}
 		</div>
 		<div id="right-navigation">
-			{{#data-page-actions}}{{>VectorTabs}}{{/data-page-actions}}
+			{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
 			{{#data-page-actions-more}}{{>VectorMenu}}{{/data-page-actions-more}}
 			{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
 		</div>

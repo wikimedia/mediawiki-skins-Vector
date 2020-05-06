@@ -2,7 +2,7 @@ import { htmluserlangattributes } from './utils';
 import { placeholder } from './utils';
 
 import { PERSONAL_MENU_TEMPLATE_DATA, menuTemplate } from './Menu.stories.data';
-import { pageActionsData, namespaceTabsData, vectorTabsTemplate } from './VectorTabs.stories.data';
+import { pageActionsData, namespaceTabsData } from './MenuTabs.stories.data';
 import { vectorMenuTemplate, moreData, variantsData } from './VectorMenu.stories.data';
 import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
 import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './Sidebar.stories.data';
@@ -46,7 +46,6 @@ export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	Logo: logoTemplate,
 	SearchBox: searchBoxTemplate,
 	Sidebar: sidebarTemplate,
-	VectorTabs: vectorTabsTemplate,
 	VectorMenu: vectorMenuTemplate,
 	Menu: menuTemplate,
 	Footer: footerTemplate
