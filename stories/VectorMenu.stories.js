@@ -4,7 +4,7 @@ import '../.storybook/common.less';
 import { vectorMenuTemplate, moreData, variantsData } from './VectorMenu.stories.data';
 
 export default {
-	title: 'Menu'
+	title: 'MenuDropdown'
 };
 
 export const more = () => mustache.render( vectorMenuTemplate, moreData );

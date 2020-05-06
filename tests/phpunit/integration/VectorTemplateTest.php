@@ -171,7 +171,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $actions['class'],
 			'emptyPortlet vectorMenu' );
 		$this->assertSame( $props['data-personal-menu']['class'],
-			'emptyPortlet' );
+			'emptyPortlet vectorMenu-default' );
 	}
 
 }

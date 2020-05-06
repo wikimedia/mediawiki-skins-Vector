@@ -23,7 +23,7 @@
 	string html-navigation-heading heading for entire navigation that is usually hidden to screen
 		readers
 	LogoOptions data-logos
-	MenuDefinition data-personal-menu See PersonalMenu.mustache for documentation.
+	MenuDefinition data-personal-menu
 	object data-namespace-tabs. See VectorTabs.mustache for documentation.
 	object data-variants. See VectorMenu.mustache for documentation.
 	object data-page-actions. See VectorTabs.mustache for documentation.
@@ -77,7 +77,7 @@
 <div id="mw-navigation">
 	<h2>{{{html-navigation-heading}}}</h2>
 	<div id="mw-head">
-		{{#data-personal-menu}}{{>PersonalMenu}}{{/data-personal-menu}}
+		{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
 		<div id="left-navigation">
 			{{#data-namespace-tabs}}{{>VectorTabs}}{{/data-namespace-tabs}}
 			{{#data-variants}}{{>VectorMenu}}{{/data-variants}}
