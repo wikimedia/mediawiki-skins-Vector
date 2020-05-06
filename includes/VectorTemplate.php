@@ -462,7 +462,7 @@ class VectorTemplate extends BaseTemplate {
 		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vectorMenu',
-			self::MENU_TYPE_TABS => 'vectorTabs',
+			self::MENU_TYPE_TABS => 'vectorMenu-tabs vectorTabs',
 			self::MENU_TYPE_DEFAULT => 'vectorMenu-default',
 		];
 

@@ -1,14 +1,11 @@
 import { htmluserlangattributes } from './utils';
-import vectorTabsTemplate from '!!raw-loader!../includes/templates/VectorTabs.mustache';
-
-export { vectorTabsTemplate };
 
 /**
  * @type {MenuDefinition}
  */
 export const pageActionsData = {
 	id: 'p-views',
-	class: 'vectorTabs',
+	class: 'vectorMenu-tabs vectorTabs',
 	'label-id': 'p-views-label',
 	label: 'Views',
 	'html-userlangattributes': htmluserlangattributes,
@@ -30,7 +27,7 @@ You can view its source [⌃⌥e]" accesskey="e">View source</a></li>
  */
 export const namespaceTabsData = {
 	id: 'p-namespaces',
-	class: 'vectorTabs',
+	class: 'vectorMenu-tabs vectorTabs',
 	'label-id': 'p-namespaces-label',
 	label: 'Namespaces',
 	'html-userlangattributes': htmluserlangattributes,
