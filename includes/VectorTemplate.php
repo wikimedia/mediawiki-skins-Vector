@@ -460,10 +460,12 @@ class VectorTemplate extends BaseTemplate {
 		bool $setLabelToSelected = false
 	) : array {
 		$class = ( count( $urls ) == 0 ) ? 'emptyPortlet' : '';
+		// FIXME: All menus should carry vector-menu, but this can only be done when
+		// Menu.less CSS has been generalised to not include layout.
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vectorMenu-dropdown vectorMenu',
-			self::MENU_TYPE_TABS => 'vectorMenu-tabs vectorTabs',
-			self::MENU_TYPE_DEFAULT => 'vectorMenu-default',
+			self::MENU_TYPE_DROPDOWN => 'vector-menu-dropdown vectorMenu',
+			self::MENU_TYPE_TABS => 'vector-menu-tabs vectorTabs',
+			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
 
 		$props = [
