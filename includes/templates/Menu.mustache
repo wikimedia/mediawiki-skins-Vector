@@ -1,7 +1,7 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<div id="{{id}}" role="navigation" class="{{class}}" aria-labelledby="{{label-id}}">
+<nav id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}">
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
 	<h3 id="{{label-id}}">
@@ -14,4 +14,4 @@
 	<ul class="menu" {{{html-userlangattributes}}}>
 		{{{html-items}}}
 	</ul>
-</div>
+</nav>
