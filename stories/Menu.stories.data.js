@@ -6,7 +6,7 @@ import { htmluserlangattributes } from './utils';
  */
 const loggedOut = {
 	id: 'p-personal',
-	class: 'vectorMenu-default',
+	class: 'vector-menu',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,
@@ -18,7 +18,7 @@ const loggedOut = {
  */
 const loggedInWithEcho = {
 	id: 'p-personal',
-	class: 'vectorMenu-default',
+	class: 'vector-menu',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,
@@ -32,7 +32,7 @@ const ULS_LANGUAGE_SELECTOR = '<li class="uls-trigger active"><a href="#">Englis
  */
 const defaultMenu = {
 	id: 'p-generic',
-	class: 'vectorMenu-default',
+	class: 'vector-menu',
 	'label-id': 'p-generic-label',
 	label: 'Menu label',
 	'html-userlangattributes': htmluserlangattributes,
@@ -46,7 +46,7 @@ const defaultMenu = {
  */
 const loggedInWithULS = {
 	id: 'p-personal',
-	class: 'vectorMenu-default',
+	class: 'vector-menu',
 	'label-id': 'p-personal-label',
 	label: 'Personal tools',
 	'html-userlangattributes': htmluserlangattributes,

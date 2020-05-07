@@ -8,7 +8,7 @@ export { vectorMenuTemplate };
  */
 export const moreData = {
 	'is-dropdown': true,
-	class: 'vectorMenu-dropdown vectorMenu',
+	class: 'vector-menu-dropdown',
 	label: 'More',
 	id: 'p-cactions',
 	'label-id': 'p-cactions-label',
@@ -32,7 +32,7 @@ export const moreData = {
  */
 export const variantsData = {
 	'is-dropdown': true,
-	class: 'vectorMenu-dropdown vectorMenu',
+	class: 'vector-menu-dropdown',
 	label: '新加坡简体',
 	id: 'p-variants',
 	'label-id': 'p-variants-label',

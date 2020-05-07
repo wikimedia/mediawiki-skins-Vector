@@ -154,25 +154,25 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( $views, [
 			'id' => 'p-views',
-			'class' => 'emptyPortlet vectorMenu-tabs vectorTabs',
+			'class' => 'emptyPortlet vector-menu-tabs vectorTabs',
 			'label-id' => 'p-views-label',
 			'label' => 'Views',
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
-			'class' => 'emptyPortlet vectorMenu-tabs vectorTabs',
+			'class' => 'emptyPortlet vector-menu-tabs vectorTabs',
 			'is-dropdown' => false,
 		] );
 
 		$variants = $props['data-variants'];
 		$actions = $props['data-page-actions-more'];
 		$this->assertSame( $namespaces['class'],
-			'emptyPortlet vectorMenu-tabs vectorTabs' );
+			'emptyPortlet vector-menu-tabs vectorTabs' );
 		$this->assertSame( $variants['class'],
-			'emptyPortlet vectorMenu-dropdown vectorMenu' );
+			'emptyPortlet vector-menu-dropdown vectorMenu' );
 		$this->assertSame( $actions['class'],
-			'emptyPortlet vectorMenu-dropdown vectorMenu' );
+			'emptyPortlet vector-menu-dropdown vectorMenu' );
 		$this->assertSame( $props['data-personal-menu']['class'],
-			'emptyPortlet vectorMenu-default' );
+			'emptyPortlet vector-menu' );
 	}
 
 }
