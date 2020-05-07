@@ -43,6 +43,10 @@ body {
 }
 
 .mw-body {
+	// Will be removed when we limit content width (T246420).
+	/* Border on top, left, and bottom side */
+	border: @border-width-base @border-style-base @border-color-content;
+	border-right-width: 0;
 	/* Merge the border with tabs' one (in their background image) */
 	margin-top: -@border-width-base;
 
