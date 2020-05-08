@@ -12,6 +12,7 @@ body {
 }
 
 body {
+	background-color: @background-color-secondary;
 	overflow-y: scroll;
 }
 
@@ -30,8 +31,11 @@ body {
 }
 
 .mw-body {
-	/* Merge the border with tabs' one (in their background image) */
+	// Merge the border below with tabs' one (in their background image).
 	margin-top: -@border-width-base;
+	// Border on top, left, and bottom side.
+	border: @border-width-base @border-style-base @border-color-content;
+	border-right-width: 0;
 
 	.firstHeading {
 		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
@@ -51,6 +55,8 @@ body {
 
 /* Head */
 #mw-page-base {
+	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
+	background-position: bottom left;
 	height: 5em;
 }
 
