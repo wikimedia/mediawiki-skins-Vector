@@ -63,6 +63,18 @@ class SkinVector extends SkinTemplate {
 	}
 
 	/**
+	 * Called by OutputPage::headElement when it is creating the
+	 * `<body>` tag. Overrides method in Skin class.
+	 * @param OutputPage $out
+	 * @param array &$bodyAttrs
+	 */
+	public function addToBodyAttributes( $out, &$bodyAttrs ) {
+		if ( $this->isLegacy() ) {
+			$bodyAttrs['class'] .= ' skin-vector-legacy';
+		}
+	}
+
+	/**
 	 * @inheritDoc
 	 * @return array
 	 */
