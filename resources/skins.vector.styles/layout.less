@@ -30,14 +30,15 @@ body {
 }
 
 body {
+	// General background/foreground color definition as one exception to the rule.
+	background-color: @background-color-base;
+	color: @color-base;
+	// Vertical scrollbar always visible.
 	overflow-y: scroll;
 }
 
 .mw-body,
 .parsoid-body {
-	// General background/foreground color definition as one exception to the rule.
-	background-color: @background-color-base;
-	color: @color-base;
 	direction: ltr;
 	padding: @padding-content;
 }
