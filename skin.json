@@ -35,6 +35,7 @@
 		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
+		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",
 		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
