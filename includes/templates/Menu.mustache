@@ -1,7 +1,7 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<nav id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}>
+<div id="{{id}}" role="navigation" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
 	<h3 id="{{label-id}}" {{{html-userlangattributes}}}>
@@ -22,6 +22,6 @@
 		{{{html-items}}}
 	</ul>
 	{{/is-portal}}
-</nav>
+</div>
 {{! Note: html-hook-vector-after-toolbox is deprecated. }}
 {{{html-hook-vector-after-toolbox}}}
