@@ -419,6 +419,7 @@ class VectorTemplate extends BaseTemplate {
 			if ( !isset( $item['class'] ) ) {
 				$item['class'] = '';
 			}
+			/* @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset */
 			$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
 		}
 
