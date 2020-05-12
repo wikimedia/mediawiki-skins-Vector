@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"scripts": {
+		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s docs/ui",
 		"build": "npm -s test && npm -s run doc",
 		"test": "npm -s run lint && tsc",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
@@ -10,8 +11,7 @@
 		"lint:styles": "stylelint \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
-		"storybook": "bash ./dev-scripts/setup-storybook.sh && start-storybook -p 6006 -s docs/ui/",
-		"build-storybook": "bash ./dev-scripts/setup-storybook.sh && build-storybook -o docs/ui",
+		"build-storybook": "dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
 		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/"
 	},
 	"devDependencies": {
