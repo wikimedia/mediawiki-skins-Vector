@@ -84,7 +84,7 @@ class SkinVector extends SkinTemplate {
 		$module = $this->isLegacy()
 			? 'skins.vector.styles.legacy' : 'skins.vector.styles';
 		$modules['styles']['skin'][] = $module;
-		$modules['core'][] = 'skins.vector.js';
+		$modules['core'][] = $this->isLegacy() ? 'skins.vector.legacy.js' : 'skins.vector.js';
 
 		return $modules;
 	}

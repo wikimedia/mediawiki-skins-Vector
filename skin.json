@@ -67,8 +67,18 @@
 		"skins.vector.js": {
 			"packageFiles": [
 				"resources/skins.vector.js/index.js",
-				"resources/skins.vector.js/collapsibleTabs.js",
-				"resources/skins.vector.js/vector.js"
+				"resources/skins.vector.legacy.js/collapsibleTabs.js",
+				"resources/skins.vector.legacy.js/vector.js"
+			],
+			"dependencies": [
+				"mediawiki.util"
+			]
+		},
+		"skins.vector.legacy.js": {
+			"packageFiles": [
+				"resources/skins.vector.legacy.js/index.js",
+				"resources/skins.vector.legacy.js/collapsibleTabs.js",
+				"resources/skins.vector.legacy.js/vector.js"
 			],
 			"dependencies": [
 				"mediawiki.util"
