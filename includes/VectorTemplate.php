@@ -454,13 +454,15 @@ class VectorTemplate extends BaseTemplate {
 		];
 		$isPortal = self::MENU_TYPE_PORTAL === $type;
 
+		// For some menu items, there is no language key corresponding with its menu key.
+		// These inconsitencies are captured in MENU_LABEL_KEYS
+		$msgObj = $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
 		$props = [
 			'id' => "p-$label",
 			'class' => trim( "$class $extraClasses[$type]" ),
 			'label-id' => "p-{$label}-label",
-			// For some menu items, there is no language key corresponding with its menu key.
-			// These inconsitencies are captured in MENU_LABEL_KEYS
-			'label' => $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label )->text(),
+			// If no message exists fallback to plain text (T252727)
+			'label' => $msgObj->exists() ? $msgObj->text() : $label,
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'html-items' => '',
 			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
