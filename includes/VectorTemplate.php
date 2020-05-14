@@ -346,12 +346,16 @@ class VectorTemplate extends BaseTemplate {
 				case 'LANGUAGES':
 					// @phan-suppress-next-line PhanUndeclaredMethod
 					$languages = $skin->getLanguages();
-					if ( count( $languages ) ) {
-						$props[] = $this->getMenuData(
-							'lang',
-							$languages,
-							self::MENU_TYPE_PORTAL
-						);
+					$portal = $this->getMenuData(
+						'lang',
+						$languages,
+						self::MENU_TYPE_PORTAL
+					);
+					// The language portal will be added provided either
+					// languages exist or there is a value in html-after-portal
+					// for example to show the add language wikidata link (T252800)
+					if ( count( $languages ) || $portal['html-after-portal'] ) {
+						$props[] = $portal;
 					}
 					break;
 				default:
@@ -445,7 +449,6 @@ class VectorTemplate extends BaseTemplate {
 		array $options = [],
 		bool $setLabelToSelected = false
 	) : array {
-		$class = ( count( $urls ) == 0 ) ? 'vector-menu-empty emptyPortlet' : '';
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
@@ -459,7 +462,6 @@ class VectorTemplate extends BaseTemplate {
 		$msgObj = $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
 		$props = [
 			'id' => "p-$label",
-			'class' => trim( "$class $extraClasses[$type]" ),
 			'label-id' => "p-{$label}-label",
 			// If no message exists fallback to plain text (T252727)
 			'label' => $msgObj->exists() ? $msgObj->text() : $label,
@@ -482,6 +484,11 @@ class VectorTemplate extends BaseTemplate {
 		}
 
 		$props['html-after-portal'] = $isPortal ? $this->getAfterPortlet( $label ) : '';
+
+		// Mark the portal as empty if it has no content
+		$class = ( count( $urls ) == 0 && !$props['html-after-portal'] )
+			? 'vector-menu-empty emptyPortlet' : '';
+		$props['class'] = trim( "$class $extraClasses[$type]" );
 		return $props;
 	}
 

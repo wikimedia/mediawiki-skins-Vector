@@ -154,15 +154,14 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( $views, [
 			'id' => 'p-views',
-			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 			'label-id' => 'p-views-label',
 			'label' => 'Views',
 			'html-userlangattributes' => $langAttrs,
 			'html-items' => '',
-			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 			'is-dropdown' => false,
 			'html-tooltip' => '',
-			'html-after-portal' => ''
+			'html-after-portal' => '',
+			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 		] );
 
 		$variants = $props['data-variants'];
