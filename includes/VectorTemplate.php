@@ -76,7 +76,7 @@ class VectorTemplate extends BaseTemplate {
 
 		$this->templateParser = $templateParser;
 		$this->isLegacy = $isLegacy;
-		$this->templateRoot = $isLegacy ? 'legacy' : 'index';
+		$this->templateRoot = $isLegacy ? 'skin-legacy' : 'skin';
 	}
 
 	/**
