@@ -334,7 +334,7 @@ class VectorTemplate extends BaseTemplate {
 					$vectorTemplate = $this;
 					ob_start();
 					// Use SidebarBeforeOutput instead.
-					Hooks::run( 'SkinTemplateToolboxEnd', [ &$vectorTemplate, true ], '1.35' );
+					Hooks::run( 'SkinTemplateToolboxEnd', [ &$vectorTemplate, true ] );
 					$htmlhookitems = ob_get_clean();
 					$portal['html-items'] .= $htmlhookitems;
 					ob_start();
