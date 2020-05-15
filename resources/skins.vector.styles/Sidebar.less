@@ -1,20 +1,2 @@
 @import '../../variables.less';
-
-/* Panel */
-#mw-panel {
-	font-size: @font-size-nav-main;
-
-	.portal-first,
-	/* FIXME: For caching. Can be removed in a week from the git blame commit id of this line. */
-	#p-logo + .portal {
-		background-image: none;
-
-		h3 {
-			display: none;
-		}
-
-		.body {
-			margin-left: @margin-start-nav-main-body;
-		}
-	}
-}
+@import 'legacy/Sidebar.less';

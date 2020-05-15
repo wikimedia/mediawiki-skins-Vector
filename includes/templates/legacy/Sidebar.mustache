@@ -1,0 +1,16 @@
+{{!
+	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
+	MenuDefinition data-portals-first
+	MenuDefinition[] array-portals-rest
+	@prop boolean has-logo whether to show a logo or not.
+}}
+
+<div id="mw-panel">
+	{{#has-logo}}
+	<div id="p-logo" role="banner">
+		<a {{{html-logo-attributes}}}></a>
+	</div>
+	{{/has-logo}}
+	{{#data-portals-first}}{{>Menu}}{{/data-portals-first}}
+	{{#array-portals-rest}}{{>Menu}}{{/array-portals-rest}}
+</div>
