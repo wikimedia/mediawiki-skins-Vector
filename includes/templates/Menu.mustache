@@ -1,7 +1,7 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<div id="{{id}}" class="{{class}}" aria-labelledby="{{label-id}}" {{{html-tooltip}}}
+<div id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{label-id}}" {{{html-tooltip}}}
 	 {{{html-userlangattributes}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
