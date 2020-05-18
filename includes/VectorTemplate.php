@@ -111,11 +111,13 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * @deprecated Please use Skin::getTemplateData instead
 	 * @return array Returns an array of data shared between Vector and legacy
 	 * Vector.
 	 */
 	private function getSkinData() : array {
-		$contentNavigation = $this->get( 'content_navigation', [] );
+		// @phan-suppress-next-line PhanUndeclaredMethod
+		$contentNavigation = $this->getSkin()->getMenuProps();
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
@@ -142,9 +144,9 @@ class VectorTemplate extends BaseTemplate {
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
-		$commonSkinData = [
+		// @phan-suppress-next-line PhanUndeclaredMethod
+		$commonSkinData = $skin->getTemplateData() + [
 			'html-headelement' => $out->headElement( $skin ),
-			'html-sitenotice' => $this->get( 'sitenotice', null ),
 			'html-indicators' => $this->getIndicators(),
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
@@ -152,17 +154,7 @@ class VectorTemplate extends BaseTemplate {
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
 			'html-title' => $out->getPageTitle(),
-
-			'html-prebodyhtml' => $this->get( 'prebodyhtml', '' ),
 			'msg-tagline' => $this->msg( 'tagline' )->text(),
-			// TODO: Use Skin::prepareUserLanguageAttributes() when available.
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
-			// From OutputPage::getSubtitle()
-			'html-subtitle' => $this->get( 'subtitle', '' ),
-
-			// TODO: Use Skin::prepareUndeleteLink() when available
-			// Always returns string, cast to null if empty.
-			'html-undelete' => $this->get( 'undelete', null ) ?: null,
 
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 			'html-newtalk' => $skin->getNewtalks() ?: null,
@@ -170,18 +162,11 @@ class VectorTemplate extends BaseTemplate {
 			'msg-vector-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
 			'msg-vector-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
 
-			// Result of OutputPage::addHTML calls
-			'html-bodycontent' => $this->get( 'bodycontent' ),
-
 			'html-printfooter' => $skin->printSource(),
 			'html-catlinks' => $skin->getCategories(),
-			'html-dataAfterContent' => $this->get( 'dataAfterContent', '' ),
-			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
-			'html-debuglog' => $this->get( 'debughtml', '' ),
 			// From BaseTemplate::getTrail (handles bottom JavaScript)
 			'html-printtail' => $this->getTrail() . '</body></html>',
 			'data-footer' => [
-				'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
 			],
@@ -279,7 +264,7 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildSidebar() : array {
 		$skin = $this->getSkin();
-		$portals = $this->get( 'sidebar', [] );
+		$portals = $skin->buildSidebar();
 		$props = [];
 		// Force the rendering of the following portals
 		if ( !isset( $portals['TOOLBOX'] ) ) {
@@ -418,7 +403,6 @@ class VectorTemplate extends BaseTemplate {
 			'label-id' => "p-{$label}-label",
 			// If no message exists fallback to plain text (T252727)
 			'label' => $msgObj->exists() ? $msgObj->text() : $label,
-			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
 			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
 			'html-items' => '',
 			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
@@ -459,7 +443,8 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function getMenuProps() : array {
-		$contentNavigation = $this->get( 'content_navigation', [] );
+		// @phan-suppress-next-line PhanUndeclaredMethod
+		$contentNavigation = $this->getSkin()->getMenuProps();
 		$personalTools = $this->getPersonalTools();
 		$skin = $this->getSkin();
 

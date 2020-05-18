@@ -3,7 +3,9 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use GlobalVarConfig;
 use MediaWikiIntegrationTestCase;
+use RequestContext;
 use TemplateParser;
+use Title;
 use VectorTemplate;
 use Wikimedia\TestingAccessWrapper;
 
@@ -95,17 +97,25 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {
-		$langAttrs = 'LANG_ATTRIBUTES';
+		$title = Title::newFromText( 'SkinTemplateVector' );
+		$context = RequestContext::getMain();
+		$context->setTitle( $title );
+		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		// used internally by getPersonalTools
 		$vectorTemplate->set( 'personal_urls', [] );
-		$vectorTemplate->set( 'content_navigation', [
-			'actions' => [],
-			'namespaces' => [],
-			'variants' => [],
-			'views' => [],
+		$this->setMwGlobals( 'wgHooks', [
+			'SkinTemplateNavigation' => [
+				function ( &$skinTemplate, &$content_navigation ) {
+					$content_navigation = [
+						'actions' => [],
+						'namespaces' => [],
+						'variants' => [],
+						'views' => [],
+					];
+				}
+			]
 		] );
-		$vectorTemplate->set( 'userlangattributes', $langAttrs );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
 		$props = $openVectorTemplate->getMenuProps();
@@ -115,8 +125,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $views, [
 			'id' => 'p-views',
 			'label-id' => 'p-views-label',
-			'label' => 'Views',
-			'html-userlangattributes' => $langAttrs,
+			'label' => $context->msg( 'views' )->text(),
 			'list-classes' => 'vector-menu-content-list',
 			'html-items' => '',
 			'is-dropdown' => false,
