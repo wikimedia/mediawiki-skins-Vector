@@ -32,7 +32,7 @@ use Vector\Constants;
  * @unstable
  */
 class SkinVector extends SkinTemplate {
-	public $skinname = 'vector';
+	public $skinname = Constants::SKIN_NAME;
 	public $stylename = 'Vector';
 	public $template = 'VectorTemplate';
 
