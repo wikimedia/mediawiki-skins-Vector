@@ -271,4 +271,41 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		$isAutoCreated = false;
 		Hooks::onLocalUserCreated( $user, $isAutoCreated );
 	}
+
+	/**
+	 * @covers ::onSkinTemplateNavigation
+	 */
+	public function testOnSkinTemplateNavigation() {
+		$this->setMwGlobals( [
+			'wgVectorUseIconWatch' => true
+		] );
+		$skin = new SkinVector();
+		$contentNavWatch = [
+			'actions' => [
+				'watch' => [ 'class' => 'watch' ],
+			]
+		];
+		$contentNavUnWatch = [
+			'actions' => [
+				'move' => [ 'class' => 'move' ],
+				'unwatch' => [],
+			],
+		];
+
+		Hooks::onSkinTemplateNavigation( $skin, $contentNavUnWatch );
+		Hooks::onSkinTemplateNavigation( $skin, $contentNavWatch );
+
+		$this->assertTrue(
+			strpos( $contentNavWatch['views']['watch']['class'], 'icon' ) !== false,
+			'Watch list items require an "icon" class'
+		);
+		$this->assertTrue(
+			strpos( $contentNavUnWatch['views']['unwatch']['class'], 'icon' ) !== false,
+			'Unwatch list items require an "icon" class'
+		);
+		$this->assertFalse(
+			strpos( $contentNavUnWatch['actions']['move']['class'], 'icon' ) !== false,
+			'List item other than watch or unwatch should not have an "icon" class'
+		);
+	}
 }

@@ -50,15 +50,32 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::makeListItem
+	 * @covers ::getMenuData
 	 */
 	public function testMakeListItemRespectsCollapsibleOption() {
-		$template = $this->provideVectorTemplateObject();
+		$vectorTemplate = $this->provideVectorTemplateObject();
+		$template = TestingAccessWrapper::newFromObject( $vectorTemplate );
 		$listItemClass = 'my_test_class';
 		$options = [ 'vector-collapsible' => true ];
 		$item = [ 'class' => $listItemClass ];
-		$nonCollapsible = $template->makeListItem( 'key', $item, [] );
-		$collapsible = $template->makeListItem( 'key', [], $options );
+		$propsCollapsible = $template->getMenuData(
+			'foo',
+			[
+				'bar' => $item,
+			],
+			0,
+			$options
+		);
+		$propsNonCollapsible = $template->getMenuData(
+			'foo',
+			[
+				'bar' => $item,
+			],
+			0,
+			[]
+		);
+		$nonCollapsible = $propsNonCollapsible['html-items'];
+		$collapsible = $propsCollapsible['html-items'];
 
 		$this->assertTrue(
 			$this->expectNodeAttribute( $collapsible, 'li', 'class', 'collapsible' ),
@@ -71,63 +88,6 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 		$this->assertTrue(
 			$this->expectNodeAttribute( $nonCollapsible, 'li', 'class', $listItemClass ),
 			'The non-collapsible element should preserve item class'
-		);
-	}
-
-	/**
-	 * @covers ::makeListItem
-	 */
-	public function testWatcAndUnwatchHasIconClass() {
-		$template = $this->provideVectorTemplateObject();
-		$this->setMwGlobals( [
-			'wgVectorUseIconWatch' => true
-		] );
-		$listItemClass = 'my_test_class';
-		$options = [];
-		$item = [ 'class' => $listItemClass ];
-
-		$watchListItem = $template->makeListItem( 'watch', $item, [] );
-		$unwatchListItem = $template->makeListItem( 'unwatch', [], $options );
-		$regularListItem = $template->makeListItem( 'whatever', $item, $options );
-
-		$this->assertTrue(
-			$this->expectNodeAttribute( $watchListItem, 'li', 'class', 'icon' ),
-			'Watch list items require an "icon" class'
-		);
-		$this->assertTrue(
-			$this->expectNodeAttribute( $unwatchListItem, 'li', 'class', 'icon' ),
-			'Unwatch list items require an "icon" class'
-		);
-		$this->assertFalse(
-			$this->expectNodeAttribute( $regularListItem, 'li', 'class', 'icon' ),
-			'List item other than watch or unwatch should not have an "icon" class'
-		);
-		$this->assertTrue(
-			$this->expectNodeAttribute( $watchListItem, 'li', 'class', $listItemClass ),
-			'Watch list items require an item class'
-		);
-	}
-
-	/**
-	 * @covers ::makeListItem
-	 */
-	public function testWatchAndUnwatchHasIconClassOnlyIfVectorUseIconWatchIsSet() {
-		$template = $this->provideVectorTemplateObject();
-		$this->setMwGlobals( [
-			'wgVectorUseIconWatch' => false
-		] );
-		$listItemClass = 'my_test_class';
-		$item = [ 'class' => $listItemClass ];
-
-		$watchListItem = $template->makeListItem( 'watch', $item, [] );
-
-		$this->assertFalse(
-			$this->expectNodeAttribute( $watchListItem, 'li', 'class', 'icon' ),
-			'Watch list should not have an "icon" class when VectorUserIconWatch is disabled'
-		);
-		$this->assertTrue(
-			$this->expectNodeAttribute( $watchListItem, 'li', 'class', $listItemClass ),
-			'Watch list items require an item class'
 		);
 	}
 

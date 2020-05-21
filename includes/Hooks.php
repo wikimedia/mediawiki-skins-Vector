@@ -34,6 +34,50 @@ class Hooks {
 	}
 
 	/**
+	 * Add icon class to an existing navigation item inside a menu hook.
+	 * See self::onSkinTemplateNavigation.
+	 * @param array $item
+	 * @return array
+	 */
+	private static function navigationLinkToIcon( array $item ) {
+		if ( !isset( $item['class'] ) ) {
+			$item['class'] = '';
+		}
+		$item['class'] = rtrim( 'icon ' . $item['class'], ' ' );
+		return $item;
+	}
+
+	/**
+	 * Upgrades Vector's watch action to a watchstar.
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
+	 * @param SkinTemplate $sk
+	 * @param array &$content_navigation
+	 */
+	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
+		if (
+			$sk->getSkinName() === 'vector' &&
+			$sk->getConfig()->get( 'VectorUseIconWatch' )
+		) {
+			$key = null;
+			if ( isset( $content_navigation['actions']['watch'] ) ) {
+				$key = 'watch';
+			}
+			if ( isset( $content_navigation['actions']['unwatch'] ) ) {
+				$key = 'unwatch';
+			}
+
+			// Promote watch link from actions to views and add an icon
+			if ( $key !== null ) {
+				$content_navigation['views'][$key] = self::navigationLinkToIcon(
+					$content_navigation['actions'][$key]
+				);
+				unset( $content_navigation['actions'][$key] );
+			}
+		}
+	}
+
+	/**
 	 * Add Vector preferences to the user's Special:Preferences page directly underneath skins.
 	 *
 	 * @param User $user User whose preferences are being modified.

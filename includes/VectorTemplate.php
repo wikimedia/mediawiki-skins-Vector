@@ -22,8 +22,6 @@
  * @ingroup Skins
  */
 
-use MediaWiki\MediaWikiServices;
-
 /**
  * QuickTemplate subclass for Vector
  * @ingroup Skins
@@ -121,30 +119,6 @@ class VectorTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
-
-		// Move the watch/unwatch star outside of the collapsed "actions" menu to the main "views" menu
-		if ( $this->getConfig()->get( 'VectorUseIconWatch' ) ) {
-			$mode = ( $skin->getRelevantTitle()->isWatchable() &&
-						MediaWikiServices::getInstance()->getPermissionManager()->userHasRight(
-							$skin->getUser(),
-							'viewmywatchlist'
-						) &&
-						MediaWikiServices::getInstance()->getWatchedItemStore()->isWatched(
-							$skin->getUser(),
-							$skin->getRelevantTitle()
-						)
-					) ? 'unwatch' : 'watch';
-
-			$actionUrls = $contentNavigation[ 'actions' ] ?? [];
-			if ( array_key_exists( $mode, $actionUrls ) ) {
-				$viewUrls = $contentNavigation[ 'views' ] ?? [];
-				$viewUrls[ $mode ] = $actionUrls[ $mode ];
-				unset( $actionUrls[ $mode ] );
-				$contentNavigation['actions'] = $actionUrls;
-				$contentNavigation['views'] = $viewUrls;
-				$this->set( 'content_navigation', $contentNavigation );
-			}
-		}
 
 		ob_start();
 		Hooks::run( 'VectorBeforeFooter', [], '1.35' );
@@ -402,35 +376,6 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @inheritDoc
-	 */
-	public function makeListItem( $key, $item, $options = [] ) {
-		// For fancy styling of watch/unwatch star
-		if (
-			$this->getConfig()->get( 'VectorUseIconWatch' )
-			&& ( $key === 'watch' || $key === 'unwatch' )
-		) {
-			if ( !isset( $item['class'] ) ) {
-				$item['class'] = '';
-			}
-			$item['class'] = rtrim( 'icon ' . $item['class'], ' ' );
-			$item['primary'] = true;
-		}
-
-		// Add CSS class 'collapsible' to links which are not marked as "primary"
-		if (
-			isset( $options['vector-collapsible'] ) && $options['vector-collapsible'] ) {
-			if ( !isset( $item['class'] ) ) {
-				$item['class'] = '';
-			}
-			/* @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset */
-			$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
-		}
-
-		return parent::makeListItem( $key, $item, $options );
-	}
-
-	/**
 	 * @param string $label to be used to derive the id and human readable label of the menu
 	 *  If the key has an entry in the constant MENU_LABEL_KEYS then that message will be used for the
 	 *  human readable text instead.
@@ -472,7 +417,16 @@ class VectorTemplate extends BaseTemplate {
 		];
 
 		foreach ( $urls as $key => $item ) {
-			$props['html-items'] .= $this->makeListItem( $key, $item, $options );
+			// Add CSS class 'collapsible' to all links EXCEPT watchstar.
+			if (
+				$key !== 'watch' && $key !== 'unwatch' &&
+				isset( $options['vector-collapsible'] ) && $options['vector-collapsible'] ) {
+				if ( !isset( $item['class'] ) ) {
+					$item['class'] = '';
+				}
+				$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
+			}
+			$props['html-items'] .= $this->getSkin()->makeListItem( $key, $item, $options );
 
 			// Check the class of the item for a `selected` class and if so, propagate the items
 			// label to the main label.
@@ -518,7 +472,7 @@ class VectorTemplate extends BaseTemplate {
 		// This code doesn't belong here, it belongs in the UniversalLanguageSelector
 		// It is here to workaround the fact that it wants to be the first item in the personal menus.
 		if ( array_key_exists( 'uls', $personalTools ) ) {
-			$uls = $this->makeListItem( 'uls', $personalTools[ 'uls' ] );
+			$uls = $skin->makeListItem( 'uls', $personalTools[ 'uls' ] );
 			unset( $personalTools[ 'uls' ] );
 		} else {
 			$uls = '';
