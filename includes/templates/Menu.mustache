@@ -4,7 +4,7 @@
 <div id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{label-id}}" {{{html-tooltip}}}
 	 {{{html-userlangattributes}}}>
 	{{#is-dropdown}}
-	<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
+	<input type="checkbox" class="vectorMenuCheckbox vector-menu-checkbox" aria-labelledby="{{label-id}}" />
 	{{/is-dropdown}}
 	<h3 id="{{label-id}}">
 		<span>{{label}}</span>
@@ -14,7 +14,7 @@
 	<!-- Please do not use the .body class, it is deprecated. -->
 	<div class="body vector-menu-content">
 		<!-- Please do not use the .menu class, it is deprecated. -->
-		<ul class="menu vector-menu-content-list">{{{html-items}}}</ul>
+		<ul class="{{list-classes}}">{{{html-items}}}</ul>
 		{{{html-after-portal}}}
 	</div>
 </div>

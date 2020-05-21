@@ -67,14 +67,18 @@
 		z-index: @z-index-menu;
 	}
 
-	&:hover .menu {
+	// FIXME: Drop .menu class after cache has cleared.
+	&:hover .menu,
+	&:hover .vector-menu-content-list {
 		opacity: 1;
 		visibility: visible;
 	}
 
 	// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
 	// Support: IE8
-	.vectorMenuCheckbox:checked ~ .menu {
+	// FIXME: drop .menu selector when cache has cleared
+	.vectorMenuCheckbox:checked ~ .menu,
+	.vector-menu-checkbox:checked ~ .vector-menu-content-list {
 		opacity: 1;
 		visibility: visible;
 	}
