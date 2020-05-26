@@ -1,4 +1,10 @@
 /**
+ * @typedef {Object} Indicator
+ * @prop {string} html of the indicator link.
+ * @prop {string} id of the indicator.
+ */
+
+/**
  * @typedef {Object} LogoOptions
  * @prop {string} src of logo. Can be relative, absolute or data uri.
  * @prop {string} [alt] text of logo.

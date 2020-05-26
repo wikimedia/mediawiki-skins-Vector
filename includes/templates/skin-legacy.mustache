@@ -3,8 +3,8 @@
 		`</head>` and contains `meta` tags and ResourceLoader internals.
 	string|null html-sitenotice the contents of a banner defined in MediaWiki:Sitenotice.
 		Also used by CentralNotice to inject banners into Vector.
-	string html-indicators raw HTML containing wiki-defined badges such as "good article",
-		"featured article". An empty string if none are defined.
+	Indicator[] data-indicators wiki-defined badges such as "good article",
+		"featured article". An empty array if none are defined.
 	string page-langcode the content language of the article. Assumed to be escaped HTML.
 	string html-title
 	string html-prebodyhtml
@@ -42,7 +42,7 @@
 	{{#html-sitenotice}}
 		<div id="siteNotice" class="mw-body-content">{{{html-sitenotice}}}</div>
 	{{/html-sitenotice}}
-	{{{html-indicators}}}
+	{{>Indicators}}
 	<h1 id="firstHeading" class="firstHeading" lang="{{page-langcode}}">{{{html-title}}}</h1>
 	{{{html-prebodyhtml}}}
 	<div id="bodyContent" class="mw-body-content">
