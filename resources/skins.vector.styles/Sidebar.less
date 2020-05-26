@@ -1,2 +1,13 @@
 @import '../../variables.less';
 @import 'legacy/Sidebar.less';
+
+.mw-sidebar-action {
+	// Align with the portal heading/links
+	// `.portal` + `.portal .body`
+	margin: 8px @margin-end-portal 8px @margin-start-portal + @margin-start-portal-body;
+}
+
+.mw-sidebar-action-link {
+	font-size: @font-size-portal-list-item;
+	font-weight: bold;
+}
