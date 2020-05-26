@@ -318,7 +318,6 @@ class VectorTemplate extends BaseTemplate {
 					];
 					break;
 				case 'LANGUAGES':
-					// @phan-suppress-next-line PhanUndeclaredMethod
 					$languages = $skin->getLanguages();
 					$portal = $this->getMenuData(
 						'lang',
