@@ -399,6 +399,12 @@ class VectorTemplate extends BaseTemplate {
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
+		// A list of classes to apply the list element and override the default behavior.
+		$listClasses = [
+			// `.menu` is on the portal for historic reasons.
+			// It should not be applied elsewhere per T253329.
+			self::MENU_TYPE_DROPDOWN => 'menu vector-menu-content-list',
+		];
 		$isPortal = self::MENU_TYPE_PORTAL === $type;
 
 		// For some menu items, there is no language key corresponding with its menu key.
@@ -410,6 +416,7 @@ class VectorTemplate extends BaseTemplate {
 			// If no message exists fallback to plain text (T252727)
 			'label' => $msgObj->exists() ? $msgObj->text() : $label,
 			'html-userlangattributes' => $this->get( 'userlangattributes', '' ),
+			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
 			'html-items' => '',
 			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
 			'html-tooltip' => Linker::tooltip( 'p-' . $label ),

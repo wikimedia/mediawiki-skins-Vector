@@ -117,6 +117,7 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 			'label-id' => 'p-views-label',
 			'label' => 'Views',
 			'html-userlangattributes' => $langAttrs,
+			'list-classes' => 'vector-menu-content-list',
 			'html-items' => '',
 			'is-dropdown' => false,
 			'html-tooltip' => '',

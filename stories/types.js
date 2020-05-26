@@ -30,6 +30,7 @@
  * @prop {string} html-items
  * @prop {string} [html-tooltip]
  * @prop {string} [class] of menu
+ * @prop {string} list-classes of the unordered list element inside the menu
  * @prop {string} [html-userlangattributes]
  * @prop {boolean} [is-dropdown]
  * @prop {string} [html-hook-vector-after-toolbox] Deprecated and used by the toolbox portal menu.
