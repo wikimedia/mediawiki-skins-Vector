@@ -15,7 +15,7 @@
 	font-weight: bold;
 }
 
-// FIXME please add a class, .mw-navigation, and use that instead of this identifier.
+// FIXME please add a class, .mw-navigation, and use that here and below instead of this identifier.
 #mw-navigation {
 	.mw-checkbox-hack-checkbox,
 	.mw-checkbox-hack-button {
@@ -36,7 +36,6 @@
 		height: @size-sidebar-button;
 		border: 1px solid transparent;
 		border-radius: @border-radius-base;
-		.transition( background-color @transition-duration-base, border-color @transition-duration-base, box-shadow @transition-duration-base, opacity @transition-duration-base; );
 
 		&:before {
 			// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
@@ -77,10 +76,24 @@
 	}
 }
 
-.mw-sidebar {
-	// Enable animations on desktop width only.
-	@media ( min-width: @width-breakpoint-desktop  ) {
-		@timing: @transition-duration-base ease-out;
-		.transition( transform @timing, opacity @timing, visibility @timing; );
+// Disable transitions on page load. No-JS users will unfortunately miss out. A similar pattern is
+// used in Minerva's DropDownList. See enableCssAnimations() in skin.vector.js/index.js for context
+// and additional details on how this class is added.
+.vector-animations-ready {
+	// Enable sidebar transitions on desktop width only.
+	.mw-sidebar {
+		@media ( min-width: @width-breakpoint-desktop  ) {
+			@timing: @transition-duration-base ease-out;
+			.transition( transform @timing, opacity @timing, visibility @timing; );
+		}
+	}
+
+	// Enable sidebar button transitions.
+	#mw-navigation .mw-checkbox-hack-button {
+		.transition(
+			background-color @transition-duration-base,
+			border-color @transition-duration-base,
+			box-shadow @transition-duration-base;
+		);
 	}
 }
