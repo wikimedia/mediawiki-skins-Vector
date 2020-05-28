@@ -2,9 +2,14 @@
 @import 'mediawiki.mixins.less';
 
 /* Hide empty portlets */
-// FIXME: Remove when cache cleared.
-.emptyPortlet,
-.vector-menu-empty {
+// This class has special magical powers. It can be removed by
+// mw.util.addPortletLink
+// in core:resources/src/mediawiki.util/util.js
+// When I93fb6c96df9f238d1c0281cb66512b135ca2afc2 has been merged
+// and is deployed this line of CSS should be removed or replaced
+// with the class ".vector-menu-empty"
+// See T253912.
+.emptyPortlet {
 	display: none;
 }
 
