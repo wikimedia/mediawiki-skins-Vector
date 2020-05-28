@@ -15,6 +15,7 @@
 	"vector-opt-out-tooltip": "Ändere deine Einstellungen, um zum alten Aussehen der Benutzeroberfläche zurückzukehren (Legacy-Vector)",
 	"vector.css": "/* Das folgende CSS wird für Benutzer der Vector-Benutzeroberfläche geladen. */",
 	"vector.js": "/* Das folgende JavaScript wird für Benutzer der Vector-Benutzeroberfläche geladen. */",
+	"vector-action-toggle-sidebar": "Seitenleiste umschalten",
 	"vector-action-addsection": "Abschnitt hinzufügen",
 	"vector-action-delete": "Löschen",
 	"vector-action-move": "Verschieben",
