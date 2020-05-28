@@ -21,9 +21,9 @@
 	.mw-checkbox-hack-button {
 		// The icon is only 44px tall but the header is 50px. Offset by the difference from the logo
 		// icon and center with respect to the header.
-		top: @height-logo-icon - @size-sidebar-button + ( @height-header - @height-logo-icon ) / 2;
-		// Some made up value to be revised by Alex.
-		left: 10px;
+		top: @margin-top-header + ( ( @height-logo-icon - @size-sidebar-button ) / 2 );
+		// FIXME: Replace by proper calculation and variable.
+		left: 14px;
 	}
 
 	.mw-checkbox-hack-button {
