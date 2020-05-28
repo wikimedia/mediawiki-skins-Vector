@@ -371,6 +371,9 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'array-portals-rest' => array_slice( $props, 1 ),
 			'data-portals-first' => $firstPortal,
+			'msg-toggle-sidebar-button-label' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
+			// [todo] fetch user preference when logged in (T246427).
+			'sidebar-visible' => false
 		];
 	}
 

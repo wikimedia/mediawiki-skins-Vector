@@ -7,9 +7,33 @@
 	MenuDefinition data-portals-first
 	MenuDefinition[] array-portals-rest
 	emphasized-sidebar-action data-emphasized-sidebar-action For displaying an emphasized action in the sidebar.
+	string msg-toggle-sidebar-button-label The label used by the sidebar button.
+	boolean sidebar-visible For users that want to see the sidebar on initial render, this should be
+	  true.
 }}
 
-<div id="mw-panel" class="mw-sidebar">
+<input
+		type="checkbox"
+		id="mw-sidebar-checkbox"
+		class="mw-checkbox-hack-checkbox"
+		role="button"
+		{{#sidebar-visible}}checked{{/sidebar-visible}}
+		aria-labelledby="mw-sidebar-button"
+		aria-controls="mw-panel">
+<label
+	id="mw-sidebar-button"
+	class="
+		mw-checkbox-hack-button
+		mw-ui-icon
+		mw-ui-icon-element
+		{{#sidebar-visible}}mw-ui-icon-wikimedia-collapseHorizontal-base20{{/sidebar-visible}}
+		{{^sidebar-visible}}mw-ui-icon-wikimedia-menu-base20{{/sidebar-visible}}
+	"
+	for="mw-sidebar-checkbox"
+	data-event-name="ui.sidebar">
+	{{msg-toggle-sidebar-button-label}}
+</label>
+<div id="mw-panel" class="mw-sidebar mw-checkbox-hack-target">
 	{{#data-portals-first}}{{>Menu}}{{/data-portals-first}}
 	{{#data-emphasized-sidebar-action}}
 	<div class="mw-sidebar-action">

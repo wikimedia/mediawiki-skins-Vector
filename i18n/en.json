@@ -10,6 +10,7 @@
 	"vector-opt-out-tooltip": "Change your settings to go back to the old look of the skin (legacy Vector)",
 	"vector.css": "/* All CSS here will be loaded for users of the Vector skin */",
 	"vector.js": "/* All JavaScript here will be loaded for users of the Vector skin */",
+	"vector-action-toggle-sidebar": "Toggle sidebar",
 	"vector-action-addsection": "Add topic",
 	"vector-action-delete": "Delete",
 	"vector-action-move": "Move",
