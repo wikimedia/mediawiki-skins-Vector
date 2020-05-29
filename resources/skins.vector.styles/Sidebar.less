@@ -38,11 +38,13 @@
 		border-radius: @border-radius-base;
 
 		&:before {
-			// Center it.
-			margin: 12px;
 			// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
 			// As soon as mediawiki.ui is standardized, remove this override. See T191021.
+			min-width: 20px;
 			min-height: 20px;
+			height: 100%;
+			// Center it horizontally.
+			margin: 0 12px;
 			opacity: 0.87;
 		}
 
