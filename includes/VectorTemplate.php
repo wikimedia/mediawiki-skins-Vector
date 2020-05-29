@@ -373,7 +373,7 @@ class VectorTemplate extends BaseTemplate {
 			'data-portals-first' => $firstPortal,
 			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 			// [todo] fetch user preference when logged in (T246427).
-			'sidebar-visible' => false
+			'sidebar-visible' => true
 		];
 	}
 
