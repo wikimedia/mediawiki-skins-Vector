@@ -12,13 +12,13 @@ var vector = require( '../skins.vector.legacy.js/vector.js' );
 function updateMenuIcon( checkbox, button ) {
 	button.classList.remove(
 		checkbox.checked ?
-			'mw-ui-icon-wikimedia-menu-base20' :
-			'mw-ui-icon-wikimedia-collapseHorizontal-base20'
+			'mw-ui-icon-wikimedia-menu' :
+			'mw-ui-icon-wikimedia-collapseHorizontal'
 	);
 	button.classList.add(
 		checkbox.checked ?
-			'mw-ui-icon-wikimedia-collapseHorizontal-base20' :
-			'mw-ui-icon-wikimedia-menu-base20'
+			'mw-ui-icon-wikimedia-collapseHorizontal' :
+			'mw-ui-icon-wikimedia-menu'
 	);
 }
 

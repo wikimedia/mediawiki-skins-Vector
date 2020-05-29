@@ -60,8 +60,7 @@
 		},
 		"skins.vector.icons": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-wikimedia-{name}-base20:before",
-			"defaultColor": "#54595d",
+			"selector": ".mw-ui-icon-wikimedia-{name}:before",
 			"images": {
 				"menu": "resources/skins.vector.icons/menu.svg",
 				"collapseHorizontal": "resources/skins.vector.icons/collapseHorizontal.svg"

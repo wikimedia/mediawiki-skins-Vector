@@ -36,6 +36,7 @@
 		height: @size-sidebar-button;
 		border: 1px solid transparent;
 		border-radius: @border-radius-base;
+		.transition( background-color @transition-duration-base, border-color @transition-duration-base, box-shadow @transition-duration-base, opacity @transition-duration-base; );
 
 		&:before {
 			// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
@@ -45,14 +46,17 @@
 			height: 100%;
 			// Center it horizontally.
 			margin: 0 12px;
-			opacity: 0.87;
+			// Equals `#555`, closest to `#54595d` on background-color `#fff`.
+			opacity: 0.67;
 		}
 
 		&:hover {
 			background-color: @background-color-frameless--hover;
-		}
 
-		.transition( background-color @transition-duration-base, border-color @transition-duration-base, box-shadow @transition-duration-base; );
+			&:before {
+				opacity: 1;
+			}
+		}
 	}
 
 	.mw-checkbox-hack-checkbox:focus ~ .mw-checkbox-hack-button {
