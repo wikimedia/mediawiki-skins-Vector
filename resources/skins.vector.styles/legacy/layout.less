@@ -59,6 +59,9 @@ body {
 .mw-body-content {
 	position: relative;
 	z-index: @z-index-base;
+	// Clearfix here for legacy reasons of floated children (gadgets?),
+	// to be revisited to clarify historic need and possibly remove.
+	.mixin-clearfix();
 }
 
 /* Head */
