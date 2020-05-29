@@ -47,7 +47,7 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": [ "resources/skins.vector.styles/legacy.less" ]
+			"styles": [ "resources/skins.vector.styles/skin-legacy.less" ]
 		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
@@ -56,7 +56,7 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": [ "resources/skins.vector.styles/index.less" ]
+			"styles": [ "resources/skins.vector.styles/skin.less" ]
 		},
 		"skins.vector.icons": {
 			"class": "ResourceLoaderImageModule",
@@ -76,7 +76,7 @@
 		},
 		"skins.vector.js": {
 			"packageFiles": [
-				"resources/skins.vector.js/index.js",
+				"resources/skins.vector.js/skin.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js"
 			],
@@ -87,7 +87,7 @@
 		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [
-				"resources/skins.vector.legacy.js/index.js",
+				"resources/skins.vector.legacy.js/skin-legacy.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js"
 			],
