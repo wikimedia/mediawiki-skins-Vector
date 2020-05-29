@@ -21,6 +21,7 @@
 	"vector-opt-out-tooltip": "Altere suas configurações para voltar à aparência antiga da pele (vetor herdado)",
 	"vector.css": "/* CSS colocado aqui irá afetar usuários do tema Vector */",
 	"vector.js": "/* Qualquer JavaScript aqui colocado será carregado para usuários usando o tema Vector */",
+	"vector-action-toggle-sidebar": "Alternar barra lateral",
 	"vector-action-addsection": "Adicionar tópico",
 	"vector-action-delete": "Excluir",
 	"vector-action-move": "Mover",

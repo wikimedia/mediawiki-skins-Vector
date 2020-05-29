@@ -14,6 +14,7 @@
 	"vector-opt-out": "이전 스타일로 전환",
 	"vector.css": "/* 이 CSS 설정은 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
 	"vector.js": "/* 이 자바스크립트 설정은 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
+	"vector-action-toggle-sidebar": "사이드바 토글",
 	"vector-action-addsection": "새 주제",
 	"vector-action-delete": "삭제",
 	"vector-action-move": "이동",

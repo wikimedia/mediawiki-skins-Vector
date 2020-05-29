@@ -17,6 +17,7 @@
 	"vector-opt-out-tooltip": "更改您的設定來回到舊模樣主題（舊版 Vector）",
 	"vector.css": "/* 此 CSS 會影響使用 Vector 介面外觀的使用者 */",
 	"vector.js": "/* 此 JavaScript 會用於使用 Vector 介面外觀的使用者 */",
+	"vector-action-toggle-sidebar": "切換側邊欄",
 	"vector-action-addsection": "新增話題",
 	"vector-action-delete": "刪除",
 	"vector-action-move": "移動",
