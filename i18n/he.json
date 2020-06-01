@@ -14,6 +14,7 @@
 	"vector-opt-out-tooltip": "שינוי ההעדפות שלך וחזרה למראה הישן של העיצוב (וקטור ישן)",
 	"vector.css": "/* הסגנונות הנכתבים כאן ישפיעו על העיצוב \"וקטור\" בלבד */",
 	"vector.js": "/* כל הסקריפטים הנכתבים כאן ייטענו עבור מי שמשתמש בעיצוב \"וקטור\" בלבד */",
+	"vector-action-toggle-sidebar": "שינוי מצב סרגל צד",
 	"vector-action-addsection": "פסקה חדשה",
 	"vector-action-delete": "מחיקה",
 	"vector-action-move": "העברה",
