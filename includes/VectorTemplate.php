@@ -167,8 +167,8 @@ class VectorTemplate extends BaseTemplate {
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 			'html-newtalk' => $skin->getNewtalks() ?: null,
 
-			'msg-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
-			'msg-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
+			'msg-vector-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
+			'msg-vector-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
 
 			// Result of OutputPage::addHTML calls
 			'html-bodycontent' => $this->get( 'bodycontent' ),
@@ -371,7 +371,7 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'array-portals-rest' => array_slice( $props, 1 ),
 			'data-portals-first' => $firstPortal,
-			'msg-toggle-sidebar-button-label' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
+			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 			// [todo] fetch user preference when logged in (T246427).
 			'sidebar-visible' => false
 		];
