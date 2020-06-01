@@ -75,8 +75,8 @@ export const LEGACY_TEMPLATE_DATA = {
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
 	'html-userlangattributes': htmluserlangattributes,
-	'msg-jumptonavigation': 'Jump to navigation',
-	'msg-jumptosearch': 'Jump to search',
+	'msg-vector-jumptonavigation': 'Jump to navigation',
+	'msg-vector-jumptosearch': 'Jump to search',
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
@@ -99,8 +99,8 @@ export const MODERN_TEMPLATE_DATA = {
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
 	'html-userlangattributes': htmluserlangattributes,
-	'msg-jumptonavigation': 'Jump to navigation',
-	'msg-jumptosearch': 'Jump to search',
+	'msg-vector-jumptonavigation': 'Jump to navigation',
+	'msg-vector-jumptosearch': 'Jump to search',
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
