@@ -3,13 +3,16 @@ import { htmluserlangattributes } from './utils';
 
 export { searchBoxTemplate };
 
+/**
+ * @type SearchData
+ */
 export const searchBoxData = {
-	searchActionURL: '/w/index.php',
-	searchHeaderAttrsHTML: htmluserlangattributes,
-	searchInputLabel: 'Search',
-	searchDivID: 'simpleSearch',
-	searchInputHTML: '<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [⌃⌥f]" accesskey="f" id="searchInput" autocomplete="off">',
-	titleHTML: '<input type="hidden" value="Special:Search" name="title">',
-	fallbackSearchButtonHTML: '<input type="submit" name="fulltext" value="Search" title="Search pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>',
-	searchButtonHTML: '<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">'
+	'form-action': '/w/index.php',
+	'html-userlangattributes': htmluserlangattributes,
+	'msg-search': 'Search',
+	'form-id': 'simpleSearch',
+	'html-input': '<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [⌃⌥f]" accesskey="f" id="searchInput" autocomplete="off">',
+	'page-title': 'Special:Search',
+	'html-button-search-fallback': '<input type="submit" name="fulltext" value="Search" title="Search pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>',
+	'html-button-search': '<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">'
 };

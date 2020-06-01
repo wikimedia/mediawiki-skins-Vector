@@ -523,22 +523,21 @@ class VectorTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	private function buildSearchProps() : array {
-		global $wgScript;
+		$config = $this->getConfig();
 		$props = [
-			'searchHeaderAttrsHTML' => $this->get( 'userlangattributes', '' ),
-			'searchActionURL' => $wgScript,
-			'searchDivID' => $this->getConfig()->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
-			'searchInputHTML' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'titleHTML' => Html::hidden( 'title', SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey() ),
-			'fallbackSearchButtonHTML' => $this->makeSearchButton(
+			'form-action' => $config->get( 'Script' ),
+			'form-id' => $config->get( 'VectorUseSimpleSearch' ) ? 'simpleSearch' : '',
+			'html-button-search-fallback' => $this->makeSearchButton(
 				'fulltext',
 				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
 			),
-			'searchButtonHTML' => $this->makeSearchButton(
+			'html-button-search' => $this->makeSearchButton(
 				'go',
 				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
 			),
-			'searchInputLabel' => $this->msg( 'search' )
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
+			'msg-search' => $this->msg( 'search' ),
+			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
 		];
 		return $props;
 	}

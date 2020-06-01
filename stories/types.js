@@ -23,6 +23,18 @@
  */
 
 /**
+ * @typedef {Object} SearchData
+ * @prop {string|null} msg-search
+ * @prop {string} [html-userlangattributes]
+ * @prop {string} form-action URL
+ * @prop {string} form-id
+ * @prop {string|null} html-input
+ * @prop {string|null} page-title the title of the search page
+ * @prop {string|null} html-button-search-fallback
+ * @prop {string|null} html-button-search
+ */
+
+/**
  * @typedef {Object} MenuDefinition
  * @prop {string} id
  * @prop {string} label-id
