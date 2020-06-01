@@ -30,15 +30,14 @@
 		"branch-alias": {
 			"dev-master": "1.x-dev"
 		},
-		"installer-name": "Vector",
-		"phan-taint-check-plugin": "2.0.1"
+		"installer-name": "Vector"
 	},
 	"require-dev": {
 		"jakub-onderka/php-parallel-lint": "1.0.0",
 		"mediawiki/mediawiki-codesniffer": "29.0.0",
 		"jakub-onderka/php-console-highlighter": "0.4.0",
 		"mediawiki/minus-x": "1.0.0",
-		"mediawiki/mediawiki-phan-config": "0.9.1"
+		"mediawiki/mediawiki-phan-config": "0.10.2"
 	},
 	"scripts": {
 		"fix": [
