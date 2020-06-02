@@ -4,25 +4,6 @@ var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' );
 var vector = require( '../skins.vector.legacy.js/vector.js' );
 
 /**
- * Update the state of the menu icon to be an expanded or collapsed icon.
- * @param {HTMLInputElement} checkbox
- * @param {HTMLElement} button
- * @return {void}
- */
-function updateMenuIcon( checkbox, button ) {
-	button.classList.remove(
-		checkbox.checked ?
-			'mw-ui-icon-wikimedia-menu' :
-			'mw-ui-icon-wikimedia-collapseHorizontal'
-	);
-	button.classList.add(
-		checkbox.checked ?
-			'mw-ui-icon-wikimedia-collapseHorizontal' :
-			'mw-ui-icon-wikimedia-menu'
-	);
-}
-
-/**
  * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
  * for focus and `aria-expanded`. Also, flip the icon image on click.
  * @param {Document} document
@@ -35,11 +16,7 @@ function initSidebar( document ) {
 		checkboxHack.bindToggleOnClick( checkbox, button );
 		checkboxHack.bindUpdateAriaExpandedOnInput( checkbox );
 
-		button.addEventListener( 'click', updateMenuIcon.bind( undefined, checkbox, button ) );
-		checkbox.addEventListener( 'input', updateMenuIcon.bind( undefined, checkbox, button ) );
-
 		checkboxHack.updateAriaExpanded( checkbox );
-		updateMenuIcon( checkbox, button );
 	}
 }
 
