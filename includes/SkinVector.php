@@ -24,6 +24,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Vector\Constants;
+use Wikimedia\WrappedString;
 
 /**
  * Skin subclass for Vector
@@ -140,6 +141,12 @@ class SkinVector extends SkinTemplate {
 		$title = $out->getTitle();
 
 		return [
+			// HTML strings:
+			'html-printtail' => WrappedString::join( "\n", [
+				MWDebug::getDebugHTML( $this->getContext() ),
+				$this->bottomScripts(),
+				wfReportTime( $out->getCSP()->getNonce() )
+			] ) . '</body></html>',
 			'html-sitenotice' => $this->getSiteNotice(),
 			'html-userlangattributes' => $this->prepareUserLanguageAttributes(),
 			'html-subtitle' => $this->prepareSubtitle(),

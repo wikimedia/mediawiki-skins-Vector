@@ -164,8 +164,6 @@ class VectorTemplate extends BaseTemplate {
 
 			'html-printfooter' => $skin->printSource(),
 			'html-catlinks' => $skin->getCategories(),
-			// From BaseTemplate::getTrail (handles bottom JavaScript)
-			'html-printtail' => $this->getTrail() . '</body></html>',
 			'data-footer' => [
 				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
 				'array-footer-rows' => $this->getTemplateFooterRows(),
