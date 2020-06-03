@@ -140,7 +140,18 @@ class SkinVector extends SkinTemplate {
 		$out = $this->getOutput();
 		$title = $out->getTitle();
 
+		$indicators = [];
+		foreach ( $out->getIndicators() as $id => $content ) {
+			$indicators[] = [
+				'id' => Sanitizer::escapeIdForAttribute( "mw-indicator-$id" ),
+				'class' => 'mw-indicator',
+				'html' => $content,
+			];
+		}
+
 		return [
+			// Data objects:
+			'data-indicators' => $indicators,
 			// HTML strings:
 			'html-printtail' => WrappedString::join( "\n", [
 				MWDebug::getDebugHTML( $this->getContext() ),
