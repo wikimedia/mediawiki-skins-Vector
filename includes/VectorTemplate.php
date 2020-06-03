@@ -147,6 +147,7 @@ class VectorTemplate extends BaseTemplate {
 		// @phan-suppress-next-line PhanUndeclaredMethod
 		$commonSkinData = $skin->getTemplateData() + [
 			'html-headelement' => $out->headElement( $skin ),
+			'html-indicators' => $this->getIndicators(),
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 

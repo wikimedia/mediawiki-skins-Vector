@@ -139,18 +139,7 @@ class SkinVector extends SkinTemplate {
 		$out = $this->getOutput();
 		$title = $out->getTitle();
 
-		$indicators = [];
-		foreach ( $out->getIndicators() as $id => $content ) {
-			$indicators[] = [
-				'id' => "mw-indicator-$id",
-				'html' => $content,
-			];
-		}
-
 		return [
-			// Data objects:
-			'data-indicators' => $indicators,
-			// HTML strings:
 			'html-sitenotice' => $this->getSiteNotice(),
 			'html-userlangattributes' => $this->prepareUserLanguageAttributes(),
 			'html-subtitle' => $this->prepareSubtitle(),
