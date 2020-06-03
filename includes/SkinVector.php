@@ -130,4 +130,34 @@ class SkinVector extends SkinTemplate {
 
 		return !$isLatestSkinFeatureEnabled;
 	}
+
+	/**
+	 * @internal only for use inside VectorTemplate
+	 * @return array of data for a Mustache template
+	 */
+	public function getTemplateData() {
+		$out = $this->getOutput();
+		$title = $out->getTitle();
+
+		return [
+			'html-sitenotice' => $this->getSiteNotice(),
+			'html-userlangattributes' => $this->prepareUserLanguageAttributes(),
+			'html-subtitle' => $this->prepareSubtitle(),
+			// Always returns string, cast to null if empty.
+			'html-undelete' => $this->prepareUndeleteLink() ?: null,
+			// Result of OutputPage::addHTML calls
+			'html-bodycontent' => $this->wrapHTML( $title, $out->mBodytext ),
+			'html-dataAfterContent' => $this->afterContentHook(),
+			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
+			'html-debuglog' => $this->generateDebugHTML(),
+		];
+	}
+
+	/**
+	 * @internal only for use inside VectorTemplate
+	 * @return array
+	 */
+	public function getMenuProps() {
+		return $this->buildContentNavigationUrls();
+	}
 }
