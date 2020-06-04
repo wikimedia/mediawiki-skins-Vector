@@ -1,22 +1,22 @@
 [
 	{
 		"resourceModule": "skins.vector.styles.legacy",
-		"maxSize": "10.00 kB"
+		"maxSize": "7.8 kB"
 	},
 	{
 		"resourceModule": "skins.vector.styles",
-		"maxSize": "10.00 kB"
+		"maxSize": "8.1 kB"
 	},
 	{
 		"resourceModule": "skins.vector.icons",
-		"maxSize": "1.00 kB"
+		"maxSize": "0.6 kB"
 	},
 	{
 		"resourceModule": "skins.vector.styles.responsive",
-		"maxSize": "1.00 kB"
+		"maxSize": "0.6 kB"
 	},
 	{
 		"resourceModule": "skins.vector.legacy.js",
-		"maxSize": "3.00 kB"
+		"maxSize": "1.7 kB"
 	}
 ]
