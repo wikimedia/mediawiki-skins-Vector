@@ -60,10 +60,15 @@
 		},
 		"skins.vector.icons": {
 			"class": "ResourceLoaderImageModule",
-			"selector": ".mw-ui-icon-wikimedia-{name}:before",
+			"selector": "{name}",
 			"images": {
-				"menu": "resources/skins.vector.icons/menu.svg",
-				"collapseHorizontal": "resources/skins.vector.icons/collapseHorizontal.svg"
+				"#mw-navigation .mw-checkbox-hack-button:before": {
+					"file": {
+						"ltr": "resources/skins.vector.icons/chevronHorizontal-ltr.svg",
+						"rtl": "resources/skins.vector.icons/chevronHorizontal-rtl.svg"
+					}
+				},
+				"#mw-navigation .mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-checkbox-hack-button:before": "resources/skins.vector.icons/menu.svg"
 			}
 		},
 		"skins.vector.styles.responsive": {
