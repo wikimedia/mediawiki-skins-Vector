@@ -131,9 +131,6 @@
 		}
 	},
 	"config": {
-		"VectorUseSimpleSearch": {
-			"value": true
-		},
 		"VectorUseIconWatch": {
 			"value": true
 		},
