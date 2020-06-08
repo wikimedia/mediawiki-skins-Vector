@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+
 import sidebarTemplate from '!!raw-loader!../includes/templates/Sidebar.mustache';
 import sidebarLegacyTemplate from '!!raw-loader!../includes/templates/legacy/Sidebar.mustache';
 import { vectorMenuTemplate } from './MenuDropdown.stories.data';

@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+
 import { htmluserlangattributes, placeholder } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
 

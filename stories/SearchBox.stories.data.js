@@ -1,10 +1,14 @@
+/**
+ * @external SearchData
+ */
+
 import searchBoxTemplate from '!!raw-loader!../includes/templates/SearchBox.mustache';
 import { htmluserlangattributes } from './utils';
 
 export { searchBoxTemplate };
 
 /**
- * @type SearchData
+ * @type {SearchData}
  */
 export const searchBoxData = {
 	'form-action': '/w/index.php',

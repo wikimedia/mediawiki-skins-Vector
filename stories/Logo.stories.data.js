@@ -1,3 +1,8 @@
+/**
+ * @external LogoOptions
+ * @external LogoTemplateData
+ */
+
 import logoTemplate from '!!raw-loader!../includes/templates/Logo.mustache';
 
 /**

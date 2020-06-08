@@ -1,12 +1,13 @@
 {
-	"rules": {
-		"one-var": "off",
-		"single-quote": "off",
-		"no-restricted-properties": "off",
-		"quotes": "off"
+	"root": true,
+	"extends": [
+		"wikimedia",
+		"wikimedia/language/es6"
+	],
+	"env": {
+		"browser": true
 	},
 	"parserOptions": {
-		"sourceType": "module",
-		"ecmaVersion": 6
+		"sourceType": "module"
 	}
 }

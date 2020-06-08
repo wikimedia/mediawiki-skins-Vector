@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+
 /**
  * @param {string} msg
  * @param {number} [height=200]

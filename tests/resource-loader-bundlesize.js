@@ -12,11 +12,12 @@ const
 	childProcess = require( 'child_process' ),
 	fetch = require( 'node-fetch' ).default,
 	bundles = require( '../bundlesize.config.json' ),
-	/* eslint-disable-next-line no-restricted-properties */
+	// eslint-disable-next-line es/no-object-assign
 	bundlesizeEnv = Object.assign( {}, process.env );
 
 /**
  * Create a ResourceLoader URL based on $MW_SERVER and $MW_SCRIPT_PATH
+ *
  * @param {string} rlModuleName
  * @return {string}
  */

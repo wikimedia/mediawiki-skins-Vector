@@ -1,3 +1,9 @@
+/**
+ * @external MenuDefinition
+ */
+
+/* eslint-disable quotes */
+
 import menuTemplate from '!!raw-loader!../includes/templates/Menu.mustache';
 import { htmluserlangattributes } from './utils';
 

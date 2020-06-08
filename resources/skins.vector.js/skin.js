@@ -1,3 +1,7 @@
+/**
+ * @external CheckboxHack
+ */
+
 /** @type {CheckboxHack} */ var checkboxHack =
 	require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).checkboxHack;
 var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' );
@@ -38,6 +42,7 @@ function enableCssAnimations( document ) {
 /**
  * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
  * for focus and `aria-expanded`. Also, flip the icon image on click.
+ *
  * @param {Document} document
  * @return {void}
  */

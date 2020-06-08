@@ -1,3 +1,9 @@
+/* eslint-disable quotes */
+
+/**
+ * @external Indicator
+ */
+
 import { htmluserlangattributes } from './utils';
 import { placeholder } from './utils';
 
