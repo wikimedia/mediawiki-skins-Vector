@@ -10,6 +10,7 @@
 			"Jean-Frédéric",
 			"Niridya",
 			"Od1n",
+			"Pamputt",
 			"Wladek92"
 		]
 	},
@@ -21,6 +22,7 @@
 	"vector-opt-out-tooltip": "Modifier vos paramètres pour revenir à l’ancien aspect de l’habillage (Vector historique)",
 	"vector.css": "/* Le CSS placé ici affectera les utilisateurs de l’habillage Vector. */",
 	"vector.js": "/* Tout code JavaScript placé ici sera chargé pour les utilisateurs de l’habillage Vector */",
+	"vector-action-toggle-sidebar": "Afficher/cacher la barre latérale",
 	"vector-action-addsection": "Ajouter un sujet",
 	"vector-action-delete": "Supprimer",
 	"vector-action-move": "Renommer",
