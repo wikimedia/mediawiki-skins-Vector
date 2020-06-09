@@ -38,8 +38,9 @@
 {{{html-headelement}}}
 
 <div id="mw-page-base" class="mw-header-placeholder noprint"></div>
-
-<div id="content" class="mw-body" role="main">
+{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
+<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<main id="content" class="mw-body" role="main">
 	<a id="top"></a>
 	{{#html-sitenotice}}
 		<div id="siteNotice" class="mw-body-content">{{{html-sitenotice}}}</div>
@@ -67,7 +68,7 @@
 		<div class="visualClear"></div>
 		{{{html-debuglog}}}
 	</div>
-</div>
+</main>
 {{{html-dataAfterContent}}}
 
 <header class="mw-header">

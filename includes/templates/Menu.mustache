@@ -1,7 +1,9 @@
 {{!
 	See @typedef MenuDefinition
 }}
-<div id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{label-id}}" {{{html-tooltip}}}
+{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
+<!-- Please do not use role attribute as CSS selector, it is deprecated. -->
+<nav id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{label-id}}" role="navigation" {{{html-tooltip}}}
 	 {{{html-userlangattributes}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vectorMenuCheckbox vector-menu-checkbox" aria-labelledby="{{label-id}}" />
@@ -17,6 +19,6 @@
 		<ul class="{{list-classes}}">{{{html-items}}}</ul>
 		{{{html-after-portal}}}
 	</div>
-</div>
+</nav>
 {{! Note: html-hook-vector-after-toolbox is deprecated. }}
 {{{html-hook-vector-after-toolbox}}}
