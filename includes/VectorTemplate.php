@@ -263,13 +263,7 @@ class VectorTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$portals = $skin->buildSidebar();
 		$props = [];
-		// Force the rendering of the following portals
-		if ( !isset( $portals['TOOLBOX'] ) ) {
-			$portals['TOOLBOX'] = true;
-		}
-		if ( !isset( $portals['LANGUAGES'] ) ) {
-			$portals['LANGUAGES'] = true;
-		}
+
 		// Render portals
 		foreach ( $portals as $name => $content ) {
 			if ( $content === false ) {
@@ -283,8 +277,9 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
+					$toolbox = $portals['TOOLBOX'];
 					$portal = $this->getMenuData(
-						'tb',  $this->getToolbox(), self::MENU_TYPE_PORTAL
+						'tb', $toolbox, self::MENU_TYPE_PORTAL
 					);
 					// Run deprecated hooks.
 					$vectorTemplate = $this;
@@ -300,7 +295,7 @@ class VectorTemplate extends BaseTemplate {
 					];
 					break;
 				case 'LANGUAGES':
-					$languages = $skin->getLanguages();
+					$languages = $portals['LANGUAGES'];
 					$portal = $this->getMenuData(
 						'lang',
 						$languages,
