@@ -4,9 +4,17 @@
  *
  */
 
+@import '../../../variables.less';
+
 html,
 body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+}
+
+// Support Blink based browsers.
+// They use `outline` for focus styles, we're only amending the color here, see T245887.
+:focus {
+	outline-color: @outline-color-base--focus;
 }
