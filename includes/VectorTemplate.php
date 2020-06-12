@@ -277,9 +277,8 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
-					$toolbox = $portals['TOOLBOX'];
 					$portal = $this->getMenuData(
-						'tb', $toolbox, self::MENU_TYPE_PORTAL
+						'tb', $content, self::MENU_TYPE_PORTAL
 					);
 					// Run deprecated hooks.
 					$vectorTemplate = $this;
@@ -295,16 +294,15 @@ class VectorTemplate extends BaseTemplate {
 					];
 					break;
 				case 'LANGUAGES':
-					$languages = $portals['LANGUAGES'];
 					$portal = $this->getMenuData(
 						'lang',
-						$languages,
+						$content,
 						self::MENU_TYPE_PORTAL
 					);
 					// The language portal will be added provided either
 					// languages exist or there is a value in html-after-portal
 					// for example to show the add language wikidata link (T252800)
-					if ( count( $languages ) || $portal['html-after-portal'] ) {
+					if ( count( $content ) || $portal['html-after-portal'] ) {
 						$props[] = $portal;
 					}
 					break;
