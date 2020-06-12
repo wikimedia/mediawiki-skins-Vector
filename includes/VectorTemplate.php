@@ -280,13 +280,8 @@ class VectorTemplate extends BaseTemplate {
 					$portal = $this->getMenuData(
 						'tb', $content, self::MENU_TYPE_PORTAL
 					);
-					// Run deprecated hooks.
-					$vectorTemplate = $this;
-					ob_start();
+					// Run deprecated hook.
 					// Use SidebarBeforeOutput instead.
-					Hooks::run( 'SkinTemplateToolboxEnd', [ &$vectorTemplate, true ] );
-					$htmlhookitems = ob_get_clean();
-					$portal['html-items'] .= $htmlhookitems;
 					ob_start();
 					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
 					$props[] = $portal + [
