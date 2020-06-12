@@ -59,7 +59,7 @@
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
-		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",
+		"SkinTemplateNavigation::Universal": "Vector\\Hooks::onSkinTemplateNavigation",
 		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated",
 		"OutputPageBodyAttributes": "Vector\\Hooks::onOutputPageBodyAttributes",
 		"MakeGlobalVariablesScript": "Vector\\Hooks::onMakeGlobalVariablesScript"

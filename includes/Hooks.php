@@ -119,9 +119,11 @@ class Hooks {
 	 * @param array &$content_navigation
 	 */
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
+		$title = $sk->getRelevantTitle();
 		if (
+			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
 			$sk->getSkinName() === 'vector' &&
-			$sk->getConfig()->get( 'VectorUseIconWatch' )
+			$title && $title->canExist()
 		) {
 			$key = null;
 			if ( isset( $content_navigation['actions']['watch'] ) ) {

@@ -289,6 +289,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'wgVectorUseIconWatch' => true
 		] );
 		$skin = new SkinVector( [ 'name' => 'vector' ] );
+		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
 			'actions' => [
 				'watch' => [ 'class' => 'watch' ],
