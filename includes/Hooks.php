@@ -2,6 +2,7 @@
 
 namespace Vector;
 
+use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
@@ -21,16 +22,33 @@ class Hooks {
 	/**
 	 * BeforePageDisplayMobile hook handler
 	 *
-	 * Make Vector responsive when operating in mobile mode (useformat=mobile)
+	 * Make Legacy Vector responsive when $wgVectorResponsive = true
 	 *
-	 * @see https://www.mediawiki.org/wiki/Extension:MobileFrontend/BeforePageDisplayMobile
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 	 * @param OutputPage $out
 	 * @param SkinTemplate $sk
 	 */
-	public static function onBeforePageDisplayMobile( OutputPage $out, $sk ) {
-		// This makes Vector behave in responsive mode when MobileFrontend is installed
-		if ( $sk instanceof SkinVector ) {
-			$sk->enableResponsiveMode();
+	public static function onBeforePageDisplay( OutputPage $out, $sk ) {
+		if ( !$sk instanceof SkinVector ) {
+			return;
+		}
+
+		$skinVersionLookup = new SkinVersionLookup(
+			$out->getRequest(), $sk->getUser(), self::getServiceConfig()
+		);
+
+		$mobile = false;
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+
+			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$mobile = $mobFrontContext->shouldDisplayMobileView();
+		}
+
+		if ( $skinVersionLookup->isLegacy()
+			&& ( $mobile || $sk->getConfig()->get( 'VectorResponsive' ) )
+		) {
+			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
+			$out->addModuleStyles( 'skins.vector.styles.responsive' );
 		}
 	}
 

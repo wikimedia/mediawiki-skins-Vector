@@ -32,7 +32,7 @@
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
-		"BeforePageDisplayMobile": "Vector\\Hooks::onBeforePageDisplayMobile",
+		"BeforePageDisplay": "Vector\\Hooks::onBeforePageDisplay",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
 		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",

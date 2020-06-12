@@ -37,32 +37,6 @@ class SkinVector extends SkinTemplate {
 	public $stylename = 'Vector';
 	public $template = 'VectorTemplate';
 
-	private $responsiveMode = false;
-
-	/**
-	 * Enables the responsive mode
-	 */
-	public function enableResponsiveMode() {
-		if ( !$this->responsiveMode ) {
-			$out = $this->getOutput();
-			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-			$out->addModuleStyles( 'skins.vector.styles.responsive' );
-			$this->responsiveMode = true;
-		}
-	}
-
-	/**
-	 * Initializes output page and sets up skin-specific parameters
-	 * @param OutputPage $out Object to initialize
-	 */
-	public function initPage( OutputPage $out ) {
-		parent::initPage( $out );
-
-		if ( $this->getConfig()->get( 'VectorResponsive' ) ) {
-			$this->enableResponsiveMode();
-		}
-	}
-
 	/**
 	 * @inheritDoc
 	 * @return array
