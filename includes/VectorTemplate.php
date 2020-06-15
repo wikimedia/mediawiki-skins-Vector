@@ -122,11 +122,6 @@ class VectorTemplate extends BaseTemplate {
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 
-		ob_start();
-		Hooks::run( 'VectorBeforeFooter', [], '1.35' );
-		$htmlHookVectorBeforeFooter = ob_get_contents();
-		ob_end_clean();
-
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -163,10 +158,7 @@ class VectorTemplate extends BaseTemplate {
 
 			'html-printfooter' => $skin->printSource(),
 			'html-catlinks' => $skin->getCategories(),
-			'data-footer' => [
-				'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
-				'array-footer-rows' => $this->getTemplateFooterRows(),
-			],
+			'data-footer' => $this->getFooterData(),
 			'html-navigation-heading' => $this->msg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),
 
@@ -211,7 +203,7 @@ class VectorTemplate extends BaseTemplate {
 	 * Get rows that make up the footer
 	 * @return array for use in Mustache template describing the footer elements.
 	 */
-	private function getTemplateFooterRows() : array {
+	private function getFooterData() : array {
 		$skin = $this->getSkin();
 		$footerRows = [];
 		foreach ( $this->getFooterLinks() as $category => $links ) {
@@ -254,7 +246,17 @@ class VectorTemplate extends BaseTemplate {
 			];
 		}
 
-		return $footerRows;
+		ob_start();
+		Hooks::run( 'VectorBeforeFooter', [], '1.35' );
+		$htmlHookVectorBeforeFooter = ob_get_contents();
+		ob_end_clean();
+
+		$data = [
+			'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
+			'array-footer-rows' => $footerRows,
+		];
+
+		return $data;
 	}
 
 	/**
