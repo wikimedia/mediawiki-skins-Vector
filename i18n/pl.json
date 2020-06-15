@@ -15,6 +15,7 @@
 	"vector-opt-out-tooltip": "Zmień ustawienia, aby powrócić do starego wyglądu skórki (stary Wektor)",
 	"vector.css": "/* Umieszczony tutaj kod CSS wpłynie na wygląd skórki Wektor */",
 	"vector.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Wektor */",
+	"vector-action-toggle-sidebar": "Przełącz panel boczny",
 	"vector-action-addsection": "Dodaj temat",
 	"vector-action-delete": "Usuń",
 	"vector-action-move": "Przenieś",
