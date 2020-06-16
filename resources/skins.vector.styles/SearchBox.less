@@ -17,15 +17,17 @@
 	}
 }
 
+// Defined as `div`.
+// Provide extra element for gadgets due to `form` already carrying an `id`.
 #simpleSearch {
-	display: block;
-	width: 13.2em;
-	width: 20vw; /* responsive width */
+	position: relative;
 	min-width: 5em;
+	// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
+	width: 13.2em;
+	// Support: Modern browsers, responsive width.
+	width: 20vw;
 	max-width: 20em;
 	height: 100%;
-	margin-top: 0;
-	position: relative;
 
 	// Styles for both the search input and the button.
 	input {
