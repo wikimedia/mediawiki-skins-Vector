@@ -10,7 +10,6 @@ export const searchBoxData = {
 	'form-action': '/w/index.php',
 	'html-userlangattributes': htmluserlangattributes,
 	'msg-search': 'Search',
-	'form-id': 'simpleSearch',
 	'html-input': '<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [⌃⌥f]" accesskey="f" id="searchInput" autocomplete="off">',
 	'page-title': 'Special:Search',
 	'html-button-search-fallback': '<input type="submit" name="fulltext" value="Search" title="Search pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/>',

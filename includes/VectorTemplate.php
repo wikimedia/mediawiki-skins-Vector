@@ -498,7 +498,6 @@ class VectorTemplate extends BaseTemplate {
 		$config = $this->getConfig();
 		$props = [
 			'form-action' => $config->get( 'Script' ),
-			'form-id' => 'simpleSearch',
 			'html-button-search-fallback' => $this->makeSearchButton(
 				'fulltext',
 				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
