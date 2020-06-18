@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Fwolff",
-			"Irus"
+			"Irus",
+			"Nkankane"
 		]
 	},
+	"vector-view-create": "Qamba",
 	"vector-view-edit": "Ukuhlela",
 	"vector-view-history": "Bona umlando",
-	"vector-view-view": "Funda"
+	"vector-view-view": "Funda",
+	"vector-more-actions": "Okunye"
 }
