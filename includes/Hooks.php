@@ -6,6 +6,7 @@ use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use RequestContext;
+use Skin;
 use SkinTemplate;
 use SkinVector;
 use User;
@@ -176,6 +177,24 @@ class Hooks {
 		// Permanently set the default preference. The user can later change this preference, however,
 		// self::onLocalUserCreated() will not be executed for that account again.
 		$user->setOption( Constants::PREF_KEY_SKIN_VERSION, $default );
+	}
+
+	/**
+	 * Called when OutputPage::headElement is creating the body tag to allow skins
+	 * and extensions to add attributes they might need to the body of the page.
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $sk
+	 * @param string[] &$bodyAttrs
+	 */
+	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $sk, &$bodyAttrs ) {
+		$skinVersionLookup = new SkinVersionLookup(
+			$out->getRequest(), $sk->getUser(), self::getServiceConfig()
+		);
+
+		if ( $skinVersionLookup->isLegacy() ) {
+			$bodyAttrs['class'] .= ' skin-vector-legacy';
+		}
 	}
 
 	/**

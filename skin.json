@@ -36,7 +36,8 @@
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
 		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",
-		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated"
+		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated",
+		"OutputPageBodyAttributes": "Vector\\Hooks::onOutputPageBodyAttributes"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
