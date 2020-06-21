@@ -99,15 +99,6 @@ class SkinVector extends SkinTemplate {
 	}
 
 	/**
-	 * Whether the logo should be preloaded with an HTTP link header or not
-	 * @since 1.29
-	 * @return bool
-	 */
-	public function shouldPreloadLogo() {
-		return true;
-	}
-
-	/**
 	 * Whether or not the legacy version of the skin is being used.
 	 *
 	 * @return bool
