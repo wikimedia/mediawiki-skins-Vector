@@ -1,4 +1,5 @@
 import sidebarTemplate from '!!raw-loader!../includes/templates/Sidebar.mustache';
+import sidebarLegacyTemplate from '!!raw-loader!../includes/templates/legacy/Sidebar.mustache';
 import { vectorMenuTemplate } from './MenuDropdown.stories.data';
 import { PORTALS } from './MenuPortal.stories.data';
 
@@ -6,7 +7,7 @@ const HTML_LOGO_ATTRIBUTES = `class="mw-wiki-logo" href="/wiki/Main_Page" title=
 const SIDEBAR_BEFORE_OUTPUT_HOOKINFO = `Beware: Portals can be added, removed or reordered using
 SidebarBeforeOutput hook as in this example.`;
 
-export { sidebarTemplate };
+export { sidebarTemplate, sidebarLegacyTemplate };
 
 export const SIDEBAR_TEMPLATE_PARTIALS = {
 	Menu: vectorMenuTemplate
@@ -28,9 +29,9 @@ export const SIDEBAR_DATA = {
 		},
 		'array-portals-rest': [
 			PORTALS.toolbox,
-			PORTALS.otherProjects,
-			PORTALS.langlinks
+			PORTALS.otherProjects
 		],
+		'data-portals-languages': PORTALS.langlinks,
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortals: {
@@ -38,18 +39,18 @@ export const SIDEBAR_DATA = {
 		'data-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
 			PORTALS.toolbox,
-			PORTALS.otherProjects,
-			PORTALS.langlinks
+			PORTALS.otherProjects
 		],
+		'data-portals-languages': PORTALS.langlinks,
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withoutLogo: {
 		'has-logo': false,
+		'data-portals-languages': PORTALS.langlinks,
 		'array-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
 			PORTALS.toolbox,
-			PORTALS.otherProjects,
-			PORTALS.langlinks
+			PORTALS.otherProjects
 		]
 	},
 	thirdParty: {

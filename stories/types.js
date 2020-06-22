@@ -30,6 +30,14 @@
  */
 
 /**
+ * @typedef {Object} SidebarData
+ * @prop {MenuDefinition} data-portals-languages
+ * @prop {MenuDefinition} data-portals-first
+ * @prop {MenuDefinition[]} array-portals-rest
+ * @prop {boolean} [has-logo] whether to show a logo or not.
+ */
+
+/**
  * @typedef {Object} SearchData
  * @prop {string|null} msg-search
  * @prop {string} [html-userlangattributes]

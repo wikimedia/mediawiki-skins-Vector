@@ -3,24 +3,29 @@ import '../.storybook/common.less';
 import '../resources/skins.vector.styles/Sidebar.less';
 import '../resources/skins.vector.styles/SidebarLogo.less';
 import '../resources/skins.vector.styles/MenuPortal.less';
-import { sidebarTemplate, SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS } from './Sidebar.stories.data';
+import { sidebarTemplate,
+	sidebarLegacyTemplate, SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS } from './Sidebar.stories.data';
 
 export default {
 	title: 'Sidebar'
 };
 
-export const sidebarWithNoPortals = () => mustache.render(
-	sidebarTemplate, SIDEBAR_DATA.withNoPortals, SIDEBAR_TEMPLATE_PARTIALS
+export const sidebarLegacyWithNoPortals = () => mustache.render(
+	sidebarLegacyTemplate, SIDEBAR_DATA.withNoPortals, SIDEBAR_TEMPLATE_PARTIALS
 );
 
-export const sidebarWithoutLogo = () => mustache.render(
+export const sidebarLegacyWithPortals = () => mustache.render(
+	sidebarLegacyTemplate, SIDEBAR_DATA.withPortals, SIDEBAR_TEMPLATE_PARTIALS
+);
+
+export const sidebarModernWithoutLogo = () => mustache.render(
 	sidebarTemplate, SIDEBAR_DATA.withoutLogo, SIDEBAR_TEMPLATE_PARTIALS
 );
 
-export const sidebarWithPortals = () => mustache.render(
+export const sidebarModernWithPortals = () => mustache.render(
 	sidebarTemplate, SIDEBAR_DATA.withPortals, SIDEBAR_TEMPLATE_PARTIALS
 );
 
-export const sidebarThirdParty = () => mustache.render(
+export const sidebarModernThirdParty = () => mustache.render(
 	sidebarTemplate, SIDEBAR_DATA.thirdParty, SIDEBAR_TEMPLATE_PARTIALS
 );

@@ -263,6 +263,7 @@ class VectorTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$portals = $skin->buildSidebar();
 		$props = [];
+		$languages = null;
 
 		// Render portals
 		foreach ( $portals as $name => $content ) {
@@ -298,7 +299,7 @@ class VectorTemplate extends BaseTemplate {
 					// languages exist or there is a value in html-after-portal
 					// for example to show the add language wikidata link (T252800)
 					if ( count( $content ) || $portal['html-after-portal'] ) {
-						$props[] = $portal;
+						$languages = $portal;
 					}
 					break;
 				default:
@@ -341,6 +342,7 @@ class VectorTemplate extends BaseTemplate {
 			),
 			'array-portals-rest' => array_slice( $props, 1 ),
 			'data-portals-first' => $firstPortal,
+			'data-portals-languages' => $languages,
 			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 			// [todo] fetch user preference when logged in (T246427).
 			'sidebar-visible' => true

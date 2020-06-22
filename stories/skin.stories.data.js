@@ -5,7 +5,8 @@ import { PERSONAL_MENU_TEMPLATE_DATA, menuTemplate } from './Menu.stories.data';
 import { pageActionsData, namespaceTabsData } from './MenuTabs.stories.data';
 import { vectorMenuTemplate, moreData, variantsData } from './MenuDropdown.stories.data';
 import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
-import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, sidebarTemplate } from './Sidebar.stories.data';
+import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS,
+	sidebarLegacyTemplate, sidebarTemplate } from './Sidebar.stories.data';
 import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
 import { logoTemplate } from './Logo.stories.data';
 
@@ -45,6 +46,7 @@ export const NAVIGATION_TEMPLATE_DATA = {
 export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	Logo: logoTemplate,
 	SearchBox: searchBoxTemplate,
+	'legacy/Sidebar': sidebarLegacyTemplate,
 	Sidebar: sidebarTemplate,
 	VectorMenu: vectorMenuTemplate,
 	Menu: menuTemplate,
