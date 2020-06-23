@@ -46,9 +46,7 @@
 	type="checkbox"
 	id="mw-sidebar-checkbox"
 	class="mw-checkbox-hack-checkbox"
-	{{#sidebar-visible}}checked{{/sidebar-visible}}
-	tabindex="-1"
-	aria-hidden="true">
+	{{#sidebar-visible}}checked{{/sidebar-visible}}>
 
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
@@ -70,7 +68,7 @@
 			using this place to insert extra elements before.
 		}}
 		<div id="jump-to-nav"></div>
-		<a class="mw-jump-link" href="#mw-head">{{msg-vector-jumptonavigation}}</a>
+		<a class="mw-jump-link" href="#mw-sidebar-button">{{msg-vector-jumptonavigation}}</a>
 		<a class="mw-jump-link" href="#searchInput">{{msg-vector-jumptosearch}}</a>
 		{{{html-bodycontent}}}
 		{{#html-printfooter}}
@@ -94,6 +92,7 @@
 		tabindex="0">
 		{{msg-vector-action-toggle-sidebar}}
 	</label>
+	{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
 
 	{{>Logo}}
 </header>
@@ -112,7 +111,6 @@
 			{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
 		</div>
 	</div>
-	{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
 </div>
 {{#data-footer}}{{>Footer}}{{/data-footer}}
 {{{html-printtail}}}

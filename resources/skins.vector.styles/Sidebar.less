@@ -47,17 +47,18 @@
 			opacity: 1;
 		}
 	}
-}
 
-#mw-sidebar-checkbox:focus ~ .mw-header .mw-checkbox-hack-button {
-	// Next two rules from OOUI, frameless, icon-only button widget.
-	border-color: @color-primary;
-	.box-shadow( inset 0 0 0 1px @color-primary );
+	&:focus {
+		// Next three rules from OOUI, frameless, icon-only button widget.
+		outline: 0;
+		border-color: @color-primary;
+		.box-shadow( inset 0 0 0 1px @color-primary );
+	}
 }
 
 // Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
 // checkbox input for the menu panel.
-#mw-sidebar-checkbox:not( :checked ) ~ #mw-navigation .mw-sidebar {
+#mw-sidebar-checkbox:not( :checked ) ~ .mw-header .mw-sidebar {
 	// Turn off presentation so that screen readers get the same effect as visually hiding.
 	// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
 	// instead to avoid hidden rendering.

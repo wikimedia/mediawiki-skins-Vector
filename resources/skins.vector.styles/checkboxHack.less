@@ -33,11 +33,10 @@
 @import 'mediawiki.mixins.less';
 
 .mw-checkbox-hack-checkbox {
-	position: absolute;
-	// Always lower the checkbox behind the foreground content.
-	z-index: -1;
-	// The checkbox `display` cannot be `none` since its focus state is used for other selectors.
-	opacity: 0;
+	// We don't want the browser to focus on the checkbox so we remove it from the
+	// accessibility tree. Instead, we want the label button to receive focus
+	// which has a tabindex of '0'.
+	display: none;
 }
 
 .mw-checkbox-hack-button {

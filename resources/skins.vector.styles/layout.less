@@ -144,7 +144,10 @@ body {
 
 #mw-panel {
 	position: absolute;
-	top: @height-header;
+	// The sidebar is absolutely positioned inside the header which applies a top
+	// margin so we need to subtract this top margin in order to get the correct
+	// sidebar position.
+	top: @height-header - @margin-top-header;
 	left: 0;
 	width: @width-grid-column-one;
 	.box-sizing( border-box );
