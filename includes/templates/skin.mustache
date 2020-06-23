@@ -29,6 +29,9 @@
 	MenuDefinition data-page-actions
 	MenuDefinition data-page-actions-more
 	object data-search-box. See SearchBox.mustache for documentation.
+	boolean sidebar-visible For users that want to see the sidebar on initial render, this should be
+	  true.
+	string msg-vector-action-toggle-sidebar The label used by the sidebar button.
 	object data-sidebar. See Sidebar.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 	string html-printtail HTML to render at the end of the page contained necessary script tags for
@@ -38,6 +41,16 @@
 {{{html-headelement}}}
 
 <div id="mw-page-base" class="mw-header-placeholder noprint"></div>
+
+<input
+	type="checkbox"
+	id="mw-sidebar-checkbox"
+	class="mw-checkbox-hack-checkbox"
+	role="button"
+	{{#sidebar-visible}}checked{{/sidebar-visible}}
+	aria-labelledby="mw-sidebar-button"
+	aria-controls="mw-panel">
+
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <main id="content" class="mw-body" role="main">
@@ -72,7 +85,15 @@
 {{{html-dataAfterContent}}}
 
 <header class="mw-header">
-{{>Logo}}
+	<label
+		id="mw-sidebar-button"
+		class="mw-checkbox-hack-button mw-ui-icon mw-ui-icon-element"
+		for="mw-sidebar-checkbox"
+		data-event-name="ui.sidebar">
+		{{msg-vector-action-toggle-sidebar}}
+	</label>
+
+	{{>Logo}}
 </header>
 
 <div id="mw-navigation">

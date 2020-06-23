@@ -4,6 +4,8 @@
 @import 'legacy/Sidebar.less';
 @import 'checkboxHack.less';
 
+@margin-horizontal-sidebar-button-icon: 12px;
+
 .mw-sidebar-action {
 	// Align with the portal heading/links
 	// `.portal` + `.portal .body`
@@ -15,65 +17,53 @@
 	font-weight: bold;
 }
 
-// FIXME please add a class, .mw-navigation, and use that here and below instead of this identifier.
-#mw-navigation {
-	.mw-checkbox-hack-checkbox,
-	.mw-checkbox-hack-button {
-		// The icon is only 44px tall but the header is 50px. Offset by the difference from the logo
-		// icon and center with respect to the header.
-		top: @margin-top-header + ( ( @height-logo-icon - @size-sidebar-button ) / 2 );
-		// FIXME: Replace by proper calculation and variable.
-		left: 14px;
+#mw-sidebar-button {
+	// Override minimum dimensions set by mw-ui-icon.mw-ui-icon-element.
+	min-width: @size-sidebar-button;
+	min-height: @size-sidebar-button;
+	width: @size-sidebar-button;
+	height: @size-sidebar-button;
+	border: 1px solid transparent;
+	border-radius: @border-radius-base;
+	margin-left: -@margin-horizontal-sidebar-button-icon;
+	margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
+
+	&:before {
+		// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
+		// As soon as mediawiki.ui is standardized, remove this override. See T191021.
+		min-width: 20px;
+		min-height: 20px;
+		height: 100%;
+		// Center it horizontally.
+		margin: 0 @margin-horizontal-sidebar-button-icon;
+		// Equals `#555`, closest to `#54595d` on background-color `#fff`.
+		opacity: 0.67;
 	}
 
-	.mw-checkbox-hack-button {
-		position: absolute;
-		z-index: @z-index-sidebar-button;
-		// Override minimum dimensions set by mw-ui-icon.mw-ui-icon-element.
-		min-width: @size-sidebar-button;
-		min-height: @size-sidebar-button;
-		width: @size-sidebar-button;
-		height: @size-sidebar-button;
-		border: 1px solid transparent;
-		border-radius: @border-radius-base;
+	&:hover {
+		background-color: @background-color-frameless--hover;
 
 		&:before {
-			// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
-			// As soon as mediawiki.ui is standardized, remove this override. See T191021.
-			min-width: 20px;
-			min-height: 20px;
-			height: 100%;
-			// Center it horizontally.
-			margin: 0 12px;
-			// Equals `#555`, closest to `#54595d` on background-color `#fff`.
-			opacity: 0.67;
-		}
-
-		&:hover {
-			background-color: @background-color-frameless--hover;
-
-			&:before {
-				opacity: 1;
-			}
+			opacity: 1;
 		}
 	}
+}
 
-	.mw-checkbox-hack-checkbox:focus ~ .mw-checkbox-hack-button {
-		// Next two rules from OOUI, frameless, icon-only button widget.
-		border-color: @color-primary;
-		.box-shadow( inset 0 0 0 1px @color-primary );
-	}
+#mw-sidebar-checkbox:focus ~ .mw-header .mw-checkbox-hack-button {
+	// Next two rules from OOUI, frameless, icon-only button widget.
+	border-color: @color-primary;
+	.box-shadow( inset 0 0 0 1px @color-primary );
+}
 
-	// Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
-	// checkbox input for the menu panel.
-	.mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-sidebar {
-		// Turn off presentation so that screen readers get the same effect as visually hiding.
-		// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
-		// instead to avoid hidden rendering.
-		visibility: hidden;
-		opacity: 0;
-		.transform( translateX( -100% ) );
-	}
+// Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
+// checkbox input for the menu panel.
+#mw-sidebar-checkbox:not( :checked ) ~ #mw-navigation .mw-sidebar {
+	// Turn off presentation so that screen readers get the same effect as visually hiding.
+	// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
+	// instead to avoid hidden rendering.
+	visibility: hidden;
+	opacity: 0;
+	.transform( translateX( -100% ) );
 }
 
 // Disable transitions on page load. No-JS users will unfortunately miss out. A similar pattern is
@@ -89,7 +79,7 @@
 	}
 
 	// Enable sidebar button transitions.
-	#mw-navigation .mw-checkbox-hack-button {
+	#mw-sidebar-button {
 		.transition(
 			background-color @transition-duration-base,
 			border-color @transition-duration-base,

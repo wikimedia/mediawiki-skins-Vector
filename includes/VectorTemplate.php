@@ -177,6 +177,9 @@ class VectorTemplate extends BaseTemplate {
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->buildSidebar(),
+			// [todo] fetch user preference when logged in (T246427).
+			'sidebar-visible' => true,
+			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
@@ -343,9 +346,6 @@ class VectorTemplate extends BaseTemplate {
 			'array-portals-rest' => array_slice( $props, 1 ),
 			'data-portals-first' => $firstPortal,
 			'data-portals-languages' => $languages,
-			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
-			// [todo] fetch user preference when logged in (T246427).
-			'sidebar-visible' => true
 		];
 	}
 

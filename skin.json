@@ -63,13 +63,13 @@
 			"class": "ResourceLoaderImageModule",
 			"selector": "{name}",
 			"images": {
-				"#mw-navigation .mw-checkbox-hack-button:before": {
+				"#mw-sidebar-button:before": {
 					"file": {
 						"ltr": "resources/skins.vector.icons/chevronHorizontal-ltr.svg",
 						"rtl": "resources/skins.vector.icons/chevronHorizontal-rtl.svg"
 					}
 				},
-				"#mw-navigation .mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-checkbox-hack-button:before": "resources/skins.vector.icons/menu.svg"
+				"#mw-sidebar-checkbox:not( :checked ) ~ .mw-header #mw-sidebar-button:before": "resources/skins.vector.icons/menu.svg"
 			}
 		},
 		"skins.vector.styles.responsive": {
