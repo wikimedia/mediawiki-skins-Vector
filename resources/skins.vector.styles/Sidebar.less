@@ -71,12 +71,10 @@
 // used in Minerva's DropDownList. See enableCssAnimations() in skin.vector.js/index.js for context
 // and additional details on how this class is added.
 .vector-animations-ready {
-	// Enable sidebar transitions on desktop width only.
+	// Enable transition on all widths by default.
 	.mw-sidebar {
-		@media ( min-width: @width-breakpoint-desktop  ) {
-			@timing: @transition-duration-base ease-out;
-			.transition( transform @timing, opacity @timing, visibility @timing; );
-		}
+		@timing: @transition-duration-base ease-out;
+		.transition( transform @timing, opacity @timing, visibility @timing; );
 	}
 
 	// Enable sidebar button transitions.

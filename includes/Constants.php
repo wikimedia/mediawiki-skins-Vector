@@ -70,6 +70,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_KEY_LAYOUT_MAX_WIDTH = 'VectorLayoutMaxWidth';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
 	// These are used in the Feature Management System.

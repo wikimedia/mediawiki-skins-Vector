@@ -40,6 +40,9 @@
 
 {{{html-headelement}}}
 
+<div class="mw-page-container">
+	<div class="mw-page-container-inner">
+
 <div id="mw-page-base" class="mw-header-placeholder noprint"></div>
 
 <input
@@ -48,6 +51,8 @@
 	class="mw-checkbox-hack-checkbox"
 	{{#sidebar-visible}}checked{{/sidebar-visible}}>
 
+<div class="mw-workspace-container">
+	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <main id="content" class="mw-body" role="main">
@@ -79,6 +84,8 @@
 	</div>
 </main>
 {{{html-dataAfterContent}}}
+	</div> {{! END mw-content-container }}
+</div> {{! END mw-workspace-container }}
 
 <header class="mw-header">
 	<label
@@ -91,8 +98,9 @@
 		tabindex="0">
 		{{msg-vector-action-toggle-sidebar}}
 	</label>
-	{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
-
+	<div class="mw-workspace-container mw-sidebar-container">
+		{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
+	</div>
 	{{>Logo}}
 </header>
 
@@ -100,16 +108,23 @@
 	<h2>{{{html-navigation-heading}}}</h2>
 	<div id="mw-head">
 		{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
-		<div id="left-navigation">
-			{{#data-namespace-tabs}}{{>Menu}}{{/data-namespace-tabs}}
-			{{#data-variants}}{{>Menu}}{{/data-variants}}
-		</div>
-		<div id="right-navigation">
-			{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
-			{{#data-page-actions-more}}{{>Menu}}{{/data-page-actions-more}}
-			{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
+		<div class="mw-content-container mw-article-toolbar-container">
+			<div id="left-navigation">
+				{{#data-namespace-tabs}}{{>Menu}}{{/data-namespace-tabs}}
+				{{#data-variants}}{{>Menu}}{{/data-variants}}
+			</div>
+			<div id="right-navigation">
+				{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
+				{{#data-page-actions-more}}{{>Menu}}{{/data-page-actions-more}}
+				{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
+			</div>
 		</div>
 	</div>
 </div>
-{{#data-footer}}{{>Footer}}{{/data-footer}}
+
+<div class="mw-workspace-container mw-footer-container">
+	{{#data-footer}}{{>Footer}}{{/data-footer}}
+</div>
+	</div> {{! END mw-page-container-inner }}
+</div> {{! END mw-page-container }}
 {{{html-printtail}}}

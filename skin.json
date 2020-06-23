@@ -159,6 +159,10 @@
 		},
 		"VectorDefaultSidebarVisibleForAnonymousUser": {
 			"value": false
+		},
+		"VectorLayoutMaxWidth": {
+			"value": false,
+			"description": "@var boolean Enables the max-width layout for the latest version of Vector. This is intended to be a very short-lived feature flag whose sole purpose is to derisk the deployment of T246420. It should be removed (and made the default) as quickly as possible."
 		}
 	},
 	"ServiceWiringFiles": [
