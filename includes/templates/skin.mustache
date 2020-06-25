@@ -46,10 +46,9 @@
 	type="checkbox"
 	id="mw-sidebar-checkbox"
 	class="mw-checkbox-hack-checkbox"
-	role="button"
 	{{#sidebar-visible}}checked{{/sidebar-visible}}
-	aria-labelledby="mw-sidebar-button"
-	aria-controls="mw-panel">
+	tabindex="-1"
+	aria-hidden="true">
 
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
@@ -89,7 +88,10 @@
 		id="mw-sidebar-button"
 		class="mw-checkbox-hack-button mw-ui-icon mw-ui-icon-element"
 		for="mw-sidebar-checkbox"
-		data-event-name="ui.sidebar">
+		role="button"
+		aria-controls="mw-panel"
+		data-event-name="ui.sidebar"
+		tabindex="0">
 		{{msg-vector-action-toggle-sidebar}}
 	</label>
 
