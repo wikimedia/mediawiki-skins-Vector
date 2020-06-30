@@ -171,7 +171,6 @@ class VectorTemplate extends BaseTemplate {
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->buildSidebar(),
-			// [todo] fetch user preference when logged in (T246427).
 			'sidebar-visible' => $this->isSidebarVisible(),
 			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
@@ -269,9 +268,19 @@ class VectorTemplate extends BaseTemplate {
 	private function isSidebarVisible() {
 		$skin = $this->getSkin();
 		if ( $skin->getUser()->isLoggedIn() ) {
-			return $this->getConfig()->get(
+			$userPrefSidebarState = $skin->getUser()->getOption(
+				Constants::PREF_KEY_SIDEBAR_VISIBLE
+			);
+
+			$defaultLoggedinSidebarState = $this->getConfig()->get(
 				Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
 			);
+
+			// If the sidebar user preference has been set, return that value,
+			// if not, then the default sidebar state for logged-in users.
+			return ( $userPrefSidebarState !== null )
+				? (bool)$userPrefSidebarState
+				: $defaultLoggedinSidebarState;
 		}
 		return $this->getConfig()->get(
 			Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER

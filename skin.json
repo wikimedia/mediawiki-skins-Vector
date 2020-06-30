@@ -82,6 +82,7 @@
 		"skins.vector.js": {
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
+				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js"
 			],

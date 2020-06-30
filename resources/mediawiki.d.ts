@@ -1,3 +1,9 @@
+interface MwApi {
+	saveOption( name: string, value: unknown ): JQuery.Promise<any>;
+}
+
+type MwApiConstructor = new( options?: Object ) => MwApi;
+
 interface MediaWiki {
 	util: {
 		/**
@@ -15,6 +21,10 @@ interface MediaWiki {
 		 */
 		debounce(delay: number, callback: Function): () => void;
 	};
+	Api: MwApiConstructor;
+	config: {
+		get( configKey: string|null ): string;
+	}
 }
 
 declare const mw: MediaWiki;

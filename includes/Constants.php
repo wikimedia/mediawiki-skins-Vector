@@ -77,6 +77,11 @@ final class Constants {
 	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_SIDEBAR_VISIBLE = 'VectorSidebarVisible';
+
 	// These are used in the Feature Management System.
 	/**
 	 * Also known as `$wgFullyInitialised`. Set to true in core/includes/Setup.php.

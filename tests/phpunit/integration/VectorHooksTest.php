@@ -37,6 +37,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorShowSkinPreferences' => true,
 			// '1' is Legacy.
 			'VectorDefaultSkinVersionForExistingAccounts' => '1',
+			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
 		] );
 		$this->setService( 'Vector.Config', $config );
 
@@ -60,6 +61,10 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'default' => '1',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]
 				],
+				'VectorSidebarVisible' => [
+					'type' => 'api',
+					'default' => true
+				],
 				'bar' => []
 			],
 			'Preferences are inserted directly after skin.'
@@ -74,6 +79,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorShowSkinPreferences' => true,
 			// '1' is Legacy.
 			'VectorDefaultSkinVersionForExistingAccounts' => '1',
+			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
 		] );
 		$this->setService( 'Vector.Config', $config );
 
@@ -96,6 +102,10 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'default' => '1',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]
 				],
+				'VectorSidebarVisible' => [
+					'type' => 'api',
+					'default' => true
+				],
 			],
 			'Preferences are appended.'
 		);
@@ -109,6 +119,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorShowSkinPreferences' => true,
 			// '2' is latest.
 			'VectorDefaultSkinVersionForExistingAccounts' => '2',
+			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
 		] );
 		$this->setService( 'Vector.Config', $config );
 
@@ -130,6 +141,10 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					// '0' is disabled (which means latest).
 					'default' => '0',
 					'hide-if' => [ '!==', 'wpskin', 'vector' ]
+				],
+				'VectorSidebarVisible' => [
+					'type' => 'api',
+					'default' => true
 				],
 			],
 			'Legacy skin version is disabled.'

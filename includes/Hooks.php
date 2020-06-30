@@ -129,6 +129,10 @@ class Hooks {
 				// this state to determine whether to show or hide the whole section.
 				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
 			],
+			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
+				'type' => 'api',
+				'default' => self::getConfig( Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER )
+			],
 		];
 
 		// Seek the skin preference section to add Vector preferences just below it.
