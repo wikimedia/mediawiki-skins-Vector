@@ -46,9 +46,9 @@ function initSidebar( document ) {
 	var button = document.getElementById( 'mw-sidebar-button' );
 	if ( checkbox instanceof HTMLInputElement && button ) {
 		checkboxHack.bindToggleOnClick( checkbox, button );
-		checkboxHack.bindUpdateAriaExpandedOnInput( checkbox );
+		checkboxHack.bindUpdateAriaExpandedOnInput( checkbox, button );
 
-		checkboxHack.updateAriaExpanded( checkbox );
+		checkboxHack.updateAriaExpanded( checkbox, button );
 	}
 }
 
