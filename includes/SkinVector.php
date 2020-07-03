@@ -119,8 +119,8 @@ class SkinVector extends SkinTemplate {
 			// Result of OutputPage::addHTML calls
 			'html-bodycontent' => $this->wrapHTML( $title, $out->mBodytext ),
 			'html-dataAfterContent' => $this->afterContentHook(),
-			// From MWDebug::getHTMLDebugLog (when $wgShowDebug is enabled)
-			'html-debuglog' => $this->generateDebugHTML(),
+			// When $wgShowDebug is enabled
+			'html-debuglog' => MWDebug::getHTMLDebugLog(),
 		];
 	}
 
