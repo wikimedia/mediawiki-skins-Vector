@@ -7,7 +7,7 @@
 		]
 	},
 	"vector-action-addsection": "Мывзу зијод кардеј",
-	"vector-action-delete": "Рәдд кардеј",
+	"vector-action-delete": "Bısü",
 	"vector-action-move": "Номи дәгиш кардеј",
 	"vector-action-protect": "Mıdofiə karde",
 	"vector-action-undelete": "Бәрпо кардеј",
@@ -17,5 +17,5 @@
 	"vector-view-history": "Тarix",
 	"vector-view-view": "Bahand",
 	"vector-view-viewsource": "Дијә кардеј",
-	"vector-more-actions": "həniyən"
+	"vector-more-actions": "Həniyən"
 }
