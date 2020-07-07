@@ -58,6 +58,18 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER =
+		'VectorDefaultSidebarVisibleForAuthorisedUser';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER =
+		'VectorDefaultSidebarVisibleForAnonymousUser';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
 	// These are used in the Feature Management System.

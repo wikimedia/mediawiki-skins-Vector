@@ -22,6 +22,8 @@
  * @ingroup Skins
  */
 
+use Vector\Constants;
+
 /**
  * QuickTemplate subclass for Vector
  * @ingroup Skins
@@ -170,7 +172,7 @@ class VectorTemplate extends BaseTemplate {
 
 			'data-sidebar' => $this->buildSidebar(),
 			// [todo] fetch user preference when logged in (T246427).
-			'sidebar-visible' => true,
+			'sidebar-visible' => $this->isSidebarVisible(),
 			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
 
@@ -257,6 +259,23 @@ class VectorTemplate extends BaseTemplate {
 		];
 
 		return $data;
+	}
+
+	/**
+	 * Determines wheather the initial state of sidebar is visible on not
+	 *
+	 * @return bool
+	 */
+	private function isSidebarVisible() {
+		$skin = $this->getSkin();
+		if ( $skin->getUser()->isLoggedIn() ) {
+			return $this->getConfig()->get(
+				Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
+			);
+		}
+		return $this->getConfig()->get(
+			Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER
+		);
 	}
 
 	/**
