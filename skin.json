@@ -52,7 +52,7 @@
 		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "elements", "content", "interface", "legacy" ],
+			"features": [ "normalize", "elements", "content", "interface", "legacy" ],
 			"targets": [
 				"desktop",
 				"mobile"
