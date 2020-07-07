@@ -194,6 +194,9 @@
 		"VectorUseCoreSearch": {
 			"value": true
 		},
+		"VectorIsSearchInHeader": {
+			"value": false
+		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true
 		},

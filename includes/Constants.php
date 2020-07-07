@@ -77,6 +77,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_SEARCH_IN_HEADER = 'VectorIsSearchInHeader';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
 	/**

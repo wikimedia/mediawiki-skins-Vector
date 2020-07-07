@@ -131,6 +131,7 @@ class SkinVector extends SkinMustache {
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
 			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
+			'is-search-in-header' => $this->getConfig()->get( Constants::CONFIG_SEARCH_IN_HEADER ),
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),

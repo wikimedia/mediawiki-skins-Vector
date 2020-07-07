@@ -116,7 +116,11 @@ body {
 	margin-top: @height-header;
 }
 
-#p-personal {
+// FIXME: Remove the body:not selector when
+// skin-vector-search-header-legacy class is available in cached HTML
+// i.e. deploy after I7f8059d43eaab49de362405784b34a4fe502c7b0 lands.
+body:not( .skin-vector-search-header ) #p-personal,
+.skin-vector-search-header-legacy #p-personal {
 	position: absolute;
 	top: @top-personal-tools;
 	right: 0.75em;
@@ -128,7 +132,9 @@ body {
 		// As a result it is possible for the personal tools to overlap the logo.
 		padding-left: @width-grid-column-one;
 	}
+}
 
+#p-personal {
 	li {
 		display: inline-block;
 	}

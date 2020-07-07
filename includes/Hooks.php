@@ -276,6 +276,11 @@ class Hooks {
 		if ( self::getConfig( Constants::CONFIG_KEY_LAYOUT_MAX_WIDTH ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-max-width';
 		}
+		if ( self::getConfig( Constants::CONFIG_SEARCH_IN_HEADER ) ) {
+			$bodyAttrs['class'] .= ' skin-vector-search-header';
+		} else {
+			$bodyAttrs['class'] .= ' skin-vector-search-header-legacy';
+		}
 	}
 
 	/**
