@@ -82,16 +82,6 @@ class VectorTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Amends the default behavior of BaseTemplate to return rather
-	 * than echo.
-	 * @param string $key
-	 * @return Message
-	 */
-	public function msg( $key ) {
-		return $this->getMsg( $key );
-	}
-
-	/**
 	 * @return Config
 	 */
 	private function getConfig() {
@@ -150,30 +140,30 @@ class VectorTemplate extends BaseTemplate {
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
 			'html-title' => $out->getPageTitle(),
-			'msg-tagline' => $this->msg( 'tagline' )->text(),
+			'msg-tagline' => $skin->msg( 'tagline' )->text(),
 
 			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 			'html-newtalk' => $skin->getNewtalks() ?: null,
 
-			'msg-vector-jumptonavigation' => $this->msg( 'vector-jumptonavigation' )->text(),
-			'msg-vector-jumptosearch' => $this->msg( 'vector-jumptosearch' )->text(),
+			'msg-vector-jumptonavigation' => $skin->msg( 'vector-jumptonavigation' )->text(),
+			'msg-vector-jumptosearch' => $skin->msg( 'vector-jumptosearch' )->text(),
 
 			'html-printfooter' => $skin->printSource(),
 			'html-catlinks' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
-			'html-navigation-heading' => $this->msg( 'navigation-heading' ),
+			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
-			'msg-sitetitle' => $this->msg( 'sitetitle' )->text(),
-			'msg-sitesubtitle' => $this->msg( 'sitesubtitle' )->text(),
+			'msg-sitetitle' => $skin->msg( 'sitetitle' )->text(),
+			'msg-sitesubtitle' => $skin->msg( 'sitesubtitle' )->text(),
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->buildSidebar(),
 			// [todo] fetch user preference when logged in (T246427).
 			'sidebar-visible' => $this->isSidebarVisible(),
-			'msg-vector-action-toggle-sidebar' => $this->msg( 'vector-action-toggle-sidebar' )->text(),
+			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
 
 		// The following logic is unqiue to Vector (not used by legacy Vector) and
@@ -185,8 +175,8 @@ class VectorTemplate extends BaseTemplate {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'text' => $this->msg( 'vector-opt-out' )->text(),
-				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
+				'text' => $skin->msg( 'vector-opt-out' )->text(),
+				'title' => $skin->msg( 'vector-opt-out-tooltip' )->text(),
 			];
 		}
 
@@ -389,6 +379,7 @@ class VectorTemplate extends BaseTemplate {
 		array $options = [],
 		bool $setLabelToSelected = false
 	) : array {
+		$skin = $this->getSkin();
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
@@ -405,7 +396,7 @@ class VectorTemplate extends BaseTemplate {
 
 		// For some menu items, there is no language key corresponding with its menu key.
 		// These inconsitencies are captured in MENU_LABEL_KEYS
-		$msgObj = $this->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
+		$msgObj = $skin->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
 		$props = [
 			'id' => "p-$label",
 			'label-id' => "p-{$label}-label",
@@ -465,7 +456,7 @@ class VectorTemplate extends BaseTemplate {
 			$loggedIn =
 				Html::element( 'li',
 					[ 'id' => 'pt-anonuserpage' ],
-					$this->msg( 'notloggedin' )->text()
+					$skin->msg( 'notloggedin' )->text()
 				);
 		} else {
 			$loggedIn = '';
@@ -517,6 +508,7 @@ class VectorTemplate extends BaseTemplate {
 	 */
 	private function buildSearchProps() : array {
 		$config = $this->getConfig();
+		$skin = $this->getSkin();
 		$props = [
 			'form-action' => $config->get( 'Script' ),
 			'html-button-search-fallback' => $this->makeSearchButton(
@@ -528,7 +520,7 @@ class VectorTemplate extends BaseTemplate {
 				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
 			),
 			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'msg-search' => $this->msg( 'search' ),
+			'msg-search' => $skin->msg( 'search' ),
 			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
 		];
 		return $props;
