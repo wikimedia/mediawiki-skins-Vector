@@ -4,16 +4,8 @@
 
 /* Search */
 #p-search {
-	float: left;
-	margin-right: 0.5em;
-	margin-left: 0.5em;
-
 	h3 {
-		.mixin-screen-reader-text;
-	}
-
-	form {
-		margin: 0.5em 0 0;
+		.mixin-screen-reader-text();
 	}
 }
 
@@ -21,12 +13,6 @@
 // Provide extra element for gadgets due to `form` already carrying an `id`.
 #simpleSearch {
 	position: relative;
-	min-width: 5em;
-	// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
-	width: 13.2em;
-	// Support: Modern browsers, responsive width.
-	width: 20vw;
-	max-width: 20em;
 	height: 100%;
 
 	// Styles for both the search input and the button.
