@@ -212,6 +212,11 @@ class Hooks {
 
 		if ( $skinVersionLookup->isLegacy() ) {
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
+			return;
+		}
+
+		if ( self::getConfig( Constants::CONFIG_KEY_LAYOUT_MAX_WIDTH ) ) {
+			$bodyAttrs['class'] .= ' skin-vector-max-width';
 		}
 	}
 
