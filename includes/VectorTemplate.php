@@ -27,6 +27,8 @@ use Vector\Constants;
 /**
  * QuickTemplate subclass for Vector
  * @ingroup Skins
+ * @deprecated Since 1.35, duplicate class locally if its functionality is needed.
+ * Extensions or skins should extend it under no circumstances.
  */
 class VectorTemplate extends BaseTemplate {
 	/** @var array of alternate message keys for menu labels */
