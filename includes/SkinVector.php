@@ -104,23 +104,23 @@ class SkinVector extends SkinTemplate {
 
 		return [
 			// Data objects:
-			'data-indicators' => $indicators,
+			'array-indicators' => $indicators,
 			// HTML strings:
 			'html-printtail' => WrappedString::join( "\n", [
+				MWDebug::getHTMLDebugLog(),
 				MWDebug::getDebugHTML( $this->getContext() ),
 				$this->bottomScripts(),
 				wfReportTime( $out->getCSP()->getNonce() )
 			] ) . '</body></html>',
-			'html-sitenotice' => $this->getSiteNotice(),
+			'html-site-notice' => $this->getSiteNotice(),
 			'html-userlangattributes' => $this->prepareUserLanguageAttributes(),
 			'html-subtitle' => $this->prepareSubtitle(),
 			// Always returns string, cast to null if empty.
-			'html-undelete' => $this->prepareUndeleteLink() ?: null,
+			'html-undelete-link' => $this->prepareUndeleteLink() ?: null,
 			// Result of OutputPage::addHTML calls
-			'html-bodycontent' => $this->wrapHTML( $title, $out->mBodytext ),
-			'html-dataAfterContent' => $this->afterContentHook(),
-			// When $wgShowDebug is enabled
-			'html-debuglog' => MWDebug::getHTMLDebugLog(),
+			'html-body-content' => $this->wrapHTML( $title, $out->mBodytext )
+				. $this->printSource(),
+			'html-after-content' => $this->afterContentHook(),
 		];
 	}
 

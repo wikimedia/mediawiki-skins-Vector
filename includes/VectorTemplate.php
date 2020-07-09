@@ -153,7 +153,7 @@ class VectorTemplate extends BaseTemplate {
 			'msg-vector-jumptosearch' => $skin->msg( 'vector-jumptosearch' )->text(),
 
 			'html-printfooter' => $skin->printSource(),
-			'html-catlinks' => $skin->getCategories(),
+			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
 			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
 			'data-search-box' => $this->buildSearchProps(),

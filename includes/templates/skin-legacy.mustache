@@ -1,24 +1,22 @@
 {{!
 	string html-headelement a string of attribute HTML that begins with `<html>` and ends with
 		`</head>` and contains `meta` tags and ResourceLoader internals.
-	string|null html-sitenotice the contents of a banner defined in MediaWiki:Sitenotice.
+	string|null html-site-notice the contents of a banner defined in MediaWiki:Sitenotice.
 		Also used by CentralNotice to inject banners into Vector.
-	Indicator[] data-indicators wiki-defined badges such as "good article",
+	Indicator[] array-indicators wiki-defined badges such as "good article",
 		"featured article". An empty array if none are defined.
 	string page-langcode the content language of the article. Assumed to be escaped HTML.
 	string html-title
 	bool page-isarticle
 	string msg-tagline
 	string html-subtitle
-	string html-undelete
+	string html-undelete-link
 	string html-newtalk
 	string msg-vector-jumptonavigation
 	string msg-vector-jumptosearch
-	string html-bodycontent
-	string html-printfooter
-	string html-catlinks
-	string html-debuglog
-	string html-dataAfterContent
+	string html-body-content
+	string html-categories
+	string html-after-content
 	string html-navigation-heading heading for entire navigation that is
 		usually hidden to screen readers
 	MenuDefinition data-personal-menu
@@ -38,13 +36,13 @@
 <div id="mw-head-base" class="noprint"></div>
 <div id="content" class="mw-body" role="main">
 	<a id="top"></a>
-	<div id="siteNotice" class="mw-body-content">{{{html-sitenotice}}}</div>
+	<div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
 	{{>Indicators}}
 	<h1 id="firstHeading" class="firstHeading" lang="{{page-langcode}}">{{{html-title}}}</h1>
 	<div id="bodyContent" class="mw-body-content">
 		{{#page-isarticle}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/page-isarticle}}
 		<div id="contentSub"{{{html-userlangattributes}}}>{{{html-subtitle}}}</div>
-		<div id="contentSub2">{{{html-undelete}}}</div>
+		<div id="contentSub2">{{{html-undelete-link}}}</div>
 		{{{html-newtalk}}}
 		{{!
 			Keep this empty `div` for compatibility with gadgets and user scripts
@@ -53,13 +51,11 @@
 		<div id="jump-to-nav"></div>
 		<a class="mw-jump-link" href="#mw-head">{{msg-vector-jumptonavigation}}</a>
 		<a class="mw-jump-link" href="#searchInput">{{msg-vector-jumptosearch}}</a>
-		{{{html-bodycontent}}}
-		<div class="printfooter">{{{html-printfooter}}}</div>
-		{{{html-catlinks}}}
-		{{{html-debuglog}}}
+		{{{html-body-content}}}
+		{{{html-categories}}}
 	</div>
 </div>
-{{{html-dataAfterContent}}}
+{{{html-after-content}}}
 <div id="mw-navigation">
 	<h2>{{{html-navigation-heading}}}</h2>
 	<div id="mw-head">

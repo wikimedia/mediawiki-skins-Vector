@@ -92,17 +92,19 @@ export const LEGACY_TEMPLATE_DATA = {
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
-	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
+	'html-site-notice': placeholder( 'a site notice or central notice banner may go here', 70 ),
 
 	// article dependent
-	'html-bodycontent': placeholder( 'Article content goes here' ),
-	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
-	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 ),
+	'html-body-content': `${placeholder( 'Article content goes here' )}
+		<div class="printfooter">
+			Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’
+		</div>`,
+	'html-categories': placeholder( 'Category links component from mediawiki core', 50 ),
 
 	// extension dependent..
 	'html-hook-vector-before-footer': placeholder( 'VectorBeforeFooter hook output', 100 ),
-	'html-dataAfterContent': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
-	'data-indicators': DATA_INDICATORS,
+	'html-after-content': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
+	'array-indicators': DATA_INDICATORS,
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )
 };
 
@@ -116,11 +118,13 @@ export const MODERN_TEMPLATE_DATA = {
 
 	// site specific
 	'data-footer': FOOTER_TEMPLATE_DATA,
-	'html-sitenotice': placeholder( 'a site notice or central notice banner may go here', 70 ),
+	'html-site-notice': placeholder( 'a site notice or central notice banner may go here', 70 ),
 
 	// article dependent
-	'data-indicators': DATA_INDICATORS,
-	'html-bodycontent': placeholder( 'Article content goes here' ),
-	'html-printfooter': `Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’`,
-	'html-catlinks': placeholder( 'Category links component from mediawiki core', 50 )
+	'array-indicators': DATA_INDICATORS,
+	'html-body-content': `${placeholder( 'Article content goes here' )}
+		<div class="printfooter">
+		Retrieved from ‘<a dir="ltr" href="#">https://en.wikipedia.org/w/index.php?title=this&oldid=blah</a>’
+		</div>`,
+	'html-categories': placeholder( 'Category links component from mediawiki core', 50 )
 };
