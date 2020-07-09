@@ -294,7 +294,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		$this->setMwGlobals( [
 			'wgVectorUseIconWatch' => true
 		] );
-		$skin = new SkinTemplateVector( [ 'name' => 'vector' ] );
+		$skin = new SkinVector( [ 'name' => 'vector' ] );
 		$contentNavWatch = [
 			'actions' => [
 				'watch' => [ 'class' => 'watch' ],

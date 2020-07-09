@@ -28,8 +28,9 @@ use Vector\Constants;
 /**
  * Skin subclass for Vector
  * @ingroup Skins
+ * Skins extending SkinVector are not supported
  */
-class SkinTemplateVector extends SkinMustache {
+class SkinVector extends SkinMustache {
 
 	/** @var array of alternate message keys for menu labels */
 	private const MENU_LABEL_KEYS = [

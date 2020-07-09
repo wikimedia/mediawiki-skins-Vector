@@ -16,8 +16,8 @@
 	},
 	"ValidSkinNames": {
 		"vector": {
-			"class": "SkinTemplateVector",
-			"@args": "See SkinTemplateVector::__construct for more detail.",
+			"class": "SkinVector",
+			"@args": "See SkinVector::__construct for more detail.",
 			"args": [
 				{
 					"name": "vector",
@@ -39,7 +39,7 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinTemplateVector": "includes/SkinTemplateVector.php"
+		"SkinVector": "includes/SkinVector.php"
 	},
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"

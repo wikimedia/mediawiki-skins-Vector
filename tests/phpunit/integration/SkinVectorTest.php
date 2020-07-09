@@ -3,7 +3,7 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use MediaWikiIntegrationTestCase;
 use RequestContext;
-use SkinTemplateVector;
+use SkinVector;
 use Title;
 use Wikimedia\TestingAccessWrapper;
 
@@ -13,15 +13,15 @@ use Wikimedia\TestingAccessWrapper;
  * @group Vector
  * @group Skins
  *
- * @coversDefaultClass \SkinTemplateVector
+ * @coversDefaultClass \SkinVector
  */
-class SkinTemplateVectorTest extends MediaWikiIntegrationTestCase {
+class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @return \VectorTemplate
 	 */
 	private function provideVectorTemplateObject() {
-		$template = new SkinTemplateVector();
+		$template = new SkinVector();
 		return $template;
 	}
 
@@ -90,7 +90,7 @@ class SkinTemplateVectorTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {
-		$title = Title::newFromText( 'SkinTemplateVector' );
+		$title = Title::newFromText( 'SkinVector' );
 		$context = RequestContext::getMain();
 		$context->setTitle( $title );
 		$context->setLanguage( 'fr' );
