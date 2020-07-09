@@ -1,11 +1,11 @@
 /**
- * Javascsript enhancement to the collapsible sidebar.
+ * JavaScript enhancement to the collapsible sidebar.
  *
  * The sidebar provides basic show/hide functionality with CSS
- * but Javacript is used for progressive enhancements.
+ * but JavaScript is used for progressive enhancements.
  *
- * JS sidebar enhancements include:
- * - Update aria-roles based on expanded/collapsed state.
+ * Enhancements include:
+ * - Update `aria-role`s based on expanded/collapsed state.
  * - Update button icon based on expanded/collapsed state.
  * - Persist the sidebar state for logged-in users.
  *
@@ -42,7 +42,7 @@ function initCheckboxHack( checkbox, button ) {
 
 /**
  * Execute a debounced API request to save the sidebar user preference.
- * The request is meant to fires 1 second after the last click on
+ * The request is meant to fire 1000 milliseconds after the last click on
  * the sidebar button.
  *
  * @param {HTMLInputElement} checkbox
@@ -69,7 +69,7 @@ function bindSidebarClickEvent( checkbox, button ) {
 }
 
 /**
- * Initialize all JS sidebar enhancements.
+ * Initialize all JavaScript sidebar enhancements.
  *
  * @param {Window} window
  */
