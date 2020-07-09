@@ -37,6 +37,7 @@ function initCheckboxHack( checkbox, button ) {
 		checkboxHack.bindToggleOnClick( checkbox, button );
 		checkboxHack.bindUpdateAriaExpandedOnInput( checkbox, button );
 		checkboxHack.updateAriaExpanded( checkbox, button );
+		checkboxHack.bindToggleOnSpaceEnter( checkbox, button );
 	}
 }
 
@@ -64,7 +65,7 @@ function saveSidebarState( checkbox ) {
  */
 function bindSidebarClickEvent( checkbox, button ) {
 	if ( checkbox instanceof HTMLInputElement && button ) {
-		button.addEventListener( 'click', saveSidebarState( checkbox ) );
+		checkbox.addEventListener( 'input', saveSidebarState( checkbox ) );
 	}
 }
 
