@@ -133,6 +133,9 @@ class VectorTemplate extends BaseTemplate {
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
+		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
+		$newTalksHtml = $skin->getNewtalks() ?: null;
+
 		// @phan-suppress-next-line PhanUndeclaredMethod
 		$commonSkinData = $skin->getTemplateData() + [
 			'html-headelement' => $out->headElement( $skin ),
@@ -144,8 +147,7 @@ class VectorTemplate extends BaseTemplate {
 			'html-title' => $out->getPageTitle(),
 			'msg-tagline' => $skin->msg( 'tagline' )->text(),
 
-			// From Skin::getNewtalks(). Always returns string, cast to null if empty.
-			'html-newtalk' => $skin->getNewtalks() ?: null,
+			'html-newtalk' => $newTalksHtml ? '<div class="usermessage">' . $newTalksHtml . '</div>' : '',
 
 			'msg-vector-jumptonavigation' => $skin->msg( 'vector-jumptonavigation' )->text(),
 			'msg-vector-jumptosearch' => $skin->msg( 'vector-jumptosearch' )->text(),
