@@ -99,7 +99,8 @@
 	}
 
 	.mw-footer {
-		padding: 0;
+		border-top: @border-base;
+		padding: 32px 0 0 0;
 	}
 
 	// Container logic.
@@ -109,7 +110,6 @@
 		margin-left: auto;
 		margin-right: auto;
 		padding: 0 @padding-horizontal-page-container;
-		overflow: hidden;
 		background-color: @background-color-page-container;
 	}
 
@@ -144,10 +144,8 @@
 	}
 
 	.mw-footer-container {
-		margin-top: 50px;
-		margin-bottom: 50px;
-		padding: 32px 0;
-		border-top: @border-base;
+		padding-top: 50px;
+		padding-bottom: 82px;
 	}
 
 	// For container logic specific to special pages and history pages.
@@ -171,6 +169,15 @@
 		.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
 			margin-left: @margin-start-content;
 		}
+	}
+
+	// We want it to appear like the sidebar is going into/coming out of
+	// `.mw-page-container`, but we can't use `overflow: hidden` on
+	// `.mw-page-container` because that will cut off the sidebar. Therefore, we
+	// calculate the maximum distance from the start of `mw-page-container` to the
+	// start of the sidebar.
+	#mw-sidebar-checkbox:not( :checked ) ~ .mw-header .mw-sidebar {
+		.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
 	}
 
 	// Responsive overrides.
@@ -198,7 +205,7 @@
 
 	@media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {
 		#mw-panel {
-			background: none;
+			background: @background-color-page-container;
 			border-right: 1px solid @border-color-sidebar;
 		}
 	}
