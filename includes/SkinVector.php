@@ -102,6 +102,12 @@ class SkinVector extends SkinTemplate {
 			];
 		}
 
+		$printFooter = Html::rawElement(
+			'div',
+			[ 'class' => 'printfooter' ],
+			$this->printSource()
+		);
+
 		return [
 			// Data objects:
 			'array-indicators' => $indicators,
@@ -119,7 +125,7 @@ class SkinVector extends SkinTemplate {
 			'html-undelete-link' => $this->prepareUndeleteLink() ?: null,
 			// Result of OutputPage::addHTML calls
 			'html-body-content' => $this->wrapHTML( $title, $out->mBodytext )
-				. $this->printSource(),
+				. $printFooter,
 			'html-after-content' => $this->afterContentHook(),
 		];
 	}
