@@ -119,7 +119,7 @@ class SkinVector extends SkinTemplate {
 				wfReportTime( $out->getCSP()->getNonce() )
 			] ) . '</body></html>',
 			'html-site-notice' => $this->getSiteNotice(),
-			'html-userlangattributes' => $this->prepareUserLanguageAttributes(),
+			'html-user-language-attributes' => $this->prepareUserLanguageAttributes(),
 			'html-subtitle' => $this->prepareSubtitle(),
 			// Always returns string, cast to null if empty.
 			'html-undelete-link' => $this->prepareUndeleteLink() ?: null,

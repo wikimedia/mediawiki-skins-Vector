@@ -40,7 +40,7 @@
 /**
  * @typedef {Object} SearchData
  * @property {string|null} msg-search
- * @property {string} [html-userlangattributes]
+ * @property {string} [html-user-language-attributes]
  * @property {string} form-action URL
  * @property {string|null} html-input
  * @property {string|null} page-title the title of the search page
@@ -57,7 +57,7 @@
  * @property {string} [html-tooltip]
  * @property {string} [class] of menu
  * @property {string} list-classes of the unordered list element inside the menu
- * @property {string} [html-userlangattributes]
+ * @property {string} [html-user-language-attributes]
  * @property {boolean} [is-dropdown]
  * @property {string} [html-hook-vector-after-toolbox] Deprecated and used
  *  by the toolbox portal menu.

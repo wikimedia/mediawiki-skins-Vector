@@ -4,7 +4,7 @@
  * @external Indicator
  */
 
-import { htmluserlangattributes } from './utils';
+import { htmlUserLanguageAttributes } from './utils';
 import { placeholder } from './utils';
 
 import { PERSONAL_MENU_TEMPLATE_DATA, menuTemplate } from './Menu.stories.data';
@@ -86,7 +86,7 @@ export const LEGACY_TEMPLATE_DATA = {
 	'html-title': 'Vector 2019',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
-	'html-userlangattributes': htmluserlangattributes,
+	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'msg-vector-jumptonavigation': 'Jump to navigation',
 	'msg-vector-jumptosearch': 'Jump to search',
 
@@ -112,7 +112,7 @@ export const MODERN_TEMPLATE_DATA = {
 	'html-title': 'Vector 2020',
 	'page-isarticle': true,
 	'msg-tagline': 'From Wikipedia, the free encyclopedia',
-	'html-userlangattributes': htmluserlangattributes,
+	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'msg-vector-jumptonavigation': 'Jump to navigation',
 	'msg-vector-jumptosearch': 'Jump to search',
 

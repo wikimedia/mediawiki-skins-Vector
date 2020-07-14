@@ -2,7 +2,7 @@
  * @external MenuDefinition
  */
 
-import { htmluserlangattributes } from './utils';
+import { htmlUserLanguageAttributes } from './utils';
 
 /**
  * @type {MenuDefinition}
@@ -13,7 +13,7 @@ export const pageActionsData = {
 	'list-classes': 'vector-menu-content-list',
 	'label-id': 'p-views-label',
 	label: 'Views',
-	'html-userlangattributes': htmluserlangattributes,
+	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'html-items': `<li id="ca-view" class="collapsible selected">
 		<a href="/wiki/Main_Page">Read</a>
 </li>
@@ -36,7 +36,7 @@ export const namespaceTabsData = {
 	'list-classes': 'vector-menu-content-list',
 	'label-id': 'p-namespaces-label',
 	label: 'Namespaces',
-	'html-userlangattributes': htmluserlangattributes,
+	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'html-items': `<li id="ca-nstab-main" class="selected"><a href="/wiki/Main_Page" title="View the content page [⌃⌥c]" accesskey="c">Main page</a></li>
 <li id="ca-talk"><a href="/wiki/Talk:Main_Page" rel="discussion" title="Discussion about the content page [⌃⌥t]" accesskey="t">Talk (3)</a></li>`
 };
