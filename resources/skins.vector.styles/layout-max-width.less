@@ -107,6 +107,9 @@
 	.mw-page-container {
 		min-width: @min-width-page-container;
 		max-width: @max-width-page-container;
+		// Fill the viewport even if the content height is small. This also helps
+		// mitigate a long sidebar overflowing the page container (T257518).
+		min-height: 100%;
 		margin-left: auto;
 		margin-right: auto;
 		padding: 0 @padding-horizontal-page-container;
