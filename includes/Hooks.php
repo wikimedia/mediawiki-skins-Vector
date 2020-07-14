@@ -2,11 +2,13 @@
 
 namespace Vector;
 
+use Config;
 use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use RequestContext;
+use ResourceLoaderContext;
 use Skin;
 use SkinTemplate;
 use SkinVector;
@@ -19,6 +21,21 @@ use User;
  *	on<HookName>()
  */
 class Hooks {
+	/**
+	 * Passes config variables to Vector (modern) ResourceLoader module.
+	 * @param ResourceLoaderContext $context
+	 * @param Config $config
+	 * @return array
+	 */
+	public static function getVectorResourceLoaderConfig(
+		ResourceLoaderContext $context,
+		Config $config
+	) {
+		return [
+			'wgVectorUseCoreSearch' => $config->get( 'VectorUseCoreSearch' ),
+		];
+	}
+
 	/**
 	 * BeforePageDisplayMobile hook handler
 	 *
@@ -50,6 +67,37 @@ class Hooks {
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 			$out->addModuleStyles( 'skins.vector.styles.responsive' );
 		}
+	}
+
+	/**
+	 * SkinPageReadyConfig hook handler
+	 *
+	 * Replace searchModule provided by skin.
+	 *
+	 * @since 1.35
+	 * @param ResourceLoaderContext $context
+	 * @param mixed[] &$config Associative array of configurable options
+	 * @return void This hook must not abort, it must return no value
+	 */
+	public static function onSkinPageReadyConfig(
+		ResourceLoaderContext $context,
+		array &$config
+	) {
+		// It's better to exit before any additional check
+		if ( $context->getSkin() !== 'vector' ) {
+			return;
+		}
+
+		// Tell the `mediawiki.page.ready` module not to wire up search.
+		// This allows us to use $wgVectorUseCoreSearch to decide to load
+		// the historic jquery autocomplete search or the new Vue implementation.
+		// ResourceLoaderContext has no knowledge of legacy / modern Vector
+		// and from its point of view they are the same thing.
+		// Please see the modules `skins.vector.js` and `skins.vector.legacy.js`
+		// for the wire up of search.
+		// The related method self::getVectorResourceLoaderConfig handles which
+		// search to load.
+		$config['search'] = false;
 	}
 
 	/**
