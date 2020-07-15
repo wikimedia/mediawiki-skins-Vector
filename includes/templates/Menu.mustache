@@ -4,7 +4,7 @@
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
 <nav id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{label-id}}" role="navigation" {{{html-tooltip}}}
-	 {{{html-userlangattributes}}}>
+	 {{{html-user-language-attributes}}}>
 	{{#is-dropdown}}
 	<input type="checkbox" class="vector-menu-checkbox vectorMenuCheckbox" aria-labelledby="{{label-id}}" />
 	{{/is-dropdown}}

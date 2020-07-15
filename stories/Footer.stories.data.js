@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 
-import { htmluserlangattributes, placeholder } from './utils';
+import { htmlUserLanguageAttributes, placeholder } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
 
 const FOOTER_ROWS = [
@@ -74,7 +74,7 @@ additional terms may apply. See <a href="https://foundation.wikimedia.org/wiki/S
 export { footerTemplate };
 
 export const FOOTER_TEMPLATE_DATA = {
-	'html-userlangattributes': htmluserlangattributes,
+	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'html-hook-vector-before-footer': placeholder( 'output of VectorBeforeFooter hook (deprecated 1.35)', 20 ),
 	'array-footer-rows': FOOTER_ROWS
 };

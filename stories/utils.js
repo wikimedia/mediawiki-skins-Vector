@@ -11,6 +11,6 @@ const placeholder = ( msg, height ) => {
 		display: flex; background: #eee; align-items: center;justify-content: center;">${msg}</div>`;
 };
 
-const htmluserlangattributes = `dir="ltr" lang="en-GB"`;
+const htmlUserLanguageAttributes = `dir="ltr" lang="en-GB"`;
 
-export { placeholder, htmluserlangattributes };
+export { placeholder, htmlUserLanguageAttributes };
