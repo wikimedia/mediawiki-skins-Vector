@@ -71,7 +71,13 @@ function init() {
 				$.collapsibleTabs.addData( $collapsible );
 				settings = $collapsible.data( 'collapsibleTabsSettings' );
 			}
-			return settings;
+			// it's possible for getSettings to return undefined
+			// if no data attributes have been set
+			// see T177108#6310908.
+			// In particular, a gadget may have added a collapsible link to the list:
+			// e.g.
+			// $('<li class="collapsible">my link</a>').appendTo( $('#p-cactions ul') )
+			return settings || {};
 		},
 		handleResize: function () {
 			$.collapsibleTabs.instances.forEach( function ( $el ) {
