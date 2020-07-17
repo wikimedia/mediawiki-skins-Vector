@@ -225,6 +225,34 @@ class Hooks {
 	}
 
 	/**
+	 * NOTE: Please use ResourceLoaderGetConfigVars hook instead if possible
+	 * for adding config to the page.
+	 * Adds config variables to JS that depend on current page/request.
+	 *
+	 * Adds a config flag that can disable saving the VectorSidebarVisible
+	 * user preference when the sidebar menu icon is clicked.
+	 *
+	 * @param array &$vars Array of variables to be added into the output.
+	 * @param OutputPage $out OutputPage instance calling the hook
+	 */
+	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
+		if ( $out->getSkin() instanceof SkinVector ) {
+			$skinVersionLookup = new SkinVersionLookup(
+				$out->getRequest(),
+				$out->getUser(),
+				self::getServiceConfig()
+			);
+
+			if ( !$skinVersionLookup->isLegacy() ) {
+				$vars[ 'wgVectorDisableSidebarPersistence' ] =
+				self::getConfig(
+					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
+				);
+			}
+		}
+	}
+
+	/**
 	 * Get a configuration variable such as `Constants::CONFIG_KEY_SHOW_SKIN_PREFERENCES`.
 	 *
 	 * @param string $name Name of configuration option.

@@ -104,6 +104,11 @@ final class Constants {
 	 */
 	public const FEATURE_LATEST_SKIN = 'LatestSkin';
 
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE = 'VectorDisableSidebarPersistence';
+
 	// These are used for query parameters.
 	/**
 	 * Override the skin version user preference and site Config. See readme.
