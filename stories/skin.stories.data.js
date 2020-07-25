@@ -102,7 +102,6 @@ export const LEGACY_TEMPLATE_DATA = {
 	'html-categories': placeholder( 'Category links component from mediawiki core', 50 ),
 
 	// extension dependent..
-	'html-hook-vector-before-footer': placeholder( 'VectorBeforeFooter hook output', 100 ),
 	'html-after-content': placeholder( 'Extensions can add here e.g. Related Articles.', 100 ),
 	'array-indicators': DATA_INDICATORS,
 	'html-subtitle': placeholder( 'Extensions can configure subtitle', 20 )

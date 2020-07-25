@@ -233,17 +233,7 @@ class SkinVector extends SkinMustache {
 			}
 		}
 
-		ob_start();
-		Hooks::run( 'VectorBeforeFooter', [], '1.35' );
-		$htmlHookVectorBeforeFooter = ob_get_contents();
-		ob_end_clean();
-
-		$data = [
-			'html-hook-vector-before-footer' => $htmlHookVectorBeforeFooter,
-			'array-footer-rows' => $footerRows,
-		];
-
-		return $data;
+		return [ 'array-footer-rows' => $footerRows ];
 	}
 
 	/**
