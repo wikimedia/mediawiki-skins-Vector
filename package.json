@@ -3,6 +3,7 @@
 	"scripts": {
 		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s docs/ui",
 		"build": "webpack -p",
+		"build:watch": "webpack -dw",
 		"test": "bin/diff-bundle && npm -s run lint && tsc && npm -s run doc",
 		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
@@ -25,7 +26,7 @@
 		"@types/mini-css-extract-plugin": "0.9.1",
 		"@types/mustache": "4.0.1",
 		"@types/node-fetch": "2.5.7",
-		"@wikimedia/wvui": "0.0.2-next.2020-07-30-15-18.0",
+		"@wikimedia/wvui": "0.0.2-next.2020-08-21-15-25.0",
 		"babel-loader": "8.0.6",
 		"bundlesize": "0.18.0",
 		"clean-webpack-plugin": "3.0.0",

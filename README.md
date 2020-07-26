@@ -17,6 +17,7 @@ Development
 
 -   `install` / `i`: install project dependencies.
 -   `run build`: compile source inputs to bundle outputs under `dist/`.
+-   `run build:watch`: like `run build` but automatically rebuild development outputs.
 -   `start`: run Storybook development workflow.
 -   `test` / `t`: build the project and execute all tests. Anything that can be validated
     automatically before publishing runs through this command.
@@ -30,7 +31,7 @@ Undocumented scripts are considered internal utilities and not expressly support
 💡 Tips:
 
 -   Add `--` to pass arguments to the script command. For example, `npm run test:unit -- -u` to
-    update snapshots or `npm run build -- -dw` to automatically rebuild a development output.
+    update snapshots.
 -   Add `-s` to omit verbose command echoing. For example, `npm -s i` or `npm -s run build`.
 
 ### Coding conventions

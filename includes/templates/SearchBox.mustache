@@ -7,7 +7,14 @@
 	</h3>
 	<form action="{{form-action}}" id="searchform">
 		<div id="simpleSearch">
-			{{{html-input}}}
+			<!-- Empty comment nodes and spaces are intentional and present in development and
+			     production builds. See
+			     https://github.com/vuejs/vue/issues/5117#issuecomment-284927949. Failures to perfectly
+			     align are only reported as client hydration failures in the Vue.js development runtime.
+			     In production, misalignments may have no indication, cause focus loss, or runtime
+			     errors. -->
+			<div id="app" data-server-rendered="true"><div class="wvui-input">{{{html-input}}} <!----> <!----></div></div>
+
 			<input type="hidden" name="title" value="{{page-title}}">
 			{{!	We construct two buttons (for 'go' and 'fulltext' search modes), but only one will be
 					visible and actionable at a time (they are overlaid on top of each other in CSS).
