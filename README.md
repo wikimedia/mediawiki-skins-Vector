@@ -13,6 +13,26 @@ See [skin.json](skin.json).
 Development
 -----------
 
+### NPM scripts
+
+-   `install` / `i`: install project dependencies.
+-   `run build`: compile source inputs to bundle outputs under `dist/`.
+-   `start`: run Storybook development workflow.
+-   `test` / `t`: build the project and execute all tests. Anything that can be validated
+    automatically before publishing runs through this command.
+-   `run doc`: generate all documentation under `docs/`.
+
+Scripts containing `:` delimiters in their names are sub-scripts. They are invoked by the outermost
+delimited name (and possibly other scripts). For example, `test:size` is executed by `test`.
+
+Undocumented scripts are considered internal utilities and not expressly supported workflows.
+
+💡 Tips:
+
+-   Add `--` to pass arguments to the script command. For example, `npm run test:unit -- -u` to
+    update snapshots or `npm run build -- -dw` to automatically rebuild a development output.
+-   Add `-s` to omit verbose command echoing. For example, `npm -s i` or `npm -s run build`.
+
 ### Coding conventions
 
 We strive for compliance with MediaWiki conventions:
@@ -68,5 +88,17 @@ $ PRE_COMMIT=0 git commit
 
 Skipping the pre-commit tests has no impact on Gerrit change identifier hooks.
 
+### Build product diffs, merging, and rebasing
+
+A temporary Git attributes file is provided to improve the experience of working with versioned
+build products:
+
+-   Diffs are treated as binaries. This a single status line will be reported for any deltas as they
+    may be lengthy. This default can be overridden by passing `-a` to `git diff`.
+-   Merge and rebase confictscan be overridden by executing `git config merge.ours.driver true`
+    once. This means that you will be responsible for manually calling `npm run build` without a
+    reminder. This may be preferable to calling `git reset resources/dist` to manually override.
+
 ### Hooks
+
 See [hooks.txt](hooks.txt).

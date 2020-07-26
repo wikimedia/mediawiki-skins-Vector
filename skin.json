@@ -98,9 +98,8 @@
 			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
 		"skins.vector.search": {
-			"dependencies": [
-				"vue"
-			]
+			"scripts": "resources/dist/skins.vector.search.js",
+			"styles": "resources/dist/skins.vector.search.css"
 		},
 		"skins.vector.js": {
 			"packageFiles": [

@@ -1,5 +1,5 @@
 {
-	"exclude": ["docs", "vendor"],
+	"exclude": ["docs", "vendor", "resources/dist"],
 	"compilerOptions": {
 		"resolveJsonModule": true,
 		"esModuleInterop": true,

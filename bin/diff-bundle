@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Validate that building the source inputs produces the committed build products. It's ok if the
+# user skips this test locally as it will be executed fully in continuous integration. Encountering
+# any of these warnings is ok locally and even in continuous integration. Builds are deterministic
+# so any delta in the build products is considered a failure. All that matters, however, is
+# producing identical build results in CI.
+
+set -euo pipefail
+
+# Print an alert message to standard error prefixed with a colorful "Warning: ".
+warn() {
+	printf "\033[1;33m⚠️ Warning\033[0m: %s\n" "$@" >&2
+}
+
+if ! git diff --quiet; then
+	warn "\`git status\` reports unstaged changes that cannot be validated."
+fi
+
+if [[ "v$(< .nvmrc)" == "$(node -v)" ]]; then
+	# Validate the installation. See `npm help ci`.
+	npm -s ci || warn "NPM dependencies cannot be validated."
+else
+	warn "Node.js version mismatch. Expected v$(< .nvmrc) but \`node -v\` reports $(node -v). Dependencies cannot be validated."
+fi
+
+npm -s run build
+
+# Finally, validate the build.
+if ! git diff --quiet resources/dist; then
+	warn "build products cannot be reproduced from the workspace's source inputs. The following outputs differ:"
+	git -P diff --name-status resources/dist
+	cat << 'eof'
+💡 Troubleshooting tips:
+
+    1. Execute `npm run build`, stage all changes, and try again.
+    2. Delete the node_modules directory, set the correct Node.js version, execute `npm install`, and proceed to tip #1.
+    3. If this change succeeds in continuous integration but fails locally, execute `export PRE_COMMIT=0` and try again.
+
+eof
+	exit 1
+fi
