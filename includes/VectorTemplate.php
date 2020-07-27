@@ -305,22 +305,13 @@ class VectorTemplate extends BaseTemplate {
 				case 'SEARCH':
 					break;
 				case 'TOOLBOX':
-					$portal = $this->getMenuData(
-						'tb', $content, self::MENU_TYPE_PORTAL
+					$props[] = $this->getMenuData(
+						'tb', $content,  self::MENU_TYPE_PORTAL
 					);
-					// Run deprecated hook.
-					// Use SidebarBeforeOutput instead.
-					ob_start();
-					Hooks::run( 'VectorAfterToolbox', [], '1.35' );
-					$props[] = $portal + [
-						'html-hook-vector-after-toolbox' => ob_get_clean(),
-					];
 					break;
 				case 'LANGUAGES':
 					$portal = $this->getMenuData(
-						'lang',
-						$content,
-						self::MENU_TYPE_PORTAL
+						'lang', $content, self::MENU_TYPE_PORTAL
 					);
 					// The language portal will be added provided either
 					// languages exist or there is a value in html-after-portal

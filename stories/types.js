@@ -59,7 +59,5 @@
  * @property {string} list-classes of the unordered list element inside the menu
  * @property {string} [html-user-language-attributes]
  * @property {boolean} [is-dropdown]
- * @property {string} [html-hook-vector-after-toolbox] Deprecated and used
- *  by the toolbox portal menu.
  * @property {string} [html-after-portal] Additional HTML specific to portal menus.
  */
