@@ -396,7 +396,7 @@ class VectorTemplate extends BaseTemplate {
 			// It should not be applied elsewhere per T253329.
 			self::MENU_TYPE_DROPDOWN => 'menu vector-menu-content-list',
 		];
-		$isPortal = self::MENU_TYPE_PORTAL === $type;
+		$isPortal = $type === self::MENU_TYPE_PORTAL;
 
 		// For some menu items, there is no language key corresponding with its menu key.
 		// These inconsitencies are captured in MENU_LABEL_KEYS
@@ -408,7 +408,7 @@ class VectorTemplate extends BaseTemplate {
 			'label' => $msgObj->exists() ? $msgObj->text() : $label,
 			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
 			'html-items' => '',
-			'is-dropdown' => self::MENU_TYPE_DROPDOWN === $type,
+			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 			'html-tooltip' => Linker::tooltip( 'p-' . $label ),
 		];
 
