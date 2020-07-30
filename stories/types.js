@@ -34,7 +34,6 @@
  * @property {MenuDefinition} data-portals-languages
  * @property {MenuDefinition} data-portals-first
  * @property {MenuDefinition[]} array-portals-rest
- * @property {boolean} [has-logo] whether to show a logo or not.
  */
 
 /**

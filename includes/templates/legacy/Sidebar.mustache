@@ -4,11 +4,9 @@
 }}
 
 <div id="mw-panel">
-	{{#has-logo}}
 	<div id="p-logo" role="banner">
 		<a {{{html-logo-attributes}}}></a>
 	</div>
-	{{/has-logo}}
 	{{#data-portals-first}}{{>Menu}}{{/data-portals-first}}
 	{{#array-portals-rest}}{{>Menu}}{{/array-portals-rest}}
 	{{#data-portals-languages}}{{>Menu}}{{/data-portals-languages}}

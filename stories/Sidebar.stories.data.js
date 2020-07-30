@@ -17,12 +17,10 @@ export const SIDEBAR_TEMPLATE_PARTIALS = {
 
 export const SIDEBAR_DATA = {
 	withNoPortals: {
-		'has-logo': true,
 		'array-portals-rest': [],
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortalsAndOptOut: {
-		'has-logo': false,
 		'data-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
@@ -37,7 +35,6 @@ export const SIDEBAR_DATA = {
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortals: {
-		'has-logo': true,
 		'data-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
 			PORTALS.toolbox,
@@ -47,7 +44,6 @@ export const SIDEBAR_DATA = {
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withoutLogo: {
-		'has-logo': false,
 		'data-portals-languages': PORTALS.langlinks,
 		'array-portals-first': PORTALS.navigation,
 		'array-portals-rest': [
@@ -56,7 +52,6 @@ export const SIDEBAR_DATA = {
 		]
 	},
 	thirdParty: {
-		'has-logo': true,
 		'array-portals-rest': [
 			PORTALS.toolbox,
 			PORTALS.navigation,

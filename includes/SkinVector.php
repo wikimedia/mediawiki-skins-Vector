@@ -59,9 +59,6 @@ class SkinVector extends SkinMustache {
 	 */
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
-	/** @var bool */
-	private $isLegacy;
-
 	/**
 	 * Whether or not the legacy version of the skin is being used.
 	 *
@@ -82,9 +79,7 @@ class SkinVector extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function __construct( $options = [] ) {
-		// Legacy overrides
-		$this->isLegacy = $this->isLegacy();
-		if ( $this->isLegacy ) {
+		if ( $this->isLegacy() ) {
 			$options['scripts'] = [ 'skins.vector.legacy.js' ];
 			$options['styles'] = [ 'skins.vector.styles.legacy' ];
 			$options['template'] = 'skin-legacy';
@@ -151,9 +146,8 @@ class SkinVector extends SkinMustache {
 			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
 
-		// The following logic is unqiue to Vector (not used by legacy Vector) and
-		// is planned to be moved in a follow-up patch.
-		if ( !$this->isLegacy && $skin->getUser()->isLoggedIn() ) {
+		if ( $skin->getUser()->isLoggedIn() ) {
+			// Note: This data is also passed to legacy template where it is unused.
 			$commonSkinData['data-sidebar']['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
@@ -342,7 +336,6 @@ class SkinVector extends SkinMustache {
 		}
 
 		return [
-			'has-logo' => $this->isLegacy,
 			'html-logo-attributes' => Xml::expandAttributes(
 				Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
 					'class' => 'mw-wiki-logo',
