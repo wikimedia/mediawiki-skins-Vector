@@ -136,7 +136,6 @@ class SkinVector extends SkinMustache {
 			'msg-vector-jumptonavigation' => $skin->msg( 'vector-jumptonavigation' )->text(),
 			'msg-vector-jumptosearch' => $skin->msg( 'vector-jumptosearch' )->text(),
 
-			'html-printfooter' => $skin->printSource(),
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
 			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
