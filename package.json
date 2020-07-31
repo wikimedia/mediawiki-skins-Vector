@@ -2,8 +2,7 @@
 	"private": true,
 	"scripts": {
 		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s docs/ui",
-		"build": "npm -s test && npm -s run doc",
-		"test": "npm -s run lint && tsc",
+		"test": "npm -s run lint && tsc && npm -s run doc",
 		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:fix:js": "npm -s run lint:js -- --fix",
