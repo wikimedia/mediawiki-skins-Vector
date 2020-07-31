@@ -14,8 +14,10 @@
 		"selenium-test": "npm -s run test:size",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"build-storybook": "dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
-		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/"
+		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/",
+		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
+	"pre-commit": "pre-commit",
 	"devDependencies": {
 		"@babel/core": "7.7.7",
 		"@storybook/html": "5.2.8",
