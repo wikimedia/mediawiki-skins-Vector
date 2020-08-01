@@ -306,26 +306,9 @@ class SkinVector extends SkinMustache {
 					}
 					break;
 				default:
-					// Historically some portals have been defined using HTML rather than arrays.
-					// Let's move away from that to a uniform definition.
-					if ( !is_array( $content ) ) {
-						$html = $content;
-						$content = [];
-						wfDeprecated(
-							"`content` field in portal $name must be array."
-								. "Previously it could be a string but this is no longer supported.",
-							'1.35.0'
-						);
-					} else {
-						$html = false;
-					}
-					$portal = $this->getMenuData(
+					$props[] = $this->getMenuData(
 						$name, $content, self::MENU_TYPE_PORTAL
 					);
-					if ( $html ) {
-						$portal['html-items'] .= $html;
-					}
-					$props[] = $portal;
 					break;
 			}
 		}
