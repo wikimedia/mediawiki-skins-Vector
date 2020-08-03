@@ -45,48 +45,6 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getMenuData
-	 */
-	public function testMakeListItemRespectsCollapsibleOption() {
-		$vectorTemplate = $this->provideVectorTemplateObject();
-		$template = TestingAccessWrapper::newFromObject( $vectorTemplate );
-		$listItemClass = 'my_test_class';
-		$options = [ 'vector-collapsible' => true ];
-		$item = [ 'class' => $listItemClass ];
-		$propsCollapsible = $template->getMenuData(
-			'foo',
-			[
-				'bar' => $item,
-			],
-			0,
-			$options
-		);
-		$propsNonCollapsible = $template->getMenuData(
-			'foo',
-			[
-				'bar' => $item,
-			],
-			0,
-			[]
-		);
-		$nonCollapsible = $propsNonCollapsible['html-items'];
-		$collapsible = $propsCollapsible['html-items'];
-
-		$this->assertTrue(
-			$this->expectNodeAttribute( $collapsible, 'li', 'class', 'collapsible' ),
-			'The collapsible element has to have `collapsible` class'
-		);
-		$this->assertFalse(
-			$this->expectNodeAttribute( $nonCollapsible, 'li', 'class', 'collapsible' ),
-			'The non-collapsible element should not have `collapsible` class'
-		);
-		$this->assertTrue(
-			$this->expectNodeAttribute( $nonCollapsible, 'li', 'class', $listItemClass ),
-			'The non-collapsible element should preserve item class'
-		);
-	}
-
-	/**
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {

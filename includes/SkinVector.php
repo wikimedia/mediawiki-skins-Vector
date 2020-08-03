@@ -355,7 +355,6 @@ class SkinVector extends SkinMustache {
 	 * @param array $urls to convert to list items stored as string in html-items key
 	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
 	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
-	 * @param array $options (optional) to be passed to makeListItem
 	 * @param bool $setLabelToSelected (optional) the menu label will take the value of the
 	 *  selected item if found.
 	 * @return array
@@ -364,7 +363,6 @@ class SkinVector extends SkinMustache {
 		string $label,
 		array $urls = [],
 		int $type = self::MENU_TYPE_DEFAULT,
-		array $options = [],
 		bool $setLabelToSelected = false
 	) : array {
 		$skin = $this->getSkin();
@@ -397,17 +395,7 @@ class SkinVector extends SkinMustache {
 		];
 
 		foreach ( $urls as $key => $item ) {
-			// Add CSS class 'collapsible' to all links EXCEPT watchstar.
-			if (
-				$key !== 'watch' && $key !== 'unwatch' &&
-				isset( $options['vector-collapsible'] ) && $options['vector-collapsible'] ) {
-				if ( !isset( $item['class'] ) ) {
-					$item['class'] = '';
-				}
-				$item['class'] = rtrim( 'collapsible ' . $item['class'], ' ' );
-			}
-			$props['html-items'] .= $this->getSkin()->makeListItem( $key, $item, $options );
-
+			$props['html-items'] .= $this->getSkin()->makeListItem( $key, $item );
 			// Check the class of the item for a `selected` class and if so, propagate the items
 			// label to the main label.
 			if ( $setLabelToSelected ) {
@@ -491,14 +479,12 @@ class SkinVector extends SkinMustache {
 				'variants',
 				$contentNavigation[ 'variants' ] ?? [],
 				self::MENU_TYPE_DROPDOWN,
-				[], true
+				true
 			),
 			'data-page-actions' => $this->getMenuData(
 				'views',
 				$contentNavigation[ 'views' ] ?? [],
-				self::MENU_TYPE_TABS, [
-					'vector-collapsible' => true,
-				]
+				self::MENU_TYPE_TABS
 			),
 			'data-page-actions-more' => $this->getMenuData(
 				'cactions',

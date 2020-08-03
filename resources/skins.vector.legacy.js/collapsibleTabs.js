@@ -1,8 +1,18 @@
+/**
+ * This adds behaviour to Vector's tabs in the bottom right so that at smaller
+ * displays they collapse under the more menu.
+ */
+
 /** @interface CollapsibleTabsOptions */
 function init() {
 	/** @type {boolean|undefined} */ var boundEvent;
 	var isRTL = document.documentElement.dir === 'rtl';
 	var rAF = window.requestAnimationFrame || setTimeout;
+
+	// Mark the tabs which can be collapsed under the more menu
+	// eslint-disable-next-line no-jquery/no-global-selector
+	$( '#p-views li' )
+		.not( '#ca-watch, #ca-unwatch' ).addClass( 'collapsible' );
 
 	$.fn.collapsibleTabs = function ( options ) {
 		// Merge options into the defaults
