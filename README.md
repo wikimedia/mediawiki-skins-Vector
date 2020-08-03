@@ -48,5 +48,25 @@ configurable via the configurations prefixed with `VectorDefaultSkinVersion`.
 Version preference and configuration may be overridden by the `useskinversion`
 URL query parameter.
 
+### Pre-commit tests
+
+A pre-commit hook is installed when executing `npm install`. By default, it runs
+`npm test` which is useful for automatically validating everything that can be
+in a reasonable amount of time. If you wish to defer these tests to be executed
+by continuous integration only, set the `PRE_COMMIT` environment variable to `0`:
+
+```bash
+$ export PRE_COMMIT=0
+$ git commit
+```
+
+Or more succinctly:
+
+```bash
+$ PRE_COMMIT=0 git commit
+```
+
+Skipping the pre-commit tests has no impact on Gerrit change identifier hooks.
+
 ### Hooks
 See [hooks.txt](hooks.txt).
