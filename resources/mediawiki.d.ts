@@ -24,7 +24,36 @@ interface MediaWiki {
 	Api: MwApiConstructor;
 	config: {
 		get( configKey: string|null ): string;
-	}
+	},
+	loader: {
+		/**
+		 * Execute a function after one or more modules are ready.
+		 * 
+		 * @param moduleName 
+		 */
+		using( moduleName: string|null ): JQuery.Promise<any>;
+		
+		/**
+		 * Load a given resourceLoader module.
+		 * 
+		 * @param moduleName 
+		 */
+		 load( moduleName: string|null ): () => void;
+		/**
+		 * Get the loading state of the module. 
+		 * On of 'registered', 'loaded', 'loading', 'ready', 'error', or 'missing'.
+		 * 
+		 * @param moduleName 
+		 */
+		getState( moduleName: string|null ): string; 
+	}, 
+	/**
+	 * Loads the specified i18n message string. 
+	 * Shortcut for `mw.message( key, parameters... ).text()`.
+	 * 
+	 * @param messageName i18n message name
+	 */
+	msg( messageName: string|null ): string;
 }
 
 declare const mw: MediaWiki;

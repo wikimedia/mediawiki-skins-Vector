@@ -105,12 +105,14 @@
 				},
 				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
-				"resources/skins.vector.legacy.js/vector.js"
+				"resources/skins.vector.legacy.js/vector.js", 
+				"resources/skins.vector.js/searchLoader.js"
 			],
 			"dependencies": [
 				"mediawiki.page.ready",
 				"mediawiki.util"
-			]
+			],
+			"messages": [ "vector-search-loader" ]
 		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [

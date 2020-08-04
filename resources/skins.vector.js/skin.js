@@ -1,12 +1,6 @@
-/** @interface VectorResourceLoaderVirtualConfig */
-/** @interface MediaWikiPageReadyModule */
-
 var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
 	vector = require( '../skins.vector.legacy.js/vector.js' ),
-	/** @type {VectorResourceLoaderVirtualConfig} */
-	config = require( /** @type {string} */ ( './config.json' ) ),
-	/** @type {MediaWikiPageReadyModule} */
-	pageReady = require( /** @type {string} */( 'mediawiki.page.ready' ) ),
+	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	sidebar = require( './sidebar.js' );
 
 /**
@@ -50,11 +44,7 @@ function main( window ) {
 	collapsibleTabs.init();
 	sidebar.init( window );
 	$( vector.init );
-	pageReady.loadSearchModule(
-		// Decide between new Vue implementation or old.
-		config.wgVectorUseCoreSearch ?
-			'mediawiki.searchSuggest' : 'skins.vector.search'
-	);
+	initSearchLoader( document );
 }
 
 main( window );

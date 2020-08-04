@@ -24,5 +24,6 @@
 	"vector-view-viewsource": "View source",
 	"vector-jumptonavigation": "Jump to navigation",
 	"vector-jumptosearch": "Jump to search",
-	"vector-more-actions": "More"
+	"vector-more-actions": "More", 
+	"vector-search-loader": "Loading search suggestions"
 }
