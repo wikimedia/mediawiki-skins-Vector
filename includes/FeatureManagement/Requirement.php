@@ -28,7 +28,7 @@ namespace Vector\FeatureManagement;
  *
  * @unstable
  *
- * @package FeatureManagement
+ * @package Vector\FeatureManagement
  * @internal
  */
 interface Requirement {
