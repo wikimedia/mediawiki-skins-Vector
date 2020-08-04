@@ -1,12 +1,10 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use GlobalVarConfig;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
-use TemplateParser;
+use SkinVector;
 use Title;
-use VectorTemplate;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -15,20 +13,15 @@ use Wikimedia\TestingAccessWrapper;
  * @group Vector
  * @group Skins
  *
- * @coversDefaultClass \VectorTemplate
+ * @coversDefaultClass \SkinVector
  */
-class VectorTemplateTest extends MediaWikiIntegrationTestCase {
+class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @return \VectorTemplate
 	 */
 	private function provideVectorTemplateObject() {
-		$template = new VectorTemplate(
-			GlobalVarConfig::newInstance(),
-			new TemplateParser(),
-			true
-		);
-		$template->set( 'skin', new \SkinVector() );
+		$template = new SkinVector();
 		return $template;
 	}
 
@@ -52,59 +45,21 @@ class VectorTemplateTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getMenuData
-	 */
-	public function testMakeListItemRespectsCollapsibleOption() {
-		$vectorTemplate = $this->provideVectorTemplateObject();
-		$template = TestingAccessWrapper::newFromObject( $vectorTemplate );
-		$listItemClass = 'my_test_class';
-		$options = [ 'vector-collapsible' => true ];
-		$item = [ 'class' => $listItemClass ];
-		$propsCollapsible = $template->getMenuData(
-			'foo',
-			[
-				'bar' => $item,
-			],
-			0,
-			$options
-		);
-		$propsNonCollapsible = $template->getMenuData(
-			'foo',
-			[
-				'bar' => $item,
-			],
-			0,
-			[]
-		);
-		$nonCollapsible = $propsNonCollapsible['html-items'];
-		$collapsible = $propsCollapsible['html-items'];
-
-		$this->assertTrue(
-			$this->expectNodeAttribute( $collapsible, 'li', 'class', 'collapsible' ),
-			'The collapsible element has to have `collapsible` class'
-		);
-		$this->assertFalse(
-			$this->expectNodeAttribute( $nonCollapsible, 'li', 'class', 'collapsible' ),
-			'The non-collapsible element should not have `collapsible` class'
-		);
-		$this->assertTrue(
-			$this->expectNodeAttribute( $nonCollapsible, 'li', 'class', $listItemClass ),
-			'The non-collapsible element should preserve item class'
-		);
-	}
-
-	/**
 	 * @covers ::getMenuProps
 	 */
 	public function testGetMenuProps() {
-		$title = Title::newFromText( 'SkinTemplateVector' );
+		$title = Title::newFromText( 'SkinVector' );
 		$context = RequestContext::getMain();
 		$context->setTitle( $title );
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
-		// used internally by getPersonalTools
-		$vectorTemplate->set( 'personal_urls', [] );
+
 		$this->setMwGlobals( 'wgHooks', [
+			'PersonalUrls' => [
+				function ( &$personal_urls, &$title, $skin ) {
+					$personal_urls = [];
+				}
+			],
 			'SkinTemplateNavigation' => [
 				function ( &$skinTemplate, &$content_navigation ) {
 					$content_navigation = [

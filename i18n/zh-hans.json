@@ -6,15 +6,20 @@
 			"Hydra",
 			"Liangent",
 			"Liuxinyu970226",
-			"Xiaomingyan"
+			"Sunny00217",
+			"Xiaomingyan",
+			"Xiplus"
 		]
 	},
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "提供清新的外观和许多可用性改进的现代版MonoBook",
-	"prefs-vector-enable-vector-1-label": "使用旧的矢量",
+	"prefs-vector-enable-vector-1-label": "使用旧版Vector",
 	"prefs-vector-enable-vector-1-help": "在接下来的几年中，我们将逐步更新Vector外观。 旧版Vector将允许您查看Vector的旧版本（截至2019年12月）。 要了解有关更新的更多信息，请转到我们的[[mw:Reading/Web/Desktop_Improvements|project page]]",
+	"vector-opt-out": "切换回旧风格",
+	"vector-opt-out-tooltip": "改变你的设定，切换回旧的Vector皮肤风格。",
 	"vector.css": "/* 这里放置的CSS将影响使用Vector皮肤的用户 */",
 	"vector.js": "/* 这里的任何JavaScript将为使用Vector皮肤的用户加载 */",
+	"vector-action-toggle-sidebar": "折叠侧栏",
 	"vector-action-addsection": "添加话题",
 	"vector-action-delete": "删除",
 	"vector-action-move": "移动",

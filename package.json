@@ -2,8 +2,7 @@
 	"private": true,
 	"scripts": {
 		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s docs/ui",
-		"build": "npm -s test && npm -s run doc",
-		"test": "npm -s run lint && tsc",
+		"test": "npm -s run lint && tsc && npm -s run doc",
 		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:fix:js": "npm -s run lint:js -- --fix",
@@ -14,8 +13,10 @@
 		"selenium-test": "npm -s run test:size",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"build-storybook": "dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
-		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/"
+		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/",
+		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
+	"pre-commit": "pre-commit",
 	"devDependencies": {
 		"@babel/core": "7.7.7",
 		"@storybook/html": "5.2.8",

@@ -40,9 +40,7 @@
 /* Icon for registered user names & anonymous message */
 #pt-anonuserpage,
 #pt-userpage a {
-	// SVG support using a transparent gradient to guarantee cross-browser
-	// compatibility (browsers able to understand gradient syntax support also SVG)
-	.background-image-svg( 'images/user-avatar.svg', 'images/user-avatar.png' );
+	background-image: url( images/user-avatar.svg );
 	background-position: @background-position-nav-personal-icon;
 	background-repeat: no-repeat;
 	background-size: @background-size-nav-personal-icon @background-size-nav-personal-icon;
