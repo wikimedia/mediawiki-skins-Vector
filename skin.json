@@ -49,6 +49,7 @@
 	},
 	"Hooks": {
 		"BeforePageDisplay": "Vector\\Hooks::onBeforePageDisplay",
+		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
 		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",
@@ -96,16 +97,25 @@
 			],
 			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
+		"skins.vector.search": {
+			"dependencies": [
+				"vue"
+			]
+		},
 		"skins.vector.js": {
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
+				{
+					"name": "resources/skins.vector.js/config.json",
+					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
+				},
 				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js"
 			],
 			"dependencies": [
-				"mediawiki.util",
-				"mediawiki.page.ready"
+				"mediawiki.page.ready",
+				"mediawiki.util"
 			]
 		},
 		"skins.vector.legacy.js": {
@@ -115,6 +125,7 @@
 				"resources/skins.vector.legacy.js/vector.js"
 			],
 			"dependencies": [
+				"mediawiki.page.ready",
 				"mediawiki.util"
 			]
 		}
@@ -171,6 +182,9 @@
 		"VectorDefaultSkinVersionForNewAccounts": {
 			"value": "1",
 			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersionForExistingAccounts) and only ever executed once at new account creation time."
+		},
+		"VectorUseCoreSearch": {
+			"value": true
 		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true

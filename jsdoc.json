@@ -25,8 +25,9 @@
 				"CheckboxHack": "https://doc.wikimedia.org/mediawiki-core/master/js",
 
 				"MW": "https://doc.wikimedia.org/mediawiki-core/master/js/#!/api/mw",
+				"MediaWikiPageReadyModule": "https://doc.wikimedia.org/mediawiki-core/master/js/#!/api/mw.plugin.page.ready",
 				"JQueryStatic": "https://api.jquery.com",
-
+				"VectorResourceLoaderVirtualConfig": "#",
 				"void": "#"
 			}
 		}
