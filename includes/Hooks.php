@@ -17,6 +17,8 @@ use User;
  *
  * Hook handler method names should be in the form of:
  *	on<HookName>()
+ * @package Vector
+ * @internal
  */
 class Hooks {
 	/**

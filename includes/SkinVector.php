@@ -29,6 +29,8 @@ use Vector\Constants;
  * Skin subclass for Vector
  * @ingroup Skins
  * Skins extending SkinVector are not supported
+ * @package Vector
+ * @internal
  */
 class SkinVector extends SkinMustache {
 
