@@ -28,6 +28,14 @@
 						"skins.vector.styles",
 						"mediawiki.ui.icon",
 						"skins.vector.icons"
+					],
+					"messages": [
+						"vector-action-toggle-sidebar",
+						"vector-jumptonavigation",
+						"vector-jumptosearch",
+						"sitesubtitle",
+						"sitetitle",
+						"tagline"
 					]
 				}
 			]

@@ -126,12 +126,7 @@ class SkinVector extends SkinMustache {
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
 			'html-title' => $out->getPageTitle(),
-			'msg-tagline' => $skin->msg( 'tagline' )->text(),
-
 			'html-newtalk' => $newTalksHtml ? '<div class="usermessage">' . $newTalksHtml . '</div>' : '',
-
-			'msg-vector-jumptonavigation' => $skin->msg( 'vector-jumptonavigation' )->text(),
-			'msg-vector-jumptosearch' => $skin->msg( 'vector-jumptosearch' )->text(),
 
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
@@ -139,13 +134,10 @@ class SkinVector extends SkinMustache {
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
-			'msg-sitetitle' => $skin->msg( 'sitetitle' )->text(),
-			'msg-sitesubtitle' => $skin->msg( 'sitesubtitle' )->text(),
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->buildSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
-			'msg-vector-action-toggle-sidebar' => $skin->msg( 'vector-action-toggle-sidebar' )->text(),
 		] + $this->getMenuProps();
 
 		if ( $skin->getUser()->isLoggedIn() ) {
