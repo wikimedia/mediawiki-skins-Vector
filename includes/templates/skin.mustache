@@ -15,8 +15,7 @@
 	string html-body-content
 	string html-categories
 	string html-after-content
-	string html-navigation-heading heading for entire navigation that is usually hidden to screen
-		readers
+	string msg-navigation-heading
 	LogoOptions data-logos
 	MenuDefinition data-personal-menu
 	MenuDefinition data-namespace-tabs
@@ -92,7 +91,7 @@
 </header>
 
 <div id="mw-navigation">
-	<h2>{{{html-navigation-heading}}}</h2>
+	<h2>{{{msg-navigation-heading}}}</h2>
 	<div id="mw-head">
 		{{^is-search-in-header}}
 		{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}

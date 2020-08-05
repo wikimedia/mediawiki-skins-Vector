@@ -24,7 +24,7 @@ export const NAVIGATION_TEMPLATE_DATA = {
 		'data-variants': variantsData,
 		'data-search-box': searchBoxData,
 		'data-sidebar': SIDEBAR_DATA.withPortalsAndOptOut,
-		'html-navigation-heading': 'Navigation menu',
+		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	},
 	loggedOutWithVariants: {
@@ -34,7 +34,7 @@ export const NAVIGATION_TEMPLATE_DATA = {
 		'data-variants': variantsData,
 		'data-search-box': searchBoxData,
 		'data-sidebar': SIDEBAR_DATA.withPortals,
-		'html-navigation-heading': 'Navigation menu',
+		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	},
 	loggedInWithMoreActions: {
@@ -44,7 +44,7 @@ export const NAVIGATION_TEMPLATE_DATA = {
 		'data-page-actions-more': moreData,
 		'data-search-box': searchBoxData,
 		'data-sidebar': SIDEBAR_DATA.withPortals,
-		'html-navigation-heading': 'Navigation menu',
+		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	}
 };

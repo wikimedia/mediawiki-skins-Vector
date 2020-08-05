@@ -130,7 +130,6 @@ class SkinVector extends SkinMustache {
 
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
-			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
 			'is-search-in-header' => $this->getConfig()->get( Constants::CONFIG_SEARCH_IN_HEADER ),
 
 			// Header
@@ -149,8 +148,6 @@ class SkinVector extends SkinMustache {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'text' => $skin->msg( 'vector-opt-out' )->text(),
-				'title' => $skin->msg( 'vector-opt-out-tooltip' )->text(),
 			];
 		}
 

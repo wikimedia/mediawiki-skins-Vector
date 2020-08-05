@@ -29,6 +29,9 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
+						"vector-opt-out-tooltip",
+						"vector-opt-out",
+						"navigation-heading",
 						"vector-action-toggle-sidebar",
 						"vector-jumptonavigation",
 						"vector-jumptosearch",
