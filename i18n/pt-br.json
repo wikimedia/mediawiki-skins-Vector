@@ -17,7 +17,7 @@
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "Versão moderna do MonoBook com um visual limpo e várias melhorias de usabilidade",
 	"prefs-vector-enable-vector-1-label": "Usar Vector legado",
-	"prefs-vector-enable-vector-1-help": "Nos próximos anos, atualizaremos gradualmente o tema Vector. O Vetor legado permitirá que você visualize a versão antiga do Vector (a partir de dezembro de 2019). Para saber mais sobre as atualizações, acesse nossa [[mw:Reading/Web/Desktop_Improvements|página do projeto]].",
+	"prefs-vector-enable-vector-1-help": "Nos próximos anos, atualizaremos gradualmente o tema Vector. O Vetor legado permitirá que você visualize a versão antiga do Vector (a partir de dezembro de 2019). Para saber mais sobre as atualizações, acesse nossa [[mw:Reading/Web/Desktop_Improvements/pt-br|página do projeto]].",
 	"vector-opt-out": "Mudar para aparência antiga",
 	"vector-opt-out-tooltip": "Alterar as suas configurações para voltar ao aspeto anterior do tema (Vector anterior)",
 	"vector.css": "/* CSS colocado aqui irá afetar usuários do tema Vector */",
