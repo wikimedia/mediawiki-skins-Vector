@@ -12,6 +12,7 @@ use Skin;
 use SkinTemplate;
 use SkinVector;
 use User;
+use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 
 /**
  * Presentation hook handlers for Vector skin.
@@ -158,7 +159,7 @@ class Hooks {
 		// Preferences to add.
 		$vectorPrefs = [
 			Constants::PREF_KEY_SKIN_VERSION => [
-				'type' => 'toggle',
+				'class' => HTMLLegacySkinVersionField::class,
 				// The checkbox title.
 				'label-message' => 'prefs-vector-enable-vector-1-label',
 				// Show a little informational snippet underneath the checkbox.
@@ -166,11 +167,10 @@ class Hooks {
 				// The tab location and title of the section to insert the checkbox. The bit after the slash
 				// indicates that a prefs-skin-prefs string will be provided.
 				'section' => 'rendering/skin/skin-prefs',
-				// Convert the preference string to a boolean presentation.
-				'default' => self::isSkinVersionLegacy() ? '1' : '0',
+				'default' => self::isSkinVersionLegacy(),
 				// Only show this section when the Vector skin is checked. The JavaScript client also uses
 				// this state to determine whether to show or hide the whole section.
-				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
+				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ],
 			],
 			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
 				'type' => 'api',
@@ -211,23 +211,15 @@ class Hooks {
 		&$result,
 		$oldPreferences
 	) {
-		$preference = null;
 		$isVectorEnabled = ( $formData[ 'skin' ] ?? '' ) === Constants::SKIN_NAME;
-		if ( $isVectorEnabled && array_key_exists( Constants::PREF_KEY_SKIN_VERSION, $formData ) ) {
-			// A preference was set. However, Special:Preferences converts the result to a boolean when a
-			// version name string is wanted instead. Convert the boolean to a version string in case the
-			// preference display is changed to a list later (e.g., a "_new_ new Vector" / '3' or
-			// 'alpha').
-			$preference = $formData[ Constants::PREF_KEY_SKIN_VERSION ] ?
-				Constants::SKIN_VERSION_LEGACY :
-				Constants::SKIN_VERSION_LATEST;
-		} elseif ( array_key_exists( Constants::PREF_KEY_SKIN_VERSION, $oldPreferences ) ) {
+
+		if ( !$isVectorEnabled && array_key_exists( Constants::PREF_KEY_SKIN_VERSION, $oldPreferences ) ) {
 			// The setting was cleared. However, this is likely because a different skin was chosen and
 			// the skin version preference was hidden.
-			$preference = $oldPreferences[ Constants::PREF_KEY_SKIN_VERSION ];
-		}
-		if ( $preference !== null ) {
-			$user->setOption( Constants::PREF_KEY_SKIN_VERSION, $preference );
+			$user->setOption(
+				Constants::PREF_KEY_SKIN_VERSION,
+				$oldPreferences[ Constants::PREF_KEY_SKIN_VERSION ]
+			);
 		}
 	}
 
