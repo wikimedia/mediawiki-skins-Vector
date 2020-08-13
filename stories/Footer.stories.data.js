@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 
-import { htmlUserLanguageAttributes, placeholder } from './utils';
+import { htmlUserLanguageAttributes } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
 
 const FOOTER_ROWS = [
@@ -75,6 +75,5 @@ export { footerTemplate };
 
 export const FOOTER_TEMPLATE_DATA = {
 	'html-user-language-attributes': htmlUserLanguageAttributes,
-	'html-hook-vector-before-footer': placeholder( 'output of VectorBeforeFooter hook (deprecated 1.35)', 20 ),
 	'array-footer-rows': FOOTER_ROWS
 };
