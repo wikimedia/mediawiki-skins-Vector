@@ -38,6 +38,13 @@
 		margin: 0 @margin-horizontal-sidebar-button-icon;
 		// Equals `#555`, closest to `#54595d` on background-color `#fff`.
 		opacity: 0.67;
+		/* @embed */
+		background-image: linear-gradient( transparent, transparent ), url( images/chevronHorizontal-ltr.svg );
+
+		#mw-sidebar-checkbox:not( :checked ) ~ .mw-header & {
+			/* @embed */
+			background-image: linear-gradient( transparent, transparent ), url( images/menu.svg );
+		}
 	}
 
 	&:hover {

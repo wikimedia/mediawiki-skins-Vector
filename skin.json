@@ -26,8 +26,7 @@
 					],
 					"styles": [
 						"skins.vector.styles",
-						"mediawiki.ui.icon",
-						"skins.vector.icons"
+						"mediawiki.ui.icon"
 					],
 					"messages": [
 						"vector-action-toggle-sidebar",
@@ -84,19 +83,6 @@
 				"mobile"
 			],
 			"styles": [ "resources/skins.vector.styles/skin.less" ]
-		},
-		"skins.vector.icons": {
-			"class": "ResourceLoaderImageModule",
-			"selector": "{name}",
-			"images": {
-				"#mw-sidebar-button:before": {
-					"file": {
-						"ltr": "resources/skins.vector.icons/chevronHorizontal-ltr.svg",
-						"rtl": "resources/skins.vector.icons/chevronHorizontal-rtl.svg"
-					}
-				},
-				"#mw-sidebar-checkbox:not( :checked ) ~ .mw-header #mw-sidebar-button:before": "resources/skins.vector.icons/menu.svg"
-			}
 		},
 		"skins.vector.styles.responsive": {
 			"targets": [
