@@ -269,13 +269,31 @@ class Hooks {
 		);
 
 		if ( $skinVersionLookup->isLegacy() ) {
+
+			// As of 2020/08/13, this CSS class is referred to by the following deployed extensions:
+			//
+			// - VisualEditor
+			// - CodeMirror
+			// - WikimediaEvents
+			//
+			// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-legacy for an up-to-date
+			// list.
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
+
 			return;
 		}
 
 		if ( self::getConfig( Constants::CONFIG_KEY_LAYOUT_MAX_WIDTH ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-max-width';
 		}
+
+		// As of 2020/08/12, the following CSS classes are referred to by the following deployed
+		// extensions:
+		//
+		// - WikimediaEvents
+		//
+		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-search- for an up-to-date
+		// list.
 		if ( self::getConfig( Constants::CONFIG_SEARCH_IN_HEADER ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-header';
 		} else {
