@@ -295,10 +295,12 @@ class Hooks {
 	 * @param OutputPage $out OutputPage instance calling the hook
 	 */
 	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
-		if ( $out->getSkin() instanceof SkinVector ) {
+		$user = $out->getUser();
+
+		if ( $out->getSkin() instanceof SkinVector && $user->isRegistered() ) {
 			$skinVersionLookup = new SkinVersionLookup(
 				$out->getRequest(),
-				$out->getUser(),
+				$user,
 				self::getServiceConfig()
 			);
 
