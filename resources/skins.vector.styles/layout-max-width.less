@@ -8,7 +8,6 @@
 // design will not appear. In either case, the appearance should not be broken.
 .skin-vector-max-width {
 	@background-color-secondary--modern: #f8f9fa;
-	@min-width-page-container: 600px;
 	@max-width-page-container: 1650px;
 	@padding-horizontal-page-container: 30px;
 	@min-width-page-container--padded: @max-width-page-container + ( 2 * @padding-horizontal-page-container );
@@ -105,7 +104,10 @@
 
 	// Container logic.
 	.mw-page-container {
-		min-width: @min-width-page-container;
+		// Set a min-width to make explicit we do not support anything below this threshold.
+		// For devices too small, they should be more useable with horizontal scrolling.
+		// e.g. Portrait on an iPad
+		min-width: @min-width-supported;
 		max-width: @max-width-page-container;
 		// Fill the viewport even if the content height is small. This also helps
 		// mitigate a long sidebar overflowing the page container (T257518).
@@ -172,13 +174,6 @@
 		.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
 			margin-left: @margin-start-content;
 		}
-	}
-
-	&.skin-vector-search-header {
-		// Set a min-width to make explicit we do not support anything below this threshold.
-		// For devices too small, they should be more useable with horizontal scrolling.
-		// e.g. Portrait on an iPad
-		min-width: @min-width-supported;
 	}
 
 	// We want it to appear like the sidebar is going into/coming out of
