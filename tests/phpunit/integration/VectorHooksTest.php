@@ -4,6 +4,8 @@
  * @ingroup skins
  */
 
+use Vector\Constants;
+use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
 
 const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
@@ -29,17 +31,21 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		$this->assertSame( $prefs, [], 'No preferences are added.' );
 	}
 
+	private function setFeatureLatestSkinVersionIsEnabled( $isEnabled ) {
+		$featureManager = new FeatureManager();
+		$featureManager->registerSimpleRequirement( Constants::REQUIREMENT_LATEST_SKIN_VERSION, $isEnabled );
+		$featureManager->registerFeature( Constants::FEATURE_LATEST_SKIN, [
+			Constants::REQUIREMENT_LATEST_SKIN_VERSION
+		] );
+
+		$this->setService( Constants::SERVICE_FEATURE_MANAGER, $featureManager );
+	}
+
 	/**
 	 * @covers ::onGetPreferences
 	 */
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionFoundLegacy() {
-		$config = new HashConfig( [
-			'VectorShowSkinPreferences' => true,
-			// '1' is Legacy.
-			'VectorDefaultSkinVersionForExistingAccounts' => '1',
-			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
-		] );
-		$this->setService( 'Vector.Config', $config );
+		$this->setFeatureLatestSkinVersionIsEnabled( false );
 
 		$prefs = [
 			'foo' => [],
@@ -75,13 +81,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 	 * @covers ::onGetPreferences
 	 */
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLegacy() {
-		$config = new HashConfig( [
-			'VectorShowSkinPreferences' => true,
-			// '1' is Legacy.
-			'VectorDefaultSkinVersionForExistingAccounts' => '1',
-			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
-		] );
-		$this->setService( 'Vector.Config', $config );
+		$this->setFeatureLatestSkinVersionIsEnabled( false );
 
 		$prefs = [
 			'foo' => [],
@@ -115,13 +115,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 	 * @covers ::onGetPreferences
 	 */
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLatest() {
-		$config = new HashConfig( [
-			'VectorShowSkinPreferences' => true,
-			// '2' is latest.
-			'VectorDefaultSkinVersionForExistingAccounts' => '2',
-			'VectorDefaultSidebarVisibleForAuthorisedUser' => true
-		] );
-		$this->setService( 'Vector.Config', $config );
+		$this->setFeatureLatestSkinVersionIsEnabled( true );
 
 		$prefs = [
 			'foo' => [],
