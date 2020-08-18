@@ -66,6 +66,25 @@ return [
 			]
 		);
 
+		// Feature: Languages in sidebar
+		// ================================
+		$featureManager->registerRequirement(
+			new DynamicConfigRequirement(
+				$services->getMainConfig(),
+				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_LANGUAGE_IN_HEADER,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+			]
+		);
+
 		return $featureManager;
 	}
 ];

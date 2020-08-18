@@ -52,7 +52,15 @@
 	<a id="top"></a>
 	<div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
 	{{>Indicators}}
+	{{^is-language-in-header}}
 	<h1 id="firstHeading" class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+	{{/is-language-in-header}}
+	{{#is-language-in-header}}
+	<header>
+		<h1 id="firstHeading" class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+		{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
+	</header>
+	{{/is-language-in-header}}
 	<div id="bodyContent" class="mw-body-content">
 		{{#page-isarticle}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/page-isarticle}}
 		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>

@@ -89,6 +89,16 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * @return bool
+	 */
+	private function isLanguagesInHeader() {
+		$featureManager = VectorServices::getFeatureManager();
+		return $featureManager->isFeatureEnabled(
+			Constants::FEATURE_LANGUAGE_IN_HEADER
+		);
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData() : array {
@@ -96,8 +106,6 @@ class SkinVector extends SkinMustache {
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
-
-		$featureManager = VectorServices::getFeatureManager();
 
 		// Naming conventions for Mustache parameters.
 		//
@@ -130,6 +138,7 @@ class SkinVector extends SkinMustache {
 			'input-location' => $this->getSearchBoxInputLocation(),
 
 			'sidebar-visible' => $this->isSidebarVisible(),
+			'is-language-in-header' => $this->isLanguagesInHeader(),
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
@@ -227,6 +236,10 @@ class SkinVector extends SkinMustache {
 				break;
 			case 'personal':
 				$type = self::MENU_TYPE_DEFAULT;
+				break;
+			case 'lang':
+				$type = $this->isLanguagesInHeader() ?
+					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_PORTAL;
 				break;
 			default:
 				$type = self::MENU_TYPE_PORTAL;
