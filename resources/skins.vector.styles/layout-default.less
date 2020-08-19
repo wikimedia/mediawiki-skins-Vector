@@ -2,6 +2,8 @@
 // Default layout for Modern Vector.
 //
 
+@margin-horizontal-sidebar-button-icon: 12px;
+
 body {
 	// General background/foreground color definition as one exception to the rule.
 	background-color: @background-color-base;
@@ -138,6 +140,11 @@ body:not( .skin-vector-search-header ) #p-personal,
 	li {
 		display: inline-block;
 	}
+}
+
+#mw-sidebar-button {
+	margin-left: -@margin-horizontal-sidebar-button-icon;
+	margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 }
 
 #mw-panel {
