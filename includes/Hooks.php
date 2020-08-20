@@ -7,7 +7,6 @@ use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
-use RequestContext;
 use ResourceLoaderContext;
 use Skin;
 use SkinTemplate;
@@ -52,10 +51,6 @@ class Hooks {
 			return;
 		}
 
-		$skinVersionLookup = new SkinVersionLookup(
-			$out->getRequest(), $sk->getUser(), self::getServiceConfig()
-		);
-
 		$mobile = false;
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 
@@ -63,9 +58,9 @@ class Hooks {
 			$mobile = $mobFrontContext->shouldDisplayMobileView();
 		}
 
-		if ( $skinVersionLookup->isLegacy()
-			&& ( $mobile || $sk->getConfig()->get( 'VectorResponsive' ) )
-		) {
+		if (
+			self::isSkinVersionLegacy()
+			&& ( $mobile || $sk->getConfig()->get( 'VectorResponsive' ) ) ) {
 			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 			$out->addModuleStyles( 'skins.vector.styles.responsive' );
 		}
@@ -158,10 +153,6 @@ class Hooks {
 			return;
 		}
 
-		$skinVersionLookup = new SkinVersionLookup(
-			RequestContext::getMain()->getRequest(), $user, self::getServiceConfig()
-		);
-
 		// Preferences to add.
 		$vectorPrefs = [
 			Constants::PREF_KEY_SKIN_VERSION => [
@@ -174,7 +165,7 @@ class Hooks {
 				// indicates that a prefs-skin-prefs string will be provided.
 				'section' => 'rendering/skin/skin-prefs',
 				// Convert the preference string to a boolean presentation.
-				'default' => $skinVersionLookup->isLegacy() ? '1' : '0',
+				'default' => self::isSkinVersionLegacy() ? '1' : '0',
 				// Only show this section when the Vector skin is checked. The JavaScript client also uses
 				// this state to determine whether to show or hide the whole section.
 				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
@@ -264,17 +255,35 @@ class Hooks {
 			return;
 		}
 
-		$skinVersionLookup = new SkinVersionLookup(
-			$out->getRequest(), $sk->getUser(), self::getServiceConfig()
-		);
-
-		if ( $skinVersionLookup->isLegacy() ) {
+		// As of 2020/08/13, this CSS class is referred to by the following deployed extensions:
+		//
+		// - VisualEditor
+		// - CodeMirror
+		// - WikimediaEvents
+		//
+		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-legacy for an up-to-date
+		// list.
+		if ( self::isSkinVersionLegacy() ) {
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
+
 			return;
 		}
 
 		if ( self::getConfig( Constants::CONFIG_KEY_LAYOUT_MAX_WIDTH ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-max-width';
+		}
+
+		// As of 2020/08/12, the following CSS classes are referred to by the following deployed
+		// extensions:
+		//
+		// - WikimediaEvents
+		//
+		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-search- for an up-to-date
+		// list.
+		if ( self::getConfig( Constants::CONFIG_SEARCH_IN_HEADER ) ) {
+			$bodyAttrs['class'] .= ' skin-vector-search-header';
+		} else {
+			$bodyAttrs['class'] .= ' skin-vector-search-header-legacy';
 		}
 	}
 
@@ -290,19 +299,17 @@ class Hooks {
 	 * @param OutputPage $out OutputPage instance calling the hook
 	 */
 	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
-		if ( $out->getSkin() instanceof SkinVector ) {
-			$skinVersionLookup = new SkinVersionLookup(
-				$out->getRequest(),
-				$out->getUser(),
-				self::getServiceConfig()
-			);
+		if ( !$out->getSkin() instanceof SkinVector ) {
+			return;
+		}
 
-			if ( !$skinVersionLookup->isLegacy() ) {
-				$vars[ 'wgVectorDisableSidebarPersistence' ] =
+		$user = $out->getUser();
+
+		if ( $user->isLoggedIn() && self::isSkinVersionLegacy() ) {
+			$vars[ 'wgVectorDisableSidebarPersistence' ] =
 				self::getConfig(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
 				);
-			}
 		}
 	}
 
@@ -322,5 +329,16 @@ class Hooks {
 	 */
 	private static function getServiceConfig() {
 		return MediaWikiServices::getInstance()->getService( Constants::SERVICE_CONFIG );
+	}
+
+	/**
+	 * Gets whether the current skin version is the legacy version.
+	 *
+	 * @see VectorServices::getFeatureManager
+	 *
+	 * @return bool
+	 */
+	private static function isSkinVersionLegacy(): bool {
+		return !VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
 	}
 }

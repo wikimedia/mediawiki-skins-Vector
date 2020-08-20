@@ -1,0 +1,116 @@
+// This assumes the presence of variables inside layout.less. DO NOT import it separately.
+// Assumes various variables defined there.
+
+@min-width-search: unit( 350px / @font-size-browser, em );
+@max-width-search: unit( 580px / @font-size-browser, em );
+@margin-horizontal-search: unit( 40px / @font-size-browser, em );
+
+// The logo is variable width but typically consists of:
+// - a icon (50x50)
+// - a wordmark (approx 120px)
+@min-width-logo: unit( 180px / @font-size-browser, em );
+
+@min-width-personal-tools: unit( 300px / @font-size-browser, em );
+
+@padding-horizontal-page-container: 30px;
+@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
+@margin-horizontal-sidebar-button-icon-ems: unit( @margin-horizontal-sidebar-button-icon / @font-size-browser, em );
+
+// the width of the container if you exclude consideration for search
+@min-width-container-base: @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @min-width-personal-tools;
+
+@min-width-supported: @min-width-container-base + @min-width-search;
+@width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search;
+
+@height-personal-tools: 2em;
+
+.skin-vector-search-header {
+
+	// Header components
+	#p-search {
+		// Override values to reflect new behaviour.
+		min-width: @min-width-search;
+		max-width: @max-width-search;
+		margin: 0 @margin-horizontal-search;
+	}
+
+	// Support IE9: float will be disabled if display flex is supported
+	#p-search,
+	#mw-sidebar-button {
+		float: left;
+	}
+
+	#p-personal {
+		text-align: right;
+
+		// Support IE9: This is reset in @support query below if Flexbox is available.
+		float: right;
+	}
+
+	// If we don't have the space adjust header.
+	// Increase height and margins to accommodate personal tools underneath.
+	@media ( max-width: @width-comfortable ) {
+		@height-header-adjusted: @height-header + @height-personal-tools;
+
+		#mw-panel {
+			top: @height-header-adjusted - @margin-top-header;
+		}
+
+		#p-personal {
+			width: @min-width-personal-tools;
+		}
+
+		.mw-header-placeholder {
+			height: @height-header-adjusted + @height-tabs;
+		}
+
+		#left-navigation {
+			margin-top: @height-header-adjusted;
+			margin-bottom: 0;
+		}
+
+		#right-navigation {
+			margin-top: -@height-tabs;
+			clear: left;
+		}
+	}
+}
+
+// when max-width is also enabled...
+.skin-vector-search-header.skin-vector-max-width {
+	#left-navigation {
+		margin-top: 0;
+	}
+
+	.mw-article-toolbar-container {
+		margin-top: @height-header + @height-personal-tools;
+	}
+
+	@media ( min-width: @width-comfortable ) {
+		.mw-article-toolbar-container {
+			margin-top: @height-header;
+		}
+	}
+}
+
+// If flexbox supported reset the floats that are supporting IE9
+// When IE9 is no longer supported this entire query can be dropped.
+@supports ( display: flex ) {
+	.skin-vector-search-header {
+		.mw-header {
+			flex-wrap: wrap;
+		}
+
+		#p-personal,
+		#p-search {
+			flex-grow: 1;
+			// Disable the float: left rule for IE9 support
+			float: none;
+		}
+
+		#mw-sidebar-button {
+			// Disable the float: left rule for IE9 support
+			float: none;
+		}
+	}
+}

@@ -4,8 +4,6 @@
 @import 'legacy/Sidebar.less';
 @import 'checkboxHack.less';
 
-@margin-horizontal-sidebar-button-icon: 12px;
-
 .mw-sidebar-action {
 	// Align with the portal heading/links
 	// `.portal` + `.portal .body`
@@ -25,8 +23,6 @@
 	height: @size-sidebar-button;
 	border: 1px solid transparent;
 	border-radius: @border-radius-base;
-	margin-left: -@margin-horizontal-sidebar-button-icon;
-	margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 
 	&:before {
 		// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
@@ -38,6 +34,13 @@
 		margin: 0 @margin-horizontal-sidebar-button-icon;
 		// Equals `#555`, closest to `#54595d` on background-color `#fff`.
 		opacity: 0.67;
+		/* @embed */
+		background-image: url( images/chevronHorizontal-ltr.svg );
+
+		#mw-sidebar-checkbox:not( :checked ) ~ .mw-header & {
+			/* @embed */
+			background-image: url( images/menu.svg );
+		}
 	}
 
 	&:hover {
