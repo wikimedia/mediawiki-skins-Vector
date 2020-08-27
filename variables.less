@@ -1,35 +1,8 @@
 @import 'mediawiki.ui/variables.less';
 
+// Sizing calculation primitives.
 @font-size-root: 100%;
 @font-size-browser: 16; // Assumed browser default of `16px`
-
-//
-// == Typography ==
-//
-// Detailed documentation of the font choices:
-// https://www.mediawiki.org/wiki/Wikimedia_User_Interface/Use_cases/Font_family_stack
-// Source of this font stack definition in WikimediaUI Base:
-// https://phabricator.wikimedia.org/source/wikimedia-ui-base/browse/master/wikimedia-ui-base.less$202
-// See T73240 for a related discussion concerning the serif font stack.
-// Note: Numbers in Georgia font are non-lining, the font-feature to change this is documented at:
-// https://www.mediawiki.org/wiki/Talk:Typography_refresh/Archive_2#Numbers_looks_weird_in_article_title
-
-@font-family-serif:
-	'Linux Libertine', // GNU+Linux, alternative to Times New Roman.
-	'Georgia',         // Windows, intended as a serif typeface that would appear elegant but
-	                   // legible printed small or on low-resolution screens.
-	'Times',           // Windows, very similar to Times New Roman with subtle differences.
-	serif;             // Platform default: 'Times New Roman' on Windows.
-
-//
-// Body content uses the user setting in browser / the system default sans-serif font:
-// Arial on Windows, Roboto on Android.
-// FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
-
-@font-family-sans: sans-serif;
-
-// Fallback for headings, language: ja,he,ko. See T73240,T65817,T65843,T65844,T65827.
-@font-family-sans--fallback: sans-serif;
 
 //
 // == Page content ==
@@ -46,6 +19,25 @@
 
 @outline-color-base--focus: @color-primary;
 
+//
+// == Typography ==
+//
+// Typography in Wikimedia Design Style Guide:;
+// https://design.wikimedia.org/style-guide/visual-style_typography.html
+// Historic overview and background information of fonts in Wikimedia software:
+// https://www.mediawiki.org/wiki/Wikimedia_User_Interface/Use_cases/Font_family_stack
+// Source of this font stack definition in WikimediaUI Base:
+// https://phabricator.wikimedia.org/source/wikimedia-ui-base/browse/master/wikimedia-ui-base.less$202
+@font-family-serif:	'Linux Libertine', 'Georgia', 'Times', serif;
+
+// Body content uses the user setting in browser / operating system default sans-serif font:
+// For example, Arial on Windows, Roboto on Android.
+// FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
+@font-family-sans: sans-serif;
+
+// Fallback for headings, language: ja,he,ko. See T73240, T65817, T65843, T65844, T65827.
+@font-family-sans--fallback: sans-serif;
+
 @font-size-base: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 @font-size-reset: @font-size-root;
 @font-size-heading-1: 1.8em;
@@ -54,6 +46,7 @@
 @font-size-notification: 0.8em;
 @font-size-site-notice: 0.8em;
 @font-size-footer: unit( 12 / @font-size-browser, em );
+
 @line-height-base: 1.6;
 @line-height-heading: 1.3;
 @line-height-code: 1.3;
