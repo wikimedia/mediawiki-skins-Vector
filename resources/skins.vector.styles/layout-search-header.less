@@ -42,6 +42,7 @@
 
 	#p-personal {
 		text-align: right;
+		flex-basis: @min-width-personal-tools;
 
 		// Support IE9: This is reset in @support query below if Flexbox is available.
 		float: right;
@@ -54,10 +55,6 @@
 
 		#mw-panel {
 			top: @height-header-adjusted - @margin-top-header;
-		}
-
-		#p-personal {
-			width: @min-width-personal-tools;
 		}
 
 		.mw-header-placeholder {
