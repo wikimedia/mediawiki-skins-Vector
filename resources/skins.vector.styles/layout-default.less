@@ -54,6 +54,7 @@ body {
 	// Vertical centering of header elements (IE>=11), requires flex.
 	// Non-flex fallback for IE<=9: float rule on the child elements.
 	.flex-display();
+	flex-wrap: wrap;
 	// https://caniuse.com/#search=align-items
 	align-items: center;
 	z-index: @z-index-header;
@@ -153,6 +154,7 @@ body {
 }
 
 #mw-sidebar-button {
+	float: left; // Browser: IE9 support - button as flex-child fallback.
 	margin-left: -@margin-horizontal-sidebar-button-icon;
 	margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 }
