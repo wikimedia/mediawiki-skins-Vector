@@ -15,9 +15,10 @@
 @padding-horizontal-page-container: 30px;
 @padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
 @margin-horizontal-sidebar-button-icon-ems: unit( @margin-horizontal-sidebar-button-icon / @font-size-browser, em );
+@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
 
 // the width of the container if you exclude consideration for search
-@min-width-container-base: @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @min-width-personal-tools;
+@min-width-container-base: @padding-horizontal-page-container-ems + @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @min-width-personal-tools + @padding-horizontal-page-container-ems;
 
 @min-width-supported: @min-width-container-base + @min-width-search;
 @width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search;
