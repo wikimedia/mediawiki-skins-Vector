@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Abdiafrizal",
+			"Boesenbergia",
 			"NoiX180"
 		]
 	},
-	"vector-view-edit": "Sontèng",
+	"vector-action-addsection": "Longkang anyar",
+	"vector-view-create": "Ghâbây",
+	"vector-view-edit": "Beccè'",
 	"vector-view-view": "Bâcâ",
 	"vector-more-actions": "Polè"
 }

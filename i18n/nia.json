@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"NoiX180"
+			"NoiX180",
+			"Slaia"
 		]
 	},
-	"vector-view-edit": "Bulö'ö"
+	"vector-view-create": "Fazökhi",
+	"vector-view-edit": "Bulö'ö",
+	"vector-view-history": "Faigi waö-waö",
+	"vector-view-view": "Baso",
+	"vector-more-actions": "Tohugö na sa"
 }
