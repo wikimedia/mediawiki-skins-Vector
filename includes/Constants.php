@@ -82,6 +82,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_SEARCH_IN_HEADER_AB = 'VectorIsSearchInHeaderABTest';
+
+	/**
+	 * @var string
+	 */
 	public const REQUIREMENT_SEARCH_IN_HEADER = 'VectorIsSearchInHeaderIsEnabled';
 
 	/**

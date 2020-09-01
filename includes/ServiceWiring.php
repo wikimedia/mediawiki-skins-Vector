@@ -71,7 +71,8 @@ return [
 		// ========================================
 		$featureManager->registerRequirement(
 			new SearchInHeaderRequirement(
-				$services->getMainConfig()
+				$services->getMainConfig(),
+				$context->getUser()
 			)
 		);
 

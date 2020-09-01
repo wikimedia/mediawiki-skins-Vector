@@ -189,6 +189,9 @@
 		"VectorIsSearchInHeader": {
 			"value": false
 		},
+		"VectorIsSearchInHeaderABTest": {
+			"value": false
+		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true
 		},
