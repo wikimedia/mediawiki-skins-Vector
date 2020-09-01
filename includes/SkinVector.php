@@ -24,6 +24,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Vector\Constants;
+use Vector\VectorServices;
 
 /**
  * Skin subclass for Vector
@@ -99,6 +100,8 @@ class SkinVector extends SkinMustache {
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 
+		$featureManager = VectorServices::getFeatureManager();
+
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -130,7 +133,7 @@ class SkinVector extends SkinMustache {
 
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
-			'is-search-in-header' => $this->getConfig()->get( Constants::CONFIG_SEARCH_IN_HEADER ),
+			'is-search-in-header' => $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER ),
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
