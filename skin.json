@@ -203,7 +203,7 @@
 			"value": true
 		},
 		"VectorIsSearchInHeader": {
-			"value": false
+			"value": true
 		},
 		"VectorIsSearchInHeaderABTest": {
 			"value": false
