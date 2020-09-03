@@ -2,8 +2,8 @@
 // Assumes various variables defined there.
 
 @min-width-search: unit( 350px / @font-size-browser, em );
-@max-width-search: unit( 580px / @font-size-browser, em );
-@margin-horizontal-search: unit( 40px / @font-size-browser, em );
+@max-width-search: unit( 450px / @font-size-browser, em );
+@margin-horizontal-search: unit( 56px / @font-size-browser, em );
 
 // The logo is variable width but typically consists of:
 // - a icon (50x50)
@@ -38,7 +38,7 @@
 		margin: 0 0 0 @margin-horizontal-search;
 
 		#searchform {
-			margin-left: auto;
+			margin-left: 0;
 			max-width: @max-width-search;
 		}
 	}
@@ -51,5 +51,14 @@
 
 		// Support IE9: This is reset in @support query below if Flexbox is available.
 		float: right;
+	}
+
+	// At low resolutions the search must be pushed to the right of the screen
+	// We use @width-comfortable to determine this threshold as we know it's not possible for
+	// personal tools to be on the same line at this resolution.
+	@media ( max-width: @width-comfortable ) {
+		#p-search #searchform {
+			margin-left: auto;
+		}
 	}
 }
