@@ -5,6 +5,7 @@
 			ref="input"
 			type="search"
 			name="search"
+			autocomplete="off"
 			v-bind:accesskey="searchAccessKey"
 			v-bind:title="searchTitle"
 			v-bind:placeholder="searchPlaceholder"
