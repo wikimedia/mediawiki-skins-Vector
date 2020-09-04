@@ -19,32 +19,38 @@ import { logoTemplate } from './Logo.stories.data';
 
 export const NAVIGATION_TEMPLATE_DATA = {
 	loggedInWithVariantsAndOptOut: Object.assign( {}, {
-		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
-		'data-namespace-tabs': namespaceTabsData,
-		'data-page-actions': pageActionsData,
-		'data-variants': variantsData,
+		'data-portlets': {
+			'data-personal': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
+			'data-namespaces': namespaceTabsData,
+			'data-views': pageActionsData,
+			'data-variants': variantsData
+		},
 		'data-search-box': searchBoxData,
-		'data-sidebar': SIDEBAR_DATA.withPortals,
+		'data-portlets-sidebar': SIDEBAR_DATA.withPortals,
 		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	}, OPT_OUT_DATA ),
 	loggedOutWithVariants: {
-		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
-		'data-namespace-tabs': namespaceTabsData,
-		'data-page-actions': pageActionsData,
-		'data-variants': variantsData,
+		'data-portlets': {
+			'data-personal': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
+			'data-namespaces': namespaceTabsData,
+			'data-views': pageActionsData,
+			'data-variants': variantsData
+		},
 		'data-search-box': searchBoxData,
-		'data-sidebar': SIDEBAR_DATA.withPortals,
+		'data-portlets-sidebar': SIDEBAR_DATA.withPortals,
 		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	},
 	loggedInWithMoreActions: {
-		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
-		'data-namespace-tabs': namespaceTabsData,
-		'data-page-actions': pageActionsData,
-		'data-page-actions-more': moreData,
+		'data-portlets': {
+			'data-personal': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
+			'data-namespaces': namespaceTabsData,
+			'data-views': pageActionsData,
+			'data-actions': moreData
+		},
 		'data-search-box': searchBoxData,
-		'data-sidebar': SIDEBAR_DATA.withPortals,
+		'data-portlets-sidebar': SIDEBAR_DATA.withPortals,
 		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
 	}

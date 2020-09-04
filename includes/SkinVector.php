@@ -130,9 +130,8 @@ class SkinVector extends SkinMustache {
 
 			'input-location' => $this->getSearchBoxInputLocation(),
 
-			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
-		], $this->getMenuProps() );
+		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
 			// Note: This data is also passed to legacy template where it is unused.
@@ -190,149 +189,70 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Render a series of portals
-	 *
-	 * @return array
+	 * helper for applying Vector menu classes to portlets
+	 * @param array $portletData returned by SkinMustache to decorate
+	 * @param int $type representing one of the menu types (see MENU_TYPE_* constants)
+	 * @return array modified version of portletData input
 	 */
-	private function getTemplateDataSidebar() {
-		$skin = $this;
-		$portals = $this->buildSidebar();
-		$props = [];
-		$languages = null;
-
-		// Render portals
-		foreach ( $portals as $name => $content ) {
-			if ( $content === false ) {
-				continue;
-			}
-
-			// Numeric strings gets an integer when set as key, cast back - T73639
-			$name = (string)$name;
-
-			switch ( $name ) {
-				case 'SEARCH':
-					break;
-				case 'TOOLBOX':
-					$props[] = $this->getMenuData(
-						'tb', $content,  self::MENU_TYPE_PORTAL
-					);
-					break;
-				case 'LANGUAGES':
-					$portal = $this->getMenuData(
-						'lang', $content, self::MENU_TYPE_PORTAL
-					);
-					// The language portal will be added provided either
-					// languages exist or there is a value in html-after-portal
-					// for example to show the add language wikidata link (T252800)
-					if ( count( $content ) || $portal['html-after-portal'] ) {
-						$languages = $portal;
-					}
-					break;
-				default:
-					$props[] = $this->getMenuData(
-						$name, $content, self::MENU_TYPE_PORTAL
-					);
-					break;
-			}
-		}
-
-		$firstPortal = $props[0] ?? null;
-		if ( $firstPortal ) {
-			$firstPortal[ 'class' ] .= ' portal-first';
-		}
-
-		return [
-			'html-logo-attributes' => Xml::expandAttributes(
-				Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) + [
-					'class' => 'mw-wiki-logo',
-					'href' => Skin::makeMainPageUrl(),
-				]
-			),
-			'array-portals-rest' => array_slice( $props, 1 ),
-			'data-portals-first' => $firstPortal,
-			'data-portals-languages' => $languages,
-		];
-	}
-
-	/**
-	 * @param string $label to be used to derive the id and human readable label of the menu
-	 *  Note certain keys are special cased for historic reasons in core.
-	 * @param array $urls to convert to list items stored as string in html-items key
-	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
-	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
-	 * @param bool $setLabelToSelected (optional) the menu label will take the value of the
-	 *  selected item if found.
-	 * @return array
-	 */
-	private function getMenuData(
-		string $label,
-		array $urls = [],
-		int $type = self::MENU_TYPE_DEFAULT,
-		bool $setLabelToSelected = false
-	) : array {
-		$portletData = $this->getPortletData( $label, $urls );
+	private function decoratePortletClass(
+		array $portletData,
+		int $type = self::MENU_TYPE_DEFAULT
+	) {
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown',
 			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs',
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
-		$isPortal = $type === self::MENU_TYPE_PORTAL;
+		$class = $portletData['class'];
+		$portletData['class'] = trim( "$class $extraClasses[$type]" );
+		return $portletData;
+	}
 
-		$props = $portletData + [
-			'label-id' => "p-{$label}-label",
-			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
-		];
+	/**
+	 * @inheritDoc
+	 * @return array
+	 */
+	protected function getPortletData(
+		$label,
+		array $urls = []
+	) : array {
+		switch ( $label ) {
+			case 'actions':
+			case 'variants':
+				$type = self::MENU_TYPE_DROPDOWN;
+				break;
+			case 'views':
+			case 'namespaces':
+				$type = self::MENU_TYPE_TABS;
+				break;
+			case 'personal':
+				$type = self::MENU_TYPE_DEFAULT;
+				break;
+			default:
+				$type = self::MENU_TYPE_PORTAL;
+				break;
+		}
+
+		$portletData = $this->decoratePortletClass(
+			parent::getPortletData( $label, $urls ),
+			$type
+		);
 
 		// Special casing for Variant to change label to selected.
 		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
-		foreach ( $urls as $key => $item ) {
-			if ( $setLabelToSelected ) {
+		if ( $label === 'variants' ) {
+			foreach ( $urls as $key => $item ) {
+			// Check the class of the item for a `selected` class and if so, propagate the items
+			// label to the main label.
 				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
-					$props['label'] = $item['text'];
+					$portletData['label'] = $item['text'];
 				}
 			}
 		}
 
-		// Mark the portal as empty if it has no content
-		$class = $props['class'];
-		$props['class'] = trim( "$class $extraClasses[$type]" );
-		return $props;
-	}
-
-	/**
-	 * @return array
-	 */
-	private function getMenuProps() : array {
-		$contentNavigation = $this->buildContentNavigationUrls();
-		$personalTools = self::getPersonalToolsForMakeListItem(
-			$this->buildPersonalUrls()
-		);
-		$ptools = $this->getMenuData( 'personal', $personalTools );
-
-		return [
-			'data-personal-menu' => $ptools,
-			'data-namespace-tabs' => $this->getMenuData(
-				'namespaces',
-				$contentNavigation[ 'namespaces' ] ?? [],
-				self::MENU_TYPE_TABS
-			),
-			'data-variants' => $this->getMenuData(
-				'variants',
-				$contentNavigation[ 'variants' ] ?? [],
-				self::MENU_TYPE_DROPDOWN,
-				true
-			),
-			'data-page-actions' => $this->getMenuData(
-				'views',
-				$contentNavigation[ 'views' ] ?? [],
-				self::MENU_TYPE_TABS
-			),
-			'data-page-actions-more' => $this->getMenuData(
-				'cactions',
-				$contentNavigation[ 'actions' ] ?? [],
-				self::MENU_TYPE_DROPDOWN
-			),
+		return $portletData + [
+			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 		];
 	}
 }
