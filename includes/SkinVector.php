@@ -136,7 +136,7 @@ class SkinVector extends SkinMustache {
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
 			'main-page-href' => $mainPageHref,
 
-			'data-sidebar' => $this->buildSidebar(),
+			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
 		] + $this->getMenuProps();
 
@@ -253,9 +253,9 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return array
 	 */
-	public function buildSidebar() {
+	private function getTemplateDataSidebar() {
 		$skin = $this;
-		$portals = parent::buildSidebar();
+		$portals = $this->buildSidebar();
 		$props = [];
 		$languages = null;
 
