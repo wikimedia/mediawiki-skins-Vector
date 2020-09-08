@@ -56,26 +56,26 @@
 		margin-left: 0;
 	}
 
-	#mw-head {
+	&.skin-vector-search-header-legacy #mw-head {
 		width: auto;
 		left: 0;
 		right: 0;
 	}
 
-	#left-navigation {
+	&.skin-vector-search-header-legacy #left-navigation {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	#right-navigation {
+	&.skin-vector-search-header-legacy #right-navigation {
 		margin-top: 0;
 	}
 
-	#p-personal {
+	&.skin-vector-search-header-legacy #p-personal {
 		right: 0;
 	}
 
-	#p-search {
+	&.skin-vector-search-header-legacy #p-search {
 		margin-right: 0;
 	}
 
@@ -117,6 +117,13 @@
 		background-color: @background-color-page-container;
 	}
 
+	&.skin-vector-search-header .mw-page-container {
+		// Establish a new block formatting context to prevent header top margin
+		// collapsing and causing whitespace to appear between the header and
+		// viewport.
+		overflow-y: auto;
+	}
+
 	// Used as a container for absolutely positioned elements.
 	.mw-page-container-inner {
 		position: relative;
@@ -128,16 +135,30 @@
 		margin-right: auto;
 	}
 
+	&.skin-vector-search-header .mw-workspace-container {
+		// The sidebar is absolutely positioned relative to the
+		// mw-workspace-container.
+		position: relative;
+	}
+
 	.mw-content-container {
 		max-width: @max-width-content-container;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	.mw-article-toolbar-container {
+	&.skin-vector-search-header-legacy .mw-article-toolbar-container {
 		margin-top: @height-header;
-		// Clear the floats on #left-navigation and #right-navigation.
-		.mixin-clearfix();
+	}
+
+	&.skin-vector-search-header .mw-article-toolbar-container {
+		// We want to keep the max-width of the article-toolbar-container the
+		// same max-width as the article page's content container in order to
+		// prevent it from moving when going from an article page to a
+		// history/special page.
+		max-width: @max-width-content-container;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.mw-sidebar-container {
@@ -165,7 +186,7 @@
 		// same max-width as the article page's content container in order to
 		// prevent it from moving when going from an article page to a
 		// history/special page.
-		.mw-article-toolbar-container {
+		&.skin-vector-search-header-legacy .mw-article-toolbar-container {
 			max-width: @max-width-content-container;
 		}
 
@@ -180,7 +201,8 @@
 	// `.mw-page-container` because that will cut off the sidebar. Therefore, we
 	// calculate the maximum distance from the start of `mw-page-container` to the
 	// start of the sidebar.
-	#mw-sidebar-checkbox:not( :checked ) ~ .mw-header .mw-sidebar {
+	&.skin-vector-search-header-legacy #mw-sidebar-checkbox:not( :checked ) ~ .mw-header .mw-sidebar,
+	&.skin-vector-search-header #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
 		.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
 	}
 
@@ -197,7 +219,8 @@
 	@media ( max-width: @max-width-margin-start-content ) {
 		// Adjusts the content and mw-article-toolbar-container.
 		.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
-		.mw-checkbox-hack-checkbox:checked ~ #mw-navigation .mw-content-container {
+		&.skin-vector-search-header-legacy .mw-checkbox-hack-checkbox:checked ~ #mw-navigation .mw-content-container,
+		&.skin-vector-search-header .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
 			margin-left: @margin-start-content;
 		}
 

@@ -54,47 +54,6 @@
 		// Support IE9: This is reset in @support query below if Flexbox is available.
 		float: right;
 	}
-
-	// If we don't have the space adjust header.
-	// Increase height and margins to accommodate personal tools underneath.
-	@media ( max-width: @width-comfortable ) {
-		@height-header-adjusted: @height-header + @height-personal-tools;
-
-		#mw-panel {
-			top: @height-header-adjusted - @margin-top-header;
-		}
-
-		.mw-header-placeholder {
-			height: @height-header-adjusted + @height-tabs;
-		}
-
-		#left-navigation {
-			margin-top: @height-header-adjusted;
-			margin-bottom: 0;
-		}
-
-		#right-navigation {
-			margin-top: -@height-tabs;
-			clear: left;
-		}
-	}
-}
-
-// when max-width is also enabled...
-.skin-vector-search-header.skin-vector-max-width {
-	#left-navigation {
-		margin-top: 0;
-	}
-
-	.mw-article-toolbar-container {
-		margin-top: @height-header + @height-personal-tools;
-	}
-
-	@media ( min-width: @width-comfortable ) {
-		.mw-article-toolbar-container {
-			margin-top: @height-header;
-		}
-	}
 }
 
 // If flexbox supported reset the floats that are supporting IE9
