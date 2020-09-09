@@ -29,5 +29,6 @@
 	"vector-view-viewsource": "Tekst źródłowy",
 	"vector-jumptonavigation": "Przejdź do nawigacji",
 	"vector-jumptosearch": "Przejdź do wyszukiwania",
-	"vector-more-actions": "Więcej"
+	"vector-more-actions": "Więcej",
+	"vector-search-loader": "Wczytywanie sugestii"
 }
