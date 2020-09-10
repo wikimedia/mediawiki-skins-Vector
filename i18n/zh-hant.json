@@ -33,5 +33,6 @@
 	"vector-view-viewsource": "檢視原始碼",
 	"vector-jumptonavigation": "跳至導覽",
 	"vector-jumptosearch": "跳至搜尋",
-	"vector-more-actions": "更多"
+	"vector-more-actions": "更多",
+	"vector-search-loader": "正在載入搜尋建議"
 }

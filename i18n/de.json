@@ -29,5 +29,7 @@
 	"vector-view-viewsource": "Quelltext anzeigen",
 	"vector-jumptonavigation": "Zur Navigation springen",
 	"vector-jumptosearch": "Zur Suche springen",
-	"vector-more-actions": "Mehr"
+	"vector-jumptocontent": "Zum Inhalt springen",
+	"vector-more-actions": "Mehr",
+	"vector-search-loader": "Laden von Suchvorschlägen"
 }

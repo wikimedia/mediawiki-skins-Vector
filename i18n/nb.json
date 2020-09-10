@@ -29,5 +29,7 @@
 	"vector-view-viewsource": "Vis kilden",
 	"vector-jumptonavigation": "Hopp til navigering",
 	"vector-jumptosearch": "Hopp til søk",
-	"vector-more-actions": "Mer"
+	"vector-jumptocontent": "Hopp til innhold",
+	"vector-more-actions": "Mer",
+	"vector-search-loader": "Laster søkeforslag"
 }
