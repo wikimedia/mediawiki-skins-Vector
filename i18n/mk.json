@@ -27,5 +27,7 @@
 	"vector-view-viewsource": "Извор",
 	"vector-jumptonavigation": "Прејди на прегледникот",
 	"vector-jumptosearch": "Прејди на пребарувањето",
-	"vector-more-actions": "Повеќе"
+	"vector-jumptocontent": "Прејди на содржината",
+	"vector-more-actions": "Повеќе",
+	"vector-search-loader": "Вчитувам предлози за пребарувањето"
 }
