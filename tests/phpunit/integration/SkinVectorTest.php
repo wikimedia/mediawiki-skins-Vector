@@ -77,28 +77,39 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$views = $props['data-page-actions'];
 		$namespaces = $props['data-namespace-tabs'];
 
-		$this->assertSame( $views, [
-			'id' => 'p-views',
-			'label-id' => 'p-views-label',
-			'label' => $context->msg( 'views' )->text(),
-			'list-classes' => 'vector-menu-content-list',
-			'html-items' => '',
-			'is-dropdown' => false,
-			'html-tooltip' => '',
-			'html-after-portal' => '',
-			'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
-		] );
+		$this->assertSame(
+			[
+				'id' => 'p-views',
+				'label-id' => 'p-views-label',
+				'label' => $context->msg( 'views' )->text(),
+				'list-classes' => 'vector-menu-content-list',
+				'html-items' => '',
+				'is-dropdown' => false,
+				'html-tooltip' => '',
+				'html-after-portal' => '',
+				'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+			],
+			$views
+		);
 
 		$variants = $props['data-variants'];
 		$actions = $props['data-page-actions-more'];
-		$this->assertSame( $namespaces['class'],
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs' );
-		$this->assertSame( $variants['class'],
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu' );
-		$this->assertSame( $actions['class'],
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu' );
-		$this->assertSame( $props['data-personal-menu']['class'],
-			'vector-menu-empty emptyPortlet vector-menu' );
+		$this->assertSame(
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+			 $namespaces['class']
+		);
+		$this->assertSame(
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			$variants['class']
+		);
+		$this->assertSame(
+			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			$actions['class']
+		);
+		$this->assertSame(
+			'vector-menu-empty emptyPortlet vector-menu',
+			$props['data-personal-menu']['class']
+		);
 	}
 
 }
