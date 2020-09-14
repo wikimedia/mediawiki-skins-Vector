@@ -72,11 +72,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_LAYOUT_MAX_WIDTH = 'VectorLayoutMaxWidth';
-
-	/**
-	 * @var string
-	 */
 	public const CONFIG_SEARCH_IN_HEADER = 'VectorIsSearchInHeader';
 
 	/**
