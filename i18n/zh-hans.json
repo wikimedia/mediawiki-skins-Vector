@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"500000000006城",
+			"AYZ04",
 			"Cwek",
 			"Hydra",
 			"Liangent",
@@ -33,5 +34,7 @@
 	"vector-view-viewsource": "查看源代码",
 	"vector-jumptonavigation": "跳到导航",
 	"vector-jumptosearch": "跳到搜索",
-	"vector-more-actions": "更多"
+	"vector-jumptocontent": "跳到内容",
+	"vector-more-actions": "更多",
+	"vector-search-loader": "正在加载搜索建议"
 }

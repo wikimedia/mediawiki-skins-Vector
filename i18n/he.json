@@ -26,5 +26,7 @@
 	"vector-view-viewsource": "הצגת מקור",
 	"vector-jumptonavigation": "קפיצה לניווט",
 	"vector-jumptosearch": "קפיצה לחיפוש",
-	"vector-more-actions": "עוד"
+	"vector-jumptocontent": "לדלג לתוכן",
+	"vector-more-actions": "עוד",
+	"vector-search-loader": "טעינת הצעות חיפוש"
 }

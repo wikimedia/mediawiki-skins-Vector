@@ -6,6 +6,7 @@
 			"Firilacroco",
 			"ImGelu",
 			"Minisarm",
+			"NGC 54",
 			"Strainu"
 		]
 	},
@@ -23,5 +24,6 @@
 	"vector-view-history": "Istoric",
 	"vector-view-view": "Lectură",
 	"vector-view-viewsource": "Sursă pagină",
+	"vector-jumptocontent": "Sari la conținut",
 	"vector-more-actions": "Mai mult"
 }

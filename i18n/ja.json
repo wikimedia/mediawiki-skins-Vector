@@ -9,11 +9,13 @@
 			"Takot",
 			"Tmv",
 			"Whym",
+			"Yusuke1109",
 			"青子守歌"
 		]
 	},
 	"skinname-vector": "ベクター",
 	"vector-skin-desc": "新しい見た目でユーザビリティが改善された、モダンバージョンのMonobook。",
+	"prefs-vector-enable-vector-1-label": "Legacy Vectorスキンを使用する",
 	"vector-opt-out": "以前の外観に切り替え",
 	"vector.css": "/* ここに記述したCSSはベクター外装の利用者に影響します */",
 	"vector.js": "/* ここにあるすべてのJavaScriptは、ベクター外装を使用している利用者に対して読み込まれます */",
