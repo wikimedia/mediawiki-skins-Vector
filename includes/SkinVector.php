@@ -122,6 +122,11 @@ class SkinVector extends SkinMustache {
 		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 		$newTalksHtml = $skin->getNewtalks() ?: null;
 
+		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
+		$inputLocation = $isSearchInHeader
+			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
+			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
+
 		$commonSkinData = parent::getTemplateData() + [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
@@ -133,7 +138,9 @@ class SkinVector extends SkinMustache {
 
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
-			'is-search-in-header' => $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER ),
+
+			'is-search-in-header' => $isSearchInHeader,
+			'input-location' => $inputLocation,
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
