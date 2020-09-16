@@ -53,23 +53,20 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$context->setTitle( $title );
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
-
-		$this->setMwGlobals( 'wgHooks', [
-			'PersonalUrls' => [
-				function ( &$personal_urls, &$title, $skin ) {
-					$personal_urls = [];
-				}
-			],
-			'SkinTemplateNavigation' => [
-				function ( &$skinTemplate, &$content_navigation ) {
-					$content_navigation = [
-						'actions' => [],
-						'namespaces' => [],
-						'variants' => [],
-						'views' => [],
-					];
-				}
-			]
+		$this->setTemporaryHook( 'PersonalUrls', [
+			function ( &$personal_urls, &$title, $skin ) {
+				$personal_urls = [];
+			}
+		] );
+		$this->setTemporaryHook( 'SkinTemplateNavigation', [
+			function ( &$skinTemplate, &$content_navigation ) {
+				$content_navigation = [
+					'actions' => [],
+					'namespaces' => [],
+					'variants' => [],
+					'views' => [],
+				];
+			}
 		] );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
@@ -96,7 +93,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$actions = $props['data-page-actions-more'];
 		$this->assertSame(
 			'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
-			 $namespaces['class']
+			$namespaces['class']
 		);
 		$this->assertSame(
 			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
