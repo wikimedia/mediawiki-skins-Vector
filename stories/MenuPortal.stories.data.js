@@ -52,7 +52,7 @@ export const PORTALS = {
 	},
 	navigation: {
 		id: 'p-navigation',
-		class: 'portal portal-first',
+		class: 'vector-menu-portal portal portal-first',
 		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		label: 'Navigation',

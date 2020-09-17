@@ -5,7 +5,8 @@ IFS=$'\n\t'
 mkdir -p .storybook/resolve-less-imports/mediawiki.ui
 mkdir -p docs/ui/assets/
 
-ln -s ../../resources/mediawiki.less/mediawiki.skin.variables.less .storybook/resolve-less-imports/mediawiki.skin.variables.less
+rm -f .storybook/resolve-less-imports/mediawiki.skin.variables.less
+cp resources/mediawiki.less/mediawiki.skin.variables.less .storybook/resolve-less-imports/
 
 curl -sS "https://en.wikipedia.org/w/load.php?only=styles&skin=vector&debug=true&modules=ext.echo.styles.badge|ext.uls.pt|wikibase.client.init|mediawiki.skinning.interface" -o .storybook/integration.less
 curl -sSL "https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/core/+/master/resources/src/mediawiki.less/mediawiki.skin.defaults.less?format=TEXT" | base64 --decode > .storybook/resolve-less-imports/mediawiki.skin.defaults.less
