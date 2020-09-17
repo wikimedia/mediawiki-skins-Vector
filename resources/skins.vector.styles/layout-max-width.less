@@ -1,5 +1,6 @@
 @import '../../variables.less';
 @import 'mediawiki.mixins.less';
+@import 'mediawiki.skin.variables.less';
 
 // Putting a `skin-vector-max-width` class on the body and wrapping the rules
 // herein enables the ability to feature flag the max-width design. This is
@@ -16,7 +17,9 @@
 	// TODO: Remove @padding-content in variables.less when the max-width layout
 	// becomes the default layout since the value is different between legacy and
 	// latest.
-	@padding-content: 1.25em 0.5em 1.5em 0.5em;
+	// Note this uses variables defined in mediawiki.skin.variables so that VisualEditor can read them
+	// see T259331.
+	@padding-content: @padding-top-content @padding-horizontal-content 1.5em;
 	// We want ~60px of space between the end of the sidebar and the start of the
 	// content container for aesthetic reasons. The sidebar is already displaced
 	// -30px so we simply add 30px of space to the width of the sidebar.
