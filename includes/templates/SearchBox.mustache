@@ -6,7 +6,7 @@
 		<label for="searchInput">{{msg-search}}</label>
 	</h3>
 	<form action="{{form-action}}" id="searchform">
-		<div id="simpleSearch">
+		<div id="simpleSearch"{{#input-location}} data-search-loc="{{.}}"{{/input-location}}>
 			{{{html-input}}}
 			<input type="hidden" name="title" value="{{page-title}}">
 			{{!	We construct two buttons (for 'go' and 'fulltext' search modes), but only one will be

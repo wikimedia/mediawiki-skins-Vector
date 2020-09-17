@@ -45,6 +45,8 @@
  * @property {string|null} page-title the title of the search page
  * @property {string|null} html-button-search-fallback
  * @property {string|null} html-button-search
+ * @property {string} [input-location] An identifier corresponding the position of the search
+ *  widget on the page, e.g. "header-navigation"
  */
 
 /**
