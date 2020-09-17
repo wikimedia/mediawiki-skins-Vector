@@ -24,6 +24,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Vector\Constants;
+use Vector\VectorServices;
 
 /**
  * Skin subclass for Vector
@@ -99,6 +100,8 @@ class SkinVector extends SkinMustache {
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 
+		$featureManager = VectorServices::getFeatureManager();
+
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -119,6 +122,11 @@ class SkinVector extends SkinMustache {
 		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
 		$newTalksHtml = $skin->getNewtalks() ?: null;
 
+		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
+		$inputLocation = $isSearchInHeader
+			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
+			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
+
 		$commonSkinData = parent::getTemplateData() + [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
@@ -130,14 +138,15 @@ class SkinVector extends SkinMustache {
 
 			'html-categories' => $skin->getCategories(),
 			'data-footer' => $this->getFooterData(),
-			'html-navigation-heading' => $skin->msg( 'navigation-heading' ),
-			'is-search-in-header' => $this->getConfig()->get( Constants::CONFIG_SEARCH_IN_HEADER ),
+
+			'is-search-in-header' => $isSearchInHeader,
+			'input-location' => $inputLocation,
 
 			// Header
 			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
 			'main-page-href' => $mainPageHref,
 
-			'data-sidebar' => $this->buildSidebar(),
+			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
 		] + $this->getMenuProps();
 
@@ -149,8 +158,6 @@ class SkinVector extends SkinMustache {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'text' => $skin->msg( 'vector-opt-out' )->text(),
-				'title' => $skin->msg( 'vector-opt-out-tooltip' )->text(),
 			];
 		}
 
@@ -256,9 +263,9 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return array
 	 */
-	public function buildSidebar() {
+	private function getTemplateDataSidebar() {
 		$skin = $this;
-		$portals = parent::buildSidebar();
+		$portals = $this->buildSidebar();
 		$props = [];
 		$languages = null;
 

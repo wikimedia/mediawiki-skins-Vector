@@ -18,13 +18,14 @@
 	// Styles for both the search input and the button.
 	input {
 		margin: 0;
+		// Match WVUI.
+		font-family: inherit;
+		height: 2.28571429em; // 32px
 	}
 }
 
 // The search input.
 #searchInput {
-	// Support IE6-8: Fallback for browsers, which don't support `rgba()`.
-	background-color: @background-color-base;
 	background-color: rgba( 255, 255, 255, 0.5 );
 	color: @color-base--emphasized;
 	width: 100%;

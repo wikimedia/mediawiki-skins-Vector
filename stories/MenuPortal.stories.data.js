@@ -47,12 +47,12 @@ export const PORTALS = {
 <li><a href='#'>on each list item</a></li>
 `,
 		'html-after-portal': portletAfter(
-			placeholder( `<p>Beware: The <a href="https://codesearch.wmflabs.org/search/?q=BaseTemplateAfterPortlet&i=nope&files=&repos=">BaseTemplateAfterPortlet hook</a> can be used to inject arbitary HTML here for any portlet.</p>`, 60 )
+			placeholder( `<p>Beware: The <a href="https://codesearch.wmcloud.org/search/?q=BaseTemplateAfterPortlet&i=nope&files=&repos=">BaseTemplateAfterPortlet hook</a> can be used to inject arbitary HTML here for any portlet.</p>`, 60 )
 		)
 	},
 	navigation: {
 		id: 'p-navigation',
-		class: 'portal portal-first',
+		class: 'vector-menu-portal portal portal-first',
 		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		label: 'Navigation',

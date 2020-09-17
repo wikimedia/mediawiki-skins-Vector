@@ -24,8 +24,8 @@ export const SIDEBAR_DATA = {
 		'data-portals-first': PORTALS.navigation,
 		'data-emphasized-sidebar-action': {
 			href: '#',
-			text: 'Switch to old look',
-			title: 'Change your settings to go back to the old look of the skin (legacy Vector)'
+			'msg-vector-opt-out': 'Switch to old look',
+			'msg-vector-opt-out-tooltip': 'Change your settings to go back to the old look of the skin (legacy Vector)'
 		},
 		'array-portals-rest': [
 			PORTALS.toolbox,

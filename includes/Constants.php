@@ -72,12 +72,17 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_LAYOUT_MAX_WIDTH = 'VectorLayoutMaxWidth';
+	public const CONFIG_SEARCH_IN_HEADER = 'VectorIsSearchInHeader';
 
 	/**
 	 * @var string
 	 */
-	public const CONFIG_SEARCH_IN_HEADER = 'VectorIsSearchInHeader';
+	public const CONFIG_SEARCH_IN_HEADER_AB = 'VectorIsSearchInHeaderABTest';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_SEARCH_IN_HEADER = 'VectorIsSearchInHeaderIsEnabled';
 
 	/**
 	 * @var string
@@ -114,6 +119,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_SEARCH_IN_HEADER = 'TemporarySearchInHeader';
+
+	/**
+	 * @var string
+	 */
 	public const CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE = 'VectorDisableSidebarPersistence';
 
 	// These are used for query parameters.
@@ -122,6 +132,31 @@ final class Constants {
 	 * @var string
 	 */
 	public const QUERY_PARAM_SKIN_VERSION = 'useskinversion';
+
+	/**
+	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
+	 * the value of an element with the "data-search-loc" attribute and set the event's
+	 * `inputLocation` property accordingly.
+	 *
+	 * When the search widget is moved as part of the "Search 1: Search widget move" feature, the
+	 * "data-search-loc" attribute is set to this value.
+	 *
+	 * See also:
+	 * - https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features#Search_1:_Search_widget_move
+	 * - https://phabricator.wikimedia.org/T261636 and https://phabricator.wikimedia.org/T256100
+	 * - https://gerrit.wikimedia.org/g/mediawiki/core/+/61d36def2d7adc15c88929c824b444f434a0511a/resources/src/mediawiki.searchSuggest/searchSuggest.js#106
+	 *
+	 * @var string
+	 */
+	public const SEARCH_BOX_INPUT_LOCATION_MOVED = 'header-moved';
+
+	/**
+	 * Similar to `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`, when the search widget hasn't been
+	 * moved, the "data-search-loc" attribute is set to this value.
+	 *
+	 * @var string
+	 */
+	public const SEARCH_BOX_INPUT_LOCATION_DEFAULT = 'header-navigation';
 
 	/**
 	 * This class is for namespacing constants only. Forbid construction.

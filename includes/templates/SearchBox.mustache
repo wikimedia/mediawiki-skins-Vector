@@ -6,7 +6,7 @@
 		<label for="searchInput">{{msg-search}}</label>
 	</h3>
 	<form action="{{form-action}}" id="searchform">
-		<div id="simpleSearch">
+		<div id="simpleSearch"{{#input-location}} data-search-loc="{{.}}"{{/input-location}}>
 			<!-- Empty comment nodes and spaces are intentional and present in development and
 			     production builds. See
 			     https://github.com/vuejs/vue/issues/5117#issuecomment-284927949. Failures to perfectly

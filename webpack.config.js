@@ -9,13 +9,13 @@ var
 	// served from prod. It doesn't seem to be practical to rename the CSS source maps.
 	jsSourceMapExtension = '.map.json';
 
-/* eslint-disable jsdoc/valid-types,jsdoc/no-undefined-types */
+/* eslint-disable jsdoc/valid-types */
 /**
  * @param {Parameters<import('webpack').ConfigurationFactory>[0]} _env
  * @param {Parameters<import('webpack').ConfigurationFactory>[1]} argv
  * @return {ReturnType<import('webpack').ConfigurationFactory>}
  */
-/* eslint-enable jsdoc/valid-types,jsdoc/no-undefined-types */
+/* eslint-enable jsdoc/valid-types */
 module.exports = function ( _env, argv ) {
 	return {
 		stats: {

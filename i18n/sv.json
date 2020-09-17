@@ -4,6 +4,7 @@
 			"Lokal Profil",
 			"Martinwiss",
 			"Najami",
+			"Sabelöga",
 			"Skalman",
 			"Sturban",
 			"WikiPhoenix"
@@ -31,5 +32,7 @@
 	"vector-view-viewsource": "Visa källa",
 	"vector-jumptonavigation": "Hoppa till navigering",
 	"vector-jumptosearch": "Hoppa till sök",
-	"vector-more-actions": "Mer"
+	"vector-jumptocontent": "Hoppa till innehållet",
+	"vector-more-actions": "Mer",
+	"vector-search-loader": "Laddar in sökförslag"
 }

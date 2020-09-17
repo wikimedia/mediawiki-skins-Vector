@@ -29,9 +29,13 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
+						"vector-opt-out-tooltip",
+						"vector-opt-out",
+						"navigation-heading",
 						"vector-action-toggle-sidebar",
 						"vector-jumptonavigation",
 						"vector-jumptosearch",
+						"vector-jumptocontent",
 						"sitesubtitle",
 						"sitetitle",
 						"tagline"
@@ -39,6 +43,9 @@
 				}
 			]
 		}
+	},
+	"SkinLessImportPaths": {
+		"vector": "resources/mediawiki.less"
 	},
 	"MessagesDirs": {
 		"Vector": [
@@ -59,7 +66,7 @@
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
-		"SkinTemplateNavigation": "Vector\\Hooks::onSkinTemplateNavigation",
+		"SkinTemplateNavigation::Universal": "Vector\\Hooks::onSkinTemplateNavigation",
 		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated",
 		"OutputPageBodyAttributes": "Vector\\Hooks::onOutputPageBodyAttributes",
 		"MakeGlobalVariablesScript": "Vector\\Hooks::onMakeGlobalVariablesScript"
@@ -104,12 +111,14 @@
 				},
 				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
-				"resources/skins.vector.legacy.js/vector.js"
+				"resources/skins.vector.legacy.js/vector.js",
+				"resources/skins.vector.js/searchLoader.js"
 			],
 			"dependencies": [
 				"mediawiki.page.ready",
 				"mediawiki.util"
-			]
+			],
+			"messages": [ "vector-search-loader" ]
 		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [
@@ -182,15 +191,14 @@
 		"VectorIsSearchInHeader": {
 			"value": false
 		},
+		"VectorIsSearchInHeaderABTest": {
+			"value": false
+		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true
 		},
 		"VectorDefaultSidebarVisibleForAnonymousUser": {
 			"value": false
-		},
-		"VectorLayoutMaxWidth": {
-			"value": false,
-			"description": "@var boolean Enables the max-width layout for the latest version of Vector. This is intended to be a very short-lived feature flag whose sole purpose is to derisk the deployment of T246420. It should be removed (and made the default) as quickly as possible."
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,

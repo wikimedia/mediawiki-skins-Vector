@@ -36,5 +36,7 @@
 	"vector-view-viewsource": "Ver código-fonte",
 	"vector-jumptonavigation": "Ir para navegação",
 	"vector-jumptosearch": "Ir para pesquisar",
-	"vector-more-actions": "Mais"
+	"vector-jumptocontent": "Ir para o conteúdo",
+	"vector-more-actions": "Mais",
+	"vector-search-loader": "Carregando sugestões de pesquisa"
 }
