@@ -142,8 +142,6 @@ class SkinVector extends SkinMustache {
 			'is-search-in-header' => $isSearchInHeader,
 			'input-location' => $inputLocation,
 
-			// Header
-			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
