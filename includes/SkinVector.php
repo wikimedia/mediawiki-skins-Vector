@@ -416,35 +416,7 @@ class SkinVector extends SkinMustache {
 		$personalTools = self::getPersonalToolsForMakeListItem(
 			$this->buildPersonalUrls()
 		);
-		$skin = $this;
-
-		// For logged out users Vector shows a "Not logged in message"
-		// This should be upstreamed to core, with instructions for how to hide it for skins
-		// that do not want it.
-		// For now we create a dedicated list item to avoid having to sync the API internals
-		// of makeListItem.
-		if ( !$skin->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
-			$loggedIn =
-				Html::element( 'li',
-					[ 'id' => 'pt-anonuserpage' ],
-					$skin->msg( 'notloggedin' )->text()
-				);
-		} else {
-			$loggedIn = '';
-		}
-
-		// This code doesn't belong here, it belongs in the UniversalLanguageSelector
-		// It is here to workaround the fact that it wants to be the first item in the personal menus.
-		if ( array_key_exists( 'uls', $personalTools ) ) {
-			$uls = $skin->makeListItem( 'uls', $personalTools[ 'uls' ] );
-			unset( $personalTools[ 'uls' ] );
-		} else {
-			$uls = '';
-		}
-
 		$ptools = $this->getMenuData( 'personal', $personalTools );
-		// Append additional link items if present.
-		$ptools['html-items'] = $uls . $loggedIn . $ptools['html-items'];
 
 		return [
 			'data-personal-menu' => $ptools,
