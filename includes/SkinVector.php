@@ -80,6 +80,11 @@ class SkinVector extends SkinMustache {
 	 * in legacy mode.
 	 *
 	 * @inheritDoc
+	 * @param array|null $options Note; this param is only optional for internal purpose.
+	 * 		Do not instantiate Vector, use SkinFactory to create the object instead.
+	 * 		If you absolutely must to, this paramater is required; you have to provide the
+	 * 		skinname with the `name` key. That's do it with `new SkinVector( ['name' => 'vector'] )`.
+	 * 		Failure to do that, will lead to fatal exception.
 	 */
 	public function __construct( $options = [] ) {
 		if ( $this->isLegacy() ) {
