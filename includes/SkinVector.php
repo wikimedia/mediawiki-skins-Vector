@@ -129,7 +129,9 @@ class SkinVector extends SkinMustache {
 
 		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
 
-		$commonSkinData = parent::getTemplateData() + [
+		$parentData = parent::getTemplateData();
+
+		$commonSkinData = array_merge( [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 
@@ -148,7 +150,7 @@ class SkinVector extends SkinMustache {
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
-		] + $this->getMenuProps();
+		], $parentData, $this->getMenuProps() );
 
 		if ( $skin->getUser()->isLoggedIn() ) {
 			// Note: This data is also passed to legacy template where it is unused.
