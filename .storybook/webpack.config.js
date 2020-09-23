@@ -37,14 +37,23 @@ module.exports = {
 			use: [ {
 				loader: 'style-loader'
 			}, {
-				loader: 'css-loader'
+				loader: 'css-loader',
+				options: {
+					// Disable image resolution. This fails on remote URLs.
+					url: false,
+					// Use CommonJS modules for styles. This doesn't seem to work with the current
+					// version of Storybook. Reevaluate when upgrading.
+					esModule: false
+				}
 			}, {
 				loader: 'less-loader',
 				options: {
-					relativeUrls: false,
-					paths: [
-					 	path.resolve( __dirname, 'resolve-imports' )
-					]
+					lessOptions: {
+						relativeUrls: false,
+						paths: [
+							path.resolve( __dirname, 'resolve-imports' )
+						]
+					}
 				}
 			} ]
 		},
