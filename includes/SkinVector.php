@@ -34,14 +34,6 @@ use Vector\VectorServices;
  * @internal
  */
 class SkinVector extends SkinMustache {
-
-	/** @var array of alternate message keys for menu labels */
-	private const MENU_LABEL_KEYS = [
-		'cactions' => 'vector-more-actions',
-		'tb' => 'toolbox',
-		'personal' => 'personaltools',
-		'lang' => 'otherlanguages',
-	];
 	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
 	/** @var int */
@@ -344,8 +336,7 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * @param string $label to be used to derive the id and human readable label of the menu
-	 *  If the key has an entry in the constant MENU_LABEL_KEYS then that message will be used for the
-	 *  human readable text instead.
+	 *  Note certain keys are special cased for historic reasons in core.
 	 * @param array $urls to convert to list items stored as string in html-items key
 	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
 	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
@@ -359,7 +350,7 @@ class SkinVector extends SkinMustache {
 		int $type = self::MENU_TYPE_DEFAULT,
 		bool $setLabelToSelected = false
 	) : array {
-		$skin = $this->getSkin();
+		$portletData = $this->getPortletData( $label, $urls );
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
@@ -374,24 +365,15 @@ class SkinVector extends SkinMustache {
 		];
 		$isPortal = $type === self::MENU_TYPE_PORTAL;
 
-		// For some menu items, there is no language key corresponding with its menu key.
-		// These inconsitencies are captured in MENU_LABEL_KEYS
-		$msgObj = $skin->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
-		$props = [
-			'id' => "p-$label",
+		$props = $portletData + [
 			'label-id' => "p-{$label}-label",
-			// If no message exists fallback to plain text (T252727)
-			'label' => $msgObj->exists() ? $msgObj->text() : $label,
 			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
-			'html-items' => '',
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
-			'html-tooltip' => Linker::tooltip( 'p-' . $label ),
 		];
 
+		// Special casing for Variant to change label to selected.
+		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
 		foreach ( $urls as $key => $item ) {
-			$props['html-items'] .= $this->getSkin()->makeListItem( $key, $item );
-			// Check the class of the item for a `selected` class and if so, propagate the items
-			// label to the main label.
 			if ( $setLabelToSelected ) {
 				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
 					$props['label'] = $item['text'];
@@ -399,27 +381,8 @@ class SkinVector extends SkinMustache {
 			}
 		}
 
-		$afterPortal = '';
-		if ( $isPortal ) {
-			// The BaseTemplate::getAfterPortlet method ran the SkinAfterPortlet
-			// hook and if content is added appends it to the html-after-portal method.
-			// This replicates that historic behaviour.
-			// This code should eventually be upstreamed to SkinMustache in core.
-			// Currently in production this supports the Wikibase 'edit' link.
-			$content = $this->getAfterPortlet( $label );
-			if ( $content !== '' ) {
-				$afterPortal = Html::rawElement(
-					'div',
-					[ 'class' => [ 'after-portlet', 'after-portlet-' . $label ] ],
-					$content
-				);
-			}
-		}
-		$props['html-after-portal'] = $afterPortal;
-
 		// Mark the portal as empty if it has no content
-		$class = ( count( $urls ) == 0 && !$props['html-after-portal'] )
-			? 'vector-menu-empty emptyPortlet' : '';
+		$class = $props['class'];
 		$props['class'] = trim( "$class $extraClasses[$type]" );
 		return $props;
 	}

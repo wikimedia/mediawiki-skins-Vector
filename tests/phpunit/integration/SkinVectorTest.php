@@ -76,15 +76,18 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame(
 			[
+				// Provided by core
 				'id' => 'p-views',
-				'label-id' => 'p-views-label',
-				'label' => $context->msg( 'views' )->text(),
-				'list-classes' => 'vector-menu-content-list',
-				'html-items' => '',
-				'is-dropdown' => false,
+				'class' => 'mw-portlet mw-portlet-views emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 				'html-tooltip' => '',
+				'html-items' => '',
 				'html-after-portal' => '',
-				'class' => 'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+				'label' => $context->msg( 'views' )->text(),
+
+				// provided by VECTOR
+				'label-id' => 'p-views-label',
+				'list-classes' => 'vector-menu-content-list',
+				'is-dropdown' => false,
 			],
 			$views
 		);
@@ -92,19 +95,19 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$variants = $props['data-variants'];
 		$actions = $props['data-page-actions-more'];
 		$this->assertSame(
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+			'mw-portlet mw-portlet-namespaces emptyPortlet vector-menu vector-menu-tabs vectorTabs',
 			$namespaces['class']
 		);
 		$this->assertSame(
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			'mw-portlet mw-portlet-variants emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
 			$variants['class']
 		);
 		$this->assertSame(
-			'vector-menu-empty emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			'mw-portlet mw-portlet-cactions emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
 			$actions['class']
 		);
 		$this->assertSame(
-			'vector-menu-empty emptyPortlet vector-menu',
+			'mw-portlet mw-portlet-personal emptyPortlet vector-menu',
 			$props['data-personal-menu']['class']
 		);
 	}

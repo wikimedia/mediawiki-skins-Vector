@@ -7,6 +7,19 @@ type MwApiConstructor = new( options?: Object ) => MwApi;
 interface MediaWiki {
 	util: {
 		/**
+		 * @param {string} id of portlet
+		 */
+		showPortlet( id: string ): () => void;
+		/**
+		 * @param {string} id of portlet
+		 */
+		hidePortlet( id: string ): () => void;
+		/**
+		 * @param {string} id of portlet
+		 * @return {bool}
+		 */
+		isPortletVisible( id: string ): () => boolean,
+		/**
 		 * Return a wrapper function that is debounced for the given duration.
 		 *
 		 * When it is first called, a timeout is scheduled. If before the timer
