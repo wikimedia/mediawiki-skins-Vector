@@ -43,5 +43,6 @@ Thumbs.db
 
 # storybook
 /.storybook/resolve-less-imports/
+/.storybook/resolve-imports/
 /.storybook/integration.less
 .vscode
