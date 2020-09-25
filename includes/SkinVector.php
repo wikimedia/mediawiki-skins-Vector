@@ -128,9 +128,6 @@ class SkinVector extends SkinMustache {
 		$newTalksHtml = $skin->getNewtalks() ?: null;
 
 		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
-		$inputLocation = $isSearchInHeader
-			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 
 		$commonSkinData = parent::getTemplateData() + [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
@@ -145,7 +142,7 @@ class SkinVector extends SkinMustache {
 			'data-footer' => $this->getFooterData(),
 
 			'is-search-in-header' => $isSearchInHeader,
-			'input-location' => $inputLocation,
+			'input-location' => $this->getSearchBoxInputLocation( $isSearchInHeader ),
 
 			'main-page-href' => $mainPageHref,
 
@@ -165,6 +162,23 @@ class SkinVector extends SkinMustache {
 		}
 
 		return $commonSkinData;
+	}
+
+	/**
+	 * Gets the value of the "input-location" parameter for the SearchBox Mustache template.
+	 *
+	 * @param bool $isSearchInHeader
+	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
+	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
+	 */
+	private function getSearchBoxInputLocation( bool $isSearchInHeader ) : string {
+		if ( $this->isLegacy() ) {
+			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
+		}
+
+		return $isSearchInHeader
+			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
+			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 	}
 
 	/**
