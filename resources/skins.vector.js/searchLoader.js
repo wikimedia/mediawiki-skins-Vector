@@ -11,6 +11,17 @@
 
 var /** @type {VectorResourceLoaderVirtualConfig} */
 	config = require( /** @type {string} */ ( './config.json' ) ),
+	// T251544: Collect search performance metrics to compare Vue search with
+	// mediawiki.searchSuggest performance.
+	SHOULD_TEST_SEARCH = !!(
+		!config.wgVectorUseCoreSearch &&
+		window.performance &&
+		performance.mark &&
+		performance.measure &&
+		performance.getEntriesByName ),
+	LOAD_START_MARK = 'mwVectorVueSearchLoadStart',
+	LOAD_END_MARK = 'mwVectorVueSearchLoadEnd',
+	LOAD_MEASURE = 'mwVectorVueSearchLoadStartToLoadEnd',
 	SEARCH_FORM_ID = 'simpleSearch',
 	SEARCH_INPUT_ID = 'searchInput',
 	SEARCH_LOADING_CLASS = 'search-form__loader',
@@ -32,7 +43,10 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 function loadSearchModule( element, moduleName, afterLoadFn ) {
 
 	function requestSearchModule() {
-		mw.loader.using( moduleName ).then( afterLoadFn );
+		if ( SHOULD_TEST_SEARCH ) {
+			performance.mark( LOAD_START_MARK );
+		}
+		mw.loader.using( moduleName, afterLoadFn );
 		element.removeEventListener( 'focus', requestSearchModule );
 	}
 
@@ -102,6 +116,16 @@ function setLoadingIndicatorListeners( element, attach, eventCallback ) {
 }
 
 /**
+ * Marks when the lazy load has completed.
+ */
+function markLoadEnd() {
+	if ( SHOULD_TEST_SEARCH && performance.getEntriesByName( LOAD_START_MARK ).length ) {
+		performance.mark( LOAD_END_MARK );
+		performance.measure( LOAD_MEASURE, LOAD_START_MARK, LOAD_END_MARK );
+	}
+}
+
+/**
  * Initialize the loading of the search module as well as the loading indicator.
  * Only initialize the loading indicator when not using the core search module.
  *
@@ -128,9 +152,17 @@ function initSearchLoader( document ) {
 		loadSearchModule(
 			searchInput,
 			SEARCH_MODULE_NAME,
-			setLoadingIndicatorListeners.bind( null,
-				searchForm, false, renderSearchLoadingIndicator )
+			function () {
+				markLoadEnd();
+
+				setLoadingIndicatorListeners(
+					/** @type {HTMLElement} */ ( searchForm ),
+					false,
+					renderSearchLoadingIndicator
+				);
+			}
 		);
+
 	}
 }
 
