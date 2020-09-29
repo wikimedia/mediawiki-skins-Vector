@@ -123,7 +123,7 @@ class SkinVector extends SkinMustache {
 
 		$parentData = parent::getTemplateData();
 
-		$commonSkinData = array_merge( [
+		$commonSkinData = array_merge( $parentData, [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 
@@ -142,7 +142,7 @@ class SkinVector extends SkinMustache {
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
-		], $parentData, $this->getMenuProps() );
+		], $this->getMenuProps() );
 
 		if ( $skin->getUser()->isLoggedIn() ) {
 			// Note: This data is also passed to legacy template where it is unused.
