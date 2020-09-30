@@ -34,14 +34,6 @@ use Vector\VectorServices;
  * @internal
  */
 class SkinVector extends SkinMustache {
-
-	/** @var array of alternate message keys for menu labels */
-	private const MENU_LABEL_KEYS = [
-		'cactions' => 'vector-more-actions',
-		'tb' => 'toolbox',
-		'personal' => 'personaltools',
-		'lang' => 'otherlanguages',
-	];
 	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
 	/** @var int */
@@ -80,6 +72,11 @@ class SkinVector extends SkinMustache {
 	 * in legacy mode.
 	 *
 	 * @inheritDoc
+	 * @param array|null $options Note; this param is only optional for internal purpose.
+	 * 		Do not instantiate Vector, use SkinFactory to create the object instead.
+	 * 		If you absolutely must to, this paramater is required; you have to provide the
+	 * 		skinname with the `name` key. That's do it with `new SkinVector( ['name' => 'vector'] )`.
+	 * 		Failure to do that, will lead to fatal exception.
 	 */
 	public function __construct( $options = [] ) {
 		if ( $this->isLegacy() ) {
@@ -123,11 +120,10 @@ class SkinVector extends SkinMustache {
 		$newTalksHtml = $skin->getNewtalks() ?: null;
 
 		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
-		$inputLocation = $isSearchInHeader
-			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 
-		$commonSkinData = parent::getTemplateData() + [
+		$parentData = parent::getTemplateData();
+
+		$commonSkinData = array_merge( $parentData, [
 			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 
@@ -140,15 +136,13 @@ class SkinVector extends SkinMustache {
 			'data-footer' => $this->getFooterData(),
 
 			'is-search-in-header' => $isSearchInHeader,
-			'input-location' => $inputLocation,
+			'input-location' => $this->getSearchBoxInputLocation( $isSearchInHeader ),
 
-			// Header
-			'data-logos' => ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() ),
 			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
-		] + $this->getMenuProps();
+		], $this->getMenuProps() );
 
 		if ( $skin->getUser()->isLoggedIn() ) {
 			// Note: This data is also passed to legacy template where it is unused.
@@ -162,6 +156,23 @@ class SkinVector extends SkinMustache {
 		}
 
 		return $commonSkinData;
+	}
+
+	/**
+	 * Gets the value of the "input-location" parameter for the SearchBox Mustache template.
+	 *
+	 * @param bool $isSearchInHeader
+	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
+	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
+	 */
+	private function getSearchBoxInputLocation( bool $isSearchInHeader ) : string {
+		if ( $this->isLegacy() ) {
+			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
+		}
+
+		return $isSearchInHeader
+			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
+			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 	}
 
 	/**
@@ -325,8 +336,7 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * @param string $label to be used to derive the id and human readable label of the menu
-	 *  If the key has an entry in the constant MENU_LABEL_KEYS then that message will be used for the
-	 *  human readable text instead.
+	 *  Note certain keys are special cased for historic reasons in core.
 	 * @param array $urls to convert to list items stored as string in html-items key
 	 * @param int $type of menu (optional) - a plain list (MENU_TYPE_DEFAULT),
 	 *   a tab (MENU_TYPE_TABS) or a dropdown (MENU_TYPE_DROPDOWN)
@@ -340,7 +350,7 @@ class SkinVector extends SkinMustache {
 		int $type = self::MENU_TYPE_DEFAULT,
 		bool $setLabelToSelected = false
 	) : array {
-		$skin = $this->getSkin();
+		$portletData = $this->getPortletData( $label, $urls );
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
 			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
@@ -355,24 +365,15 @@ class SkinVector extends SkinMustache {
 		];
 		$isPortal = $type === self::MENU_TYPE_PORTAL;
 
-		// For some menu items, there is no language key corresponding with its menu key.
-		// These inconsitencies are captured in MENU_LABEL_KEYS
-		$msgObj = $skin->msg( self::MENU_LABEL_KEYS[ $label ] ?? $label );
-		$props = [
-			'id' => "p-$label",
+		$props = $portletData + [
 			'label-id' => "p-{$label}-label",
-			// If no message exists fallback to plain text (T252727)
-			'label' => $msgObj->exists() ? $msgObj->text() : $label,
 			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
-			'html-items' => '',
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
-			'html-tooltip' => Linker::tooltip( 'p-' . $label ),
 		];
 
+		// Special casing for Variant to change label to selected.
+		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
 		foreach ( $urls as $key => $item ) {
-			$props['html-items'] .= $this->getSkin()->makeListItem( $key, $item );
-			// Check the class of the item for a `selected` class and if so, propagate the items
-			// label to the main label.
 			if ( $setLabelToSelected ) {
 				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
 					$props['label'] = $item['text'];
@@ -380,27 +381,8 @@ class SkinVector extends SkinMustache {
 			}
 		}
 
-		$afterPortal = '';
-		if ( $isPortal ) {
-			// The BaseTemplate::getAfterPortlet method ran the SkinAfterPortlet
-			// hook and if content is added appends it to the html-after-portal method.
-			// This replicates that historic behaviour.
-			// This code should eventually be upstreamed to SkinMustache in core.
-			// Currently in production this supports the Wikibase 'edit' link.
-			$content = $this->getAfterPortlet( $label );
-			if ( $content !== '' ) {
-				$afterPortal = Html::rawElement(
-					'div',
-					[ 'class' => [ 'after-portlet', 'after-portlet-' . $label ] ],
-					$content
-				);
-			}
-		}
-		$props['html-after-portal'] = $afterPortal;
-
 		// Mark the portal as empty if it has no content
-		$class = ( count( $urls ) == 0 && !$props['html-after-portal'] )
-			? 'vector-menu-empty emptyPortlet' : '';
+		$class = $props['class'];
 		$props['class'] = trim( "$class $extraClasses[$type]" );
 		return $props;
 	}
@@ -413,35 +395,7 @@ class SkinVector extends SkinMustache {
 		$personalTools = self::getPersonalToolsForMakeListItem(
 			$this->buildPersonalUrls()
 		);
-		$skin = $this;
-
-		// For logged out users Vector shows a "Not logged in message"
-		// This should be upstreamed to core, with instructions for how to hide it for skins
-		// that do not want it.
-		// For now we create a dedicated list item to avoid having to sync the API internals
-		// of makeListItem.
-		if ( !$skin->getUser()->isLoggedIn() && User::groupHasPermission( '*', 'edit' ) ) {
-			$loggedIn =
-				Html::element( 'li',
-					[ 'id' => 'pt-anonuserpage' ],
-					$skin->msg( 'notloggedin' )->text()
-				);
-		} else {
-			$loggedIn = '';
-		}
-
-		// This code doesn't belong here, it belongs in the UniversalLanguageSelector
-		// It is here to workaround the fact that it wants to be the first item in the personal menus.
-		if ( array_key_exists( 'uls', $personalTools ) ) {
-			$uls = $skin->makeListItem( 'uls', $personalTools[ 'uls' ] );
-			unset( $personalTools[ 'uls' ] );
-		} else {
-			$uls = '';
-		}
-
 		$ptools = $this->getMenuData( 'personal', $personalTools );
-		// Append additional link items if present.
-		$ptools['html-items'] = $uls . $loggedIn . $ptools['html-items'];
 
 		return [
 			'data-personal-menu' => $ptools,

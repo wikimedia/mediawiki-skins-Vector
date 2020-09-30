@@ -75,7 +75,14 @@
 	"ResourceModules": {
 		"skins.vector.styles.legacy": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "normalize", "elements", "content", "interface", "logo", "legacy" ],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"logo": true,
+				"legacy": true
+			},
 			"targets": [
 				"desktop",
 				"mobile"
@@ -84,7 +91,13 @@
 		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
-			"features": [ "normalize", "elements", "content", "interface", "legacy" ],
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"interface": true,
+				"legacy": true
+			},
 			"targets": [
 				"desktop",
 				"mobile"

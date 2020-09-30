@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"scripts": {
-		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s docs/ui",
+		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006",
 		"build": "webpack -p",
 		"build:watch": "webpack -dw",
 		"test": "bin/diff-bundle && npm -s run lint && tsc && npm -s run doc",
