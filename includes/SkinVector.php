@@ -117,8 +117,6 @@ class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
 
-		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
-
 		$parentData = parent::getTemplateData();
 
 		$commonSkinData = array_merge( $parentData, [
@@ -131,8 +129,7 @@ class SkinVector extends SkinMustache {
 
 			'html-categories' => $skin->getCategories(),
 
-			'is-search-in-header' => $isSearchInHeader,
-			'input-location' => $this->getSearchBoxInputLocation( $isSearchInHeader ),
+			'input-location' => $this->getSearchBoxInputLocation(),
 
 			'main-page-href' => $mainPageHref,
 
@@ -157,18 +154,15 @@ class SkinVector extends SkinMustache {
 	/**
 	 * Gets the value of the "input-location" parameter for the SearchBox Mustache template.
 	 *
-	 * @param bool $isSearchInHeader
 	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
 	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
 	 */
-	private function getSearchBoxInputLocation( bool $isSearchInHeader ) : string {
+	private function getSearchBoxInputLocation() : string {
 		if ( $this->isLegacy() ) {
 			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 		}
 
-		return $isSearchInHeader
-			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
+		return Constants::SEARCH_BOX_INPUT_LOCATION_MOVED;
 	}
 
 	/**

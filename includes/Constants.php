@@ -72,21 +72,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_SEARCH_IN_HEADER = 'VectorIsSearchInHeader';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_SEARCH_IN_HEADER_AB = 'VectorIsSearchInHeaderABTest';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_SEARCH_IN_HEADER = 'VectorIsSearchInHeaderIsEnabled';
-
-	/**
-	 * @var string
-	 */
 	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
 	/**
@@ -115,11 +100,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const FEATURE_LATEST_SKIN = 'LatestSkin';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_SEARCH_IN_HEADER = 'TemporarySearchInHeader';
 
 	/**
 	 * @var string

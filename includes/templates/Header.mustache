@@ -9,14 +9,7 @@
 		tabindex="0">
 		{{msg-vector-action-toggle-sidebar}}
 	</label>
-	{{^is-search-in-header}}
-	<div class="mw-workspace-container mw-sidebar-container">
-		{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
-	</div>
-	{{/is-search-in-header}}
 	{{>Logo}}
-	{{#is-search-in-header}}
 	{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
 	{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
-	{{/is-search-in-header}}
 </header>

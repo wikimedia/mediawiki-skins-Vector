@@ -202,12 +202,6 @@
 		"VectorUseCoreSearch": {
 			"value": true
 		},
-		"VectorIsSearchInHeader": {
-			"value": true
-		},
-		"VectorIsSearchInHeaderABTest": {
-			"value": false
-		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true
 		},

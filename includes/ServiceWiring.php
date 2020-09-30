@@ -27,7 +27,6 @@ use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
-use Vector\FeatureManagement\Requirements\SearchInHeaderRequirement;
 use Vector\SkinVersionLookup;
 
 return [
@@ -64,24 +63,6 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
-			]
-		);
-
-		// Feature (temporary): search in header
-		// ========================================
-		$featureManager->registerRequirement(
-			new SearchInHeaderRequirement(
-				$services->getMainConfig(),
-				$context->getUser()
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_SEARCH_IN_HEADER,
-			// Requirements
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_SEARCH_IN_HEADER
 			]
 		);
 
