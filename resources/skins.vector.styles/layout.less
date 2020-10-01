@@ -27,7 +27,8 @@
 // This assumes the presence of variables inside layout.less. DO NOT import it separately.
 // Assumes various variables defined there.
 
-@min-width-search: unit( 350px / @font-size-browser, em );
+@min-width-search: unit( 150px / @font-size-browser, em );
+@min-width-search-tablet: unit( 350px / @font-size-browser, em );
 @max-width-search: unit( 450px / @font-size-browser, em );
 @margin-horizontal-search: unit( 40px / @font-size-browser, em );
 
@@ -46,7 +47,7 @@
 // the width of the container if you exclude consideration for search
 @min-width-container-base: @padding-horizontal-page-container-ems + @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @padding-horizontal-page-container-ems;
 
-@min-width-supported: @min-width-container-base + @min-width-search;
+@min-width-supported: 500px - ( 2 * @padding-horizontal-page-container );
 @width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search + @min-width-personal-tools;
 
 @background-color-secondary--modern: #f8f9fa;
