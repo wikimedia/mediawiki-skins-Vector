@@ -6,6 +6,7 @@
 			"Emperyan",
 			"Joseph",
 			"Kumkumuk",
+			"MuratTheTurkish",
 			"Rapsar",
 			"Stultiwikia",
 			"Vito Genovese"
@@ -30,5 +31,7 @@
 	"vector-view-viewsource": "Kaynağı gör",
 	"vector-jumptonavigation": "Gezinti kısmına atla",
 	"vector-jumptosearch": "Arama kısmına atla",
-	"vector-more-actions": "Daha fazla"
+	"vector-jumptocontent": "İçeriğe atla",
+	"vector-more-actions": "Daha fazla",
+	"vector-search-loader": "Arama önerileri yükleniyor"
 }
