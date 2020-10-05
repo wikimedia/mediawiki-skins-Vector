@@ -133,7 +133,6 @@ class SkinVector extends SkinMustache {
 			'html-newtalk' => $newTalksHtml ? '<div class="usermessage">' . $newTalksHtml . '</div>' : '',
 
 			'html-categories' => $skin->getCategories(),
-			'data-footer' => $this->getFooterData(),
 
 			'is-search-in-header' => $isSearchInHeader,
 			'input-location' => $this->getSearchBoxInputLocation( $isSearchInHeader ),
@@ -173,73 +172,6 @@ class SkinVector extends SkinMustache {
 		return $isSearchInHeader
 			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
 			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
-	}
-
-	/**
-	 * Get rows that make up the footer
-	 * @return array for use in Mustache template describing the footer elements.
-	 */
-	private function getFooterData() : array {
-		$skin = $this;
-		$footerRows = [];
-		foreach ( $this->getFooterLinks() as $category => $links ) {
-			$items = [];
-			$rowId = "footer-$category";
-
-			foreach ( $links as $key => $link ) {
-				// Link may be null. If so don't include it.
-				if ( $link ) {
-					$items[] = [
-						'id' => "$rowId-$key",
-						'html' => $link,
-					];
-				}
-			}
-
-			$footerRows[] = [
-				'id' => $rowId,
-				'className' => null,
-				'array-items' => $items
-			];
-		}
-
-		// If footer icons are enabled append to the end of the rows
-		$footerIcons = $this->getFooterIcons();
-
-		if ( count( $footerIcons ) > 0 ) {
-			$items = [];
-			foreach ( $footerIcons as $blockName => $blockIcons ) {
-				$html = '';
-				foreach ( $blockIcons as $icon ) {
-					// Only output icons which have an image.
-					// For historic reasons this mimics the `icononly` option
-					// for BaseTemplate::getFooterIcons.
-					if ( is_string( $icon ) || isset( $icon['src'] ) ) {
-						$html .= $skin->makeFooterIcon( $icon );
-					}
-				}
-				// For historic reasons this mimics the `icononly` option
-				// for BaseTemplate::getFooterIcons. Empty rows should not be output.
-				if ( $html ) {
-					$items[] = [
-						'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
-						'html' => $html,
-					];
-				}
-			}
-
-			// Empty rows should not be output.
-			// This is how Vector has behaved historically but we can revisit.
-			if ( count( $items ) > 0 ) {
-				$footerRows[] = [
-					'id' => 'footer-icons',
-					'className' => 'noprint',
-					'array-items' => $items,
-				];
-			}
-		}
-
-		return [ 'array-footer-rows' => $footerRows ];
 	}
 
 	/**

@@ -3,8 +3,8 @@
 import { htmlUserLanguageAttributes } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
 
-const FOOTER_ROWS = [
-	{
+const
+	FOOTER_INFO = {
 		id: 'footer-info',
 		'array-items': [
 			{
@@ -19,7 +19,7 @@ additional terms may apply. See <a href="https://foundation.wikimedia.org/wiki/S
 			}
 		]
 	},
-	{
+	FOOTER_PLACES = {
 		id: 'footer-places',
 		'array-items': [
 			{
@@ -56,7 +56,7 @@ additional terms may apply. See <a href="https://foundation.wikimedia.org/wiki/S
 			}
 		]
 	},
-	{
+	FOOTER_ICONS = {
 		id: 'footer-icons',
 		'array-items': [
 			{
@@ -68,12 +68,13 @@ additional terms may apply. See <a href="https://foundation.wikimedia.org/wiki/S
 				html: `<a href="https://www.mediawiki.org/"><img src="https://wikipedia.org/static/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="https://wikipedia.org/static/images/poweredby_mediawiki_132x47.png 1.5x, https://wikipedia.org/static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>`
 			}
 		]
-	}
-];
+	};
 
 export { footerTemplate };
 
 export const FOOTER_TEMPLATE_DATA = {
 	'html-user-language-attributes': htmlUserLanguageAttributes,
-	'array-footer-rows': FOOTER_ROWS
+	'data-info': FOOTER_INFO,
+	'data-places': FOOTER_PLACES,
+	'data-icons': FOOTER_ICONS
 };
