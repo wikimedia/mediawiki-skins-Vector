@@ -52,12 +52,10 @@
 /**
  * @typedef {Object} MenuDefinition
  * @property {string} id
- * @property {string} label-id
  * @property {string} label
  * @property {string} html-items
  * @property {string} [html-tooltip]
  * @property {string} [class] of menu
- * @property {string} list-classes of the unordered list element inside the menu
  * @property {string} [html-user-language-attributes]
  * @property {boolean} [is-dropdown]
  * @property {string} [html-after-portal] Additional HTML specific to portal menus.

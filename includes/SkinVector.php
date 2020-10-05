@@ -284,22 +284,15 @@ class SkinVector extends SkinMustache {
 	) : array {
 		$portletData = $this->getPortletData( $label, $urls );
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
-			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
+			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown',
+			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs',
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
-		];
-		// A list of classes to apply the list element and override the default behavior.
-		$listClasses = [
-			// `.menu` is on the portal for historic reasons.
-			// It should not be applied elsewhere per T253329.
-			self::MENU_TYPE_DROPDOWN => 'menu vector-menu-content-list',
 		];
 		$isPortal = $type === self::MENU_TYPE_PORTAL;
 
 		$props = $portletData + [
 			'label-id' => "p-{$label}-label",
-			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 		];
 
