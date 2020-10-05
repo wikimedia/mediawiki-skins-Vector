@@ -66,13 +66,7 @@
 		z-index: @z-index-menu;
 	}
 
-	&:hover .vector-menu-content-list {
-		opacity: 1;
-		visibility: visible;
-	}
-
-	// This is in a separate block, so that browsers supporting :hover but not :checked still apply the rule above
-	// Support: IE 8
+	&:hover .vector-menu-content-list,
 	.vector-menu-checkbox:checked ~ .vector-menu-content .vector-menu-content-list {
 		opacity: 1;
 		visibility: visible;
