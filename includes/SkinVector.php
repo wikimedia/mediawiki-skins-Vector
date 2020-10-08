@@ -139,7 +139,7 @@ class SkinVector extends SkinMustache {
 
 		if ( $skin->getUser()->isLoggedIn() ) {
 			// Note: This data is also passed to legacy template where it is unused.
-			$commonSkinData['data-sidebar']['data-emphasized-sidebar-action'] = [
+			$commonSkinData['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
