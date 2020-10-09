@@ -149,6 +149,9 @@ body {
 
 #p-personal {
 	li {
+		// Some extensions e.g. Echo may change the height of list items
+		// If that's the case we want to ensure all other elements are vertically aligned consistently.
+		vertical-align: middle;
 		display: inline-block;
 	}
 }
