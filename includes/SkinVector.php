@@ -116,8 +116,6 @@ class SkinVector extends SkinMustache {
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$mainPageHref = Skin::makeMainPageUrl();
-		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
-		$newTalksHtml = $skin->getNewtalks() ?: null;
 
 		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
 
@@ -130,7 +128,6 @@ class SkinVector extends SkinMustache {
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
 			'html-title' => $out->getPageTitle(),
-			'html-newtalk' => $newTalksHtml ? '<div class="usermessage">' . $newTalksHtml . '</div>' : '',
 
 			'html-categories' => $skin->getCategories(),
 
