@@ -2,6 +2,12 @@
 
 import { htmlUserLanguageAttributes } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
+import footerRowTemplate from '!!raw-loader!../includes/templates/Footer__row.mustache';
+
+export const FOOTER_TEMPLATE_PARTIALS = {
+	// eslint-disable-next-line camelcase
+	Footer__row: footerRowTemplate
+};
 
 const
 	FOOTER_INFO = {

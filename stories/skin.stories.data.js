@@ -13,7 +13,8 @@ import { vectorMenuTemplate, moreData, variantsData } from './MenuDropdown.stori
 import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
 import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS,
 	sidebarLegacyTemplate, sidebarTemplate } from './Sidebar.stories.data';
-import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
+import { FOOTER_TEMPLATE_DATA, FOOTER_TEMPLATE_PARTIALS,
+	footerTemplate } from './Footer.stories.data';
 import { logoTemplate } from './Logo.stories.data';
 
 export const NAVIGATION_TEMPLATE_DATA = {
@@ -57,7 +58,7 @@ export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	VectorMenu: vectorMenuTemplate,
 	Menu: menuTemplate,
 	Footer: footerTemplate
-} );
+}, FOOTER_TEMPLATE_PARTIALS );
 
 /**
  * @type {Indicator[]}
