@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A2y4",
 			"Fryed-peach",
 			"Kkairri",
 			"Marine-Blue",
@@ -16,7 +17,7 @@
 	},
 	"skinname-vector": "ベクター",
 	"vector-skin-desc": "新しい見た目でユーザビリティが改善された、モダンバージョンのMonobook。",
-	"prefs-vector-enable-vector-1-label": "Legacy Vectorスキンを使用する",
+	"prefs-vector-enable-vector-1-label": "レガシーベクタースキンを使用する",
 	"prefs-vector-enable-vector-1-help": "今後数年間で、ベクタースキンは徐々に刷新される予定です。Legacy Vectorを使用することで、（2019年12月時点の）古いベクタースキンが表示できます。刷新に関して、詳しくは[[mw:Reading/Web/Desktop_Improvements|プロジェクトページ]]をご覧ください。",
 	"vector-opt-out": "以前の外観に切り替え",
 	"vector.css": "/* ここに記述したCSSはベクター外装の利用者に影響します */",
