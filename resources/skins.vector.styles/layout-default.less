@@ -179,6 +179,14 @@ body {
 	// The sidebar is absolutely positioned relative to the
 	// mw-workspace-container.
 	position: relative;
+
+	&.mw-footer-container {
+		// T264679: There are elements (e.g. discussion tool popovers) in the main
+		// content container that we want to appear on top of the footer. We set the
+		// footer container to have static positioning instead of relative
+		// positioning (applied by .mw-workspace-container) to enable this.
+		position: static;
+	}
 }
 
 .mw-content-container {
