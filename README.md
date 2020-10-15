@@ -13,6 +13,11 @@ See [skin.json](skin.json).
 Development
 -----------
 
+### Node version
+
+It is recommended to use [nvm](https://github.com/nvm-sh/nvm) to use the version of node defined
+in `.nvmrc` during local development. This ensures consistency amongst development environments.
+
 ### Coding conventions
 
 We strive for compliance with MediaWiki conventions:
