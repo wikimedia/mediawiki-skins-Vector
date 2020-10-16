@@ -24,7 +24,7 @@ module.exports = {
 		},
 		{
 			test: /\.(gif|png|jpe?g|svg)$/i,
-			loader: 'file-loader', 
+			loader: 'file-loader',
 			options: {
 				paths: [
 					path.resolve( __dirname, './resolve-imports' )
@@ -42,6 +42,7 @@ module.exports = {
 				loader: 'less-loader',
 				options: {
 					relativeUrls: false,
+					strictUnits: true,
 					paths: [
 					 	path.resolve( __dirname, 'resolve-imports' )
 					]
