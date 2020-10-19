@@ -97,8 +97,8 @@
 @margin-start-portal-body: @margin-start-nav-main-body;
 
 // Navigation: Personal tools
-@background-position-nav-personal-icon: left ( 4 / @font-size-browser / @font-size-nav-personal );
-@background-size-nav-personal-icon: 14 / @font-size-browser / @font-size-nav-personal;
+@background-position-nav-personal-icon: left unit( 4 / @font-size-browser / @font-size-nav-personal, em );
+@background-size-nav-personal-icon: unit( 14 / @font-size-browser / @font-size-nav-personal, em );
 @top-personal-tools: 6px;
 @font-size-nav-personal: 0.75em;
 // Using `unit()` without second parameter to achieve a unitless output for `line-height`.
@@ -108,7 +108,7 @@
 @font-size-tabs: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 
 // Search
-@width-search-button: 24 / @font-size-browser / @font-size-search-input;
+@width-search-button: unit( 24 / @font-size-browser / @font-size-search-input, em );
 @font-size-search-input: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 
 // Z-indices
