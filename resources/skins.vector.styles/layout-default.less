@@ -3,8 +3,7 @@
 //
 
 body {
-	// General background/foreground color definition as one exception to the rule.
-	background-color: @background-color-base;
+	background-color: @background-color-secondary--modern;
 	color: @color-base;
 	// Vertical scrollbar always visible.
 	overflow-y: scroll;
@@ -17,12 +16,10 @@ body {
 }
 
 .mw-body {
-	// Will be removed when we limit content width (T246420).
-	/* Border on top, left, and bottom side */
-	border: @border-width-base @border-style-base @border-color-content;
-	border-right-width: 0;
+	border-top: @border-width-base @border-style-base @border-color-content;
 	/* Merge the border with tabs' one (in their background image) */
 	margin-top: -@border-width-base;
+	padding: @padding-content;
 
 	.firstHeading {
 		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
@@ -34,7 +31,7 @@ body {
 	// A min-height is set to account for projects where no icon is set.
 	min-height: @height-logo-icon;
 	margin: @margin-top-header 0 @margin-bottom-header;
-	padding: @padding-vertical-header @padding-horizontal-header;
+	padding: @padding-vertical-header 0;
 	// Vertical centering of header elements (IE>=11), requires flex.
 	// Non-flex fallback for IE<=9: float rule on the child elements.
 	.flex-display();
@@ -67,7 +64,7 @@ body {
 #mw-data-after-content,
 #left-navigation,
 .mw-footer {
-	margin-left: @width-grid-column-one;
+	margin-left: 0;
 }
 
 /* Content */
@@ -91,6 +88,13 @@ body {
 .mw-article-toolbar-container {
 	// Clear the floats on #left-navigation and #right-navigation.
 	.mixin-clearfix();
+	// We want to keep the max-width of the article-toolbar-container the
+	// same max-width as the article page's content container in order to
+	// prevent it from moving when going from an article page to a
+	// history/special page.
+	max-width: @max-width-content-container;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #left-navigation {
@@ -105,7 +109,6 @@ body {
 	flex-grow: 1;
 	flex-basis: @min-width-personal-tools;
 	margin-left: @margin-horizontal-search;
-
 	// Support IE9: This is reset in @support query below if Flexbox is available.
 	float: right;
 }
@@ -118,12 +121,136 @@ body {
 
 #mw-panel {
 	position: absolute;
-	left: 0;
+	// Sidebar is displaced from the workspace container so that the
+	// sidebar is flush with the edge of the screen at small widths.
+	left: -@padding-horizontal-page-container;
 	width: @width-grid-column-one;
 	.box-sizing( border-box );
-	margin-top: @margin-top-sidebar;
-	padding-left: @padding-left-sidebar;
+	margin-top: 0;
+	// To avoid the white part of the gradient colliding with the sidebar links
+	// we apply top and bottom padding.
+	padding: 8px 0 40px @padding-left-sidebar;
 	z-index: @z-index-sidebar;
+	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
+}
+
+.parsoid-body {
+	padding: @padding-content;
+}
+
+#p-namespaces {
+	background-image: none;
+	padding-left: 0;
+}
+
+.mw-footer {
+	border-top: @border-base;
+	padding: 32px 0 0 0;
+}
+
+// Container logic.
+.mw-page-container {
+	// Set a min-width to make explicit we do not support anything below this threshold.
+	// For devices too small, they should be more useable with horizontal scrolling.
+	// e.g. Portrait on an iPad
+	min-width: @min-width-supported;
+	max-width: @max-width-page-container;
+	// Fill the viewport even if the content height is small. This also helps
+	// mitigate a long sidebar overflowing the page container (T257518).
+	min-height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 @padding-horizontal-page-container;
+	background-color: @background-color-page-container;
+	// Establish a new block formatting context to prevent header top margin
+	// collapsing and causing whitespace to appear between the header and
+	// viewport.
+	overflow-y: auto;
+}
+
+// Used as a container for absolutely positioned elements.
+.mw-page-container-inner {
+	position: relative;
+}
+
+.mw-workspace-container {
+	max-width: @max-width-workspace-container;
+	margin-left: auto;
+	margin-right: auto;
+	// The sidebar is absolutely positioned relative to the
+	// mw-workspace-container.
+	position: relative;
+}
+
+.mw-content-container {
+	max-width: @max-width-content-container;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mw-sidebar-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.mw-footer-container {
+	padding-top: 50px;
+	padding-bottom: 82px;
+}
+
+// For container logic specific to special pages and history pages.
+.action-history,
+.ns-special {
+	// Allow the max-width of content on history/special pages to be wider than
+	// the max-width of content on article pages.
+	.mw-content-container {
+		max-width: none;
+	}
+
+	// Adjusts the content when sidebar is open regardless of the viewport width.
+	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
+		margin-left: @margin-start-content;
+	}
+}
+
+// We want it to appear like the sidebar is going into/coming out of
+// `.mw-page-container`, but we can't use `overflow: hidden` on
+// `.mw-page-container` because that will cut off the sidebar. Therefore, we
+// calculate the maximum distance from the start of `mw-page-container` to the
+// start of the sidebar.
+#mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
+	.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
+}
+
+// Responsive overrides.
+@media ( min-width: @min-width-page-container--padded ) {
+	.mw-page-container {
+		border-left: 1px solid @border-color-sidebar;
+		border-right: 1px solid @border-color-sidebar;
+	}
+}
+
+@media ( max-width: @max-width-margin-start-content ) {
+	// Adjusts the content and mw-article-toolbar-container.
+	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
+	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+		margin-left: @margin-start-content;
+	}
+
+	// Specificity needed to disable the default animations at lower resolutions.
+	.vector-animations-ready .mw-sidebar {
+		// Remove sidebar transition at smaller widths.
+		.transition( none );
+	}
+}
+
+@media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {
+	#mw-panel {
+		background: @background-color-page-container;
+		border-right: 1px solid @border-color-sidebar;
+	}
 }
 
 // At low resolutions the search must be pushed to the right of the screen

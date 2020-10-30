@@ -7,11 +7,14 @@
 @height-tabs: 2.5em; // Keep in sync with .vector-menu-tabs height.
 @margin-top-sidebar: 0.5em;
 
+@margin-horizontal-sidebar-button-icon: unit( 12 / @font-size-browser, em);
+// Adjust the left position of the sidebar to align it with the sidebar menu button,
+// in the header, while ensuring the background gradient still extends to the edge of the screen.
+// note: the 1px comes from the transparent border of the sidebar button
+@padding-left-sidebar: @margin-horizontal-sidebar-button-icon + unit( @border-width-base / @font-size-browser, em );
+@border-color-sidebar: @background-color-secondary--modern;
+
 // Header sizes defined in the description of T246170 and comment T246170#5957100
-@padding-left-sidebar: 0.5em;
-@padding-horizontal-header: @margin-end-portal +
-	@padding-left-sidebar +
-	( @margin-start-nav-main-body / @font-size-nav-main-heading );
 @padding-vertical-header: 0.125em;
 @margin-top-header: 0.625em;
 @margin-bottom-header: 0.3125em;
@@ -21,7 +24,6 @@
 	2 * @padding-vertical-header;
 @width-grid-column-one: 11em;
 @padding-horizontal-page-container: 30px;
-@margin-horizontal-sidebar-button-icon: 12px;
 // This assumes the presence of variables inside layout.less. DO NOT import it separately.
 // Assumes various variables defined there.
 
@@ -47,12 +49,31 @@
 @min-width-supported: @min-width-container-base + @min-width-search;
 @width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search + @min-width-personal-tools;
 
-@height-personal-tools: 2em;
+@background-color-secondary--modern: #f8f9fa;
+@max-width-page-container: 1650px;
+@min-width-page-container--padded: @max-width-page-container + ( 2 * @padding-horizontal-page-container );
+@background-color-page-container: @background-color-base;
+@max-width-workspace-container: 1440px;
+@max-width-content-container: 960px;
+// Note this uses variables defined in mediawiki.skin.variables so that VisualEditor can read them
+// see T259331.
+@padding-content: @padding-top-content @padding-horizontal-content 1.5em;
+// We want ~60px of space between the end of the sidebar and the start of the
+// content container for aesthetic reasons. The sidebar is already displaced
+// -30px so we simply add 30px of space to the width of the sidebar.
+@margin-start-content: @width-grid-column-one + unit( 8px / @font-size-browser, em );
+// Page container's total horizontal padding in em units.
+@padding-horizontal-page-container-total: 2 * unit( @padding-horizontal-page-container / @font-size-browser, em );
+// Equivalent to 1432px. This determines the maximum width breakpoint at which
+// the content will have a fixed start margin applied to it when the sidebar
+// is open. The content can shift its position when the sidebar is open/closed
+// at or below this breakpoint and will maintain its position above this
+// breakpoint.
+@max-width-margin-start-content: ( 2 * @margin-start-content ) + @padding-horizontal-page-container-total + ( unit( @max-width-content-container / @font-size-browser, em ) );
 
 // Default layout.
 @import 'layout-default.less';
 
 //
-// Feature flag modifications to layout (additive)
+// Feature flag modifications to layout in new files (these should be additive)
 //
-@import 'layout-max-width.less';
