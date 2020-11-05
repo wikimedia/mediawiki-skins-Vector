@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dentonius",
 			"Hazard-SJ",
 			"Katxis",
 			"Yocahuna"
@@ -17,5 +18,5 @@
 	"vector-view-history": "Vyuu ischri",
 	"vector-view-view": "Riid",
 	"vector-view-viewsource": "Vyuu Suos",
-	"vector-more-actions": "Muo"
+	"vector-more-actions": "More"
 }
