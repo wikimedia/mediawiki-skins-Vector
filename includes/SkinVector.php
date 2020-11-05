@@ -115,7 +115,6 @@ class SkinVector extends SkinMustache {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
-		$mainPageHref = Skin::makeMainPageUrl();
 
 		$parentData = parent::getTemplateData();
 
@@ -130,8 +129,6 @@ class SkinVector extends SkinMustache {
 			'html-categories' => $skin->getCategories(),
 
 			'input-location' => $this->getSearchBoxInputLocation(),
-
-			'main-page-href' => $mainPageHref,
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
