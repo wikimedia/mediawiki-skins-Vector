@@ -15,23 +15,17 @@ export const SIDEBAR_TEMPLATE_PARTIALS = {
 	Menu: vectorMenuTemplate
 };
 
+export const OPT_OUT_DATA = {
+	'data-emphasized-sidebar-action': {
+		href: '#',
+		'msg-vector-opt-out': 'Switch to old look',
+		'msg-vector-opt-out-tooltip': 'Change your settings to go back to the old look of the skin (legacy Vector)'
+	}
+};
+
 export const SIDEBAR_DATA = {
 	withNoPortals: {
 		'array-portals-rest': [],
-		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
-	},
-	withPortalsAndOptOut: {
-		'data-portals-first': PORTALS.navigation,
-		'data-emphasized-sidebar-action': {
-			href: '#',
-			'msg-vector-opt-out': 'Switch to old look',
-			'msg-vector-opt-out-tooltip': 'Change your settings to go back to the old look of the skin (legacy Vector)'
-		},
-		'array-portals-rest': [
-			PORTALS.toolbox,
-			PORTALS.otherProjects
-		],
-		'data-portals-languages': PORTALS.langlinks,
 		'html-logo-attributes': HTML_LOGO_ATTRIBUTES
 	},
 	withPortals: {
