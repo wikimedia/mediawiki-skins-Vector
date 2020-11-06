@@ -2,8 +2,6 @@
 // Default layout for Modern Vector.
 //
 
-@margin-horizontal-sidebar-button-icon: 12px;
-
 body {
 	// General background/foreground color definition as one exception to the rule.
 	background-color: @background-color-base;
@@ -49,13 +47,19 @@ body {
 /* Searchbox */
 #p-search {
 	float: left;
-	margin: 0.5em 0.5em 0 0.5em;
-	min-width: 5em;
+	margin: 0 0 0 @margin-horizontal-search;
+	min-width: @min-width-search;
 	// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
 	width: 13.2em;
 	// Support: Modern browsers, responsive width.
 	width: 20vw;
-	max-width: 20em;
+	max-width: 100%;
+	flex-grow: 1;
+
+	#searchform {
+		margin-left: 0;
+		max-width: @max-width-search;
+	}
 }
 
 /* Main column */
@@ -97,6 +101,15 @@ body {
 	float: right;
 }
 
+#p-personal {
+	flex-grow: 1;
+	flex-basis: @min-width-personal-tools;
+	margin-left: @margin-horizontal-search;
+
+	// Support IE9: This is reset in @support query below if Flexbox is available.
+	float: right;
+}
+
 #mw-sidebar-button {
 	float: left; // Browser: IE9 support - button as flex-child fallback.
 	margin-left: -@margin-horizontal-sidebar-button-icon;
@@ -111,4 +124,13 @@ body {
 	margin-top: @margin-top-sidebar;
 	padding-left: @padding-left-sidebar;
 	z-index: @z-index-sidebar;
+}
+
+// At low resolutions the search must be pushed to the right of the screen
+// We use @width-comfortable to determine this threshold as we know it's not possible for
+// personal tools to be on the same line at this resolution.
+@media ( max-width: @width-comfortable ) {
+	#p-search #searchform {
+		margin-left: auto;
+	}
 }

@@ -21,6 +21,33 @@
 	2 * @padding-vertical-header;
 @width-grid-column-one: 11em;
 @padding-horizontal-page-container: 30px;
+@margin-horizontal-sidebar-button-icon: 12px;
+// This assumes the presence of variables inside layout.less. DO NOT import it separately.
+// Assumes various variables defined there.
+
+@min-width-search: unit( 350px / @font-size-browser, em );
+@max-width-search: unit( 450px / @font-size-browser, em );
+@margin-horizontal-search: unit( 56px / @font-size-browser, em );
+
+// The logo is variable width but typically consists of:
+// - a icon (50x50)
+// - a wordmark (approx 120px)
+@min-width-logo: unit( 180px / @font-size-browser, em );
+
+@min-width-personal-tools: unit( 300px / @font-size-browser, em );
+
+@padding-horizontal-page-container: 30px;
+@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
+@margin-horizontal-sidebar-button-icon-ems: unit( @margin-horizontal-sidebar-button-icon / @font-size-browser, em );
+@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
+
+// the width of the container if you exclude consideration for search
+@min-width-container-base: @padding-horizontal-page-container-ems + @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @padding-horizontal-page-container-ems;
+
+@min-width-supported: @min-width-container-base + @min-width-search;
+@width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search + @min-width-personal-tools;
+
+@height-personal-tools: 2em;
 
 // Default layout.
 @import 'layout-default.less';
@@ -29,4 +56,3 @@
 // Feature flag modifications to layout (additive)
 //
 @import 'layout-max-width.less';
-@import 'layout-search-header.less';
