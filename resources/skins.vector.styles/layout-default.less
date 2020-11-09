@@ -120,18 +120,17 @@ body {
 }
 
 #mw-panel {
+	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 	position: absolute;
 	// Sidebar is displaced from the workspace container so that the
 	// sidebar is flush with the edge of the screen at small widths.
 	left: -@padding-horizontal-page-container;
 	width: @width-grid-column-one;
 	.box-sizing( border-box );
-	margin-top: 0;
 	// To avoid the white part of the gradient colliding with the sidebar links
 	// we apply top and bottom padding.
 	padding: 8px 0 40px @padding-left-sidebar;
 	z-index: @z-index-sidebar;
-	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 }
 
 .parsoid-body {
