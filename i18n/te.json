@@ -10,6 +10,8 @@
 		]
 	},
 	"skinname-vector": "వెక్టర్",
+	"vector-opt-out": "పాత రూపానికి మార్చు",
+	"vector-opt-out-tooltip": "పాత వెక్టర్ రూపానికి వెళ్లడానికి  మీ అమరికలు మార్చు",
 	"vector-action-addsection": "విషయాన్ని చేర్చు",
 	"vector-action-delete": "తొలగించు",
 	"vector-action-move": "తరలించు",
