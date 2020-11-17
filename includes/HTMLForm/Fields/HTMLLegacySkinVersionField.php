@@ -26,7 +26,7 @@ use Wikimedia\Assert\Assert;
 final class HTMLLegacySkinVersionField extends \HTMLFormField {
 
 	/**
-	 * @var \HTMLCheckField $checkField
+	 * @var \HTMLCheckField
 	 */
 	private $checkField;
 
