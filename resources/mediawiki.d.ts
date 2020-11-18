@@ -43,8 +43,12 @@ interface MediaWiki {
 		 * Execute a function after one or more modules are ready.
 		 * 
 		 * @param moduleName 
+		 * @param {Function} ready Callback to execute when all dependencies are
+		 * ready.
+		 * @param {Function} after Callback to execute if one or more dependencies
+		 * failed.
 		 */
-		using( moduleName: string|null ): JQuery.Promise<any>;
+		using( moduleName: string|null, ready?: Function, error?: Function ): JQuery.Promise<any>;
 		
 		/**
 		 * Load a given resourceLoader module.

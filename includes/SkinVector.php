@@ -115,11 +115,6 @@ class SkinVector extends SkinMustache {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
-		$mainPageHref = Skin::makeMainPageUrl();
-		// From Skin::getNewtalks(). Always returns string, cast to null if empty.
-		$newTalksHtml = $skin->getNewtalks() ?: null;
-
-		$isSearchInHeader = $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER );
 
 		$parentData = parent::getTemplateData();
 
@@ -130,15 +125,10 @@ class SkinVector extends SkinMustache {
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
 			'html-title' => $out->getPageTitle(),
-			'html-newtalk' => $newTalksHtml ? '<div class="usermessage">' . $newTalksHtml . '</div>' : '',
 
 			'html-categories' => $skin->getCategories(),
-			'data-footer' => $this->getFooterData(),
 
-			'is-search-in-header' => $isSearchInHeader,
-			'input-location' => $this->getSearchBoxInputLocation( $isSearchInHeader ),
-
-			'main-page-href' => $mainPageHref,
+			'input-location' => $this->getSearchBoxInputLocation(),
 
 			'data-sidebar' => $this->getTemplateDataSidebar(),
 			'sidebar-visible' => $this->isSidebarVisible(),
@@ -146,7 +136,7 @@ class SkinVector extends SkinMustache {
 
 		if ( $skin->getUser()->isLoggedIn() ) {
 			// Note: This data is also passed to legacy template where it is unused.
-			$commonSkinData['data-sidebar']['data-emphasized-sidebar-action'] = [
+			$commonSkinData['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
@@ -161,85 +151,15 @@ class SkinVector extends SkinMustache {
 	/**
 	 * Gets the value of the "input-location" parameter for the SearchBox Mustache template.
 	 *
-	 * @param bool $isSearchInHeader
 	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
 	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
 	 */
-	private function getSearchBoxInputLocation( bool $isSearchInHeader ) : string {
+	private function getSearchBoxInputLocation() : string {
 		if ( $this->isLegacy() ) {
 			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 		}
 
-		return $isSearchInHeader
-			? Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-			: Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
-	}
-
-	/**
-	 * Get rows that make up the footer
-	 * @return array for use in Mustache template describing the footer elements.
-	 */
-	private function getFooterData() : array {
-		$skin = $this;
-		$footerRows = [];
-		foreach ( $this->getFooterLinks() as $category => $links ) {
-			$items = [];
-			$rowId = "footer-$category";
-
-			foreach ( $links as $key => $link ) {
-				// Link may be null. If so don't include it.
-				if ( $link ) {
-					$items[] = [
-						'id' => "$rowId-$key",
-						'html' => $link,
-					];
-				}
-			}
-
-			$footerRows[] = [
-				'id' => $rowId,
-				'className' => null,
-				'array-items' => $items
-			];
-		}
-
-		// If footer icons are enabled append to the end of the rows
-		$footerIcons = $this->getFooterIcons();
-
-		if ( count( $footerIcons ) > 0 ) {
-			$items = [];
-			foreach ( $footerIcons as $blockName => $blockIcons ) {
-				$html = '';
-				foreach ( $blockIcons as $icon ) {
-					// Only output icons which have an image.
-					// For historic reasons this mimics the `icononly` option
-					// for BaseTemplate::getFooterIcons.
-					if ( is_string( $icon ) || isset( $icon['src'] ) ) {
-						$html .= $skin->makeFooterIcon( $icon );
-					}
-				}
-				// For historic reasons this mimics the `icononly` option
-				// for BaseTemplate::getFooterIcons. Empty rows should not be output.
-				if ( $html ) {
-					$items[] = [
-						'id' => 'footer-' . htmlspecialchars( $blockName ) . 'ico',
-						'html' => $html,
-					];
-				}
-			}
-
-			// Empty rows should not be output.
-			// This is how Vector has behaved historically but we can revisit.
-			if ( count( $items ) > 0 ) {
-				$footerRows[] = [
-					'id' => 'footer-icons',
-					'className' => 'noprint',
-					'array-items' => $items,
-				];
-			}
-		}
-
-		return [ 'array-footer-rows' => $footerRows ];
+		return Constants::SEARCH_BOX_INPUT_LOCATION_MOVED;
 	}
 
 	/**
@@ -352,22 +272,15 @@ class SkinVector extends SkinMustache {
 	) : array {
 		$portletData = $this->getPortletData( $label, $urls );
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown vectorMenu',
-			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs vectorTabs',
+			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown',
+			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs',
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
-		];
-		// A list of classes to apply the list element and override the default behavior.
-		$listClasses = [
-			// `.menu` is on the portal for historic reasons.
-			// It should not be applied elsewhere per T253329.
-			self::MENU_TYPE_DROPDOWN => 'menu vector-menu-content-list',
 		];
 		$isPortal = $type === self::MENU_TYPE_PORTAL;
 
 		$props = $portletData + [
 			'label-id' => "p-{$label}-label",
-			'list-classes' => $listClasses[$type] ?? 'vector-menu-content-list',
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 		];
 

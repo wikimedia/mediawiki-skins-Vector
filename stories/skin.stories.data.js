@@ -11,22 +11,23 @@ import { PERSONAL_MENU_TEMPLATE_DATA, menuTemplate } from './Menu.stories.data';
 import { pageActionsData, namespaceTabsData } from './MenuTabs.stories.data';
 import { vectorMenuTemplate, moreData, variantsData } from './MenuDropdown.stories.data';
 import { searchBoxData, searchBoxTemplate } from './SearchBox.stories.data';
-import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS,
+import { SIDEBAR_DATA, SIDEBAR_TEMPLATE_PARTIALS, OPT_OUT_DATA,
 	sidebarLegacyTemplate, sidebarTemplate } from './Sidebar.stories.data';
-import { FOOTER_TEMPLATE_DATA, footerTemplate } from './Footer.stories.data';
+import { FOOTER_TEMPLATE_DATA, FOOTER_TEMPLATE_PARTIALS,
+	footerTemplate } from './Footer.stories.data';
 import { logoTemplate } from './Logo.stories.data';
 
 export const NAVIGATION_TEMPLATE_DATA = {
-	loggedInWithVariantsAndOptOut: {
+	loggedInWithVariantsAndOptOut: Object.assign( {}, {
 		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedInWithEcho,
 		'data-namespace-tabs': namespaceTabsData,
 		'data-page-actions': pageActionsData,
 		'data-variants': variantsData,
 		'data-search-box': searchBoxData,
-		'data-sidebar': SIDEBAR_DATA.withPortalsAndOptOut,
+		'data-sidebar': SIDEBAR_DATA.withPortals,
 		'msg-navigation-heading': 'Navigation menu',
 		'html-logo-attributes': `class="mw-wiki-logo" href="/wiki/Main_Page" title="Visit the main page"`
-	},
+	}, OPT_OUT_DATA ),
 	loggedOutWithVariants: {
 		'data-personal-menu': PERSONAL_MENU_TEMPLATE_DATA.loggedOut,
 		'data-namespace-tabs': namespaceTabsData,
@@ -57,7 +58,7 @@ export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	VectorMenu: vectorMenuTemplate,
 	Menu: menuTemplate,
 	Footer: footerTemplate
-} );
+}, FOOTER_TEMPLATE_PARTIALS );
 
 /**
  * @type {Indicator[]}

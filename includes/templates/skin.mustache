@@ -31,14 +31,8 @@
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
 <div class="mw-page-container">
-	{{#is-search-in-header}}
 	<a class="mw-jump-link" href="#content">{{msg-vector-jumptocontent}}</a>
-	{{/is-search-in-header}}
 	<div class="mw-page-container-inner">
-
-{{^is-search-in-header}}
-<div id="mw-page-base" class="mw-header-placeholder noprint"></div>
-{{/is-search-in-header}}
 
 <input
 	type="checkbox"
@@ -46,15 +40,11 @@
 	class="mw-checkbox-hack-checkbox"
 	{{#sidebar-visible}}checked{{/sidebar-visible}}>
 
-{{#is-search-in-header}}
 {{>Header}}
-{{/is-search-in-header}}
 
 <div class="mw-workspace-container">
-	{{#is-search-in-header}}
 	{{#data-sidebar}}{{>Sidebar}}{{/data-sidebar}}
 	{{>Navigation}}
-	{{/is-search-in-header}}
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <!-- Please do not use role attribute as CSS selector, it is deprecated. -->
@@ -67,16 +57,7 @@
 		{{#page-isarticle}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/page-isarticle}}
 		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 		<div id="contentSub2">{{{html-undelete-link}}}</div>
-		{{{html-newtalk}}}
-		{{!
-			Keep this empty `div` for compatibility with gadgets and user scripts
-			using this place to insert extra elements before.
-		}}
-		<div id="jump-to-nav"></div>
-		{{^is-search-in-header}}
-		<a class="mw-jump-link" href="#mw-sidebar-button">{{msg-vector-jumptonavigation}}</a>
-		<a class="mw-jump-link" href="#searchInput">{{msg-vector-jumptosearch}}</a>
-		{{/is-search-in-header}}
+		{{{html-user-message}}}
 		{{{html-body-content}}}
 		{{{html-categories}}}
 	</div>
@@ -84,11 +65,6 @@
 {{{html-after-content}}}
 	</div> {{! END mw-content-container }}
 </div> {{! END mw-workspace-container }}
-
-{{^is-search-in-header}}
-{{>Header}}
-{{>Navigation}}
-{{/is-search-in-header}}
 
 <div class="mw-workspace-container mw-footer-container">
 	<div class="mw-content-container">

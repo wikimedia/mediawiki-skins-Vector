@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dentonius",
 			"Hazard-SJ",
 			"Katxis",
 			"Yocahuna"
@@ -13,9 +14,9 @@
 	"vector-action-undelete": "Andiliit",
 	"vector-action-unprotect": "Neu protektian",
 	"vector-view-create": "Kriet",
-	"vector-view-edit": "Hedit",
-	"vector-view-history": "Vyuu ischri",
-	"vector-view-view": "Riid",
+	"vector-view-edit": "Change up",
+	"vector-view-history": "Pree di change dem",
+	"vector-view-view": "Read",
 	"vector-view-viewsource": "Vyuu Suos",
-	"vector-more-actions": "Muo"
+	"vector-more-actions": "More"
 }

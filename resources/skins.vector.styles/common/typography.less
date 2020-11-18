@@ -124,6 +124,20 @@ pre,
 	p {
 		margin: 0.5em 0;
 	}
+
+	blockquote {
+		border-left: @border-start-blockquote;
+		padding: @padding-blockquote;
+
+		// Ensure not to inherit whitespace mashing margins on child elements.
+		> :first-child {
+			margin-top: 0;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 // External links

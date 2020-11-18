@@ -1,10 +1,10 @@
 {
 	"private": true,
 	"scripts": {
-		"start": "dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006",
+		"start": "bash dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006",
 		"build": "webpack -p",
 		"build:watch": "webpack -dw",
-		"test": "bin/diff-bundle && npm -s run lint && tsc && npm -s run doc",
+		"test": "npm -s run lint && tsc && npm -s run doc",
 		"test:size": "node ./tests/resource-loader-bundlesize.js",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:fix:js": "npm -s run lint:js -- --fix",
@@ -14,7 +14,7 @@
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"selenium-test": "npm -s run test:size",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
-		"build-storybook": "dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
+		"build-storybook": "bash dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
 		"svgmin": "svgo --config=.svgo.yml -q -r -f resources/",
 		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
@@ -36,7 +36,7 @@
 		"jsdoc": "3.6.6",
 		"jsdoc-wmf-theme": "0.0.3",
 		"less": "3.12.2",
-		"less-loader": "7.0.1",
+		"less-loader": "7.1.0",
 		"mini-css-extract-plugin": "0.11.2",
 		"mustache": "4.0.1",
 		"node-fetch": "2.6.1",

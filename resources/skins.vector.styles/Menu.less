@@ -1,8 +1,17 @@
 @import '../../variables.less';
 @import 'mediawiki.mixins.less';
 
-/* Personal */
-.vector-menu {
+/* Personal Menu */
+#p-personal .vector-menu-content-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: flex-end;
+	align-items: baseline;
+}
+
+/* Personal Menu */
+.mw-portlet {
 	// Hidden by default, but displayed by certain menus
 	// e.g. MenuPortal
 	h3 {

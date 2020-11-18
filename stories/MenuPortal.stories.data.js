@@ -36,10 +36,8 @@ export const PORTALS = {
 	example: {
 		id: 'p-example',
 		class: 'vector-menu-portal portal',
-		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'Message tooltip-p-example acts as tooltip',
 		label: 'Portal title',
-		'label-id': 'p-example-label',
 		'html-user-language-attributes': htmlUserLanguageAttributes,
 		'html-items': `
 <li><a href='#'>A list of links</a></li>
@@ -53,10 +51,8 @@ export const PORTALS = {
 	navigation: {
 		id: 'p-navigation',
 		class: 'vector-menu-portal portal portal-first',
-		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		label: 'Navigation',
-		'label-id': 'p-navigation-label',
 		'html-user-language-attributes': htmlUserLanguageAttributes,
 		'html-items': `
 		<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [⌃⌥z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="/wiki/Wikipedia:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [⌃⌥x]" accesskey="x">Random page</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate</a></li><li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikipedia store">Wikipedia store</a></li>
@@ -66,10 +62,8 @@ export const PORTALS = {
 	toolbox: {
 		id: 'p-tb',
 		class: 'vector-menu-portal portal',
-		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-tb must exist for this to appear',
 		label: 'Tools',
-		'label-id': 'p-tb-label',
 		'html-user-language-attributes': htmlUserLanguageAttributes,
 		'html-items': `
 <li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Spain" title="A list of all wiki pages that link here [⌃⌥j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Spain" rel="nofollow" title="Recent changes in pages linked from this page [⌃⌥k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [⌃⌥u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [⌃⌥q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="/w/index.php?title=Spain&amp;oldid=935087243" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Spain&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q29" title="Link to connected data repository item [⌃⌥g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Spain&amp;id=935087243" title="Information on how to cite this page">Cite this page</a></li>
@@ -79,10 +73,8 @@ export const PORTALS = {
 	langlinks: {
 		id: 'p-lang',
 		class: 'vector-menu-portal portal',
-		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
 		label: 'In other languages',
-		'label-id': 'p-lang-label',
 		'html-user-language-attributes': htmlUserLanguageAttributes,
 		'html-items': `
 		<li class="interlanguage-link interwiki-ace">
@@ -98,10 +90,8 @@ ${placeholder( `<p>Further hook output possible (lang)</p>`, 60 )}`
 	otherProjects: {
 		id: 'p-wikibase-otherprojects',
 		class: 'vector-menu-portal portal',
-		'list-classes': 'vector-menu-content-list',
 		'html-tooltip': 'A message tooltip-p-wikibase-otherprojects must exist for this to appear',
 		label: 'In other projects',
-		'label-id': 'p-wikibase-otherprojects-label',
 		'html-user-language-attributes': htmlUserLanguageAttributes,
 
 		'html-items': `

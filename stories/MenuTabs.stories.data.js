@@ -9,9 +9,7 @@ import { htmlUserLanguageAttributes } from './utils';
  */
 export const pageActionsData = {
 	id: 'p-views',
-	class: 'vector-menu-tabs vectorTabs',
-	'list-classes': 'vector-menu-content-list',
-	'label-id': 'p-views-label',
+	class: 'vector-menu-tabs',
 	label: 'Views',
 	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'html-items': `<li id="ca-view" class="collapsible selected">
@@ -32,9 +30,7 @@ You can view its source [⌃⌥e]" accesskey="e">View source</a></li>
  */
 export const namespaceTabsData = {
 	id: 'p-namespaces',
-	class: 'vector-menu-tabs vectorTabs',
-	'list-classes': 'vector-menu-content-list',
-	'label-id': 'p-namespaces-label',
+	class: 'vector-menu-tabs',
 	label: 'Namespaces',
 	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'html-items': `<li id="ca-nstab-main" class="selected"><a href="/wiki/Main_Page" title="View the content page [⌃⌥c]" accesskey="c">Main page</a></li>

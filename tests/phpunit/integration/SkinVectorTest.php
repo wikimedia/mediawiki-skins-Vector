@@ -55,15 +55,23 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$this->setTemporaryHook( 'PersonalUrls', [
 			function ( &$personal_urls, &$title, $skin ) {
-				$personal_urls = [];
+				$personal_urls = [
+					'pt-1' => [ 'text' => 'pt1' ],
+				];
 			}
 		] );
 		$this->setTemporaryHook( 'SkinTemplateNavigation', [
 			function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation = [
-					'actions' => [],
-					'namespaces' => [],
-					'variants' => [],
+					'actions' => [
+						'action-1' => []
+					],
+					'namespaces' => [
+						'ns-1' => []
+					],
+					'variants' => [
+						'variant-1' => []
+					],
 					'views' => [],
 				];
 			}
@@ -78,15 +86,12 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			[
 				// Provided by core
 				'id' => 'p-views',
-				'class' => 'mw-portlet mw-portlet-views emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+				'class' => 'mw-portlet mw-portlet-views emptyPortlet vector-menu vector-menu-tabs',
 				'html-tooltip' => '',
 				'html-items' => '',
 				'html-after-portal' => '',
 				'label' => $context->msg( 'views' )->text(),
-
-				// provided by VECTOR
 				'label-id' => 'p-views-label',
-				'list-classes' => 'vector-menu-content-list',
 				'is-dropdown' => false,
 			],
 			$views
@@ -95,19 +100,19 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$variants = $props['data-variants'];
 		$actions = $props['data-page-actions-more'];
 		$this->assertSame(
-			'mw-portlet mw-portlet-namespaces emptyPortlet vector-menu vector-menu-tabs vectorTabs',
+			'mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs',
 			$namespaces['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-variants emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			'mw-portlet mw-portlet-variants vector-menu vector-menu-dropdown',
 			$variants['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-cactions emptyPortlet vector-menu vector-menu-dropdown vectorMenu',
+			'mw-portlet mw-portlet-cactions vector-menu vector-menu-dropdown',
 			$actions['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-personal emptyPortlet vector-menu',
+			'mw-portlet mw-portlet-personal vector-menu',
 			$props['data-personal-menu']['class']
 		);
 	}

@@ -272,13 +272,7 @@ class Hooks {
 		//
 		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-search- for an up-to-date
 		// list.
-
-		$featureManager = VectorServices::getFeatureManager();
-		if ( $featureManager->isFeatureEnabled( Constants::FEATURE_SEARCH_IN_HEADER ) ) {
-			$bodyAttrs['class'] .= ' skin-vector-search-header';
-		} else {
-			$bodyAttrs['class'] .= ' skin-vector-search-header-legacy';
-		}
+		$bodyAttrs['class'] .= ' skin-vector-search-header';
 	}
 
 	/**

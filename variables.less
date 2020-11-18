@@ -63,7 +63,10 @@
 @border-color-portal-heading: #c8ccd1;
 // Use `rgba()` notation for better Safari support, see T254489.
 @border-color-portal-heading-transparent: rgba( red( @border-color-portal-heading ), green( @border-color-portal-heading ), blue( @border-color-portal-heading ), 0 );
-@padding-content: 1em;
+@border-start-blockquote: 4px @border-style-base #eaecf0;
+@padding-top-content: 1.25em;
+@padding-horizontal-content: 0.5em;
+@padding-blockquote: 8px 32px;
 
 // Navigation
 @background-color-secondary: #f6f6f6;
@@ -95,8 +98,8 @@
 @margin-start-portal-body: @margin-start-nav-main-body;
 
 // Navigation: Personal tools
-@background-position-nav-personal-icon: left ( 4 / @font-size-browser / @font-size-nav-personal );
-@background-size-nav-personal-icon: 14 / @font-size-browser / @font-size-nav-personal;
+@background-position-nav-personal-icon: left unit( 4 / @font-size-browser / @font-size-nav-personal, em );
+@background-size-nav-personal-icon: unit( 14 / @font-size-browser / @font-size-nav-personal, em );
 @top-personal-tools: 6px;
 @font-size-nav-personal: 0.75em;
 // Using `unit()` without second parameter to achieve a unitless output for `line-height`.
@@ -106,7 +109,7 @@
 @font-size-tabs: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 
 // Search
-@width-search-button: 24 / @font-size-browser / @font-size-search-input;
+@width-search-button: unit( 24 / @font-size-browser / @font-size-search-input, em );
 @font-size-search-input: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 
 // Z-indices

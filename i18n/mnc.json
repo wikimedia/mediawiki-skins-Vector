@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"ChoiChong",
 			"Minggantu",
 			"Obonggi",
 			"Араси"
 		]
 	},
+	"vector-action-addsection": "ᠨᠣᡤᡳᠯᠠ ᠵᠣᡵᡳᠩᡤᠠ",
 	"vector-action-delete": "Dabgire",
 	"vector-action-move": "Guribure",
 	"vector-action-protect": "Karmara",

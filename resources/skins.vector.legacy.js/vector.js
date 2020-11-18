@@ -27,7 +27,7 @@ function init() {
 		.on( 'beforeTabCollapse', function () {
 			var expandedWidth;
 			// If the dropdown was hidden, show it
-			if ( mw.util.isPortletVisible( cactionsId ) ) {
+			if ( !mw.util.isPortletVisible( cactionsId ) ) {
 				mw.util.showPortlet( cactionsId );
 				// Now that it is visible, force-render it virtually
 				// to get its expanded width, then shrink it 1px before we

@@ -34,6 +34,11 @@ Undocumented scripts are considered internal utilities and not expressly support
     update snapshots.
 -   Add `-s` to omit verbose command echoing. For example, `npm -s i` or `npm -s run build`.
 
+### Node version
+
+It is recommended to use [nvm](https://github.com/nvm-sh/nvm) to use the version of node defined
+in `.nvmrc` during local development. This ensures consistency amongst development environments.
+
 ### Coding conventions
 
 We strive for compliance with MediaWiki conventions:
