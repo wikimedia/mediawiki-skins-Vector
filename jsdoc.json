@@ -31,7 +31,8 @@
 				"MediaWikiPageReadyModule": "https://doc.wikimedia.org/mediawiki-core/master/js/#!/api/mw.plugin.page.ready",
 				"JQueryStatic": "https://api.jquery.com",
 				"VectorResourceLoaderVirtualConfig": "#",
-				"void": "#"
+				"void": "#",
+				"Vue.VNode": "https://vuejs.org/v2/api/#VNode-Interface"
 			}
 		}
 	}

@@ -14,5 +14,9 @@
 	{
 		"resourceModule": "skins.vector.legacy.js",
 		"maxSize": "1.8 kB"
+	},
+	{
+		"resourceModule": "skins.vector.search",
+		"maxSize": "2.8 kB"
 	}
 ]

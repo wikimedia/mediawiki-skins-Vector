@@ -1,0 +1,42 @@
+@import 'SearchBox.less';
+
+/**
+ * Minimal styling for initial no-JS server-rendered
+ * search form, which gets replaced by WVUI on focus.
+ * Most values are hard-coded since they aim to
+ * mimic WVUI-specific variables and disable the ResourceLoader LESS transformation of `calc`.
+ */
+
+// Parent class can be removed when $wgVectorUseCoreSearch is no longer supported.
+.skin-vector-search-vue {
+	// Position search in header.
+	#searchInput {
+		padding-left: 36px;
+		font-size: inherit;
+		.transition( none );
+
+		// Recreate WVUI expanding input.
+		&:focus {
+			position: relative;
+			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation
+			padding-left: ~'calc(12px + 2.57142857em + 12px)';
+			width: ~'calc( 100% + 24px )';
+			left: ~'calc( -1 * 24px )';
+		}
+	}
+
+	// Move & resize search icon to match WVUI.
+	#searchButton {
+		top: 0;
+		right: auto;
+		left: 0;
+		width: 36px;
+		min-height: 36px;
+		background-size: 20px auto;
+	}
+
+	// Reposition search icon for expanded input.
+	#searchInput:focus ~ #searchButton {
+		left: -9px;
+	}
+}

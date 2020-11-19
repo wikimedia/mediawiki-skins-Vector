@@ -24,10 +24,7 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	LOAD_MEASURE = 'mwVectorVueSearchLoadStartToLoadEnd',
 	SEARCH_FORM_ID = 'simpleSearch',
 	SEARCH_INPUT_ID = 'searchInput',
-	SEARCH_LOADING_CLASS = 'search-form__loader',
-	SEARCH_MODULE_NAME = config.wgVectorUseCoreSearch ?
-		'mediawiki.searchSuggest' :
-		'skins.vector.search';
+	SEARCH_LOADING_CLASS = 'search-form__loader';
 
 /**
  * Loads the search module via `mw.loader.using` on the element's
@@ -140,18 +137,23 @@ function initSearchLoader( document ) {
 	}
 
 	/**
-	 * 1. If we're using the search module from MediaWiki Core (searchSuggest),
-	 *    load the module.
+	 * 1. If $wgVectorUseCoreSearch is true,
+	 *    or we are in a browser that doesn't support fetch
+	 *    load the legacy searchSuggest module. The check for window.fetch
+	 *    can be removed when IE11 support is finally officially dropped.
 	 * 2. If we're using a different search module, enable the loading indicator
 	 *    before the search module loads.
 	 **/
-	if ( config.wgVectorUseCoreSearch ) {
-		loadSearchModule( searchInput, SEARCH_MODULE_NAME, function () {} );
+	if ( config.wgVectorUseCoreSearch || !window.fetch ) {
+		loadSearchModule( searchInput, 'mediawiki.searchSuggest', function () {} );
 	} else {
+		// Remove tooltips while Vue search is still loading
+		searchInput.setAttribute( 'autocomplete', 'off' );
+		searchInput.removeAttribute( 'title' );
 		setLoadingIndicatorListeners( searchForm, true, renderSearchLoadingIndicator );
 		loadSearchModule(
 			searchInput,
-			SEARCH_MODULE_NAME,
+			'skins.vector.search',
 			function () {
 				markLoadEnd();
 

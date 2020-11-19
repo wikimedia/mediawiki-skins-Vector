@@ -66,6 +66,7 @@
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
+		"ResourceLoaderRegisterModules": "Vector\\Hooks::onResourceLoaderRegisterModules",
 		"SkinTemplateNavigation::Universal": "Vector\\Hooks::onSkinTemplateNavigation",
 		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated",
 		"OutputPageBodyAttributes": "Vector\\Hooks::onOutputPageBodyAttributes",
@@ -110,11 +111,6 @@
 				"mobile"
 			],
 			"styles": [ "resources/skins.vector.styles.responsive.less" ]
-		},
-		"skins.vector.search": {
-			"dependencies": [
-				"vue"
-			]
 		},
 		"skins.vector.js": {
 			"packageFiles": [
