@@ -52,7 +52,7 @@ module.exports = {
 		},
 		domain: function () {
 			// It might be helpful to allow this to be configurable in future.
-			return location.host;
+			return mw.config.get( 'wgVectorSearchHost', location.host );
 		}
 	},
 	props: {
