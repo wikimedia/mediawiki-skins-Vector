@@ -1,3 +1,4 @@
+/** @module search */
 var
 	Vue = require( 'vue' ).default || require( 'vue' ),
 	App = require( './App.vue' ),

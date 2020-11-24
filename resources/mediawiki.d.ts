@@ -4,6 +4,13 @@ interface MwApi {
 
 type MwApiConstructor = new( options?: Object ) => MwApi;
 
+interface MwUri {
+	query: Record<string, unknown>;
+	toString(): string;
+}
+
+type UriConstructor = new( uri: string ) => MwUri;
+
 interface MediaWiki {
 	util: {
 		/**
@@ -71,6 +78,18 @@ interface MediaWiki {
 	 * @param messageName i18n message name
 	 */
 	msg( messageName: string|null ): string;
+
+	/**
+	 * Track an analytic event.
+	 *
+	 * See https://gerrit.wikimedia.org/g/mediawiki/core/+/d7fe1ff0fe52735b1f41e91879c9617b376e807d/resources/src/mediawiki.base/mediawiki.base.js#375.
+	 *
+	 * @param topic The topic name
+	 * @param [data] The data describing the event
+	 */
+	track(topic: string, data?: Record<string, unknown>|number|string): void;
+
+	Uri: UriConstructor;
 }
 
 declare const mw: MediaWiki;
