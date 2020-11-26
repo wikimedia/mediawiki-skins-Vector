@@ -198,6 +198,12 @@
 		"VectorUseCoreSearch": {
 			"value": true
 		},
+		"VectorWvuiSearchOptions": {
+			"value": {
+				"showThumbnail": true,
+				"showDescription": true
+			}
+		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
 			"value": true
 		},

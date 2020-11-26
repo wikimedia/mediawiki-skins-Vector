@@ -40,6 +40,19 @@ class Hooks {
 	}
 
 	/**
+	 * Passes config variables to skins.vector.search ResourceLoader module.
+	 * @param ResourceLoaderContext $context
+	 * @param Config $config
+	 * @return array
+	 */
+	public static function getVectorWvuiSearchResourceLoaderConfig(
+		ResourceLoaderContext $context,
+		Config $config
+	) {
+		return $config->get( 'VectorWvuiSearchOptions' );
+	}
+
+	/**
 	 * BeforePageDisplayMobile hook handler
 	 *
 	 * Make Legacy Vector responsive when $wgVectorResponsive = true
@@ -354,7 +367,11 @@ class Hooks {
 				],
 				"packageFiles" => [
 					"resources/skins.vector.search/skins.vector.search.js",
-					"resources/skins.vector.search/App.vue"
+					"resources/skins.vector.search/App.vue",
+					[
+						"name" => "resources/skins.vector.search/config.json",
+						"callback" => "Vector\\Hooks::getVectorWvuiSearchResourceLoaderConfig"
+					]
 				],
 				"dependencies" => [
 					"wvui"

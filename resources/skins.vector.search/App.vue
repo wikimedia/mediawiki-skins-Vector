@@ -14,6 +14,8 @@
 			:button-label="$i18n( 'search' ).escaped()"
 			:form-action="action"
 			:search-language="language"
+			:show-thumbnail="showThumbnail"
+			:show-description="showDescription"
 		>
 			<input type="hidden"
 				name="title"
@@ -80,6 +82,14 @@ module.exports = {
 		 */
 		searchQuery: {
 			type: String
+		},
+		showThumbnail: {
+			type: Boolean,
+			default: true
+		},
+		showDescription: {
+			type: Boolean,
+			default: true
 		}
 	}
 };
