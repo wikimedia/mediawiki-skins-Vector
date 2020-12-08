@@ -280,16 +280,6 @@ class Hooks {
 		if ( !$out->getConfig()->get( 'VectorUseCoreSearch' ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-vue';
 		}
-		$bodyAttrs['class'] .= ' skin-vector-max-width';
-
-		// As of 2020/08/12, the following CSS classes are referred to by the following deployed
-		// extensions:
-		//
-		// - WikimediaEvents
-		//
-		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-search- for an up-to-date
-		// list.
-		$bodyAttrs['class'] .= ' skin-vector-search-header';
 	}
 
 	/**
