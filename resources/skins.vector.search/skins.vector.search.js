@@ -1,6 +1,7 @@
 var
 	Vue = require( 'vue' ).default || require( 'vue' ),
-	App = require( './App.vue' );
+	App = require( './App.vue' ),
+	config = require( './config.json' );
 
 /**
  * @param {HTMLElement} searchForm
@@ -18,14 +19,17 @@ function initApp( searchForm, search ) {
 		 */
 		render: function ( createElement ) {
 			return createElement( App, {
-				props: {
+				props: $.extend( {
 					autofocusInput: search === document.activeElement,
 					action: searchForm.getAttribute( 'action' ),
 					searchAccessKey: search.getAttribute( 'accessKey' ),
 					searchTitle: search.getAttribute( 'title' ),
 					searchPlaceholder: search.getAttribute( 'placeholder' ),
 					searchQuery: search.value
-				}
+				},
+				// Pass additional config from server.
+				config
+				)
 			} );
 		}
 	} );
