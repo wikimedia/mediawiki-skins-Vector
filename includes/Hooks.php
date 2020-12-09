@@ -357,6 +357,7 @@ class Hooks {
 				],
 				"packageFiles" => [
 					"resources/skins.vector.search/skins.vector.search.js",
+					"resources/skins.vector.search/instrumentation.js",
 					"resources/skins.vector.search/App.vue",
 					[
 						"name" => "resources/skins.vector.search/config.json",

@@ -16,17 +16,25 @@
 			:search-language="language"
 			:show-thumbnail="showThumbnail"
 			:show-description="showDescription"
+			@fetch-end="instrumentation.onFetchEnd"
+			@suggestion-click="instrumentation.onSuggestionClick"
 		>
 			<input type="hidden"
 				name="title"
 				value="Special:Search"
+			>
+			<input type="hidden"
+				name="wprov"
+				:value="wprov"
 			>
 		</wvui-typeahead-search>
 	</div>
 </template>
 
 <script>
-var wvui = require( 'wvui' );
+/* global SubmitEvent */
+var wvui = require( 'wvui' ),
+	instrumentation = require( './instrumentation.js' );
 
 module.exports = {
 	name: 'App',
@@ -90,6 +98,26 @@ module.exports = {
 		showDescription: {
 			type: Boolean,
 			default: true
+		}
+	},
+	data: function () {
+		return {
+			// -1 here is the default "active suggestion index" defined in the
+			// `wvui-typeahead-search` component (see
+			// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/c7af5d6d091ffb3beb4fd2723fdf50dc6bb2789b/src/components/typeahead-search/TypeaheadSearch.vue#167).
+			wprov: instrumentation.getWprovFromResultIndex( -1 ),
+
+			instrumentation: instrumentation.listeners
+		};
+	},
+	methods: {
+		/**
+		 * @param {SubmitEvent} event
+		 */
+		onSubmit: function ( event ) {
+			this.wprov = instrumentation.getWprovFromResultIndex( event.index );
+
+			instrumentation.listeners.onSubmit( event );
 		}
 	}
 };
