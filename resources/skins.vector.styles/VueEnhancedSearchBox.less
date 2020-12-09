@@ -4,17 +4,31 @@
  * Minimal styling for initial no-JS server-rendered
  * search form, which gets replaced by WVUI on focus.
  * Most values are hard-coded since they aim to
- * mimic WVUI-specific variables and disable the ResourceLoader LESS transformation of `calc`.
+ * mimic WVUI-specific variables and disable the
+ * ResourceLoader LESS transformation of `calc`.
  */
 
-// Parent class can be removed when $wgVectorUseCoreSearch is no longer supported.
+// TODO: Parent class can be removed when $wgVectorUseCoreSearch is no longer supported.
 .skin-vector-search-vue {
-	// Position search in header.
-	#searchInput {
-		padding-left: 36px;
-		font-size: inherit;
-		.transition( none );
 
+	// Derived from @size-search-figure in WVUI
+	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
+	@size-search-figure: 2.57142857em;
+
+	// Derived from @size-base in WVUI
+	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#7
+	@size-base: 2.28571429em;
+
+	#searchform {
+		// compensates for the 14px base font size in Vector.
+		// Affects both server-version and WVUI.
+		font-size: 0.875em;
+	}
+
+	#searchInput {
+		padding-left: @size-search-figure;
+		height: @size-base;
+		font-size: inherit;
 		// Recreate WVUI expanding input.
 		&:focus {
 			position: relative;
@@ -27,16 +41,29 @@
 
 	// Move & resize search icon to match WVUI.
 	#searchButton {
+		// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
 		top: 0;
+		// Override the default right & left position of the icon.
 		right: auto;
 		left: 0;
-		width: 36px;
-		min-height: 36px;
+		// Increase size to match WVUI.
+		width: @size-search-figure;
+		min-height: @size-base;
 		background-size: 20px auto;
+		// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
+		font-size: inherit;
 	}
 
 	// Reposition search icon for expanded input.
 	#searchInput:focus ~ #searchButton {
-		left: -9px;
+		// Derived from
+		// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/components/typeahead-search/TypeaheadSearch.vue#610
+		left: -12px;
+	}
+
+	// WVUI override. Prevents the WVUI input border from animating
+	// when it gets inserted into the DOM while being focused.
+	.wvui-input__input:not( [ disabled ] ) {
+		.transition(none);
 	}
 }
