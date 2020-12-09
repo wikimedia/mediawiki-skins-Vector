@@ -35,6 +35,7 @@ class Hooks {
 		Config $config
 	) {
 		return [
+			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
 			'wgVectorUseCoreSearch' => $config->get( 'VectorUseCoreSearch' ),
 		];
 	}

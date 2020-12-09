@@ -43,7 +43,8 @@ interface MediaWiki {
 	};
 	Api: MwApiConstructor;
 	config: {
-		get( configKey: string|null ): string;
+		get( configKey: string|null, fallback?: any|null ): string;
+		set( configKey: string|null, value: any|null ): void;
 	},
 	loader: {
 		/**

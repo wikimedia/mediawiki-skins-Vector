@@ -132,6 +132,11 @@ function initSearchLoader( document ) {
 	var searchForm = document.getElementById( SEARCH_FORM_ID ),
 		searchInput = document.getElementById( SEARCH_INPUT_ID );
 
+	// Allow developers to defined $wgVectorSearchHost in LocalSettings to target different APIs
+	if ( config.wgVectorSearchHost ) {
+		mw.config.set( 'wgVectorSearchHost', config.wgVectorSearchHost );
+	}
+
 	if ( !searchForm || !searchInput ) {
 		return;
 	}

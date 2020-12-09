@@ -173,6 +173,10 @@
 		}
 	},
 	"config": {
+		"VectorSearchHost": {
+			"value": "",
+			"description": "Override default search API. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."
+		},
 		"VectorUseIconWatch": {
 			"value": true
 		},
