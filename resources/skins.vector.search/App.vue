@@ -16,6 +16,7 @@
 			:search-language="language"
 			:show-thumbnail="showThumbnail"
 			:show-description="showDescription"
+			@fetch-start="instrumentation.onFetchStart"
 			@fetch-end="instrumentation.onFetchEnd"
 			@suggestion-click="instrumentation.onSuggestionClick"
 		>
