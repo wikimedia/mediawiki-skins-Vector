@@ -8,32 +8,54 @@
  * ResourceLoader LESS transformation of `calc`.
  */
 
+// Derived from @size-base in WVUI
+// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#7
+@size-base: unit( 32px / @font-size-browser / @font-size-base, em );
+
+@min-size-search-button: 30px;
+@background-size-x-search-button: unit( 20px / @font-size-browser / @font-size-base, em );
+
+// Search container
+// We have to put those styles outside `.skin-vector-search-vue`,
+// as we can't address no-JS modern and Vue enhanced otherwise.
+#p-search {
+	// Use Vector's base font-size, as this is a component outside of `.mw-body-content`.
+	font-size: @font-size-base;
+	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
+	// `calc` enables to set correct calculation in place again. See T102364.
+	font-size: @font-size-base--trident-hack;
+}
+
+// Typeahead search elements
+#searchInput,
+#searchButton {
+	// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
+	font-size: inherit;
+}
+
+#searchInput {
+	height: @size-base;
+}
+
+#searchButton {
+	background-size: @background-size-x-search-button auto;
+	min-height: @min-size-search-button;
+}
+
 // TODO: Parent class can be removed when $wgVectorUseCoreSearch is no longer supported.
 .skin-vector-search-vue {
-
 	// Derived from @size-search-figure in WVUI
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
-	@size-search-figure: 2.57142857em;
-
-	// Derived from @size-base in WVUI
-	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#7
-	@size-base: 2.28571429em;
-
-	#searchform {
-		// compensates for the 14px base font size in Vector.
-		// Affects both server-version and WVUI.
-		font-size: 0.875em;
-	}
+	@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
 
 	#searchInput {
 		padding-left: @size-search-figure;
-		height: @size-base;
-		font-size: inherit;
+
 		// Recreate WVUI expanding input.
 		&:focus {
 			position: relative;
-			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation
-			padding-left: ~'calc(12px + 2.57142857em + 12px)';
+			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
+			padding-left: ~'calc( 12px + 2.57142857em + 12px )';
 			width: ~'calc( 100% + 24px )';
 			left: ~'calc( -1 * 24px )';
 		}
@@ -41,17 +63,11 @@
 
 	// Move & resize search icon to match WVUI.
 	#searchButton {
-		// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
-		top: 0;
 		// Override the default right & left position of the icon.
 		right: auto;
 		left: 0;
 		// Increase size to match WVUI.
 		width: @size-search-figure;
-		min-height: @size-base;
-		background-size: 20px auto;
-		// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
-		font-size: inherit;
 	}
 
 	// Reposition search icon for expanded input.
@@ -61,9 +77,9 @@
 		left: -12px;
 	}
 
-	// WVUI override. Prevents the WVUI input border from animating
+	// Reset WVUI. Prevents the input border from animating
 	// when it gets inserted into the DOM while being focused.
 	.wvui-input__input:not( [ disabled ] ) {
-		.transition(none);
+		.transition( none );
 	}
 }
