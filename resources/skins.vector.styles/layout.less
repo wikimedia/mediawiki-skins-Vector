@@ -27,10 +27,11 @@
 // This assumes the presence of variables inside layout.less. DO NOT import it separately.
 // Assumes various variables defined there.
 
-@min-width-search: unit( 150px / @font-size-browser, em );
-@min-width-search-tablet: unit( 350px / @font-size-browser, em );
-@max-width-search: unit( 450px / @font-size-browser, em );
-@margin-horizontal-search: unit( 40px / @font-size-browser, em );
+// canonical version of spec: T270202
+@min-width-search: unit( 150px / @font-size-browser / @font-size-base, em );
+@min-width-search-tablet: unit( 350px / @font-size-browser / @font-size-base, em );
+@max-width-search: unit( 500px / @font-size-browser / @font-size-base, em );
+@margin-horizontal-search: unit( 40px / @font-size-browser / @font-size-base, em );
 
 // The logo is variable width but typically consists of:
 // - a icon (50x50)
