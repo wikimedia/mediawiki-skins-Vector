@@ -134,7 +134,7 @@ class SkinVector extends SkinMustache {
 			'sidebar-visible' => $this->isSidebarVisible(),
 		], $this->getMenuProps() );
 
-		if ( $skin->getUser()->isLoggedIn() ) {
+		if ( $skin->getUser()->isRegistered() ) {
 			// Note: This data is also passed to legacy template where it is unused.
 			$commonSkinData['data-emphasized-sidebar-action'] = [
 				'href' => SpecialPage::getTitleFor(
@@ -169,7 +169,7 @@ class SkinVector extends SkinMustache {
 	 */
 	private function isSidebarVisible() {
 		$skin = $this->getSkin();
-		if ( $skin->getUser()->isLoggedIn() ) {
+		if ( $skin->getUser()->isRegistered() ) {
 			$userPrefSidebarState = $skin->getUser()->getOption(
 				Constants::PREF_KEY_SIDEBAR_VISIBLE
 			);
