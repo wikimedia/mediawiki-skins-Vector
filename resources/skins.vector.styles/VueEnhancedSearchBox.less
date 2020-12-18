@@ -28,7 +28,8 @@
 
 // Typeahead search elements
 #searchInput,
-#searchButton {
+#searchButton,
+#mw-searchButton {
 	// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
 	font-size: inherit;
 }
@@ -37,13 +38,15 @@
 	height: @size-base;
 }
 
-#searchButton {
+#searchButton,
+#mw-searchButton {
 	background-size: @background-size-x-search-button auto;
 	min-height: @min-size-search-button;
 }
 
-// TODO: Parent class can be removed when $wgVectorUseCoreSearch is no longer supported.
-.skin-vector-search-vue {
+// Only apply the following WVUI-related rules to clients who have js enabled.
+// TODO: .skin-vector-search-vue class can be removed when $wgVectorUseCoreSearch is no longer supported.
+.client-js .skin-vector-search-vue {
 	// Derived from @size-search-figure in WVUI
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
 	@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
@@ -61,6 +64,8 @@
 
 	#searchInput {
 		padding-left: @size-search-figure;
+		// Derived from @padding-input-text in WVUI's Input component.
+		padding-right: 8px;
 
 		// Recreate WVUI expanding input.
 		&:focus {
@@ -73,7 +78,8 @@
 	}
 
 	// Move & resize search icon to match WVUI.
-	#searchButton {
+	#searchButton,
+	#mw-searchButton {
 		// Override the default right & left position of the icon.
 		right: auto;
 		left: 0;
