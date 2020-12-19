@@ -301,7 +301,7 @@ class Hooks {
 
 		$user = $out->getUser();
 
-		if ( $user->isLoggedIn() && self::isSkinVersionLegacy() ) {
+		if ( $user->isRegistered() && self::isSkinVersionLegacy() ) {
 			$vars[ 'wgVectorDisableSidebarPersistence' ] =
 				self::getConfig(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
