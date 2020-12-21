@@ -4,6 +4,7 @@
 			"Joanmp17"
 		]
 	},
+	"skinname-vector": "ቨክተር",
 	"vector-action-addsection": "ክፋል ወስክ",
 	"vector-action-delete": "ሰርዝ",
 	"vector-action-move": "ኣንቀሳቕስ",
@@ -13,5 +14,9 @@
 	"vector-view-edit": "ኣመዓራርይ",
 	"vector-view-history": "ታሪኽ ርኣይ",
 	"vector-view-view": "ኣንብብ",
+	"vector-view-viewsource": "ኮድ ርኣይ",
+	"vector-jumptonavigation": "ናብ መዳህሰሲ ኪድ",
+	"vector-jumptosearch": "ናብ ምድላይ ኪድ",
+	"vector-jumptocontent": "ናብ ትሕዝቶ ኪድ",
 	"vector-more-actions": "ተወሳኺ"
 }
