@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Leonfd1992",
 			"Maor X"
 		]
 	},
@@ -11,5 +12,6 @@
 	"vector-view-edit": "Anaataa",
 	"vector-view-history": "Achikii a'wanajaayamaajatü",
 	"vector-view-view": "Aashaje'eraa",
-	"vector-view-viewsource": "Anüliaa eejeetülee"
+	"vector-view-viewsource": "Anüliaa eejeetülee",
+	"vector-more-actions": "Soo'omüin"
 }
