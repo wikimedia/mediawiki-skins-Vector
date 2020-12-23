@@ -3,6 +3,7 @@
 		<wvui-typeahead-search
 			id="searchform"
 			ref="searchForm"
+			:client="getClient"
 			:domain="domain"
 			:footer-search-text="$i18n('searchsuggest-containing').escaped()"
 			:suggestions-label="$i18n('searchresults').escaped()"
@@ -56,6 +57,14 @@ module.exports = {
 		}
 	},
 	computed: {
+		/**
+		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
+		 *
+		 * @return {void|Object}
+		 */
+		getClient: function () {
+			return mw.config.get( 'wgVectorSearchClient', undefined );
+		},
 		language: function () {
 			return mw.config.get( 'wgUserLanguage' );
 		},
