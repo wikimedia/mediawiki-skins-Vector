@@ -3,7 +3,14 @@
 namespace Vector;
 
 use Config;
+use MediaWiki\Auth\Hook\LocalUserCreatedHook;
+use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
+use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
+use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use OutputPage;
 use ResourceLoaderContext;
 use RuntimeException;
@@ -20,7 +27,15 @@ use User;
  * @package Vector
  * @internal
  */
-class Hooks {
+class Hooks implements
+	GetPreferencesHook,
+	LocalUserCreatedHook,
+	MakeGlobalVariablesScriptHook,
+	OutputPageBodyAttributesHook,
+	ResourceLoaderSiteModulePagesHook,
+	ResourceLoaderSiteStylesModulePagesHook,
+	SkinPageReadyConfigHook
+{
 	/**
 	 * Checks if the current skin is a variant of Vector
 	 *
@@ -114,10 +129,10 @@ class Hooks {
 	 * @param mixed[] &$config Associative array of configurable options
 	 * @return void This hook must not abort, it must return no value
 	 */
-	public static function onSkinPageReadyConfig(
+	public function onSkinPageReadyConfig(
 		ResourceLoaderContext $context,
 		array &$config
-	) {
+	): void {
 		// It's better to exit before any additional check
 		if ( !self::isVectorSkin( $context->getSkin() ) ) {
 			return;
@@ -429,7 +444,7 @@ class Hooks {
 	 * @param string $skin
 	 * @param array &$pages
 	 */
-	public static function onResourceLoaderSiteStylesModulePages( string $skin, array &$pages ) {
+	public function onResourceLoaderSiteStylesModulePages( $skin, &$pages ): void {
 		if ( $skin === Constants::SKIN_NAME_MODERN ) {
 			$pages['MediaWiki:Vector.css'] = [ 'type' => 'style' ];
 		}
@@ -441,7 +456,7 @@ class Hooks {
 	 * @param string $skin
 	 * @param array &$pages
 	 */
-	public static function onResourceLoaderSiteModulePages( string $skin, array &$pages ) {
+	public function onResourceLoaderSiteModulePages( $skin, &$pages ): void {
 		if ( $skin === Constants::SKIN_NAME_MODERN ) {
 			$pages['MediaWiki:Vector.js'] = [ 'type' => 'script' ];
 		}
@@ -453,7 +468,7 @@ class Hooks {
 	 * @param User $user User whose preferences are being modified.
 	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
 	 */
-	public static function onGetPreferences( User $user, array &$prefs ) {
+	public function onGetPreferences( $user, &$prefs ): void {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$vectorPrefs = [
 			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
@@ -472,7 +487,7 @@ class Hooks {
 	 * @param User $user Newly created user object.
 	 * @param bool $isAutoCreated
 	 */
-	public static function onLocalUserCreated( User $user, $isAutoCreated ) {
+	public function onLocalUserCreated( $user, $isAutoCreated ) {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$default = $config->get( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
 		if ( $default ) {
@@ -547,7 +562,7 @@ class Hooks {
 	 * @param Skin $sk
 	 * @param string[] &$bodyAttrs
 	 */
-	public static function onOutputPageBodyAttributes( OutputPage $out, Skin $sk, &$bodyAttrs ) {
+	public function onOutputPageBodyAttributes( $out, $sk, &$bodyAttrs ): void {
 		$skinName = $out->getSkin()->getSkinName();
 		if ( !self::isVectorSkin( $skinName ) ) {
 			return;
@@ -671,7 +686,7 @@ class Hooks {
 	 * @param array &$vars Array of variables to be added into the output.
 	 * @param OutputPage $out OutputPage instance calling the hook
 	 */
-	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
+	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
 		$skin = $out->getSkin();
 		$skinName = $skin->getSkinName();
 		if ( !self::isVectorSkin( $skinName ) ) {
