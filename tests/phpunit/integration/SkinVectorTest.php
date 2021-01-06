@@ -45,9 +45,9 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getMenuProps
+	 * @covers ::getTemplateData
 	 */
-	public function testGetMenuProps() {
+	public function testGetTemplateData() {
 		$title = Title::newFromText( 'SkinVector' );
 		$context = RequestContext::getMain();
 		$context->setTitle( $title );
@@ -78,9 +78,9 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		] );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
-		$props = $openVectorTemplate->getMenuProps();
-		$views = $props['data-page-actions'];
-		$namespaces = $props['data-namespace-tabs'];
+		$props = $openVectorTemplate->getTemplateData()['data-portlets'];
+		$views = $props['data-views'];
+		$namespaces = $props['data-namespaces'];
 
 		$this->assertSame(
 			[
@@ -91,14 +91,13 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				'html-items' => '',
 				'html-after-portal' => '',
 				'label' => $context->msg( 'views' )->text(),
-				'label-id' => 'p-views-label',
 				'is-dropdown' => false,
 			],
 			$views
 		);
 
 		$variants = $props['data-variants'];
-		$actions = $props['data-page-actions-more'];
+		$actions = $props['data-actions'];
 		$this->assertSame(
 			'mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs',
 			$namespaces['class']
@@ -113,7 +112,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertSame(
 			'mw-portlet mw-portlet-personal vector-menu',
-			$props['data-personal-menu']['class']
+			$props['data-personal']['class']
 		);
 	}
 

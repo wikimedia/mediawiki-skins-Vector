@@ -32,8 +32,8 @@
 /**
  * @typedef {Object} SidebarData
  * @property {MenuDefinition} data-portals-languages
- * @property {MenuDefinition} data-portals-first
- * @property {MenuDefinition[]} array-portals-rest
+ * @property {MenuDefinition} data-portlets-first
+ * @property {MenuDefinition[]} array-portlets-rest
  */
 
 /**

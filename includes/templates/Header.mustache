@@ -11,5 +11,7 @@
 	</label>
 	{{>Logo}}
 	{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
-	{{#data-personal-menu}}{{>Menu}}{{/data-personal-menu}}
+	{{#data-portlets}}
+		{{#data-personal}}{{>Menu}}{{/data-personal}}
+	{{/data-portlets}}
 </header>

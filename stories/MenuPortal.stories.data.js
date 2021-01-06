@@ -50,7 +50,7 @@ export const PORTALS = {
 	},
 	navigation: {
 		id: 'p-navigation',
-		class: 'vector-menu-portal portal portal-first',
+		class: 'vector-menu-portal portal',
 		'html-tooltip': 'A message tooltip-p-navigation must exist for this to appear',
 		label: 'Navigation',
 		'html-user-language-attributes': htmlUserLanguageAttributes,

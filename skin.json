@@ -29,6 +29,7 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
+						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
 						"vector-opt-out",
 						"navigation-heading",

@@ -2,14 +2,16 @@
 	<h2>{{msg-navigation-heading}}</h2>
 	<div id="mw-head">
 		<div class="mw-article-toolbar-container">
+			{{#data-portlets}}
 			<div id="left-navigation">
-				{{#data-namespace-tabs}}{{>Menu}}{{/data-namespace-tabs}}
+				{{#data-namespaces}}{{>Menu}}{{/data-namespaces}}
 				{{#data-variants}}{{>Menu}}{{/data-variants}}
 			</div>
 			<div id="right-navigation">
 				{{#data-page-actions}}{{>Menu}}{{/data-page-actions}}
 				{{#data-page-actions-more}}{{>Menu}}{{/data-page-actions-more}}
 			</div>
+			{{/data-portlets}}
 		</div>
 	</div>
 </div>
