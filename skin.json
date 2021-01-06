@@ -181,6 +181,25 @@
 		"VectorUseIconWatch": {
 			"value": true
 		},
+		"VectorMaxWidthOptions": {
+			"value": {
+				"exclude": {
+					"mainpage": false,
+					"querystring": {
+						"action": "history",
+						"diff": "*"
+					},
+					"namespaces": [
+						-1,
+						14
+					]
+				},
+				"include": [
+					"Special:Preferences"
+				]
+			},
+			"description": "options for configuring where where max-width should and should not apply. More details can be found in Hooks::shouldDisableMaxWidth PHP documentation."
+		},
 		"VectorResponsive": {
 			"value": false
 		},
