@@ -62,18 +62,16 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		] );
 		$this->setTemporaryHook( 'SkinTemplateNavigation', [
 			function ( &$skinTemplate, &$content_navigation ) {
-				$content_navigation = [
-					'actions' => [
-						'action-1' => []
-					],
-					'namespaces' => [
-						'ns-1' => []
-					],
-					'variants' => [
-						'variant-1' => []
-					],
-					'views' => [],
+				$content_navigation['actions'] = [
+					'action-1' => []
 				];
+				$content_navigation['namespaces'] = [
+					'ns-1' => []
+				];
+				$content_navigation['variants'] = [
+					'variant-1' => []
+				];
+				$content_navigation['views'] = [];
 			}
 		] );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
