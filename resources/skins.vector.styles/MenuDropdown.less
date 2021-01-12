@@ -153,3 +153,14 @@
 		outline: auto -webkit-focus-ring-color; // Webkit style
 	}
 }
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	// At lower resolutions, particularly when variants are disabled
+	// make sure the menu does not go off the screen.
+	.vector-menu-dropdown {
+		.vector-menu-content-list {
+			right: 0;
+			left: auto;
+		}
+	}
+}

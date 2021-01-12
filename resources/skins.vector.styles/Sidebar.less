@@ -80,6 +80,12 @@
 		.transition( transform @timing, opacity @timing, visibility @timing; );
 	}
 
+	@media ( max-width: @width-breakpoint-tablet ) {
+		.mw-sidebar {
+			transition: none;
+		}
+	}
+
 	// Enable sidebar button transitions.
 	#mw-sidebar-button {
 		.transition(
