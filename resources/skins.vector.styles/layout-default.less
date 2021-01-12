@@ -55,7 +55,15 @@ body {
 	max-width: 100%;
 	flex-grow: 1;
 
-	#searchform {
+	// #searchform is only a direct child of #p-search before wvui-loads. After
+	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
+	// element where these styles should apply.
+	> #searchform,
+	.wvui-typeahead-search {
+		// Border-box sizing is used for a smooth transition from legacy to Vue
+		// search. The width of the container should stay the same before/after the
+		// transition.
+		.box-sizing( border-box );
 		margin-left: 0;
 		max-width: @max-width-search;
 	}
@@ -266,7 +274,11 @@ body {
 // We use @width-comfortable to determine this threshold as we know it's not possible for
 // personal tools to be on the same line at this resolution.
 @media ( max-width: @width-comfortable ) {
-	#p-search #searchform {
+	// #searchform is only a direct child of #p-search before wvui-loads. After
+	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
+	// element where these styles should apply.
+	#p-search > #searchform,
+	#p-search .wvui-typeahead-search {
 		margin-left: auto;
 	}
 }

@@ -82,16 +82,19 @@
 	#mw-searchButton {
 		// Override the default right & left position of the icon.
 		right: auto;
-		left: 0;
+		// Accounts for the 1px input border. Derived from
+		// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/input/Input.vue#163
+		left: 1px;
 		// Increase size to match WVUI.
 		width: @size-search-figure;
 	}
 
 	// Reposition search icon for expanded input.
-	#searchInput:focus ~ #searchButton {
+	#searchInput:focus ~ #searchButton,
+	#searchInput:focus ~ #mw-searchButton {
 		// Derived from
-		// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/components/typeahead-search/TypeaheadSearch.vue#610
-		left: -12px;
+		// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
+		left: -11px;
 	}
 
 	// Reset WVUI. Prevents the input border from animating
