@@ -80,6 +80,11 @@
 	// Move & resize search icon to match WVUI.
 	#searchButton,
 	#mw-searchButton {
+		// T270202: Cursor should be an arrow instead of a pointer when hovering
+		// over the magnifying glass before WVUI loads to discourage people
+		// clicking on it since it is a submit button styled to look like WVUI's
+		// inert start icon.
+		cursor: default;
 		// Override the default right & left position of the icon.
 		right: auto;
 		// Accounts for the 1px input border. Derived from
