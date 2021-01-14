@@ -164,12 +164,10 @@ body {
 	min-height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 ( @padding-horizontal-page-container / 2 );
+	// Use non-zero padding to disable margin collapse.
+	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
+	padding: 0.05px ( @padding-horizontal-page-container / 2 );
 	background-color: @background-color-page-container;
-	// Establish a new block formatting context to prevent header top margin
-	// collapsing and causing whitespace to appear between the header and
-	// viewport.
-	overflow-y: auto;
 }
 
 // Used as a container for absolutely positioned elements.
