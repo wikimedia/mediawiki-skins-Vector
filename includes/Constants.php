@@ -154,6 +154,18 @@ final class Constants {
 	public const SEARCH_BOX_INPUT_LOCATION_DEFAULT = 'header-navigation';
 
 	/**
+	 * Defines whether or not the Core/Vue.js Search Widget A/B test is running. See
+	 * https://phabricator.wikimedia.org/T261647 for additional detail about the test.
+	 *
+	 * Note well that if the associated config value is falsy, then we fall back to choosing the
+	 * search widget treatment based on the `VectorUseCoreSearch` config variable (see
+	 * `resources/skins.vector.js/searchLoader.js`).
+	 *
+	 * @var string
+	 */
+	public const CONFIG_SEARCH_TREATMENT_AB_TEST = 'VectorSearchTreatmentABTest';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 */

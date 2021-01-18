@@ -37,7 +37,6 @@ class Hooks {
 	) {
 		return [
 			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
-			'wgVectorUseWvuiSearch' => $config->get( 'VectorUseWvuiSearch' ),
 		];
 	}
 
@@ -279,12 +278,20 @@ class Hooks {
 			return;
 		}
 
+		// Determine the search widget treatment to send to the user
 		$config = $sk->getConfig();
+		$user = $sk->getUser();
+		$shouldUseWvuiSearch = $config->get( 'VectorUseWvuiSearch' );
 
-		if ( $config->get( 'VectorUseWvuiSearch' ) ) {
+		if ( $config->get( 'VectorSearchTreatmentABTest' ) && $user->isRegistered() ) {
+			$shouldUseWvuiSearch = $user->getID() % 2 === 0;
+		}
+
+		if ( $shouldUseWvuiSearch ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-vue';
 		}
 
+		// Should we disable the max-width styling?
 		if ( $sk->getTitle() && self::shouldDisableMaxWidth(
 			$config->get( 'VectorMaxWidthOptions' ),
 			$sk->getTitle(),

@@ -223,6 +223,10 @@
 		"VectorUseWvuiSearch": {
 			"value": false
 		},
+		"VectorSearchTreatmentABTest": {
+			"value": false,
+			"description": "@var boolean Enables or disables the search treatment A/B test. See https://phabricator.wikimedia.org/T261647 and associated tasks for additional detail."
+		},
 		"VectorWvuiSearchOptions": {
 			"value": {
 				"showThumbnail": true,

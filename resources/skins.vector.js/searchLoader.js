@@ -13,8 +13,7 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	config = require( /** @type {string} */ ( './config.json' ) ),
 	// T251544: Collect search performance metrics to compare Vue search with
 	// mediawiki.searchSuggest performance.
-	SHOULD_TEST_SEARCH = !!(
-		config.wgVectorUseWvuiSearch &&
+	CAN_TEST_SEARCH = !!(
 		window.performance &&
 		performance.mark &&
 		performance.measure &&
@@ -38,6 +37,7 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
  * @param {function(): void} afterLoadFn function to execute after search module loads.
  */
 function loadSearchModule( element, moduleName, afterLoadFn ) {
+	var SHOULD_TEST_SEARCH = CAN_TEST_SEARCH && moduleName === 'skins.vector.search';
 
 	function requestSearchModule() {
 		if ( SHOULD_TEST_SEARCH ) {
@@ -116,7 +116,7 @@ function setLoadingIndicatorListeners( element, attach, eventCallback ) {
  * Marks when the lazy load has completed.
  */
 function markLoadEnd() {
-	if ( SHOULD_TEST_SEARCH && performance.getEntriesByName( LOAD_START_MARK ).length ) {
+	if ( performance.getEntriesByName( LOAD_START_MARK ).length ) {
 		performance.mark( LOAD_END_MARK );
 		performance.measure( LOAD_MEASURE, LOAD_START_MARK, LOAD_END_MARK );
 	}
@@ -130,7 +130,8 @@ function markLoadEnd() {
  */
 function initSearchLoader( document ) {
 	var searchForm = document.getElementById( SEARCH_FORM_ID ),
-		searchInput = document.getElementById( SEARCH_INPUT_ID );
+		searchInput = document.getElementById( SEARCH_INPUT_ID ),
+		shouldUseCoreSearch;
 
 	// Allow developers to defined $wgVectorSearchHost in LocalSettings to target different APIs
 	if ( config.wgVectorSearchHost ) {
@@ -141,6 +142,8 @@ function initSearchLoader( document ) {
 		return;
 	}
 
+	shouldUseCoreSearch = !document.body.classList.contains( 'skin-vector-search-vue' );
+
 	/**
 	 * 1. If $wgVectorUseWvuiSearch is false,
 	 *    or we are in a browser that doesn't support fetch
@@ -149,7 +152,7 @@ function initSearchLoader( document ) {
 	 * 2. If we're using a different search module, enable the loading indicator
 	 *    before the search module loads.
 	 **/
-	if ( !config.wgVectorUseWvuiSearch || !window.fetch ) {
+	if ( shouldUseCoreSearch || !window.fetch ) {
 		loadSearchModule( searchInput, 'mediawiki.searchSuggest', function () {} );
 	} else {
 		// Remove tooltips while Vue search is still loading
