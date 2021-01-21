@@ -119,7 +119,6 @@ class SkinVector extends SkinMustache {
 		$parentData = parent::getTemplateData();
 
 		$commonSkinData = array_merge( $parentData, [
-			'page-langcode' => $title->getPageViewLanguage()->getHtmlCode(),
 			'page-isarticle' => (bool)$out->isArticle(),
 
 			// Remember that the string '0' is a valid title.
