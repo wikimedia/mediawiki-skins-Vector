@@ -18,6 +18,148 @@ const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
  * @coversDefaultClass \Vector\Hooks
  */
 class VectorHooksTest extends \MediaWikiTestCase {
+
+	/**
+	 * helper
+	 * @param bool $excludeMainPage
+	 * @param array $excludeNamespaces
+	 * @param array $include
+	 * @param array $querystring
+	 * @return array
+	 */
+	private static function makeMaxWidthConfig(
+		$excludeMainPage,
+		$excludeNamespaces = [],
+		$include = [],
+		$querystring = []
+	) {
+		return [
+			'exclude' => [
+				'mainpage' => $excludeMainPage,
+				'namespaces' => $excludeNamespaces,
+				'querystring' => $querystring,
+			],
+			'include' => $include
+		];
+	}
+
+	/**
+	 * @covers ::shouldDisableMaxWidth
+	 */
+	public function providerShouldDisableMaxWidth() {
+		$excludeTalkFooConfig = self::makeMaxWidthConfig(
+			false,
+			[ NS_TALK ],
+			[ 'Talk:Foo' ],
+			[]
+		);
+
+		return [
+			[
+				'No options, nothing disables max width',
+				[],
+				Title::makeTitle( NS_MAIN, 'Foo' ),
+				[],
+				false
+			],
+			[
+				'Main page disables max width if exclude.mainpage set',
+				self::makeMaxWidthConfig( true ),
+				Title::newMainPage(),
+				[],
+				true
+			],
+			[
+				'Namespaces can be excluded',
+				self::makeMaxWidthConfig( false, [ NS_CATEGORY ] ),
+				Title::makeTitle( NS_CATEGORY, 'Category' ),
+				[],
+				true
+			],
+			[
+				'Namespaces are included if not excluded',
+				self::makeMaxWidthConfig( false, [ NS_CATEGORY ] ),
+				Title::makeTitle( NS_SPECIAL, 'SpecialPages' ),
+				[],
+				false
+			],
+			[
+				'More than one namespace can be included',
+				self::makeMaxWidthConfig( false, [ NS_CATEGORY, NS_SPECIAL ] ),
+				Title::makeTitle( NS_SPECIAL, 'Specialpages' ),
+				[],
+				true
+			],
+			[
+				'Can be disabled on history page',
+				self::makeMaxWidthConfig(
+					false,
+					[
+						/* no namespaces excluded */
+					],
+					[
+						/* no includes */
+					],
+					[ 'action' => 'history' ]
+				),
+				Title::makeTitle( NS_MAIN, 'History page' ),
+				[ 'action' => 'history' ],
+				true
+			],
+			[
+				'Include can override exclusions',
+				self::makeMaxWidthConfig(
+					false,
+					[ NS_CATEGORY, NS_SPECIAL ],
+					[ 'Special:Specialpages' ],
+					[ 'action' => 'history' ]
+				),
+				Title::makeTitle( NS_SPECIAL, 'Specialpages' ),
+				[ 'action' => 'history' ],
+				false
+			],
+			[
+				'Max width can be disabled on talk pages',
+				$excludeTalkFooConfig,
+				Title::makeTitle( NS_TALK, 'A talk page' ),
+				[],
+				true
+			],
+			[
+				'includes can be used to override any page in a disabled namespace',
+				$excludeTalkFooConfig,
+				Title::makeTitle( NS_TALK, 'Foo' ),
+				[],
+				false
+			],
+			[
+				'Excludes/includes are based on root title so should apply to subpages',
+				$excludeTalkFooConfig,
+				Title::makeTitle( NS_TALK, 'Foo/subpage' ),
+				[],
+				false
+			]
+		];
+	}
+
+	/**
+	 * @covers ::shouldDisableMaxWidth
+	 * @dataProvider providerShouldDisableMaxWidth
+	 */
+	public function testShouldDisableMaxWidth(
+		$msg,
+		$options,
+		$title,
+		$requestValues,
+		$shouldDisableMaxWidth
+	) {
+		$this->assertSame(
+			Hooks::shouldDisableMaxWidth( $options, $title, $requestValues ),
+			$shouldDisableMaxWidth,
+			$msg
+		);
+	}
+
 	/**
 	 * @covers ::onGetPreferences
 	 */

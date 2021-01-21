@@ -198,8 +198,7 @@ body {
 	margin-right: auto;
 
 	// For container logic specific to special pages and history pages.
-	.action-history &,
-	.ns-special & {
+	.skin-vector-disable-max-width & {
 		// Allow the max-width of content on history/special pages to be wider than
 		// the max-width of content on article pages.
 		max-width: none;
@@ -238,8 +237,7 @@ body {
 // Adjusts the content when sidebar is open regardless of the viewport width.
 .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
 	// For container logic specific to special pages and history pages.
-	.action-history &,
-	.ns-special & {
+	.skin-vector-disable-max-width & {
 		margin-left: @margin-start-content;
 	}
 }
