@@ -3,5 +3,5 @@ interface VectorResourceLoaderVirtualConfig {
 	/**
 	 * The name of the ResourceLoader module that contains search.
 	 */
-	wgVectorUseCoreSearch: boolean
+	wgVectorUseWvuiSearch: boolean
 }

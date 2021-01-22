@@ -37,7 +37,7 @@ class Hooks {
 	) {
 		return [
 			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
-			'wgVectorUseCoreSearch' => $config->get( 'VectorUseCoreSearch' ),
+			'wgVectorUseWvuiSearch' => $config->get( 'VectorUseWvuiSearch' ),
 		];
 	}
 
@@ -103,7 +103,7 @@ class Hooks {
 		}
 
 		// Tell the `mediawiki.page.ready` module not to wire up search.
-		// This allows us to use $wgVectorUseCoreSearch to decide to load
+		// This allows us to use $wgVectorUseWvuiSearch to decide to load
 		// the historic jquery autocomplete search or the new Vue implementation.
 		// ResourceLoaderContext has no knowledge of legacy / modern Vector
 		// and from its point of view they are the same thing.
@@ -281,7 +281,7 @@ class Hooks {
 
 		$config = $sk->getConfig();
 
-		if ( !$config->get( 'VectorUseCoreSearch' ) ) {
+		if ( $config->get( 'VectorUseWvuiSearch' ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-vue';
 		}
 
