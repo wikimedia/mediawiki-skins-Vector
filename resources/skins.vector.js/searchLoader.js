@@ -14,7 +14,7 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	// T251544: Collect search performance metrics to compare Vue search with
 	// mediawiki.searchSuggest performance.
 	SHOULD_TEST_SEARCH = !!(
-		!config.wgVectorUseCoreSearch &&
+		config.wgVectorUseWvuiSearch &&
 		window.performance &&
 		performance.mark &&
 		performance.measure &&
@@ -142,14 +142,14 @@ function initSearchLoader( document ) {
 	}
 
 	/**
-	 * 1. If $wgVectorUseCoreSearch is true,
+	 * 1. If $wgVectorUseWvuiSearch is false,
 	 *    or we are in a browser that doesn't support fetch
 	 *    load the legacy searchSuggest module. The check for window.fetch
 	 *    can be removed when IE11 support is finally officially dropped.
 	 * 2. If we're using a different search module, enable the loading indicator
 	 *    before the search module loads.
 	 **/
-	if ( config.wgVectorUseCoreSearch || !window.fetch ) {
+	if ( !config.wgVectorUseWvuiSearch || !window.fetch ) {
 		loadSearchModule( searchInput, 'mediawiki.searchSuggest', function () {} );
 	} else {
 		// Remove tooltips while Vue search is still loading
