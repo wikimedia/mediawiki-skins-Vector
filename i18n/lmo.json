@@ -6,6 +6,12 @@
 			"Salvemm el lombard"
 		]
 	},
+	"vector-skin-desc": "Version moderna del MonoBook cont un aspet rinovad e un mucc de migliorament de dovrablità",
+	"prefs-vector-enable-vector-1-label": "Drova el Vector Legacy",
+	"prefs-vector-enable-vector-1-help": "In di agn che vegnen sgionaremm meneman el tema Vector. Legacy Vector el te permetarà de visualizà la version passada de  Vector (che la risaliss al dicember 2019). Per savenn pussee sora i asgiornament, visita la nostra [[mw:Reading/Web/Desktop_Improvements|pagina de progett]].",
+	"vector-opt-out": "Torna a l'aspet vegg",
+	"vector-opt-out-tooltip": "Cambia i to impostazzion per tornà a la visualizzazion de la pell che la gh'era prima (legacy Vector)",
+	"vector-action-toggle-sidebar": "Ativa/desativa la sbarra de fianch",
 	"vector-action-addsection": "Sgionta un argoment",
 	"vector-action-delete": "Scancela",
 	"vector-action-move": "Sposta",
@@ -17,5 +23,9 @@
 	"vector-view-history": "Varda la storia",
 	"vector-view-view": "Lensg",
 	"vector-view-viewsource": "Varda el codes sorgent",
-	"vector-more-actions": "Anmò"
+	"vector-jumptonavigation": "Salta a la navigazzion",
+	"vector-jumptosearch": "Và a cercà",
+	"vector-jumptocontent": "Và al contegnud",
+	"vector-more-actions": "Anmò",
+	"vector-search-loader": "Caregament di sugeriment de ricerca"
 }
