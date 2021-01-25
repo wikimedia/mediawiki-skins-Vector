@@ -104,7 +104,22 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_LANGUAGE_IN_HEADER = 'LanguageInHeader';
+
+	/**
+	 * @var string
+	 */
 	public const CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE = 'VectorDisableSidebarPersistence';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_LANGUAGE_IN_HEADER = 'VectorLanguageInHeader';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	// These are used for query parameters.
 	/**

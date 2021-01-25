@@ -29,6 +29,7 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
+						"otherlanguages",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
 						"vector-opt-out",
@@ -232,6 +233,9 @@
 			"value": true
 		},
 		"VectorDefaultSidebarVisibleForAnonymousUser": {
+			"value": false
+		},
+		"VectorLanguageInHeader": {
 			"value": false
 		},
 		"VectorDisableSidebarPersistence": {
