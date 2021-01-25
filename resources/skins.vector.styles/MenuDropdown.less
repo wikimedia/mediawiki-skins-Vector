@@ -53,7 +53,7 @@
 		min-width: 100%;
 		position: absolute;
 		top: 2.5em;
-		left: -@border-width-base;
+		right: -@border-width-base;
 		margin: 0;
 		border: @border-width-base @border-style-base @border-color-base;
 		border-top-width: 0;
@@ -151,16 +151,5 @@
 		// Simulate browser focus ring
 		outline: dotted 1px; // Firefox style
 		outline: auto -webkit-focus-ring-color; // Webkit style
-	}
-}
-
-@media ( max-width: @width-breakpoint-tablet ) {
-	// At lower resolutions, particularly when variants are disabled
-	// make sure the menu does not go off the screen.
-	.vector-menu-dropdown {
-		.vector-menu-content-list {
-			right: 0;
-			left: auto;
-		}
 	}
 }
