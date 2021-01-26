@@ -129,6 +129,21 @@ final class Constants {
 	public const QUERY_PARAM_SKIN_VERSION = 'useskinversion';
 
 	/**
+	 * @var string
+	 */
+	public const FEATURE_USE_WVUI_SEARCH = 'UseWvuiSearch';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_USE_WVUI_SEARCH = 'VectorUseWvuiSearch';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_USE_WVUI_SEARCH = 'VectorUseWvuiSearch';
+
+	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.
