@@ -158,7 +158,7 @@ final class Constants {
 	 * https://phabricator.wikimedia.org/T261647 for additional detail about the test.
 	 *
 	 * Note well that if the associated config value is falsy, then we fall back to choosing the
-	 * search widget treatment based on the `VectorUseCoreSearch` config variable (see
+	 * search widget treatment based on the `VectorUseWvuiSearch` config variable (see
 	 * `resources/skins.vector.js/searchLoader.js`).
 	 *
 	 * @var string
