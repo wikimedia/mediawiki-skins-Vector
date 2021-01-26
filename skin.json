@@ -236,7 +236,8 @@
 			"value": false
 		},
 		"VectorLanguageInHeader": {
-			"value": false
+			"value": false,
+			"description": "@var boolean Moves the language links from the sidebar into a menu beside the page title. Also moves the indicators to the line below, next to the tagline (siteSub)."
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
