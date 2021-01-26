@@ -1,7 +1,7 @@
 {{!
  See @typedef SearchData
 }}
-<div id="p-search" role="search">
+<div id="p-search" role="search" {{#should-search-expand}}class="p-search--show-thumbnail"{{/should-search-expand}}>
 	<h3 {{{html-user-language-attributes}}}>
 		<label for="searchInput">{{msg-search}}</label>
 	</h3>

@@ -65,15 +65,6 @@
 		padding-left: @size-search-figure;
 		// Derived from @padding-input-text in WVUI's Input component.
 		padding-right: 8px;
-
-		// Recreate WVUI expanding input.
-		&:focus {
-			position: relative;
-			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
-			padding-left: ~'calc( 12px + @{size-search-figure} + 12px )';
-			width: ~'calc( 100% + 24px )';
-			left: ~'calc( -1 * 24px )';
-		}
 	}
 
 	// Move & resize search icon to match WVUI.
@@ -94,17 +85,28 @@
 		width: @size-search-figure;
 	}
 
-	// Reposition search icon for expanded input.
-	#searchInput:focus ~ #searchButton,
-	#searchInput:focus ~ #mw-searchButton {
-		// Derived from
-		// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
-		left: -11px;
-	}
-
 	// Reset WVUI. Prevents the input border from animating
 	// when it gets inserted into the DOM while being focused.
 	.wvui-input__input:not( [ disabled ] ) {
 		.transition( none );
+	}
+
+	.p-search--show-thumbnail {
+		// Recreate WVUI expanding input.
+		#searchInput:focus {
+			position: relative;
+			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
+			padding-left: ~'calc( 12px + @{size-search-figure} + 12px )';
+			width: ~'calc( 100% + 24px )';
+			left: ~'calc( -1 * 24px )';
+		}
+
+		// Reposition search icon for expanded input.
+		#searchInput:focus ~ #searchButton,
+		#searchInput:focus ~ #mw-searchButton {
+			// Derived from
+			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
+			left: -11px;
+		}
 	}
 }

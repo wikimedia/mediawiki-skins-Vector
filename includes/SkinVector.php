@@ -138,7 +138,10 @@ class SkinVector extends SkinMustache {
 			'input-location' => $this->getSearchBoxInputLocation(),
 
 			'sidebar-visible' => $this->isSidebarVisible(),
+
 			'is-language-in-header' => $this->isLanguagesInHeader(),
+
+			'should-search-expand' => $this->shouldSearchExpand(),
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
@@ -167,6 +170,22 @@ class SkinVector extends SkinMustache {
 		}
 
 		return Constants::SEARCH_BOX_INPUT_LOCATION_MOVED;
+	}
+
+	/**
+	 * Determines whether or not the search input should expand when focused
+	 * before WVUI search is loaded. In WVUI, the search input expands to
+	 * accomodate thumbnails in the suggestion list. When thumbnails are
+	 * disabled, the input should not expand. Note this is only relevant for WVUI
+	 * search (not legacy search).
+	 *
+	 * @return bool
+	 */
+	private function shouldSearchExpand() : bool {
+		$featureManager = VectorServices::getFeatureManager();
+
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) &&
+			$this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
 	}
 
 	/**
