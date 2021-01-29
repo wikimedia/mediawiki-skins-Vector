@@ -5,11 +5,7 @@
 	},
 	{
 		"resourceModule": "skins.vector.styles",
-		"maxSize": "9.7 kB"
-	},
-	{
-		"resourceModule": "skins.vector.styles.responsive",
-		"maxSize": "0.6 kB"
+		"maxSize": "9.8 kB"
 	},
 	{
 		"resourceModule": "skins.vector.legacy.js",

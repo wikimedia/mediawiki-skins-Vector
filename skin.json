@@ -65,7 +65,6 @@
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
-		"BeforePageDisplay": "Vector\\Hooks::onBeforePageDisplay",
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
@@ -107,13 +106,6 @@
 				"mobile"
 			],
 			"styles": [ "resources/skins.vector.styles/skin.less" ]
-		},
-		"skins.vector.styles.responsive": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
 		"skins.vector.icons": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
@@ -215,14 +207,15 @@
 			"description": "options for configuring where where max-width should and should not apply. More details can be found in Hooks::shouldDisableMaxWidth PHP documentation."
 		},
 		"VectorResponsive": {
-			"value": false
+			"value": false,
+			"description": "@var boolean When wgVectorDefaultSkinVersion is set to 2, turn Vector into a responsive skin by applying a view port and disabling the min-width"
 		},
 		"VectorShowSkinPreferences": {
 			"value": true,
 			"description": "@var boolean Show skin-specific user preferences on the Special:Preferences appearance tab when true and hide them otherwise."
 		},
 		"VectorDefaultSkinVersion": {
-			"value": "1",
+			"value": "2",
 			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to use for anonymous users and as a fallback. The value is _not_ persisted."
 		},
 		"VectorDefaultSkinVersionForExistingAccounts": {

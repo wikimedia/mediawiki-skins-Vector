@@ -83,7 +83,20 @@ class SkinVector extends SkinMustache {
 			$options['scripts'] = [ 'skins.vector.legacy.js' ];
 			$options['styles'] = [ 'skins.vector.styles.legacy' ];
 			$options['template'] = 'skin-legacy';
+		} else {
+			// For historic reasons, the viewport is added when Vector is loaded on the mobile
+			// domain. This is only possible for 3rd parties or by useskin parameter as there is
+			// no preference for changing mobile skin.
+			$responsive = $this->getConfig()->get( 'VectorResponsive' );
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+				$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+				if ( $mobFrontContext->shouldDisplayMobileView() ) {
+					$responsive = true;
+				}
+			}
+			$options['responsive'] = $responsive;
 		}
+
 		$options['templateDirectory'] = __DIR__ . '/templates';
 		parent::__construct( $options );
 	}
