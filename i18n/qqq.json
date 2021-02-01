@@ -22,6 +22,7 @@
 	"vector.css": "{{optional}}",
 	"vector.js": "{{optional}}",
 	"vector-action-toggle-sidebar": "Accessibility label for the button that toggles the sidebar's visibility, as well as audible presentation for screen readers.",
+	"vector-language-button-label": "Label for language button in modern Vector.\nArguments:\n - $1 number of languages, supports plural",
 	"vector-action-addsection": "Used in the Vector skin. See for example {{canonicalurl:Talk:Main_Page|useskin=vector}}\n{{Identical|Add topic}}",
 	"vector-action-delete": "Used in the Vector skin, as the name of a tab at the top of the page. See for example {{canonicalurl:Translating:MediaWiki|useskin=vector}}\n\n{{Identical|Delete}}",
 	"vector-action-move": "Used in the Vector skin, on the tabs at the top of the page. See for example {{canonicalurl:Talk:Main_Page|useskin=vector}}\n\n{{Identical|Move}}",
