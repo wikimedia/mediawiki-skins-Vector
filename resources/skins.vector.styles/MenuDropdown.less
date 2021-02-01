@@ -46,7 +46,7 @@
 	}
 
 	// The menu itself.
-	.vector-menu-content-list {
+	.vector-menu-content {
 		background-color: @background-color-base;
 		list-style: none none;
 		// Match the width of the dropdown "heading" (the tab)
@@ -66,8 +66,7 @@
 		z-index: @z-index-menu;
 	}
 
-	&:hover .vector-menu-content-list,
-	.vector-menu-checkbox:checked ~ .vector-menu-content .vector-menu-content-list {
+	.vector-menu-checkbox:checked ~ .vector-menu-content {
 		opacity: 1;
 		visibility: visible;
 	}
