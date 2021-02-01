@@ -236,6 +236,7 @@ class SkinVector extends SkinMustache {
 				'vector-language-button-label',
 				count( $this->getLanguages() )
 			)->parse();
+			$portletData['icon'] = 'language';
 		}
 		$class = $portletData['class'];
 		$portletData['class'] = trim( "$class $extraClasses[$type]" );
