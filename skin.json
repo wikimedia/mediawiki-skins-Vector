@@ -111,7 +111,10 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": [ "resources/skins.vector.styles/skin-legacy.less" ]
+			"styles": [
+				"resources/common/common.less",
+				"resources/skins.vector.styles.legacy/skin-legacy.less"
+			]
 		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
@@ -127,7 +130,10 @@
 				"desktop",
 				"mobile"
 			],
-			"styles": [ "resources/skins.vector.styles/skin.less" ]
+			"styles": [
+				"resources/common/common.less",
+				"resources/skins.vector.styles/skin.less"
+			]
 		},
 		"skins.vector.icons": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
