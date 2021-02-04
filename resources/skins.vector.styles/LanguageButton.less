@@ -1,0 +1,19 @@
+@import 'mediawiki.ui/mixins.buttons.less';
+
+// mw-body-header class can be removed when language button is the default.
+// e.g. upon removal of SkinVector::isLanguagesInHeader
+.mw-body-header .mw-portlet-lang {
+	h3 {
+		padding-right: 40px;
+	}
+
+	.vector-menu-content {
+		top: auto;
+		right: 0;
+		box-sizing: border-box;
+	}
+
+	.after-portlet {
+		margin-top: 8px;
+	}
+}

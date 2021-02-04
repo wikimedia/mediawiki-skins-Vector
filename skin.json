@@ -26,6 +26,7 @@
 					],
 					"styles": [
 						"skins.vector.styles",
+						"skins.vector.icons",
 						"mediawiki.ui.icon"
 					],
 					"messages": [
@@ -114,6 +115,17 @@
 			],
 			"styles": [ "resources/skins.vector.styles.responsive.less" ]
 		},
+		"skins.vector.icons": {
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
+			"useDataURI": false,
+			"defaultColor": "#54595d",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": [],
+			"icons": [
+				"language"
+			]
+		},
 		"skins.vector.js": {
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
@@ -171,7 +183,8 @@
 			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
 			"+oojs-ui-core.styles": "skinStyles/ooui.less",
 			"mediawiki.special": "skinStyles/mediawiki.special.less",
-			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less"
+			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less",
+			"+mediawiki.ui.icon": "skinStyles/mediawiki.ui.icon.less"
 		}
 	},
 	"config": {
