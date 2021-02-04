@@ -89,6 +89,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				'html-items' => '',
 				'html-after-portal' => '',
 				'label' => $context->msg( 'views' )->text(),
+				'heading-class' => 'vector-menu-heading',
 				'is-dropdown' => false,
 			],
 			$views
