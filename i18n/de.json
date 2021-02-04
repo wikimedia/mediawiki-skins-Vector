@@ -17,6 +17,7 @@
 	"vector.css": "/* Das folgende CSS wird für Benutzer der Vector-Benutzeroberfläche geladen. */",
 	"vector.js": "/* Das folgende JavaScript wird für Benutzer der Vector-Benutzeroberfläche geladen. */",
 	"vector-action-toggle-sidebar": "Seitenleiste umschalten",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Sprache|$1 Sprachen}}",
 	"vector-action-addsection": "Abschnitt hinzufügen",
 	"vector-action-delete": "Löschen",
 	"vector-action-move": "Verschieben",
