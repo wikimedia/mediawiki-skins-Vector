@@ -16,6 +16,7 @@
 	"vector.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector-action-toggle-sidebar": "Przełącz panel boczny",
+	"vector-language-button-label": "$1 {{PLURAL:$1|język|języki|języków}}",
 	"vector-action-addsection": "Dodaj temat",
 	"vector-action-delete": "Usuń",
 	"vector-action-move": "Przenieś",

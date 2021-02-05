@@ -25,6 +25,7 @@
 	"vector.css": "/* El CSS colocado en esta página afectará a los usuarios que usen la apariencia \"Vector\" */",
 	"vector.js": "/* Cualquier código JavaScript escrito aquí se cargará para todos los usuarios que usen la apariencia Vector */",
 	"vector-action-toggle-sidebar": "Mostrar u ocultar la barra lateral",
+	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
 	"vector-action-addsection": "Sección nueva",
 	"vector-action-delete": "Borrar",
 	"vector-action-move": "Trasladar",

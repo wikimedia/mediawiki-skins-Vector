@@ -21,6 +21,7 @@
 	"vector-opt-out": "Canvia a l'aspecte d'abans",
 	"vector-opt-out-tooltip": "Canvia la configuració a la versió antiga (legacy Vector)",
 	"vector-action-toggle-sidebar": "Mostra o oculta la barra lateral",
+	"vector-language-button-label": "{{PLURAL:$1|$1 llengua|$1 llengües}}",
 	"vector-action-addsection": "Afegeix un tema",
 	"vector-action-delete": "Esborra",
 	"vector-action-move": "Reanomena",

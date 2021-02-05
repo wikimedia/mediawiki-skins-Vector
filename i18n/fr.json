@@ -26,7 +26,7 @@
 	"vector.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Vector */",
 	"vector.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Vector */",
 	"vector-action-toggle-sidebar": "Afficher / masquer  la barre latérale",
-	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
 	"vector-action-addsection": "Ajouter un sujet",
 	"vector-action-delete": "Supprimer",
 	"vector-action-move": "Renommer",
