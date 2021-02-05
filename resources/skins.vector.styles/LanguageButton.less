@@ -3,17 +3,30 @@
 // mw-body-header class can be removed when language button is the default.
 // e.g. upon removal of SkinVector::isLanguagesInHeader
 .mw-body-header .mw-portlet-lang {
+	.mw-ui-button-states();
+
 	h3 {
+		// In future this should use wvui
+		.mw-ui-button();
 		padding-right: 40px;
+		// make sure label is center aligned.
+		display: flex;
+		align-items: center;
+
+		&:after {
+			top: 0;
+		}
 	}
 
 	.vector-menu-content {
 		top: auto;
 		right: 0;
+		// align borders of open menu align with button
 		box-sizing: border-box;
 	}
 
 	.after-portlet {
+		// ensure there is a visual separation between the language links and additional links.
 		margin-top: 8px;
 	}
 }
