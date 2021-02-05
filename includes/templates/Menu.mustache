@@ -8,7 +8,7 @@
 	{{#is-dropdown}}
 	<input type="checkbox" class="vector-menu-checkbox" aria-labelledby="{{id}}-label" />
 	{{/is-dropdown}}
-	<h3 id="{{id}}-label" {{#icon}}class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-{{.}}"{{/icon}}>
+	<h3 id="{{id}}-label" {{#heading-class}}class="{{.}}"{{/heading-class}}>
 		<span>{{label}}</span>
 	</h3>
 	<div class="vector-menu-content">

@@ -5,7 +5,7 @@
 .mw-body-header .mw-portlet-lang {
 	.mw-ui-button-states();
 
-	h3 {
+	.vector-menu-heading {
 		// In future this should use wvui
 		.mw-ui-button();
 		padding-right: 40px;
@@ -28,5 +28,31 @@
 	.after-portlet {
 		// ensure there is a visual separation between the language links and additional links.
 		margin-top: 8px;
+	}
+}
+
+// mw-body-header class can be removed when language button is the default.
+// e.g. upon removal of SkinVector::isLanguagesInHeader
+.client-js .mw-body-header {
+	// The `.mw-interlanguage-selector` is toggled off through js if the
+	// `ext.uls.interface` module is not being loaded.
+	.mw-interlanguage-selector {
+		// Remove the ULS language icon provided by ext.uls.compactlinks.less as we
+		// are already providing no-js users an icon.
+		background-image: none;
+
+		&:after {
+			// Don't show dropdown arrow.
+			content: none;
+		}
+	}
+
+	// When the ext.uls.interface module is loaded, we hide the fallback menu and
+	// checkbox.
+	.vector-menu--hide-dropdown {
+		.vector-menu-checkbox,
+		.vector-menu-content {
+			display: none;
+		}
 	}
 }

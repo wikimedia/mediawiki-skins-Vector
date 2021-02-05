@@ -231,12 +231,18 @@ class SkinVector extends SkinMustache {
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
+		$portletData['heading-class'] = 'vector-menu-heading';
+
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
 			$portletData['label'] = $this->msg(
 				'vector-language-button-label',
 				count( $this->getLanguages() )
 			)->parse();
-			$portletData['icon'] = 'language';
+			// Adds language icon
+			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-language';
+			// Adds .mw-interlanguage-selector (ext.uls.interface attaches click
+			// handler to this selector).
+			$portletData['heading-class'] .= ' mw-interlanguage-selector';
 			$portletData['id'] = 'p-lang-btn';
 		}
 		$class = $portletData['class'];
