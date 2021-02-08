@@ -252,7 +252,8 @@ class SkinVector extends SkinMustache {
 				count( $this->getLanguages() )
 			)->parse();
 			// Adds language icon
-			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-language';
+			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-before '
+				. 'mw-ui-icon-wikimedia-language mw-ui-button mw-ui-quiet';
 			// Adds .mw-interlanguage-selector (ext.uls.interface attaches click
 			// handler to this selector).
 			$portletData['heading-class'] .= ' mw-interlanguage-selector';

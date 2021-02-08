@@ -1,26 +1,21 @@
-@import 'mediawiki.ui/mixins.buttons.less';
+// The use of mixins.buttons requires @font-size-base to be defined for this to work in Storybook
+@import '../../variables.less';
 
 // mw-body-header class can be removed when language button is the default.
 // e.g. upon removal of SkinVector::isLanguagesInHeader
 .mw-body-header .mw-portlet-lang {
-	.mw-ui-button-states();
-
 	.vector-menu-heading {
-		color: inherit;
-		// In future this should use wvui
-		.mw-ui-button();
-		padding-right: 30px;
-		// make sure label is center aligned.
-		display: flex;
-		align-items: center;
+		// Special treatment for language button, based on Vector font-size
+		font-size: @font-size-base;
+		// avoid sub pixel rendering
+		line-height: 1.493em;
+		// reset padding styles in MenuDropdown.less with right padding for arrow.
+		padding: 0 30px 0 8px;
+		// Prevent select of span text "X languages"
+		user-select: none;
 
 		&:after {
 			top: 0;
-		}
-
-		&:hover,
-		&:focus {
-			color: inherit;
 		}
 	}
 
@@ -44,6 +39,14 @@
 	}
 }
 
+// Disable border-radius when dropdown menu open
+.client-nojs {
+	.mw-portlet-lang:hover .vector-menu-heading,
+	.vector-menu-checkbox:checked + .vector-menu-heading {
+		border-radius: 0;
+	}
+}
+
 // mw-body-header class can be removed when language button is the default.
 // e.g. upon removal of SkinVector::isLanguagesInHeader
 .client-js .mw-body-header {
@@ -53,11 +56,6 @@
 		// Remove the ULS language icon provided by ext.uls.compactlinks.less as we
 		// are already providing no-js users an icon.
 		background-image: none;
-
-		&:after {
-			// Don't show dropdown arrow.
-			content: none;
-		}
 	}
 
 	// When the ext.uls.interface module is loaded, we hide the fallback menu and

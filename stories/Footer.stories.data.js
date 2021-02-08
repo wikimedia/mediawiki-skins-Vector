@@ -1,5 +1,3 @@
-/* eslint-disable quotes */
-
 import { htmlUserLanguageAttributes } from './utils';
 import footerTemplate from '!!raw-loader!../includes/templates/Footer.mustache';
 import footerRowTemplate from '!!raw-loader!../includes/templates/Footer__row.mustache';

@@ -54,6 +54,7 @@
  * @property {string} id
  * @property {string} label
  * @property {string} html-items
+ * @property {string} [heading-class]
  * @property {string} [html-tooltip]
  * @property {string} [class] of menu
  * @property {string} [html-user-language-attributes]

@@ -25,6 +25,7 @@
 						"skins.vector.js"
 					],
 					"styles": [
+						"mediawiki.ui.button",
 						"skins.vector.styles",
 						"skins.vector.icons",
 						"mediawiki.ui.icon"

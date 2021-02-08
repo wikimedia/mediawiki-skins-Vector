@@ -83,7 +83,12 @@ body {
 	.mixin-clearfix();
 
 	#p-lang-btn {
+		@height-lang-button: 1.25em;
 		float: right;
+		.box-sizing( border-box );
+		height: @height-lang-button;
+		// should be vertically aligned.
+		margin-top: ( ( @font-size-heading-1 * @line-height-heading ) - @height-lang-button ) / 2;
 	}
 }
 

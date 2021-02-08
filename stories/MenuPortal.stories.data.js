@@ -1,14 +1,11 @@
 /**
  * @external MenuDefinition
  */
-
-/* eslint-disable quotes */
-
 import mustache from 'mustache';
 import { vectorMenuTemplate as portalTemplate } from './MenuDropdown.stories.data';
 import '../resources/skins.vector.styles/MenuPortal.less';
 import '../.storybook/common.less';
-import { placeholder, htmlUserLanguageAttributes } from './utils';
+import { placeholder, htmlUserLanguageAttributes, portletAfter } from './utils';
 
 /**
  * @param {MenuDefinition} data
@@ -19,14 +16,6 @@ export const wrapPortlet = ( data ) => {
 	node.setAttribute( 'id', 'mw-panel' );
 	node.innerHTML = mustache.render( portalTemplate, data );
 	return node;
-};
-
-/**
- * @param {string} html
- * @return {string}
- */
-const portletAfter = ( html ) => {
-	return `<div class="after-portlet after-portlet-tb">${html}</div>`;
 };
 
 /**
