@@ -13,6 +13,7 @@
 	"vector-opt-out": "מעבר למראה הישן",
 	"vector-opt-out-tooltip": "שינוי ההעדפות שלך וחזרה למראה הישן של העיצוב (וקטור ישן)",
 	"vector-action-toggle-sidebar": "שינוי מצב סרגל צד",
+	"vector-language-button-label": "{{PLURAL:$1|שפה אחת|$1 שפות}}",
 	"vector-action-addsection": "פסקה חדשה",
 	"vector-action-delete": "מחיקה",
 	"vector-action-move": "העברה",
