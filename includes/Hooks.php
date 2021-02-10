@@ -3,7 +3,6 @@
 namespace Vector;
 
 use Config;
-use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
@@ -51,35 +50,6 @@ class Hooks {
 		Config $config
 	) {
 		return $config->get( 'VectorWvuiSearchOptions' );
-	}
-
-	/**
-	 * BeforePageDisplayMobile hook handler
-	 *
-	 * Make Legacy Vector responsive when $wgVectorResponsive = true
-	 *
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 * @param OutputPage $out
-	 * @param SkinTemplate $sk
-	 */
-	public static function onBeforePageDisplay( OutputPage $out, $sk ) {
-		if ( !$sk instanceof SkinVector ) {
-			return;
-		}
-
-		$mobile = false;
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-
-			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			$mobile = $mobFrontContext->shouldDisplayMobileView();
-		}
-
-		if (
-			self::isSkinVersionLegacy()
-			&& ( $mobile || $sk->getConfig()->get( 'VectorResponsive' ) ) ) {
-			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-			$out->addModuleStyles( 'skins.vector.styles.responsive' );
-		}
 	}
 
 	/**
