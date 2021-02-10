@@ -23,7 +23,6 @@
 	@margin-top-header + @margin-bottom-header +
 	2 * @padding-vertical-header;
 @width-grid-column-one: 11em;
-@padding-horizontal-page-container: 30px;
 // This assumes the presence of variables inside layout.less. DO NOT import it separately.
 // Assumes various variables defined there.
 
@@ -40,23 +39,22 @@
 
 @min-width-personal-tools: unit( 300px / @font-size-browser, em );
 
-@padding-horizontal-page-container: 30px;
-@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
+@padding-horizontal-page-container: unit( 30px / @font-size-browser, em );
+@padding-horizontal-page-container-total: 2 * @padding-horizontal-page-container;
 @margin-horizontal-sidebar-button-icon-ems: unit( @margin-horizontal-sidebar-button-icon / @font-size-browser, em );
-@padding-horizontal-page-container-ems: unit( @padding-horizontal-page-container / @font-size-browser, em );
 
 // the width of the container if you exclude consideration for search
-@min-width-container-base: @padding-horizontal-page-container-ems + @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @padding-horizontal-page-container-ems;
+@min-width-container-base: @padding-horizontal-page-container + @size-sidebar-button + @margin-horizontal-sidebar-button-icon-ems + @min-width-logo + @padding-horizontal-page-container;
 
-@min-width-supported: 500px - ( 2 * @padding-horizontal-page-container );
+@min-width-supported: unit( 500px / @font-size-browser, em ) - @padding-horizontal-page-container-total;
 @width-comfortable: @min-width-container-base + @margin-horizontal-search + @max-width-search + @margin-horizontal-search + @min-width-personal-tools;
 
 @background-color-secondary--modern: #f8f9fa;
-@max-width-page-container: 1650px;
-@min-width-page-container--padded: @max-width-page-container + ( 2 * @padding-horizontal-page-container );
+@max-width-page-container: unit( 1650px / @font-size-browser, em );
+@min-width-page-container--padded: @max-width-page-container + @padding-horizontal-page-container-total;
 @background-color-page-container: @background-color-base;
-@max-width-workspace-container: 1440px;
-@max-width-content-container: 960px;
+@max-width-workspace-container: unit( 1440px / @font-size-browser, em );
+@max-width-content-container: unit( 960px / @font-size-browser, em );
 // Note this uses variables defined in mediawiki.skin.variables so that VisualEditor can read them
 // see T259331.
 @padding-content: @padding-top-content @padding-horizontal-content 1.5em;
@@ -64,14 +62,12 @@
 // content container for aesthetic reasons. The sidebar is already displaced
 // -30px so we simply add 30px of space to the width of the sidebar.
 @margin-start-content: @width-grid-column-one + unit( 8px / @font-size-browser, em );
-// Page container's total horizontal padding in em units.
-@padding-horizontal-page-container-total: 2 * unit( @padding-horizontal-page-container / @font-size-browser, em );
 // Equivalent to 1432px. This determines the maximum width breakpoint at which
 // the content will have a fixed start margin applied to it when the sidebar
 // is open. The content can shift its position when the sidebar is open/closed
 // at or below this breakpoint and will maintain its position above this
 // breakpoint.
-@max-width-margin-start-content: ( 2 * @margin-start-content ) + @padding-horizontal-page-container-total + ( unit( @max-width-content-container / @font-size-browser, em ) );
+@max-width-margin-start-content: ( 2 * @margin-start-content ) + @padding-horizontal-page-container-total + @max-width-content-container;
 
 // Default layout.
 @import 'layout-default.less';
