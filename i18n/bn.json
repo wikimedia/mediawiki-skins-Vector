@@ -21,6 +21,7 @@
 	"vector.css": "/* এখানের সকল CSS ভেক্টর আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
 	"vector.js": "/* এখানের সকল জাভাস্ক্রিপ্ট ভেক্টর আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
 	"vector-action-toggle-sidebar": "পার্শ্বদণ্ড দেখান",
+	"vector-language-button-label": "{{PLURAL:$1|$1টি ভাষা}}",
 	"vector-action-addsection": "বিষয় যোগ করুন",
 	"vector-action-delete": "অপসারণ",
 	"vector-action-move": "স্থানান্তর",

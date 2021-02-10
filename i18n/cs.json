@@ -17,6 +17,7 @@
 	"vector.css": "/* Veškeré zde uvedené CSS bude načítáno uživatelům vzhledu „Vektor“ */",
 	"vector.js": "/* Veškerý zde uvedený JavaScript bude načítán uživatelům vzhledu „Vektor“ */",
 	"vector-action-toggle-sidebar": "Přepnout postranní panel",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazyků}}",
 	"vector-action-addsection": "Přidat téma",
 	"vector-action-delete": "Smazat",
 	"vector-action-move": "Přesunout",

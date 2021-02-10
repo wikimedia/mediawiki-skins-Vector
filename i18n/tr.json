@@ -8,6 +8,7 @@
 			"Kumkumuk",
 			"MuratTheTurkish",
 			"Rapsar",
+			"SaldırganSincap",
 			"Stultiwikia",
 			"Vito Genovese"
 		]
@@ -18,6 +19,7 @@
 	"vector-opt-out": "Eski görünüme geç",
 	"vector-opt-out-tooltip": "Görünümün eski görünümüne geri dönmek için ayarlarınızı değiştirin (eski Vektör)",
 	"vector-action-toggle-sidebar": "Kenar çubuğunu aç/kapat",
+	"vector-language-button-label": "$1 dil",
 	"vector-action-addsection": "Konu ekle",
 	"vector-action-delete": "Sil",
 	"vector-action-move": "Taşı",
