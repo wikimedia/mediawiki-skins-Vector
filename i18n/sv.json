@@ -19,6 +19,7 @@
 	"vector.css": "/* CSS som skrivs här kommer att påverka alla användare av utseendet Vector */",
 	"vector.js": "/* JavaScript här kommer att laddas för dem som använder utseendet Vector */",
 	"vector-action-toggle-sidebar": "Visa/dölj sidofält",
+	"vector-language-button-label": "{{PLURAL:$1|$1 språk}}",
 	"vector-action-addsection": "Nytt ämne",
 	"vector-action-delete": "Radera",
 	"vector-action-move": "Flytta",
