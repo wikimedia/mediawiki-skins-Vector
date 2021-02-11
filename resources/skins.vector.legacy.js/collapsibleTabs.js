@@ -94,7 +94,7 @@ function init() {
 				var $tab,
 					data = $.collapsibleTabs.getSettings( $el );
 
-				if ( data.shifting ) {
+				if ( $.isEmptyObject( data ) || data.shifting ) {
 					return;
 				}
 
