@@ -77,7 +77,7 @@
 	"ResourceModules": {
 		"skins.vector.search": {
 			"dependencies": [
-				"mediawiki.util",
+				"mediawiki.Uri",
 				"wvui"
 			],
 			"packageFiles": [
