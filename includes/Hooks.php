@@ -6,7 +6,6 @@ use Config;
 use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
-use ResourceLoader;
 use ResourceLoaderContext;
 use Skin;
 use SkinTemplate;
@@ -389,45 +388,5 @@ class Hooks {
 	 */
 	private static function isSkinVersionLegacy(): bool {
 		return !VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
-	}
-
-	/**
-	 * ResourceLoaderRegisterModules hook handler
-	 *
-	 * Register the new search module.
-	 * This hook will be removed when wvui is available in core when the patch
-	 * https://gerrit.wikimedia.org/r/c/mediawiki/core/+/641052 is merged.
-	 *
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ResourceLoaderRegisterModules
-	 * @param ResourceLoader $rl
-	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader $rl ) {
-		if ( $rl->isModuleRegistered( 'wvui' ) ) {
-			$module = [
-				'localBasePath' => __DIR__ . '/..',
-				'remoteExtPath' => 'Vector',
-				'dependencies' => [
-					'mediawiki.util',
-				],
-				"packageFiles" => [
-					"resources/skins.vector.search/skins.vector.search.js",
-					"resources/skins.vector.search/instrumentation.js",
-					"resources/skins.vector.search/App.vue",
-					[
-						"name" => "resources/skins.vector.search/config.json",
-						"callback" => "Vector\\Hooks::getVectorWvuiSearchResourceLoaderConfig"
-					]
-				],
-				"dependencies" => [
-					"wvui"
-				],
-				"messages" => [
-					"search",
-					"searchresults",
-					"searchsuggest-containing"
-				],
-			];
-			$rl->register( 'skins.vector.search', $module );
-		}
 	}
 }
