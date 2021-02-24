@@ -145,6 +145,7 @@
 					"name": "resources/skins.vector.js/config.json",
 					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
 				},
+				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js",

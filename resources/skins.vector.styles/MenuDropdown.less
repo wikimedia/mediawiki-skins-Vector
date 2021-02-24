@@ -66,7 +66,6 @@
 		z-index: @z-index-menu;
 	}
 
-	&:hover .vector-menu-content,
 	.vector-menu-checkbox:checked ~ .vector-menu-content {
 		opacity: 1;
 		visibility: visible;
@@ -146,10 +145,6 @@
 	:not( :checked ) > & {
 		// When the browser supports :checked, display it
 		display: block;
-	}
-
-	&:checked + h3:after {
-		transform: scaleY( -1 );
 	}
 
 	&:focus + h3 {
