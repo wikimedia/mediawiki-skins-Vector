@@ -16,41 +16,54 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
- * @since 1.35
  */
 
+namespace Vector\FeatureManagement\Tests;
+
+use HashConfig;
+use User;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
 use Vector\SkinVersionLookup;
+use WebRequest;
 
 /**
  * @group Vector
+ * @group FeatureManagement
  * @coversDefaultClass \Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement
  */
-class LatestSkinVersionRequirementTest extends \MediaWikiTestCase {
+class LatestSkinVersionRequirementTest extends \MediaWikiUnitTestCase {
 
-	/**
-	 * @covers ::isMet
-	 */
-	public function testUnmet() {
-		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => '1' ] );
-
-		$requirement = new LatestSkinVersionRequirement(
-			new SkinVersionLookup( new WebRequest(), $this->getTestUser()->getUser(), $config )
-		);
-
-		$this->assertFalse( $requirement->isMet(), '"1" isn\'t considered latest.' );
+	public function provideIsMet() {
+		// $version, $expected, $msg
+		yield 'not met' => [ '1', false, '"1" isn\'t considered latest.' ];
+		yield 'met' => [ '2', true, '"2" is considered latest.' ];
 	}
 
 	/**
+	 * @dataProvider provideIsMet
 	 * @covers ::isMet
 	 */
-	public function testMet() {
-		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => '2' ] );
+	public function testIsMet( $version, $expected, $msg ) {
+		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => $version ] );
+
+		$user = $this->createMock( User::class );
+		$user->method( 'isRegistered' )->willReturn( true );
+		$user->method( 'getOption' )
+			->will( $this->returnArgument( 1 ) );
+
+		$request = $this->createMock( WebRequest::class );
+		$request->method( 'getVal' )
+			->will( $this->returnArgument( 1 ) );
 
 		$requirement = new LatestSkinVersionRequirement(
-			new SkinVersionLookup( new WebRequest(), $this->getTestUser()->getUser(), $config )
+			new SkinVersionLookup(
+				$request,
+				$user,
+				$config
+			)
 		);
 
-		$this->assertTrue( $requirement->isMet(), '"2" is considered latest.' );
+		$this->assertSame( $expected, $requirement->isMet(), $msg );
 	}
+
 }

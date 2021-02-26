@@ -16,17 +16,21 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
- * @since 1.36
  */
 
+namespace Vector\FeatureManagement\Tests;
+
+use HashConfig;
+use User;
 use Vector\Constants;
 use Vector\FeatureManagement\Requirements\WvuiSearchTreatmentRequirement;
 
 /**
  * @group Vector
+ * @group FeatureManagement
  * @coversDefaultClass \Vector\FeatureManagement\Requirements\WvuiSearchTreatmentRequirement
  */
-class WvuiSearchTreatmentRequirementTest extends \MediaWikiTestCase {
+class WvuiSearchTreatmentRequirementTest extends \MediaWikiUnitTestCase {
 
 	public function providerWvuiSearchTreatmentRequirement() {
 		return [
@@ -115,13 +119,15 @@ class WvuiSearchTreatmentRequirementTest extends \MediaWikiTestCase {
 			Constants::CONFIG_KEY_USE_WVUI_SEARCH => $wvuiSearchConfigValue,
 			Constants::CONFIG_SEARCH_TREATMENT_AB_TEST => $abValue,
 		] );
-		$user = $this->getTestUser()->getUser();
-		$user->setId( $userId );
+
+		$user = $this->createMock( User::class );
+		$user->method( 'isRegistered' )->willReturn( $userId !== 0 );
+		$user->method( 'getID' )->willReturn( $userId );
 
 		$requirement = new WvuiSearchTreatmentRequirement(
 			$config, $user
 		);
 
-		$this->assertSame( $requirement->isMet(), $expected, $msg );
+		$this->assertSame( $expected, $requirement->isMet(), $msg );
 	}
 }
