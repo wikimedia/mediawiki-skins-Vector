@@ -15,6 +15,7 @@
 	"vector.css": "/* Siin asuv kaskaadilaadistik laaditakse kõigi Vektori-kujunduse kasutajate jaoks. */",
 	"vector.js": "/* Siin asuv JavaScript laaditakse kõigi Vektori-kujunduse kasutajate jaoks. */",
 	"vector-action-toggle-sidebar": "Näita külgpaani või peida see",
+	"vector-language-button-label": "{{PLURAL:$1|$1 keel|$1 keelt}}",
 	"vector-action-addsection": "Lisa teema",
 	"vector-action-delete": "Kustuta",
 	"vector-action-move": "Teisalda",
@@ -28,5 +29,7 @@
 	"vector-view-viewsource": "Vaata lähteteksti",
 	"vector-jumptonavigation": "Mine navigeerimisribale",
 	"vector-jumptosearch": "Mine otsikasti",
-	"vector-more-actions": "Veel"
+	"vector-jumptocontent": "Mine sisu juurde",
+	"vector-more-actions": "Veel",
+	"vector-search-loader": "Otsisoovituste laadimine"
 }
