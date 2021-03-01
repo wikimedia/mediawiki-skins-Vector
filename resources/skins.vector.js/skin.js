@@ -1,5 +1,6 @@
 var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
 	vector = require( '../skins.vector.legacy.js/vector.js' ),
+	languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	sidebar = require( './sidebar.js' );
 
@@ -40,34 +41,12 @@ function enableCssAnimations( document ) {
  * @return {void}
  */
 function main( window ) {
-	var
-		ulsModuleStatus = mw.loader.getState( 'ext.uls.interface' ),
-		pLangBtnLabel;
-
 	enableCssAnimations( window.document );
 	collapsibleTabs.init();
 	sidebar.init( window );
 	$( vector.init );
 	initSearchLoader( document );
-	if ( ulsModuleStatus && ulsModuleStatus !== 'registered' ) {
-		mw.loader.using( 'ext.uls.interface' ).then( function () {
-			var pLangBtn = document.getElementById( 'p-lang-btn' );
-			if ( !pLangBtn ) {
-				return;
-			}
-
-			pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
-		} );
-	} else {
-		pLangBtnLabel = document.getElementById( 'p-lang-btn-label' );
-		if ( !pLangBtnLabel ) {
-			return;
-		}
-
-		// Remove .mw-interlanguage-selector to show the dropdown arrow since evidently
-		// ULS is not used.
-		pLangBtnLabel.classList.remove( 'mw-interlanguage-selector' );
-	}
+	languageButton();
 }
 
 main( window );
