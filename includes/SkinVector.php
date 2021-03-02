@@ -34,6 +34,8 @@ use Vector\VectorServices;
  * @internal
  */
 class SkinVector extends SkinMustache {
+	/** @var null|array for caching purposes */
+	private $languages;
 	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
 	/** @var int */
@@ -102,11 +104,52 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Calls getLanguages with caching.
+	 * @return array
+	 */
+	private function getLanguagesCached() : array {
+		if ( $this->languages !== null ) {
+			return $this->languages;
+		}
+		$this->languages = $this->getLanguages();
+		return $this->languages;
+	}
+
+	/**
+	 * This should be upstreamed to the Skin class in core once the logic is finalized.
+	 * Returns false if an editor has explicitly disabled languages on the page via the property
+	 * `noexternallanglinks`, if the page is a special page without any languages, or if an action
+	 * other than view is being used.
+	 * @return bool
+	 */
+	private function canHaveLanguages() : bool {
+		$action = Action::getActionName( $this->getContext() );
+		if ( $action !== 'view' ) {
+			return false;
+		}
+		// Wikibase introduces a magic word
+		// When upstreaming this should be Wikibase agnostic.
+		// https://www.mediawiki.org/wiki/Wikibase/Installation/Advanced_configuration#noexternallanglinks
+		// If the property is not set, continue safely through the other if statements.
+		if ( $this->getOutput()->getProperty( 'noexternallanglinks' ) ) {
+			return false;
+		}
+		$title = $this->getTitle();
+		// Defensive programming - if a special page has added languages explicitly, best to show it.
+		if ( $title && $title->isSpecialPage() && empty( $this->getLanguagesCached() ) ) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * @return bool
 	 */
 	private function isLanguagesInHeader() {
 		$featureManager = VectorServices::getFeatureManager();
-		return $featureManager->isFeatureEnabled(
+		// Disable button on pages without languages (based on Wikibase RepoItemLinkGenerator class)
+
+		return $this->canHaveLanguages() && $featureManager->isFeatureEnabled(
 			Constants::FEATURE_LANGUAGE_IN_HEADER
 		);
 	}
@@ -249,7 +292,7 @@ class SkinVector extends SkinMustache {
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
 			$portletData['label'] = $this->msg(
 				'vector-language-button-label',
-				count( $this->getLanguages() )
+				count( $this->getLanguagesCached() )
 			)->parse();
 			// Adds language icon
 			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-before '
