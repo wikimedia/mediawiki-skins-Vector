@@ -175,6 +175,7 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"vector": {
+			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
 			"jquery.ui": [
 				"skinStyles/jquery.ui/jquery.ui.core.css",
