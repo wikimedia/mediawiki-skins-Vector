@@ -182,6 +182,11 @@ class SkinVector extends SkinMustache {
 
 		$parentData = parent::getTemplateData();
 
+		// Remove language from sidebar if in modern Vector and no languages possible.
+		if ( !$this->isLegacy() && !$this->canHaveLanguages() ) {
+			$parentData['data-portlets']['data-languages'] = null;
+		}
+
 		$commonSkinData = array_merge( $parentData, [
 			'page-isarticle' => (bool)$out->isArticle(),
 
