@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aefgh39622",
 			"Ans",
 			"Geonuch",
 			"Horus",
@@ -18,6 +19,7 @@
 	"vector.css": "/* สไตล์ชีตในหน้านี้จะส่งผลแก่ผู้ใช้ที่ใช้สกินเวกเตอร์ */",
 	"vector.js": "/* จาวาสคริปต์ใด ๆ ในหน้านี้จะถูกโหลดให้แก่ผู้ใช้ที่ใช้สกินเวกเตอร์ */",
 	"vector-action-toggle-sidebar": "เปิด/ปิดแถบข้าง",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ภาษา}}",
 	"vector-action-addsection": "เพิ่มหัวข้อ",
 	"vector-action-delete": "ลบ",
 	"vector-action-move": "เปลี่ยนชื่อ",
@@ -31,5 +33,7 @@
 	"vector-view-viewsource": "ดูต้นฉบับ",
 	"vector-jumptonavigation": "ไปยังการนำทาง",
 	"vector-jumptosearch": "ไปยังการค้นหา",
-	"vector-more-actions": "เพิ่มเติม"
+	"vector-jumptocontent": "ข้ามไปเนื้อหา",
+	"vector-more-actions": "เพิ่มเติม",
+	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา"
 }
