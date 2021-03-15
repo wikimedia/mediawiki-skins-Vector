@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Naufal06",
 			"NoiX180",
 			"Pras",
 			"Sumbukompor"
@@ -13,6 +14,7 @@
 	"vector-opt-out-tooltip": "Owahi setèlanmu saperlu bali menyang pakulitan lawas (Vector Baku)",
 	"vector.css": "/* Kabèh CSS ing kéné bakal dimot kanggo naraguna ules Vèktor */",
 	"vector.js": "/* Kabèh JavaScript ing kéné bakal dimot kanggo naraguna ules Vèktor */",
+	"vector-language-button-label": "$1 basa",
 	"vector-action-addsection": "Tambah rembug",
 	"vector-action-delete": "Busak",
 	"vector-action-move": "Lih",
