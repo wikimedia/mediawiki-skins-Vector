@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client",
+		"wikimedia/client-es5",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
@@ -11,6 +11,7 @@
 			"off",
 			"ResourceLoader's `packageFiles` do not require wrapping but the `module` option is only available in ES6+."
 		],
-		"no-implicit-globals": "off"
+		"no-implicit-globals": "off",
+		"compat/compat": "warn"
 	}
 }
