@@ -155,6 +155,18 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * If in modern Vector and no languages possible, OR the languages in header button
+	 * is enabled but language array is empty, then we shouldn't show the langauge list.
+	 * @return bool
+	 */
+	private function shouldHideLanguages() {
+		return !$this->isLegacy() &&
+			!$this->canHaveLanguages() ||
+			// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
+			( $this->isLanguagesInHeader() && empty( $this->getLanguagesCached() ) );
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData() : array {
@@ -162,6 +174,11 @@ class SkinVector extends SkinMustache {
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
+		$parentData = parent::getTemplateData();
+
+		if ( $this->shouldHideLanguages() ) {
+			$parentData['data-portlets']['data-languages'] = null;
+		}
 
 		// Naming conventions for Mustache parameters.
 		//
@@ -179,13 +196,6 @@ class SkinVector extends SkinMustache {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
-
-		$parentData = parent::getTemplateData();
-
-		// Remove language from sidebar if in modern Vector and no languages possible.
-		if ( !$this->isLegacy() && !$this->canHaveLanguages() ) {
-			$parentData['data-portlets']['data-languages'] = null;
-		}
 
 		$commonSkinData = array_merge( $parentData, [
 			'page-isarticle' => (bool)$out->isArticle(),
@@ -277,6 +287,32 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Combines class and other HTML data required to create the button
+	 * for the languages in header feature with the existing language portletData.
+	 *
+	 * @param array $portletData returned by SkinMustache
+	 * @return array enhanced $portletData
+	 */
+	private function createULSLanguageButton( $portletData ) {
+		$languageButtonData = [
+			'id' => 'p-lang-btn',
+			'label' => $this->msg(
+				'vector-language-button-label',
+				count( $this->getLanguagesCached() )
+			)->parse(),
+			'heading-class' =>
+				' vector-menu-heading ' .
+				' mw-ui-icon ' .
+				' mw-ui-icon-before ' .
+				' mw-ui-icon-wikimedia-language ' .
+				' mw-ui-button mw-ui-quiet ' .
+				// ext.uls.interface attaches click handler to this selector.
+				' mw-interlanguage-selector ',
+			];
+		return array_merge( $portletData, $languageButtonData );
+	}
+
+	/**
 	 * helper for applying Vector menu classes to portlets
 	 * @param array $portletData returned by SkinMustache to decorate
 	 * @param int $type representing one of the menu types (see MENU_TYPE_* constants)
@@ -295,17 +331,7 @@ class SkinVector extends SkinMustache {
 		$portletData['heading-class'] = 'vector-menu-heading';
 
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
-			$portletData['label'] = $this->msg(
-				'vector-language-button-label',
-				count( $this->getLanguagesCached() )
-			)->parse();
-			// Adds language icon
-			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-before '
-				. 'mw-ui-icon-wikimedia-language mw-ui-button mw-ui-quiet';
-			// Adds .mw-interlanguage-selector (ext.uls.interface attaches click
-			// handler to this selector).
-			$portletData['heading-class'] .= ' mw-interlanguage-selector';
-			$portletData['id'] = 'p-lang-btn';
+			$portletData = $this->createULSLanguageButton( $portletData );
 		}
 		$class = $portletData['class'];
 		$portletData['class'] = trim( "$class $extraClasses[$type]" );
