@@ -1,10 +1,10 @@
-// The .mw-page-container class is used to restrict this to the modern Vector.
-// This element is not needed in legacy Vector.
+// Override core's `.mw-ui-icon` which defaults to 24x24.
+// The Design Style Guide  and its icons are now set to 20x20.
+// FIXME: With core set to 20x20 this file should become obsolete, see T191021.
+@import '../variables.less';
+
 .mw-portlet-lang .mw-ui-icon:before {
-	// mw-ui-icon in core defaults to 24x24. The style guide now requests 20x20.
-	background-size: 20px auto;
-	width: 20px;
-	height: 20px;
-	min-height: 20px;
-	margin-right: 8px;
+	background-size: unit( @size-icon / @font-size-base, em ) auto;
+	width: unit( @size-icon / @font-size-base, em );
+	height: unit( @size-icon / @font-size-base, em );
 }
