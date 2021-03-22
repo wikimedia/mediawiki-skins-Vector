@@ -61,13 +61,6 @@ body {
 	z-index: @z-index-base;
 }
 
-#bodyContent {
-	// Clearfix here for legacy reasons of floated children (gadgets?),
-	// to be revisited to clarify historic need and possibly remove.
-	// Only apply to the main content area (T263445)
-	.mixin-clearfix();
-}
-
 /* Head */
 #mw-page-base {
 	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
