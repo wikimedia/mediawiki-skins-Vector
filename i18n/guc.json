@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Leonfd1992",
-			"Maor X"
+			"Maor X",
+			"Wilfredor"
 		]
 	},
+	"vector-opt-out": "Awanajaa sünainmüin sukuwa'ipaka paalainka",
 	"vector-action-addsection": "Alüjülee jeketü",
 	"vector-action-delete": "Ojuichajaa",
 	"vector-action-move": "Ansülaa",
