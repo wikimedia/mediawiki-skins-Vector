@@ -9,9 +9,16 @@ interface MwUri {
 	toString(): string;
 }
 
+interface MwEventLog {
+	eventInSample( population: Object ): () => boolean;
+	inSample( num: Number ): () => boolean;
+	logEvent( schema: string, data: Object ): () => void;
+}
+
 type UriConstructor = new( uri: string ) => MwUri;
 
 interface MediaWiki {
+	eventLog?: MwEventLog,
 	util: {
 		/**
 		 * @param {string} id of portlet
@@ -79,6 +86,11 @@ interface MediaWiki {
 	 * @param messageName i18n message name
 	 */
 	msg( messageName: string|null ): string;
+
+	/**
+	 * Get current timestamp
+	 */
+	now(): number,
 
 	/**
 	 * Track an analytic event.
