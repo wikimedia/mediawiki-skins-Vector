@@ -3,6 +3,7 @@
 		"authors": [
 			"ITurtle",
 			"Jay94ks",
+			"Jerrykim306",
 			"Kwj2772",
 			"MemphisA5",
 			"Revi",
@@ -35,5 +36,5 @@
 	"vector-jumptosearch": "검색하러 가기",
 	"vector-jumptocontent": "내용으로 건너뛰기",
 	"vector-more-actions": "더 보기",
-	"vector-search-loader": "검색 제한을 불러오는 중"
+	"vector-search-loader": "검색 제안을 불러오는 중"
 }
