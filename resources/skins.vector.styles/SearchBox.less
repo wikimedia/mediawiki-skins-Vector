@@ -26,7 +26,7 @@
 	border-radius: @border-radius-base;
 	// `padding-right` equals to `#searchbutton` width below.
 	padding: 5px @width-search-button 5px 0.4em;
-	.box-shadow( @boxShadowWidget );
+	box-shadow: @box-shadow-base;
 	// Match WVUI.
 	font-family: inherit;
 	font-size: @font-size-search-input;
@@ -46,8 +46,8 @@
 	&:focus,
 	#simpleSearch:hover &:focus {
 		outline: 0;
-		border-color: @colorProgressive;
-		.box-shadow( @boxShadowProgressiveFocus );
+		border-color: @border-color-base--focus;
+		box-shadow: @box-shadow-base--focus;
 	}
 
 	.mixin-placeholder( {
