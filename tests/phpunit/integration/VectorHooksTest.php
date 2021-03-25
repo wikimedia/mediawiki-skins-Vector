@@ -9,18 +9,17 @@ use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
 use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 
-const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
-
 /**
  * Integration tests for Vector Hooks.
  *
  * @group Vector
  * @coversDefaultClass \Vector\Hooks
  */
-class VectorHooksTest extends \MediaWikiTestCase {
+class VectorHooksTest extends MediaWikiIntegrationTestCase {
+
+	private const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
 
 	/**
-	 * helper
 	 * @param bool $excludeMainPage
 	 * @param array $excludeNamespaces
 	 * @param array $include
@@ -154,8 +153,8 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		$shouldDisableMaxWidth
 	) {
 		$this->assertSame(
-			Hooks::shouldDisableMaxWidth( $options, $title, $requestValues ),
 			$shouldDisableMaxWidth,
+			Hooks::shouldDisableMaxWidth( $options, $title, $requestValues ),
 			$msg
 		);
 	}
@@ -171,7 +170,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 
 		$prefs = [];
 		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
-		$this->assertSame( $prefs, [], 'No preferences are added.' );
+		$this->assertSame( [], $prefs, 'No preferences are added.' );
 	}
 
 	private function setFeatureLatestSkinVersionIsEnabled( $isEnabled ) {
@@ -198,7 +197,6 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		];
 		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
 		$this->assertEquals(
-			$prefs,
 			[
 				'foo' => [],
 				'skin' => [],
@@ -206,7 +204,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'class' => HTMLLegacySkinVersionField::class,
 					'label-message' => 'prefs-vector-enable-vector-1-label',
 					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => SKIN_PREFS_SECTION,
+					'section' => self::SKIN_PREFS_SECTION,
 					'default' => $isLegacy,
 					'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
 				],
@@ -216,6 +214,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 				],
 				'bar' => [],
 			],
+			$prefs,
 			'Preferences are inserted directly after skin.'
 		);
 	}
@@ -233,7 +232,6 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		];
 		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
 		$this->assertEquals(
-			$prefs,
 			[
 				'foo' => [],
 				'bar' => [],
@@ -241,7 +239,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'class' => HTMLLegacySkinVersionField::class,
 					'label-message' => 'prefs-vector-enable-vector-1-label',
 					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => SKIN_PREFS_SECTION,
+					'section' => self::SKIN_PREFS_SECTION,
 					'default' => $isLegacy,
 					'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
 				],
@@ -250,6 +248,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 					'default' => true
 				],
 			],
+			$prefs,
 			'Preferences are appended.'
 		);
 	}
@@ -263,7 +262,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorSkinVersion' => Constants::SKIN_VERSION_LEGACY,
 		];
 		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( \User::class );
+		$user = $this->createMock( User::class );
 		$user->expects( $this->never() )
 			->method( 'setOption' );
 		$result = true;
@@ -280,7 +279,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorSkinVersion' => Constants::SKIN_VERSION_LATEST,
 		];
 		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( \User::class );
+		$user = $this->createMock( User::class );
 		$user->expects( $this->never() )
 			->method( 'setOption' );
 		$result = true;
@@ -297,7 +296,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 			'VectorSkinVersion' => Constants::SKIN_VERSION_LATEST,
 		];
 		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( \User::class );
+		$user = $this->createMock( User::class );
 		$user->expects( $this->once() )
 			->method( 'setOption' )
 			->with( 'VectorSkinVersion', 'old' );
@@ -318,7 +317,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		] );
 		$this->setService( 'Vector.Config', $config );
 
-		$user = $this->createMock( \User::class );
+		$user = $this->createMock( User::class );
 		$user->expects( $this->once() )
 			->method( 'setOption' )
 			->with( 'VectorSkinVersion', Constants::SKIN_VERSION_LEGACY );
@@ -335,7 +334,7 @@ class VectorHooksTest extends \MediaWikiTestCase {
 		] );
 		$this->setService( 'Vector.Config', $config );
 
-		$user = $this->createMock( \User::class );
+		$user = $this->createMock( User::class );
 		$user->expects( $this->once() )
 			->method( 'setOption' )
 			->with( 'VectorSkinVersion', Constants::SKIN_VERSION_LATEST );
