@@ -320,7 +320,8 @@ class Hooks {
 		if ( !$isVectorEnabled && array_key_exists( Constants::PREF_KEY_SKIN_VERSION, $oldPreferences ) ) {
 			// The setting was cleared. However, this is likely because a different skin was chosen and
 			// the skin version preference was hidden.
-			$user->setOption(
+			MediaWikiServices::getInstance()->getUserOptionsManager()->setOption(
+				$user,
 				Constants::PREF_KEY_SKIN_VERSION,
 				$oldPreferences[ Constants::PREF_KEY_SKIN_VERSION ]
 			);
@@ -337,7 +338,11 @@ class Hooks {
 		$default = self::getConfig( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
 		// Permanently set the default preference. The user can later change this preference, however,
 		// self::onLocalUserCreated() will not be executed for that account again.
-		$user->setOption( Constants::PREF_KEY_SKIN_VERSION, $default );
+		MediaWikiServices::getInstance()->getUserOptionsManager()->setOption(
+			$user,
+			Constants::PREF_KEY_SKIN_VERSION,
+			$default
+		);
 	}
 
 	/**
