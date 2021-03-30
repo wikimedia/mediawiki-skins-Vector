@@ -126,9 +126,12 @@
 			"features": {
 				"normalize": true,
 				"elements": true,
-				"content": true,
+				"content-media": true,
 				"interface": true,
-				"legacy": true
+				"interface-category": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true
 			},
 			"targets": [
 				"desktop",
