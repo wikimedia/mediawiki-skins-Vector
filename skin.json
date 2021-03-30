@@ -132,7 +132,7 @@
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
 			"useDataURI": false,
-			"defaultColor": "#54595d",
+			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"icons": [
