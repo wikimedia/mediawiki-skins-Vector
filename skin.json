@@ -99,6 +99,7 @@
 		"skins.vector.styles.legacy": {
 			"class": "ResourceLoaderSkinModule",
 			"features": {
+				"content-parser-output": false,
 				"normalize": true,
 				"elements": true,
 				"content": true,

@@ -61,6 +61,12 @@ body {
 	z-index: @z-index-base;
 }
 
+// FIXME: Can be removed when the `content-parser-output` feature in `skins.vector.styles.legacy`
+// is enabled. The definition in core still needs work (see T279008).
+#bodyContent {
+	.mixin-clearfix();
+}
+
 /* Head */
 #mw-page-base {
 	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
