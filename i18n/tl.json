@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AnakngAraw",
+			"GinawaSaHapon",
 			"Sky Harbor"
 		]
 	},
@@ -14,8 +15,8 @@
 	"vector-action-protect": "Ipagsanggalang",
 	"vector-action-undelete": "Alisin ang pagbubura",
 	"vector-action-unprotect": "Baguhin ang pagsasanggalang",
-	"vector-view-create": "Likhain",
-	"vector-view-edit": "Baguhin",
+	"vector-view-create": "Gawin",
+	"vector-view-edit": "I-edit",
 	"vector-view-history": "Tingnan ang kasaysayan",
 	"vector-view-view": "Basahin",
 	"vector-view-viewsource": "Tingnan ang pinagmulan",
