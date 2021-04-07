@@ -271,8 +271,11 @@
 			"value": false
 		},
 		"VectorLanguageInHeader": {
-			"value": false,
-			"description": "@var boolean Moves the language links from the sidebar into a menu beside the page title. Also moves the indicators to the line below, next to the tagline (siteSub)."
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var array Moves the language links from the sidebar into a menu beside the page title. Also moves the indicators to the line below, next to the tagline (siteSub)."
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
