@@ -5,6 +5,8 @@
 		]
 	},
 	"skinname-vector": "ቨክተር",
+	"vector-opt-out": "ናብ ናይ ቀደም ትርኢት ለውጥ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ቋንቋ|$1 ቋንቋታት}}",
 	"vector-action-addsection": "ክፋል ወስክ",
 	"vector-action-delete": "ሰርዝ",
 	"vector-action-move": "ኣንቀሳቕስ",
