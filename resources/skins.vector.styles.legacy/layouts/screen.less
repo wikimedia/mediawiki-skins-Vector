@@ -69,6 +69,12 @@ body {
 	.mixin-clearfix();
 }
 
+// FIXME: Temporarily disable the core rule which applies to the wrong element.
+// The definition in core still needs work (see T279008).
+.mw-parser-output:after {
+	content: none;
+}
+
 /* Head */
 #mw-page-base {
 	.vertical-gradient( @background-color-base, @background-color-secondary, 50%, 100% );
