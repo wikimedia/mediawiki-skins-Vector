@@ -69,12 +69,25 @@ return [
 
 		// Feature: Languages in sidebar
 		// ================================
-		$featureManager->registerRequirement(
-			new DynamicConfigRequirement(
-				$services->getMainConfig(),
-				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
-				Constants::REQUIREMENT_LANGUAGE_IN_HEADER
-			)
+		$config = $services->getMainConfig();
+		$languageInHeaderConfig = $config->get( Constants::CONFIG_KEY_LANGUAGE_IN_HEADER );
+
+		// Backwards compatibility with config variables that have been set in production.
+		if ( is_bool( $languageInHeaderConfig ) ) {
+			$languageInHeaderConfig = [
+				'logged_in' => $languageInHeaderConfig,
+				'logged_out' => $languageInHeaderConfig,
+			];
+		} else {
+			$languageInHeaderConfig = [
+				'logged_in' => $languageInHeaderConfig['logged_in'] ?? false,
+				'logged_out' => $languageInHeaderConfig['logged_out'] ?? false,
+			];
+		}
+
+		$featureManager->registerSimpleRequirement(
+			Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+			$languageInHeaderConfig[ $context->getUser()->isRegistered() ? 'logged_in' : 'logged_out' ]
 		);
 
 		$featureManager->registerFeature(
