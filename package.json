@@ -13,7 +13,7 @@
 		"selenium-test": "npm -s run test:size",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook",
 		"build-storybook": "bash dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
-		"svgmin": "svgo --config=.svgo.config.js -q -r -f resources/",
+		"minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
 		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
 	"pre-commit": "pre-commit",
@@ -35,7 +35,7 @@
 		"node-fetch": "2.6.1",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.10.3",
-		"svgo": "2.2.2",
+		"svgo": "2.3.0",
 		"typescript": "3.8.3",
 		"vue": "2.6.11"
 	}
