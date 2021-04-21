@@ -117,21 +117,13 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * This should be upstreamed to the Skin class in core once the logic is finalized.
-	 * Returns false if an editor has explicitly disabled languages on the page via the property
-	 * `noexternallanglinks`, if the page is a special page without any languages, or if an action
+	 * Returns false if the page is a special page without any languages, or if an action
 	 * other than view is being used.
 	 * @return bool
 	 */
 	private function canHaveLanguages() : bool {
 		$action = Action::getActionName( $this->getContext() );
 		if ( $action !== 'view' ) {
-			return false;
-		}
-		// Wikibase introduces a magic word
-		// When upstreaming this should be Wikibase agnostic.
-		// https://www.mediawiki.org/wiki/Wikibase/Installation/Advanced_configuration#noexternallanglinks
-		// If the property is not set, continue safely through the other if statements.
-		if ( $this->getOutput()->getProperty( 'noexternallanglinks' ) ) {
 			return false;
 		}
 		$title = $this->getTitle();
