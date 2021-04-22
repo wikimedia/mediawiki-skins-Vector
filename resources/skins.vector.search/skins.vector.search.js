@@ -12,7 +12,7 @@ var
 function initApp( searchForm, search ) {
 	// eslint-disable-next-line no-new
 	new Vue( {
-		el: '#p-search',
+		el: searchForm,
 		/**
 		 *
 		 * @param {Function} createElement
