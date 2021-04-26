@@ -100,7 +100,6 @@
 		"skins.vector.styles.legacy": {
 			"class": "ResourceLoaderSkinModule",
 			"features": {
-				"content-parser-output": true,
 				"normalize": true,
 				"elements": true,
 				"content": true,
@@ -124,8 +123,7 @@
 				"elements": true,
 				"content": true,
 				"interface": true,
-				"legacy": true,
-				"content-parser-output": true
+				"legacy": true
 			},
 			"targets": [
 				"desktop",

@@ -48,7 +48,7 @@
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
 	<a id="top"></a>
-	<div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
+	<div id="siteNotice">{{{html-site-notice}}}</div>
 
 	{{^is-language-in-header}}
 	{{>Indicators}}
@@ -70,7 +70,7 @@
 	</header>
 	{{/is-language-in-header}}
 
-	<div id="bodyContent" class="mw-body-content">
+	<div id="bodyContent">
 		{{^is-language-in-header}}
 			{{#is-article}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/is-article}}
 		{{/is-language-in-header}}
