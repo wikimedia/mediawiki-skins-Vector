@@ -283,6 +283,10 @@
 			},
 			"description": "@var array Moves the language links from the sidebar into a menu beside the page title. Also moves the indicators to the line below, next to the tagline (siteSub)."
 		},
+		"VectorLanguageInHeaderTreatmentABTest": {
+			"value": false,
+			"description": "@var boolean Enables or disables the language in header treatment A/B test. See https://phabricator.wikimedia.org/T280825 and associated tasks for additional detail."
+		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
 			"description": "@var boolean Temporary feature flag that disables saving the sidebar expanded/collapsed state as a user-preference (triggered via clicking the main menu icon). This is intended as a temporary kill-switch in the event that the DB is overloaded with writes to the user_options table."
