@@ -106,6 +106,21 @@ return [
 			]
 		);
 
+		// Feature: Consolidate personal menu links
+		// ================================
+		$consolidateUserLinksConfig = $services->getMainConfig()->get( Constants::CONFIG_CONSOLIDATE_USER_LINKS );
+		$featureManager->registerSimpleRequirement(
+			Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS,
+			$consolidateUserLinksConfig[ $context->getUser()->isRegistered() ? 'logged_in' : 'logged_out' ]
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_CONSOLIDATE_USER_LINKS,
+			[
+				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS
+			]
+		);
+
 		return $featureManager;
 	}
 ];

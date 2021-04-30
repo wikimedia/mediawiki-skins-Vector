@@ -110,6 +110,24 @@ class Hooks {
 			$sk->getSkinName() === 'vector' &&
 			$title && $title->canExist()
 		) {
+			if ( !self::isSkinVersionLegacy()
+				&& isset( $content_navigation['user-menu'] )
+			) {
+				// If the consolidate user links feature is enabled, rearrange some links in the personal toolbar.
+				if ( VectorServices::getFeatureManager()->isFeatureEnabled(
+					Constants::FEATURE_CONSOLIDATE_USER_LINKS )
+				) {
+					if ( $sk->loggedin ) {
+						// Remove user page from personal menu dropdown for logged in users.
+						unset( $content_navigation['user-menu']['userpage'] );
+					}
+				} else {
+					// Remove user page from personal toolbar since it will be inside the personal menu for logged in
+					// users when the feature flag is disabled.
+					unset( $content_navigation['user-page'] );
+				}
+			}
+
 			$key = null;
 			if ( isset( $content_navigation['actions']['watch'] ) ) {
 				$key = 'watch';

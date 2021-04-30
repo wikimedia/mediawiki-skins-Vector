@@ -159,6 +159,18 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * If in modern Vector and the config is set to consolidate user links, enable user link consolidation.
+	 * @return bool
+	 */
+	private function consolidateUserLinks() {
+		$featureManager = VectorServices::getFeatureManager();
+		return !$this->isLegacy() &&
+			$featureManager->isFeatureEnabled(
+				Constants::FEATURE_CONSOLIDATE_USER_LINKS
+			);
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData() : array {
@@ -190,6 +202,8 @@ class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 
 		$commonSkinData = array_merge( $parentData, [
+			'consolidate-user-links' => $this->consolidateUserLinks(),
+
 			'page-isarticle' => (bool)$out->isArticle(),
 
 			'is-mainpage' => $title->isMainPage(),
@@ -322,7 +336,12 @@ class SkinVector extends SkinMustache {
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
 		$portletData['heading-class'] = 'vector-menu-heading';
-
+		// Add target class to apply different icon to personal menu dropdown for logged in users.
+		if ( $portletData['id'] === 'p-personal' && $this->consolidateUserLinks() && !$this->getUser()->isAnon() ) {
+			$portletData['heading-class'] .= ' mw-portlet-personal-page__heading--auth';
+			// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
+			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis';
+		}
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
 			$portletData = $this->createULSLanguageButton( $portletData );
 		}
@@ -340,6 +359,10 @@ class SkinVector extends SkinMustache {
 		array $urls = []
 	) : array {
 		switch ( $label ) {
+			case 'user-menu':
+				$type = $this->consolidateUserLinks() && $this->getUser()->isRegistered() ?
+					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
+				break;
 			case 'actions':
 			case 'variants':
 				$type = self::MENU_TYPE_DROPDOWN;
@@ -348,7 +371,9 @@ class SkinVector extends SkinMustache {
 			case 'namespaces':
 				$type = self::MENU_TYPE_TABS;
 				break;
+			case 'notifications':
 			case 'personal':
+			case 'user-page':
 				$type = self::MENU_TYPE_DEFAULT;
 				break;
 			case 'lang':
