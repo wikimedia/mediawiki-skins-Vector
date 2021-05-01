@@ -204,7 +204,7 @@ class SkinVector extends SkinMustache {
 		$commonSkinData = array_merge( $parentData, [
 			'consolidate-user-links' => $this->consolidateUserLinks(),
 
-			'page-isarticle' => (bool)$out->isArticle(),
+			'is-article' => (bool)$out->isArticle(),
 
 			'is-mainpage' => $title->isMainPage(),
 			// Remember that the string '0' is a valid title.

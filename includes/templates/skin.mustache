@@ -4,7 +4,7 @@
 	Indicator[] array-indicators wiki-defined badges such as "good article",
 		"featured article". An empty array if none are defined.
 	string html-title
-	bool page-isarticle
+	bool is-article
 	string msg-tagline
 	string html-subtitle
 	string html-undelete-link
@@ -64,15 +64,15 @@
 			{{{html-title}}}
 		</h1>
 		{{>Indicators}}
-		{{#page-isarticle}}
+		{{#is-article}}
 			<div id="siteSub" class="noprint">{{msg-tagline}}</div>
-		{{/page-isarticle}}
+		{{/is-article}}
 	</header>
 	{{/is-language-in-header}}
 
 	<div id="bodyContent" class="mw-body-content">
 		{{^is-language-in-header}}
-			{{#page-isarticle}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/page-isarticle}}
+			{{#is-article}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/is-article}}
 		{{/is-language-in-header}}
 		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 		<div id="contentSub2">{{{html-undelete-link}}}</div>
