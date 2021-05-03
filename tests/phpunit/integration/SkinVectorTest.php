@@ -54,14 +54,14 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$this->setTemporaryHook( 'PersonalUrls', [
-			function ( &$personal_urls, &$title, $skin ) {
+			static function ( &$personal_urls, &$title, $skin ) {
 				$personal_urls = [
 					'pt-1' => [ 'text' => 'pt1' ],
 				];
 			}
 		] );
 		$this->setTemporaryHook( 'SkinTemplateNavigation', [
-			function ( &$skinTemplate, &$content_navigation ) {
+			static function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation['actions'] = [
 					'action-1' => []
 				];

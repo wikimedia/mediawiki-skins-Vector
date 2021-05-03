@@ -31,10 +31,10 @@ use Vector\FeatureManagement\Requirements\WvuiSearchTreatmentRequirement;
 use Vector\SkinVersionLookup;
 
 return [
-	Constants::SERVICE_CONFIG => function ( MediaWikiServices $services ) {
+	Constants::SERVICE_CONFIG => static function ( MediaWikiServices $services ) {
 		return $services->getService( 'ConfigFactory' )->makeConfig( Constants::SKIN_NAME );
 	},
-	Constants::SERVICE_FEATURE_MANAGER => function ( MediaWikiServices $services ) {
+	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
 		$featureManager = new FeatureManager();
 
 		$featureManager->registerRequirement(
