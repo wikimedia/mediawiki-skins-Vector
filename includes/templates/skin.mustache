@@ -57,7 +57,9 @@
 
 	{{#is-language-in-header}}
 	<header class="mw-body-header">
-		{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
+		{{^is-mainpage}}
+			{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
+		{{/is-mainpage}}
 		<h1 id="firstHeading" class="firstHeading" {{{html-user-language-attributes}}}>
 			{{{html-title}}}
 		</h1>
@@ -78,6 +80,13 @@
 		{{{html-body-content}}}
 		{{{html-categories}}}
 	</div>
+
+	{{#is-mainpage}}
+	{{#is-language-in-header}}
+		{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
+	{{/is-language-in-header}}
+	{{/is-mainpage}}
+
 </main>
 {{{html-after-content}}}
 	</div> {{! END mw-content-container }}

@@ -2,9 +2,11 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
-// `.mw-body-header` class can be removed when language button is the default.
-// e.g. upon removal of SkinVector::isLanguagesInHeader
-.mw-body-header .mw-portlet-lang {
+// TODO: `#p-lang-btn` Can be changed to `.mw-portlet-lang` when languages-in-header is the default.
+#p-lang-btn {
+	.box-sizing( border-box );
+	height: @height-lang-button;
+
 	.mw-ui-icon:before {
 		margin-right: 8px;
 		// Put icon on correct standard normal state color.
@@ -38,9 +40,17 @@
 		overflow: scroll;
 		border-top-width: 1px;
 
+		// Adds to the show/hide technique in MenuDropdown.less with
+		// display to prevent rendering and long scrolling on Main page
+		display: none;
+
 		li a {
 			font-size: inherit;
 		}
+	}
+
+	.vector-menu-checkbox:checked ~ .vector-menu-content {
+		display: block;
 	}
 
 	.after-portlet {
@@ -51,7 +61,7 @@
 
 // Disable border-radius when dropdown menu open
 .client-nojs {
-	.mw-portlet-lang:hover .vector-menu-heading,
+	#p-lang-btn:hover .vector-menu-heading,
 	.vector-menu-checkbox:checked + .vector-menu-heading {
 		border-radius: 0;
 	}
@@ -59,7 +69,7 @@
 
 // mw-body-header class can be removed when language button is the default.
 // e.g. upon removal of SkinVector::isLanguagesInHeader
-.client-js .mw-body-header {
+.client-js #p-lang-btn {
 	// The `.mw-interlanguage-selector` is toggled off through js if the
 	// `ext.uls.interface` module is not being loaded.
 	.mw-interlanguage-selector {
