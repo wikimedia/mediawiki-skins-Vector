@@ -199,14 +199,16 @@ body {
 .mw-body-header {
 	.mixin-clearfix();
 
+	// TODO: Can be changed to `.mw-portlet-lang` when langauge-in-header feature is default.
 	#p-lang-btn {
-		@height-lang-button: unit( 32 / @font-size-browser, em );
-		float: right;
-		.box-sizing( border-box );
-		height: @height-lang-button;
-		// should be vertically aligned.
+		// should be vertically aligned with heading.
 		margin-top: ( ( @font-size-heading-1 * @line-height-heading ) - @height-lang-button ) / 2;
 	}
+}
+
+// TODO: Can be changed to `.mw-body .mw-portlet-lang` when langauge-in-header feature is default.
+.mw-body #p-lang-btn {
+	float: right;
 }
 
 .mw-body-content {
