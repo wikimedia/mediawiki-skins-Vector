@@ -26,6 +26,7 @@ use MediaWiki\MediaWikiServices;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
+use Vector\FeatureManagement\Requirements\LanguageInHeaderTreatmentRequirement;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
 use Vector\FeatureManagement\Requirements\WvuiSearchTreatmentRequirement;
 use Vector\SkinVersionLookup;
@@ -69,25 +70,13 @@ return [
 
 		// Feature: Languages in sidebar
 		// ================================
-		$config = $services->getMainConfig();
-		$languageInHeaderConfig = $config->get( Constants::CONFIG_KEY_LANGUAGE_IN_HEADER );
-
-		// Backwards compatibility with config variables that have been set in production.
-		if ( is_bool( $languageInHeaderConfig ) ) {
-			$languageInHeaderConfig = [
-				'logged_in' => $languageInHeaderConfig,
-				'logged_out' => $languageInHeaderConfig,
-			];
-		} else {
-			$languageInHeaderConfig = [
-				'logged_in' => $languageInHeaderConfig['logged_in'] ?? false,
-				'logged_out' => $languageInHeaderConfig['logged_out'] ?? false,
-			];
-		}
-
-		$featureManager->registerSimpleRequirement(
-			Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
-			$languageInHeaderConfig[ $context->getUser()->isRegistered() ? 'logged_in' : 'logged_out' ]
+		$featureManager->registerRequirement(
+			new LanguageInHeaderTreatmentRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				CentralIdLookup::factoryNonLocal()
+			)
 		);
 
 		$featureManager->registerFeature(
