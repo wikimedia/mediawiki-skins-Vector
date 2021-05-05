@@ -2,6 +2,7 @@ import mustache from 'mustache';
 import '../resources/skins.vector.styles/LanguageButton.less';
 import { vectorMenuTemplate } from './MenuDropdown.stories.data';
 import { languageData } from './LanguageButton.stories.data';
+import '../.storybook/common.less';
 
 export default {
 	title: 'LanguageButton'
