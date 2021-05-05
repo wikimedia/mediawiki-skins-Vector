@@ -14,15 +14,25 @@
 
 @import '../../common/variables.less';
 
+// Derived from @size-search-figure in WVUI.
+// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
+@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
+// Derived from @padding-vertical-typeahead-suggestion: 8px in WVUI.
+// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#27
+@padding-vertical-typeahead-suggestion: 8px;
+
 #simpleSearch.search-form__loader:after {
 	// Set the i18n message.
 	content: attr( data-loading-msg );
 	//
 	// Position loader below the input.
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	position: absolute;
 	top: 100%;
 	width: 100%;
+	height: ~'calc( @{padding-vertical-typeahead-suggestion} + @{size-search-figure} + @{padding-vertical-typeahead-suggestion} )';
 	//
 	// Ensure the 100% width doesn't extend beyond the input.
 	box-sizing: border-box;
@@ -31,10 +41,8 @@
 	border: @border-base;
 	border-top-width: 0; // Hide the top border so it doesn't interfere with focus state.
 	border-radius: 0 0 @border-radius-base @border-radius-base;
-	color: @color-base--disabled;
-	font-size: @font-size-notification;
-	padding: 0.4em;
 	box-shadow: @box-shadow-base;
+	padding-left: @size-search-figure;
 	//
 	// Hide text in case it extends beyond the input.
 	overflow: hidden;
