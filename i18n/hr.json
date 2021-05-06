@@ -7,6 +7,7 @@
 			"Ivi104",
 			"MaGa",
 			"Neptune, the Mystic",
+			"Ponor",
 			"Tivek"
 		]
 	},
@@ -14,6 +15,7 @@
 	"prefs-vector-enable-vector-1-label": "Rabi stari (baštinjeni) izgled imena Vector",
 	"prefs-vector-enable-vector-1-help": "Tijekom nekoliko godina osvježavat će se izgled sučelja imena Vector. Baštinjeni Vector omogućit će Vam upotrebu pregleda starije inačice Vectora (do mjeseca prosinca 2019.). Ako želite saznati više o tehnološkome osuvremenjivanju posjetite naše [[mw:Reading/Web/Desktop_Improvements|stranice projekta na MedijaWikiju]].",
 	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Premjesti",
