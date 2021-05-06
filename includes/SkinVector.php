@@ -162,7 +162,7 @@ class SkinVector extends SkinMustache {
 	 * If in modern Vector and the config is set to consolidate user links, enable user link consolidation.
 	 * @return bool
 	 */
-	private function consolidateUserLinks() {
+	private function shouldConsolidateUserLinks() {
 		$featureManager = VectorServices::getFeatureManager();
 		return !$this->isLegacy() &&
 			$featureManager->isFeatureEnabled(
@@ -202,7 +202,7 @@ class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 
 		$commonSkinData = array_merge( $parentData, [
-			'consolidate-user-links' => $this->consolidateUserLinks(),
+			'is-consolidated-user-links' => $this->shouldConsolidateUserLinks(),
 
 			'page-isarticle' => (bool)$out->isArticle(),
 
@@ -337,7 +337,9 @@ class SkinVector extends SkinMustache {
 		];
 		$portletData['heading-class'] = 'vector-menu-heading';
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
-		if ( $portletData['id'] === 'p-personal' && $this->consolidateUserLinks() && !$this->getUser()->isAnon() ) {
+		if ( $portletData['id'] === 'p-personal' && $this->shouldConsolidateUserLinks() &&
+			!$this->getUser()->isAnon()
+		) {
 			$portletData['heading-class'] .= ' mw-portlet-personal-page__heading--auth';
 			// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
 			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis';
@@ -360,7 +362,7 @@ class SkinVector extends SkinMustache {
 	) : array {
 		switch ( $label ) {
 			case 'user-menu':
-				$type = $this->consolidateUserLinks() && $this->getUser()->isRegistered() ?
+				$type = $this->shouldConsolidateUserLinks() && $this->getUser()->isRegistered() ?
 					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
 				break;
 			case 'actions':
