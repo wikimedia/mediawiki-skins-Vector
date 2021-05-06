@@ -1,0 +1,24 @@
+// Common styles for the UserMenu component.
+
+@import '../variables.less';
+@import 'mediawiki.mixins.less';
+
+/* Personal Menu */
+#p-personal .vector-menu-content-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	justify-content: flex-end;
+	align-items: baseline;
+}
+
+/* Icon for registered user names & anonymous message */
+#pt-anonuserpage,
+#pt-userpage a,
+#p-user-page a {
+	background-image: url( images/user-avatar.svg );
+	background-repeat: no-repeat;
+	background-size: @background-size-nav-personal-icon @background-size-nav-personal-icon;
+	padding-top: 0;
+	padding-left: 1.5em;
+}

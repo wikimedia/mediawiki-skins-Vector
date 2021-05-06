@@ -1,17 +1,59 @@
+@import '../../common/variables.less';
+
 // Overrides personal menu styles for consolidated user links.
 .mw-portlet-personal.vector-menu-dropdown h3:after {
+	padding: 0.4em 0 0.4em 0;
 	content: none;
 }
 
-#p-personal.vector-menu-dropdown .vector-menu-content-list {
-	justify-content: flex-start;
+#p-personal.vector-menu-dropdown {
+	.vector-menu-checkbox {
+		&:hover + h3 {
+			background-color: @colorGray14;
+			border-radius: @border-radius-base;
+		}
+	}
 
-	li {
-		font-size: 100%;
+	.vector-menu-content {
+		top: 100%;
+		left: unset;
+		right: 0;
+	}
+
+	.vector-menu-content-list {
+		justify-content: flex-start;
+
+		li {
+			font-size: 100%;
+			width: 100%;
+
+			&:hover {
+				background-color: @colorGray14;
+			}
+		}
+
+		li#pt-logout {
+			border-top: 1px solid @border-color-base;
+		}
+
+		a,
+		&:hover,
+		&:visited {
+			color: #000;
+			text-decoration: none;
+		}
 	}
 }
 
-#p-personal .vector-menu-content {
-	left: unset;
-	right: 0;
+// Since user-page is pulled out of the personal menu for modern vector,
+// apply styles for the top-level user-page menu.
+#p-user-page {
+	li {
+		padding-bottom: 0.5em;
+
+		a {
+			background-position: left center;
+			padding-left: 1.5em;
+		}
+	}
 }

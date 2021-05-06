@@ -1,16 +1,6 @@
 @import '../variables.less';
 @import 'mediawiki.mixins.less';
 
-/* Personal Menu */
-#p-personal .vector-menu-content-list {
-	display: flex;
-	flex-wrap: wrap;
-	flex-grow: 1;
-	justify-content: flex-end;
-	align-items: baseline;
-}
-
-/* Personal Menu */
 .mw-portlet {
 	// Hidden by default, but displayed by certain menus
 	// e.g. MenuPortal
@@ -29,43 +19,5 @@
 		// anonymous user icon position below
 		padding-top: 0.5em;
 		line-height: @line-height-nav-personal;
-	}
-}
-
-/* Icon for registered user names & anonymous message */
-#pt-anonuserpage,
-#pt-userpage a,
-#p-user-page a {
-	background-image: url( images/user-avatar.svg );
-	background-position: @background-position-nav-personal-icon;
-	background-repeat: no-repeat;
-	background-size: @background-size-nav-personal-icon @background-size-nav-personal-icon;
-	// Same as `#p-personal li` above
-	padding-top: 0.5em !important; // stylelint-disable-line declaration-no-important
-	padding-left: 16px !important; // stylelint-disable-line declaration-no-important
-}
-
-#p-user-page a {
-	// Overrides directly above: padding-left: 16px !important; which does not allow for enough space between the
-	// personal icon asset and the user page link in the personal toolbar.
-	padding-left: 25px !important; // stylelint-disable-line declaration-no-important
-}
-
-#pt-userpage {
-	padding-top: 0 !important; // stylelint-disable-line declaration-no-important
-
-	a {
-		display: inline-block;
-	}
-}
-
-/* Show anonymous "Not logged in" text in gray */
-#pt-anonuserpage {
-	color: #54595d;
-}
-
-#p-user-page .vector-menu-content-list {
-	#ca-userpage {
-		padding-top: 0;
 	}
 }

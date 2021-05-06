@@ -1,0 +1,28 @@
+@import '../../common/variables.less';
+
+// Legacy overrides for the UserMenu
+
+/* Personal Menu */
+#p-personal li {
+	font-size: @font-size-nav-personal;
+}
+
+/* Icon for registered user names & anonymous message */
+#pt-anonuserpage,
+#pt-userpage a {
+	background-position: @background-position-nav-personal-icon;
+	padding-top: 0.5em;
+}
+
+#pt-userpage {
+	padding-top: 0;
+
+	a {
+		display: inline-block;
+	}
+}
+
+/* Show anonymous "Not logged in" text in gray */
+#pt-anonuserpage {
+	color: #54595d;
+}
