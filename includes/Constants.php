@@ -167,6 +167,21 @@ final class Constants {
 	public const REQUIREMENT_USE_WVUI_SEARCH = 'VectorUseWvuiSearch';
 
 	/**
+	 * @var string
+	 */
+	public const CONFIG_CONSOLIDATE_USER_LINKS = 'VectorConsolidateUserLinks';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_CONSOLIDATE_USER_LINKS = 'ConsolidateUserLinks';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_CONSOLIDATE_USER_LINKS = 'ConsolidateUserLinks';
+
+	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.

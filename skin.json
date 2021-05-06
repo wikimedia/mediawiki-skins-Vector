@@ -31,6 +31,7 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
+						"createaccount",
 						"otherlanguages",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
@@ -143,7 +144,8 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"icons": [
-				"language"
+				"language",
+				"ellipsis"
 			]
 		},
 		"skins.vector.js": {
@@ -286,6 +288,13 @@
 		"VectorLanguageInHeaderTreatmentABTest": {
 			"value": false,
 			"description": "@var boolean Enables or disables the language in header treatment A/B test. See https://phabricator.wikimedia.org/T280825 and associated tasks for additional detail."
+		},
+		"VectorConsolidateUserLinks": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var array Moves the personal user links into a consolidated dropdown menu with the exception of the user page link. User page link moves out of personal menu into top level item next to notifications."
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,

@@ -11,7 +11,20 @@
 	</label>
 	{{>Logo}}
 	{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
-	{{#data-portlets}}
-		{{#data-personal}}{{>Menu}}{{/data-personal}}
-	{{/data-portlets}}
+	{{^consolidate-user-links}}
+		{{#data-portlets}}
+			{{#data-personal}}{{>Menu}}{{/data-personal}}
+		{{/data-portlets}}
+	{{/consolidate-user-links}}
+	{{#consolidate-user-links}}
+		{{#data-portlets}}
+			{{#data-notifications}}{{>Menu}}{{/data-notifications}}
+		{{/data-portlets}}
+		{{#data-portlets}}
+			{{#data-user-page}}{{>Menu}}{{/data-user-page}}
+		{{/data-portlets}}
+		{{#data-portlets}}
+			{{#data-user-menu}}{{>Menu}}{{/data-user-menu}}
+		{{/data-portlets}}
+	{{/consolidate-user-links}}
 </header>
