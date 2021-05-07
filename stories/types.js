@@ -65,3 +65,11 @@
 /**
  * @typedef {Object.<string, MenuDefinition>} MenuDefinitions
  */
+
+/*
+ * @typedef {MenuDefinition} UserMenuDefinition
+ * @property {boolean} [is-anon]
+ * @property {string} [html-login]
+ * @property {string} [msg-vector-anon-user-menu-pages]
+ * @property {string} [html-vector-anon-user-menu-pages-learn]
+ */

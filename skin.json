@@ -32,6 +32,9 @@
 					],
 					"messages": [
 						"createaccount",
+						"vector-anon-user-menu-pages",
+						"vector-anon-user-menu-pages-learn",
+						"parentheses",
 						"otherlanguages",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",

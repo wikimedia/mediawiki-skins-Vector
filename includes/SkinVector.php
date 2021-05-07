@@ -205,6 +205,8 @@ class SkinVector extends SkinMustache {
 
 			'is-article' => (bool)$out->isArticle(),
 
+			'is-anon' => $this->getUser()->isAnon(),
+
 			'is-mainpage' => $title->isMainPage(),
 			// Remember that the string '0' is a valid title.
 			// From OutputPage::getPageTitle, via ::setPageTitle().
@@ -229,6 +231,35 @@ class SkinVector extends SkinMustache {
 					false,
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
+			];
+		} else {
+			$returnto = $this->getReturnToParam();
+			$useCombinedLoginLink = $this->useCombinedLoginLink();
+
+			// Get data for login and create account buttons for anon user menu
+			// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
+			$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
+			$loginData['single-id'] = 'pt-login';
+			$loginData['class'] = 'vector-menu-content-item';
+
+			$createAccountData = $this->buildCreateAccountData( $returnto );
+			$createAccountData['single-id'] = 'pt-createaccount';
+			$createAccountData['class'] = 'mw-ui-button mw-ui-quiet';
+
+			$learnMoreLinkData = [
+				'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
+				'href' => Title::newFromText( 'Help:Introduction' )->getLocalURL(),
+			];
+			$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
+
+			$commonSkinData['data-userlinks'] = [
+				'html-create-account' => $this->makeLink( 'create-account', $createAccountData ),
+
+				'html-login' => $this->makeLink( 'login', $loginData ),
+
+				'html-vector-anon-user-menu-pages-learn' => $this->msg( 'parentheses' )->
+					rawParams( $learnMoreLink )->
+					escaped(),
 			];
 		}
 
@@ -363,8 +394,7 @@ class SkinVector extends SkinMustache {
 	) : array {
 		switch ( $label ) {
 			case 'user-menu':
-				$type = $this->shouldConsolidateUserLinks() && $this->getUser()->isRegistered() ?
-					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
+				$type = $this->shouldConsolidateUserLinks() ? self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
 				break;
 			case 'actions':
 			case 'variants':

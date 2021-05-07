@@ -251,46 +251,13 @@ body {
 	}
 }
 
-#p-personal,
-.mw-portlet-notifications {
-	li {
-		float: left;
-		margin-left: 0.75em;
-	}
-}
-
-.mw-portlet-personal.vector-menu-dropdown {
-	h3 {
-		margin: 0 0 0 12px;
-		padding: 0 12px 0 0;
-	}
-
-	.vector-menu-content {
-		border-top-width: 1px;
-	}
-}
-
-#p-personal {
+// When ConsolidateUserLinks is off, "vector-user-menu-legacy" is used in modern Vector
+.vector-user-menu-legacy {
 	flex-grow: 1;
 	flex-basis: @min-width-personal-tools;
 	margin-left: @margin-horizontal-search;
 	// Support IE9: This is reset in @support query below if Flexbox is available.
 	float: right;
-}
-
-#p-personal.vector-menu-dropdown {
-	flex-grow: inherit;
-	flex-basis: inherit;
-	margin-left: inherit;
-	float: inherit;
-
-	li {
-		margin-left: 0;
-	}
-}
-
-#p-user-page li {
-	margin-left: 1em;
 }
 
 #mw-sidebar-button {

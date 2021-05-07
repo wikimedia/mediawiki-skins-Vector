@@ -2,12 +2,27 @@
 
 .vector-user-links {
 	display: flex;
+	align-items: center;
+	height: 30px;
+	position: relative;
 
 	// Overrides personal menu styles for consolidated user links.
-	.vector-user-menu.vector-menu-dropdown {
-		h3:after {
-			padding: 0.4em 0 0.4em 0;
-			content: none;
+	.vector-user-menu {
+		height: 100%;
+
+		h3 {
+			margin: 0 0 0 12px;
+			padding: 0;
+			height: 100%;
+
+			&:before {
+				height: 100%;
+			}
+
+			&:after {
+				padding: 0.4em 0 0.4em 0;
+				content: none;
+			}
 		}
 
 		.vector-menu-checkbox {
@@ -18,47 +33,85 @@
 		}
 
 		.vector-menu-content {
+			min-width: 200px;
 			top: 100%;
 			left: unset;
 			right: 0;
+			border-top-width: 1px;
 		}
 
 		.vector-menu-content-list {
-			justify-content: flex-start;
-
 			li {
 				// FIXME: the following font-size rule is for cached HTML. It can be removed when
 				// I068c5233bb25a7b141e66a6726b5761841f83eb2 is in production.
 				// stylelint-disable-next-line declaration-no-important
 				font-size: 100% !important;
 				width: 100%;
+				margin: 0;
 
 				&:hover {
-					background-color: @colorGray14;
+					background-color: @background-color-secondary;
 				}
 			}
 
-			li#pt-logout {
-				border-top: 1px solid @border-color-base;
-			}
-
-			a,
-			&:hover,
-			&:visited {
+			a {
+				display: block;
 				color: #000;
 				text-decoration: none;
 			}
 		}
 	}
 
+	#p-createaccount {
+		margin-left: 0.75em;
+	}
+
 	#p-user-page {
 		li {
+			margin-left: 1em;
 			padding-bottom: 0.5em;
 
 			a {
 				background-position: left center;
 				padding-left: 1.5em;
+				color: #000;
+				text-decoration: none;
 			}
 		}
+	}
+
+	#p-notifications {
+		li {
+			float: left;
+			margin-left: 0.75em;
+		}
+	}
+
+	// Copied from https://github.com/wikimedia/Vector/blob/master/resources/common/components/MenuDropdown.less#L88
+	.vector-user-menu-anon-editor,
+	.vector-user-menu-login {
+		padding: 0.625em;
+		margin: 0;
+		font-size: @font-size-tabs;
+	}
+
+	// "Login" link in anonymous user menus
+	.vector-user-menu-login {
+		border-bottom: 1px solid @border-color-base;
+
+		&:hover {
+			background-color: @background-color-secondary;
+		}
+
+		a {
+			display: block;
+			color: #000;
+			text-decoration: none;
+		}
+	}
+
+	// "Log out" link in logged in user menus
+	#pt-logout {
+		border-top: 1px solid @border-color-base;
 	}
 }
