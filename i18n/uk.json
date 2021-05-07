@@ -23,6 +23,7 @@
 	"vector.css": "/* Розміщений тут CSS-код буде використаний в темі оформлення Векторне */",
 	"vector.js": "/* Розміщений тут код JavaScript буде завантажений для всіх користувачів, що використовують векторну тему оформлення */",
 	"vector-action-toggle-sidebar": "Перемкнути бічну панель",
+	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мови|$1 мов}}",
 	"vector-action-addsection": "Додати тему",
 	"vector-action-delete": "Вилучити",
 	"vector-action-move": "Перейменувати",
