@@ -47,6 +47,9 @@
 	// Derived from @size-search-figure in WVUI
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
 	@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
+	// Derived from @spacing-start-typeahead-search-figure + @spacing-end-typeahead-search-figure in WVUI
+	// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#645
+	@size-search-expand: 24px;
 
 	.wvui-typeahead-search__suggestion,
 	.wvui-typeahead-search__suggestions__footer {
@@ -94,9 +97,9 @@
 		#searchInput:focus {
 			position: relative;
 			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
-			padding-left: ~'calc( 12px + @{size-search-figure} + 12px )';
-			width: ~'calc( 100% + 24px )';
-			left: ~'calc( -1 * 24px )';
+			padding-left: ~'calc( @{size-search-figure} + @{size-search-expand} )';
+			width: ~'calc( 100% + @{size-search-expand} )';
+			left: ~'calc( -1 * @{size-search-expand} )';
 		}
 
 		// Reposition search icon for expanded input.
@@ -105,6 +108,13 @@
 			// Derived from
 			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
 			left: -11px;
+		}
+
+		// Update search loader to match width and position of WVUI expanding input.
+		#simpleSearch.search-form__loader:after {
+			width: ~'calc( 100% + @{size-search-expand} )';
+			left: ~'calc( -1 * @{size-search-expand} )';
+			padding-left: @size-search-expand;
 		}
 	}
 }
