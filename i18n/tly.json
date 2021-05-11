@@ -7,16 +7,16 @@
 			"Гусейн"
 		]
 	},
-	"vector-action-addsection": "Mıvzu ziyod karde",
-	"vector-action-delete": "Bısü",
-	"vector-action-move": "Küç karde",
-	"vector-action-protect": "Mıdofiə karde",
+	"vector-action-addsection": "Мывзу әловә карде",
+	"vector-action-delete": "Моле",
+	"vector-action-move": "Овахте",
+	"vector-action-protect": "Мыдофиә карде",
 	"vector-action-undelete": "Бәрпо кардеј",
 	"vector-action-unprotect": "Mıdofiyə dəqiş karde",
-	"vector-view-create": "Soxtey",
-	"vector-view-edit": "Dəqiş karde",
-	"vector-view-history": "Tarixi diyəkə",
-	"vector-view-view": "Bahand",
+	"vector-view-create": "Сохтеј",
+	"vector-view-edit": "Овахте",
+	"vector-view-history": "Тарихи дијәкә",
+	"vector-view-view": "Баһанд",
 	"vector-view-viewsource": "Səvon diyə karde",
-	"vector-more-actions": "Ve"
+	"vector-more-actions": "Ве"
 }
