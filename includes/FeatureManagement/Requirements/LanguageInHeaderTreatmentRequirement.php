@@ -91,15 +91,14 @@ final class LanguageInHeaderTreatmentRequirement implements Requirement {
 	 * @throws \ConfigException
 	 */
 	public function isMet() : bool {
+		if ( $this->request->getCheck( Constants::QUERY_PARAM_LANGUAGE_IN_HEADER ) ) {
+			return $this->request->getBool( Constants::QUERY_PARAM_LANGUAGE_IN_HEADER );
+		}
+
 		if (
 			(bool)$this->config->get( Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST ) &&
 			$this->user->isRegistered()
 		) {
-
-			if ( $this->request->getCheck( Constants::QUERY_PARAM_LANGUAGE_IN_HEADER ) ) {
-				return $this->request->getBool( Constants::QUERY_PARAM_LANGUAGE_IN_HEADER );
-			}
-
 			$id = null;
 			if ( $this->centralIdLookup ) {
 				$id = $this->centralIdLookup->centralIdFromLocalUser( $this->user );

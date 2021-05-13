@@ -234,6 +234,38 @@ class LanguageInHeaderTreatmentRequirementTest extends \MediaWikiUnitTestCase {
 				false,
 				'Even logged in users get old treatment when A/B test enabled and query param set to "0"'
 			],
+			[
+				// Is language enabled
+				[
+					'logged_in' => false,
+					'logged_out' => false,
+				],
+				// is A-B test enabled
+				false,
+				1,
+				// use central id lookup?
+				false,
+				// `languageinheader` query param
+				"1",
+				true,
+				'Users get new treatment when query param set to "1" regardless of state of A/B test or config flags'
+			],
+			[
+				// Is language enabled
+				[
+					'logged_in' => false,
+					'logged_out' => false,
+				],
+				// is A-B test enabled
+				false,
+				1,
+				// use central id lookup?
+				false,
+				// `languageinheader` query param
+				"0",
+				false,
+				'Users get old treatment when query param set to "0" regardless of state of A/B test or config flags'
+			],
 		];
 	}
 
