@@ -4,7 +4,6 @@
 import mustache from 'mustache';
 import { vectorMenuTemplate as portalTemplate } from './MenuDropdown.stories.data';
 import '../resources/skins.vector.styles/MenuPortal.less';
-import '../.storybook/common.less';
 import { placeholder, htmlUserLanguageAttributes, portletAfter } from './utils';
 
 /**
