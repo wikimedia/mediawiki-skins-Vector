@@ -19,6 +19,7 @@
 		@fetch-start="instrumentation.onFetchStart"
 		@fetch-end="instrumentation.onFetchEnd"
 		@suggestion-click="instrumentation.onSuggestionClick"
+		@submit="onSubmit"
 	>
 		<input type="hidden"
 			name="title"
