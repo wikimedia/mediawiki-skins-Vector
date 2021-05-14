@@ -174,7 +174,6 @@ class SkinVector extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function getTemplateData() : array {
-		$contentNavigation = $this->buildContentNavigationUrls();
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
