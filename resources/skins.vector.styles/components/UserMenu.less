@@ -1,12 +1,12 @@
 @import '../../common/variables.less';
 
 // Overrides personal menu styles for consolidated user links.
-.mw-portlet-personal.vector-menu-dropdown h3:after {
+.vector-user-menu.vector-menu-dropdown h3:after {
 	padding: 0.4em 0 0.4em 0;
 	content: none;
 }
 
-#p-personal.vector-menu-dropdown {
+.vector-user-menu.vector-menu-dropdown {
 	.vector-menu-checkbox {
 		&:hover + h3 {
 			background-color: @colorGray14;
@@ -24,7 +24,10 @@
 		justify-content: flex-start;
 
 		li {
-			font-size: 100%;
+			// FIXME: the following font-size rule is for cached HTML. It can be removed when
+			// I068c5233bb25a7b141e66a6726b5761841f83eb2 is in production.
+			// stylelint-disable-next-line declaration-no-important
+			font-size: 100% !important;
 			width: 100%;
 
 			&:hover {
@@ -47,6 +50,8 @@
 
 // Since user-page is pulled out of the personal menu for modern vector,
 // apply styles for the top-level user-page menu.
+// FIXME: This is currently not isolated to the UserMenu component
+// as it is rendered separately outside the `.vector-user-menu` class.
 #p-user-page {
 	li {
 		padding-bottom: 0.5em;

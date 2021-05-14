@@ -337,12 +337,14 @@ class SkinVector extends SkinMustache {
 		];
 		$portletData['heading-class'] = 'vector-menu-heading';
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
-		if ( $portletData['id'] === 'p-personal' && $this->shouldConsolidateUserLinks() &&
-			!$this->getUser()->isAnon()
-		) {
-			$portletData['heading-class'] .= ' mw-portlet-personal-page__heading--auth';
-			// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
-			$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis';
+		if ( $portletData['id'] === 'p-personal' ) {
+			if ( $this->shouldConsolidateUserLinks() ) {
+				$portletData['class'] .= ' vector-user-menu';
+				// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
+				$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis';
+			} else {
+				$portletData['class'] .= ' vector-user-menu-legacy';
+			}
 		}
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
 			$portletData = $this->createULSLanguageButton( $portletData );

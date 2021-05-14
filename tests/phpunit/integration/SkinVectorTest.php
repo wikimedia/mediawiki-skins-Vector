@@ -110,7 +110,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			$actions['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-personal vector-menu',
+			'mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu',
 			$props['data-personal']['class']
 		);
 	}

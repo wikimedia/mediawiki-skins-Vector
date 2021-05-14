@@ -3,18 +3,24 @@
 // Legacy overrides for the UserMenu
 
 /* Personal Menu */
+.vector-user-menu-legacy li,
+/* FIXME: the following selector is for cached HTML. It can be removed when
+I068c5233bb25a7b141e66a6726b5761841f83eb2 is in production. */
 #p-personal li {
 	font-size: @font-size-nav-personal;
 }
 
 /* Icon for registered user names & anonymous message */
+/* FIXME: the following selector is for cached HTML. It can be removed when
+I068c5233bb25a7b141e66a6726b5761841f83eb2 is in production */
 #pt-anonuserpage,
-#pt-userpage a {
+.vector-user-menu-legacy #pt-anonuserpage,
+.vector-user-menu-legacy #pt-userpage a {
 	background-position: @background-position-nav-personal-icon;
 	padding-top: 0.5em;
 }
 
-#pt-userpage {
+.vector-user-menu-legacy #pt-userpage {
 	padding-top: 0;
 
 	a {
@@ -23,6 +29,9 @@
 }
 
 /* Show anonymous "Not logged in" text in gray */
-#pt-anonuserpage {
+/* FIXME: the following selector is for cached HTML. It can be removed when
+I068c5233bb25a7b141e66a6726b5761841f83eb2 is in production. */
+#pt-anonuserpage,
+.vector-user-menu-legacy #pt-anonuserpage {
 	color: #54595d;
 }
