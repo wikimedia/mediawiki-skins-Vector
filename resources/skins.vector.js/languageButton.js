@@ -12,7 +12,10 @@ function disableLanguageDropdown() {
 			if ( !pLangBtn ) {
 				return;
 			}
-
+			if ( !pLangBtn.querySelectorAll( '.mw-interlanguage-selector' ).length ) {
+				// The ext.uls.interface module removed the selector, because the feature is disabled. Do nothing.
+				return;
+			}
 			pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
 		} );
 	} else {
