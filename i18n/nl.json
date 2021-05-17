@@ -3,6 +3,7 @@
 		"authors": [
 			"Calak",
 			"Mainframe98",
+			"Nickthijssen1994",
 			"Romaine",
 			"SPQRobin",
 			"Siebrand",
@@ -16,7 +17,7 @@
 	"vector.css": "/* CSS die hier wordt geplaatst heeft alleen invloed op het uiterlijk Vector */",
 	"vector.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Vector gebruiken */",
 	"vector-language-button-label": "{{PLURAL:$1|$1 taal|$1 talen}}",
-	"vector-action-addsection": "Kopje toevoegen",
+	"vector-action-addsection": "Onderwerp toevoegen",
 	"vector-action-delete": "Verwijderen",
 	"vector-action-move": "Hernoemen",
 	"vector-action-protect": "Beveiligen",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bosogo",
 			"Chorobek",
 			"Growingup",
 			"Janatkg",
@@ -19,5 +20,5 @@
 	"vector-view-history": "Тарыхын кароо",
 	"vector-view-view": "Окуу",
 	"vector-view-viewsource": "Кайнарын кароо",
-	"vector-more-actions": "Кененирээк"
+	"vector-more-actions": "Көбүрөөк"
 }
