@@ -58,15 +58,11 @@ body {
 	z-index: @z-index-indicators;
 }
 
-.mw-body-content {
+// FIXME: [ id='bodyContent' ] selector needed for cached HTML.
+[ id='bodyContent' ],
+.vector-body {
 	position: relative;
 	z-index: @z-index-base;
-}
-
-// FIXME: Can be removed when the `content-parser-output` feature in `skins.vector.styles.legacy`
-// is enabled. The definition in core still needs work (see T279008).
-#bodyContent {
-	.mixin-clearfix();
 }
 
 // FIXME: Temporarily disable the core rule which applies to the wrong element.

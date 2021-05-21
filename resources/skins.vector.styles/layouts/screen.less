@@ -210,8 +210,9 @@ body {
 .mw-body #p-lang-btn {
 	float: right;
 }
-
-.mw-body-content {
+// FIXME: [ id='bodyContent' ] selector needed for cached HTML.
+[ id='bodyContent' ],
+.vector-body {
 	position: relative;
 	z-index: @z-index-base;
 }
