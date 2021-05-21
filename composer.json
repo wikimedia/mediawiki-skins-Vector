@@ -20,8 +20,8 @@
 	"support": {
 		"wiki": "https://www.mediawiki.org/wiki/Skin:Vector",
 		"forum": "https://www.mediawiki.org/wiki/Skin_talk:Vector",
-		"source": "https://phabricator.wikimedia.org/diffusion/SVEC/",
-		"irc": "irc://irc.freenode.org/mediawiki"
+		"source": "http://gerrit.wikimedia.org/g/mediawiki/skins/Vector",
+		"irc": "irc://irc.libera.chat/mediawiki"
 	},
 	"require": {
 		"composer/installers": ">1.0.12"
