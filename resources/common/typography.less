@@ -31,13 +31,13 @@ pre,
 	.mixin-screen-reader-text;
 }
 
-/* Allow edit sections outside of mw-body-content (T160269) */
+/* Use unscoped selector to allow edit sections outside of .mw-body-content and .vector-body (T160269) */
 .mw-editsection,
 .mw-editsection-like {
 	font-family: @font-family-sans;
 }
 
-/* Main content area, including siteNotice, indicators, firstHeading and `.mw-body-content`. */
+/* Main content area, including siteNotice, indicators, categories, firstHeading and `.vector-body`. */
 .mw-body {
 	// h1's can exist outside of `.mw-body-content` so some heading styles
 	// therefore need to be defined in `.mw-body` as well.
@@ -70,7 +70,9 @@ pre,
 	}
 }
 
-.mw-body-content {
+// FIXME: [ id='bodyContent' ] selector needed for cached HTML.
+[ id='bodyContent' ],
+.vector-body {
 	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
 	// `calc` enables to set correct calculation in place again. See T102364.
