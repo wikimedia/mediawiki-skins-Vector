@@ -305,7 +305,7 @@ class SkinVector extends SkinMustache {
 			'label' => $this->msg(
 				'vector-language-button-label',
 				count( $this->getLanguagesCached() )
-			)->parse(),
+			)->escaped(),
 			'heading-class' =>
 				' vector-menu-heading ' .
 				' mw-ui-icon ' .
