@@ -16,6 +16,7 @@
 	"prefs-vector-enable-vector-1-help": "Növbəti bir neçə il ərzində Vector dizaynını tədricən yeniləyəcəyik. Legacy Vector, Vector-un köhnə versiyasına baxmağa imkan verəcəkdir (dekabr 2019-cu ildən etibarən). Yeniləmələr haqqında daha çox məlumat üçün  [[mw:Reading/Web/Desktop_Improvements|layihə səhifəmizə]] nəzər yetirin.",
 	"vector.css": "/* Burada yerləşən CSS Vector istifadəçilərinə tətbiq olunur */",
 	"vector.js": "/* Burada Vector skin istifadəçiləri üçün istənilən JavaScript yüklənəcək */",
+	"vector-language-button-label": "{{PLURAL:$1|$1 dildə|$1 dildə}}",
 	"vector-action-addsection": "Mövzu əlavə et",
 	"vector-action-delete": "Sil",
 	"vector-action-move": "Adını dəyişdir",
@@ -27,5 +28,5 @@
 	"vector-view-history": "Tarixçəyə bax",
 	"vector-view-view": "Oxu",
 	"vector-view-viewsource": "Mənbəyə bax",
-	"vector-more-actions": "Daha"
+	"vector-more-actions": "Daha çox"
 }
