@@ -16,6 +16,7 @@
 		:search-language="language"
 		:show-thumbnail="showThumbnail"
 		:show-description="showDescription"
+		:highlight-query="highlightQuery"
 		@fetch-start="instrumentation.onFetchStart"
 		@fetch-end="instrumentation.onFetchEnd"
 		@suggestion-click="instrumentation.onSuggestionClick"
@@ -105,6 +106,10 @@ module.exports = {
 			default: true
 		},
 		showDescription: {
+			type: Boolean,
+			default: true
+		},
+		highlightQuery: {
 			type: Boolean,
 			default: true
 		}
