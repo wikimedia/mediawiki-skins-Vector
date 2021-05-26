@@ -92,7 +92,7 @@
 				}
 			],
 			"messages": [
-				"search",
+				"searchbutton",
 				"searchresults",
 				"searchsuggest-containing"
 			]
