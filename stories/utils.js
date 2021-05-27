@@ -19,4 +19,30 @@ const portletAfter = ( html ) => {
 
 const htmlUserLanguageAttributes = `dir="ltr" lang="en-GB"`;
 
-export { placeholder, htmlUserLanguageAttributes, portletAfter };
+/**
+ * @param {string} name of the menu
+ * @param {string} htmlItems
+ * @param {string} [additionalClassString] to add to the menu
+ * @return {MenuDefinition}
+ */
+function helperMakeMenuData( name, htmlItems, additionalClassString = '' ) {
+	let label;
+	switch ( name ) {
+		case 'personal':
+			label = 'Personal tools';
+			break;
+		default:
+			label = 'Menu label';
+			break;
+	}
+
+	return {
+		id: `p-${name}`,
+		class: `mw-portlet mw-portlet-${name} vector-menu ${additionalClassString}`,
+		label,
+		'html-user-language-attributes': htmlUserLanguageAttributes,
+		'html-items': htmlItems
+	};
+}
+
+export { placeholder, htmlUserLanguageAttributes, portletAfter, helperMakeMenuData };
