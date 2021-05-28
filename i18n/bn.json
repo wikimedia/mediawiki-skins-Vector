@@ -33,9 +33,9 @@
 	"vector-view-history": "ইতিহাস দেখুন",
 	"vector-view-view": "পড়ুন",
 	"vector-view-viewsource": "উৎস দেখুন",
-	"vector-jumptonavigation": "পরিভ্রমণে ঝাঁপ দিন",
-	"vector-jumptosearch": "অনুসন্ধানে ঝাঁপ দিন",
-	"vector-jumptocontent": "বিষয়বস্তুতে ঝাঁপ দিন",
+	"vector-jumptonavigation": "পরিভ্রমণে চলুন",
+	"vector-jumptosearch": "অনুসন্ধানে চলুন",
+	"vector-jumptocontent": "বিষয়বস্তুতে চলুন",
 	"vector-more-actions": "আরও",
 	"vector-search-loader": "অনুসন্ধানের পরামর্শ লোড করা হচ্ছে"
 }
