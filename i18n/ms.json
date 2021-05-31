@@ -11,6 +11,7 @@
 	"vector-opt-out": "Kembali ke wajah lama",
 	"vector.css": "/* CSS yang terletak di sini akan mempengaruhi pengguna kulit Vector */",
 	"vector.js": "/ * Sebarang JavaScript di sini akan dimuatkan untuk pengguna-pengguna yang menggunakan kulit Vector * /",
+	"vector-language-button-label": "{{PLURAL:$1|satu bahasa|$1 bahasa}}",
 	"vector-action-addsection": "Buka topik",
 	"vector-action-delete": "Hapus",
 	"vector-action-move": "Pindah",
