@@ -61,3 +61,7 @@
  * @property {boolean} [is-dropdown]
  * @property {string} [html-after-portal] Additional HTML specific to portal menus.
  */
+
+/**
+ * @typedef {Object.<string, MenuDefinition>} MenuDefinitions
+ */
