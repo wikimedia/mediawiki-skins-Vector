@@ -8,6 +8,34 @@
 	justify-content: flex-end;
 	flex-shrink: 1;
 
+	.vector-user-menu-more {
+		.vector-menu-content-list {
+			display: flex;
+			align-items: center;
+
+			li {
+				padding-top: 0;
+				margin-left: 1em;
+				white-space: nowrap;
+
+				a {
+					color: #000;
+					text-decoration: none;
+				}
+
+				// Below tablet threshold, all menu items except the notification icons will collapse into the user menu
+				// This ensures a max of 4 icons on small screen sizes (i.e. search, 2 notification icons and the user avatar)
+				&.user-links-collapsible-item {
+					display: none;
+
+					@media ( min-width: @width-breakpoint-tablet ) {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+
 	// Overrides personal menu styles for consolidated user links.
 	.vector-user-menu {
 		margin: 0 0 0 12px;
@@ -113,75 +141,6 @@
 
 		&:after {
 			background-position: 100% 0%;
-		}
-	}
-
-	.mw-portlet-notifications {
-		li {
-			float: left;
-			margin-left: 0;
-		}
-	}
-
-	.mw-portlet-user-page {
-		//  For logged-in users, below tablet threshold, the menu will collapse the user name/link to user page into the user menu
-		display: none;
-
-		@media ( min-width: @width-breakpoint-tablet ) {
-			display: block;
-		}
-
-		li {
-			margin-left: 1em;
-			padding-bottom: 0.5em;
-
-			a {
-				background-position: left center;
-				color: #000;
-				text-decoration: none;
-			}
-		}
-	}
-
-	.vector-user-links-createaccount {
-		margin-left: 0.75em;
-		//  For logged-out users, below tablet threshold, the menu will collapse the create account link into the user menu
-		display: none;
-
-		@media ( min-width: @width-breakpoint-tablet ) {
-			display: block;
-		}
-	}
-
-	// Adjust the user-interface-preferences menu.
-	.mw-portlet-user-interface-preferences {
-		margin-top: -0.2em;
-		margin-right: 0;
-		padding: 0;
-		// The menu is collapsed into the p-personal menu at lower resolutions, because the features
-		// are accessible via Special:Preferences with a few more clicks and there is not space to
-		// accomodate this icon at this resolution.
-		display: none;
-
-		@media ( min-width: @width-breakpoint-tablet ) {
-			display: block;
-		}
-
-		// Hide the heading of the user-interface-preferences menu.
-		h3 {
-			display: none;
-		}
-
-		li {
-			font-size: 0.75em;
-
-			a {
-				padding-left: 2em;
-			}
-		}
-
-		ul.vector-menu-content-list {
-			padding-top: 0;
 		}
 	}
 }

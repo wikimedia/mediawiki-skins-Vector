@@ -71,10 +71,6 @@
 
 /**
  * @typedef {Object} UserLinksDefinition
- * @property {boolean} is-anon
- * @property {string} [html-create-account]
- * @property {MenuDefinition} [data-user-interface-preferences]
- * @property {MenuDefinition} [data-notifications]
- * @property {MenuDefinition} [data-user-page]
+ * @property {MenuDefinition} data-user-more
  * @property {MenuDefinition} data-user-menu
  */

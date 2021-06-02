@@ -2,9 +2,11 @@
  * @external MenuDefinition
  * @external UserLinksDefinition
  */
+import mustache from 'mustache';
 import { menuTemplate } from './Menu.stories.data';
 import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/legacy/UserLinks.mustache';
 import userLinksTemplate from '!!raw-loader!../includes/templates/UserLinks.mustache';
+import userLinksMoreTemplate from '!!raw-loader!../includes/templates/UserLinks__more.mustache';
 import { helperClassName, helperMakeMenuData } from './utils';
 
 /**
@@ -61,6 +63,19 @@ const PERSONAL_MENU_TEMPLATE_DATA = {
 	loggedInWithULS
 };
 
+const additionalUserMoreData = {
+	class: 'vector-menu vector-user-menu-more',
+	"heading-class": 'vector-menu-heading',
+	"is-dropdown": false
+};
+
+const userMoreHtmlItems = ( isAnon = true ) => mustache.render( userLinksMoreTemplate, {
+	'is-anon': isAnon,
+	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`,
+	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
+	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS )
+} );
+
 const loggedInData = {
 	class: 'vector-user-menu vector-menu-dropdown vector-user-menu-logged-in',
 	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-userAvatar',
@@ -94,9 +109,7 @@ const loggedOutData = {
  * @type {UserLinksDefinition}
  */
 const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
-	'is-anon': false,
-	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
-	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS ),
+	'data-user-more': helperMakeMenuData( 'personal-more', userMoreHtmlItems( false ), additionalUserMoreData ),
 	'data-user-menu': helperMakeMenuData( 'new-personal', USER_LINKS_ITEMS, loggedInData )
 };
 
@@ -104,8 +117,7 @@ const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
  * @type {UserLinksDefinition}
  */
 const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
-	'is-anon': true,
-	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`,
+	'data-user-more': helperMakeMenuData( 'personal-more', userMoreHtmlItems( true ), additionalUserMoreData ),
 	'data-user-menu': helperMakeMenuData( 'new-personal', ANON_USER_LINKS_ITEMS, loggedOutData )
 };
 
