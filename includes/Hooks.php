@@ -83,6 +83,29 @@ class Hooks {
 	}
 
 	/**
+	 * Transforms watch item inside the action navigation menu
+	 *
+	 * @param array &$content_navigation
+	 */
+	private static function updateActionsMenu( &$content_navigation ) {
+		$key = null;
+		if ( isset( $content_navigation['actions']['watch'] ) ) {
+			$key = 'watch';
+		}
+		if ( isset( $content_navigation['actions']['unwatch'] ) ) {
+			$key = 'unwatch';
+		}
+
+		// Promote watch link from actions to views and add an icon
+		if ( $key !== null ) {
+			$content_navigation['views'][$key] = self::navigationLinkToIcon(
+				$content_navigation['actions'][$key]
+			);
+			unset( $content_navigation['actions'][$key] );
+		}
+	}
+
+	/**
 	 * Add icon class to an existing navigation item inside a menu hook.
 	 * See self::onSkinTemplateNavigation.
 	 * @param array $item
@@ -97,6 +120,37 @@ class Hooks {
 	}
 
 	/**
+	 * Updates personal navigation menu (user links) depending on the consolidated user links feature flag
+	 * When on, user page, create account and login links are removed from the dropdown to be handled separately
+	 * When off, the custom "user-page" bucket is removed to preserve existing behavior
+	 *
+	 * @param SkinTemplate $sk
+	 * @param array &$content_navigation
+	 */
+	private static function updateUserLinksItems( $sk, &$content_navigation ) {
+		// If the consolidate user links feature is enabled, rearrange some links in the personal toolbar.
+		if ( VectorServices::getFeatureManager()->isFeatureEnabled(
+			Constants::FEATURE_CONSOLIDATE_USER_LINKS )
+		) {
+			if ( $sk->loggedin ) {
+				// Remove user page from personal menu dropdown for logged in users.
+				unset( $content_navigation['user-menu']['userpage'] );
+			} else {
+				// Remove "Not logged in" from personal menu dropdown for anon users.
+				unset( $content_navigation['user-menu']['anonuserpage'] );
+				// Create account is pulled out into its own button.
+				unset( $content_navigation['user-menu']['createaccount'] );
+				// "Login" link is handled by UserMenu
+				unset( $content_navigation['user-menu']['login'] );
+			}
+		} else {
+			// Remove user page from personal toolbar since it will be inside the personal menu for logged in
+			// users when the feature flag is disabled.
+			unset( $content_navigation['user-page'] );
+		}
+	}
+
+	/**
 	 * Upgrades Vector's watch action to a watchstar.
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
@@ -105,43 +159,20 @@ class Hooks {
 	 */
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
 		$title = $sk->getRelevantTitle();
-		if (
-			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
-			$sk->getSkinName() === 'vector' &&
-			$title && $title->canExist()
-		) {
-			if ( !self::isSkinVersionLegacy()
-				&& isset( $content_navigation['user-menu'] )
+
+		if ( $sk->getSkinName() === 'vector' ) {
+			if (
+				$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
+				$title && $title->canExist()
 			) {
-				// If the consolidate user links feature is enabled, rearrange some links in the personal toolbar.
-				if ( VectorServices::getFeatureManager()->isFeatureEnabled(
-					Constants::FEATURE_CONSOLIDATE_USER_LINKS )
-				) {
-					if ( $sk->loggedin ) {
-						// Remove user page from personal menu dropdown for logged in users.
-						unset( $content_navigation['user-menu']['userpage'] );
-					}
-				} else {
-					// Remove user page from personal toolbar since it will be inside the personal menu for logged in
-					// users when the feature flag is disabled.
-					unset( $content_navigation['user-page'] );
-				}
+				self::updateActionsMenu( $content_navigation );
 			}
 
-			$key = null;
-			if ( isset( $content_navigation['actions']['watch'] ) ) {
-				$key = 'watch';
-			}
-			if ( isset( $content_navigation['actions']['unwatch'] ) ) {
-				$key = 'unwatch';
-			}
-
-			// Promote watch link from actions to views and add an icon
-			if ( $key !== null ) {
-				$content_navigation['views'][$key] = self::navigationLinkToIcon(
-					$content_navigation['actions'][$key]
-				);
-				unset( $content_navigation['actions'][$key] );
+			if (
+				!self::isSkinVersionLegacy() &&
+				isset( $content_navigation['user-menu'] )
+			) {
+				self::updateUserLinksItems( $sk, $content_navigation );
 			}
 		}
 	}
