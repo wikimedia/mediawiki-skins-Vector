@@ -60,13 +60,45 @@
 				text-decoration: none;
 			}
 		}
+
+		// Copied from https://github.com/wikimedia/Vector/blob/master/resources/common/components/MenuDropdown.less#L88
+		.vector-user-menu-anon-editor,
+		.vector-user-menu-login {
+			padding: 0.625em;
+			margin: 0;
+			font-size: @font-size-tabs;
+		}
+
+		// "Login" link in anonymous user menus
+		.vector-user-menu-login {
+			border-bottom: 1px solid @border-color-base;
+
+			&:hover {
+				background-color: @background-color-secondary;
+			}
+
+			a {
+				display: block;
+				color: #000;
+				text-decoration: none;
+			}
+		}
+
+		// "Log out" link in logged in user menus
+		// FIXME: Should not use ID selector. To be fixed as part of T281791.
+		#pt-logout {
+			border-top: 1px solid @border-color-base;
+		}
 	}
 
-	#p-createaccount {
-		margin-left: 0.75em;
+	.mw-portlet-notifications {
+		li {
+			float: left;
+			margin-left: 0.75em;
+		}
 	}
 
-	#p-user-page {
+	.mw-portlet-user-page {
 		li {
 			margin-left: 1em;
 			padding-bottom: 0.5em;
@@ -80,38 +112,7 @@
 		}
 	}
 
-	#p-notifications {
-		li {
-			float: left;
-			margin-left: 0.75em;
-		}
-	}
-
-	// Copied from https://github.com/wikimedia/Vector/blob/master/resources/common/components/MenuDropdown.less#L88
-	.vector-user-menu-anon-editor,
-	.vector-user-menu-login {
-		padding: 0.625em;
-		margin: 0;
-		font-size: @font-size-tabs;
-	}
-
-	// "Login" link in anonymous user menus
-	.vector-user-menu-login {
-		border-bottom: 1px solid @border-color-base;
-
-		&:hover {
-			background-color: @background-color-secondary;
-		}
-
-		a {
-			display: block;
-			color: #000;
-			text-decoration: none;
-		}
-	}
-
-	// "Log out" link in logged in user menus
-	#pt-logout {
-		border-top: 1px solid @border-color-base;
+	.vector-user-links-createaccount {
+		margin-left: 0.75em;
 	}
 }
