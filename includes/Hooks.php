@@ -106,6 +106,18 @@ class Hooks {
 	}
 
 	/**
+	 * Updates the class on an existing item taking into account whether
+	 * a class exists there already.
+	 *
+	 * @param array &$item
+	 * @param string $newClass
+	 */
+	private static function appendClassToUserLink( &$item, $newClass ) {
+		$existingClass = $item['class'] ?? '';
+		$item['class'] = $existingClass . ' ' . $newClass;
+	}
+
+	/**
 	 * Add icon class to an existing navigation item inside a menu hook.
 	 * See self::onSkinTemplateNavigation.
 	 * @param array $item
@@ -128,20 +140,28 @@ class Hooks {
 	 * @param array &$content_navigation
 	 */
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
+		$COLLAPSE_MENU_ITEM_CLASS = 'user-links-collapsible-item';
+
 		// If the consolidate user links feature is enabled, rearrange some links in the personal toolbar.
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled(
 			Constants::FEATURE_CONSOLIDATE_USER_LINKS )
 		) {
 			if ( $sk->loggedin ) {
-				// Remove user page from personal menu dropdown for logged in users.
-				unset( $content_navigation['user-menu']['userpage'] );
+				// Remove user page from personal menu dropdown for logged in users at higher resolutions.
+				self::appendClassToUserLink(
+					$content_navigation['user-menu']['userpage'],
+					$COLLAPSE_MENU_ITEM_CLASS
+				);
 				// Remove logout link from user-menu and recreate it in SkinVector,
 				unset( $content_navigation['user-menu']['logout'] );
 			} else {
 				// Remove "Not logged in" from personal menu dropdown for anon users.
 				unset( $content_navigation['user-menu']['anonuserpage'] );
-				// Create account is pulled out into its own button.
-				unset( $content_navigation['user-menu']['createaccount'] );
+				// Create account is pulled out into its own button and hidden at higher resolutions.
+				self::appendClassToUserLink(
+					$content_navigation['user-menu']['createaccount'],
+					$COLLAPSE_MENU_ITEM_CLASS
+				);
 				// "Login" link is handled manually by Vector
 				unset( $content_navigation['user-menu']['login'] );
 			}
@@ -329,6 +349,14 @@ class Hooks {
 		// Determine the search widget treatment to send to the user
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-vue';
+		}
+
+		if (
+			VectorServices::getFeatureManager()->isFeatureEnabled(
+				Constants::FEATURE_CONSOLIDATE_USER_LINKS
+			)
+		) {
+			$bodyAttrs['class'] .= ' skin-vector-consolidated-user-links';
 		}
 
 		$config = $sk->getConfig();

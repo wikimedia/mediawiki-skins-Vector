@@ -42,6 +42,8 @@
  * @property {string} [html-user-language-attributes]
  * @property {string} form-action URL
  * @property {string|null} html-input
+ * @property {boolean} [is-collapsible]
+ * @property {string|null} [class] of the menu
  * @property {string|null} page-title the title of the search page
  * @property {string|null} html-button-search-fallback
  * @property {string|null} html-button-search

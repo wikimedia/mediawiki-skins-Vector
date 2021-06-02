@@ -15,6 +15,12 @@
 	// This will be ignored in flexbox browsers.
 	float: left;
 	margin-right: 10px;
+	// Hide mobile icon at lower resolutions and defer to wordmark
+	display: none;
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		display: block;
+	}
 }
 
 .mw-logo-container {
@@ -22,6 +28,24 @@
 	// This will be ignored in flexbox browsers.
 	// The two children `div`s will lay out in a row.
 	float: left;
+	// At mobile resolutions restrict logo to 120px to optimize for a 340px display (@min-width-supported)
+	// (based on https://gs.statcounter.com/screen-resolution-stats/mobile/worldwide)
+	// This accounts for up to 5 icons
+	// (Echo notifications x 2, search, hamburger and personal menu)
+	// where the icons have 44px each (44x5 = 220px)
+	max-width: 120px;
+
+	img {
+		width: 100%;
+	}
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		max-width: none;
+
+		img {
+			width: auto;
+		}
+	}
 }
 
 // Note for 3rd parties where no wgLogos['wordmark'] is defined

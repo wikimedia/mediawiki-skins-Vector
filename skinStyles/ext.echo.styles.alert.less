@@ -1,0 +1,16 @@
+@import 'mediawiki.ui/variables.less';
+
+//  The "you have new messages" bar should be hidden at lower resolutions (temporary solution until T284243)
+.vector-user-links {
+	#ca-talk-alert {
+		display: none;
+
+		@media ( min-width: @width-breakpoint-tablet ) {
+			display: inline-block;
+		}
+	}
+
+	#pt-notifications-alert {
+		margin-right: 0.75em;
+	}
+}

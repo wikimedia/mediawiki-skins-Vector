@@ -239,9 +239,10 @@ class SkinVector extends SkinMustache {
 	 * Returns template data for UserLinks.mustache
 	 * @param array $menuData existing menu template data to be transformed and copied for UserLinks
 	 * @param bool $isAnon if the user is logged out, used to conditionally provide data
+	 * @param array $searchBoxData representing search box.
 	 * @return array
 	 */
-	private function getUserLinksTemplateData( $menuData, $isAnon ) : array {
+	private function getUserLinksTemplateData( $menuData, $isAnon, $searchBoxData ) : array {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
@@ -313,8 +314,6 @@ class SkinVector extends SkinMustache {
 			'sidebar-visible' => $this->isSidebarVisible(),
 
 			'is-language-in-header' => $this->isLanguagesInHeader(),
-
-			'should-search-expand' => $this->shouldSearchExpand(),
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
@@ -328,14 +327,51 @@ class SkinVector extends SkinMustache {
 			];
 		}
 
-		if ( $this->shouldConsolidateUserLinks() ) {
+		$shouldConsolidateUserLinks = $this->shouldConsolidateUserLinks();
+		if ( $shouldConsolidateUserLinks ) {
 			$commonSkinData['data-vector-user-links'] = $this->getUserLinksTemplateData(
 				$commonSkinData['data-portlets'],
-				$commonSkinData['is-anon']
+				$commonSkinData['is-anon'],
+				$commonSkinData['data-search-box']
 			);
 		}
 
+		$commonSkinData['data-search-box'] = $this->getSearchData(
+			$commonSkinData['data-search-box'],
+			$shouldConsolidateUserLinks
+		);
+
 		return $commonSkinData;
+	}
+
+	/**
+	 * Annotates search box with Vector-specific information
+	 *
+	 * @param array $searchBoxData
+	 * @param bool $shouldConsolidateUserLinks
+	 * @return array modified version of $searchBoxData
+	 */
+	private function getSearchData( array $searchBoxData, bool $shouldConsolidateUserLinks ) {
+		$searchClass = 'vector-search-box';
+
+		if ( $shouldConsolidateUserLinks ) {
+			$searchClass .= ' vector-search-box-collapses';
+		}
+
+		if ( $this->shouldSearchExpand() ) {
+			$searchClass .= ' vector-search-box-show-thumbnail';
+		}
+
+		// Annotate search box with a component class.
+		$searchBoxData['class'] = $searchClass;
+		$searchBoxData['is-collapsible'] = $shouldConsolidateUserLinks;
+
+		// At lower resolutions the search input is hidden search and only the submit button is shown.
+		// It should behave like a form submit link (e.g. submit the form with no input value).
+		// We'll wire this up in a later task T284242.
+		$searchBoxData['href-search'] = Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl();
+
+		return $searchBoxData;
 	}
 
 	/**
