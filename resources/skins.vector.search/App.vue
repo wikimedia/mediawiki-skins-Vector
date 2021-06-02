@@ -35,7 +35,7 @@
 
 <script>
 /* global SubmitEvent */
-var wvui = require( 'wvui' ),
+var wvui = require( 'wvui-search' ),
 	instrumentation = require( './instrumentation.js' );
 
 module.exports = {

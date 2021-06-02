@@ -83,7 +83,7 @@
 		"skins.vector.search": {
 			"dependencies": [
 				"mediawiki.Uri",
-				"wvui"
+				"wvui-search"
 			],
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
