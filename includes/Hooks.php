@@ -154,7 +154,7 @@ class Hooks {
 				unset( $content_navigation['user-menu']['anonuserpage'] );
 				// Create account is pulled out into its own button.
 				unset( $content_navigation['user-menu']['createaccount'] );
-				// "Login" link is handled by UserMenu
+				// "Login" link is handled manually by Vector
 				unset( $content_navigation['user-menu']['login'] );
 			}
 			// Prefix user link items with associated icon.

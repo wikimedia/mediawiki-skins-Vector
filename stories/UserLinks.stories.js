@@ -1,7 +1,7 @@
 import mustache from 'mustache';
 import { menuTemplate } from './Menu.stories.data';
 import { PERSONAL_MENU_TEMPLATE_DATA, USER_LINKS_LOGGED_IN_TEMPLATE_DATA, USER_LINKS_LOGGED_OUT_TEMPLATE_DATA } from './UserLinks.stories.data';
-import { userLinksTemplateLegacy, userLinksTemplate, userMenuTemplate } from './UserLinks.stories.data';
+import { userLinksTemplateLegacy, userLinksTemplate } from './UserLinks.stories.data';
 import '../resources/skins.vector.styles.legacy/components/UserLinks.less';
 import '../resources/skins.vector.styles/components/UserLinks.less';
 
@@ -43,8 +43,7 @@ export const loggedInUserLinks = () => mustache.render(
 	userLinksTemplate,
 	USER_LINKS_LOGGED_IN_TEMPLATE_DATA,
 	{
-		Menu: menuTemplate,
-		UserMenu: userMenuTemplate
+		Menu: menuTemplate
 	}
 );
 
@@ -52,7 +51,6 @@ export const loggedOutUserLinks = () => mustache.render(
 	userLinksTemplate,
 	USER_LINKS_LOGGED_OUT_TEMPLATE_DATA,
 	{
-		Menu: menuTemplate,
-		UserMenu: userMenuTemplate
+		Menu: menuTemplate
 	}
 );

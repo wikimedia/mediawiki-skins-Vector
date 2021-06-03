@@ -2,12 +2,12 @@
 	{{#data-user-interface-preferences}}{{>Menu}}{{/data-user-interface-preferences}}
 	{{#is-anon}}
 		<div id="p-createaccount" class="vector-user-links-createaccount">
-			{{#data-userlinks}}{{{html-create-account}}}{{/data-userlinks}}
+			{{{html-create-account}}}
 		</div>
 	{{/is-anon}}
 	{{^is-anon}}
 		{{#data-notifications}}{{>Menu}}{{/data-notifications}}
 		{{#data-user-page}}{{>Menu}}{{/data-user-page}}
 	{{/is-anon}}
-	{{#data-user-menu}}{{>UserMenu}}{{/data-user-menu}}
+	{{#data-user-menu}}{{>Menu}}{{/data-user-menu}}
 </div>
