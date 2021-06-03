@@ -24,6 +24,20 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
  */
 class Hooks {
 	/**
+	 * Icon map of user link keys and icon names.
+	 */
+	public const ICON_USER_LINK_MAP = [
+		'mytalk' => 'userTalk',
+		'anontalk' => 'userTalk',
+		'preferences' => 'settings',
+		'betafeatures' => 'labFlask',
+		'watchlist' => 'unStar',
+		'mycontris' => 'userContributions',
+		'anoncontribs' => 'userContributions',
+		'logout' => 'logOut',
+	];
+
+	/**
 	 * Passes config variables to Vector (modern) ResourceLoader module.
 	 * @param ResourceLoaderContext $context
 	 * @param Config $config
@@ -142,6 +156,39 @@ class Hooks {
 				unset( $content_navigation['user-menu']['createaccount'] );
 				// "Login" link is handled by UserMenu
 				unset( $content_navigation['user-menu']['login'] );
+			}
+			// Prefix user link items with associated icon.
+			$user_menu = $content_navigation['user-menu'];
+			// Loop through each menu to check/append its link classes.
+			foreach ( $user_menu as $menu_key => $menu_value ) {
+				// Check if the menu has an icon key (provided by extensions). If not, get the icon from the icon map.
+				$icon_name = array_key_exists( 'icon', $menu_value )
+					? $menu_value['icon']
+					: self::getIconFromKey( $menu_key );
+				// Set the default menu icon classes.
+				$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before', 'mw-ui-icon-wikimedia-' . $icon_name ];
+
+				// Add the link-class key to the menu and its relevant classes if it doesn't exist.
+				if ( !( array_key_exists( 'class', $menu_value )
+					|| array_key_exists( 'link-class', $menu_value ) )
+				) {
+					$content_navigation['user-menu'][$menu_key]['link-class'] = $menu_icon_classes;
+				} else {
+					// The link-class or class keys do exist, so append the icon classes to them.
+					foreach ( $menu_value as $link_key => $link_value ) {
+						// Add relevant classes whether the link value is an array or a string.
+						switch ( $link_key ) {
+							case 'class':
+							case 'link-class':
+								$prior_link_classes = is_array( $link_value ) ? $link_value : [ $link_value ];
+								$content_navigation['user-menu'][$menu_key][$link_key] = array_merge(
+									$prior_link_classes,
+									$menu_icon_classes
+								);
+								break;
+						}
+					}
+				}
 			}
 		} else {
 			// Remove user page from personal toolbar since it will be inside the personal menu for logged in
@@ -438,4 +485,17 @@ class Hooks {
 	private static function isSkinVersionLegacy(): bool {
 		return !VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
 	}
+
+	/**
+	 * Gets the associated icon name for a user link menu item in the personal toolbar.
+	 *
+	 * @param string $key
+	 *
+	 * @return string
+	 */
+	private static function getIconFromKey( string $key ): string {
+		$icon_map = self::ICON_USER_LINK_MAP;
+		return $icon_map[$key] ?? '';
+	}
+
 }
