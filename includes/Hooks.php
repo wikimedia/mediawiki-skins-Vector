@@ -149,6 +149,8 @@ class Hooks {
 			if ( $sk->loggedin ) {
 				// Remove user page from personal menu dropdown for logged in users.
 				unset( $content_navigation['user-menu']['userpage'] );
+				// Remove logout link from user-menu and recreate it in SkinVector,
+				unset( $content_navigation['user-menu']['logout'] );
 			} else {
 				// Remove "Not logged in" from personal menu dropdown for anon users.
 				unset( $content_navigation['user-menu']['anonuserpage'] );
