@@ -35,5 +35,7 @@
 	"vector-jumptosearch": "Hoppa till sök",
 	"vector-jumptocontent": "Hoppa till innehållet",
 	"vector-more-actions": "Mer",
-	"vector-search-loader": "Laddar in sökförslag"
+	"vector-search-loader": "Laddar in sökförslag",
+	"vector-anon-user-menu-pages": "Sidor för utloggade redigerade",
+	"vector-anon-user-menu-pages-learn": "läs mer"
 }
