@@ -4,7 +4,8 @@
 import { menuTemplate } from './Menu.stories.data';
 import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/legacy/UserLinks.mustache';
 import userLinksTemplate from '!!raw-loader!../includes/templates/UserLinks.mustache';
-import { helperMakeMenuData } from './utils';
+import userMenuTemplate from '!!raw-loader!../includes/templates/UserMenu.mustache';
+import { helperClassName, helperMakeMenuData } from './utils';
 
 /**
  * @type {MenuDefinition}
@@ -12,7 +13,7 @@ import { helperMakeMenuData } from './utils';
 const loggedOut = helperMakeMenuData(
 	'personal',
 	`<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="/wiki/Special:MyTalk" title="Discussion about edits from this IP address [⌃⌥n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="/wiki/Special:MyContributions" title="A list of edits made from this IP address [⌃⌥y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" title="You're encouraged to log in; however, it's not mandatory. [⌃⌥o]" accesskey="o">Log in</a></li>`,
-	'vector-user-menu-legacy'
+	helperClassName( 'vector-user-menu-legacy' )
 );
 
 const ECHO_ITEMS = `<li id="pt-notifications-alert"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read" data-counter-num="0" data-counter-text="0" title="Your alerts">Alerts (0)</a></li><li id="pt-notifications-notice"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray" data-counter-num="3" data-counter-text="3" title="Your notices">Notices (3)</a></li>`;
@@ -27,7 +28,7 @@ const ULS_LANGUAGE_SELECTOR = '<li class="uls-trigger active"><a href="#">Englis
 const loggedInWithEcho = helperMakeMenuData(
 	'personal',
 	`${USERNAME_ITEM}${ECHO_ITEMS}${REST_ITEMS}${LOGOUT_ITEM}`,
-	'vector-user-menu-legacy'
+	helperClassName( 'vector-user-menu-legacy' )
 );
 
 /**
@@ -36,7 +37,7 @@ const loggedInWithEcho = helperMakeMenuData(
 const loggedInWithULS = helperMakeMenuData(
 	'personal',
 	`${ULS_LANGUAGE_SELECTOR}${USERNAME_ITEM}${ECHO_ITEMS}${REST_ITEMS}${LOGOUT_ITEM}`,
-	'vector-user-menu-legacy'
+	helperClassName( 'vector-user-menu-legacy' )
 );
 
 /**
@@ -49,14 +50,46 @@ const PERSONAL_MENU_TEMPLATE_DATA = {
 };
 
 /**
- * @type {Object.<string, MenuDefinition|MenuDefinitions>}
+ * @type {UserLinksDataDefinition}
  */
-const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
-	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
-	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS ),
-	'data-user-menu': helperMakeMenuData( 'personal', REST_ITEMS )
+const userLinksData = {
+	'html-login': `<a href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" class="vector-menu-content-item" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a>`,
+	'html-vector-anon-user-menu-pages-learn': `(<a href="/wiki/Help:Introduction">learn more</a>)`,
+	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`
 };
 
-export { PERSONAL_MENU_TEMPLATE_DATA,
+const additionalMenuData = {
+	class: 'vector-user-menu vector-menu-dropdown',
+	'msg-vector-anon-user-menu-pages': `Pages for logged out editors`,
+	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis'
+};
+
+/**
+ * @type {UserLinksDefinition}
+ */
+const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
+	'is-anon': false,
+	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
+	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS ),
+	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, { 'is-anon': false } ) ),
+	'data-userlinks': userLinksData
+};
+
+/**
+ * @type {UserLinksDefinition}
+ */
+const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
+	'is-anon': true,
+	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, { 'is-anon': true } ) ),
+	'data-userlinks': userLinksData
+};
+
+export {
+	PERSONAL_MENU_TEMPLATE_DATA,
 	USER_LINKS_LOGGED_IN_TEMPLATE_DATA,
-	menuTemplate, userLinksTemplateLegacy, userLinksTemplate };
+	USER_LINKS_LOGGED_OUT_TEMPLATE_DATA,
+	menuTemplate,
+	userLinksTemplateLegacy,
+	userLinksTemplate,
+	userMenuTemplate
+};

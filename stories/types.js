@@ -66,10 +66,25 @@
  * @typedef {Object.<string, MenuDefinition>} MenuDefinitions
  */
 
-/*
+/**
+ * @typedef {Object} UserLinksDataDefinition
+ * @property {string} html-login
+ * @property {string} html-create-account
+ * @property {string} html-vector-anon-user-menu-pages-learn
+ */
+
+/**
  * @typedef {MenuDefinition} UserMenuDefinition
- * @property {boolean} [is-anon]
- * @property {string} [html-login]
+ * @property {boolean} is-anon
  * @property {string} [msg-vector-anon-user-menu-pages]
- * @property {string} [html-vector-anon-user-menu-pages-learn]
+ * @property {UserLinksDataDefinition} [data-userlinks]
+ */
+
+/**
+ * @typedef {Object} UserLinksDefinition
+ * @property {boolean} is-anon
+ * @property {MenuDefinition} [data-notifications]
+ * @property {MenuDefinition} [data-user-page]
+ * @property {UserMenuDefinition} data-user-menu
+ * @property {UserLinksDataDefinition}  [data-userlinks]
  */
