@@ -6,6 +6,7 @@
 			"Iniquity",
 			"JenVan",
 			"Kaganer",
+			"Kareyac",
 			"Megakott",
 			"Nemo bis",
 			"Okras",
@@ -40,5 +41,6 @@
 	"vector-jumptosearch": "Перейти к поиску",
 	"vector-jumptocontent": "Перейти к содержанию",
 	"vector-more-actions": "Ещё",
-	"vector-search-loader": "Загружаются поисковые предложения"
+	"vector-search-loader": "Загружаются поисковые предложения",
+	"vector-anon-user-menu-pages-learn": "узнать больше"
 }
