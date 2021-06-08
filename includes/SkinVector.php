@@ -255,7 +255,9 @@ class SkinVector extends SkinMustache {
 			$commonSkinData['data-userlinks'] = [
 				'html-create-account' => $this->makeLink( 'create-account', $createAccountData ),
 
-				'html-login' => $this->makeLink( 'login', $loginData ),
+				'html-login' => $this->makeLink( 'login', $loginData, [
+					'link-class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logIn'
+				] ),
 
 				'html-vector-anon-user-menu-pages-learn' => $this->msg( 'parentheses' )->
 					rawParams( $learnMoreLink )->

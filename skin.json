@@ -146,7 +146,15 @@
 			"variants": [],
 			"icons": [
 				"language",
-				"ellipsis"
+				"ellipsis",
+				"userTalk",
+				"markup",
+				"settings",
+				"labFlask",
+				"unStar",
+				"userContributions",
+				"logIn",
+				"logOut"
 			]
 		},
 		"skins.vector.js": {
