@@ -331,12 +331,13 @@ class SkinVector extends SkinMustache {
 	 * @return array enhanced $portletData
 	 */
 	private function createULSLanguageButton( $portletData ) {
+		$label = $this->msg( 'vector-language-button-label' )
+			->numParams( count( $this->getLanguagesCached() ) )
+			->escaped();
+
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
-			'label' => $this->msg(
-				'vector-language-button-label',
-				count( $this->getLanguagesCached() )
-			)->escaped(),
+			'label' => $label,
 			'heading-class' =>
 				' vector-menu-heading ' .
 				' mw-ui-icon ' .
