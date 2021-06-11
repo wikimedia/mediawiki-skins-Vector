@@ -171,6 +171,71 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Returns HTML for the create account button inside the anon user links
+	 * @param string[] $returnto array of query strings used to build the login link
+	 * @return string
+	 */
+	private function getCreateAccountHTML( $returnto ) {
+		$createAccountData = $this->buildCreateAccountData( $returnto );
+		$createAccountData['single-id'] = 'pt-createaccount';
+		$createAccountData['class'] = 'mw-ui-button mw-ui-quiet';
+		$htmlCreateAccount = $this->makeLink( 'create-account', $createAccountData );
+
+		return $htmlCreateAccount;
+	}
+
+	/**
+	 * Returns HTML for the login button and learn more link inside the anon user menu
+	 * @param string[] $returnto array of query strings used to build the login link
+	 * @param bool $useCombinedLoginLink if a combined login/signup link will be used
+	 * @return string
+	 */
+	private function getLoginHTML( $returnto, $useCombinedLoginLink ) {
+		// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
+		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
+		$loginData['single-id'] = 'pt-login';
+		$loginData['class'] = 'vector-menu-content-item';
+
+		$learnMoreLinkData = [
+			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
+			'href' => Title::newFromText( 'Help:Introduction' )->getLocalURL(),
+		];
+		$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
+
+		$templateParser = $this->getTemplateParser();
+		return $templateParser->processTemplate( 'UserLinks__login', [
+			'htmlLogin' => $this->makeLink( 'login', $loginData ),
+			'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' ),
+			'htmlLearnMoreLink' => $this->msg( 'parentheses' )->
+				rawParams( $learnMoreLink )->
+				escaped()
+		] );
+	}
+
+	/**
+	 * Returns template data for UserLinks.mustache
+	 * @param array $menuData existing menu template data to be transformed and copied for UserLinks
+	 * @param bool $isAnon if the user is logged out, used to conditionally provide data
+	 * @return array
+	 */
+	private function getUserLinksTemplateData( $menuData, $isAnon ) : array {
+		$returnto = $this->getReturnToParam();
+		$useCombinedLoginLink = $this->useCombinedLoginLink();
+		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
+		$userMenuData = $menuData[ 'data-user-menu' ];
+		$userMenuData[ 'html-before-portal' ] = $this->getLoginHTML( $returnto, $useCombinedLoginLink );
+
+		return [
+			'is-anon' => $isAnon,
+			'html-create-account' => $htmlCreateAccount,
+			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
+			'data-notifications' => $menuData[ 'data-notifications' ],
+			'data-user-page' => $menuData[ 'data-user-page' ],
+			'data-user-menu' => $userMenuData
+		];
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData() : array {
@@ -232,37 +297,13 @@ class SkinVector extends SkinMustache {
 					'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
 			];
-		} else {
-			$returnto = $this->getReturnToParam();
-			$useCombinedLoginLink = $this->useCombinedLoginLink();
+		}
 
-			// Get data for login and create account buttons for anon user menu
-			// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
-			$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
-			$loginData['single-id'] = 'pt-login';
-			$loginData['class'] = 'vector-menu-content-item';
-
-			$createAccountData = $this->buildCreateAccountData( $returnto );
-			$createAccountData['single-id'] = 'pt-createaccount';
-			$createAccountData['class'] = 'mw-ui-button mw-ui-quiet';
-
-			$learnMoreLinkData = [
-				'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-				'href' => Title::newFromText( 'Help:Introduction' )->getLocalURL(),
-			];
-			$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
-
-			$commonSkinData['data-userlinks'] = [
-				'html-create-account' => $this->makeLink( 'create-account', $createAccountData ),
-
-				'html-login' => $this->makeLink( 'login', $loginData, [
-					'link-class' => 'mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logIn'
-				] ),
-
-				'html-vector-anon-user-menu-pages-learn' => $this->msg( 'parentheses' )->
-					rawParams( $learnMoreLink )->
-					escaped(),
-			];
+		if ( $this->shouldConsolidateUserLinks() ) {
+			$commonSkinData['data-vector-user-links'] = $this->getUserLinksTemplateData(
+				$commonSkinData['data-portlets'],
+				$commonSkinData['is-anon']
+			);
 		}
 
 		return $commonSkinData;

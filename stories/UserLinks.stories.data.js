@@ -4,7 +4,6 @@
 import { menuTemplate } from './Menu.stories.data';
 import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/legacy/UserLinks.mustache';
 import userLinksTemplate from '!!raw-loader!../includes/templates/UserLinks.mustache';
-import userMenuTemplate from '!!raw-loader!../includes/templates/UserMenu.mustache';
 import { helperClassName, helperMakeMenuData } from './utils';
 
 /**
@@ -49,19 +48,28 @@ const PERSONAL_MENU_TEMPLATE_DATA = {
 	loggedInWithULS
 };
 
-/**
- * @type {UserLinksDataDefinition}
- */
-const userLinksData = {
-	'html-login': `<a href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" class="vector-menu-content-item" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a>`,
-	'html-vector-anon-user-menu-pages-learn': `(<a href="/wiki/Help:Introduction">learn more</a>)`,
-	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`
-};
-
 const additionalMenuData = {
 	class: 'vector-user-menu vector-menu-dropdown',
 	'msg-vector-anon-user-menu-pages': `Pages for logged out editors`,
 	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis'
+};
+
+const loggedInData = {
+	'is-anon': true
+};
+
+const loggedOutData = {
+	'is-anon': true,
+	'html-before-portlet': `
+		<div class="vector-user-menu-login">
+			<a href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" class="vector-menu-content-item" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a>
+		</div>
+		<div class="vector-user-menu-anon-editor">
+			<p>
+				Pages for logged out editors (<a href="/wiki/Help:Introduction">learn more</a>):
+			</p>
+		</div>
+	`
 };
 
 /**
@@ -71,8 +79,7 @@ const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
 	'is-anon': false,
 	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
 	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS ),
-	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, { 'is-anon': false } ) ),
-	'data-userlinks': userLinksData
+	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, loggedInData ) )
 };
 
 /**
@@ -80,8 +87,8 @@ const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
  */
 const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
 	'is-anon': true,
-	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, { 'is-anon': true } ) ),
-	'data-userlinks': userLinksData
+	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`,
+	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( additionalMenuData, loggedOutData ) )
 };
 
 export {
@@ -90,6 +97,5 @@ export {
 	USER_LINKS_LOGGED_OUT_TEMPLATE_DATA,
 	menuTemplate,
 	userLinksTemplateLegacy,
-	userLinksTemplate,
-	userMenuTemplate
+	userLinksTemplate
 };
