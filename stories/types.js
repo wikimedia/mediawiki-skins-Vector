@@ -59,6 +59,7 @@
  * @property {string} [class] of menu
  * @property {string} [html-user-language-attributes]
  * @property {boolean} [is-dropdown]
+ * @property {string} [html-before-portal] Additional HTML specific to portal menus.
  * @property {string} [html-after-portal] Additional HTML specific to portal menus.
  */
 
