@@ -242,9 +242,10 @@ class SkinVector extends SkinMustache {
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
 		$userMenuData = $menuData[ 'data-user-menu' ];
-		$userMenuData[ 'html-before-portal' ] = $this->getLoginHTML( $returnto, $useCombinedLoginLink );
 
-		if ( !$isAnon ) {
+		if ( $isAnon ) {
+			$userMenuData[ 'html-before-portal' ] .= $this->getLoginHTML( $returnto, $useCombinedLoginLink );
+		} else {
 			// Appending as to not override data potentially set by the onSkinAfterPortlet hook.
 			$userMenuData[ 'html-after-portal' ] .= $this->getLogoutHTML();
 		}
