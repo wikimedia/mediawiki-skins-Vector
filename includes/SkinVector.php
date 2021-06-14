@@ -213,6 +213,25 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Returns HTML for the logout button that should be placed in the user (personal) menu
+	 * after the menu itself.
+	 * @return string
+	 */
+	private function getLogoutHTML() {
+		$logoutLinkData = $this->buildLogoutLinkData();
+		$templateParser = $this->getTemplateParser();
+		$logoutLinkData['class'] = [
+			'vector-menu-content-item',
+			'mw-ui-icon mw-ui-icon-before',
+			'mw-ui-icon-wikimedia-logOut'
+		];
+
+		return $templateParser->processTemplate( 'UserLinks__logout', [
+			'htmlLogout' => $this->makeLink( 'logout', $logoutLinkData )
+		] );
+	}
+
+	/**
 	 * Returns template data for UserLinks.mustache
 	 * @param array $menuData existing menu template data to be transformed and copied for UserLinks
 	 * @param bool $isAnon if the user is logged out, used to conditionally provide data
@@ -224,6 +243,11 @@ class SkinVector extends SkinMustache {
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
 		$userMenuData = $menuData[ 'data-user-menu' ];
 		$userMenuData[ 'html-before-portal' ] = $this->getLoginHTML( $returnto, $useCombinedLoginLink );
+
+		if ( !$isAnon ) {
+			// Appending as to not override data potentially set by the onSkinAfterPortlet hook.
+			$userMenuData[ 'html-after-portal' ] .= $this->getLogoutHTML();
+		}
 
 		return [
 			'is-anon' => $isAnon,

@@ -69,12 +69,18 @@
 			font-size: @font-size-tabs;
 		}
 
-		// "Login" link in anonymous user menus
+		// "Login" and "Logout" links in user menu
 		.vector-user-menu-login {
-			border-bottom: 1px solid @border-color-base;
-
 			&:hover {
 				background-color: @background-color-secondary;
+			}
+
+			&:first-child {
+				border-bottom: 1px solid @border-color-base;
+			}
+
+			&:last-child {
+				border-top: 1px solid @border-color-base;
 			}
 
 			a {
@@ -82,12 +88,6 @@
 				color: #000;
 				text-decoration: none;
 			}
-		}
-
-		// "Log out" link in logged in user menus
-		// FIXME: Should not use ID selector. To be fixed as part of T281791.
-		#pt-logout {
-			border-top: 1px solid @border-color-base;
 		}
 	}
 
