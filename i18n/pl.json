@@ -32,5 +32,7 @@
 	"vector-jumptosearch": "Przejdź do wyszukiwania",
 	"vector-jumptocontent": "Przejdź do zawartości",
 	"vector-more-actions": "Więcej",
-	"vector-search-loader": "Wczytywanie sugestii"
+	"vector-search-loader": "Wczytywanie sugestii",
+	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",
+	"vector-anon-user-menu-pages-learn": "dowiedz się więcej"
 }

@@ -39,5 +39,7 @@
 	"vector-jumptosearch": "Перейти до пошуку",
 	"vector-jumptocontent": "Перейти до вмісту",
 	"vector-more-actions": "Ще",
-	"vector-search-loader": "Завантажуються підказки пошуку"
+	"vector-search-loader": "Завантажуються підказки пошуку",
+	"vector-anon-user-menu-pages": "Сторінка для редакторів, які вийшли з системи",
+	"vector-anon-user-menu-pages-learn": "дізнатися більше"
 }
