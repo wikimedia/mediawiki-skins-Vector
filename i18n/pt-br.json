@@ -40,5 +40,7 @@
 	"vector-jumptosearch": "Ir para pesquisar",
 	"vector-jumptocontent": "Ir para o conteúdo",
 	"vector-more-actions": "Mais",
-	"vector-search-loader": "Carregando sugestões de pesquisa"
+	"vector-search-loader": "Carregando sugestões de pesquisa",
+	"vector-anon-user-menu-pages": "Páginas para editores conectados",
+	"vector-anon-user-menu-pages-learn": "saiba mais"
 }
