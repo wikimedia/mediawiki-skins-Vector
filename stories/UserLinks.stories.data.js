@@ -50,8 +50,9 @@ const PERSONAL_MENU_TEMPLATE_DATA = {
 
 const additionalMenuData = {
 	class: 'vector-user-menu vector-menu-dropdown',
+	'is-dropdown': true,
 	'msg-vector-anon-user-menu-pages': `Pages for logged out editors`,
-	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis'
+	'heading-class': 'mw-ui-icon mw-ui-icon-element'
 };
 
 const loggedInData = {
