@@ -440,7 +440,7 @@ class SkinVector extends SkinMustache {
 			if ( $this->shouldConsolidateUserLinks() ) {
 				$portletData['class'] .= ' vector-user-menu';
 				// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
-				$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis';
+				$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element';
 			} else {
 				$portletData['class'] .= ' vector-user-menu-legacy';
 			}
