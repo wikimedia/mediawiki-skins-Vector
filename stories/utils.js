@@ -1,4 +1,8 @@
 /**
+ * @external MenuDefinition
+ */
+
+/**
  * @param {string} msg
  * @param {number} [height=200]
  * @return {string}
