@@ -268,7 +268,7 @@
 			"description": "@var string:['2'|'1'] The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersionForExistingAccounts) and only ever executed once at new account creation time."
 		},
 		"VectorUseWvuiSearch": {
-			"value": false
+			"value": true
 		},
 		"VectorSearchTreatmentABTest": {
 			"value": false,
