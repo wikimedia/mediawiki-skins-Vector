@@ -24,20 +24,6 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
  */
 class Hooks {
 	/**
-	 * Icon map of user link keys and icon names.
-	 */
-	public const ICON_USER_LINK_MAP = [
-		'mytalk' => 'userTalk',
-		'anontalk' => 'userTalk',
-		'preferences' => 'settings',
-		'betafeatures' => 'labFlask',
-		'watchlist' => 'unStar',
-		'mycontris' => 'userContributions',
-		'anoncontribs' => 'userContributions',
-		'logout' => 'logOut',
-	];
-
-	/**
 	 * Passes config variables to Vector (modern) ResourceLoader module.
 	 * @param ResourceLoaderContext $context
 	 * @param Config $config
@@ -163,10 +149,7 @@ class Hooks {
 			$user_menu = $content_navigation['user-menu'];
 			// Loop through each menu to check/append its link classes.
 			foreach ( $user_menu as $menu_key => $menu_value ) {
-				// Check if the menu has an icon key (provided by extensions). If not, get the icon from the icon map.
-				$icon_name = array_key_exists( 'icon', $menu_value )
-					? $menu_value['icon']
-					: self::getIconFromKey( $menu_key );
+				$icon_name = $menu_value['icon'] ?? '';
 				// Set the default menu icon classes.
 				$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before', 'mw-ui-icon-wikimedia-' . $icon_name ];
 
@@ -487,17 +470,4 @@ class Hooks {
 	private static function isSkinVersionLegacy(): bool {
 		return !VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
 	}
-
-	/**
-	 * Gets the associated icon name for a user link menu item in the personal toolbar.
-	 *
-	 * @param string $key
-	 *
-	 * @return string
-	 */
-	private static function getIconFromKey( string $key ): string {
-		$icon_map = self::ICON_USER_LINK_MAP;
-		return $icon_map[$key] ?? '';
-	}
-
 }

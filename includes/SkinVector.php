@@ -197,7 +197,7 @@ class SkinVector extends SkinMustache {
 		$loginData['class']  = [
 			'vector-menu-content-item',
 			'mw-ui-icon mw-ui-icon-before',
-			'mw-ui-icon-wikimedia-logIn'
+			'mw-ui-icon-wikimedia-' . ( $loginData[ 'icon' ] ?? '' )
 		];
 
 		$learnMoreLinkData = [
@@ -227,7 +227,7 @@ class SkinVector extends SkinMustache {
 		$logoutLinkData['class'] = [
 			'vector-menu-content-item',
 			'mw-ui-icon mw-ui-icon-before',
-			'mw-ui-icon-wikimedia-logOut'
+			'mw-ui-icon-wikimedia-' . ( $logoutLinkData[ 'icon' ] ?? '' )
 		];
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
