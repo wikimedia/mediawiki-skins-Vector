@@ -194,7 +194,11 @@ class SkinVector extends SkinMustache {
 		// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
 		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
 		$loginData['single-id'] = 'pt-login';
-		$loginData['class'] = 'vector-menu-content-item';
+		$loginData['class']  = [
+			'vector-menu-content-item',
+			'mw-ui-icon mw-ui-icon-before',
+			'mw-ui-icon-wikimedia-logIn'
+		];
 
 		$learnMoreLinkData = [
 			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
