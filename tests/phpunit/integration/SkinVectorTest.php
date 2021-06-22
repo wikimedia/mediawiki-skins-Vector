@@ -80,11 +80,6 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$views = $props['data-views'];
 		$namespaces = $props['data-namespaces'];
 
-		// Can be removed when https://gerrit.wikimedia.org/r/c/mediawiki/core/+/699446 is merged.
-		if ( !array_key_exists( 'html-before-portal', $views ) ) {
-			$views = wfArrayInsertAfter( $views, [ 'html-before-portal' => '' ], 'html-after-portal' );
-		}
-
 		$this->assertSame(
 			[
 				// Provided by core
@@ -98,9 +93,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				'heading-class' => 'vector-menu-heading',
 				'is-dropdown' => false,
 			],
-			$views,
-			0,
-			true
+			$views
 		);
 
 		$variants = $props['data-variants'];
