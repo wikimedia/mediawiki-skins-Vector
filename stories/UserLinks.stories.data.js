@@ -22,6 +22,18 @@ const REST_ITEMS = `<li id="pt-mytalk"><a href="/wiki/User_talk:WikiUser" title=
 const LOGOUT_ITEM = `<li id="pt-logout"><a href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page&amp;returntoquery=useskin%3Dvector" title="Log out">Log out</a></li>`;
 const ULS_LANGUAGE_SELECTOR = '<li class="uls-trigger active"><a href="#">English</a></li>';
 
+const USER_LINKS_ITEMS = `
+	<li id="pt-mytalk"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userTalk" href="/wiki/User_talk:WikiUser" title="Your talk page [⌃⌥n]" accesskey="n">Talk</a></li>
+	<li id="pt-sandbox"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-markup" href="/wiki/User:WikiUser/sandbox" title="Your sandbox">Sandbox</a></li>
+	<li id="pt-preferences"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-settings" href="/wiki/Special:Preferences" title="Your preferences">Preferences</a></li>
+	<li id="pt-watchlist"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-unStar" href="/wiki/Special:Watchlist" title="A list of pages you are monitoring for changes [⌃⌥l]" accesskey="l">Watchlist</a></li>
+	<li id="pt-mycontris"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userContributions" href="/wiki/Special:Contributions/WikiUser" title="A list of your contributions [⌃⌥y]" accesskey="y">Contributions</a></li>
+`;
+const ANON_USER_LINKS_ITEMS = `
+	<li id="pt-mytalk"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userTalk" href="/wiki/User_talk:WikiUser" title="Your talk page [⌃⌥n]" accesskey="n">Talk</a></li>
+	<li id="pt-mycontris"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userContributions" href="/wiki/Special:Contributions/WikiUser" title="A list of your contributions [⌃⌥y]" accesskey="y">Contributions</a></li>
+`;
+
 /**
  * @type {MenuDefinition}
  */
@@ -59,7 +71,7 @@ const loggedInData = {
 	'is-anon': true,
 	'html-after-portal': `
 		<div id="pt-logout" class="vector-user-menu-login">
-		    <a data-mw="interface" href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page" class="vector-menu-content-item">Log out</a>
+		    <a class="vector-menu-content-item mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logOut" data-mw="interface" href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page">Log out</a>
 		</div>
 	`
 };
@@ -68,7 +80,7 @@ const loggedOutData = {
 	'is-anon': true,
 	'html-before-portal': `
 		<div class="vector-user-menu-login">
-			<a href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" class="vector-menu-content-item" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a>
+			<a class="vector-menu-content-item mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logIn" href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a>
 		</div>
 		<div class="vector-user-menu-anon-editor">
 			<p>
@@ -85,7 +97,7 @@ const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
 	'is-anon': false,
 	'data-user-page': helperMakeMenuData( 'user-page', USERNAME_ITEM ),
 	'data-notifications': helperMakeMenuData( 'notifications', ECHO_ITEMS ),
-	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( {}, additionalMenuData, loggedInData ) )
+	'data-user-menu': helperMakeMenuData( 'new-personal', USER_LINKS_ITEMS, Object.assign( {}, additionalMenuData, loggedInData ) )
 };
 
 /**
@@ -94,7 +106,7 @@ const USER_LINKS_LOGGED_IN_TEMPLATE_DATA = {
 const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
 	'is-anon': true,
 	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`,
-	'data-user-menu': helperMakeMenuData( 'new-personal', REST_ITEMS, Object.assign( {}, additionalMenuData, loggedOutData ) )
+	'data-user-menu': helperMakeMenuData( 'new-personal', ANON_USER_LINKS_ITEMS, Object.assign( {}, additionalMenuData, loggedOutData ) )
 };
 
 export {
