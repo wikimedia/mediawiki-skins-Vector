@@ -1,16 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Anthonymodec",
 			"Gadarawamo",
 			"Hunpatinjob",
 			"Misteld"
 		]
 	},
 	"vector-action-addsection": "Yi hoso dogo",
+	"vector-action-delete": "Sunsunsẹ",
+	"vector-action-move": "Seten",
 	"vector-action-protect": "Hiho",
 	"vector-view-create": "Da",
 	"vector-view-edit": "Jlado",
 	"vector-view-history": "Pọn kandai",
 	"vector-view-view": "Hia",
-	"vector-more-actions": "Dogo"
+	"vector-more-actions": "Dogo",
+	"vector-anon-user-menu-pages-learn": "Yon dogo"
 }
