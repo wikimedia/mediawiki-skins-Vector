@@ -10,6 +10,7 @@
 	},
 	"vector-skin-desc": "MonoBook-en bertsio modernoa, itxura berriarekin eta erabilgarritasun hobekuntza askorekin",
 	"vector-opt-out": "Itxura zaharrera aldatu",
+	"vector-language-button-label": "{{PLURAL:$1|Hizkuntza bat|$1 hizkuntza}}",
 	"vector-action-addsection": "Gehitu atala",
 	"vector-action-delete": "Ezabatu",
 	"vector-action-move": "Mugitu",
