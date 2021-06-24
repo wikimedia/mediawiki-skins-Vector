@@ -15,15 +15,7 @@
 
 		h3 {
 			height: 100%;
-			min-width: 48px;
-			// Override background size from common/components/UserLinks.less
-			// stylelint-disable-next-line declaration-no-important
-			background-size: auto !important;
-			background-position: 25%;
-
-			&:after {
-				background-position: 100% 0%;
-			}
+			padding: 0;
 		}
 
 		.vector-menu-checkbox {
@@ -95,6 +87,32 @@
 				color: #000;
 				text-decoration: none;
 			}
+		}
+	}
+
+	.vector-user-menu-logged-out h3 {
+		&:before {
+			height: 100%;
+		}
+
+		&:after {
+			content: none;
+		}
+	}
+
+	.vector-user-menu-logged-in h3 {
+		min-width: 48px;
+
+		&:before {
+			left: -25%;
+			top: 0;
+			bottom: 0;
+			background-size: auto;
+			color: #54595d;
+		}
+
+		&:after {
+			background-position: 100% 0%;
 		}
 	}
 

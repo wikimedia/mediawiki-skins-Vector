@@ -479,8 +479,13 @@ class SkinVector extends SkinMustache {
 		if ( $portletData['id'] === 'p-personal' ) {
 			if ( $this->shouldConsolidateUserLinks() ) {
 				$portletData['class'] .= ' vector-user-menu';
-				// Replace dropdown arrow with ellipsis icon if feature flag is enabled and user is logged in.
+				$portletData['class'] .= $this->loggedin ?
+					' vector-user-menu-logged-in' :
+					' vector-user-menu-logged-out';
 				$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element';
+				$portletData['heading-class'] .= $this->loggedin ?
+					' mw-ui-icon-wikimedia-userAvatar' :
+					' mw-ui-icon-wikimedia-ellipsis';
 			} else {
 				$portletData['class'] .= ' vector-user-menu-legacy';
 			}

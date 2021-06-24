@@ -147,6 +147,7 @@
 			"variants": [],
 			"icons": [
 				"language",
+				"ellipsis",
 				"userAvatar",
 				"userTalk",
 				"markup",
