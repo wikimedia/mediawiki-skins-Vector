@@ -5,7 +5,9 @@
 <nav id="{{id}}" {{#class}}class="{{.}}"{{/class}} aria-labelledby="{{id}}-label" role="navigation" {{{html-tooltip}}}
 	 {{{html-user-language-attributes}}}>
 	{{#is-dropdown}}
-	<input type="checkbox" class="vector-menu-checkbox" aria-labelledby="{{id}}-label" />
+	<input type="checkbox"
+		data-event-name="ui.dropdown-{{id}}"
+		class="vector-menu-checkbox" aria-labelledby="{{id}}-label" />
 	{{/is-dropdown}}
 	<h3 id="{{id}}-label" {{#heading-class}}class="{{.}}"{{/heading-class}}>
 		<span>{{label}}</span>
