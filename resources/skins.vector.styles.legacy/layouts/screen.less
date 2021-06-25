@@ -58,17 +58,9 @@ body {
 	z-index: @z-index-indicators;
 }
 
-// FIXME: [ id='bodyContent' ] selector needed for cached HTML.
-[ id='bodyContent' ],
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
-}
-
-// FIXME: Temporarily disable the core rule which applies to the wrong element.
-// The definition in core still needs work (see T279008).
-.mw-parser-output:after {
-	content: none;
 }
 
 /* Head */
