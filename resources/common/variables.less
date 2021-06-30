@@ -21,6 +21,22 @@
 @outline-color-base--focus: @color-primary;
 
 //
+// == Icons ==
+// FIXME: Use mediawiki.skin.variables when available.
+//
+@icon-touch-area-sm: 34;
+@icon-touch-area-md: 44;
+@font-size-browser: 16; // Assumed browser default of `16px`.
+// Small icon
+@icon-glyph-size-sm: 16;
+@icon-size-sm: unit( @icon-glyph-size-sm / @font-size-browser, em );
+@icon-padding-sm: unit( ( @icon-touch-area-sm - @icon-glyph-size-sm ) / 2 / @font-size-browser, em );
+// Medium icon
+@icon-glyph-size-md: 20;
+@icon-size-md: unit( @icon-glyph-size-md / @font-size-browser, em );
+@icon-padding-md: unit( ( @icon-touch-area-md - @icon-glyph-size-md ) / 2 / @font-size-browser, em );
+
+//
 // == Typography ==
 //
 // Typography in Wikimedia Design Style Guide:;

@@ -97,6 +97,10 @@ class SkinVector extends SkinMustache {
 				}
 			}
 			$options['responsive'] = $responsive;
+
+			if ( $this->shouldConsolidateUserLinks() ) {
+				$options['link'] = [ 'text-wrapper' => [ 'tag' => 'span' ] ];
+			}
 		}
 
 		$options['templateDirectory'] = __DIR__ . '/templates';

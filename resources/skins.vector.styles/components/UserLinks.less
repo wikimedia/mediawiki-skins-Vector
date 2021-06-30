@@ -3,7 +3,6 @@
 .vector-user-links {
 	display: flex;
 	align-items: center;
-	height: 30px;
 	position: relative;
 	justify-content: flex-end;
 	flex-shrink: 1;
@@ -42,8 +41,9 @@
 		height: 100%;
 
 		h3 {
+			color: transparent; // overrides MediaWiki UI icon
 			height: 100%;
-			padding: 0;
+			font-size: inherit;
 		}
 
 		.vector-menu-checkbox {
@@ -89,7 +89,11 @@
 		.vector-user-menu-login {
 			padding: 0.625em;
 			margin: 0;
-			font-size: @font-size-tabs;
+
+			p,
+			span {
+				font-size: @font-size-tabs;
+			}
 		}
 
 		// "Login" and "Logout" links in user menu
@@ -125,18 +129,18 @@
 	}
 
 	.vector-user-menu-logged-in h3 {
-		min-width: 48px;
+		@offset-icon-down-arrow: 4px;
+		@bg-height: unit( 12px / @font-size-browser, em );
 
 		&:before {
-			left: -25%;
-			top: 0;
-			bottom: 0;
-			background-size: auto;
 			color: #54595d;
+			margin-left: -@offset-icon-down-arrow;
 		}
 
 		&:after {
 			background-position: 100% 0%;
+			top: @icon-padding-md + ( @bg-height / 2 );
+			right: @offset-icon-down-arrow;
 		}
 	}
 }

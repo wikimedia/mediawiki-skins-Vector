@@ -16,22 +16,10 @@
 }
 
 #mw-sidebar-button {
-	// Override minimum dimensions set by mw-ui-icon.mw-ui-icon-element.
-	min-width: @size-sidebar-button;
-	min-height: @size-sidebar-button;
-	width: @size-sidebar-button;
-	height: @size-sidebar-button;
 	border: @border-width-base @border-style-base transparent;
 	border-radius: @border-radius-base;
 
 	&:before {
-		// FIXME: the icon itself is supposed to be 20px. mediawiki.ui uses 24px.
-		// As soon as mediawiki.ui is standardized, remove this override. See T191021.
-		min-width: 20px;
-		min-height: 20px;
-		height: 100%;
-		// Center it horizontally.
-		margin: 0 @margin-horizontal-sidebar-button-icon;
 		// Equals `#555`, closest to `#54595d` on background-color `#fff`.
 		opacity: 0.67;
 		/* @embed */
