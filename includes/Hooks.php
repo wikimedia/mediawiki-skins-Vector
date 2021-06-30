@@ -53,16 +53,22 @@ class Hooks {
 	}
 
 	/**
-	 * Passes config variables to skins.vector.search ResourceLoader module.
+	 * Generates config variables for skins.vector.search Resource Loader module (defined in
+	 * skin.json).
+	 *
 	 * @param ResourceLoaderContext $context
 	 * @param Config $config
-	 * @return array
+	 * @return array<string,mixed>
 	 */
 	public static function getVectorWvuiSearchResourceLoaderConfig(
 		ResourceLoaderContext $context,
 		Config $config
-	) {
-		return $config->get( 'VectorWvuiSearchOptions' );
+	): array {
+		$result = $config->get( 'VectorWvuiSearchOptions' );
+		$result['highlightQuery'] =
+			VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() );
+
+		return $result;
 	}
 
 	/**

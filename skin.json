@@ -277,8 +277,7 @@
 		"VectorWvuiSearchOptions": {
 			"value": {
 				"showThumbnail": true,
-				"showDescription": true,
-				"highlightQuery": true
+				"showDescription": true
 			}
 		},
 		"VectorDefaultSidebarVisibleForAuthorisedUser": {
