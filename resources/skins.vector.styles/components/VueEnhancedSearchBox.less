@@ -107,7 +107,10 @@
 		#searchInput:focus ~ #mw-searchButton {
 			// Derived from
 			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
-			left: -11px;
+			// (-11px) minus 1px input border.
+			left: -12px;
+			// minus the 1px border
+			top: -1px;
 		}
 
 		// Update search loader to match width and position of WVUI expanding input.
