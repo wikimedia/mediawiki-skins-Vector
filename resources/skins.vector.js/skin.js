@@ -3,6 +3,7 @@ var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
 	languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ),
+	searchToggle = require( './searchToggle.js' ),
 	sidebar = require( './sidebar.js' );
 
 /**
@@ -69,6 +70,7 @@ function main( window ) {
 	dropdownMenus();
 	$( vector.init );
 	initSearchLoader( document );
+	searchToggle();
 	languageButton();
 }
 

@@ -172,7 +172,8 @@
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js",
 				"resources/skins.vector.js/languageButton.js",
-				"resources/skins.vector.js/searchLoader.js"
+				"resources/skins.vector.js/searchLoader.js",
+				"resources/skins.vector.js/searchToggle.js"
 			],
 			"dependencies": [
 				"mediawiki.page.ready",

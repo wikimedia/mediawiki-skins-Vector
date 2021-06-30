@@ -1,3 +1,5 @@
+@import '../../common/variables.less';
+
 /**
  * Minimal styling for initial no-JS server-rendered
  * search form, which gets replaced by WVUI on focus.
@@ -47,9 +49,6 @@
 	// Derived from @size-search-figure in WVUI
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
 	@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
-	// Derived from @spacing-start-typeahead-search-figure + @spacing-end-typeahead-search-figure in WVUI
-	// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#645
-	@size-search-expand: 24px;
 
 	.wvui-typeahead-search__suggestion,
 	.wvui-typeahead-search__suggestions__footer {

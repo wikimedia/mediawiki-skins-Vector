@@ -113,11 +113,15 @@
 
 // Tabs
 @font-size-tabs: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
+@padding-horizontal-tabs: 8px;
 
 // Search
 @min-width-search-button: 28px;
 @width-search-button: unit( 28 / @font-size-browser / @font-size-search-input, em );
 @font-size-search-input: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
+// Derived from @spacing-start-typeahead-search-figure + @spacing-end-typeahead-search-figure in WVUI
+// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#645
+@size-search-expand: 24px;
 
 // language button
 @height-lang-button: unit( 32 / @font-size-browser, em );

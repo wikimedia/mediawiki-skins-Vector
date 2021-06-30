@@ -190,7 +190,6 @@ body {
 		// transition.
 		.box-sizing( border-box );
 		margin-left: 0;
-		max-width: @max-width-search;
 	}
 }
 
@@ -457,11 +456,37 @@ body {
 		min-width: @min-width-search-tablet;
 		flex-basis: @min-width-search;
 		flex-grow: 1;
+
+		> div > #searchform,
+		.wvui-typeahead-search {
+			max-width: @max-width-search;
+		}
 	}
 
 	.mw-page-container {
 		padding-left: @padding-horizontal-page-container;
 		padding-right: @padding-horizontal-page-container;
+	}
+}
+
+/**
+ * Toggles the visibility of the search box at lower resolutions.
+ */
+@media ( max-width: @width-breakpoint-tablet ) {
+	.vector-header-search-toggled {
+		#mw-sidebar-button,
+		.mw-logo,
+		.search-toggle {
+			display: none;
+		}
+
+		.vector-search-box-collapses > div {
+			display: block;
+		}
+
+		#p-search {
+			margin-left: @size-search-expand + @padding-horizontal-tabs;
+		}
 	}
 }
 
