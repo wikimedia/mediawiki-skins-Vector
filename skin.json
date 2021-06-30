@@ -44,6 +44,7 @@
 						"vector-jumptonavigation",
 						"vector-jumptosearch",
 						"vector-jumptocontent",
+						"search",
 						"sitesubtitle",
 						"sitetitle",
 						"tagline"
@@ -146,8 +147,10 @@
 			"variants": [],
 			"icons": [
 				"language",
+				"userAvatar",
 				"userTalk",
 				"markup",
+				"search",
 				"settings",
 				"labFlask",
 				"unStar",
@@ -194,6 +197,7 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"vector": {
+			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
 			"jquery.ui": [

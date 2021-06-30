@@ -103,6 +103,7 @@
 	unit( 500px / @font-size-browser, em ) -
 	( 2 * @padding-horizontal-page-container );
 // 31.25em - 3.75em = 27.5em @ 16
+@min-width-supported-consolidated-links: unit( 340px / @font-size-browser, em );
 
 // Width used to determine when to break the personal tools onto a separate line
 // below the search box.
@@ -159,20 +160,30 @@ body {
 	// allow z-index to apply so search results overlay article
 	position: relative;
 	z-index: @z-index-header;
+
+	.skin-vector-consolidated-user-links & {
+		flex-wrap: nowrap;
+	}
 }
 
 /* Searchbox */
 #p-search {
 	float: left;
 	margin: 0 0 0 @margin-horizontal-search;
-	flex-grow: 1;
 	z-index: @z-index-menu;
-	flex-basis: @min-width-search;
+	flex-grow: 1;
+
+	.skin-vector-consolidated-user-links & {
+		margin: 0;
+	}
 
 	// #searchform is only a direct child of #p-search before wvui-loads. After
 	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
 	// element where these styles should apply.
+	// FIXME: The first selector (> #searchform)
+	// is for cached HTML. Should be removed when T276566 has been in production.
 	> #searchform,
+	> div > #searchform,
 	.wvui-typeahead-search {
 		// Border-box sizing is used for a smooth transition from legacy to Vue
 		// search. The width of the container should stay the same before/after the
@@ -296,10 +307,6 @@ body {
 
 // Container logic.
 .mw-page-container {
-	// Set a min-width to make explicit we do not support anything below this threshold.
-	// For devices too small, they should be more useable with horizontal scrolling.
-	// e.g. Portrait on an iPad
-	min-width: @min-width-supported;
 	max-width: @max-width-page-container;
 	// Fill the viewport even if the content height is small. This also helps
 	// mitigate a long sidebar overflowing the page container (T257518).
@@ -310,6 +317,15 @@ body {
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
 	padding: 0.05px ( @padding-horizontal-page-container / 2 );
 	background-color: @background-color-page-container;
+	// Set a min-width to make explicit we do not support anything below this threshold.
+	// For devices too small, they should be more useable with horizontal scrolling.
+	// e.g. Portrait on an iPad
+	min-width: @min-width-supported;
+
+	// When consolidated user links is enabled, there is more space for compression.
+	.skin-vector-consolidated-user-links & {
+		min-width: @min-width-supported-consolidated-links;
+	}
 }
 
 .skin--responsive .mw-page-container {
@@ -389,14 +405,6 @@ body {
 }
 
 @media ( max-width: @max-width-margin-start-content ) {
-	#p-search {
-		// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
-		width: 13.2em;
-		// Support: Modern browsers, responsive width.
-		width: 20vw;
-		max-width: 100%;
-	}
-
 	// Adjusts the content and mw-article-toolbar-container.
 	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
 	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
@@ -421,18 +429,34 @@ body {
 // We use @width-comfortable to determine this threshold as we know it's not possible for
 // personal tools to be on the same line at this resolution.
 @media ( max-width: @width-comfortable ) {
-	// #searchform is only a direct child of #p-search before wvui-loads. After
+	// #searchform is only a direct child of #p-search > div before wvui-loads. After
 	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
 	// element where these styles should apply.
+	/// FIXME: The first selector (#p-search > #searchform) is for cached HTML.
+	// Should be removed when T276566 has been in production for a week.
 	#p-search > #searchform,
+	#p-search > div > #searchform,
 	#p-search .wvui-typeahead-search {
 		margin-left: auto;
 	}
 }
 
 @media ( min-width: @width-breakpoint-tablet ) {
-	#p-search {
+	.mw-header {
+		flex-wrap: wrap;
+	}
+
+	#p-search,
+	.skin-vector-consolidated-user-links #p-search {
+		margin: 0 0 0 @margin-horizontal-search;
+		// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
+		width: 13.2em;
+		// Support: Modern browsers, responsive width.
+		width: 20vw;
+		max-width: 100%;
 		min-width: @min-width-search-tablet;
+		flex-basis: @min-width-search;
+		flex-grow: 1;
 	}
 
 	.mw-page-container {

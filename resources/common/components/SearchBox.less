@@ -94,3 +94,21 @@
 	background: no-repeat center/unit( 16 / @font-size-browser / @font-size-search-input, em ) url( images/search.svg );
 	opacity: 0.67;
 }
+
+.search-toggle {
+	// At lower resolutions the search input is hidden and a toggle is shown
+	display: block;
+	float: right;
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		display: none;
+	}
+}
+
+.vector-search-box-collapses > div {
+	display: none;
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		display: block;
+	}
+}

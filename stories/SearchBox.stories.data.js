@@ -12,6 +12,7 @@ export { searchBoxTemplate };
  */
 export const searchBoxData = {
 	'form-action': '/w/index.php',
+	class: 'vector-search-box vector-search-show-thumbnail',
 	'html-user-language-attributes': htmlUserLanguageAttributes,
 	'msg-search': 'Search',
 	'html-input': '<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [⌃⌥f]" accesskey="f" id="searchInput" autocomplete="off">',

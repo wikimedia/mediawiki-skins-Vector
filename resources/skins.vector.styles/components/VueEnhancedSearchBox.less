@@ -92,7 +92,9 @@
 		.transition( none );
 	}
 
-	.p-search--show-thumbnail {
+	// FIXME: .p-search--show-thumbnail selector is for cached HTML relating to T276566.
+	.p-search--show-thumbnail,
+	.vector-search-box-show-thumbnail {
 		// Recreate WVUI expanding input.
 		#searchInput:focus {
 			position: relative;
