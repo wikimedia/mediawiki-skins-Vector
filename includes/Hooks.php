@@ -104,10 +104,34 @@ class Hooks {
 
 		// Promote watch link from actions to views and add an icon
 		if ( $key !== null ) {
-			$content_navigation['views'][$key] = self::navigationLinkToIcon(
-				$content_navigation['actions'][$key]
+			self::appendClassToListItem(
+				$content_navigation['actions'][$key],
+				'icon'
 			);
+			$content_navigation['views'][$key] = $content_navigation['actions'][$key];
 			unset( $content_navigation['actions'][$key] );
+		}
+	}
+
+	/**
+	 * Updates class list on list item
+	 *
+	 * @param array &$item to update for use in makeListItem
+	 * @param array $classes to add to the item
+	 * @param bool $applyToLink (optional) and defaults to false.
+	 *   If set will modify `link-class` instead of `class`
+	 */
+	private static function addListItemClass( &$item, $classes, $applyToLink = false ) {
+		$property = $applyToLink ? 'link-class' : 'class';
+		$existingClass = $item[$property] ?? [];
+
+		if ( is_array( $existingClass ) ) {
+			$item[$property] = array_merge( $existingClass, $classes );
+		} elseif ( is_string( $existingClass ) ) {
+			// treat as string
+			$item[$property] = array_merge( [ $existingClass ], $classes );
+		} else {
+			$item[$property] = $classes;
 		}
 	}
 
@@ -118,23 +142,20 @@ class Hooks {
 	 * @param array &$item
 	 * @param string $newClass
 	 */
-	private static function appendClassToUserLink( &$item, $newClass ) {
-		$existingClass = $item['class'] ?? '';
-		$item['class'] = $existingClass . ' ' . $newClass;
+	private static function appendClassToListItem( &$item, $newClass ) {
+		self::addListItemClass( $item, [ $newClass ] );
 	}
 
 	/**
-	 * Add icon class to an existing navigation item inside a menu hook.
-	 * See self::onSkinTemplateNavigation.
-	 * @param array $item
-	 * @return array
+	 * Adds an icon to the list item of a menu.
+	 *
+	 * @param array &$item
+	 * @param string $icon_name
 	 */
-	private static function navigationLinkToIcon( array $item ) {
-		if ( !isset( $item['class'] ) ) {
-			$item['class'] = '';
-		}
-		$item['class'] = rtrim( 'icon ' . $item['class'], ' ' );
-		return $item;
+	private static function addIconToListItem( &$item, $icon_name ) {
+		// Set the default menu icon classes.
+		$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before', 'mw-ui-icon-wikimedia-' . $icon_name ];
+		self::addListItemClass( $item, $menu_icon_classes, true );
 	}
 
 	/**
@@ -154,7 +175,7 @@ class Hooks {
 		) {
 			if ( $sk->loggedin ) {
 				// Remove user page from personal menu dropdown for logged in users at higher resolutions.
-				self::appendClassToUserLink(
+				self::appendClassToListItem(
 					$content_navigation['user-menu']['userpage'],
 					$COLLAPSE_MENU_ITEM_CLASS
 				);
@@ -164,7 +185,7 @@ class Hooks {
 				// Remove "Not logged in" from personal menu dropdown for anon users.
 				unset( $content_navigation['user-menu']['anonuserpage'] );
 				// Create account is pulled out into its own button and hidden at higher resolutions.
-				self::appendClassToUserLink(
+				self::appendClassToListItem(
 					$content_navigation['user-menu']['createaccount'],
 					$COLLAPSE_MENU_ITEM_CLASS
 				);
@@ -176,30 +197,7 @@ class Hooks {
 			// Loop through each menu to check/append its link classes.
 			foreach ( $user_menu as $menu_key => $menu_value ) {
 				$icon_name = $menu_value['icon'] ?? '';
-				// Set the default menu icon classes.
-				$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before', 'mw-ui-icon-wikimedia-' . $icon_name ];
-
-				// Add the link-class key to the menu and its relevant classes if it doesn't exist.
-				if ( !( array_key_exists( 'class', $menu_value )
-					|| array_key_exists( 'link-class', $menu_value ) )
-				) {
-					$content_navigation['user-menu'][$menu_key]['link-class'] = $menu_icon_classes;
-				} else {
-					// The link-class or class keys do exist, so append the icon classes to them.
-					foreach ( $menu_value as $link_key => $link_value ) {
-						// Add relevant classes whether the link value is an array or a string.
-						switch ( $link_key ) {
-							case 'class':
-							case 'link-class':
-								$prior_link_classes = is_array( $link_value ) ? $link_value : [ $link_value ];
-								$content_navigation['user-menu'][$menu_key][$link_key] = array_merge(
-									$prior_link_classes,
-									$menu_icon_classes
-								);
-								break;
-						}
-					}
-				}
+				self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
 			}
 		} else {
 			// Remove user page from personal toolbar since it will be inside the personal menu for logged in
