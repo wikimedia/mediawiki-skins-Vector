@@ -367,11 +367,11 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		Hooks::onSkinTemplateNavigation( $skin, $contentNavWatch );
 
 		$this->assertTrue(
-			strpos( $contentNavWatch['views']['watch']['class'], 'icon' ) !== false,
+			in_array( 'icon', $contentNavWatch['views']['watch']['class'] ) !== false,
 			'Watch list items require an "icon" class'
 		);
 		$this->assertTrue(
-			strpos( $contentNavUnWatch['views']['unwatch']['class'], 'icon' ) !== false,
+			in_array( 'icon', $contentNavUnWatch['views']['unwatch']['class'] ) !== false,
 			'Unwatch list items require an "icon" class'
 		);
 		$this->assertFalse(
