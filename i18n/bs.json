@@ -28,5 +28,6 @@
 	"vector-view-viewsource": "Pogledaj izvor",
 	"vector-jumptonavigation": "Idi na navigaciju",
 	"vector-jumptosearch": "Idi na pretragu",
-	"vector-more-actions": "Više"
+	"vector-more-actions": "Više",
+	"vector-search-loader": "Učitavam prijedloge pretrage"
 }
