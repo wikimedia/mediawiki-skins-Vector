@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Les Meloures",
 			"Robby"
 		]
 	},
@@ -13,7 +14,7 @@
 	"vector.css": "/* All CSS deen hei steet gëtt vun alle Benotzer vum Ausgesinn Vector gelueden */",
 	"vector.js": "/* All JavaScript hei gëtt geluede fir Benotzer vum Layout Vector */",
 	"vector-action-toggle-sidebar": "Säitleche Menü weisen/verstoppen",
-	"vector-action-addsection": "Sujet dobäisetzen",
+	"vector-action-addsection": "Sujet derbäisetzen",
 	"vector-action-delete": "Läschen",
 	"vector-action-move": "Réckelen",
 	"vector-action-protect": "Spären",
