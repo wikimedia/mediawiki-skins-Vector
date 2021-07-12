@@ -26,7 +26,7 @@
 	"vector.js": "/* Cualquier código JavaScript escrito aquí se cargará para todos los usuarios que usen la apariencia Vector */",
 	"vector-action-toggle-sidebar": "Mostrar u ocultar la barra lateral",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
-	"vector-action-addsection": "Sección nueva",
+	"vector-action-addsection": "Añadir tema",
 	"vector-action-delete": "Borrar",
 	"vector-action-move": "Trasladar",
 	"vector-action-protect": "Proteger",
@@ -41,5 +41,7 @@
 	"vector-jumptosearch": "Ir a la búsqueda",
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
-	"vector-search-loader": "Cargando sugerencias de búsqueda"
+	"vector-search-loader": "Cargando sugerencias de búsqueda",
+	"vector-anon-user-menu-pages": "Páginas para editores que han cerrado la sesión",
+	"vector-anon-user-menu-pages-learn": "más información"
 }
