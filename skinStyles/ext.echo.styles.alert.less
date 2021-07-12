@@ -1,16 +1,37 @@
 @import 'mediawiki.ui/variables.less';
+@import 'mediawiki.skin.variables.less';
 
-//  The "you have new messages" bar should be hidden at lower resolutions (temporary solution until T284243)
 .vector-user-links {
-	#ca-talk-alert {
-		display: none;
-
-		@media ( min-width: @width-breakpoint-tablet ) {
-			display: inline-block;
-		}
-	}
-
 	#pt-notifications-alert {
 		margin-right: 0.75em;
+	}
+
+	.vector-menu-content-list {
+		.mw-echo-alert {
+			margin: 0 0 0 0.2em;
+			padding: 0.2em 0.5em;
+			white-space: nowrap;
+
+			.mw-ui-icon.mw-ui-icon-before:before {
+				display: none;
+			}
+		}
+
+		@media ( max-width: @width-breakpoint-desktop ) {
+			#ca-userpage {
+				display: none;
+			}
+		}
+
+		@media ( max-width: @width-breakpoint-desktop-wide ) {
+			.mw-echo-alert {
+				font-size: 12px;
+				position: absolute;
+				top: calc( 100% + 12px );
+				right: 0;
+				margin-left: 0.75em;
+				padding-top: 0.25em;
+			}
+		}
 	}
 }
