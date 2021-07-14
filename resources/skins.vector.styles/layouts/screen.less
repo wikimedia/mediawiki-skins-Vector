@@ -485,10 +485,16 @@ body {
 		}
 
 		#p-search {
-			margin-left: @size-search-expand + @padding-horizontal-tabs;
 			// T284242#7206507: Widen the suggestion results to the edge of the search
 			// button at small resolutions.
 			position: relative;
+			margin-left: @padding-horizontal-tabs;
+		}
+
+		// Increase the start margin of the search box to account for the input
+		// expanding on focus.
+		#p-search.vector-search-box-show-thumbnail {
+			margin-left: @size-search-expand + @padding-horizontal-tabs;
 		}
 
 		.wvui-typeahead-search__wrapper {
