@@ -486,6 +486,13 @@ body {
 
 		#p-search {
 			margin-left: @size-search-expand + @padding-horizontal-tabs;
+			// T284242#7206507: Widen the suggestion results to the edge of the search
+			// button at small resolutions.
+			position: relative;
+		}
+
+		.wvui-typeahead-search__wrapper {
+			position: static;
 		}
 	}
 }
