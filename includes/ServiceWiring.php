@@ -26,8 +26,8 @@ use MediaWiki\MediaWikiServices;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
-use Vector\FeatureManagement\Requirements\LanguageInHeaderTreatmentRequirement;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
+use Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 use Vector\FeatureManagement\Requirements\WvuiSearchTreatmentRequirement;
 use Vector\SkinVersionLookup;
 
@@ -71,11 +71,15 @@ return [
 		// Feature: Languages in sidebar
 		// ================================
 		$featureManager->registerRequirement(
-			new LanguageInHeaderTreatmentRequirement(
+			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				CentralIdLookup::factoryNonLocal()
+				CentralIdLookup::factoryNonLocal(),
+				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+				Constants::QUERY_PARAM_LANGUAGE_IN_HEADER,
+				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST
 			)
 		);
 
@@ -108,15 +112,24 @@ return [
 
 		// Feature: Consolidate personal menu links
 		// ================================
-		$consolidateUserLinksConfig = $services->getMainConfig()->get( Constants::CONFIG_CONSOLIDATE_USER_LINKS );
-		$featureManager->registerSimpleRequirement(
-			Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS,
-			$consolidateUserLinksConfig[ $context->getUser()->isRegistered() ? 'logged_in' : 'logged_out' ]
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_CONSOLIDATE_USER_LINKS,
+				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS,
+				Constants::QUERY_PARAM_CONSOLIDATE_USER_LINKS,
+				null
+			)
 		);
 
 		$featureManager->registerFeature(
 			Constants::FEATURE_CONSOLIDATE_USER_LINKS,
 			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS
 			]
 		);

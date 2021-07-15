@@ -169,6 +169,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const QUERY_PARAM_CONSOLIDATE_USER_LINKS = 'vectoruserlinks';
+
+	/**
+	 * @var string
+	 */
 	public const CONFIG_CONSOLIDATE_USER_LINKS = 'VectorConsolidateUserLinks';
 
 	/**
