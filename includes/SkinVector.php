@@ -246,8 +246,25 @@ class SkinVector extends SkinMustache {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
-		$userMenuData = $menuData[ 'data-user-menu' ];
 
+		$templateParser = $this->getTemplateParser();
+		$userMoreHtmlItems = $templateParser->processTemplate( 'UserLinks__more', [
+			'is-anon' => $isAnon,
+			'html-create-account' => $htmlCreateAccount,
+			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
+			'data-notifications' => $menuData[ 'data-notifications' ],
+			'data-user-page' => $menuData[ 'data-user-page' ],
+		] );
+		$userMoreData = [
+			"id" => 'p-personal-more',
+			"class" => 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
+			"html-items" => $userMoreHtmlItems,
+			"label" => $this->msg( 'vector-personal-more-label' ),
+			"heading-class" => 'vector-menu-heading',
+			"is-dropdown" => false,
+		];
+
+		$userMenuData = $menuData[ 'data-user-menu' ];
 		if ( $isAnon ) {
 			$userMenuData[ 'html-before-portal' ] .= $this->getLoginHTML( $returnto, $useCombinedLoginLink );
 		} else {
@@ -256,11 +273,7 @@ class SkinVector extends SkinMustache {
 		}
 
 		return [
-			'is-anon' => $isAnon,
-			'html-create-account' => $htmlCreateAccount,
-			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
-			'data-notifications' => $menuData[ 'data-notifications' ],
-			'data-user-page' => $menuData[ 'data-user-page' ],
+			'data-user-more' => $userMoreData,
 			'data-user-menu' => $userMenuData
 		];
 	}

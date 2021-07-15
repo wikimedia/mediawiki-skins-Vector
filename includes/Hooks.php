@@ -192,6 +192,21 @@ class Hooks {
 				// "Login" link is handled manually by Vector
 				unset( $content_navigation['user-menu']['login'] );
 			}
+
+			// ULS and user page links are hidden at lower resolutions.
+			if ( $content_navigation['user-interface-preferences'] ) {
+				self::appendClassToListItem(
+					$content_navigation['user-interface-preferences']['uls'],
+					$COLLAPSE_MENU_ITEM_CLASS
+				);
+			}
+			if ( $content_navigation['user-page'] ) {
+				self::appendClassToListItem(
+					$content_navigation['user-page']['userpage'],
+					$COLLAPSE_MENU_ITEM_CLASS
+				);
+			}
+
 			// Prefix user link items with associated icon.
 			$user_menu = $content_navigation['user-menu'];
 			// Loop through each menu to check/append its link classes.
