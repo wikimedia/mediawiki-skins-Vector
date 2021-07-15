@@ -41,7 +41,7 @@
 // This assumes the presence of variables inside screen.less. DO NOT import it separately.
 // Assumes various variables defined there.
 @min-width-search: unit( 150px / @font-size-browser / @font-size-base, em ); // 10.71428571em @ 16 & 0.875em
-@min-width-search-tablet: unit( 350px / @font-size-browser / @font-size-base, em ); // 25em @ 16 & 0.875em
+@min-width-search-desktop: unit( 350px / @font-size-browser / @font-size-base, em ); // 25em @ 16 & 0.875em
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em
 @margin-horizontal-search: unit( 40px / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
 
@@ -440,7 +440,7 @@ body {
 	}
 }
 
-@media ( min-width: @width-breakpoint-tablet ) {
+@media ( min-width: @width-breakpoint-desktop ) {
 	.mw-header {
 		flex-wrap: wrap;
 	}
@@ -453,7 +453,7 @@ body {
 		// Support: Modern browsers, responsive width.
 		width: 20vw;
 		max-width: 100%;
-		min-width: @min-width-search-tablet;
+		min-width: @min-width-search-desktop;
 		flex-basis: @min-width-search;
 		flex-grow: 1;
 
@@ -472,7 +472,7 @@ body {
 /**
  * Toggles the visibility of the search box at lower resolutions.
  */
-@media ( max-width: @width-breakpoint-tablet ) {
+@media ( max-width: @width-breakpoint-desktop ) {
 	.vector-header-search-toggled {
 		#mw-sidebar-button,
 		.mw-logo,
