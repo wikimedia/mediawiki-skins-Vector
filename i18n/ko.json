@@ -37,5 +37,6 @@
 	"vector-jumptocontent": "내용으로 건너뛰기",
 	"vector-more-actions": "더 보기",
 	"vector-search-loader": "검색 제안을 불러오는 중",
-	"vector-anon-user-menu-pages-learn": "더 알아보기"
+	"vector-anon-user-menu-pages-learn": "더 알아보기",
+	"vector-personal-more-label": "사용자 링크"
 }

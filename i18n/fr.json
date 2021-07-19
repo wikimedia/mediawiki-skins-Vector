@@ -46,5 +46,6 @@
 	"vector-more-actions": "Plus",
 	"vector-search-loader": "Chargement des suggestions de recherche",
 	"vector-anon-user-menu-pages": "Pages pour les éditeurs déconnectés",
-	"vector-anon-user-menu-pages-learn": "en savoir plus"
+	"vector-anon-user-menu-pages-learn": "en savoir plus",
+	"vector-personal-more-label": "Liens utilisateur"
 }
