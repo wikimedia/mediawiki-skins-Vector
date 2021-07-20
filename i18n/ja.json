@@ -6,6 +6,7 @@
 			"Fryed-peach",
 			"Kkairri",
 			"Marine-Blue",
+			"MathXplore",
 			"Omotecho",
 			"Otokoume",
 			"Penn Station",
@@ -42,5 +43,6 @@
 	"vector-jumptosearch": "検索に移動",
 	"vector-jumptocontent": "コンテンツにスキップ",
 	"vector-more-actions": "その他",
-	"vector-search-loader": "検索候補を読み込んでいます"
+	"vector-search-loader": "検索候補を読み込んでいます",
+	"vector-personal-more-label": "ユーザーリンク"
 }
