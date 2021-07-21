@@ -129,21 +129,20 @@
 	}
 
 	.vector-user-menu-logged-in h3 {
-		@offset-icon-down-arrow: 4px;
-		@bg-height: unit( 12px / @font-size-browser, em );
+		// FIXME: Ideally this variable should be accessible from mediawiki.skin.variables
+		// Remove it when we can.
+		@icon-padding-md: unit( 12 / @font-size-browser, em );
+		@icon-arrow-size: unit( 12px / @font-size-browser, em );
+		padding-right: @icon-padding-md + @icon-arrow-size;
 
 		&:before {
 			color: #54595d;
-			margin-left: -@offset-icon-down-arrow;
 		}
 
 		&:after {
 			background-position: 100% 0%;
-			// FIXME: Ideally this variable should be accessible from mediawiki.skin.variables
-			// Remove it when we can.
-			@icon-padding-md: unit( 12 / @font-size-browser, em );
-			top: @icon-padding-md + ( @bg-height / 2 );
-			right: @offset-icon-down-arrow;
+			top: @icon-padding-md + ( @icon-arrow-size / 2 );
+			right: @icon-arrow-size;
 		}
 	}
 }
