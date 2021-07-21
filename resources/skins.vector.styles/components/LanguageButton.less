@@ -8,22 +8,31 @@
 	height: @height-lang-button;
 
 	.mw-ui-icon:before {
-		margin-right: 8px;
 		// Put icon on correct standard normal state color.
 		opacity: 0.87;
 	}
 
 	.vector-menu-heading {
-		// Special treatment for language button, based on Vector font-size
-		font-size: @font-size-base;
-		// avoid sub pixel rendering
-		line-height: 1.493em;
+		font-size: initial;
 		// reset padding styles in MenuDropdown.less with right padding for arrow.
-		padding: 4px 30px 4px 8px;
+		padding-right: 30px;
+		padding-left: 8px;
 		// Prevent select of span text "X languages"
 		user-select: none;
 		// Remove opacity on language button (it applies to more menu because of label color).
 		opacity: 1;
+		// Hack: mw-ui-icon is not designed to be used with mw-ui-button
+		// Must disable min-height of mw-ui-button
+		min-height: 22px;
+		// mw-ui-icon resets the button border.
+		border: 1px solid transparent;
+		// center vertically in heading.
+		margin-top: 2px;
+
+		span {
+			// Special treatment for language button, based on Vector font-size
+			font-size: @font-size-base;
+		}
 
 		&:after {
 			top: 0;
@@ -32,7 +41,7 @@
 
 	.vector-menu-content {
 		top: auto;
-		left: auto;
+		left: -@border-width-base;
 		right: -@border-width-base;
 		// align borders of open menu align with button
 		.box-sizing( border-box );

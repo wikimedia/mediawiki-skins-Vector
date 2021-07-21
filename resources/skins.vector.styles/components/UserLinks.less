@@ -139,6 +139,9 @@
 
 		&:after {
 			background-position: 100% 0%;
+			// FIXME: Ideally this variable should be accessible from mediawiki.skin.variables
+			// Remove it when we can.
+			@icon-padding-md: unit( 12 / @font-size-browser, em );
 			top: @icon-padding-md + ( @bg-height / 2 );
 			right: @offset-icon-down-arrow;
 		}
