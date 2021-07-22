@@ -47,9 +47,11 @@
 		}
 
 		.vector-menu-checkbox {
+			// FIXME: This variable is currently not available in mediawiki core, but defined in the icons specification.
+			@icon-background-color--selected:  rgba( 0, 0, 0, 0.03 );
+			// The mw-ui-icon hover effect does not work on the checkbox hack so must be applied explicitly.
 			&:hover + h3 {
-				background-color: @colorGray14;
-				border-radius: @border-radius-base;
+				background-color: @icon-background-color--selected;
 			}
 		}
 
