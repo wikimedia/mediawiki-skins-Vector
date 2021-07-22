@@ -177,29 +177,43 @@ class SkinVector extends SkinMustache {
 	/**
 	 * Returns HTML for the create account button inside the anon user links
 	 * @param string[] $returnto array of query strings used to build the login link
+	 * @param string[] $class array of CSS classes to add.
+	 * @param bool $includeIcon Set true to include icon CSS classes.
 	 * @return string
 	 */
-	private function getCreateAccountHTML( $returnto ) {
+	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData['single-id'] = 'pt-createaccount';
-		$createAccountData['class'] = 'mw-ui-button mw-ui-quiet';
+
+		if ( $includeIcon ) {
+			$class = array_merge(
+				$class,
+				[
+					'mw-ui-icon mw-ui-icon-before',
+					'mw-ui-icon-wikimedia-' . ( $createAccountData[ 'icon' ] ?? '' )
+				]
+			);
+		}
+
+		$createAccountData['class'] = $class;
 		$htmlCreateAccount = $this->makeLink( 'create-account', $createAccountData );
 
 		return $htmlCreateAccount;
 	}
 
 	/**
-	 * Returns HTML for the login button and learn more link inside the anon user menu
+	 * Returns HTML for the create account button, login button and learn more link inside the anon user menu
 	 * @param string[] $returnto array of query strings used to build the login link
 	 * @param bool $useCombinedLoginLink if a combined login/signup link will be used
 	 * @return string
 	 */
-	private function getLoginHTML( $returnto, $useCombinedLoginLink ) {
+	private function getAnonMenuBeforePortletHTML( $returnto, $useCombinedLoginLink ) {
 		// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
 		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
 		$loginData['single-id'] = 'pt-login';
 		$loginData['class']  = [
 			'vector-menu-content-item',
+			'vector-menu-content-item-login',
 			'mw-ui-icon mw-ui-icon-before',
 			'mw-ui-icon-wikimedia-' . ( $loginData[ 'icon' ] ?? '' )
 		];
@@ -212,6 +226,10 @@ class SkinVector extends SkinMustache {
 
 		$templateParser = $this->getTemplateParser();
 		return $templateParser->processTemplate( 'UserLinks__login', [
+			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, [
+				'user-links-collapsible-item',
+				'vector-menu-content-item',
+			], true ),
 			'htmlLogin' => $this->makeLink( 'login', $loginData ),
 			'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' ),
 			'htmlLearnMoreLink' => $this->msg( 'parentheses' )->
@@ -230,6 +248,7 @@ class SkinVector extends SkinMustache {
 		$templateParser = $this->getTemplateParser();
 		$logoutLinkData['class'] = [
 			'vector-menu-content-item',
+			'vector-menu-content-item-logout',
 			'mw-ui-icon mw-ui-icon-before',
 			'mw-ui-icon-wikimedia-' . ( $logoutLinkData[ 'icon' ] ?? '' )
 		];
@@ -249,7 +268,10 @@ class SkinVector extends SkinMustache {
 	private function getUserLinksTemplateData( $menuData, $isAnon, $searchBoxData ): array {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
-		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
+		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto, [
+			'mw-ui-button',
+			'mw-ui-quiet'
+		], false );
 
 		$templateParser = $this->getTemplateParser();
 		$userMoreHtmlItems = $templateParser->processTemplate( 'UserLinks__more', [
@@ -270,7 +292,10 @@ class SkinVector extends SkinMustache {
 
 		$userMenuData = $menuData[ 'data-user-menu' ];
 		if ( $isAnon ) {
-			$userMenuData[ 'html-before-portal' ] .= $this->getLoginHTML( $returnto, $useCombinedLoginLink );
+			$userMenuData[ 'html-before-portal' ] .= $this->getAnonMenuBeforePortletHTML(
+				$returnto,
+				$useCombinedLoginLink
+			);
 		} else {
 			// Appending as to not override data potentially set by the onSkinAfterPortlet hook.
 			$userMenuData[ 'html-after-portal' ] .= $this->getLogoutHTML();

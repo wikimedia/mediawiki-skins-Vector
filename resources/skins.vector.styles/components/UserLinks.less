@@ -1,5 +1,8 @@
 @import '../../common/variables.less';
 
+@font-size-user-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
+@padding-horizontal-user-links: 12px;
+
 .vector-user-links {
 	display: flex;
 	align-items: center;
@@ -8,13 +11,15 @@
 	flex-shrink: 1;
 
 	.vector-user-menu-more {
+		font-size: @font-size-user-links;
+
 		.vector-menu-content-list {
 			display: flex;
 			align-items: center;
 
 			li {
 				padding-top: 0;
-				margin-left: 1em;
+				margin: 0;
 				white-space: nowrap;
 
 				a {
@@ -33,17 +38,24 @@
 				}
 			}
 		}
+
+		.mw-ui-button {
+			// FIXME: Overrides mw-ui-button's `display: inline-block` property so that
+			// the text in the button is vertically centered. `.mw-ui-button` sets a
+			// min-height to the button, but should also vertically center the
+			// button's children.
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	// Overrides personal menu styles for consolidated user links.
 	.vector-user-menu {
-		margin: 0 0 0 12px;
 		height: 100%;
 
 		h3 {
 			color: transparent; // overrides MediaWiki UI icon
 			height: 100%;
-			font-size: inherit;
 		}
 
 		.vector-menu-checkbox {
@@ -61,62 +73,70 @@
 			left: unset;
 			right: 0;
 			border-top-width: 1px;
+			border-radius: 2px;
+			// T285786: Box shadow per design spec
+			box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
+
+			.user-links-collapsible-item {
+				@media ( min-width: @width-breakpoint-tablet ) {
+					display: none;
+				}
+			}
 		}
 
 		.vector-menu-content-list {
 			li {
 				width: 100%;
 				margin: 0;
-
-				&:hover {
-					background-color: @background-color-secondary;
-				}
-
-				&.user-links-collapsible-item {
-					@media ( min-width: @width-breakpoint-tablet ) {
-						display: none;
-					}
-				}
-			}
-
-			a {
-				display: block;
-				color: #000;
-				text-decoration: none;
 			}
 		}
 
-		// Copied from https://github.com/wikimedia/Vector/blob/master/resources/common/components/MenuDropdown.less#L88
-		.vector-user-menu-anon-editor,
-		.vector-user-menu-login {
-			padding: 0.625em;
-			margin: 0;
+		.vector-menu-content-item,
+		li > a {
+			// Overrides .mw-ui-icon's `min-height` property to have a computed
+			// min-height of 32px. This matches the design spec of having an icon that
+			// is 20px in height + 6px of top padding + 6px of bottom padding. Using
+			// min-height instead of vertical padding allows menu items without an
+			// icon to still be 32px in height.
+			min-height: unit( 32px / @font-size-browser, em );
+			// Overrides .mw-ui-icon's `display: inline-block` property so that
+			// the text can be vertically centered.
+			display: flex;
+			align-items: center;
+			// Overrides .mw-ui-icon's `padding: 0` property so that the text is not
+			// at the edge of the menu. Apply the padding on the link element instead
+			// of the li element to maximize the click target.
+			padding: 0 @padding-horizontal-user-links;
+			color: #000;
+			text-decoration: none;
 
-			p,
 			span {
-				font-size: @font-size-tabs;
+				font-size: @font-size-user-links;
 			}
-		}
 
-		// "Login" and "Logout" links in user menu
-		.vector-user-menu-login {
+			// Set hover color for "Create account" and "Login" menu items.
 			&:hover {
 				background-color: @background-color-secondary;
 			}
+		}
 
-			&:first-child {
-				border-bottom: 1px solid @border-color-base;
-			}
+		.vector-menu-content-item-login {
+			border-bottom: 1px solid @border-color-base;
+		}
 
-			&:last-child {
-				border-top: 1px solid @border-color-base;
-			}
+		.vector-user-menu-anon-editor {
+			margin-top: 2px;
+			padding: @padding-horizontal-user-links;
+			color: @colorGray5;
+			font-size: @font-size-user-links;
 
-			a {
-				display: block;
-				color: #000;
-				text-decoration: none;
+			p {
+				margin: 0;
 			}
+		}
+
+		.vector-menu-content-item-logout {
+			border-top: 1px solid @border-color-base;
 		}
 	}
 

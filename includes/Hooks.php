@@ -184,11 +184,8 @@ class Hooks {
 			} else {
 				// Remove "Not logged in" from personal menu dropdown for anon users.
 				unset( $content_navigation['user-menu']['anonuserpage'] );
-				// Create account is pulled out into its own button and hidden at higher resolutions.
-				self::appendClassToListItem(
-					$content_navigation['user-menu']['createaccount'],
-					$COLLAPSE_MENU_ITEM_CLASS
-				);
+				// "Create account" link is handled manually by Vector
+				unset( $content_navigation['user-menu']['createaccount'] );
 				// "Login" link is handled manually by Vector
 				unset( $content_navigation['user-menu']['login'] );
 			}
@@ -205,14 +202,25 @@ class Hooks {
 					$content_navigation['user-page']['userpage'],
 					$COLLAPSE_MENU_ITEM_CLASS
 				);
+
+				// Style the user page link as mw-ui-button.
+				self::addListItemClass(
+					$content_navigation['user-page']['userpage'],
+					[ 'mw-ui-button',  'mw-ui-quiet' ],
+					true
+				);
 			}
 
-			// Prefix user link items with associated icon.
-			$user_menu = $content_navigation['user-menu'];
-			// Loop through each menu to check/append its link classes.
-			foreach ( $user_menu as $menu_key => $menu_value ) {
-				$icon_name = $menu_value['icon'] ?? '';
-				self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
+			// Don't show icons for anon menu items (besides login and create
+			// account).
+			if ( $sk->loggedin ) {
+				// Prefix user link items with associated icon.
+				$user_menu = $content_navigation['user-menu'];
+				// Loop through each menu to check/append its link classes.
+				foreach ( $user_menu as $menu_key => $menu_value ) {
+					$icon_name = $menu_value['icon'] ?? '';
+					self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
+				}
 			}
 		} else {
 			// Remove user page from personal toolbar since it will be inside the personal menu for logged in

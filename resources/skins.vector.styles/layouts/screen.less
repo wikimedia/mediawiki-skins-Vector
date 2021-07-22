@@ -44,6 +44,7 @@
 @min-width-search-desktop: unit( 350px / @font-size-browser / @font-size-base, em ); // 25em @ 16 & 0.875em
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em
 @margin-horizontal-search: unit( 40px / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
+@margin-end-search: 12px;
 
 // Personal menu
 
@@ -438,7 +439,7 @@ body {
 
 	#p-search,
 	.skin-vector-consolidated-user-links #p-search {
-		margin: 0 0 0 @margin-horizontal-search;
+		margin: 0 @margin-end-search 0 @margin-horizontal-search;
 		// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
 		width: 13.2em;
 		// Support: Modern browsers, responsive width.
@@ -480,6 +481,7 @@ body {
 			// button at small resolutions.
 			position: relative;
 			margin-left: @padding-horizontal-tabs;
+			margin-right: @margin-end-search;
 		}
 
 		// Increase the start margin of the search box to account for the input
