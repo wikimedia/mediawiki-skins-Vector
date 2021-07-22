@@ -421,16 +421,13 @@ body {
 // At low resolutions the search must be pushed to the right of the screen
 // We use @width-comfortable to determine this threshold as we know it's not possible for
 // personal tools to be on the same line at this resolution.
+// FIXME: Remove these styles and the @width-comfortable breakpoint after user links has become the default
 @media ( max-width: @width-comfortable ) {
-	// #searchform is only a direct child of #p-search > div before wvui-loads. After
-	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
-	// element where these styles should apply.
-	/// FIXME: The first selector (#p-search > #searchform) is for cached HTML.
-	// Should be removed when T276566 has been in production for a week.
-	#p-search > #searchform,
-	#p-search > div > #searchform,
-	#p-search .wvui-typeahead-search {
-		margin-left: auto;
+	body:not( .skin-vector-consolidated-user-links ) {
+		#p-search > div > #searchform,
+		#p-search .wvui-typeahead-search {
+			margin-left: auto;
+		}
 	}
 }
 
