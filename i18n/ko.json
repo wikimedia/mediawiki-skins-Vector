@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Apzp79",
 			"ITurtle",
 			"Jay94ks",
 			"Jerrykim306",
@@ -32,9 +33,9 @@
 	"vector-view-history": "역사 보기",
 	"vector-view-view": "읽기",
 	"vector-view-viewsource": "원본 보기",
-	"vector-jumptonavigation": "둘러보기로 가기",
-	"vector-jumptosearch": "검색하러 가기",
-	"vector-jumptocontent": "본문으로 건너뛰기",
+	"vector-jumptonavigation": "둘러보기로 이동",
+	"vector-jumptosearch": "검색으로 이동",
+	"vector-jumptocontent": "본문으로 이동",
 	"vector-more-actions": "더 보기",
 	"vector-search-loader": "검색 제안을 불러오는 중",
 	"vector-anon-user-menu-pages-learn": "더 알아보기",

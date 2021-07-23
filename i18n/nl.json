@@ -3,6 +3,7 @@
 		"authors": [
 			"Calak",
 			"Mainframe98",
+			"McDutchie",
 			"Nickthijssen1994",
 			"Romaine",
 			"SPQRobin",
@@ -14,8 +15,8 @@
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "Moderne versie van MonoBook met een fris uiterlijk en verbeteringen op het gebied van gebruiksvriendelijkheid",
 	"vector-opt-out": "Naar oude vormgeving omschakelen",
-	"vector.css": "/* CSS die hier wordt geplaatst heeft alleen invloed op het uiterlijk Vector */",
-	"vector.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Vector gebruiken */",
+	"vector.css": "/* Alle hier geplaatste CSS-code wordt geladen voor gebruikers van de vormgeving Vector */",
+	"vector.js": "/* Alle hier geplaatste JavaScript-code wordt geladen voor gebruikers van de vormgeving Vector */",
 	"vector-language-button-label": "{{PLURAL:$1|$1 taal|$1 talen}}",
 	"vector-action-addsection": "Onderwerp toevoegen",
 	"vector-action-delete": "Verwijderen",
