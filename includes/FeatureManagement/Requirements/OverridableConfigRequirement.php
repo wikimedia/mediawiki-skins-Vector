@@ -143,7 +143,7 @@ final class OverridableConfigRequirement implements Requirement {
 	/**
 	 * @inheritDoc
 	 */
-	public function getName() : string {
+	public function getName(): string {
 		return $this->requirementName;
 	}
 
@@ -154,7 +154,7 @@ final class OverridableConfigRequirement implements Requirement {
 	 *
 	 * @inheritDoc
 	 */
-	public function isMet() : bool {
+	public function isMet(): bool {
 		// Check query parameter.
 		if ( $this->request->getCheck( $this->overrideName ) ) {
 			return $this->request->getBool( $this->overrideName );

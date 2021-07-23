@@ -61,7 +61,7 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function isLegacy() : bool {
+	private function isLegacy(): bool {
 		$isLatestSkinFeatureEnabled = MediaWikiServices::getInstance()
 			->getService( Constants::SERVICE_FEATURE_MANAGER )
 			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
@@ -111,7 +111,7 @@ class SkinVector extends SkinMustache {
 	 * Calls getLanguages with caching.
 	 * @return array
 	 */
-	private function getLanguagesCached() : array {
+	private function getLanguagesCached(): array {
 		if ( $this->languages !== null ) {
 			return $this->languages;
 		}
@@ -125,7 +125,7 @@ class SkinVector extends SkinMustache {
 	 * other than view is being used.
 	 * @return bool
 	 */
-	private function canHaveLanguages() : bool {
+	private function canHaveLanguages(): bool {
 		$action = Action::getActionName( $this->getContext() );
 		if ( $action !== 'view' ) {
 			return false;
@@ -246,7 +246,7 @@ class SkinVector extends SkinMustache {
 	 * @param array $searchBoxData representing search box.
 	 * @return array
 	 */
-	private function getUserLinksTemplateData( $menuData, $isAnon, $searchBoxData ) : array {
+	private function getUserLinksTemplateData( $menuData, $isAnon, $searchBoxData ): array {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto );
@@ -285,7 +285,7 @@ class SkinVector extends SkinMustache {
 	/**
 	 * @inheritDoc
 	 */
-	public function getTemplateData() : array {
+	public function getTemplateData(): array {
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
@@ -397,7 +397,7 @@ class SkinVector extends SkinMustache {
 	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
 	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
 	 */
-	private function getSearchBoxInputLocation() : string {
+	private function getSearchBoxInputLocation(): string {
 		if ( $this->isLegacy() ) {
 			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
 		}
@@ -414,7 +414,7 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function shouldSearchExpand() : bool {
+	private function shouldSearchExpand(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 
 		return $featureManager->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) &&
@@ -522,7 +522,7 @@ class SkinVector extends SkinMustache {
 	protected function getPortletData(
 		$label,
 		array $urls = []
-	) : array {
+	): array {
 		switch ( $label ) {
 			case 'user-menu':
 				$type = $this->shouldConsolidateUserLinks() ? self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
