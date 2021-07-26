@@ -291,10 +291,6 @@ class SkinVector extends SkinMustache {
 		$title = $out->getTitle();
 		$parentData = parent::getTemplateData();
 
-		if ( $this->shouldHideLanguages() ) {
-			$parentData['data-portlets']['data-languages'] = null;
-		}
-
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -472,6 +468,13 @@ class SkinVector extends SkinMustache {
 				// ext.uls.interface attaches click handler to this selector.
 				' mw-interlanguage-selector ',
 			];
+
+		// Adds class to hide language button
+		// Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
+		if ( $this->shouldHideLanguages() ) {
+			$languageButtonData['class'] = ' mw-portlet-empty';
+		}
+
 		return array_merge( $portletData, $languageButtonData );
 	}
 
