@@ -1,4 +1,21 @@
 /**
+ * Copies interwiki links to sidebar
+ *
+ * Temporary solution to T287206, can be removed when the new ULS built in Vue.js
+ * has been released and contains this
+ */
+function addInterwikiLinkToSidebar() {
+	// eslint-disable-next-line no-jquery/no-global-selector
+	var $editLink = $( '#p-lang-btn .wbc-editpage' );
+	if ( $editLink.length ) {
+		// Use title attribute for link text
+		$editLink.text( $editLink.attr( 'title' ) || '' );
+		var $li = $( '<li>' ).append( $editLink );
+		$li.appendTo( '#p-tb ul' );
+	}
+}
+
+/**
  * Checks whether ULS is enabled and if so disables the default
  * drop down behavior of the button.
  */
@@ -13,7 +30,8 @@ function disableLanguageDropdown() {
 				return;
 			}
 			if ( !pLangBtn.querySelectorAll( '.mw-interlanguage-selector' ).length ) {
-				// The ext.uls.interface module removed the selector, because the feature is disabled. Do nothing.
+				// The ext.uls.interface module removed the selector,
+				// because the feature is disabled. Do nothing.
 				return;
 			}
 			pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
@@ -35,4 +53,5 @@ function disableLanguageDropdown() {
  */
 module.exports = function () {
 	disableLanguageDropdown();
+	addInterwikiLinkToSidebar();
 };
