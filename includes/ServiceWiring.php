@@ -134,6 +134,16 @@ return [
 			]
 		);
 
+		// Temporary T286932 - remove after languages A/B test is finished.
+		if ( $context->getUser()->isRegistered() ) {
+			$bucket = 'vector.language_test_' . (
+				$featureManager->isFeatureEnabled( Constants::FEATURE_CONSOLIDATE_USER_LINKS )
+				? 'a'
+				: 'b'
+			);
+			$services->getStatsdDataFactory()->increment( $bucket );
+		}
+
 		return $featureManager;
 	}
 ];
