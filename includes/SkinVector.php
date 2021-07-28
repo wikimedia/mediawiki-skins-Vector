@@ -24,6 +24,7 @@
 
 use MediaWiki\MediaWikiServices;
 use Vector\Constants;
+use Vector\Hooks;
 use Vector\VectorServices;
 
 /**
@@ -305,6 +306,14 @@ class SkinVector extends SkinMustache {
 			'data-user-more' => $userMoreData,
 			'data-user-menu' => $userMenuData
 		];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
 	}
 
 	/**
