@@ -188,6 +188,9 @@ class Hooks {
 				unset( $content_navigation['user-menu']['createaccount'] );
 				// "Login" link is handled manually by Vector
 				unset( $content_navigation['user-menu']['login'] );
+				// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
+				// are set to false.
+				unset( $content_navigation['user-menu']['login-private'] );
 			}
 
 			// ULS and user page links are hidden at lower resolutions.
