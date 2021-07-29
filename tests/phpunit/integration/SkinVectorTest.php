@@ -60,7 +60,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				];
 			}
 		] );
-		$this->setTemporaryHook( 'SkinTemplateNavigation', [
+		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal', [
 			static function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation['actions'] = [
 					'action-1' => []
@@ -69,7 +69,13 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 					'ns-1' => []
 				];
 				$content_navigation['variants'] = [
-					'variant-1' => []
+					[
+						'class' => 'selected',
+						'text' => 'Language variant',
+						'href' => '/url/to/variant',
+						'lang' => 'zh-hant',
+						'hreflang' => 'zh-hant',
+					]
 				];
 				$content_navigation['views'] = [];
 			}
