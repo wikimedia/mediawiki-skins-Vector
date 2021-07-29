@@ -183,3 +183,18 @@ body {
 		right: 1em;
 	}
 }
+
+// Directionality styles previously provided by the deprecated `legacy` feature (T287410)
+// for HTML elements which do not carry dir HTML attributes.
+// These have been copied across to legacy Vector to minimize disruption caused by T287701.
+// If you are reading this comment in 2022, please consider checking usage in wikitext and
+// removing them both.
+.mw-content-ltr {
+	/* @noflip */
+	direction: ltr;
+}
+
+.mw-content-rtl {
+	/* @noflip */
+	direction: rtl;
+}
