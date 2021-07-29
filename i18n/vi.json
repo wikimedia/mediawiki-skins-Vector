@@ -33,5 +33,8 @@
 	"vector-jumptosearch": "Bước tới tìm kiếm",
 	"vector-jumptocontent": "Bước tới nội dung",
 	"vector-more-actions": "Khác",
-	"vector-search-loader": "Đang tải gợi ý tìm kiếm"
+	"vector-search-loader": "Đang tải gợi ý tìm kiếm",
+	"vector-anon-user-menu-pages": "Các trang dành cho người dùng chưa đăng nhập",
+	"vector-anon-user-menu-pages-learn": "tìm hiểu thêm",
+	"vector-personal-more-label": "Liên kết người dùng"
 }
