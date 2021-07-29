@@ -234,6 +234,9 @@ class Hooks {
 
 	/**
 	 * Upgrades Vector's watch action to a watchstar.
+	 * This is invoked inside SkinVector, not via skin registration, as skin hooks
+	 * are not guaranteed to run last.
+	 * This can possibly be revised based on the outcome of T287622.
 	 *
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateNavigation
 	 * @param SkinTemplate $sk
