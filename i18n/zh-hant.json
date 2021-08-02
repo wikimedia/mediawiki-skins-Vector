@@ -38,5 +38,7 @@
 	"vector-jumptocontent": "跳至內容",
 	"vector-more-actions": "更多",
 	"vector-search-loader": "正在載入搜尋建議",
-	"vector-anon-user-menu-pages-learn": "了解更多"
+	"vector-anon-user-menu-pages": "用於已登出編輯者的頁面",
+	"vector-anon-user-menu-pages-learn": "了解更多",
+	"vector-personal-more-label": "使用者連結"
 }
