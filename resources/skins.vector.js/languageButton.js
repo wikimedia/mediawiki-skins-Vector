@@ -16,6 +16,19 @@ function addInterwikiLinkToSidebar() {
 }
 
 /**
+ * Disable dropdown behaviour for non-JS users.
+ *
+ * @param {HTMLElement|null} pLangBtn
+ * @return {void}
+ */
+function disableDropdownBehavior( pLangBtn ) {
+	if ( !pLangBtn ) {
+		return;
+	}
+	pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
+}
+
+/**
  * Checks whether ULS is enabled and if so disables the default
  * drop down behavior of the button.
  */
@@ -23,19 +36,13 @@ function disableLanguageDropdown() {
 	var ulsModuleStatus = mw.loader.getState( 'ext.uls.interface' ),
 		pLangBtnLabel;
 
+	// If module status is defined and not registered we can assume it is in the process of loading
 	if ( ulsModuleStatus && ulsModuleStatus !== 'registered' ) {
-		mw.loader.using( 'ext.uls.interface' ).then( function () {
-			var pLangBtn = document.getElementById( 'p-lang-btn' );
-			if ( !pLangBtn ) {
-				return;
-			}
-			if ( !pLangBtn.querySelectorAll( '.mw-interlanguage-selector' ).length ) {
-				// The ext.uls.interface module removed the selector,
-				// because the feature is disabled. Do nothing.
-				return;
-			}
-			pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
-		} );
+		// HACK: Ideally knowledge of internal ULS configuration would not be necessary
+		// In future this should be wired up to an `mw.hook` event.
+		if ( mw.config.get( 'wgULSisCompactLinksEnabled' ) ) {
+			disableDropdownBehavior( document.getElementById( 'p-lang-btn' ) );
+		}
 	} else {
 		pLangBtnLabel = document.getElementById( 'p-lang-btn-label' );
 		if ( !pLangBtnLabel ) {
