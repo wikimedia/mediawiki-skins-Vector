@@ -321,7 +321,14 @@
 				"logged_in": false,
 				"logged_out": false
 			},
-			"description": "@var array Moves the personal user links into a consolidated dropdown menu with the exception of the user page link. User page link moves out of personal menu into top level item next to notifications."
+			"description": "@var array Moves user links into a consolidated dropdown menu with the exception of several top level items including echo, user page and create account links."
+		},
+		"VectorStickyHeader": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var array Enables a persistent header that allows quick access to user links, editing tools, search and other links while scrolling down a page"
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
