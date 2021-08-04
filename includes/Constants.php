@@ -187,6 +187,26 @@ final class Constants {
 	public const FEATURE_CONSOLIDATE_USER_LINKS = 'ConsolidateUserLinks';
 
 	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_STICKY_HEADER = 'vectorstickyheader';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_STICKY_HEADER = 'VectorStickyHeader';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_STICKY_HEADER = 'StickyHeader';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_STICKY_HEADER = 'StickyHeader';
+
+	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.

@@ -397,6 +397,14 @@ class Hooks {
 			$bodyAttrs['class'] .= ' skin-vector-consolidated-user-links';
 		}
 
+		if (
+			VectorServices::getFeatureManager()->isFeatureEnabled(
+				Constants::FEATURE_STICKY_HEADER
+			)
+		) {
+			$bodyAttrs['class'] .= ' skin-vector-sticky-header';
+		}
+
 		$config = $sk->getConfig();
 		// Should we disable the max-width styling?
 		if ( !self::isSkinVersionLegacy() && $sk->getTitle() && self::shouldDisableMaxWidth(
