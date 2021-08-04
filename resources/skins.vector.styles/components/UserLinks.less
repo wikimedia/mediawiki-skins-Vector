@@ -68,6 +68,7 @@
 
 		.vector-menu-content {
 			min-width: 200px;
+			max-width: 350px;
 			top: 100%;
 			left: unset;
 			right: 0;
@@ -111,6 +112,11 @@
 
 			span {
 				font-size: @font-size-user-links;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				// Overrides .mw-ui-icon's `line-height: 0` property so that the text is
+				// visible when not overflowing.
+				line-height: initial;
 			}
 
 			// Set hover color for "Create account" and "Login" menu items.
