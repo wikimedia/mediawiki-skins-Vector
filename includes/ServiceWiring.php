@@ -83,6 +83,48 @@ return [
 			)
 		);
 
+		// ---
+
+		// Temporary T286932 - remove after languages A/B test is finished.
+		$requirementName = 'T286932';
+
+		// MultiConfig checks each config in turn, allowing us to override the main config for specific keys. In this
+		// case, override the "VectorLanguageInHeaderABTest" configuration value so that the following requirement
+		// always buckets the user as if the language treatment A/B test were running.
+		$config = new MultiConfig( [
+			new HashConfig( [
+				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST => true,
+			] ),
+			$services->getMainConfig(),
+		] );
+
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$config,
+				$context->getUser(),
+				$context->getRequest(),
+				CentralIdLookup::factoryNonLocal(),
+				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
+				$requirementName,
+				/* $overrideName = */ '',
+				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST
+			)
+		);
+
+		if (
+			$context->getUser()->isRegistered() &&
+			$featureManager->isRequirementMet( Constants::REQUIREMENT_LATEST_SKIN_VERSION )
+		) {
+			$bucket = 'vector.language_test_2_' . (
+				$featureManager->isRequirementMet( $requirementName )
+					? 'a'
+					: 'b'
+				);
+			$services->getStatsdDataFactory()->increment( $bucket );
+		}
+
+		// ---
+
 		$featureManager->registerFeature(
 			Constants::FEATURE_LANGUAGE_IN_HEADER,
 			[
@@ -133,16 +175,6 @@ return [
 				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS
 			]
 		);
-
-		// Temporary T286932 - remove after languages A/B test is finished.
-		if ( $context->getUser()->isRegistered() ) {
-			$bucket = 'vector.language_test_' . (
-				$featureManager->isFeatureEnabled( Constants::FEATURE_CONSOLIDATE_USER_LINKS )
-				? 'a'
-				: 'b'
-			);
-			$services->getStatsdDataFactory()->increment( $bucket );
-		}
 
 		// Feature: Sticky header
 		// ================================
