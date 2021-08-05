@@ -52,6 +52,11 @@
 	.vector-user-menu {
 		height: 100%;
 
+		// Override ".emptyPortlet" class to ensure user menu isn't hidden
+		&.emptyPortlet {
+			display: block;
+		}
+
 		h3 {
 			color: transparent; // overrides MediaWiki UI icon
 			height: 100%;
