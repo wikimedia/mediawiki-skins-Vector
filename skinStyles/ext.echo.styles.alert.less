@@ -6,6 +6,10 @@
 		.mw-echo-alert {
 			padding: 0.2em 0.5em;
 			white-space: nowrap;
+			// Prevent alert message from pushing user links off screen
+			max-width: 270px;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
 			.mw-ui-icon.mw-ui-icon-before:before {
 				display: none;
