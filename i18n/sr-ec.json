@@ -18,7 +18,7 @@
 	"vector-opt-out-tooltip": "Промените подешавања да бисте се вратили старом изгледу теме (старија векторска)",
 	"vector.css": "/* CSS постављен овде учитаће се свим корисницима векторске теме */",
 	"vector.js": "/* JavaScript постављен овде учитаће се свим корисницима векторске теме */",
-	"vector-action-toggle-sidebar": "Укључи/искључи бочну траку",
+	"vector-action-toggle-sidebar": "Прикажи/сакриј бочну траку",
 	"vector-language-button-label": "{{PLURAL:$1|$1 језик|$1 језика}}",
 	"vector-action-addsection": "Додај тему",
 	"vector-action-delete": "Избриши",
@@ -35,5 +35,8 @@
 	"vector-jumptosearch": "Пређи на претрагу",
 	"vector-jumptocontent": "Пређи на садржај",
 	"vector-more-actions": "Више",
-	"vector-search-loader": "Учитавање предлога претраге"
+	"vector-search-loader": "Учитавам предлоге претраге",
+	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",
+	"vector-anon-user-menu-pages-learn": "детаљније",
+	"vector-personal-more-label": "Кориснички линкови"
 }
