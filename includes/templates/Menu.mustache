@@ -6,8 +6,9 @@
 	 {{{html-user-language-attributes}}}>
 	{{#is-dropdown}}
 	<input type="checkbox"
+		id="{{id}}-checkbox"
 		data-event-name="ui.dropdown-{{id}}"
-		class="vector-menu-checkbox" aria-labelledby="{{id}}-label" />
+		class="{{#checkbox-class}}{{.}}{{/checkbox-class}} vector-menu-checkbox" aria-labelledby="{{id}}-label" />
 	{{/is-dropdown}}
 	<h3 id="{{id}}-label" {{#heading-class}}class="{{.}}"{{/heading-class}}>{{!
 		}}<span>{{label}}</span>
