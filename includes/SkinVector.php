@@ -87,18 +87,6 @@ class SkinVector extends SkinMustache {
 			$options['styles'] = [ 'skins.vector.styles.legacy' ];
 			$options['template'] = 'skin-legacy';
 		} else {
-			// For historic reasons, the viewport is added when Vector is loaded on the mobile
-			// domain. This is only possible for 3rd parties or by useskin parameter as there is
-			// no preference for changing mobile skin.
-			$responsive = $this->getConfig()->get( 'VectorResponsive' );
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-				$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-				if ( $mobFrontContext->shouldDisplayMobileView() ) {
-					$responsive = true;
-				}
-			}
-			$options['responsive'] = $responsive;
-
 			if ( $this->shouldConsolidateUserLinks() ) {
 				$options['link'] = [ 'text-wrapper' => [ 'tag' => 'span' ] ];
 			}
@@ -433,6 +421,24 @@ class SkinVector extends SkinMustache {
 		}
 
 		return Constants::SEARCH_BOX_INPUT_LOCATION_MOVED;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function isResponsive() {
+		// Check it's enabled by user preference and configuration
+		$responsive = parent::isResponsive() && $this->getConfig()->get( 'VectorResponsive' );
+		// For historic reasons, the viewport is added when Vector is loaded on the mobile
+		// domain. This is only possible for 3rd parties or by useskin parameter as there is
+		// no preference for changing mobile skin. Only need to check if $responsive is falsey.
+		if ( !$responsive && ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			if ( $mobFrontContext->shouldDisplayMobileView() ) {
+				return true;
+			}
+		}
+		return $responsive;
 	}
 
 	/**

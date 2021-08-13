@@ -24,6 +24,7 @@
 					"scripts": [
 						"skins.vector.js"
 					],
+					"responsive": true,
 					"styles": [
 						"mediawiki.ui.button",
 						"skins.vector.styles",
