@@ -263,8 +263,17 @@ class SkinVector extends SkinMustache {
 		], false );
 
 		$templateParser = $this->getTemplateParser();
+		// See T288428#7303233. The following conditional checks whether config is disabling account creation for
+		// anonymous users in modern Vector. This check excludes the use case of extensions using core and legacy hooks
+		// to remove the "Create account" link from the personal toolbar. Ideally this should be managed with a new hook
+		// that tracks account creation ability.
+		// Supporting removing items via hook involves unnecessary additional complexity we'd rather avoid at this time.
+		// (see https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/713505/3)
+		// Account creation can be disabled by setting `$wgGroupPermissions['*']['createaccount'] = false;`
+		$isCreateAccountAllowed = $isAnon && $this->getAuthority()->isAllowed( 'createaccount' );
 		$userMoreHtmlItems = $templateParser->processTemplate( 'UserLinks__more', [
 			'is-anon' => $isAnon,
+			'is-create-account-allowed' => $isCreateAccountAllowed,
 			'html-create-account' => $htmlCreateAccount,
 			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
 			'data-notifications' => $menuData[ 'data-notifications' ],
