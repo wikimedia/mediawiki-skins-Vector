@@ -5,6 +5,7 @@
 			"Calak",
 			"Khaled",
 			"Meno25",
+			"Michel Bakni",
 			"Mido",
 			"OsamaK",
 			"أحمد",
@@ -18,8 +19,11 @@
 	"prefs-vector-enable-vector-1-label": "استخدم Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "على مدار السنوات القليلة القادمة، سنقوم بتحديث واجهة Vector بشكل تدريجي. سيسمح لك Legacy Vector بمشاهدة الإصدار القديم من Vector (اعتبارا من ديسمبر 2019). لمعرفة المزيد حول التحديثات، انتقل إلى [[mw:Reading/Web/Desktop_Improvements|صفحة المشروع]].",
 	"vector-opt-out": "التبديل إلى الشكل القديم",
-	"vector.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على مستخدمي واجهة فكتور */",
-	"vector.js": "/* أي جافاسكريبت هنا سيتم تحميلها للمستخدمين الذين يستعملون واجهة فكتور */",
+	"vector-opt-out-tooltip": "غير الإعدادت للعودة إلى طريقة العرض التقليدية",
+	"vector.css": "/* ستؤثِّر الأنماط المتراصة CSS المعروضة هنا على مستخدمي واجهة فكتور */",
+	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
+	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
+	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
 	"vector-action-addsection": "أضف موضوعا",
 	"vector-action-delete": "احذف",
 	"vector-action-move": "انقل",
@@ -33,5 +37,10 @@
 	"vector-view-viewsource": "عرض المصدر",
 	"vector-jumptonavigation": "اذهب إلى التنقل",
 	"vector-jumptosearch": "اذهب إلى البحث",
-	"vector-more-actions": "المزيد"
+	"vector-jumptocontent": "انتقل إلى المحتوى",
+	"vector-more-actions": "المزيد",
+	"vector-search-loader": "تحميل اقتراحات البحث",
+	"vector-anon-user-menu-pages": "صفحات للمحررين الذين سجلوا خروجهم",
+	"vector-anon-user-menu-pages-learn": "تعلم المزيد",
+	"vector-personal-more-label": "وصلات المستخدم"
 }
