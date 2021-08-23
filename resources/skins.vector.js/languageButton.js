@@ -29,7 +29,7 @@ function disableDropdownBehavior( pLangBtn ) {
 	if ( !pLangBtn ) {
 		return;
 	}
-	pLangBtn.classList.add( 'vector-menu--hide-dropdown' );
+	pLangBtn.classList.add( 'vector-menu-hide-dropdown' );
 }
 
 /**
