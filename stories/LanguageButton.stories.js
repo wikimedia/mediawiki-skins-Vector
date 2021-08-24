@@ -36,7 +36,7 @@ export const languageButtonWhenULSEnabled = () => wrapLanguageButton(
 	wrapLanguageButton(
 		wrapLanguageButton(
 			mustache.render( vectorMenuTemplate, languageData ),
-			'vector-menu--hide-dropdown'
+			'vector-menu-hide-dropdown'
 		),
 		CONTAINER_CLASS_MODERN_VECTOR
 	),
