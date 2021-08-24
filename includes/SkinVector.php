@@ -86,10 +86,7 @@ class SkinVector extends SkinMustache {
 			$options['scripts'] = [ 'skins.vector.legacy.js' ];
 			$options['styles'] = [ 'skins.vector.styles.legacy' ];
 			$options['template'] = 'skin-legacy';
-		} else {
-			if ( $this->shouldConsolidateUserLinks() ) {
-				$options['link'] = [ 'text-wrapper' => [ 'tag' => 'span' ] ];
-			}
+			unset( $options['link'] );
 		}
 
 		$options['templateDirectory'] = __DIR__ . '/templates';
@@ -149,18 +146,6 @@ class SkinVector extends SkinMustache {
 			!$this->canHaveLanguages() ||
 			// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
 			( $this->isLanguagesInHeader() && empty( $this->getLanguagesCached() ) );
-	}
-
-	/**
-	 * If in modern Vector and the config is set to consolidate user links, enable user link consolidation.
-	 * @return bool
-	 */
-	private function shouldConsolidateUserLinks() {
-		$featureManager = VectorServices::getFeatureManager();
-		return !$this->isLegacy() &&
-			$featureManager->isFeatureEnabled(
-				Constants::FEATURE_CONSOLIDATE_USER_LINKS
-			);
 	}
 
 	/**
@@ -340,8 +325,6 @@ class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 
 		$commonSkinData = array_merge( $parentData, [
-			'is-consolidated-user-links' => $this->shouldConsolidateUserLinks(),
-
 			'is-article' => (bool)$out->isArticle(),
 
 			'is-anon' => $this->getUser()->isAnon(),
@@ -371,8 +354,7 @@ class SkinVector extends SkinMustache {
 			];
 		}
 
-		$shouldConsolidateUserLinks = $this->shouldConsolidateUserLinks();
-		if ( $shouldConsolidateUserLinks ) {
+		if ( !$this->isLegacy() ) {
 			$commonSkinData['data-vector-user-links'] = $this->getUserLinksTemplateData(
 				$commonSkinData['data-portlets'],
 				$commonSkinData['is-anon'],
@@ -382,7 +364,7 @@ class SkinVector extends SkinMustache {
 
 		$commonSkinData['data-search-box'] = $this->getSearchData(
 			$commonSkinData['data-search-box'],
-			$shouldConsolidateUserLinks
+			!$this->isLegacy()
 		);
 
 		return $commonSkinData;
@@ -392,13 +374,13 @@ class SkinVector extends SkinMustache {
 	 * Annotates search box with Vector-specific information
 	 *
 	 * @param array $searchBoxData
-	 * @param bool $shouldConsolidateUserLinks
+	 * @param bool $isCollapsible
 	 * @return array modified version of $searchBoxData
 	 */
-	private function getSearchData( array $searchBoxData, bool $shouldConsolidateUserLinks ) {
+	private function getSearchData( array $searchBoxData, bool $isCollapsible ) {
 		$searchClass = 'vector-search-box';
 
-		if ( $shouldConsolidateUserLinks ) {
+		if ( $isCollapsible ) {
 			$searchClass .= ' vector-search-box-collapses';
 		}
 
@@ -408,7 +390,7 @@ class SkinVector extends SkinMustache {
 
 		// Annotate search box with a component class.
 		$searchBoxData['class'] = $searchClass;
-		$searchBoxData['is-collapsible'] = $shouldConsolidateUserLinks;
+		$searchBoxData['is-collapsible'] = $isCollapsible;
 
 		// At lower resolutions the search input is hidden search and only the submit button is shown.
 		// It should behave like a form submit link (e.g. submit the form with no input value).
@@ -546,7 +528,9 @@ class SkinVector extends SkinMustache {
 		$portletData['heading-class'] = 'vector-menu-heading';
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
 		if ( $portletData['id'] === 'p-personal' ) {
-			if ( $this->shouldConsolidateUserLinks() ) {
+			if ( $this->isLegacy() ) {
+				$portletData['class'] .= ' vector-user-menu-legacy';
+			} else {
 				$portletData['class'] .= ' vector-user-menu';
 				$portletData['class'] .= $this->loggedin ?
 					' vector-user-menu-logged-in' :
@@ -555,8 +539,6 @@ class SkinVector extends SkinMustache {
 				$portletData['heading-class'] .= $this->loggedin ?
 					' mw-ui-icon-wikimedia-userAvatar' :
 					' mw-ui-icon-wikimedia-ellipsis';
-			} else {
-				$portletData['class'] .= ' vector-user-menu-legacy';
 			}
 		}
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
@@ -577,8 +559,6 @@ class SkinVector extends SkinMustache {
 	): array {
 		switch ( $label ) {
 			case 'user-menu':
-				$type = $this->shouldConsolidateUserLinks() ? self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_DEFAULT;
-				break;
 			case 'actions':
 			case 'variants':
 				$type = self::MENU_TYPE_DROPDOWN;

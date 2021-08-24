@@ -152,30 +152,6 @@ return [
 			]
 		);
 
-		// Feature: Consolidate personal menu links
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				null,
-				Constants::CONFIG_CONSOLIDATE_USER_LINKS,
-				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS,
-				Constants::QUERY_PARAM_CONSOLIDATE_USER_LINKS,
-				null
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_CONSOLIDATE_USER_LINKS,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
-				Constants::REQUIREMENT_CONSOLIDATE_USER_LINKS
-			]
-		);
-
 		// Feature: Sticky header
 		// ================================
 		$featureManager->registerRequirement(
