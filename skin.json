@@ -169,7 +169,8 @@
 				"unStar",
 				"userContributions",
 				"logIn",
-				"logOut"
+				"logOut",
+				"imageGallery"
 			]
 		},
 		"skins.vector.js": {
