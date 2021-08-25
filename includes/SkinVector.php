@@ -603,6 +603,20 @@ class SkinVector extends SkinMustache {
 			}
 		}
 
+		// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons. For modern
+		// Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for the user icon (dropdown
+		// indicator for user links menu) for logged-in users. This overrides the tooltip for the user links menu icon
+		// which is an ellipsis for anonymous users.
+		if ( $label === 'user-menu' && !$this->isLegacy() && !$this->loggedin ) {
+			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
+		}
+
+		// Set tooltip to empty string for the personal menu for both logged-in and logged-out users to avoid showing
+		// the tooltip for legacy version.
+		if ( $label === 'personal' && $this->isLegacy() ) {
+			$portletData['html-tooltip'] = '';
+		}
+
 		return $portletData + [
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 		];
