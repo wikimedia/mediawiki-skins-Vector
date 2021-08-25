@@ -30,5 +30,7 @@
 	"vector-search-loader": "Loading search suggestions",
 	"vector-anon-user-menu-pages": "Pages for logged out editors",
 	"vector-anon-user-menu-pages-learn": "learn more",
-	"vector-personal-more-label": "User links"
+	"vector-personal-more-label": "User links",
+	"vector-main-menu-tooltip": "Main menu",
+	"tooltip-vector-anon-user-menu-title": "More options"
 }
