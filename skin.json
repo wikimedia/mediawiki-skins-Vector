@@ -35,8 +35,8 @@
 						"createaccount",
 						"vector-anon-user-menu-pages",
 						"vector-anon-user-menu-pages-learn",
+						"vector-anon-user-menu-pages-label",
 						"vector-personal-more-label",
-						"parentheses",
 						"otherlanguages",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
@@ -150,6 +150,10 @@
 			"styles": [
 				"resources/common/common.less",
 				"resources/skins.vector.styles/skin.less"
+			],
+			"lessMessages": [
+				"parentheses-start",
+				"parentheses-end"
 			]
 		},
 		"skins.vector.icons": {
