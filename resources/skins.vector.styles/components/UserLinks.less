@@ -23,8 +23,12 @@
 				white-space: nowrap;
 
 				a {
-					color: #000;
+					color: @color-base;
 					text-decoration: none;
+
+					.mw-ui-icon {
+						margin-right: 4px;
+					}
 				}
 
 				// Below tablet threshold, all menu items except the notification icons will collapse into the user menu
@@ -63,9 +67,7 @@
 		}
 	}
 
-	// Overrides personal menu styles for consolidated user links.
 	.vector-user-menu {
-		height: 100%;
 
 		// Override ".emptyPortlet" class to ensure user menu isn't hidden
 		&.emptyPortlet {
@@ -73,17 +75,13 @@
 		}
 
 		.vector-menu-heading {
-			color: transparent; // overrides MediaWiki UI icon
-			height: 100%;
-			line-height: 0; // T288540: Override language specific line height so user menu spacing is correct.
-		}
+			.mw-ui-icon ~ span {
+				.mixin-screen-reader-text();
+			}
 
-		.vector-menu-checkbox {
-			// FIXME: This variable is currently not available in mediawiki core, but defined in the icons specification.
-			@icon-background-color--selected:  rgba( 0, 0, 0, 0.03 );
-			// The mw-ui-icon hover effect does not work on the checkbox hack so must be applied explicitly.
-			&:hover + h3 {
-				background-color: @icon-background-color--selected;
+			// FIXME: For cached HTML only.
+			&.mw-ui-icon > span {
+				color: transparent;
 			}
 		}
 
@@ -105,15 +103,16 @@
 			}
 		}
 
-		.vector-menu-content-list {
-			li {
-				width: 100%;
-				margin: 0;
-			}
+		// FIXME: Remove `li` selector when T289163 is addressed.
+		li,
+		.mw-list-item {
+			width: 100%;
 		}
 
+		// FIXME: Remove `li > a` selector when T289163 is addressed.
+		li > a,
 		.vector-menu-content-item,
-		li > a {
+		.mw-list-item > a {
 			// Overrides .mw-ui-icon's `min-height` property to have a computed
 			// min-height of 32px. This matches the design spec of having an icon that
 			// is 20px in height + 6px of top padding + 6px of bottom padding. Using
@@ -128,7 +127,7 @@
 			// at the edge of the menu. Apply the padding on the link element instead
 			// of the li element to maximize the click target.
 			padding: 0 @padding-horizontal-user-links;
-			color: #000;
+			color: @color-base;
 			text-decoration: none;
 
 			span {

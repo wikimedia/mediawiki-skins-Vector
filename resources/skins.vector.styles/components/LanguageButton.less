@@ -4,6 +4,8 @@
 
 // TODO: `#p-lang-btn` Can be changed to `.mw-portlet-lang` when languages-in-header is the default.
 #p-lang-btn {
+	// FIXME [review whether margin-top is needed] center vertically in heading.
+	margin-top: 2px;
 	.box-sizing( border-box );
 	height: @height-lang-button;
 
@@ -21,10 +23,6 @@
 		user-select: none;
 		// Remove opacity on language button (it applies to more menu because of label color).
 		opacity: 1;
-		// mw-ui-icon resets the button border.
-		border: 1px solid transparent;
-		// center vertically in heading.
-		margin-top: 2px;
 
 		span {
 			// Special treatment for language button, based on Vector font-size
