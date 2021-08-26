@@ -159,9 +159,9 @@ class Hooks {
 	}
 
 	/**
-	 * Updates personal navigation menu (user links) depending on the consolidated user links feature flag
-	 * When on, user page, create account and login links are removed from the dropdown to be handled separately
-	 * When off, the custom "user-page" bucket is removed to preserve existing behavior
+	 * Updates personal navigation menu (user links) for modern Vector wherein user page, create account and login links
+	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
+	 * removed to preserve existing behavior.
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
@@ -169,66 +169,54 @@ class Hooks {
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
 		$COLLAPSE_MENU_ITEM_CLASS = 'user-links-collapsible-item';
 
-		// If the consolidate user links feature is enabled, rearrange some links in the personal toolbar.
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled(
-			Constants::FEATURE_CONSOLIDATE_USER_LINKS )
-		) {
-			if ( $sk->loggedin ) {
-				// Remove user page from personal menu dropdown for logged in users at higher resolutions.
-				self::appendClassToListItem(
-					$content_navigation['user-menu']['userpage'],
-					$COLLAPSE_MENU_ITEM_CLASS
-				);
-				// Remove logout link from user-menu and recreate it in SkinVector,
-				unset( $content_navigation['user-menu']['logout'] );
-			} else {
-				// Remove "Not logged in" from personal menu dropdown for anon users.
-				unset( $content_navigation['user-menu']['anonuserpage'] );
-				// "Create account" link is handled manually by Vector
-				unset( $content_navigation['user-menu']['createaccount'] );
-				// "Login" link is handled manually by Vector
-				unset( $content_navigation['user-menu']['login'] );
-				// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
-				// are set to false.
-				unset( $content_navigation['user-menu']['login-private'] );
-			}
-
-			// ULS and user page links are hidden at lower resolutions.
-			if ( $content_navigation['user-interface-preferences'] ) {
-				self::appendClassToListItem(
-					$content_navigation['user-interface-preferences']['uls'],
-					$COLLAPSE_MENU_ITEM_CLASS
-				);
-			}
-			if ( $content_navigation['user-page'] ) {
-				self::appendClassToListItem(
-					$content_navigation['user-page']['userpage'],
-					$COLLAPSE_MENU_ITEM_CLASS
-				);
-
-				// Style the user page link as mw-ui-button.
-				self::addListItemClass(
-					$content_navigation['user-page']['userpage'],
-					[ 'mw-ui-button',  'mw-ui-quiet' ],
-					true
-				);
-			}
-
-			// Don't show icons for anon menu items (besides login and create
-			// account).
-			if ( $sk->loggedin ) {
-				// Prefix user link items with associated icon.
-				$user_menu = $content_navigation['user-menu'];
-				// Loop through each menu to check/append its link classes.
-				foreach ( $user_menu as $menu_key => $menu_value ) {
-					$icon_name = $menu_value['icon'] ?? '';
-					self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
-				}
+		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
+		if ( $sk->loggedin ) {
+			// Remove user page from personal menu dropdown for logged in users at higher resolutions.
+			self::appendClassToListItem(
+				$content_navigation['user-menu']['userpage'],
+				$COLLAPSE_MENU_ITEM_CLASS
+			);
+			// Remove logout link from user-menu and recreate it in SkinVector,
+			unset( $content_navigation['user-menu']['logout'] );
+			// Don't show icons for anon menu items (besides login and create account).
+			// Prefix user link items with associated icon.
+			$user_menu = $content_navigation['user-menu'];
+			// Loop through each menu to check/append its link classes.
+			foreach ( $user_menu as $menu_key => $menu_value ) {
+				$icon_name = $menu_value['icon'] ?? '';
+				self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
 			}
 		} else {
-			// Remove user page from personal toolbar since it will be inside the personal menu for logged in
-			// users when the feature flag is disabled.
-			unset( $content_navigation['user-page'] );
+			// Remove "Not logged in" from personal menu dropdown for anon users.
+			unset( $content_navigation['user-menu']['anonuserpage'] );
+			// "Create account" link is handled manually by Vector
+			unset( $content_navigation['user-menu']['createaccount'] );
+			// "Login" link is handled manually by Vector
+			unset( $content_navigation['user-menu']['login'] );
+			// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
+			// are set to false.
+			unset( $content_navigation['user-menu']['login-private'] );
+		}
+
+		// ULS and user page links are hidden at lower resolutions.
+		if ( $content_navigation['user-interface-preferences'] ) {
+			self::appendClassToListItem(
+				$content_navigation['user-interface-preferences']['uls'],
+				$COLLAPSE_MENU_ITEM_CLASS
+			);
+		}
+		if ( $content_navigation['user-page'] ) {
+			self::appendClassToListItem(
+				$content_navigation['user-page']['userpage'],
+				$COLLAPSE_MENU_ITEM_CLASS
+			);
+
+			// Style the user page link as mw-ui-button.
+			self::addListItemClass(
+				$content_navigation['user-page']['userpage'],
+				[ 'mw-ui-button',  'mw-ui-quiet' ],
+				true
+			);
 		}
 	}
 
@@ -253,11 +241,15 @@ class Hooks {
 				self::updateActionsMenu( $content_navigation );
 			}
 
-			if (
-				!self::isSkinVersionLegacy() &&
-				isset( $content_navigation['user-menu'] )
-			) {
-				self::updateUserLinksItems( $sk, $content_navigation );
+			if ( isset( $content_navigation['user-menu'] ) ) {
+				if ( self::isSkinVersionLegacy() ) {
+					// Remove user page from personal toolbar since it will be inside the personal menu for logged-in
+					// users in legacy Vector.
+					unset( $content_navigation['user-page'] );
+				} else {
+					// For modern Vector, rearrange some links in the personal toolbar.
+					self::updateUserLinksItems( $sk, $content_navigation );
+				}
 			}
 		}
 	}
@@ -387,14 +379,6 @@ class Hooks {
 		// Determine the search widget treatment to send to the user
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-search-vue';
-		}
-
-		if (
-			VectorServices::getFeatureManager()->isFeatureEnabled(
-				Constants::FEATURE_CONSOLIDATE_USER_LINKS
-			)
-		) {
-			$bodyAttrs['class'] .= ' skin-vector-consolidated-user-links';
 		}
 
 		if (

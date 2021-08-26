@@ -12,12 +12,5 @@
 	</label>
 	{{>Logo}}
 	{{#data-search-box}}{{>SearchBox}}{{/data-search-box}}
-	{{^is-consolidated-user-links}}
-		{{#data-portlets}}
-			{{#data-personal}}{{>Menu}}{{/data-personal}}
-		{{/data-portlets}}
-	{{/is-consolidated-user-links}}
-	{{#is-consolidated-user-links}}
-		{{#data-vector-user-links}}{{>UserLinks}}{{/data-vector-user-links}}
-	{{/is-consolidated-user-links}}
+	{{#data-vector-user-links}}{{>UserLinks}}{{/data-vector-user-links}}
 </header>

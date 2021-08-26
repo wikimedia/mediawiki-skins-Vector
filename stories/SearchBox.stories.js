@@ -12,7 +12,5 @@ export const legacySimpleSearch = () => `
 `;
 
 export const simpleSearch = () => `
-	<div class="skin-vector-consolidated-user-links">
-		${mustache.render( searchBoxTemplate, searchBoxData )}
-	</div>
+	${mustache.render( searchBoxTemplate, searchBoxData )}
 `;

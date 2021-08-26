@@ -169,26 +169,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const QUERY_PARAM_CONSOLIDATE_USER_LINKS = 'vectoruserlinks';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_CONSOLIDATE_USER_LINKS = 'VectorConsolidateUserLinks';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_CONSOLIDATE_USER_LINKS = 'ConsolidateUserLinks';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_CONSOLIDATE_USER_LINKS = 'ConsolidateUserLinks';
-
-	/**
-	 * @var string
-	 */
 	public const QUERY_PARAM_STICKY_HEADER = 'vectorstickyheader';
 
 	/**

@@ -51,7 +51,12 @@
 						"sitesubtitle",
 						"sitetitle",
 						"tagline"
-					]
+					],
+					"link": {
+						"text-wrapper": {
+							"tag": "span"
+						}
+					}
 				}
 			]
 		}
@@ -317,13 +322,6 @@
 		"VectorLanguageInHeaderTreatmentABTest": {
 			"value": false,
 			"description": "@var boolean Enables or disables the language in header treatment A/B test. See https://phabricator.wikimedia.org/T280825 and associated tasks for additional detail."
-		},
-		"VectorConsolidateUserLinks": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false
-			},
-			"description": "@var array Moves user links into a consolidated dropdown menu with the exception of several top level items including echo, user page and create account links."
 		},
 		"VectorStickyHeader": {
 			"value": {
