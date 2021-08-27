@@ -195,6 +195,7 @@ class SkinVector extends SkinMustache {
 		$learnMoreLinkData = [
 			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
 			'href' => Title::newFromText( 'Help:Introduction' )->getLocalURL(),
+			'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
 		];
 		$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
 
@@ -206,9 +207,7 @@ class SkinVector extends SkinMustache {
 			], true ),
 			'htmlLogin' => $this->makeLink( 'login', $loginData ),
 			'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' ),
-			'htmlLearnMoreLink' => $this->msg( 'parentheses' )->
-				rawParams( $learnMoreLink )->
-				escaped()
+			'htmlLearnMoreLink' => $learnMoreLink
 		] );
 	}
 

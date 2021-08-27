@@ -2,6 +2,7 @@
  * @external MenuDefinition
  * @external UserLinksDefinition
  */
+import msgs from '../i18n/en.json';
 import mustache from 'mustache';
 import { menuTemplate } from './Menu.stories.data';
 import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/legacy/UserLinks.mustache';
@@ -109,8 +110,8 @@ const loggedOutData = {
 	'html-before-portal': mustache.render( userLinksLoginTemplate, {
 		htmlCreateAccount: `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Special%3AUserLogout" icon="userAvatar" class="user-links-collapsible-item vector-menu-content-item mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userAvatar" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a>`,
 		htmlLogin: `<a class="vector-menu-content-item vector-menu-content-item-login mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logIn" href="/w/index.php?title=Special:UserLogin&amp;returnto=Main+Page" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o"><span>Log in</span></a>`,
-		msgLearnMore: `Pages for logged out editors `,
-		htmlLearnMoreLink: `(<a href="/wiki/Help:Introduction"><span>learn more</span></a>):`
+		msgLearnMore: msgs[ 'vector-anon-user-menu-pages' ],
+		htmlLearnMoreLink: `<a href="/wiki/Help:Introduction"><span>${msgs[ 'vector-anon-user-menu-pages-learn' ]}</span></a>:`
 	} )
 };
 
