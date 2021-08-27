@@ -89,7 +89,6 @@ class SkinVector extends SkinMustache {
 			unset( $options['link'] );
 		}
 
-		$options['templateDirectory'] = __DIR__ . '/templates';
 		parent::__construct( $options );
 	}
 

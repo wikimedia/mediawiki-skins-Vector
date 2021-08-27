@@ -24,6 +24,7 @@
 					"scripts": [
 						"skins.vector.js"
 					],
+					"templateDirectory": "includes/templates",
 					"responsive": true,
 					"styles": [
 						"mediawiki.ui.button",
