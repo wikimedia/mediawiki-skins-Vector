@@ -78,6 +78,8 @@
 		pointer-events: none;
 		// Override the default right & left position of the icon.
 		right: auto;
+		top: 0;
+		bottom: 0;
 		// Accounts for the 1px input border. Derived from
 		// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/input/Input.vue#163
 		left: 1px;
@@ -108,10 +110,9 @@
 		#searchInput:focus ~ #mw-searchButton {
 			// Derived from
 			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
-			// (-11px) minus 1px input border.
-			left: -12px;
-			// minus the 1px border
-			top: -1px;
+			// (12px of space between the border and the icon) with 1px to account for the focused input border.
+			@space-icon-start: 12px;
+			left: -@size-search-expand + @space-icon-start + @border-width-base;
 		}
 
 		// Update search loader to match width and position of WVUI expanding input.
