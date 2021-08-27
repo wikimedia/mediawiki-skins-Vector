@@ -32,5 +32,7 @@
 	"vector-search-loader": "טעינת הצעות חיפוש",
 	"vector-anon-user-menu-pages": "דפים לעורכים שלא נכנסו לחשבון",
 	"vector-anon-user-menu-pages-learn": "מידע נוסף",
-	"vector-personal-more-label": "קישורי משתמש"
+	"vector-personal-more-label": "קישורי משתמש",
+	"vector-main-menu-tooltip": "תפריט ראשי",
+	"tooltip-vector-anon-user-menu-title": "אפשרויות נוספות"
 }

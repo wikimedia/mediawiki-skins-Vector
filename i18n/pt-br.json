@@ -43,5 +43,7 @@
 	"vector-search-loader": "Carregando sugestões de pesquisa",
 	"vector-anon-user-menu-pages": "Páginas para editores conectados",
 	"vector-anon-user-menu-pages-learn": "saiba mais",
-	"vector-personal-more-label": "Links do usuário"
+	"vector-personal-more-label": "Links do usuário",
+	"vector-main-menu-tooltip": "Menu principal",
+	"tooltip-vector-anon-user-menu-title": "Mais opções"
 }

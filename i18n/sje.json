@@ -4,7 +4,9 @@
 			"Olve Utne"
 		]
 	},
+	"vector-action-delete": "Gádoda",
 	"vector-action-protect": "Várrjala",
 	"vector-view-edit": "Rävvdadit",
-	"vector-view-view": "Lågå"
+	"vector-view-view": "Lågå",
+	"vector-more-actions": "Ienap"
 }
