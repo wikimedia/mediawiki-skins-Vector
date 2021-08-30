@@ -69,6 +69,20 @@
 		z-index: @z-index-menu;
 	}
 
+	// Hide elements visually but not from screen readers.
+	.vector-menu-checkbox-expanded,
+	.vector-menu-checkbox-collapsed {
+		.mixin-screen-reader-text();
+		display: none;
+	}
+
+	// Reveal correct "expanded" status text to screen readers based off checked status.
+	.vector-menu-checkbox:checked + .vector-menu-heading .vector-menu-checkbox-expanded,
+	.vector-menu-checkbox:not( :checked ) + .vector-menu-heading .vector-menu-checkbox-collapsed {
+		display: inline;
+	}
+
+	// Hide and show menu content based off checked status.
 	.vector-menu-checkbox:checked ~ .vector-menu-content {
 		opacity: 1;
 		visibility: visible;

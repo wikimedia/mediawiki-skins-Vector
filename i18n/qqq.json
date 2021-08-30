@@ -45,5 +45,7 @@
 	"vector-anon-user-menu-pages-label": "Accessible version of 'vector-anon-user-menu-pages' link text, prompts user to learn more about editing",
 	"vector-personal-more-label": "Label describing the user links next to the user links dropdown menu.",
 	"vector-main-menu-tooltip": "Used as title attribute for main menu icon on hover.",
-	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users."
+	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users.",
+	"vector-menu-checkbox-expanded": "Label for expanded state of dropdown menus for screen reader or assistive technology users.",
+	"vector-menu-checkbox-collapsed": "Label for collapsed state of dropdown menus for screen reader or assistive technology users."
 }
