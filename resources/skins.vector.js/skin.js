@@ -1,5 +1,6 @@
 var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
 	vector = require( '../skins.vector.legacy.js/vector.js' ),
+	stickyHeader = require( './stickyHeader.js' ),
 	languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ),
@@ -72,6 +73,7 @@ function main( window ) {
 	initSearchLoader( document );
 	searchToggle();
 	languageButton();
+	stickyHeader();
 }
 
 main( window );

@@ -42,7 +42,6 @@
 	{{#sidebar-visible}}checked{{/sidebar-visible}}>
 
 {{>Header}}
-
 <div class="mw-workspace-container">
 	{{>Navigation}}
 	<div class="mw-content-container">
@@ -98,3 +97,6 @@
 </div>
 	</div> {{! END mw-page-container-inner }}
 </div> {{! END mw-page-container }}
+{{#data-vector-sticky-header}}
+{{>StickyHeader}}
+{{/data-vector-sticky-header}}

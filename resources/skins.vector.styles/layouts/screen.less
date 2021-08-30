@@ -65,9 +65,7 @@
 
 // Page container
 
-@max-width-page-container: unit( 1650px / @font-size-browser, em ); // 103.125em @ 16
 @min-width-page-container--padded: @max-width-page-container + ( 2 * @padding-horizontal-page-container ); // 106.875em
-@padding-horizontal-page-container: unit( 30px / @font-size-browser, em ); // 1.875em @ 16
 
 // Content containers
 
@@ -147,12 +145,6 @@ body {
 	// allow z-index to apply so search results overlay article
 	position: relative;
 	z-index: @z-index-header;
-
-	.skin-vector-sticky-header & {
-		position: sticky;
-		top: 0;
-		background: @background-color-base;
-	}
 }
 
 /* Searchbox */
