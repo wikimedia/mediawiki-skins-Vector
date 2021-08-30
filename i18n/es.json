@@ -7,6 +7,7 @@
 			"Fitoschido",
 			"Geryescalier",
 			"Ihojose",
+			"Johny Weissmuller Jr",
 			"Locos epraix",
 			"Manuelt15",
 			"MarcoAurelio",
@@ -43,5 +44,6 @@
 	"vector-more-actions": "Más",
 	"vector-search-loader": "Cargando sugerencias de búsqueda",
 	"vector-anon-user-menu-pages": "Páginas para editores que han cerrado la sesión",
-	"vector-anon-user-menu-pages-learn": "más información"
+	"vector-anon-user-menu-pages-learn": "más información",
+	"vector-anon-user-menu-pages-label": "Obtenga más información sobre editar"
 }

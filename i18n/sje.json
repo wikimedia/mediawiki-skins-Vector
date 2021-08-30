@@ -5,8 +5,11 @@
 		]
 	},
 	"vector-action-delete": "Gádoda",
+	"vector-action-move": "Jåde",
 	"vector-action-protect": "Várrjala",
+	"vector-view-create": "Álge",
 	"vector-view-edit": "Rävvdadit",
+	"vector-view-history": "Vuosedit histurjav",
 	"vector-view-view": "Lågå",
 	"vector-more-actions": "Ienap"
 }

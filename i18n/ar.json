@@ -11,7 +11,8 @@
 			"أحمد",
 			"ديفيد",
 			"زكريا",
-			"علاء"
+			"علاء",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"skinname-vector": "فكتور",
@@ -42,5 +43,6 @@
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-anon-user-menu-pages": "صفحات للمحررين الذين سجلوا خروجهم",
 	"vector-anon-user-menu-pages-learn": "تعلم المزيد",
-	"vector-personal-more-label": "وصلات المستخدم"
+	"vector-personal-more-label": "وصلات المستخدم",
+	"tooltip-vector-anon-user-menu-title": "المزيد من الخيارات"
 }
