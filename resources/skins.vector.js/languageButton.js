@@ -37,8 +37,7 @@ function disableDropdownBehavior( pLangBtn ) {
  * drop down behavior of the button.
  */
 function disableLanguageDropdown() {
-	var ulsModuleStatus = mw.loader.getState( 'ext.uls.interface' ),
-		pLangBtnLabel;
+	var ulsModuleStatus = mw.loader.getState( 'ext.uls.interface' );
 
 	// If module status is defined and not registered we can assume it is in the process of loading
 	if ( ulsModuleStatus && ulsModuleStatus !== 'registered' ) {
@@ -47,15 +46,6 @@ function disableLanguageDropdown() {
 		if ( mw.config.get( 'wgULSisCompactLinksEnabled' ) ) {
 			disableDropdownBehavior( document.getElementById( 'p-lang-btn' ) );
 		}
-	} else {
-		pLangBtnLabel = document.getElementById( 'p-lang-btn-label' );
-		if ( !pLangBtnLabel ) {
-			return;
-		}
-
-		// Remove .mw-interlanguage-selector to show the dropdown arrow since evidently
-		// ULS is not used.
-		pLangBtnLabel.classList.remove( 'mw-interlanguage-selector' );
 	}
 }
 

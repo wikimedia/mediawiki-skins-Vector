@@ -488,14 +488,14 @@ class SkinVector extends SkinMustache {
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
 			'label' => $label,
+			// ext.uls.interface attaches click handler to this selector.
+			'checkbox-class' => ' mw-interlanguage-selector ',
 			'heading-class' =>
 				' vector-menu-heading ' .
 				' mw-ui-icon ' .
 				' mw-ui-icon-before ' .
 				' mw-ui-icon-wikimedia-language ' .
-				' mw-ui-button mw-ui-quiet ' .
-				// ext.uls.interface attaches click handler to this selector.
-				' mw-interlanguage-selector ',
+				' mw-ui-button mw-ui-quiet '
 			];
 
 		// Adds class to hide language button

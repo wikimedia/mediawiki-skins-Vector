@@ -65,29 +65,11 @@
 	}
 }
 
-// Disable border-radius when dropdown menu open
-.client-nojs {
-	#p-lang-btn:hover .vector-menu-heading,
-	.vector-menu-checkbox:checked + .vector-menu-heading {
-		border-radius: 0;
-	}
-}
-
 // mw-body-header class can be removed when language button is the default.
 // e.g. upon removal of SkinVector::isLanguagesInHeader
 .client-js #p-lang-btn {
-	// The `.mw-interlanguage-selector` is toggled off through js if the
-	// `ext.uls.interface` module is not being loaded.
-	.mw-interlanguage-selector {
-		// Remove the ULS language icon provided by ext.uls.compactlinks.less as we
-		// are already providing no-js users an icon.
-		background-image: none;
-	}
-
-	// When the ext.uls.interface module is loaded, we hide the fallback menu and
-	// checkbox.
+	// When the ext.uls.interface module is loaded, we hide the fallback menu and checkbox.
 	&.vector-menu-hide-dropdown {
-		.vector-menu-checkbox,
 		.vector-menu-content {
 			display: none;
 		}

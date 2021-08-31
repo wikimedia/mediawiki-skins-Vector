@@ -225,7 +225,6 @@
 	"ResourceModuleSkinStyles": {
 		"vector": {
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
-			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
 			"+ext.uls.pt": "skinStyles/ext.uls.pt.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
 			"jquery.ui": [
