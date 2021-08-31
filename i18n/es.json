@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Armando-Martin",
+			"Avengium",
 			"Crazymadlover",
 			"Dalton2",
 			"Fitoschido",
@@ -45,5 +46,7 @@
 	"vector-search-loader": "Cargando sugerencias de búsqueda",
 	"vector-anon-user-menu-pages": "Páginas para editores que han cerrado la sesión",
 	"vector-anon-user-menu-pages-learn": "más información",
-	"vector-anon-user-menu-pages-label": "Obtenga más información sobre editar"
+	"vector-anon-user-menu-pages-label": "Obtenga más información sobre editar",
+	"vector-main-menu-tooltip": "Menú principal",
+	"tooltip-vector-anon-user-menu-title": "Más opciones"
 }
