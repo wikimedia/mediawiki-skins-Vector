@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import 'mediawiki.mixins.less';
 
 @font-size-user-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 @padding-horizontal-user-links: 12px;
@@ -46,6 +47,20 @@
 			display: flex;
 			align-items: center;
 		}
+
+		#pt-userpage-2 {
+			max-width: unit( 155 / @font-size-browser / @font-size-base, em );
+
+			span {
+				.text-overflow( @visible: false );
+			}
+
+			// T287522#7295558: Increase the max-width of the username when viewport
+			// allows for it.
+			@media ( min-width: @width-breakpoint-desktop-wide ) {
+				max-width: unit( 200 / @font-size-browser / @font-size-base, em );
+			}
+		}
 	}
 
 	// Overrides personal menu styles for consolidated user links.
@@ -74,7 +89,7 @@
 
 		.vector-menu-content {
 			min-width: 200px;
-			max-width: 350px;
+			max-width: unit( 350px / @font-size-browser, em );
 			top: 100%;
 			left: unset;
 			right: 0;
@@ -118,8 +133,7 @@
 
 			span {
 				font-size: @font-size-user-links;
-				text-overflow: ellipsis;
-				overflow: hidden;
+				.text-overflow( @visible: false );
 				// Overrides .mw-ui-icon's `line-height: 0` property so that the text is
 				// visible when not overflowing.
 				line-height: initial;
