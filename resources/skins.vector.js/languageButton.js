@@ -20,39 +20,8 @@ function addInterwikiLinkToSidebar() {
 }
 
 /**
- * Disable dropdown behaviour for non-JS users.
- *
- * @param {HTMLElement|null} pLangBtn
- * @return {void}
- */
-function disableDropdownBehavior( pLangBtn ) {
-	if ( !pLangBtn ) {
-		return;
-	}
-	pLangBtn.classList.add( 'vector-menu-hide-dropdown' );
-}
-
-/**
- * Checks whether ULS is enabled and if so disables the default
- * drop down behavior of the button.
- */
-function disableLanguageDropdown() {
-	var ulsModuleStatus = mw.loader.getState( 'ext.uls.interface' );
-
-	// If module status is defined and not registered we can assume it is in the process of loading
-	if ( ulsModuleStatus && ulsModuleStatus !== 'registered' ) {
-		// HACK: Ideally knowledge of internal ULS configuration would not be necessary
-		// In future this should be wired up to an `mw.hook` event.
-		if ( mw.config.get( 'wgULSisCompactLinksEnabled' ) ) {
-			disableDropdownBehavior( document.getElementById( 'p-lang-btn' ) );
-		}
-	}
-}
-
-/**
  * Initialize the language button.
  */
 module.exports = function () {
-	disableLanguageDropdown();
 	addInterwikiLinkToSidebar();
 };
