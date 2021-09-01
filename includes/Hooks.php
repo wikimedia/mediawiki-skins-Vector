@@ -227,7 +227,7 @@ class Hooks {
 	 * @param string $name
 	 * @return string of HTML
 	 */
-	public static function makeButtonIcon( $name ) {
+	public static function makeIcon( $name ) {
 		// Html::makeLink will pass this through rawElement
 		return '<span class="mw-ui-icon mw-ui-icon-' . $name . '"></span>';
 	}
@@ -256,7 +256,7 @@ class Hooks {
 				if ( $hideText ) {
 					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element mw-ui-icon-' . $icon;
 				} else {
-					$item['link-html'] = self::makeButtonIcon( $icon );
+					$item['link-html'] = self::makeIcon( $icon );
 				}
 			}
 			$content_navigation[$menu][$key] = $item;
