@@ -1,0 +1,29 @@
+<header id="vector-sticky-header"
+	class="vector-sticky-header {{#is-visible}}vector-sticky-header-visible{{/is-visible}}">
+	<div class="vector-sticky-header-start">
+		<div class="vector-sticky-header-icon-start">
+			{{#data-icon-start}}
+			{{>Icon}}
+			{{/data-icon-start}}
+		</div>
+		<div class="vector-sticky-header-context-bar">
+			<div class="vector-sticky-header-context-bar-primary">{{title}}</div>
+			<div class="vector-sticky-header-context-bar-secondary">{{heading}}</div>
+		</div>
+	</div>
+	<div class="vector-sticky-header-end">
+		<div class="vector-sticky-header-icons">
+			{{#data-icons}}
+			{{>Icon}}
+			{{/data-icons}}
+		</div>
+		<div class="mw-ui-button">
+			{{primary-action}}
+		</div>
+		<div class="vector-sticky-header-icon-end">
+			{{#data-icon-end}}
+			{{>Icon}}
+			{{/data-icon-end}}
+		</div>
+	</div>
+</header>

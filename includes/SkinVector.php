@@ -44,6 +44,10 @@ class SkinVector extends SkinMustache {
 	/** @var int */
 	private const MENU_TYPE_DROPDOWN = 2;
 	private const MENU_TYPE_PORTAL = 3;
+	private const NO_ICON = [
+		'icon' => 'none',
+		'class' => 'sticky-header-icon'
+	];
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -297,6 +301,24 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Generate data needed to generate the sticky header.
+	 * Lack of i18n is intentional and will be done as part of follow up work.
+	 * @return array
+	 */
+	private function getStickyHeaderData() {
+		return [
+			'title' => 'Audre Lorde',
+			'heading' => 'Introduction',
+			'primary-action' => 'Primary action',
+			'data-icon-start' => self::NO_ICON,
+			'data-icon-end' => self::NO_ICON,
+			'data-icons' => [
+				self::NO_ICON, self::NO_ICON, self::NO_ICON, self::NO_ICON
+			]
+		];
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -338,7 +360,9 @@ class SkinVector extends SkinMustache {
 
 			'sidebar-visible' => $this->isSidebarVisible(),
 
-			'is-language-in-header' => $this->isLanguagesInHeader(),
+			'data-vector-sticky-header' => VectorServices::getFeatureManager()->isFeatureEnabled(
+				Constants::FEATURE_STICKY_HEADER
+			) ? $this->getStickyHeaderData() : false,
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
