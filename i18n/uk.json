@@ -43,5 +43,8 @@
 	"vector-search-loader": "Завантажуються підказки пошуку",
 	"vector-anon-user-menu-pages": "Сторінка для редакторів, які вийшли з системи",
 	"vector-anon-user-menu-pages-learn": "дізнатися більше",
-	"vector-personal-more-label": "Посилання користувачів"
+	"vector-anon-user-menu-pages-label": "Дізнатися більше про редагування",
+	"vector-personal-more-label": "Посилання користувачів",
+	"vector-main-menu-tooltip": "Головне меню",
+	"tooltip-vector-anon-user-menu-title": "Більше опцій"
 }
