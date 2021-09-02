@@ -6,6 +6,10 @@
 			"MinecraftAustralia"
 		]
 	},
+	"vector-action-addsection": "Ed topik",
+	"vector-view-create": "Meik",
 	"vector-view-edit": "Edet",
-	"vector-view-history": "View histrei"
+	"vector-view-history": "View histrei",
+	"vector-view-view": "Riid",
+	"vector-more-actions": "Mor"
 }

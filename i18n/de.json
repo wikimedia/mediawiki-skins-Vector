@@ -39,5 +39,7 @@
 	"vector-anon-user-menu-pages-label": "Erfahre mehr über das Bearbeiten",
 	"vector-personal-more-label": "Benutzerlinks",
 	"vector-main-menu-tooltip": "Hauptmenü",
-	"tooltip-vector-anon-user-menu-title": "Weitere Optionen"
+	"tooltip-vector-anon-user-menu-title": "Weitere Optionen",
+	"vector-menu-checkbox-expanded": "ausgeklappt",
+	"vector-menu-checkbox-collapsed": "eingeklappt"
 }
