@@ -25,7 +25,7 @@
 	>
 		<input type="hidden"
 			name="title"
-			value="Special:Search"
+			:value="searchPageTitle"
 		>
 		<input type="hidden"
 			name="wprov"
