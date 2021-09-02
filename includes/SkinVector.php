@@ -360,6 +360,8 @@ class SkinVector extends SkinMustache {
 
 			'sidebar-visible' => $this->isSidebarVisible(),
 
+			'is-language-in-header' => $this->isLanguagesInHeader(),
+
 			'data-vector-sticky-header' => VectorServices::getFeatureManager()->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $this->getStickyHeaderData() : false,
