@@ -37,5 +37,6 @@
 	"vector-search-loader": "Načítají se návrhy pro hledání",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
-	"vector-personal-more-label": "Uživatelské odkazy"
+	"vector-personal-more-label": "Uživatelské odkazy",
+	"vector-main-menu-tooltip": "Hlavní menu"
 }
