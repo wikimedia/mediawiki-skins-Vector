@@ -26,6 +26,11 @@
 		padding: 6px 25px;
 	}
 
+	// T289714 Hide the sticky header at lower resolutions.
+	@media ( max-width: @width-breakpoint-tablet ) {
+		display: none;
+	}
+
 	&-visible {
 		transform: translateY( 0% );
 	}
@@ -70,4 +75,8 @@
 			content: '|';
 		}
 	}
+}
+
+.client-nojs .vector-sticky-header {
+	display: none;
 }
