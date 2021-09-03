@@ -184,7 +184,8 @@
 				"userContributions",
 				"logIn",
 				"logOut",
-				"imageGallery"
+				"imageGallery",
+				"userGroup"
 			]
 		},
 		"skins.vector.js": {
