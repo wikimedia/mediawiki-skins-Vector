@@ -420,7 +420,13 @@ class SkinVector extends SkinMustache {
 		// At lower resolutions the search input is hidden search and only the submit button is shown.
 		// It should behave like a form submit link (e.g. submit the form with no input value).
 		// We'll wire this up in a later task T284242.
-		$searchBoxData['href-search'] = Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl();
+		$searchBoxData['data-collapse-icon'] = [
+			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl(),
+			'label' => $this->msg( 'search' ),
+			'icon' => 'wikimedia-search',
+			'is-quiet' => true,
+			'class' => 'search-toggle',
+		];
 
 		return $searchBoxData;
 	}

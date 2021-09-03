@@ -3,6 +3,7 @@
  */
 
 import searchBoxTemplate from '!!raw-loader!../includes/templates/SearchBox.mustache';
+import Button from '!!raw-loader!../includes/templates/Button.mustache';
 import { htmlUserLanguageAttributes } from './utils';
 
 /**
@@ -25,10 +26,21 @@ const legacySearchBoxData = {
 const searchBoxData = Object.assign( {}, legacySearchBoxData, {
 	class: 'vector-search-box vector-search-show-thumbnail vector-search-box-collapses',
 	'is-collapsible': true,
-	'href-search': '/wiki/Special:Search'
+	'data-collapse-icon': {
+		icon: 'wikimedia-search',
+		'is-quiet': true,
+		class: 'search-toggle',
+		href: '/wiki/Special:Search',
+		label: 'Search'
+	}
 } );
 
+const SEARCH_TEMPLATE_PARTIALS = {
+	Button
+};
+
 export {
+	SEARCH_TEMPLATE_PARTIALS,
 	searchBoxTemplate,
 	legacySearchBoxData,
 	searchBoxData
