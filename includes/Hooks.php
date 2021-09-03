@@ -221,6 +221,49 @@ class Hooks {
 	}
 
 	/**
+	 * Make an icon
+	 *
+	 * @internal for use inside Vector skin.
+	 * @param string $name
+	 * @return string of HTML
+	 */
+	public static function makeButtonIcon( $name ) {
+		// Html::makeLink will pass this through rawElement
+		return '<span class="mw-ui-icon mw-ui-icon-' . $name . '"></span>';
+	}
+
+	/**
+	 * Updates user interface preferences for modern Vector to upgrade icon/button menu items.
+	 *
+	 * @param SkinTemplate $sk
+	 * @param array &$content_navigation
+	 * @param string $menu identifier
+	 */
+	private static function updateMenuItems( $sk, &$content_navigation, $menu ) {
+		foreach ( $content_navigation[$menu] as $key => $item ) {
+			$hasButton = $item['button'] ?? false;
+			$hideText = $item['text-hidden'] ?? false;
+			$icon = $item['icon'] ?? '';
+			unset( $item['button'] );
+			unset( $item['icon'] );
+			unset( $item['text-hidden'] );
+
+			if ( $hasButton ) {
+				$item['link-class'][] = 'mw-ui-button mw-ui-quiet';
+			}
+
+			if ( $icon ) {
+				if ( $hideText ) {
+					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element mw-ui-icon-' . $icon;
+				} else {
+					$item['link-html'] = self::makeButtonIcon( $icon );
+				}
+			}
+			$content_navigation[$menu][$key] = $item;
+		}
+	}
+
+	/**
 	 * Upgrades Vector's watch action to a watchstar.
 	 * This is invoked inside SkinVector, not via skin registration, as skin hooks
 	 * are not guaranteed to run last.
@@ -249,6 +292,21 @@ class Hooks {
 				} else {
 					// For modern Vector, rearrange some links in the personal toolbar.
 					self::updateUserLinksItems( $sk, $content_navigation );
+				}
+			}
+
+			if ( !self::isSkinVersionLegacy() ) {
+				// Upgrade preferences and notifications to icon buttons
+				// for extensions that have opted in.
+				if ( isset( $content_navigation['user-interface-preferences'] ) ) {
+					self::updateMenuItems(
+						$sk, $content_navigation, 'user-interface-preferences'
+					);
+				}
+				if ( isset( $content_navigation['notifications'] ) ) {
+					self::updateMenuItems(
+						$sk, $content_navigation, 'notifications'
+					);
 				}
 			}
 		}

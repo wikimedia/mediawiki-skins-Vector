@@ -516,12 +516,10 @@ class SkinVector extends SkinMustache {
 			'label' => $label,
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
+			'html-vector-heading-icon' => Hooks::makeButtonIcon( 'wikimedia-language' ),
 			'heading-class' =>
 				' vector-menu-heading ' .
-				' mw-ui-icon ' .
-				' mw-ui-icon-before ' .
-				' mw-ui-icon-wikimedia-language ' .
-				' mw-ui-button mw-ui-quiet '
+				' mw-ui-button mw-ui-quiet'
 			];
 
 		// Adds class to hide language button
@@ -535,6 +533,7 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * helper for applying Vector menu classes to portlets
+	 *
 	 * @param array $portletData returned by SkinMustache to decorate
 	 * @param int $type representing one of the menu types (see MENU_TYPE_* constants)
 	 * @return array modified version of portletData input
@@ -559,12 +558,21 @@ class SkinVector extends SkinMustache {
 				$portletData['class'] .= $this->loggedin ?
 					' vector-user-menu-logged-in' :
 					' vector-user-menu-logged-out';
-				$portletData['heading-class'] .= ' mw-ui-icon mw-ui-icon-element';
+				$portletData['heading-class'] .= ' mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element';
 				$portletData['heading-class'] .= $this->loggedin ?
 					' mw-ui-icon-wikimedia-userAvatar' :
 					' mw-ui-icon-wikimedia-ellipsis';
 			}
 		}
+		switch ( $portletData['id'] ) {
+			case 'p-variants':
+			case 'p-cactions':
+				$portletData['class'] .= ' vector-menu-dropdown-noicon';
+				break;
+			default:
+				break;
+		}
+
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
 			$portletData = $this->createULSLanguageButton( $portletData );
 		}

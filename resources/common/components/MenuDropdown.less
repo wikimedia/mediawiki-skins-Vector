@@ -15,15 +15,6 @@
 		display: block;
 		.box-sizing( border-box );
 
-		&:not( .mw-ui-icon ) {
-			// `padding-top` needs to scale with font-size.
-			padding-top: 1.25em;
-			padding-left: 8px;
-			padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
-			font-size: @font-size-tabs;
-			font-weight: normal;
-		}
-
 		&:after {
 			content: '';
 			background-image: url( images/arrow-down.svg );
@@ -166,9 +157,23 @@
 		// When the browser supports :checked, display it
 		display: block;
 	}
+}
+
+// FIXME: `mw-portlet-` selectors are for cached HTML. Remove after 1 week. (T283757)
+.mw-portlet-variants,
+.mw-portlet-cactions,
+.vector-menu-dropdown-noicon {
+	h3 {
+		// `padding-top` needs to scale with font-size.
+		padding-top: 1.25em;
+		padding-left: 8px;
+		padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+		font-size: @font-size-tabs;
+		font-weight: normal;
+	}
 
 	// Add focus state to legacy menu dropdown buttons (i.e. p-variants, p-cactions)
-	&:focus + h3 {
+	.vector-menu-checkbox:focus + h3 {
 		// Simulate browser focus ring
 		outline: dotted 1px; // Firefox style
 		outline: auto -webkit-focus-ring-color; // Webkit style

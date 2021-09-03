@@ -109,11 +109,11 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			$namespaces['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-variants vector-menu vector-menu-dropdown',
+			'mw-portlet mw-portlet-variants vector-menu-dropdown-noicon vector-menu vector-menu-dropdown',
 			$variants['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-cactions vector-menu vector-menu-dropdown',
+			'mw-portlet mw-portlet-cactions vector-menu-dropdown-noicon vector-menu vector-menu-dropdown',
 			$actions['class']
 		);
 		$this->assertSame(
