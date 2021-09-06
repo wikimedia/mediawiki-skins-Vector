@@ -11,10 +11,15 @@
 			"Tivek"
 		]
 	},
+	"skinname-vector": "Vector",
 	"vector-skin-desc": "Osuvremenjena inačica MonoBooka s obnovljenim dizajnom i mnogim poboljšanjima u upotrebljivosti",
 	"prefs-vector-enable-vector-1-label": "Rabi stari (baštinjeni) izgled imena Vector",
 	"prefs-vector-enable-vector-1-help": "Tijekom nekoliko godina osvježavat će se izgled sučelja imena Vector. Baštinjeni Vector omogućit će Vam upotrebu pregleda starije inačice Vectora (do mjeseca prosinca 2019.). Ako želite saznati više o tehnološkome osuvremenjivanju posjetite naše [[mw:Reading/Web/Desktop_Improvements|stranice projekta na MedijaWikiju]].",
 	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite Vaše postavke i vratite se na stari izgled (baštinjeni Vector)",
+	"vector.css": "/* Sav kôd CSS-a na ovoj stranici bit će učitan upotrebljavačima izgleda Vector */",
+	"vector.js": "/* Sav kôd JavaScripta na ovoj stranici bit će učitan upotrebljavačima izgleda Vector */",
+	"vector-action-toggle-sidebar": "Uključi / isključi bočnu traku",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
@@ -29,7 +34,15 @@
 	"vector-view-viewsource": "Vidi izvor",
 	"vector-jumptonavigation": "Prijeđi na navigaciju",
 	"vector-jumptosearch": "Prijeđi na pretraživanje",
+	"vector-jumptocontent": "Prijeđi na sadržaj",
 	"vector-more-actions": "Više",
+	"vector-search-loader": "Učitavanje prijedloga pretrage",
 	"vector-anon-user-menu-pages": "Stranice za odjavljene uređivače",
-	"vector-anon-user-menu-pages-learn": "saznajte više"
+	"vector-anon-user-menu-pages-learn": "saznajte više",
+	"vector-anon-user-menu-pages-label": "Vidi više o uređivanju",
+	"vector-personal-more-label": "Suradničke poveznice",
+	"vector-main-menu-tooltip": "Glavni izbornik",
+	"tooltip-vector-anon-user-menu-title": "Više mogućnosti",
+	"vector-menu-checkbox-expanded": "prošireno",
+	"vector-menu-checkbox-collapsed": "sažeto"
 }

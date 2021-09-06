@@ -8,6 +8,7 @@
 			"Michel Bakni",
 			"Mido",
 			"OsamaK",
+			"Shbib Al-Subaie",
 			"أحمد",
 			"ديفيد",
 			"زكريا",
@@ -32,8 +33,8 @@
 	"vector-action-undelete": "ألغ الحذف",
 	"vector-action-unprotect": "غيِّر الحماية",
 	"vector-view-create": "أنشئ",
-	"vector-view-edit": "عدِّل",
-	"vector-view-history": "اعرض التاريخ",
+	"vector-view-edit": "عدل",
+	"vector-view-history": "تاريخ",
 	"vector-view-view": "اقرأ",
 	"vector-view-viewsource": "اعرض المصدر",
 	"vector-jumptonavigation": "اذهب إلى التنقل",
@@ -43,6 +44,10 @@
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-anon-user-menu-pages": "صفحات للمحررين الذين سجلوا خروجهم",
 	"vector-anon-user-menu-pages-learn": "تعلم المزيد",
+	"vector-anon-user-menu-pages-label": "تعلم المزيد بخصوص التحرير",
 	"vector-personal-more-label": "وصلات المستخدم",
-	"tooltip-vector-anon-user-menu-title": "المزيد من الخيارات"
+	"vector-main-menu-tooltip": "القائمة الرئيسة",
+	"tooltip-vector-anon-user-menu-title": "المزيد من الخيارات",
+	"vector-menu-checkbox-expanded": "معروض كاملاً",
+	"vector-menu-checkbox-collapsed": "مخفي"
 }
