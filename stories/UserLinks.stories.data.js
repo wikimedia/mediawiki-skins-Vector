@@ -83,6 +83,7 @@ const additionalUserMoreData = {
 
 const userMoreHtmlItems = ( isAnon = true ) => mustache.render( userLinksMoreTemplate, {
 	'is-anon': isAnon,
+	'is-create-account-allowed': isAnon,
 	'html-create-account': `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page" class="mw-ui-button mw-ui-quiet" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>`,
 	'data-user-page': helperMakeMenuData( 'user-page', `
 		<li id="pt-userpage-2" class="user-links-collapsible-item">
@@ -95,7 +96,7 @@ const userMoreHtmlItems = ( isAnon = true ) => mustache.render( userLinksMoreTem
 const loggedInData = {
 	class: 'vector-user-menu vector-menu-dropdown vector-user-menu-logged-in',
 	'is-dropdown': true,
-	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-userAvatar',
+	'heading-class': 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-userAvatar',
 	'is-anon': false,
 	'html-after-portal': mustache.render( userLinksLogoutTemplate, {
 		htmlLogout: `<a class="vector-menu-content-item vector-menu-content-item-logout mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-logOut" data-mw="interface" href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page"><span>Log out</span></a>`
@@ -105,7 +106,7 @@ const loggedInData = {
 const loggedOutData = {
 	class: 'vector-user-menu vector-menu-dropdown vector-user-menu-logged-out',
 	'is-dropdown': true,
-	'heading-class': 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis',
+	'heading-class': 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-ellipsis',
 	'is-anon': true,
 	'html-before-portal': mustache.render( userLinksLoginTemplate, {
 		htmlCreateAccount: `<a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Special%3AUserLogout" icon="userAvatar" class="user-links-collapsible-item vector-menu-content-item mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userAvatar" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a>`,

@@ -57,6 +57,8 @@
  * @property {string} id
  * @property {string} label
  * @property {string} html-items
+ * @property {string} [checkbox-class]
+ * @property {string} [html-vector-heading-icon]
  * @property {string} [heading-class]
  * @property {string} [html-tooltip]
  * @property {string} [class] of menu

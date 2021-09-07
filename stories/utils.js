@@ -3,6 +3,14 @@
  */
 
 /**
+ * @param {string} name
+ * @return {string}
+ */
+function makeIcon( name ) {
+	return `<span class="mw-ui-icon mw-ui-icon-${name}"></span>`;
+}
+
+/**
  * @param {string} msg
  * @param {number} [height=200]
  * @return {string}
@@ -64,6 +72,7 @@ function helperMakeMenuData( name, htmlItems, additionalData = {} ) {
 }
 
 export {
+	makeIcon,
 	placeholder,
 	htmlUserLanguageAttributes,
 	portletAfter,

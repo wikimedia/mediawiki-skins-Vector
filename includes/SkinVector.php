@@ -516,7 +516,7 @@ class SkinVector extends SkinMustache {
 			'label' => $label,
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
-			'html-vector-heading-icon' => Hooks::makeButtonIcon( 'wikimedia-language' ),
+			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language' ),
 			'heading-class' =>
 				' vector-menu-heading ' .
 				' mw-ui-button mw-ui-quiet'
