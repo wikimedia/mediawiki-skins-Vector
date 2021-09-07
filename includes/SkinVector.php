@@ -46,6 +46,7 @@ class SkinVector extends SkinMustache {
 	private const MENU_TYPE_PORTAL = 3;
 	private const NO_ICON = [
 		'icon' => 'none',
+		'is-quiet' => true,
 		'class' => 'sticky-header-icon'
 	];
 
@@ -309,10 +310,10 @@ class SkinVector extends SkinMustache {
 		return [
 			'title' => 'Audre Lorde',
 			'heading' => 'Introduction',
-			'primary-action' => 'Primary action',
-			'data-icon-start' => self::NO_ICON,
-			'data-icon-end' => self::NO_ICON,
-			'data-icons' => [
+			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
+			'data-button-start' => self::NO_ICON,
+			'data-button-end' => self::NO_ICON,
+			'data-buttons' => [
 				self::NO_ICON, self::NO_ICON, self::NO_ICON, self::NO_ICON
 			]
 		];
@@ -500,20 +501,41 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Combines class and other HTML data required to create the button
-	 * for the languages in header feature with the existing language portletData.
+	 * Returns ULS button label
 	 *
-	 * @param array $portletData returned by SkinMustache
-	 * @return array enhanced $portletData
+	 * @return string
 	 */
-	private function createULSLanguageButton( $portletData ) {
+	private function getULSLabel() {
 		$label = $this->msg( 'vector-language-button-label' )
 			->numParams( count( $this->getLanguagesCached() ) )
 			->escaped();
+		return $label;
+	}
 
+	/**
+	 * Creates button data for the ULS button in the sticky header
+	 *
+	 * @return array
+	 */
+	private function getULSButtonData() {
+		return [
+			'id' => 'p-lang-btn-sticky-header',
+			'class' => 'mw-interlanguage-selector',
+			'is-quiet' => true,
+			'label' => $this->getULSLabel(),
+			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
+		];
+	}
+
+	/**
+	 * Creates portlet data for the ULS button in the header
+	 *
+	 * @return array
+	 */
+	private function getULSPortletData() {
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
-			'label' => $label,
+			'label' => $this->getULSLabel(),
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language' ),
@@ -528,7 +550,7 @@ class SkinVector extends SkinMustache {
 			$languageButtonData['class'] = ' mw-portlet-empty';
 		}
 
-		return array_merge( $portletData, $languageButtonData );
+		return $languageButtonData;
 	}
 
 	/**
@@ -574,7 +596,7 @@ class SkinVector extends SkinMustache {
 		}
 
 		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
-			$portletData = $this->createULSLanguageButton( $portletData );
+			$portletData = array_merge( $portletData, $this->getULSPortletData() );
 		}
 		$class = $portletData['class'];
 		$portletData['class'] = trim( "$class $extraClasses[$type]" );
