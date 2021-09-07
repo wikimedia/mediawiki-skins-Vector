@@ -46,10 +46,6 @@
 @margin-horizontal-search: unit( 40px / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
 @margin-end-search: 12px;
 
-// Personal menu
-
-@min-width-personal-tools: unit( 300px / @font-size-browser, em ); // 18.75 @ 16
-
 // Sidebar
 
 @margin-top-sidebar: 0.5em;
@@ -230,15 +226,6 @@ body {
 		left: auto;
 		right: -@border-width-base;
 	}
-}
-
-// When ConsolidateUserLinks is off, "vector-user-menu-legacy" is used in modern Vector
-.vector-user-menu-legacy {
-	flex-grow: 1;
-	flex-basis: @min-width-personal-tools;
-	margin-left: @margin-horizontal-search;
-	// Support IE9: This is reset in @support query below if Flexbox is available.
-	float: right;
 }
 
 #mw-sidebar-button {
