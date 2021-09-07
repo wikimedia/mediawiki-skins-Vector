@@ -3,6 +3,7 @@
 		"authors": [
 			"Chrumps",
 			"Matma Rex",
+			"Msz2001",
 			"Rail",
 			"Sp5uhe"
 		]
@@ -36,5 +37,9 @@
 	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",
 	"vector-anon-user-menu-pages-learn": "dowiedz się więcej",
 	"vector-anon-user-menu-pages-label": "Dowiedz się więcej na temat edytowania",
-	"vector-personal-more-label": "Linki użytkownika"
+	"vector-personal-more-label": "Linki użytkownika",
+	"vector-main-menu-tooltip": "Główne menu",
+	"tooltip-vector-anon-user-menu-title": "Więcej opcji",
+	"vector-menu-checkbox-expanded": "rozwinięte",
+	"vector-menu-checkbox-collapsed": "zwinięte"
 }
