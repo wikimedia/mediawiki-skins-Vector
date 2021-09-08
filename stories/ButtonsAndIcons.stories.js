@@ -1,6 +1,8 @@
 import wvui from '@wikimedia/wvui';
 import Vue from 'vue';
+import buttonTemplate from '!!raw-loader!../includes/templates/Button.mustache';
 import '@wikimedia/wvui/dist/wvui.css';
+import mustache from 'mustache';
 const wvuiIconAdd = 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z';
 
 export default {
@@ -15,17 +17,12 @@ export default {
  */
 /**
  * @param {ButtonProps} props
- * @param {string} text
+ * @param {string} label
  * @return {string}
  */
-function makeButtonLegacy( props, text ) {
+function makeButtonLegacy( props, label ) {
 	let typeClass = '';
 	let iconClass = 'mw-ui-icon-add';
-	switch ( props.type ) {
-		case 'quiet':
-			typeClass += ' mw-ui-quiet';
-			break;
-	}
 	switch ( props.action ) {
 		case 'progressive':
 			typeClass += ' mw-ui-progressive';
@@ -39,10 +36,12 @@ function makeButtonLegacy( props, text ) {
 	if ( props.type === 'primary' ) {
 		iconClass = 'mw-ui-icon-add-invert';
 	}
-	return `<button class="mw-ui-button ${typeClass}">
-	<span class="mw-ui-icon ${iconClass}"
-	></span>${text}
-</button>`;
+	return mustache.render( buttonTemplate, {
+		label,
+		class: typeClass,
+		'is-quiet': props.type === 'quiet',
+		'html-vector-button-icon': `<span class="mw-ui-icon ${iconClass}"></span>`
+	} );
 }
 
 /**
@@ -82,15 +81,24 @@ function makeIcon() {
 	return `
 	<tr>
 		<td>
-			<button class="mw-ui-icon mw-ui-icon-element mw-ui-icon-add
-			mw-ui-button">Normal Icon</button>
+		${
+	mustache.render( buttonTemplate, {
+		label: 'Normal Icon',
+		icon: 'add'
+	} )
+}
 		</td>
 		<td>N/A</td>
 	</tr>
 	<tr>
 		<td>
-			<button class="mw-ui-icon mw-ui-icon-element mw-ui-icon-add
-				mw-ui-button mw-ui-quiet">Quiet Icon</button>
+		${
+	mustache.render( buttonTemplate, {
+		label: 'Quiet Icon',
+		'is-quiet': true,
+		icon: 'add'
+	} )
+}
 		</td>
 		<td>N/A</td>
 	</tr>`;
