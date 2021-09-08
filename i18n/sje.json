@@ -1,15 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bidumsábme",
 			"Olve Utne"
 		]
 	},
+	"vector-action-addsection": "Laseda ábdnasav",
 	"vector-action-delete": "Gádoda",
 	"vector-action-move": "Jåde",
 	"vector-action-protect": "Várrjala",
 	"vector-view-create": "Álge",
-	"vector-view-edit": "Rävvdadit",
-	"vector-view-history": "Vuosedit histurjav",
+	"vector-view-edit": "Rävvdada",
+	"vector-view-history": "Vuoseda histurjav",
 	"vector-view-view": "Lågå",
 	"vector-view-viewsource": "Vuoseda wikitiekstav",
 	"vector-more-actions": "Ienap",
