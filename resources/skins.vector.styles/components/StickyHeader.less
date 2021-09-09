@@ -46,6 +46,7 @@
 	&-start {
 		display: flex;
 		align-items: center;
+		flex-grow: 1;
 	}
 
 	&-end {
@@ -86,6 +87,29 @@
 			background-color: transparent;
 			background-image: -webkit-linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
 			background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
+		}
+	}
+
+	.vector-search-box {
+		// Hide the search box until the user toggles it.
+		display: none;
+	}
+
+	&.vector-header-search-toggled {
+		.vector-sticky-header-search-toggle,
+		.vector-sticky-header-context-bar {
+			display: none;
+		}
+
+		.vector-search-box {
+			display: block;
+			flex-basis: unit( 500px / @font-size-browser / @font-size-base, em );
+		}
+
+		// Increase the start margin of the search box to account for the input
+		// expanding on focus.
+		.vector-search-box-show-thumbnail {
+			margin-left: @size-search-expand;
 		}
 	}
 }

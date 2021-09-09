@@ -18,7 +18,16 @@ const data = {
 		label: '196 languages',
 		'html-vector-button-icon': `<span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span>`
 	},
-	'data-button-start': NO_ICON,
+	'data-search': {
+		class: ''
+	},
+	'data-button-start': {
+		icon: 'wikimedia-search',
+		href: '#',
+		class: 'search-toggle',
+		'is-quiet': true,
+		label: 'Search'
+	},
 	'data-button-end': NO_ICON,
 	'data-buttons': [
 		NO_ICON, NO_ICON, NO_ICON, NO_ICON

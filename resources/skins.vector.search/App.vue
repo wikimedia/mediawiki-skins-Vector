@@ -1,6 +1,6 @@
 <template>
 	<wvui-typeahead-search
-		id="searchform"
+		:id="id"
 		ref="searchForm"
 		:client="getClient"
 		:domain="domain"
@@ -48,10 +48,6 @@ module.exports = {
 		var wvuiSearchForm = this.$refs.searchForm.$el;
 
 		if ( this.autofocusInput ) {
-			// TODO: The wvui-typeahead-search component accepts an id prop but does not
-			// display that value as an HTML attribute on the form element.
-			wvuiSearchForm.querySelector( 'form' ).setAttribute( 'id', 'searchform' );
-
 			// TODO: The wvui-typeahead-search component does not accept an autofocus parameter
 			// or directive. This can be removed when its does.
 			wvuiSearchForm.querySelector( 'input' ).focus();
@@ -75,6 +71,10 @@ module.exports = {
 		}
 	},
 	props: {
+		id: {
+			type: String,
+			required: true
+		},
 		searchPageTitle: {
 			type: String,
 			default: 'Special:Search'

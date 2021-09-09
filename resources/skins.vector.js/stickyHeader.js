@@ -6,7 +6,8 @@ var
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
-	VECTOR_MENU_CONTENT_LIST_SELECTOR = '.vector-menu-content-list';
+	VECTOR_MENU_CONTENT_LIST_SELECTOR = '.vector-menu-content-list',
+	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle';
 
 /**
  * Copies attribute from an element to another.
@@ -141,6 +142,31 @@ function makeStickyHeaderFunctional(
 	stickyObserver.observe( stickyIntersection );
 }
 
+/**
+ * @param {HTMLElement} header
+ */
+function setupSearchIfNeeded( header ) {
+	var
+		searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
+
+	if ( !(
+		searchToggle &&
+		window.fetch &&
+		document.body.classList.contains( 'skin-vector-search-vue' )
+	) ) {
+		return;
+	}
+
+	// Load the `skins.vector.search` module here or setup an event handler to
+	// load it depending on the outcome of T289718. After it loads, initialize the
+	// search toggle.
+	//
+	// Example:
+	// mw.loader.using( 'skins.vector.search', function () {
+	//   initSearchToggle( searchToggle );
+	// } );
+}
+
 module.exports = function initStickyHeader() {
 	var header = document.getElementById( STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById(
@@ -162,4 +188,5 @@ module.exports = function initStickyHeader() {
 	}
 
 	makeStickyHeaderFunctional( header, stickyIntersection, userMenu, userMenuStickyContainer );
+	setupSearchIfNeeded( header );
 };

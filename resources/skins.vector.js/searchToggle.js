@@ -1,7 +1,6 @@
 var
-	HEADER_SELECTOR = '.mw-header',
-	SEARCH_TOGGLE_SELECTOR = '.search-toggle',
-	SEARCH_BOX_ID = 'p-search',
+	HEADER_SELECTOR = 'header',
+	SEARCH_BOX_SELECTOR = '.vector-search-box',
 	SEARCH_VISIBLE_CLASS = 'vector-header-search-toggled';
 
 /**
@@ -22,7 +21,9 @@ function bindSearchBoxHandler( searchBox, header ) {
 			// Check if the click target was a suggestion link. WVUI clears the
 			// suggestion elements from the DOM when a suggestion is clicked so we
 			// can't test if the suggestion is a child of the searchBox.
-			!$( ev.target ).closest( '.wvui-typeahead-suggestion' ).length &&
+			//
+			// Note: The .closest API is feature detected in `initSearchToggle`.
+			!ev.target.closest( '.wvui-typeahead-suggestion' ) &&
 			!searchBox.contains( ev.target )
 		) {
 			// eslint-disable-next-line mediawiki/class-doc
@@ -53,15 +54,20 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 		// from the page when clicked.
 		ev.preventDefault();
 
-		bindSearchBoxHandler( searchBox, header );
-
 		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.add( SEARCH_VISIBLE_CLASS );
 
-		// Defer focusing the input to another task in the event loop. At the time
+		// Defer binding the search box handler until after the event bubbles to the
+		// top of the document so that the handler isn't called when the user clicks
+		// the search toggle. Event bubbled callbacks execute within the same task
+		// in the event loop.
+		//
+		// Also, defer focusing the input to another task in the event loop. At the time
 		// of this writing, Safari 14.0.3 has trouble changing the visibility of the
 		// element and focusing the input within the same task.
 		setTimeout( function () {
+			bindSearchBoxHandler( searchBox, header );
+
 			var searchInput = /** @type {HTMLInputElement|null} */ ( searchBox.querySelector( 'input[type="search"]' ) );
 
 			if ( searchInput ) {
@@ -73,14 +79,34 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 	searchToggle.addEventListener( 'click', handler );
 }
 
-module.exports = function initSearchToggle() {
-	var
-		header = /** @type {HTMLElement|null} */ ( document.querySelector( HEADER_SELECTOR ) ),
-		searchBox = /** @type {HTMLElement|null} */ ( document.getElementById( SEARCH_BOX_ID ) ),
-		searchToggle =
-			/** @type {HTMLElement|null} */ ( document.querySelector( SEARCH_TOGGLE_SELECTOR ) );
+/**
+ * Enables search toggling behavior in a header given a toggle element (e.g.
+ * search icon).  When the toggle element is clicked, a class,
+ * `SEARCH_VISIBLE_CLASS`, will be applied to a header matching the selector
+ * `HEADER_SELECTOR` and the input inside the element, SEARCH_BOX_SELECTOR, will
+ * be focused.  This class can be used in CSS to show/hide the necessary
+ * elements. When the user clicks outside of SEARCH_BOX_SELECTOR, the class will
+ * be removed.
+ *
+ * @param {HTMLElement|null} searchToggle
+ */
+module.exports = function initSearchToggle( searchToggle ) {
+	// Check if .closest API is available (IE11 does not support it).
+	if ( !searchToggle || !searchToggle.closest ) {
+		return;
+	}
 
-	if ( !( searchBox && searchToggle && header ) ) {
+	var header =
+	/** @type {HTMLElement|null} */ ( searchToggle.closest( HEADER_SELECTOR ) );
+
+	if ( !header ) {
+		return;
+	}
+
+	var searchBox =
+	/** @type {HTMLElement|null} */ ( header.querySelector( SEARCH_BOX_SELECTOR ) );
+
+	if ( !searchBox ) {
 		return;
 	}
 

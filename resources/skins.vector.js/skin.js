@@ -50,7 +50,9 @@ function main( window ) {
 	dropdownMenus();
 	vector.init();
 	initSearchLoader( document );
-	searchToggle();
+	// Initialize the search toggle for the main header only. The sticky header
+	// toggle is initialized after wvui search loads.
+	searchToggle( document.querySelector( '.mw-header .search-toggle' ) );
 	languageButton();
 	stickyHeader();
 }

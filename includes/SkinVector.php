@@ -65,6 +65,7 @@ class SkinVector extends SkinMustache {
 		'is-quiet' => true,
 		'class' => 'sticky-header-icon'
 	];
+	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -325,7 +326,16 @@ class SkinVector extends SkinMustache {
 	private function getStickyHeaderData() {
 		return [
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
-			'data-button-start' => self::NO_ICON,
+			'data-button-start' => [
+				'href' => '#p-search',
+				'label' => $this->msg( 'search' ),
+				'icon' => 'wikimedia-search',
+				'is-quiet' => true,
+				'class' => 'vector-sticky-header-search-toggle',
+			],
+			'data-search' => [
+				'class' => $this->shouldSearchExpand() ? self::SEARCH_EXPANDING_CLASS : '',
+			],
 			'data-buttons' => [
 				self::TALK_ICON, self::HISTORY_ICON, self::NO_ICON, self::NO_ICON
 			]
@@ -423,7 +433,7 @@ class SkinVector extends SkinMustache {
 		}
 
 		if ( $this->shouldSearchExpand() ) {
-			$searchClass .= ' vector-search-box-show-thumbnail';
+			$searchClass .= " " . self::SEARCH_EXPANDING_CLASS;
 		}
 
 		// Annotate search box with a component class.
