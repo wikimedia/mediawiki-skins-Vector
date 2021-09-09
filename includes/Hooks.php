@@ -608,12 +608,7 @@ class Hooks {
 		} else {
 			// The modern Vector skin must also carry skin-vector for compatibility with older
 			// skins.
-			$bodyAttrs['class'] .= ' skin-vector';
-		}
-
-		// Determine the search widget treatment to send to the user
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) ) {
-			$bodyAttrs['class'] .= ' skin-vector-search-vue';
+			$bodyAttrs['class'] .= ' skin-vector skin-vector-search-vue';
 		}
 
 		$config = $sk->getConfig();

@@ -713,12 +713,7 @@ class SkinVector extends SkinMustache {
 		string $formId,
 		bool $autoExpandWidth
 	) {
-		$searchClass = '';
-
-		// Determine the search widget treatment to send to the user
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) ) {
-			$searchClass .= 'vector-search-box-vue ';
-		}
+		$searchClass = 'vector-search-box-vue ';
 
 		if ( $isCollapsible ) {
 			$searchClass .= ' vector-search-box-collapses ';
@@ -790,8 +785,7 @@ class SkinVector extends SkinMustache {
 	private function doesSearchHaveThumbnails(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) &&
-			$this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
+		return $this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
 	}
 
 	/**

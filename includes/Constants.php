@@ -171,21 +171,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_USE_WVUI_SEARCH = 'UseWvuiSearch';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_USE_WVUI_SEARCH = 'VectorUseWvuiSearch';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_USE_WVUI_SEARCH = 'VectorUseWvuiSearch';
-
-	/**
-	 * @var string
-	 */
 	public const QUERY_PARAM_STICKY_HEADER = 'vectorstickyheader';
 
 	/**
@@ -255,18 +240,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const SEARCH_BOX_INPUT_LOCATION_DEFAULT = 'header-navigation';
-
-	/**
-	 * Defines whether or not the Core/Vue.js Search Widget A/B test is running. See
-	 * https://phabricator.wikimedia.org/T261647 for additional detail about the test.
-	 *
-	 * Note well that if the associated config value is falsy, then we fall back to choosing the
-	 * search widget treatment based on the `VectorUseWvuiSearch` config variable (see
-	 * `resources/skins.vector.js/searchLoader.js`).
-	 *
-	 * @var string
-	 */
-	public const CONFIG_SEARCH_TREATMENT_AB_TEST = 'VectorSearchTreatmentABTest';
 
 	/**
 	 * @var string
