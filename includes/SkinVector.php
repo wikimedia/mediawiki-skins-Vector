@@ -312,7 +312,6 @@ class SkinVector extends SkinMustache {
 			'heading' => 'Introduction',
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
 			'data-button-start' => self::NO_ICON,
-			'data-button-end' => self::NO_ICON,
 			'data-buttons' => [
 				self::NO_ICON, self::NO_ICON, self::NO_ICON, self::NO_ICON
 			]
