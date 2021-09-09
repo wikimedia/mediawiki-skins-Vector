@@ -8,43 +8,16 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
-// Header
-
-// Header sizes defined in the description of T246170 and comment T246170#5957100
+// Sidebar
 @width-grid-column-one: 11em;
-@padding-vertical-header: 0.125em;
-@margin-top-header: 0.625em;
-@margin-bottom-header: 0.3125em;
-@height-header:
-	@height-logo-icon +
-	@margin-top-header +
-	@margin-bottom-header +
-	2 * @padding-vertical-header;
-// 3.125em + 0.625em + 0.3125em + 0.25em = 4.3125em
 
 // Menu button
 @margin-horizontal-sidebar-button-icon: unit( 12px / @font-size-browser, em); // 0.75em @ 16
-
-// Logo
-
-// Logo sizes per specification in T245190.
-@height-logo-icon: 3.125em;
 
 // The logo is variable width but typically consists of:
 // - a icon (50x50)
 // - a wordmark (approx 120px)
 @min-width-logo: unit( 180px / @font-size-browser, em ); // 11.25em @ 16
-
-// Search
-
-// Canonical version of spec: T270202
-// This assumes the presence of variables inside screen.less. DO NOT import it separately.
-// Assumes various variables defined there.
-@min-width-search: unit( 150px / @font-size-browser / @font-size-base, em ); // 10.71428571em @ 16 & 0.875em
-@min-width-search-desktop: unit( 350px / @font-size-browser / @font-size-base, em ); // 25em @ 16 & 0.875em
-@max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em
-@margin-horizontal-search: unit( 40px / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
-@margin-end-search: 12px;
 
 // Sidebar
 
@@ -128,42 +101,9 @@ body {
 }
 
 .mw-header {
-	// A min-height is set to account for projects where no icon is set.
-	min-height: @height-logo-icon;
-	margin: @margin-top-header 0 @margin-bottom-header;
-	padding: @padding-vertical-header 0;
-	// Vertical centering of header elements (IE>=11), requires flex.
-	// Non-flex fallback for IE<=9: float rule on the child elements.
-	.flex-display();
-	flex-wrap: nowrap;
-	// https://caniuse.com/#search=align-items
-	align-items: center;
 	// allow z-index to apply so search results overlay article
 	position: relative;
 	z-index: @z-index-header;
-}
-
-/* Searchbox */
-#p-search {
-	float: left;
-	margin: 0 0 0 @margin-horizontal-search;
-	z-index: @z-index-menu;
-	flex-grow: 1;
-
-	// #searchform is only a direct child of #p-search before wvui-loads. After
-	// wvui loads, `.wvui-typeahead-search` becomes the direct child and is the
-	// element where these styles should apply.
-	// FIXME: The first selector (> #searchform)
-	// is for cached HTML. Should be removed when T276566 has been in production.
-	> #searchform,
-	> div > #searchform,
-	.wvui-typeahead-search {
-		// Border-box sizing is used for a smooth transition from legacy to Vue
-		// search. The width of the container should stay the same before/after the
-		// transition.
-		.box-sizing( border-box );
-		margin-left: 0;
-	}
 }
 
 /* Main column */
@@ -378,61 +318,9 @@ body {
 }
 
 @media ( min-width: @width-breakpoint-desktop ) {
-	#p-search {
-		margin: 0 @margin-end-search 0 @margin-horizontal-search;
-		// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
-		width: 13.2em;
-		// Support: Modern browsers, responsive width.
-		width: 20vw;
-		max-width: 100%;
-		min-width: @min-width-search-desktop;
-		flex-basis: @min-width-search;
-		flex-grow: 1;
-
-		> div > #searchform,
-		.wvui-typeahead-search {
-			max-width: @max-width-search;
-		}
-	}
-
 	.mw-page-container {
 		padding-left: @padding-horizontal-page-container;
 		padding-right: @padding-horizontal-page-container;
-	}
-}
-
-/**
- * Toggles the visibility of the search box at lower resolutions.
- */
-@media ( max-width: @width-breakpoint-desktop ) {
-	.vector-header-search-toggled {
-		#mw-sidebar-button,
-		.mw-logo,
-		.search-toggle {
-			display: none;
-		}
-
-		.vector-search-box-collapses > div {
-			display: block;
-		}
-
-		#p-search {
-			// T284242#7206507: Widen the suggestion results to the edge of the search
-			// button at small resolutions.
-			position: relative;
-			margin-left: @padding-horizontal-tabs;
-			margin-right: @margin-end-search;
-		}
-
-		// Increase the start margin of the search box to account for the input
-		// expanding on focus.
-		#p-search.vector-search-box-show-thumbnail {
-			margin-left: @size-search-expand + @padding-horizontal-tabs;
-		}
-
-		.wvui-typeahead-search__wrapper {
-			position: static;
-		}
 	}
 }
 
