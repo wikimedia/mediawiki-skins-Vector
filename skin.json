@@ -24,24 +24,53 @@
 		"MediaWiki": ">= 1.38.0"
 	},
 	"ValidSkinNames": {
+		"vector-2022": {
+			"class": "SkinVector22",
+			"skippable": true,
+			"args": [
+				{
+					"name": "vector-2022",
+					"templateDirectory": "includes/templates",
+					"responsive": true,
+					"link": {
+						"text-wrapper": {
+							"tag": "span"
+						}
+					},
+					"messages": [
+						"tooltip-p-logo",
+						"vector-opt-out-tooltip",
+						"vector-opt-out",
+						"vector-action-toggle-sidebar",
+						"vector-main-menu-tooltip",
+						"vector-menu-checkbox-expanded",
+						"vector-menu-checkbox-collapsed",
+						"vector-jumptosearch",
+						"vector-jumptocontent",
+						"search",
+						"searchbutton",
+						"searcharticle",
+						"searchsuggest-search",
+						"sitesubtitle",
+						"sitetitle",
+						"tagline"
+					]
+				}
+			]
+		},
 		"vector": {
 			"class": "SkinVector",
 			"@args": "See SkinVector::__construct for more detail.",
 			"args": [
 				{
 					"name": "vector",
-					"scripts": [
-						"skins.vector.es6",
-						"skins.vector.js"
-					],
 					"templateDirectory": "includes/templates",
 					"responsive": true,
-					"styles": [
-						"mediawiki.ui.button",
-						"skins.vector.styles",
-						"skins.vector.icons",
-						"mediawiki.ui.icon"
-					],
+					"link": {
+						"text-wrapper": {
+							"tag": "span"
+						}
+					},
 					"messages": [
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
@@ -61,12 +90,7 @@
 						"sitesubtitle",
 						"sitetitle",
 						"tagline"
-					],
-					"link": {
-						"text-wrapper": {
-							"tag": "span"
-						}
-					}
+					]
 				}
 			]
 		}
@@ -80,7 +104,9 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinVector": "includes/SkinVector.php"
+		"SkinVector": "includes/SkinVector.php",
+		"SkinVectorLegacy": "includes/SkinVectorLegacy.php",
+		"SkinVector22": "includes/SkinVector22.php"
 	},
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"
@@ -273,6 +299,15 @@
 		"remoteSkinPath": "Vector"
 	},
 	"ResourceModuleSkinStyles": {
+		"vector-2022": {
+			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
+			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
+			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
+			"+oojs-ui-core.styles": "skinStyles/ooui.less",
+			"mediawiki.special": "skinStyles/mediawiki.special.less",
+			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less",
+			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less"
+		},
 		"vector": {
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
@@ -349,6 +384,10 @@
 		},
 		"VectorUseWvuiSearch": {
 			"value": true
+		},
+		"VectorSkinMigrationMode": {
+			"value": false,
+			"description": "@internal. For usage to fulfil [[phab:T291098]]"
 		},
 		"VectorSearchTreatmentABTest": {
 			"value": false,

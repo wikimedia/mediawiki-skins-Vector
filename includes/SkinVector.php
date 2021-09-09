@@ -28,11 +28,39 @@ use Vector\Hooks;
 use Vector\VectorServices;
 
 /**
- * Skin subclass for Vector
+ * Skin subclass for Vector that may be the new or old version of Vector.
+ *
  * @ingroup Skins
  * Skins extending SkinVector are not supported
+ *
  * @package Vector
  * @internal
+ *
+ * # Migration Plan (please remove stages when done)
+ *
+ * Stage 1:
+ * In future when we are ready to transition to two separate skins in this order:
+ * - Use $wgSkipSkins to hide vector-2022.
+ * - Remove skippable field from the `vector-2022` skin version. This will defer the code to the
+ *   configuration option wgSkipSkins
+ * - Set $wgVectorSkinMigrationMode = true and unset the Vector entry in wgSkipSkins
+ * - for one wiki, to trial run. This will expose Vector in preferences. The new Vector will show
+ *   as Vector (2022) to begin with and the skin version preference will be hidden.
+ * - Check VectorPrefDiffInstrumentation instrumentation is still working.
+ *
+ * Stage 2:
+ * - Set $wgVectorSkinMigrationMode = true for all wikis and update skin preference labels
+ *   (See Iebe60b560069c8cfcdeed3f5986b8be35501dcbc). This will hide the skin version
+ *    preference, and update the skin preference instead.
+ * - We will set $wgDefaultSkin = 'vector-2022'; for desktop improvements wikis.
+ *  - Run script that updates prefs table, migrating any rows where skin=vector AND
+ *    skinversion = 2 to skin=vector22, skinversion=2
+ *
+ * Stage 3:
+ *  - Move all modern code into SkinVector22.
+ *  - Move legacy skin code from SkinVector to SkinVectorLegacy.
+ *  - Update skin.json `vector` key to point to SkinVectorLegacy.
+ *  - SkinVector left as alias if necessary.
  */
 class SkinVector extends SkinMustache {
 	/** @var null|array for caching purposes */
@@ -127,7 +155,11 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function isLegacy(): bool {
+	protected function isLegacy(): bool {
+		$options = $this->getOptions();
+		if ( $options['name'] === Constants::SKIN_NAME_MODERN ) {
+			return false;
+		}
 		$isLatestSkinFeatureEnabled = MediaWikiServices::getInstance()
 			->getService( Constants::SERVICE_FEATURE_MANAGER )
 			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
@@ -399,8 +431,11 @@ class SkinVector extends SkinMustache {
 	public function getDefaultModules() {
 		// FIXME: Do not repeat this pattern. Will be addressed in T291098.
 		if ( $this->isLegacy() ) {
-			$this->options['scripts'] = [ 'skins.vector.legacy.js' ];
-			$this->options['styles'] = [ 'skins.vector.styles.legacy' ];
+			$this->options['scripts'] = SkinVectorLegacy::getScriptsOption();
+			$this->options['styles'] = SkinVectorLegacy::getStylesOption();
+		} else {
+			$this->options['scripts'] = SkinVector22::getScriptsOption();
+			$this->options['styles'] = SkinVector22::getStylesOption();
 		}
 		return parent::getDefaultModules();
 	}
@@ -413,7 +448,7 @@ class SkinVector extends SkinMustache {
 	 */
 	public function generateHTML() {
 		if ( $this->isLegacy() ) {
-			$this->options['template'] = 'skin-legacy';
+			$this->options['template'] = SkinVectorLegacy::getTemplateOption();
 			if ( $this->isTableOfContentsVisibleInSidebar() ) {
 				throw new RuntimeException(
 					'The table of contents flag cannot safely be applied without ' .

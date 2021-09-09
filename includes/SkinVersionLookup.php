@@ -107,6 +107,9 @@ final class SkinVersionLookup {
 	 * @throws \ConfigException
 	 */
 	public function getVersion(): string {
+		// If skin key is not vector, then version should be considered legacy.
+
+		// If skin is "Vector" invoke additional skin versioning detection.
 		// Obtain the skin version from the 1) `useskinversion` URL query parameter override, 2) the
 		// user preference, 3) the configured default for logged in users, 4) or the site default.
 		//
@@ -114,19 +117,40 @@ final class SkinVersionLookup {
 		// sessions are unavailable at that time so it's not possible to determine whether the
 		// preference is for a logged in user or an anonymous user. Since new users are known to have
 		// had their user preferences initialized in `Hooks::onLocalUserCreated()`, that means all
-		// subsequent requests to `UserOptionsLookup->getOption()` that do not have a preference set
-		//are either existing accounts or anonymous users. Login state makes the distinction.
+		// subsequent requests to `User->getOption()` that do not have a preference set are either
+		// existing accounts or anonymous users. Login state makes the distinction.
+		$skin = $this->userOptionsLookup->getOption(
+			$this->user,
+			Constants::PREF_KEY_SKIN
+		);
+
+		if ( $skin === Constants::SKIN_NAME_MODERN ) {
+			return Constants::SKIN_VERSION_LATEST;
+		}
+
+		$skinVersionPref = $this->userOptionsLookup->getOption(
+			$this->user,
+			Constants::PREF_KEY_SKIN_VERSION,
+			$this->config->get(
+				$this->user->isRegistered()
+					? Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_EXISTING_ACCOUNTS
+					: Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION
+			)
+		);
+
+		// If we are in migration mode, we must check the skin version preference.
+		if ( $this->config->get( 'VectorSkinMigrationMode' ) ) {
+			if (
+				$skin === Constants::SKIN_NAME_LEGACY &&
+				$skinVersionPref === Constants::SKIN_VERSION_LATEST
+			) {
+				return Constants::SKIN_VERSION_LATEST;
+			}
+			return Constants::SKIN_VERSION_LEGACY;
+		}
 		return (string)$this->request->getVal(
 			Constants::QUERY_PARAM_SKIN_VERSION,
-			$this->userOptionsLookup->getOption(
-				$this->user,
-				Constants::PREF_KEY_SKIN_VERSION,
-				$this->config->get(
-					$this->user->isRegistered()
-						? Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_EXISTING_ACCOUNTS
-						: Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION
-				)
-			)
+			$skinVersionPref
 		);
 	}
 }

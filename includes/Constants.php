@@ -14,7 +14,13 @@ final class Constants {
 	 * This is tightly coupled to the ConfigRegistry field in skin.json.
 	 * @var string
 	 */
-	public const SKIN_NAME = 'vector';
+	public const SKIN_NAME_MODERN = 'vector-2022';
+
+	/**
+	 * This is tightly coupled to the ConfigRegistry field in skin.json.
+	 * @var string
+	 */
+	public const SKIN_NAME_LEGACY = 'vector';
 
 	// These are tightly coupled to PREF_KEY_SKIN_VERSION and skin.json's configs. See skin.json for
 	// documentation.
@@ -68,6 +74,11 @@ final class Constants {
 	 */
 	public const CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER =
 		'VectorDefaultSidebarVisibleForAnonymousUser';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_SKIN = 'skin';
 
 	/**
 	 * @var string
