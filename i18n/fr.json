@@ -50,5 +50,7 @@
 	"vector-anon-user-menu-pages-label": "En savoir plus sur la contribution",
 	"vector-personal-more-label": "Liens utilisateur",
 	"vector-main-menu-tooltip": "Menu principal",
-	"tooltip-vector-anon-user-menu-title": "Plus d’options"
+	"tooltip-vector-anon-user-menu-title": "Plus d’options",
+	"vector-menu-checkbox-expanded": "développé",
+	"vector-menu-checkbox-collapsed": "replié"
 }
