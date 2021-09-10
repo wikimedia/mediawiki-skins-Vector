@@ -226,6 +226,7 @@ final class Constants {
 	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
+	 * @return never
 	 */
 	private function __construct() {
 		throw new FatalError( "Cannot construct a utility class." );
