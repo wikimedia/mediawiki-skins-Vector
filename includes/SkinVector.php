@@ -308,8 +308,6 @@ class SkinVector extends SkinMustache {
 	 */
 	private function getStickyHeaderData() {
 		return [
-			'title' => 'Audre Lorde',
-			'heading' => 'Introduction',
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
 			'data-button-start' => self::NO_ICON,
 			'data-button-end' => self::NO_ICON,
