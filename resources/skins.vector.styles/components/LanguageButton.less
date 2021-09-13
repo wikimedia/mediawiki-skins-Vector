@@ -63,17 +63,6 @@
 	}
 }
 
-// mw-body-header class can be removed when language button is the default.
-// e.g. upon removal of SkinVector::isLanguagesInHeader
-.client-js #p-lang-btn {
-	// When the ext.uls.interface module is loaded, we hide the fallback menu and checkbox.
-	&.vector-menu-hide-dropdown {
-		.vector-menu-content {
-			display: none;
-		}
-	}
-}
-
 // Hides language button with CSS, ensures language button is in DOM for temporary JS hack for interwiki links
 // Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
 #p-lang-btn.mw-portlet-empty {
