@@ -9,7 +9,7 @@ import { htmlUserLanguageAttributes } from './utils';
 /**
  * @type {SearchData}
  */
-const legacySearchBoxData = {
+const searchBoxData = {
 	'form-action': '/w/index.php',
 	class: 'vector-search-box vector-search-show-thumbnail',
 	'html-user-language-attributes': htmlUserLanguageAttributes,
@@ -23,8 +23,8 @@ const legacySearchBoxData = {
 /**
  * @type {SearchData}
  */
-const searchBoxData = Object.assign( {}, legacySearchBoxData, {
-	class: 'vector-search-box vector-search-show-thumbnail vector-search-box-collapses',
+const searchBoxDataWithCollapsing = Object.assign( {}, searchBoxData, {
+	class: `${searchBoxData.class} vector-search-box-collapses`,
 	'is-collapsible': true,
 	'data-collapse-icon': {
 		icon: 'wikimedia-search',
@@ -42,6 +42,6 @@ const SEARCH_TEMPLATE_PARTIALS = {
 export {
 	SEARCH_TEMPLATE_PARTIALS,
 	searchBoxTemplate,
-	legacySearchBoxData,
+	searchBoxDataWithCollapsing,
 	searchBoxData
 };

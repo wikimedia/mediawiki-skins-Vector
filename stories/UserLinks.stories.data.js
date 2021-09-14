@@ -132,11 +132,15 @@ const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
 	'data-user-menu': helperMakeMenuData( 'new-personal', LOGGED_OUT_ITEMS, loggedOutData )
 };
 
+const USER_LINK_PARTIALS = {
+	Menu: menuTemplate
+};
+
 export {
 	PERSONAL_MENU_TEMPLATE_DATA,
 	USER_LINKS_LOGGED_IN_TEMPLATE_DATA,
 	USER_LINKS_LOGGED_OUT_TEMPLATE_DATA,
-	menuTemplate,
+	USER_LINK_PARTIALS,
 	userLinksTemplateLegacy,
 	userLinksTemplate
 };
