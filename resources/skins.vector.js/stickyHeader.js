@@ -23,6 +23,30 @@ function copyAttribute( from, to, attribute ) {
 }
 
 /**
+ * Suffixes an attribute with a value that indicates it
+ * relates to the sticky header to support click tracking instrumentation.
+ *
+ * @param {Element} node
+ * @param {string} attribute
+ */
+function suffixStickyAttribute( node, attribute ) {
+	var value = node.getAttribute( attribute );
+	if ( value ) {
+		node.setAttribute( attribute, value + STICKY_HEADER_APPENDED_ID );
+	}
+}
+
+/**
+ * Makes a node trackable by our click tracking instrumentation.
+ *
+ * @param {Element} node
+ */
+function makeNodeTrackable( node ) {
+	suffixStickyAttribute( node, 'id' );
+	suffixStickyAttribute( node, 'data-event-name' );
+}
+
+/**
  * Makes sticky header icons functional for modern Vector.
  *
  * @param {HTMLElement} header
@@ -84,15 +108,8 @@ function makeStickyHeaderFunctional(
 		userMenuStickyContainerInner = userMenuStickyContainer.querySelector( VECTOR_USER_LINKS_SELECTOR );
 
 	// Update all ids of the cloned user menu to make them unique.
-	userMenuClone.id += STICKY_HEADER_APPENDED_ID;
-	for ( var i = 0; i < userMenuStickyElementsWithIds.length; i++ ) {
-		userMenuStickyElementsWithIds[ i ].id += STICKY_HEADER_APPENDED_ID;
-		// Update data attributes that need to be unique for click tracking IDs.
-		var elementCloneDataEventName = userMenuStickyElementsWithIds[ i ].getAttribute( 'data-event-name' );
-		if ( elementCloneDataEventName ) {
-			userMenuStickyElementsWithIds[ i ].setAttribute( 'data-event-name', elementCloneDataEventName += STICKY_HEADER_APPENDED_ID );
-		}
-	}
+	makeNodeTrackable( userMenuClone );
+	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
 
 	// Add gadget-injected items of the fixed user menu into the sticky header user menu.
 	// Only applies to gadgets running after the code above and won't apply to existing items.
@@ -106,10 +123,7 @@ function makeStickyHeaderFunctional(
 				itemClone = /** @type {HTMLElement} */ ( item.cloneNode( true ) ),
 				userMenuCloneUl = userMenuClone.querySelector( VECTOR_MENU_CONTENT_LIST_SELECTOR );
 			if ( userMenuCloneUl ) {
-				// Remove data-event-name attribute if it exists on the cloned item.
-				itemClone.removeAttribute( 'data-event-name' );
-				// Update id of the cloned user menu item and add it to the cloned user menu list.
-				itemClone.id += STICKY_HEADER_APPENDED_ID;
+				makeNodeTrackable( itemClone );
 				userMenuCloneUl.appendChild( itemClone );
 			}
 		}
