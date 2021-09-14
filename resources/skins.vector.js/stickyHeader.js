@@ -9,6 +9,49 @@ var
 	VECTOR_MENU_CONTENT_LIST_SELECTOR = '.vector-menu-content-list';
 
 /**
+ * Copies attribute from an element to another.
+ *
+ * @param {Element} from
+ * @param {Element} to
+ * @param {string} attribute
+ */
+function copyAttribute( from, to, attribute ) {
+	var fromAttr = from.getAttribute( attribute );
+	if ( fromAttr ) {
+		to.setAttribute( attribute, fromAttr );
+	}
+}
+
+/**
+ * Makes sticky header icons functional for modern Vector.
+ *
+ * @param {HTMLElement} header
+ * @param {HTMLElement|null} history
+ * @param {HTMLElement|null} talk
+ */
+function prepareIcons( header, history, talk ) {
+	var historySticky = header.querySelector( '#ca-history-sticky-header' ),
+		talkSticky = header.querySelector( '#ca-talk-sticky-header' );
+
+	if ( !historySticky || !talkSticky ) {
+		throw new Error( 'Sticky header has unexpected HTML' );
+	}
+
+	if ( history ) {
+		copyAttribute( history, historySticky, 'href' );
+	} else {
+		// @ts-ignore
+		historySticky.parentNode.removeChild( historySticky );
+	}
+	if ( talk ) {
+		copyAttribute( talk, talkSticky, 'href' );
+	} else {
+		// @ts-ignore
+		talkSticky.parentNode.removeChild( talkSticky );
+	}
+}
+
+/**
  * Makes sticky header functional for modern Vector.
  *
  * @param {HTMLElement} header
@@ -78,6 +121,10 @@ function makeStickyHeaderFunctional(
 	// Clone the updated user menu to the sticky header.
 	userMenuStickyContainerInner.appendChild( userMenuClone );
 
+	prepareIcons( header,
+		document.querySelector( '#ca-history a' ),
+		document.querySelector( '#ca-talk a' )
+	);
 	stickyObserver.observe( stickyIntersection );
 }
 

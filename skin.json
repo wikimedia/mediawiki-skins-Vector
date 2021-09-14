@@ -164,6 +164,18 @@
 				"parentheses-end"
 			]
 		},
+		"skins.vector.icons.js": {
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
+			"useDataURI": false,
+			"defaultColor": "#000",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": [],
+			"icons": [
+				"history",
+				"speechBubbles"
+			]
+		},
 		"skins.vector.icons": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
@@ -205,6 +217,7 @@
 				"resources/skins.vector.js/searchToggle.js"
 			],
 			"dependencies": [
+				"skins.vector.icons.js",
 				"mediawiki.page.ready",
 				"mediawiki.util"
 			],
