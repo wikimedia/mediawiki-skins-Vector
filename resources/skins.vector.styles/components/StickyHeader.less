@@ -72,6 +72,7 @@
 	&-context-bar-primary {
 		position: relative;
 		max-width: 500px;
+		overflow: hidden;
 
 		// T289814 Fade out page titles longer than 500px.
 		/* Stylelint rule broken for vendor prefixes: https://github.com/stylelint/stylelint/issues/1939 */
@@ -85,13 +86,6 @@
 			background-color: transparent;
 			background-image: -webkit-linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
 			background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
-		}
-	}
-
-	&-context-bar-secondary {
-		&:before {
-			padding-right: 15px;
-			content: '|';
 		}
 	}
 }
