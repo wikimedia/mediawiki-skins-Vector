@@ -49,6 +49,22 @@ class SkinVector extends SkinMustache {
 		'is-quiet' => true,
 		'class' => 'sticky-header-icon'
 	];
+	private const TALK_ICON = [
+		'href' => '#',
+		'id' => 'ca-talk-sticky-header',
+		'event' => 'talk-sticky-header',
+		'icon' => 'wikimedia-speechBubbles',
+		'is-quiet' => true,
+		'class' => 'sticky-header-icon'
+	];
+	private const HISTORY_ICON = [
+		'href' => '#',
+		'id' => 'ca-history-sticky-header',
+		'event' => 'history-sticky-header',
+		'icon' => 'wikimedia-history',
+		'is-quiet' => true,
+		'class' => 'sticky-header-icon'
+	];
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -311,7 +327,7 @@ class SkinVector extends SkinMustache {
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
 			'data-button-start' => self::NO_ICON,
 			'data-buttons' => [
-				self::NO_ICON, self::NO_ICON, self::NO_ICON, self::NO_ICON
+				self::TALK_ICON, self::HISTORY_ICON, self::NO_ICON, self::NO_ICON
 			]
 		];
 	}
