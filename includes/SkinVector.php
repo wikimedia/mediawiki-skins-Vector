@@ -369,6 +369,8 @@ class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 
 		$commonSkinData = array_merge( $parentData, [
+			'is-legacy' => $this->isLegacy(),
+
 			'is-article' => (bool)$out->isArticle(),
 
 			'is-anon' => $this->getUser()->isAnon(),

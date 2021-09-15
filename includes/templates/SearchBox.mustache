@@ -3,9 +3,11 @@
 }}
 <div id="p-search" role="search" class="{{class}}">
 	<div>
-		<h3 {{{html-user-language-attributes}}}>
-			<label for="searchInput">{{msg-search}}</label>
-		</h3>
+		{{#is-legacy}}
+			<h3 {{{html-user-language-attributes}}}>
+				<label for="searchInput">{{msg-search}}</label>
+			</h3>
+		{{/is-legacy}}
 		<form action="{{form-action}}" id="searchform">
 			<div id="simpleSearch"{{#input-location}} data-search-loc="{{.}}"{{/input-location}}>
 				{{{html-input}}}
