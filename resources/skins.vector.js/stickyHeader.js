@@ -167,6 +167,30 @@ function setupSearchIfNeeded( header ) {
 	// } );
 }
 
+/**
+ * Determines if sticky header should be visible for a given namespace.
+ *
+ * @param {number} namespaceNumber
+ * @return {boolean}
+ */
+function isAllowedNamespace( namespaceNumber ) {
+	// Corresponds to Main, User, Wikipedia, Template, Help, Category, Portal, Module.
+	var allowedNamespaceNumbers = [ 0, 2, 4, 10, 12, 14, 100, 828 ];
+	return allowedNamespaceNumbers.indexOf( namespaceNumber ) > -1;
+}
+
+/**
+ * Determines if sticky header should be visible for a given action.
+ *
+ * @param {string} action
+ * @return {boolean}
+ */
+function isAllowedAction( action ) {
+	var disallowedActions = [ 'history', 'edit' ],
+		hasDiffId = mw.config.get( 'wgDiffOldId' );
+	return disallowedActions.indexOf( action ) < 0 && !hasDiffId;
+}
+
 module.exports = function initStickyHeader() {
 	var header = document.getElementById( STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById(
@@ -175,7 +199,9 @@ module.exports = function initStickyHeader() {
 		userMenu = document.getElementById( USER_MENU_ID ),
 		userMenuStickyContainer = document.getElementsByClassName(
 			STICKY_HEADER_USER_MENU_CONTAINER_CLASS
-		)[ 0 ];
+		)[ 0 ],
+		allowedNamespace = isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
+		allowedAction = isAllowedAction( mw.config.get( 'wgAction' ) );
 
 	if ( !(
 		header &&
@@ -183,6 +209,8 @@ module.exports = function initStickyHeader() {
 		stickyIntersection &&
 		userMenu &&
 		userMenuStickyContainer &&
+		allowedNamespace &&
+		allowedAction &&
 		'IntersectionObserver' in window ) ) {
 		return;
 	}
