@@ -1,10 +1,23 @@
 import template from '!!raw-loader!../includes/templates/StickyHeader.mustache';
 import Button from '!!raw-loader!../includes/templates/Button.mustache';
+import { searchBoxData } from './SearchBox.stories.data';
 
 const NO_ICON = {
 	icon: 'none',
 	'is-quiet': true,
 	class: 'sticky-header-icon'
+};
+
+const TALK_ICON = {
+	icon: 'none',
+	'is-quiet': true,
+	class: 'sticky-header-icon mw-ui-icon-wikimedia-speechBubbles'
+};
+
+const HISTORY_ICON = {
+	icon: 'none',
+	'is-quiet': true,
+	class: 'sticky-header-icon mw-ui-icon-wikimedia-history'
 };
 
 const data = {
@@ -18,19 +31,16 @@ const data = {
 		label: '196 languages',
 		'html-vector-button-icon': `<span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span>`
 	},
-	'data-search': {
-		class: ''
-	},
+	'data-search': searchBoxData,
 	'data-button-start': {
 		icon: 'wikimedia-search',
-		href: '#',
-		class: 'search-toggle',
+		class: 'vector-sticky-header-search-toggle',
 		'is-quiet': true,
 		label: 'Search'
 	},
 	'data-button-end': NO_ICON,
 	'data-buttons': [
-		NO_ICON, NO_ICON, NO_ICON, NO_ICON
+		TALK_ICON, HISTORY_ICON, NO_ICON, NO_ICON
 	]
 };
 

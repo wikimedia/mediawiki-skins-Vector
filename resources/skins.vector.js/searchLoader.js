@@ -23,7 +23,6 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	LOAD_START_MARK = 'mwVectorVueSearchLoadStart',
 	LOAD_END_MARK = 'mwVectorVueSearchLoadEnd',
 	LOAD_MEASURE = 'mwVectorVueSearchLoadStartToLoadEnd',
-	SEARCH_INPUT_ID = 'searchInput',
 	SEARCH_LOADING_CLASS = 'search-form__loader';
 
 /**
@@ -75,8 +74,8 @@ function renderSearchLoadingIndicator( event ) {
 
 	if (
 		!( event.currentTarget instanceof HTMLElement ) ||
-		!( event.target instanceof HTMLInputElement ) ||
-		!( input.id === SEARCH_INPUT_ID ) ) {
+		!( event.target instanceof HTMLInputElement )
+	) {
 		return;
 	}
 
@@ -177,6 +176,14 @@ function initSearchLoader( document ) {
 	searchBoxes.forEach( function ( searchBox ) {
 		var searchInner = searchBox.querySelector( 'form > div' ),
 			searchInput = searchBox.querySelector( 'input[name="search"]' ),
+			clearLoadingIndicators = function () {
+				setLoadingIndicatorListeners(
+					// @ts-ignore
+					searchInner,
+					false,
+					renderSearchLoadingIndicator
+				);
+			},
 			isPrimarySearch = searchInput && searchInput.getAttribute( 'id' ) === 'searchInput';
 
 		if ( !searchInput || !searchInner ) {
@@ -190,15 +197,12 @@ function initSearchLoader( document ) {
 			searchInput,
 			'skins.vector.search',
 			isPrimarySearch ? LOAD_START_MARK : null,
+			// Make sure we clearLoadingIndicators so that event listeners are removed.
+			// Note, loading Vue.js will remove the element from the DOM.
 			isPrimarySearch ? function () {
 				markLoadEnd( LOAD_START_MARK, LOAD_END_MARK, LOAD_MEASURE );
-				setLoadingIndicatorListeners(
-					// @ts-ignore
-					searchInner,
-					false,
-					renderSearchLoadingIndicator
-				);
-			} : null
+				clearLoadingIndicators();
+			} : clearLoadingIndicators
 		);
 	} );
 }

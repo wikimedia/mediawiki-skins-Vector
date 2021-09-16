@@ -1,5 +1,6 @@
 var
 	STICKY_HEADER_ID = 'vector-sticky-header',
+	initSearchToggle = require( './searchToggle.js' ),
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
@@ -158,14 +159,7 @@ function setupSearchIfNeeded( header ) {
 		return;
 	}
 
-	// Load the `skins.vector.search` module here or setup an event handler to
-	// load it depending on the outcome of T289718. After it loads, initialize the
-	// search toggle.
-	//
-	// Example:
-	// mw.loader.using( 'skins.vector.search', function () {
-	//   initSearchToggle( searchToggle );
-	// } );
+	initSearchToggle( searchToggle );
 }
 
 /**

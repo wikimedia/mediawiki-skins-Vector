@@ -14,7 +14,12 @@
 				class="vector-search-box-inner"
 				{{#input-location}} data-search-loc="{{.}}"{{/input-location}}>
 				<input class="vector-search-box-input"
-					{{{html-input-attributes}}} {{#is-primary}}id="searchInput"{{/is-primary}} />
+					{{#is-primary}}{{{html-input-attributes}}} id="searchInput"{{/is-primary}}
+					{{^is-primary}}
+					type="search" name="search"
+					placeholder="{{msg-searchsuggest-search}}"
+					{{/is-primary}}
+				/>
 				<input type="hidden" name="title" value="{{page-title}}"/>
 				{{!	We construct two buttons (for 'go' and 'fulltext' search modes), but only one will be
 						visible and actionable at a time (they are overlaid on top of each other in CSS).
