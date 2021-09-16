@@ -12,7 +12,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.37.0"
+		"MediaWiki": ">= 1.38.0"
 	},
 	"ValidSkinNames": {
 		"vector": {
@@ -51,6 +51,8 @@
 						"vector-jumptosearch",
 						"vector-jumptocontent",
 						"search",
+						"searchbutton",
+						"searcharticle",
 						"sitesubtitle",
 						"sitetitle",
 						"tagline"

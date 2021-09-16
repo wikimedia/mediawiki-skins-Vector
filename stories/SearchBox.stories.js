@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import '../resources/skins.vector.styles/SearchBox.less';
-import '../resources/skins.vector.styles/layouts/screen.less';
+
 import { searchBoxData, searchBoxDataWithCollapsing, searchBoxTemplate,
 	SEARCH_TEMPLATE_PARTIALS
 } from './SearchBox.stories.data';

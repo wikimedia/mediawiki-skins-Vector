@@ -5,53 +5,52 @@ var
 	config = require( './config.json' );
 
 /**
- * @param {HTMLElement} searchForm
- * @param {NodeList} secondarySearchElements
- * @param {HTMLInputElement} search
- * @param {string|null} searchPageTitle title of page used for searching e.g. Special:Search
- *  If null then this will default to Special:Search.
+ * @param {Function} createElement
+ * @param {Element} searchForm
+ * @return {Vue.VNode}
+ * @throws {Error} if the searchForm does not
+ *  contain input[name=title] and input[name="search"] elements.
+ */
+function renderFn( createElement, searchForm ) {
+	var
+		titleInput = /** @type {HTMLInputElement|null} */ (
+			searchForm.querySelector( 'input[name=title]' )
+		),
+		search = /** @type {HTMLInputElement|null} */ ( searchForm.querySelector( 'input[name="search"]' ) ),
+		searchPageTitle = titleInput && titleInput.value;
+
+	if ( !search || !titleInput ) {
+		throw new Error( 'Attempted to create Vue search element from an incompatible element.' );
+	}
+
+	return createElement( App, {
+		props: $.extend( {
+			id: searchForm.id,
+			autofocusInput: search === document.activeElement,
+			action: searchForm.getAttribute( 'action' ),
+			searchAccessKey: search.getAttribute( 'accessKey' ),
+			searchPageTitle: searchPageTitle,
+			searchTitle: search.getAttribute( 'title' ),
+			searchPlaceholder: search.getAttribute( 'placeholder' ),
+			searchQuery: search.value
+		},
+		// Pass additional config from server.
+		config
+		)
+	} );
+}
+
+/**
+ * @param {NodeList} searchForms
  * @return {void}
  */
-function initApp( searchForm, secondarySearchElements, search, searchPageTitle ) {
-	/**
-	 *
-	 * @ignore
-	 * @param {Function} createElement
-	 * @param {string} id
-	 * @return {Vue.VNode}
-	 */
-	var renderFn = function ( createElement, id ) {
-		return createElement( App, {
-			props: $.extend( {
-				id: id,
-				autofocusInput: search === document.activeElement,
-				action: searchForm.getAttribute( 'action' ),
-				searchAccessKey: search.getAttribute( 'accessKey' ),
-				searchPageTitle: searchPageTitle,
-				searchTitle: search.getAttribute( 'title' ),
-				searchPlaceholder: search.getAttribute( 'placeholder' ),
-				searchQuery: search.value
-			},
-			// Pass additional config from server.
-			config
-			)
-		} );
-	};
-	// eslint-disable-next-line no-new
-	new Vue( {
-		el: searchForm,
-		render: function ( createElement ) {
-			return renderFn( createElement, 'searchform' );
-		}
-	} );
-
-	// Initialize secondary search elements like the search in the sticky header.
-	Array.prototype.forEach.call( secondarySearchElements, function ( secondarySearchElement ) {
+function initApp( searchForms ) {
+	searchForms.forEach( function ( searchForm ) {
 		// eslint-disable-next-line no-new
 		new Vue( {
-			el: secondarySearchElement,
+			el: /** @type {Element} */ ( searchForm ),
 			render: function ( createElement ) {
-				return renderFn( createElement, secondarySearchElement.id );
+				return renderFn( createElement, /** @type {Element} */ ( searchForm ) );
 			}
 		} );
 	} );
@@ -62,16 +61,9 @@ function initApp( searchForm, secondarySearchElements, search, searchPageTitle )
  */
 function main( document ) {
 	var
-		searchForm = /** @type {HTMLElement} */ ( document.querySelector( '#searchform' ) ),
-		titleInput = /** @type {HTMLInputElement|null} */ (
-			searchForm.querySelector( 'input[name=title]' )
-		),
-		search = /** @type {HTMLInputElement|null} */ ( document.getElementById( 'searchInput' ) ),
-		// Since App.vue requires a unique id prop, only query elements with an id attribute.
-		secondarySearchElements = document.querySelectorAll( '.vector-secondary-search[id]' );
+		// FIXME: Use .vector-search-box-form instead when cache allows.
+		searchForms = document.querySelectorAll( '.vector-search-box form' );
 
-	if ( search && searchForm ) {
-		initApp( searchForm, secondarySearchElements, search, titleInput && titleInput.value );
-	}
+	initApp( searchForms );
 }
 main( document );
