@@ -10,6 +10,7 @@
 			"Omotecho",
 			"Otokoume",
 			"Penn Station",
+			"RYOUMA1117",
 			"Shirayuki",
 			"Takot",
 			"Tmv",
@@ -47,5 +48,10 @@
 	"vector-search-loader": "検索候補を読み込んでいます",
 	"vector-anon-user-menu-pages": "ログアウトした編集者のページ",
 	"vector-anon-user-menu-pages-learn": "もっと詳しく",
-	"vector-personal-more-label": "ユーザーリンク"
+	"vector-anon-user-menu-pages-label": "編集の詳細",
+	"vector-personal-more-label": "ユーザーリンク",
+	"vector-main-menu-tooltip": "メインメニュー",
+	"tooltip-vector-anon-user-menu-title": "その他の操作",
+	"vector-menu-checkbox-expanded": "拡張",
+	"vector-menu-checkbox-collapsed": "折り畳む"
 }
