@@ -16,6 +16,7 @@
 			"Tranve",
 			"Xiaomingyan",
 			"Xiplus",
+			"Xzonn",
 			"Yfdyh000"
 		]
 	},
@@ -47,5 +48,10 @@
 	"vector-search-loader": "正在加载搜索建议",
 	"vector-anon-user-menu-pages": "登出编辑者的页面",
 	"vector-anon-user-menu-pages-learn": "了解详情",
-	"vector-personal-more-label": "用户链接"
+	"vector-anon-user-menu-pages-label": "了解有关编辑的更多信息",
+	"vector-personal-more-label": "用户链接",
+	"vector-main-menu-tooltip": "主菜单",
+	"tooltip-vector-anon-user-menu-title": "更多选项",
+	"vector-menu-checkbox-expanded": "已展开",
+	"vector-menu-checkbox-collapsed": "已折叠"
 }
