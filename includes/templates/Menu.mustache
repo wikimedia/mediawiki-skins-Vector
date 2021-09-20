@@ -12,7 +12,7 @@
 		data-event-name="ui.dropdown-{{id}}"
 		class="{{#checkbox-class}}{{.}}{{/checkbox-class}} vector-menu-checkbox" aria-labelledby="{{id}}-label" />
 	{{/is-dropdown}}
-	<h3 id="{{id}}-label" {{#heading-class}}class="{{.}}"{{/heading-class}} {{^is-legacy}}aria-hidden="true"{{/is-legacy}}>
+	<h3 id="{{id}}-label" aria-label="{{aria-label}}" {{#heading-class}}class="{{.}}"{{/heading-class}} {{^is-legacy}}aria-hidden="true"{{/is-legacy}}>
 		{{{html-vector-heading-icon}}}
 		<span>{{label}}</span>
 		{{#is-dropdown}}

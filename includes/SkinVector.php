@@ -532,12 +532,13 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Returns ULS button label
+	 * Returns ULS button label within the context of the translated message taking a placeholder.
 	 *
+	 * @param string $message
 	 * @return string
 	 */
-	private function getULSLabel() {
-		$label = $this->msg( 'vector-language-button-label' )
+	private function getULSLabel( string $message ) {
+		$label = $this->msg( $message )
 			->numParams( count( $this->getLanguagesCached() ) )
 			->escaped();
 		return $label;
@@ -553,7 +554,7 @@ class SkinVector extends SkinMustache {
 			'id' => 'p-lang-btn-sticky-header',
 			'class' => 'mw-interlanguage-selector',
 			'is-quiet' => true,
-			'label' => $this->getULSLabel(),
+			'label' => $this->getULSLabel( 'vector-language-button-label' ),
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
 		];
 	}
@@ -566,7 +567,8 @@ class SkinVector extends SkinMustache {
 	private function getULSPortletData() {
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
-			'label' => $this->getULSLabel(),
+			'label' => $this->getULSLabel( 'vector-language-button-label' ),
+			'aria-label' => $this->getULSLabel( 'vector-language-button-aria-label' ),
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language' ),
@@ -681,6 +683,8 @@ class SkinVector extends SkinMustache {
 					$portletData['label'] = $item['text'];
 				}
 			}
+			// T289523 Add aria-label data to the language variant switcher.
+			$portletData['aria-label'] = $this->msg( 'vector-language-variant-switcher-label' );
 		}
 
 		// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons. For modern
