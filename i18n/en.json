@@ -11,7 +11,7 @@
 	"vector.css": "/* All CSS here will be loaded for users of the Vector skin */",
 	"vector.js": "/* All JavaScript here will be loaded for users of the Vector skin */",
 	"vector-action-toggle-sidebar": "Toggle sidebar",
-	"vector-language-button-aria-label": "Change article language, available in {{PLURAL:$1|$1 language|$1 languages}}",
+	"vector-language-button-aria-label": "Go to an article in another language. Available in {{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-language-variant-switcher-label": "Change language variant",
 	"vector-action-addsection": "Add topic",
