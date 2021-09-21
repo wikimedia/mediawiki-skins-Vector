@@ -93,28 +93,6 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Overrides template, styles and scripts module when skin operates
-	 * in legacy mode.
-	 *
-	 * @inheritDoc
-	 * @param array|null $options Note; this param is only optional for internal purpose.
-	 * 		Do not instantiate Vector, use SkinFactory to create the object instead.
-	 * 		If you absolutely must to, this paramater is required; you have to provide the
-	 * 		skinname with the `name` key. That's do it with `new SkinVector( ['name' => 'vector'] )`.
-	 * 		Failure to do that, will lead to fatal exception.
-	 */
-	public function __construct( $options = [] ) {
-		if ( $this->isLegacy() ) {
-			$options['scripts'] = [ 'skins.vector.legacy.js' ];
-			$options['styles'] = [ 'skins.vector.styles.legacy' ];
-			$options['template'] = 'skin-legacy';
-			unset( $options['link'] );
-		}
-
-		parent::__construct( $options );
-	}
-
-	/**
 	 * Calls getLanguages with caching.
 	 * @return array
 	 */
@@ -316,6 +294,36 @@ class SkinVector extends SkinMustache {
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
 		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
+	}
+
+	/**
+	 * Updates modules for use in legacy Vector skin.
+	 * Do not repeat this pattern. Will be addressed in T291098.
+	 * @inheritDoc
+	 */
+	public function getDefaultModules() {
+		// FIXME: Do not repeat this pattern. Will be addressed in T291098.
+		if ( $this->isLegacy() ) {
+			$this->options['scripts'] = [ 'skins.vector.legacy.js' ];
+			$this->options['styles'] = [ 'skins.vector.styles.legacy' ];
+		}
+		return parent::getDefaultModules();
+	}
+
+	/**
+	 * Updates HTML generation for use in legacy Vector skin.
+	 * Do not repeat this pattern. Will be addressed in T291098.
+	 *
+	 * @inheritDoc
+	 */
+	public function generateHTML() {
+		if ( $this->isLegacy() ) {
+			$this->options['template'] = 'skin-legacy';
+			// Does not apply to gadgets adding menu items via addPortletLink. Should be
+			// removed when Ib23360e3439abc828404c1de8e0906915ee7d8b6 is merged.
+			unset( $this->options['link'] );
+		}
+		return parent::generateHTML();
 	}
 
 	/**
