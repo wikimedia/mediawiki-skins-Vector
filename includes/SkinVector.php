@@ -47,6 +47,7 @@ class SkinVector extends SkinMustache {
 	private const NO_ICON = [
 		'icon' => 'none',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const TALK_ICON = [
@@ -55,6 +56,7 @@ class SkinVector extends SkinMustache {
 		'event' => 'talk-sticky-header',
 		'icon' => 'wikimedia-speechBubbles',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const HISTORY_ICON = [
@@ -63,6 +65,7 @@ class SkinVector extends SkinMustache {
 		'event' => 'history-sticky-header',
 		'icon' => 'wikimedia-history',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
@@ -357,6 +360,7 @@ class SkinVector extends SkinMustache {
 				'label' => $this->msg( 'search' ),
 				'icon' => 'wikimedia-search',
 				'is-quiet' => true,
+				'tabindex' => '-1',
 				'class' => 'vector-sticky-header-search-toggle',
 			],
 			'data-search' => $searchBoxData,
@@ -586,6 +590,7 @@ class SkinVector extends SkinMustache {
 			'id' => 'p-lang-btn-sticky-header',
 			'class' => 'mw-interlanguage-selector',
 			'is-quiet' => true,
+			'tabindex' => '-1',
 			'label' => $this->getULSLabel( 'vector-language-button-label' ),
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
 		];

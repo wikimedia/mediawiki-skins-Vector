@@ -1,6 +1,7 @@
 {{#href}}<a href="{{.}}"{{/href}}
 {{^href}}<button{{/href}}
 	{{#id}}id="{{.}}"{{/id}}
+	{{#tabindex}}tabindex="{{.}}"{{/tabindex}}
 	{{#event}}data-event-name="{{.}}"{{/event}}
 	class="mw-ui-button{{#is-quiet}} mw-ui-quiet{{/is-quiet}}{{#icon}} mw-ui-icon mw-ui-icon-element mw-ui-icon-{{.}}{{/icon}} {{class}}">
 	{{{html-vector-button-icon}}}

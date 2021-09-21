@@ -113,10 +113,16 @@ function makeStickyHeaderFunctional(
 	makeNodeTrackable( userMenuClone );
 	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
 
-	// Remove portlet links added by gadgets using mw.util.addPortletLink
+	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
 	var gadgetLinks = userMenuClone.querySelector( 'mw-list-item-js' );
 	if ( gadgetLinks ) {
 		gadgetLinks.remove();
+	}
+
+	// Prevents user menu from being focusable, T290201
+	var userMenuCheckbox = userMenuClone.querySelector( 'input' );
+	if ( userMenuCheckbox ) {
+		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
 	}
 
 	// Clone the updated user menu to the sticky header.

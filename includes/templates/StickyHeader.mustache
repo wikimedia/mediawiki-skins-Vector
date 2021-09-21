@@ -1,4 +1,13 @@
-<header id="vector-sticky-header"
+{{!
+	Sticky header is hidden from screen readers because it contains duplicated content
+	that is already accessible to assistive tech via landmark roles, element type, and other navigation methods.
+	The interactive elements in the sticky header should have the `tabindex="-1"` attribute set to ensure
+	the header is also not tab accessible.
+
+	See https://dequeuniversity.com/rules/axe/4.1/aria-hidden-focus and https://phabricator.wikimedia.org/T290201
+	for more context.
+}}
+<header id="vector-sticky-header" aria-hidden="true"
 	class="vector-sticky-header{{#is-visible}} vector-sticky-header-visible{{/is-visible}}">
 	<div class="vector-sticky-header-start">
 		<div class="vector-sticky-header-icon-start">
