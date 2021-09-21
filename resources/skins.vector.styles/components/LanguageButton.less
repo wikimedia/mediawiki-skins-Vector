@@ -68,3 +68,24 @@
 #p-lang-btn.mw-portlet-empty {
 	display: none;
 }
+
+#p-lang-btn-sticky-header {
+	@button-padding: 12px;
+	@arrow-width: 18px;
+	position: relative;
+	padding-right: calc( @button-padding + @arrow-width );
+
+	&:after {
+		content: '';
+		background-image: url( ../common/images/arrow-down.svg );
+		background-position: 100% 50%;
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 0;
+		right: @button-padding;
+		bottom: 0;
+		width: @arrow-width;
+		// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
+		opacity: 0.84;
+	}
+}

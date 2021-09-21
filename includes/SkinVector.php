@@ -325,7 +325,7 @@ class SkinVector extends SkinMustache {
 	 */
 	private function getStickyHeaderData() {
 		return [
-			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : '',
+			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : null,
 			'data-button-start' => [
 				'href' => '#p-search',
 				'label' => $this->msg( 'search' ),
