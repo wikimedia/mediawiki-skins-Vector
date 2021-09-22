@@ -376,11 +376,6 @@ class SkinVector extends SkinMustache {
 			'is-anon' => $this->getUser()->isAnon(),
 
 			'is-mainpage' => $title->isMainPage(),
-			// Remember that the string '0' is a valid title.
-			// From OutputPage::getPageTitle, via ::setPageTitle().
-			'html-title' => $out->getPageTitle(),
-
-			'html-categories' => $skin->getCategories(),
 
 			'input-location' => $this->getSearchBoxInputLocation(),
 
