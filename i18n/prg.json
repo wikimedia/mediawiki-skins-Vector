@@ -5,6 +5,8 @@
 			"Peteris"
 		]
 	},
+	"vector-language-button-aria-label": "Kitawīdinais artīkelas billin, preiēiminan en {{PLURAL:$1|$1 billai|$1 bilāmans}}",
+	"vector-language-variant-switcher-label": "Kitawīdinais billas wariāntin",
 	"vector-action-delete": "Āupausinais",
 	"vector-action-move": "Prapīdais",
 	"vector-action-protect": "Kūnsteis",
@@ -13,5 +15,6 @@
 	"vector-view-edit": "Redigīs",
 	"vector-view-history": "Enwaidinnais istōrijan",
 	"vector-view-view": "Skaitāis",
-	"vector-view-viewsource": "Enwaidinnais appun"
+	"vector-view-viewsource": "Enwaidinnais appun",
+	"vector-more-actions": "Tūls"
 }
