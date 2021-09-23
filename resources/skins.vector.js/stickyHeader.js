@@ -6,7 +6,6 @@ var
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
-	VECTOR_MENU_CONTENT_LIST_SELECTOR = '.vector-menu-content-list',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle';
 
 /**
@@ -112,23 +111,11 @@ function makeStickyHeaderFunctional(
 	makeNodeTrackable( userMenuClone );
 	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
 
-	// Add gadget-injected items of the fixed user menu into the sticky header user menu.
-	// Only applies to gadgets running after the code above and won't apply to existing items.
-	mw.hook( 'util.addPortletLink' ).add( function ( /** @type {HTMLElement} */ item ) {
-		// Get the nav tag parent of the gadget-injected menu item. We verify that .closest is
-		// available for use because of feature detection in init function.
-		var parentNav = item.closest( 'nav' );
-		// Check if a gadget is injecting an item into the user menu.
-		if ( parentNav && parentNav.getAttribute( 'id' ) === 'p-personal' ) {
-			var
-				itemClone = /** @type {HTMLElement} */ ( item.cloneNode( true ) ),
-				userMenuCloneUl = userMenuClone.querySelector( VECTOR_MENU_CONTENT_LIST_SELECTOR );
-			if ( userMenuCloneUl ) {
-				makeNodeTrackable( itemClone );
-				userMenuCloneUl.appendChild( itemClone );
-			}
-		}
-	} );
+	// Remove portlet links added by gadgets using mw.util.addPortletLink
+	var gadgetLinks = userMenuClone.querySelector( 'mw-list-item-js' );
+	if ( gadgetLinks ) {
+		gadgetLinks.remove();
+	}
 
 	// Clone the updated user menu to the sticky header.
 	if ( userMenuStickyContainerInner ) {
