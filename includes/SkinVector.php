@@ -371,12 +371,6 @@ class SkinVector extends SkinMustache {
 		$commonSkinData = array_merge( $parentData, [
 			'is-legacy' => $this->isLegacy(),
 
-			'is-article' => (bool)$out->isArticle(),
-
-			'is-anon' => $this->getUser()->isAnon(),
-
-			'is-mainpage' => $title->isMainPage(),
-
 			'input-location' => $this->getSearchBoxInputLocation(),
 
 			'sidebar-visible' => $this->isSidebarVisible(),
