@@ -12,7 +12,7 @@
 	"vector-opt-out": "Torna a l'aspet vegg",
 	"vector-opt-out-tooltip": "Cambia i to impostazzion per tornà a la visualizzazion de la pell che la gh'era prima (legacy Vector)",
 	"vector-action-toggle-sidebar": "Ativa/desativa la sbarra de fianch",
-	"vector-language-button-aria-label": "Cambia la lengua de l'articol, disponibil in {{PLURAL:$1|$1 lengua|$1 lengue}}",
+	"vector-language-button-aria-label": "Vai a on articol in d'on'altra lenguaː Disponibil in {{PLURAL:$1|$1 lengua|$1 lengue}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lengoa|$1 lengove}}",
 	"vector-language-variant-switcher-label": "Cambia la variant de la lengua",
 	"vector-action-addsection": "Sgionta un argoment",

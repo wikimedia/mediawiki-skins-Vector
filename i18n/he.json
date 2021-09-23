@@ -13,7 +13,7 @@
 	"vector-opt-out": "מעבר למראה הישן",
 	"vector-opt-out-tooltip": "שינוי ההעדפות שלך וחזרה למראה הישן של העיצוב (וקטור ישן)",
 	"vector-action-toggle-sidebar": "שינוי מצב סרגל צד",
-	"vector-language-button-aria-label": "שינוי שפת הערך, זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}",
+	"vector-language-button-aria-label": "מעבר לערך בשפה אחרת. זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}",
 	"vector-language-button-label": "{{PLURAL:$1|שפה אחת|$1 שפות}}",
 	"vector-language-variant-switcher-label": "שינוי הגוון השפה",
 	"vector-action-addsection": "פסקה חדשה",

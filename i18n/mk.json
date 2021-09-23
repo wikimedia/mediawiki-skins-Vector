@@ -14,7 +14,7 @@
 	"vector.css": "/* Тука поставениот CSS се однесува на корисниците на рувото „Векторско“ */",
 	"vector.js": "/* Тука поставениот JavaScript  ќе им се вчитува на корисниците што го користат рувото „Векторско“ */",
 	"vector-action-toggle-sidebar": "Префрлање на страничник",
-	"vector-language-button-aria-label": "Менување јазик на статијата, достапна на {{PLURAL:$1|$1 јазик|$1 јазици}}",
+	"vector-language-button-aria-label": "Појдете на статија на друг јазик. Достапно на {{PLURAL:$1|$1 јазик|$1 јазици}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 јазик|$1 јазици}}",
 	"vector-language-variant-switcher-label": "Менување на јазичната варијанта",
 	"vector-action-addsection": "Додај тема",

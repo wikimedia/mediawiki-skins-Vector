@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ammarpad",
-			"DonCamillo"
+			"DonCamillo",
+			"Gwanki"
 		]
 	},
+	"vector-language-button-aria-label": "Je zuwa maƙala domin wani harshen. Akwai a {{PLURAL:$1|$1 language|$1 languages}}",
+	"vector-language-variant-switcher-label": "Sauya bambancin harshe",
 	"vector-action-addsection": "Sabon sashe",
 	"vector-action-delete": "Soke",
 	"vector-action-move": "Gusarwa",
