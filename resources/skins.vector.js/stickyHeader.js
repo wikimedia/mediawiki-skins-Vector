@@ -89,8 +89,8 @@ function makeStickyHeaderFunctional(
 	userMenu,
 	userMenuStickyContainer
 ) {
-	/* eslint-disable-next-line compat/compat */
 	var
+		/* eslint-disable-next-line compat/compat */
 		stickyObserver = new IntersectionObserver( function ( entries ) {
 			if ( !entries[ 0 ].isIntersecting && entries[ 0 ].boundingClientRect.top < 0 ) {
 				// Viewport has crossed the bottom edge of firstHeading so show sticky header.
@@ -105,7 +105,8 @@ function makeStickyHeaderFunctional(
 		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
 		userMenuClone = /** @type {HTMLElement} */( userMenu.cloneNode( true ) ),
 		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' ),
-		userMenuStickyContainerInner = userMenuStickyContainer.querySelector( VECTOR_USER_LINKS_SELECTOR );
+		userMenuStickyContainerInner = userMenuStickyContainer
+			.querySelector( VECTOR_USER_LINKS_SELECTOR );
 
 	// Update all ids of the cloned user menu to make them unique.
 	makeNodeTrackable( userMenuClone );

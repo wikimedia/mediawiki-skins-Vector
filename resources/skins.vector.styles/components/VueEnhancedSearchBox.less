@@ -27,25 +27,33 @@
 }
 
 // Typeahead search elements
+// FIXME: remove ID selectors when cache has cleared.
 #searchInput,
 #searchButton,
-#mw-searchButton {
+#mw-searchButton,
+.vector-search-box-vue .vector-search-box-input,
+.vector-search-box-vue .searchButton {
 	// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
 	font-size: inherit;
 }
 
+// FIXME: remove #searchInput selector when cache has cleared.
+.vector-search-box-vue .vector-search-box-input,
 #searchInput {
 	height: @size-base;
 }
 
-#searchButton,
-#mw-searchButton {
+// FIXME: Remove searchButton when cache has cleared.
+.vector-search-box-vue .searchButton,
+#searchButton {
 	background-size: @background-size-x-search-button auto;
 }
 
 // Only apply the following WVUI-related rules to clients who have js enabled.
-// TODO: .skin-vector-search-vue class can be removed when $wgVectorUseWvuiSearch is no longer supported.
-.client-js .skin-vector-search-vue {
+// TODO: .skin-vector-search-vue class can be removed when $wgVectorUseWvuiSearch is no longer supported
+// OR .vector-search-box-vue is in cached HTML.
+.client-js .skin-vector-search-vue,
+.client-js .vector-search-box-vue {
 	// Derived from @size-search-figure in WVUI
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/e32b54f3b8d1118b6a25cdc46b5638d6d048533e/src/themes/wikimedia-ui.less#21
 	@size-search-figure: unit( 36px / @font-size-browser / @font-size-base, em );
@@ -56,11 +64,13 @@
 		text-decoration: none;
 	}
 
-	#searchform-suggestions li {
+	.wvui-typeahead-search__suggestions li {
 		// Remove margin-bottom on li elements that is applied by mediawiki.skinning/elements.css.
 		margin-bottom: 0;
 	}
 
+	// FIXME: Remove #searchInput selector when cache has cleared.
+	.vector-search-box-input,
 	#searchInput {
 		padding-left: @size-search-figure;
 		// Derived from @padding-input-text in WVUI's Input component.
@@ -68,8 +78,7 @@
 	}
 
 	// Move & resize search icon to match WVUI.
-	#searchButton,
-	#mw-searchButton {
+	.searchButton {
 		// T270202: Act like a an inert element instead of a submit button before
 		// WVUI loads to discourage people clicking on it since it is a submit
 		// button styled to look like WVUI's inert start icon. Note, ideally these
@@ -97,6 +106,8 @@
 	.p-search--show-thumbnail,
 	.vector-search-box-show-thumbnail {
 		// Recreate WVUI expanding input.
+		// FIXME: Remove #searchInput selector when cache has cleared.
+		.vector-search-box-input:focus,
 		#searchInput:focus {
 			position: relative;
 			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
@@ -106,6 +117,8 @@
 		}
 
 		// Reposition search icon for expanded input.
+		// FIXME: Remove #searchInput selectors when cache has cleared.
+		.vector-search-box-input:focus ~ .searchButton,
 		#searchInput:focus ~ #searchButton,
 		#searchInput:focus ~ #mw-searchButton {
 			// Derived from
@@ -116,7 +129,9 @@
 		}
 
 		// Update search loader to match width and position of WVUI expanding input.
-		#simpleSearch.search-form__loader:after {
+		// FIXME: Remove #simpleSearch selector when cache has cleared.
+		#simpleSearch.search-form__loader:after,
+		.vector-search-box-inner.search-form__loader:after {
 			width: ~'calc( 100% + @{size-search-expand} )';
 			left: ~'calc( -1 * @{size-search-expand} )';
 			padding-left: @size-search-expand;

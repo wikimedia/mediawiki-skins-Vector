@@ -42,7 +42,7 @@ function bindSearchBoxHandler( searchBox, header ) {
  *
  * @param {HTMLElement} searchBox
  * @param {HTMLElement} header
- * @param {HTMLElement} searchToggle
+ * @param {Element} searchToggle
  */
 function bindToggleClickHandler( searchBox, header, searchToggle ) {
 	/**
@@ -88,7 +88,7 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
  * elements. When the user clicks outside of SEARCH_BOX_SELECTOR, the class will
  * be removed.
  *
- * @param {HTMLElement|null} searchToggle
+ * @param {HTMLElement|null|Element} searchToggle
  */
 module.exports = function initSearchToggle( searchToggle ) {
 	// Check if .closest API is available (IE11 does not support it).

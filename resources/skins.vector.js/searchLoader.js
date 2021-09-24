@@ -23,7 +23,6 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	LOAD_START_MARK = 'mwVectorVueSearchLoadStart',
 	LOAD_END_MARK = 'mwVectorVueSearchLoadEnd',
 	LOAD_MEASURE = 'mwVectorVueSearchLoadStartToLoadEnd',
-	SEARCH_FORM_ID = 'simpleSearch',
 	SEARCH_INPUT_ID = 'searchInput',
 	SEARCH_LOADING_CLASS = 'search-form__loader';
 
@@ -34,18 +33,22 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
  * After the search module is loaded, executes a function to remove
  * the loading indicator.
  *
- * @param {HTMLElement} element search input.
+ * @param {Element} element search input.
  * @param {string} moduleName resourceLoader module to load.
- * @param {function(): void} afterLoadFn function to execute after search module loads.
+ * @param {string|null} startMarker
+ * @param {null|function(): void} afterLoadFn function to execute after search module loads.
  */
-function loadSearchModule( element, moduleName, afterLoadFn ) {
-	var SHOULD_TEST_SEARCH = CAN_TEST_SEARCH && moduleName === 'skins.vector.search';
+function loadSearchModule( element, moduleName, startMarker, afterLoadFn ) {
+	var SHOULD_TEST_SEARCH = CAN_TEST_SEARCH &&
+		moduleName === 'skins.vector.search';
 
 	function requestSearchModule() {
-		if ( SHOULD_TEST_SEARCH ) {
-			performance.mark( LOAD_START_MARK );
+		if ( SHOULD_TEST_SEARCH && startMarker !== null && afterLoadFn !== null ) {
+			performance.mark( startMarker );
+			mw.loader.using( moduleName, afterLoadFn );
+		} else {
+			mw.loader.load( moduleName );
 		}
-		mw.loader.using( moduleName, afterLoadFn );
 		element.removeEventListener( 'focus', requestSearchModule );
 	}
 
@@ -96,7 +99,7 @@ function renderSearchLoadingIndicator( event ) {
  * Attaches or detaches the event listeners responsible for activating
  * the loading indicator.
  *
- * @param {HTMLElement} element
+ * @param {Element} element
  * @param {boolean} attach
  * @param {function(Event): void} eventCallback
  */
@@ -116,11 +119,15 @@ function setLoadingIndicatorListeners( element, attach, eventCallback ) {
 
 /**
  * Marks when the lazy load has completed.
+ *
+ * @param {string} startMarker
+ * @param {string} endMarker
+ * @param {string} measureMarker
  */
-function markLoadEnd() {
-	if ( performance.getEntriesByName( LOAD_START_MARK ).length ) {
-		performance.mark( LOAD_END_MARK );
-		performance.measure( LOAD_MEASURE, LOAD_START_MARK, LOAD_END_MARK );
+function markLoadEnd( startMarker, endMarker, measureMarker ) {
+	if ( performance.getEntriesByName( startMarker ).length ) {
+		performance.mark( endMarker );
+		performance.measure( measureMarker, startMarker, endMarker );
 	}
 }
 
@@ -131,8 +138,7 @@ function markLoadEnd() {
  * @param {Document} document
  */
 function initSearchLoader( document ) {
-	var searchForm = document.getElementById( SEARCH_FORM_ID ),
-		searchInput = document.getElementById( SEARCH_INPUT_ID ),
+	var searchBoxes = document.querySelectorAll( '.vector-search-box' ),
 		shouldUseCoreSearch;
 
 	// Allow developers to defined $wgVectorSearchHost in LocalSettings to target different APIs
@@ -140,7 +146,7 @@ function initSearchLoader( document ) {
 		mw.config.set( 'wgVectorSearchHost', config.wgVectorSearchHost );
 	}
 
-	if ( !searchForm || !searchInput ) {
+	if ( !searchBoxes.length ) {
 		return;
 	}
 
@@ -155,27 +161,46 @@ function initSearchLoader( document ) {
 	 *    before the search module loads.
 	 **/
 	if ( shouldUseCoreSearch || !window.fetch ) {
-		loadSearchModule( searchInput, 'mediawiki.searchSuggest', function () {} );
-	} else {
+		searchBoxes.forEach( function ( searchBox ) {
+			var input = searchBox.querySelector( 'input[name="search"]' );
+			if ( input ) {
+				loadSearchModule(
+					input,
+					'mediawiki.searchSuggest',
+					null,
+					null
+				);
+			}
+		} );
+		return;
+	}
+	searchBoxes.forEach( function ( searchBox ) {
+		var searchInner = searchBox.querySelector( 'form > div' ),
+			searchInput = searchBox.querySelector( 'input[name="search"]' ),
+			isPrimarySearch = searchInput && searchInput.getAttribute( 'id' ) === 'searchInput';
+
+		if ( !searchInput || !searchInner ) {
+			return;
+		}
 		// Remove tooltips while Vue search is still loading
 		searchInput.setAttribute( 'autocomplete', 'off' );
 		searchInput.removeAttribute( 'title' );
-		setLoadingIndicatorListeners( searchForm, true, renderSearchLoadingIndicator );
+		setLoadingIndicatorListeners( searchInner, true, renderSearchLoadingIndicator );
 		loadSearchModule(
 			searchInput,
 			'skins.vector.search',
-			function () {
-				markLoadEnd();
-
+			isPrimarySearch ? LOAD_START_MARK : null,
+			isPrimarySearch ? function () {
+				markLoadEnd( LOAD_START_MARK, LOAD_END_MARK, LOAD_MEASURE );
 				setLoadingIndicatorListeners(
-					/** @type {HTMLElement} */ ( searchForm ),
+					// @ts-ignore
+					searchInner,
 					false,
 					renderSearchLoadingIndicator
 				);
-			}
+			} : null
 		);
-
-	}
+	} );
 }
 
 module.exports = {

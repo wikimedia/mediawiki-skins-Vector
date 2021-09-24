@@ -128,8 +128,10 @@ body {
 // Defined as `div`.
 // Provide extra element for gadgets due to `form` already carrying an `id`.
 // FIXME: This selector requires knowledge of the internals of the search component
+// FIXME: #simpleSearch selector can be removed when cache has cleared.
 // and should not be used here.
-#simpleSearch {
+#simpleSearch,
+.vector-search-box-inner {
 	min-width: 5em;
 	// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
 	width: 13.2em;
@@ -180,7 +182,9 @@ body {
 		padding-left: 0.5em;
 	}
 
-	#p-search {
+	// FIXME: p-search is for cached HTML only. Can be removed in 1 week.
+	#p-search,
+	.vector-search-box {
 		margin-right: 1em;
 	}
 

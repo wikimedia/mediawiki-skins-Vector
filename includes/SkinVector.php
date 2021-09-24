@@ -411,7 +411,9 @@ class SkinVector extends SkinMustache {
 
 		$commonSkinData['data-search-box'] = $this->getSearchData(
 			$commonSkinData['data-search-box'],
-			!$this->isLegacy()
+			!$this->isLegacy(),
+			true,
+			'searchform'
 		);
 
 		return $commonSkinData;
@@ -422,22 +424,31 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @param array $searchBoxData
 	 * @param bool $isCollapsible
+	 * @param bool $isPrimary
+	 * @param string $formId
 	 * @return array modified version of $searchBoxData
 	 */
-	private function getSearchData( array $searchBoxData, bool $isCollapsible ) {
-		$searchClass = 'vector-search-box';
+	private function getSearchData( array $searchBoxData, bool $isCollapsible, bool $isPrimary, string $formId ) {
+		$searchClass = '';
+
+		// Determine the search widget treatment to send to the user
+		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) ) {
+			$searchClass .= 'vector-search-box-vue ';
+		}
 
 		if ( $isCollapsible ) {
-			$searchClass .= ' vector-search-box-collapses';
+			$searchClass .= ' vector-search-box-collapses ';
 		}
 
 		if ( $this->shouldSearchExpand() ) {
-			$searchClass .= " " . self::SEARCH_EXPANDING_CLASS;
+			$searchClass .= ' ' . self::SEARCH_EXPANDING_CLASS;
 		}
 
 		// Annotate search box with a component class.
-		$searchBoxData['class'] = $searchClass;
+		$searchBoxData['class'] = trim( $searchClass );
 		$searchBoxData['is-collapsible'] = $isCollapsible;
+		$searchBoxData['is-primary'] = $isPrimary;
+		$searchBoxData['form-id'] = $formId;
 
 		// At lower resolutions the search input is hidden search and only the submit button is shown.
 		// It should behave like a form submit link (e.g. submit the form with no input value).
