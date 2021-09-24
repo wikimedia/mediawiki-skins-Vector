@@ -7,8 +7,7 @@ var
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
-	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
-	OTHER_STICKY_ELEMENT_SELECTORS = '.charts-stickyhead th';
+	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle';
 
 /**
  * Copies attribute from an element to another.
@@ -49,6 +48,23 @@ function makeNodeTrackable( node ) {
 }
 
 /**
+ *
+ * @param {null|HTMLElement|Node} node
+ * @return {HTMLElement}
+ */
+function toHTMLElement( node ) {
+	// @ts-ignore
+	return node;
+}
+
+/**
+ * @param {HTMLElement} node
+ */
+function removeNode( node ) {
+	toHTMLElement( node.parentNode ).removeChild( node );
+}
+
+/**
  * Makes sticky header icons functional for modern Vector.
  *
  * @param {HTMLElement} header
@@ -75,6 +91,76 @@ function prepareIcons( header, history, talk ) {
 		// @ts-ignore
 		talkSticky.parentNode.removeChild( talkSticky );
 	}
+}
+
+/**
+ * Render sticky header edit or protected page icons for modern Vector.
+ *
+ * @param {HTMLElement} header
+ * @param {HTMLElement|null} primaryEdit
+ * @param {boolean} isProtected
+ * @param {HTMLElement|null} secondaryEdit
+ */
+function prepareEditIcons(
+	header,
+	primaryEdit,
+	isProtected,
+	secondaryEdit
+) {
+	var
+		primaryEditSticky = toHTMLElement(
+			header.querySelector(
+				'#ca-ve-edit-sticky-header'
+			)
+		),
+		protectedSticky = toHTMLElement(
+			header.querySelector(
+				'#ca-viewsource-sticky-header'
+			)
+		),
+		wikitextSticky = toHTMLElement(
+			header.querySelector(
+				'#ca-edit-sticky-header'
+			)
+		);
+
+	if ( !primaryEdit ) {
+		removeNode( protectedSticky );
+		removeNode( wikitextSticky );
+		removeNode( primaryEditSticky );
+		return;
+	} else if ( isProtected ) {
+		removeNode( wikitextSticky );
+		removeNode( primaryEditSticky );
+		copyAttribute( primaryEdit, protectedSticky, 'href' );
+		copyAttribute( primaryEdit, protectedSticky, 'title' );
+	} else {
+		removeNode( protectedSticky );
+		copyAttribute( primaryEdit, primaryEditSticky, 'href' );
+		copyAttribute( primaryEdit, primaryEditSticky, 'title' );
+		if ( secondaryEdit ) {
+			copyAttribute( secondaryEdit, wikitextSticky, 'href' );
+			copyAttribute( secondaryEdit, wikitextSticky, 'title' );
+		} else {
+			removeNode( wikitextSticky );
+		}
+	}
+}
+
+/**
+ * Check if element is in viewport.
+ *
+ * @param {HTMLElement} element
+ * @return {boolean}
+ */
+function isInViewport( element ) {
+	var rect = element.getBoundingClientRect();
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <= ( window.innerHeight || document.documentElement.clientHeight ) &&
+		rect.right <= ( window.innerWidth || document.documentElement.clientWidth )
+	);
 }
 
 /**
@@ -136,13 +222,42 @@ function makeStickyHeaderFunctional(
 		document.querySelector( '#ca-talk a' )
 	);
 
-	// Apply offset for other sticky elements on page if applicable.
-	var otherStickyElements = document.querySelectorAll( OTHER_STICKY_ELEMENT_SELECTORS );
-	Array.prototype.forEach.call( otherStickyElements, function ( el ) {
-		el.classList.add( 'mw-sticky-header-element' );
-	} );
+	var veEdit = document.querySelector( '#ca-ve-edit a' );
+	var ceEdit = document.querySelector( '#ca-edit a' );
+	var protectedEdit = document.querySelector( '#ca-viewsource a' );
+	var isProtected = !!protectedEdit;
+	var primaryEdit = protectedEdit || ( veEdit || ceEdit );
+	var secondaryEdit = veEdit ? ceEdit : null;
+
+	prepareEditIcons(
+		header,
+		toHTMLElement( primaryEdit ),
+		isProtected,
+		toHTMLElement( secondaryEdit )
+	);
 
 	stickyObserver.observe( stickyIntersection );
+
+	// When Visual Editor is activated, hide sticky header.
+	mw.hook( 've.activationComplete' ).add( function () {
+		// eslint-disable-next-line mediawiki/class-doc
+		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		stickyObserver.unobserve( stickyIntersection );
+	} );
+
+	// When Visual Editor is deactivated, by cliking "read" tab at top of page, show sticky header.
+	mw.hook( 've.deactivationComplete' ).add( function () {
+		stickyObserver.observe( stickyIntersection );
+	} );
+
+	// After saving edits, re-apply the sticky header if the target is not in the viewport.
+	mw.hook( 'postEdit.afterRemoval' ).add( function () {
+		if ( !isInViewport( stickyIntersection ) ) {
+			// eslint-disable-next-line mediawiki/class-doc
+			header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
+			stickyObserver.observe( stickyIntersection );
+		}
+	} );
 }
 
 /**

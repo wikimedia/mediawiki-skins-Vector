@@ -68,6 +68,30 @@ class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
+	private const EDIT_VE_ICON = [
+		'href' => '#',
+		'id' => 'ca-ve-edit-sticky-header',
+		'event' => 've-edit-sticky-header',
+		'icon' => 'wikimedia-edit',
+		'is-quiet' => true,
+		'class' => 'sticky-header-icon'
+	];
+	private const EDIT_WIKITEXT_ICON = [
+		'href' => '#',
+		'id' => 'ca-edit-sticky-header',
+		'event' => 'wikitext-edit-sticky-header',
+		'icon' => 'wikimedia-wikiText',
+		'is-quiet' => true,
+		'class' => 'sticky-header-icon'
+	];
+	private const EDIT_PROTECTED_ICON = [
+		'href' => '#',
+		'id' => 'ca-viewsource-sticky-header',
+		'event' => 've-edit-protected-sticky-header',
+		'icon' => 'wikimedia-editLock',
+		'is-quiet' => true,
+		'class' => 'sticky-header-icon'
+	];
 	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
 
@@ -353,7 +377,7 @@ class SkinVector extends SkinMustache {
 	 * @param array $searchBoxData
 	 * @return array
 	 */
-	private function getStickyHeaderData( $searchBoxData ) {
+	private function getStickyHeaderData( $searchBoxData ): array {
 		return [
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : null,
 			'data-button-start' => [
@@ -365,7 +389,11 @@ class SkinVector extends SkinMustache {
 			],
 			'data-search' => $searchBoxData,
 			'data-buttons' => [
-				self::TALK_ICON, self::HISTORY_ICON, self::NO_ICON, self::NO_ICON
+				self::TALK_ICON,
+				self::HISTORY_ICON,
+				self::EDIT_VE_ICON,
+				self::EDIT_PROTECTED_ICON,
+				self::EDIT_WIKITEXT_ICON
 			]
 		];
 	}

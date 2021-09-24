@@ -22,6 +22,7 @@
 				"Element": "https://developer.mozilla.org/docs/Web/API/Element",
 				"Event": "https://developer.mozilla.org/docs/Web/API/Event",
 				"HTMLElement": "https://developer.mozilla.org/docs/Web/API/HTMLElement",
+				"Node": "https://developer.mozilla.org/docs/Web/API/Node",
 				"NodeList": "https://developer.mozilla.org/docs/Web/API/NodeList",
 				"HTMLInputElement": "https://developer.mozilla.org/docs/Web/API/HTMLInputElement",
 				"\"removeEventListener\"": "https://developer.mozilla.org/docs/Web/API/EventTarget/removeEventListener",
