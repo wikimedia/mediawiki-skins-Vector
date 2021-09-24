@@ -193,7 +193,7 @@ class SkinVector extends SkinMustache {
 
 		$learnMoreLinkData = [
 			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-			'href' => Title::newFromText( 'Help:Introduction' )->getLocalURL(),
+			'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
 			'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
 		];
 		$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
