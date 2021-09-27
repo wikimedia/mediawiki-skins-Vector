@@ -319,9 +319,6 @@ class SkinVector extends SkinMustache {
 	public function generateHTML() {
 		if ( $this->isLegacy() ) {
 			$this->options['template'] = 'skin-legacy';
-			// Does not apply to gadgets adding menu items via addPortletLink. Should be
-			// removed when Ib23360e3439abc828404c1de8e0906915ee7d8b6 is merged.
-			unset( $this->options['link'] );
 		}
 		return parent::generateHTML();
 	}
