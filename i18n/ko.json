@@ -21,6 +21,7 @@
 	"vector.css": "/* 이 CSS 설정은 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
 	"vector.js": "/* 이 자바스크립트 설정은 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
 	"vector-action-toggle-sidebar": "사이드바 토글",
+	"vector-language-button-aria-label": "다른 언어로 문서를 방문합니다. {{PLURAL:$1|$1개 언어}}로 읽을 수 있습니다",
 	"vector-language-button-label": "{{PLURAL:$1|$1개 언어}}",
 	"vector-action-addsection": "새 주제",
 	"vector-action-delete": "삭제",

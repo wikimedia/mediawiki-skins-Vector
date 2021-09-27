@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ayire Adongo",
 			"Dnshitobu"
 		]
 	},
-	"vector-view-view": "Kãalɛ"
+	"vector-view-edit": "Demese",
+	"vector-view-view": "Kãalɛ",
+	"vector-more-actions": "Zoe, zoe"
 }
