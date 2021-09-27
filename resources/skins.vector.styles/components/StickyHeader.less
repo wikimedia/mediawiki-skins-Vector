@@ -36,6 +36,11 @@
 		display: none;
 	}
 
+	// Hide any open menus/search results unless sticky header is visible
+	&:not( .vector-sticky-header-visible ) > div {
+		display: none;
+	}
+
 	&-visible {
 		transform: translateY( 0% );
 	}

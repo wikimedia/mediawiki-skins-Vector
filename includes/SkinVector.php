@@ -326,21 +326,19 @@ class SkinVector extends SkinMustache {
 	/**
 	 * Generate data needed to generate the sticky header.
 	 * Lack of i18n is intentional and will be done as part of follow up work.
+	 * @param array $searchBoxData
 	 * @return array
 	 */
-	private function getStickyHeaderData() {
+	private function getStickyHeaderData( $searchBoxData ) {
 		return [
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : null,
 			'data-button-start' => [
-				'href' => '#p-search',
 				'label' => $this->msg( 'search' ),
 				'icon' => 'wikimedia-search',
 				'is-quiet' => true,
 				'class' => 'vector-sticky-header-search-toggle',
 			],
-			'data-search' => [
-				'class' => $this->shouldSearchExpand() ? self::SEARCH_EXPANDING_CLASS : '',
-			],
+			'data-search' => $searchBoxData,
 			'data-buttons' => [
 				self::TALK_ICON, self::HISTORY_ICON, self::NO_ICON, self::NO_ICON
 			]
@@ -382,9 +380,24 @@ class SkinVector extends SkinMustache {
 
 			'is-language-in-header' => $this->isLanguagesInHeader(),
 
+			'data-search-box' => $this->getSearchData(
+				$parentData['data-search-box'],
+				!$this->isLegacy(),
+				// is primary mode of search
+				true,
+				'searchform'
+			),
 			'data-vector-sticky-header' => VectorServices::getFeatureManager()->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
-			) ? $this->getStickyHeaderData() : false,
+			) ? $this->getStickyHeaderData(
+				$this->getSearchData(
+					$parentData['data-search-box'],
+					// Collapse inside search box is disabled.
+					false,
+					false,
+					'vector-sticky-search-form'
+				)
+			) : false,
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
@@ -405,13 +418,6 @@ class SkinVector extends SkinMustache {
 				$commonSkinData['data-search-box']
 			);
 		}
-
-		$commonSkinData['data-search-box'] = $this->getSearchData(
-			$commonSkinData['data-search-box'],
-			!$this->isLegacy(),
-			true,
-			'searchform'
-		);
 
 		return $commonSkinData;
 	}
