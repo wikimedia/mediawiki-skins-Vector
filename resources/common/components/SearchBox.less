@@ -4,9 +4,7 @@
 
 // Defined as `div`.
 // Provide extra element for gadgets due to `form` already carrying an `id`.
-// FIXME: Remove #simpleSearch when cache has cleared
-.vector-search-box-inner,
-#simpleSearch {
+.vector-search-box-inner {
 	position: relative;
 	height: 100%;
 }
@@ -15,8 +13,6 @@
 // Note that these rules only apply to the non-Vue enabled search input field.
 // When Vue.js has loaded this element will no longer be in the page and subsituted with
 // a WVUI element.
-// FIXME: Remove searchInput selector when cache has cleared.
-#searchInput,
 .vector-search-box-input {
 	background-color: rgba( 255, 255, 255, 0.5 );
 	color: @color-base--emphasized;
@@ -41,16 +37,12 @@
 	// Support: Firefox.
 	-moz-appearance: textfield;
 
-	// FIXME: Remove #simpleSearch when cache has cleared
-	.vector-search-box-inner:hover &,
-	#simpleSearch:hover & {
+	.vector-search-box-inner:hover & {
 		border-color: @colorGray7;
 	}
 
-	// FIXME: #simpleSearch can be removed when cache has cleared.
 	&:focus,
-	.vector-search-box-inner:hover &:focus,
-	#simpleSearch:hover &:focus {
+	.vector-search-box-inner:hover &:focus {
 		outline: 0;
 		border-color: @border-color-base--focus;
 		box-shadow: @box-shadow-base--focus;

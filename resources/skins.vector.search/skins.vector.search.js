@@ -61,8 +61,7 @@ function initApp( searchForms ) {
  */
 function main( document ) {
 	var
-		// FIXME: Use .vector-search-box-form instead when cache allows.
-		searchForms = document.querySelectorAll( '.vector-search-box form' );
+		searchForms = document.querySelectorAll( '.vector-search-box-form' );
 
 	initApp( searchForms );
 }

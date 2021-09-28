@@ -27,25 +27,17 @@
 }
 
 // Typeahead search elements
-// FIXME: remove ID selectors when cache has cleared.
-#searchInput,
-#searchButton,
-#mw-searchButton,
 .vector-search-box-vue .vector-search-box-input,
 .vector-search-box-vue .searchButton {
 	// Overrides #mw-searchButton in resources/skins.vector.styles/SearchBox.less
 	font-size: inherit;
 }
 
-// FIXME: remove #searchInput selector when cache has cleared.
-.vector-search-box-vue .vector-search-box-input,
-#searchInput {
+.vector-search-box-vue .vector-search-box-input {
 	height: @size-base;
 }
 
-// FIXME: Remove searchButton when cache has cleared.
-.vector-search-box-vue .searchButton,
-#searchButton {
+.vector-search-box-vue .searchButton {
 	background-size: @background-size-x-search-button auto;
 }
 
@@ -69,9 +61,7 @@
 		margin-bottom: 0;
 	}
 
-	// FIXME: Remove #searchInput selector when cache has cleared.
-	.vector-search-box-input,
-	#searchInput {
+	.vector-search-box-input {
 		padding-left: @size-search-figure;
 		// Derived from @padding-input-text in WVUI's Input component.
 		padding-right: 8px;
@@ -102,13 +92,9 @@
 		.transition( none );
 	}
 
-	// FIXME: .p-search--show-thumbnail selector is for cached HTML relating to T276566.
-	.p-search--show-thumbnail,
 	.vector-search-box-show-thumbnail {
 		// Recreate WVUI expanding input.
-		// FIXME: Remove #searchInput selector when cache has cleared.
-		.vector-search-box-input:focus,
-		#searchInput:focus {
+		.vector-search-box-input:focus {
 			position: relative;
 			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
 			padding-left: ~'calc( @{size-search-figure} + @{size-search-expand} )';
@@ -117,10 +103,7 @@
 		}
 
 		// Reposition search icon for expanded input.
-		// FIXME: Remove #searchInput selectors when cache has cleared.
-		.vector-search-box-input:focus ~ .searchButton,
-		#searchInput:focus ~ #searchButton,
-		#searchInput:focus ~ #mw-searchButton {
+		.vector-search-box-input:focus ~ .searchButton {
 			// Derived from
 			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
 			// (12px of space between the border and the icon) with 1px to account for the focused input border.
@@ -129,8 +112,6 @@
 		}
 
 		// Update search loader to match width and position of WVUI expanding input.
-		// FIXME: Remove #simpleSearch selector when cache has cleared.
-		#simpleSearch.search-form__loader:after,
 		.vector-search-box-inner.search-form__loader:after {
 			width: ~'calc( 100% + @{size-search-expand} )';
 			left: ~'calc( -1 * @{size-search-expand} )';

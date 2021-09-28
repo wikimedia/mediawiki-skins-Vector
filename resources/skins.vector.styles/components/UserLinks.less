@@ -78,11 +78,6 @@
 			.mw-ui-icon ~ span {
 				.mixin-screen-reader-text();
 			}
-
-			// FIXME: For cached HTML only.
-			&.mw-ui-icon > span {
-				color: transparent;
-			}
 		}
 
 		.vector-menu-content {
@@ -103,14 +98,10 @@
 			}
 		}
 
-		// FIXME: Remove `li` selector when T289163 is addressed.
-		li,
 		.mw-list-item {
 			width: 100%;
 		}
 
-		// FIXME: Remove `li > a` selector when T289163 is addressed.
-		li > a,
 		.vector-menu-content-item,
 		.mw-list-item > a {
 			// Overrides .mw-ui-icon's `min-height` property to have a computed
