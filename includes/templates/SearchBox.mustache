@@ -1,11 +1,11 @@
 {{!
  See @typedef SearchData
 }}
-<div {{#is-primary}}id="p-search"{{/is-primary}} role="search" class="{{class}} vector-search-box">
+<div{{#is-primary}} id="p-search"{{/is-primary}} role="search" class="{{class}} vector-search-box">
 	<div>
 		{{#is-legacy}}
 			<h3 {{{html-user-language-attributes}}}>
-				<label {{#is-primary}}for="searchInput"{{/is-primary}}>{{msg-search}}</label>
+				<label{{#is-primary}} for="searchInput"{{/is-primary}}>{{msg-search}}</label>
 			</h3>
 		{{/is-legacy}}
 		<form action="{{form-action}}" id="{{form-id}}"
@@ -29,9 +29,9 @@
 						* The mediawiki.searchSuggest module, after doing tests for the broken browsers, removes
 							the 'fulltext' button and handles 'fulltext' search itself; this will reveal the 'go'
 							button and cause it to be used.	!}}
-				<input {{#is-primary}}id="mw-searchButton"{{/is-primary}}
+				<input{{#is-primary}} id="mw-searchButton"{{/is-primary}}
 					{{{html-button-fulltext-attributes}}} value="{{msg-searchbutton}}" />
-				<input {{#is-primary}}id="searchButton"{{/is-primary}}
+				<input{{#is-primary}} id="searchButton"{{/is-primary}}
 					{{{html-button-go-attributes}}} value="{{msg-searcharticle}}" />
 			</div>
 		</form>
