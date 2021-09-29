@@ -1,8 +1,14 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
+// Set an explicit height. This is needed for scroll padding and for other
+// sticky elements on the page. Setting the height in relative units enables
+// the header's height to adapt to the browser's font size setting.
+@height-sticky-header: unit( 60px / @font-size-browser, em );
+
 .vector-sticky-header {
 	width: 100%;
+	height: @height-sticky-header;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -121,4 +127,20 @@
 
 .client-nojs .vector-sticky-header {
 	display: none;
+}
+
+// T290518: When the sticky header is enabled (feature flag is on, js is
+// enabled, and viewport is at higher resolutions), add scroll padding to the
+// root element. This is needed so that the sticky header does not overlap the
+// top of an element when the URI has a hash fragment (e.g. when the user clicks
+// a jump link) and when the user tabs through elements in reverse order.
+//
+// Please note that this class must be independent of the
+// .vector-sticky-header-visible class to correctly handle situations where the
+// sticky header isn't visible yet but we still need scroll padding applied
+// (e.g. when the user navigates to a page with a hash fragment in the URI).
+@media ( min-width: @width-breakpoint-tablet ) {
+	.client-js.vector-sticky-header-enabled {
+		scroll-padding-top: @height-sticky-header;
+	}
 }
