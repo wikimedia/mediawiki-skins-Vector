@@ -106,7 +106,7 @@
 			"messages": [
 				"searchbutton",
 				"searchresults",
-				"searchsuggest-containing"
+				"vector-searchsuggest-containing"
 			]
 		},
 		"skins.vector.styles.legacy": {
