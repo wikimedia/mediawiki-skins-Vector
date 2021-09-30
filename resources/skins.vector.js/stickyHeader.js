@@ -7,7 +7,8 @@ var
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
-	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle';
+	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
+	OTHER_STICKY_ELEMENT_SELECTORS = '.charts-stickyhead th';
 
 /**
  * Copies attribute from an element to another.
@@ -134,6 +135,13 @@ function makeStickyHeaderFunctional(
 		document.querySelector( '#ca-history a' ),
 		document.querySelector( '#ca-talk a' )
 	);
+
+	// Apply offset for other sticky elements on page if applicable.
+	var otherStickyElements = document.querySelectorAll( OTHER_STICKY_ELEMENT_SELECTORS );
+	Array.prototype.forEach.call( otherStickyElements, function ( el ) {
+		el.classList.add( 'mw-sticky-header-element' );
+	} );
+
 	stickyObserver.observe( stickyIntersection );
 }
 

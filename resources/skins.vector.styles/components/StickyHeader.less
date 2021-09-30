@@ -3,8 +3,10 @@
 
 // Set an explicit height. This is needed for scroll padding and for other
 // sticky elements on the page. Setting the height in relative units enables
-// the header's height to adapt to the browser's font size setting.
-@height-sticky-header: unit( 60px / @font-size-browser, em );
+// the header's height to adapt to the browser's font size setting. Because
+// this variable is used to determine top offsets for sticky elements where the
+// font-size might not be 16px, using rem avoids the cascading effects of em units.
+@height-sticky-header: unit( 60px / @font-size-browser, rem );
 
 .vector-sticky-header {
 	width: 100%;
@@ -129,18 +131,25 @@
 	display: none;
 }
 
-// T290518: When the sticky header is enabled (feature flag is on, js is
-// enabled, and viewport is at higher resolutions), add scroll padding to the
-// root element. This is needed so that the sticky header does not overlap the
-// top of an element when the URI has a hash fragment (e.g. when the user clicks
-// a jump link) and when the user tabs through elements in reverse order.
-//
-// Please note that this class must be independent of the
-// .vector-sticky-header-visible class to correctly handle situations where the
-// sticky header isn't visible yet but we still need scroll padding applied
-// (e.g. when the user navigates to a page with a hash fragment in the URI).
 @media ( min-width: @width-breakpoint-tablet ) {
 	.client-js.vector-sticky-header-enabled {
+		// T290518: When the sticky header is enabled (feature flag is on, js is
+		// enabled, and viewport is at higher resolutions), add scroll padding to the
+		// root element. This is needed so that the sticky header does not overlap the
+		// top of an element when the URI has a hash fragment (e.g. when the user clicks
+		// a jump link) and when the user tabs through elements in reverse order.
+		//
+		// Please note that this class must be independent of the
+		// .vector-sticky-header-visible class to correctly handle situations where the
+		// sticky header isn't visible yet but we still need scroll padding applied
+		// (e.g. when the user navigates to a page with a hash fragment in the URI).
 		scroll-padding-top: @height-sticky-header;
+
+		// T289817 Override other sticky element offsets to ensure that other
+		// sticky elements (i.e. table headers) appear below the sticky header.
+		.mw-sticky-header-element {
+			/* stylelint-disable-next-line declaration-no-important */
+			top: @height-sticky-header !important;
+		}
 	}
 }
