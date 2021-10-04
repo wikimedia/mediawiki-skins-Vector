@@ -13,18 +13,6 @@ function closeDropdownsOnClickOutside() {
 }
 
 /**
- * @param {HTMLElement} item
- * @return {HTMLElement|null}
- */
-function getVectorMenu( item ) {
-	if ( item.classList.contains( 'vector-menu' ) ) {
-		return item;
-	} else {
-		var parent = /** @type {HTMLElement} */( item.parentNode );
-		return parent ? getVectorMenu( parent ) : null;
-	}
-}
-/**
  * Adds icon placeholder for gadgets to use.
  *
  * @typedef {Object} PortletLinkData
@@ -36,11 +24,12 @@ function getVectorMenu( item ) {
  */
 function addPortletLinkHandler( item, data ) {
 	var link = item.querySelector( 'a' );
-	var menu = getVectorMenu( item );
+	var $menu = $( item ).parents( '.vector-menu' );
+	var menuElement = $menu.length && $menu.get( 0 ) || null;
 	// Dropdowns which have not got the noicon class are icon capable.
-	var isIconCapable = menu && menu.classList.contains(
+	var isIconCapable = menuElement && menuElement.classList.contains(
 		'vector-menu-dropdown'
-	) && !menu.classList.contains(
+	) && !menuElement.classList.contains(
 		'vector-menu-dropdown-noicon'
 	);
 
