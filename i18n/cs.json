@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dvorapa",
+			"Fraxinus.cs",
 			"Jaroslav Cerny",
 			"Matěj Suchánek",
 			"Mormegil",
@@ -18,6 +19,7 @@
 	"vector.css": "/* Veškeré zde uvedené CSS bude načítáno uživatelům vzhledu „Vektor“ */",
 	"vector.js": "/* Veškerý zde uvedený JavaScript bude načítán uživatelům vzhledu „Vektor“ */",
 	"vector-action-toggle-sidebar": "Přepnout postranní panel",
+	"vector-language-button-aria-label": "Přejděte k článku v jiném jazyce. Je dostupný v {{PLURAL:$1|$1 jazyce|$1 jazycích}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazyků}}",
 	"vector-action-addsection": "Přidat téma",
 	"vector-action-delete": "Smazat",
@@ -35,6 +37,7 @@
 	"vector-jumptocontent": "Přeskočit na obsah",
 	"vector-more-actions": "Další",
 	"vector-search-loader": "Načítají se návrhy pro hledání",
+	"vector-intro-page": "Pomoc:Úvod",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
 	"vector-personal-more-label": "Uživatelské odkazy",
