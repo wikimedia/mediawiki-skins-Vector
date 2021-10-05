@@ -56,31 +56,26 @@
 	//
 	// Layout
 	//
-	&-start {
+	&-start,
+	&-end,
+	&-icons,
+	&-context-bar {
 		display: flex;
 		align-items: center;
-		flex-grow: 1;
 	}
 
-	&-end {
-		display: flex;
-		align-items: center;
+	&-start {
+		flex-grow: 1;
 	}
 
 	//
 	// Components
 	//
-	&-icons,
-	&-context-bar {
-		display: flex;
-		align-items: center;
-		white-space: nowrap;
-		margin: 0 15px;
-		padding-left: 30px;
-	}
-
 	&-context-bar {
 		border-left: 1px solid #c8c8c8;
+		margin: 0 15px;
+		padding-left: 30px;
+		white-space: nowrap;
 	}
 
 	&-context-bar-primary {
@@ -147,7 +142,8 @@
 
 		// T289817 Override other sticky element offsets to ensure that other
 		// sticky elements (i.e. table headers) appear below the sticky header.
-		.mw-sticky-header-element {
+		.mw-sticky-header-element,
+		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */
 			top: @height-sticky-header !important;
 		}
