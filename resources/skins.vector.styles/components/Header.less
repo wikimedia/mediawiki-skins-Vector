@@ -45,9 +45,7 @@
 			min-width: @min-width-search-desktop;
 			flex-basis: @min-width-search;
 
-			// FIXME: Modify to use .vector-search-box-form when cache allows.
-			// When changing check the specificity is strong enough so that is still applies.
-			> div > form,
+			&-form,
 			.wvui-typeahead-search {
 				max-width: @max-width-search;
 			}
