@@ -391,9 +391,9 @@ class SkinVector extends SkinMustache {
 			'data-buttons' => [
 				self::TALK_ICON,
 				self::HISTORY_ICON,
-				self::EDIT_VE_ICON,
+				self::EDIT_WIKITEXT_ICON,
 				self::EDIT_PROTECTED_ICON,
-				self::EDIT_WIKITEXT_ICON
+				self::EDIT_VE_ICON
 			]
 		];
 	}
