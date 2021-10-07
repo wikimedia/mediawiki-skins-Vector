@@ -33,12 +33,6 @@
 						"mediawiki.ui.icon"
 					],
 					"messages": [
-						"createaccount",
-						"vector-anon-user-menu-pages",
-						"vector-anon-user-menu-pages-learn",
-						"vector-anon-user-menu-pages-label",
-						"vector-personal-more-label",
-						"otherlanguages",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
 						"vector-opt-out",
