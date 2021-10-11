@@ -28,7 +28,7 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
  * @group Vector
  * @coversDefaultClass \Vector\HTMLForm\Fields\HTMLLegacySkinVersionField
  */
-class HTMLLegacySkinVersionFieldTest extends \MediaWikiTestCase {
+class HTMLLegacySkinVersionFieldTest extends \MediaWikiIntegrationTestCase {
 
 	public function provideDefault() {
 		yield [ 'true' ];

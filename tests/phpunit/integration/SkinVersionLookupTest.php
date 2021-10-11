@@ -25,7 +25,7 @@ use Vector\SkinVersionLookup;
  * @group Vector
  * @coversDefaultClass \Vector\SkinVersionLookup
  */
-class SkinVersionLookupTest extends \MediaWikiTestCase {
+class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @covers ::isLegacy
 	 * @covers ::getVersion
