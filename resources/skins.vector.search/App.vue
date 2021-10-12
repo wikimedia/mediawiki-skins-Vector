@@ -4,7 +4,6 @@
 		ref="searchForm"
 		:client="getClient"
 		:domain="domain"
-		:footer-search-text="$i18n( 'searchsuggest-containing' ).text()"
 		:suggestions-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
 		:title="searchTitle"
@@ -23,14 +22,19 @@
 		@suggestion-click="instrumentation.onSuggestionClick"
 		@submit="onSubmit"
 	>
-		<input type="hidden"
-			name="title"
-			:value="searchPageTitle"
-		>
-		<input type="hidden"
-			name="wprov"
-			:value="wprov"
-		>
+		<template #default>
+			<input type="hidden"
+				name="title"
+				:value="searchPageTitle"
+			>
+			<input type="hidden"
+				name="wprov"
+				:value="wprov"
+			>
+		</template>
+		<template #search-footer-text="{ searchQuery }">
+			<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
+		</template>
 	</wvui-typeahead-search>
 </template>
 
