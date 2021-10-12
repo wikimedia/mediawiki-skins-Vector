@@ -74,6 +74,7 @@ class SkinVector extends SkinMustache {
 		'event' => 've-edit-sticky-header',
 		'icon' => 'wikimedia-edit',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const EDIT_WIKITEXT_ICON = [
@@ -82,6 +83,7 @@ class SkinVector extends SkinMustache {
 		'event' => 'wikitext-edit-sticky-header',
 		'icon' => 'wikimedia-wikiText',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const EDIT_PROTECTED_ICON = [
@@ -90,6 +92,7 @@ class SkinVector extends SkinMustache {
 		'event' => 've-edit-protected-sticky-header',
 		'icon' => 'wikimedia-editLock',
 		'is-quiet' => true,
+		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
 	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
