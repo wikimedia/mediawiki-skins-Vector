@@ -76,6 +76,17 @@ function removeNode( node ) {
 }
 
 /**
+ * @param {NodeList} nodes
+ * @param {string} className
+ */
+function removeClassFromNodes( nodes, className ) {
+	Array.prototype.forEach.call( nodes, function ( node ) {
+		// eslint-disable-next-line mediawiki/class-doc
+		node.classList.remove( className );
+	} );
+}
+
+/**
  * Makes sticky header icons functional for modern Vector.
  *
  * @param {HTMLElement} header
@@ -213,6 +224,10 @@ function makeStickyHeaderFunctional(
 	if ( gadgetLinks ) {
 		gadgetLinks.remove();
 	}
+	removeClassFromNodes(
+		userMenuClone.querySelectorAll( '.user-links-collapsible-item' ),
+		'user-links-collapsible-item'
+	);
 
 	// Prevents user menu from being focusable, T290201
 	var userMenuCheckbox = userMenuClone.querySelector( 'input' );
