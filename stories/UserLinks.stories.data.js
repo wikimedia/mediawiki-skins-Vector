@@ -1,7 +1,3 @@
-/**
- * @external MenuDefinition
- * @external UserLinksDefinition
- */
 import msgs from '../i18n/en.json';
 import mustache from 'mustache';
 import { menuTemplate } from './Menu.stories.data';

@@ -12,5 +12,17 @@
 	},
 	"parserOptions": {
 		"sourceType": "module"
+	},
+	"settings": {
+		"jsdoc": {
+			"preferredTypes": {
+				"Indicator": "Indicator",
+				"LogoOptions": "LogoOptions",
+				"LogoTemplateData": "LogoTemplateData",
+				"MenuDefinition": "MenuDefinition",
+				"SearchData": "SearchData",
+				"UserLinksDefinition": "UserLinksDefinition"
+			}
+		}
 	}
 }

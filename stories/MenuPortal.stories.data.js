@@ -1,6 +1,3 @@
-/**
- * @external MenuDefinition
- */
 import mustache from 'mustache';
 import { vectorMenuTemplate as portalTemplate } from './MenuDropdown.stories.data';
 import '../resources/skins.vector.styles/MenuPortal.less';

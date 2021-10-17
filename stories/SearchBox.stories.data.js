@@ -1,7 +1,3 @@
-/**
- * @external SearchData
- */
-
 import searchBoxTemplate from '!!raw-loader!../includes/templates/SearchBox.mustache';
 import Button from '!!raw-loader!../includes/templates/Button.mustache';
 import { htmlUserLanguageAttributes } from './utils';
