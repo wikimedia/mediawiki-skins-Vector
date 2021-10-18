@@ -160,7 +160,7 @@ function initSearchLoader( document ) {
 	 *    before the search module loads.
 	 **/
 	if ( shouldUseCoreSearch || !window.fetch ) {
-		searchBoxes.forEach( function ( searchBox ) {
+		Array.prototype.forEach.call( searchBoxes, function ( searchBox ) {
 			var input = searchBox.querySelector( 'input[name="search"]' );
 			if ( input ) {
 				loadSearchModule(
@@ -173,7 +173,8 @@ function initSearchLoader( document ) {
 		} );
 		return;
 	}
-	searchBoxes.forEach( function ( searchBox ) {
+
+	Array.prototype.forEach.call( searchBoxes, function ( searchBox ) {
 		var searchInner = searchBox.querySelector( 'form > div' ),
 			searchInput = searchBox.querySelector( 'input[name="search"]' ),
 			clearLoadingIndicators = function () {
