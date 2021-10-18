@@ -1,7 +1,3 @@
-/**
- * @external Indicator
- */
-
 import { htmlUserLanguageAttributes } from './utils';
 import { placeholder } from './utils';
 

@@ -1,6 +1,3 @@
-/**
- * @external MenuDefinition
- */
 import { placeholder, htmlUserLanguageAttributes,
 	makeIcon, portletAfter } from './utils';
 
