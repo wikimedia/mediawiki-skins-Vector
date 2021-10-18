@@ -11,6 +11,7 @@
 			"He7d3r",
 			"Helder.wiki",
 			"Jaideraf",
+			"Luan",
 			"Opraco",
 			555
 		]
@@ -24,7 +25,9 @@
 	"vector.css": "/* Todos os CSS colocado aqui serão carregados para usuários do tema Vector */",
 	"vector.js": "/* Todos os JavaScript aqui colocado será carregado para usuários do tema Vector */",
 	"vector-action-toggle-sidebar": "Alternar barra lateral",
+	"vector-language-button-aria-label": "Vá para um artigo em outro idioma. Disponível em {{PLURAL:$1|$1 idioma|$1 idiomas}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
+	"vector-language-variant-switcher-label": "Alterar a variante de idioma",
 	"vector-action-addsection": "Adicionar tópico",
 	"vector-action-delete": "Excluir",
 	"vector-action-move": "Mover",
@@ -41,9 +44,12 @@
 	"vector-jumptocontent": "Ir para o conteúdo",
 	"vector-more-actions": "Mais",
 	"vector-search-loader": "Carregando sugestões de pesquisa",
+	"vector-intro-page": "Wikipédia:Boas-vindas",
 	"vector-anon-user-menu-pages": "Páginas para editores conectados",
 	"vector-anon-user-menu-pages-learn": "saiba mais",
+	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição",
 	"vector-personal-more-label": "Links do usuário",
 	"vector-main-menu-tooltip": "Menu principal",
-	"tooltip-vector-anon-user-menu-title": "Mais opções"
+	"tooltip-vector-anon-user-menu-title": "Mais opções",
+	"vector-menu-checkbox-expanded": "expandido"
 }

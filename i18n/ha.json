@@ -3,7 +3,8 @@
 		"authors": [
 			"Ammarpad",
 			"DonCamillo",
-			"Gwanki"
+			"Gwanki",
+			"Salihu aliyu"
 		]
 	},
 	"vector-language-button-aria-label": "Je zuwa maƙala domin wani harshen. Akwai a {{PLURAL:$1|$1 language|$1 languages}}",
@@ -16,5 +17,6 @@
 	"vector-view-edit": "Gyara",
 	"vector-view-history": "Nuna tarihin",
 	"vector-view-view": "Karanta",
-	"vector-more-actions": "Mafi"
+	"vector-more-actions": "Mafi",
+	"vector-intro-page": "Taimako:Gabatarwa"
 }
