@@ -24,6 +24,17 @@ function copyAttribute( from, to, attribute ) {
 }
 
 /**
+ * Copies attribute from an element to another.
+ *
+ * @param {Element} from
+ * @param {Element} to
+ */
+function copyButtonAttributes( from, to ) {
+	copyAttribute( from, to, 'href' );
+	copyAttribute( from, to, 'title' );
+}
+
+/**
  * Suffixes an attribute with a value that indicates it
  * relates to the sticky header to support click tracking instrumentation.
  *
@@ -80,13 +91,13 @@ function prepareIcons( header, history, talk ) {
 	}
 
 	if ( history ) {
-		copyAttribute( history, historySticky, 'href' );
+		copyButtonAttributes( history, historySticky );
 	} else {
 		// @ts-ignore
 		historySticky.parentNode.removeChild( historySticky );
 	}
 	if ( talk ) {
-		copyAttribute( talk, talkSticky, 'href' );
+		copyButtonAttributes( talk, talkSticky );
 	} else {
 		// @ts-ignore
 		talkSticky.parentNode.removeChild( talkSticky );
@@ -132,15 +143,12 @@ function prepareEditIcons(
 	} else if ( isProtected ) {
 		removeNode( wikitextSticky );
 		removeNode( primaryEditSticky );
-		copyAttribute( primaryEdit, protectedSticky, 'href' );
-		copyAttribute( primaryEdit, protectedSticky, 'title' );
+		copyButtonAttributes( primaryEdit, protectedSticky );
 	} else {
 		removeNode( protectedSticky );
-		copyAttribute( primaryEdit, primaryEditSticky, 'href' );
-		copyAttribute( primaryEdit, primaryEditSticky, 'title' );
+		copyButtonAttributes( primaryEdit, primaryEditSticky );
 		if ( secondaryEdit ) {
-			copyAttribute( secondaryEdit, wikitextSticky, 'href' );
-			copyAttribute( secondaryEdit, wikitextSticky, 'title' );
+			copyButtonAttributes( secondaryEdit, wikitextSticky );
 		} else {
 			removeNode( wikitextSticky );
 		}

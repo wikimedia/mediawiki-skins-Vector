@@ -257,6 +257,7 @@ class SkinVector extends SkinMustache {
 		];
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
+			'msg-tooltip-pt-logout' => $this->msg( 'tooltip-pt-logout' ),
 			'htmlLogout' => $this->makeLink( 'logout', $logoutLinkData )
 		] );
 	}
