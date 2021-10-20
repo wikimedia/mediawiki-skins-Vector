@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Iflaq",
-			"Rishabhbhat"
+			"Rishabhbhat",
+			"Teashae"
 		]
 	},
 	"vector-action-delete": "مِٹٲیو",
 	"vector-action-move": "پکناوُن",
 	"vector-action-protect": "رٲچھۍ",
+	"vector-view-create": "تَخلیٖق",
 	"vector-view-edit": "اؠڈِٹ",
 	"vector-view-history": "تَوأریٖخ وُچھِو",
 	"vector-view-view": "پَرُن",
