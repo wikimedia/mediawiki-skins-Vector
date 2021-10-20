@@ -1,10 +1,8 @@
 var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
 	vector = require( '../skins.vector.legacy.js/vector.js' ),
-	stickyHeader = require( './stickyHeader.js' ),
 	languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ),
-	searchToggle = require( './searchToggle.js' ),
 	sidebar = require( './sidebar.js' );
 
 /**
@@ -49,14 +47,7 @@ function main( window ) {
 	sidebar.init( window );
 	vector.init();
 	initSearchLoader( document );
-	// Initialize the search toggle for the main header only. The sticky header
-	// toggle is initialized after wvui search loads.
-	searchToggle( document.querySelector( '.mw-header .search-toggle' ) );
 	languageButton();
-	stickyHeader();
-	// dropdownMenus should be placed afer sticky header is initialized in order to
-	// bind the correct event handlers to the sticky header dropdown menus (e.g.
-	// user menu).
 	dropdownMenus();
 }
 

@@ -1,0 +1,21 @@
+{
+	"root": true,
+	"extends": [
+		"wikimedia/client-es6",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki"
+	],
+	"env": {
+		"browser": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"settings": {
+		"jsdoc": {
+			"preferredTypes": {
+				"VectorHeaderObserver": "VectorHeaderObserver"
+			}
+		}
+	}
+}

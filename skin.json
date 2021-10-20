@@ -22,6 +22,7 @@
 				{
 					"name": "vector",
 					"scripts": [
+						"skins.vector.es6",
 						"skins.vector.js"
 					],
 					"templateDirectory": "includes/templates",
@@ -200,6 +201,14 @@
 				"userGroup"
 			]
 		},
+		"skins.vector.es6": {
+			"es6": true,
+			"packageFiles": [
+				"resources/skins.vector.es6/main.js",
+				"resources/skins.vector.es6/searchToggle.js",
+				"resources/skins.vector.es6/stickyHeader.js"
+			]
+		},
 		"skins.vector.js": {
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
@@ -207,14 +216,12 @@
 					"name": "resources/skins.vector.js/config.json",
 					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
 				},
-				"resources/skins.vector.js/stickyHeader.js",
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/sidebar.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js",
 				"resources/skins.vector.js/languageButton.js",
-				"resources/skins.vector.js/searchLoader.js",
-				"resources/skins.vector.js/searchToggle.js"
+				"resources/skins.vector.js/searchLoader.js"
 			],
 			"dependencies": [
 				"skins.vector.icons.js",
