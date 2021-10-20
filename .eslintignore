@@ -3,5 +3,3 @@
 /i18n/
 /node_modules/
 /vendor/
-# Temporary will be removed in https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/732406
-/resources/skins.vector.es6/

@@ -1,4 +1,4 @@
-var
+const
 	STICKY_HEADER_ID = 'vector-sticky-header',
 	initSearchToggle = require( './searchToggle.js' ),
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
@@ -17,7 +17,7 @@ var
  * @param {string} attribute
  */
 function copyAttribute( from, to, attribute ) {
-	var fromAttr = from.getAttribute( attribute );
+	const fromAttr = from.getAttribute( attribute );
 	if ( fromAttr ) {
 		to.setAttribute( attribute, fromAttr );
 	}
@@ -42,7 +42,7 @@ function copyButtonAttributes( from, to ) {
  * @param {string} attribute
  */
 function suffixStickyAttribute( node, attribute ) {
-	var value = node.getAttribute( attribute );
+	const value = node.getAttribute( attribute );
 	if ( value ) {
 		node.setAttribute( attribute, value + STICKY_HEADER_APPENDED_ID );
 	}
@@ -94,7 +94,7 @@ function removeClassFromNodes( nodes, className ) {
  * @param {HTMLElement|null} talk
  */
 function prepareIcons( header, history, talk ) {
-	var historySticky = header.querySelector( '#ca-history-sticky-header' ),
+	const historySticky = header.querySelector( '#ca-history-sticky-header' ),
 		talkSticky = header.querySelector( '#ca-talk-sticky-header' );
 
 	if ( !historySticky || !talkSticky ) {
@@ -129,7 +129,7 @@ function prepareEditIcons(
 	isProtected,
 	secondaryEdit
 ) {
-	var
+	const
 		primaryEditSticky = toHTMLElement(
 			header.querySelector(
 				'#ca-ve-edit-sticky-header'
@@ -173,7 +173,7 @@ function prepareEditIcons(
  * @return {boolean}
  */
 function isInViewport( element ) {
-	var rect = element.getBoundingClientRect();
+	const rect = element.getBoundingClientRect();
 	return (
 		rect.top >= 0 &&
 		rect.left >= 0 &&
@@ -196,7 +196,7 @@ function makeStickyHeaderFunctional(
 	userMenu,
 	userMenuStickyContainer
 ) {
-	var
+	const
 		/* eslint-disable-next-line compat/compat */
 		stickyObserver = new IntersectionObserver( function ( entries ) {
 			if ( !entries[ 0 ].isIntersecting && entries[ 0 ].boundingClientRect.top < 0 ) {
@@ -220,7 +220,7 @@ function makeStickyHeaderFunctional(
 	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
 
 	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
-	var gadgetLinks = userMenuClone.querySelector( 'mw-list-item-js' );
+	const gadgetLinks = userMenuClone.querySelector( 'mw-list-item-js' );
 	if ( gadgetLinks ) {
 		gadgetLinks.remove();
 	}
@@ -230,7 +230,7 @@ function makeStickyHeaderFunctional(
 	);
 
 	// Prevents user menu from being focusable, T290201
-	var userMenuCheckbox = userMenuClone.querySelector( 'input' );
+	const userMenuCheckbox = userMenuClone.querySelector( 'input' );
 	if ( userMenuCheckbox ) {
 		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
 	}
@@ -245,12 +245,12 @@ function makeStickyHeaderFunctional(
 		document.querySelector( '#ca-talk a' )
 	);
 
-	var veEdit = document.querySelector( '#ca-ve-edit a' );
-	var ceEdit = document.querySelector( '#ca-edit a' );
-	var protectedEdit = document.querySelector( '#ca-viewsource a' );
-	var isProtected = !!protectedEdit;
-	var primaryEdit = protectedEdit || ( veEdit || ceEdit );
-	var secondaryEdit = veEdit ? ceEdit : null;
+	const veEdit = document.querySelector( '#ca-ve-edit a' );
+	const ceEdit = document.querySelector( '#ca-edit a' );
+	const protectedEdit = document.querySelector( '#ca-viewsource a' );
+	const isProtected = !!protectedEdit;
+	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
+	const secondaryEdit = veEdit ? ceEdit : null;
 
 	prepareEditIcons(
 		header,
@@ -262,19 +262,19 @@ function makeStickyHeaderFunctional(
 	stickyObserver.observe( stickyIntersection );
 
 	// When Visual Editor is activated, hide sticky header.
-	mw.hook( 've.activationComplete' ).add( function () {
+	mw.hook( 've.activationComplete' ).add( () => {
 		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	} );
 
 	// When Visual Editor is deactivated, by cliking "read" tab at top of page, show sticky header.
-	mw.hook( 've.deactivationComplete' ).add( function () {
+	mw.hook( 've.deactivationComplete' ).add( () => {
 		stickyObserver.observe( stickyIntersection );
 	} );
 
 	// After saving edits, re-apply the sticky header if the target is not in the viewport.
-	mw.hook( 'postEdit.afterRemoval' ).add( function () {
+	mw.hook( 'postEdit.afterRemoval' ).add( () => {
 		if ( !isInViewport( stickyIntersection ) ) {
 			// eslint-disable-next-line mediawiki/class-doc
 			header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
@@ -287,18 +287,16 @@ function makeStickyHeaderFunctional(
  * @param {HTMLElement} header
  */
 function setupSearchIfNeeded( header ) {
-	var
+	const
 		searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
 
-	if ( !(
-		searchToggle &&
-		window.fetch &&
-		document.body.classList.contains( 'skin-vector-search-vue' )
-	) ) {
+	if ( !document.body.classList.contains( 'skin-vector-search-vue' ) ) {
 		return;
 	}
 
-	initSearchToggle( searchToggle );
+	if ( searchToggle ) {
+		initSearchToggle( searchToggle );
+	}
 }
 
 /**
@@ -309,7 +307,7 @@ function setupSearchIfNeeded( header ) {
  */
 function isAllowedNamespace( namespaceNumber ) {
 	// Corresponds to Main, User, Wikipedia, Template, Help, Category, Portal, Module.
-	var allowedNamespaceNumbers = [ 0, 2, 4, 10, 12, 14, 100, 828 ];
+	const allowedNamespaceNumbers = [ 0, 2, 4, 10, 12, 14, 100, 828 ];
 	return allowedNamespaceNumbers.indexOf( namespaceNumber ) > -1;
 }
 
@@ -320,13 +318,13 @@ function isAllowedNamespace( namespaceNumber ) {
  * @return {boolean}
  */
 function isAllowedAction( action ) {
-	var disallowedActions = [ 'history', 'edit' ],
+	const disallowedActions = [ 'history', 'edit' ],
 		hasDiffId = mw.config.get( 'wgDiffOldId' );
 	return disallowedActions.indexOf( action ) < 0 && !hasDiffId;
 }
 
 module.exports = function initStickyHeader() {
-	var header = document.getElementById( STICKY_HEADER_ID ),
+	const header = document.getElementById( STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById(
 			FIRST_HEADING_ID
 		),
@@ -339,7 +337,6 @@ module.exports = function initStickyHeader() {
 
 	if ( !(
 		header &&
-		header.closest &&
 		stickyIntersection &&
 		userMenu &&
 		userMenuStickyContainer &&

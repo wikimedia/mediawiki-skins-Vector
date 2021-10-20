@@ -1,4 +1,4 @@
-var
+const
 	HEADER_SELECTOR = 'header',
 	SEARCH_BOX_SELECTOR = '.vector-search-box',
 	SEARCH_VISIBLE_CLASS = 'vector-header-search-toggled';
@@ -15,7 +15,7 @@ function bindSearchBoxHandler( searchBox, header ) {
 	 * @param {Event} ev
 	 * @ignore
 	 */
-	function clickHandler( ev ) {
+	const clickHandler = ( ev ) => {
 		if (
 			ev.target instanceof HTMLElement &&
 			// Check if the click target was a suggestion link. WVUI clears the
@@ -31,7 +31,7 @@ function bindSearchBoxHandler( searchBox, header ) {
 
 			document.removeEventListener( 'click', clickHandler );
 		}
-	}
+	};
 
 	document.addEventListener( 'click', clickHandler );
 }
@@ -49,7 +49,7 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 	 * @param {Event} ev
 	 * @ignore
 	 */
-	function handler( ev ) {
+	const handler = ( ev ) => {
 		// The toggle is an anchor element. Prevent the browser from navigating away
 		// from the page when clicked.
 		ev.preventDefault();
@@ -65,16 +65,16 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 		// Also, defer focusing the input to another task in the event loop. At the time
 		// of this writing, Safari 14.0.3 has trouble changing the visibility of the
 		// element and focusing the input within the same task.
-		setTimeout( function () {
+		setTimeout( () => {
 			bindSearchBoxHandler( searchBox, header );
 
-			var searchInput = /** @type {HTMLInputElement|null} */ ( searchBox.querySelector( 'input[type="search"]' ) );
+			const searchInput = /** @type {HTMLInputElement|null} */ ( searchBox.querySelector( 'input[type="search"]' ) );
 
 			if ( searchInput ) {
 				searchInput.focus();
 			}
 		} );
-	}
+	};
 
 	searchToggle.addEventListener( 'click', handler );
 }
@@ -88,22 +88,17 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
  * elements. When the user clicks outside of SEARCH_BOX_SELECTOR, the class will
  * be removed.
  *
- * @param {HTMLElement|null|Element} searchToggle
+ * @param {HTMLElement|Element} searchToggle
  */
 module.exports = function initSearchToggle( searchToggle ) {
-	// Check if .closest API is available (IE11 does not support it).
-	if ( !searchToggle || !searchToggle.closest ) {
-		return;
-	}
-
-	var header =
-	/** @type {HTMLElement|null} */ ( searchToggle.closest( HEADER_SELECTOR ) );
+	const header =
+		/** @type {HTMLElement|null} */ ( searchToggle.closest( HEADER_SELECTOR ) );
 
 	if ( !header ) {
 		return;
 	}
 
-	var searchBox =
+	const searchBox =
 	/** @type {HTMLElement|null} */ ( header.querySelector( SEARCH_BOX_SELECTOR ) );
 
 	if ( !searchBox ) {
