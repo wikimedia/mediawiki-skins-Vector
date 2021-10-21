@@ -1,3 +1,34 @@
+/** @interface CheckboxHack */
+
+var
+	checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack,
+	CHECKBOX_HACK_CONTAINER_SELECTOR = '.vector-menu-dropdown',
+	CHECKBOX_HACK_CHECKBOX_SELECTOR = '.vector-menu-checkbox',
+	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-menu-checkbox',
+	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-menu-content';
+
+/**
+ * Add the ability for users to toggle dropdown menus using the enter key (as
+ * well as space) using core's checkboxHack.
+ */
+function bindToggleOnSpaceEnter() {
+	// Search for all dropdown containers using the CHECKBOX_HACK_CONTAINER_SELECTOR.
+	var containers = document.querySelectorAll( CHECKBOX_HACK_CONTAINER_SELECTOR );
+
+	Array.prototype.forEach.call( containers, function ( container ) {
+		var
+			checkbox = container.querySelector( CHECKBOX_HACK_CHECKBOX_SELECTOR ),
+			button = container.querySelector( CHECKBOX_HACK_BUTTON_SELECTOR ),
+			target = container.querySelector( CHECKBOX_HACK_TARGET_SELECTOR );
+
+		if ( !( checkbox && button && target ) ) {
+			return;
+		}
+
+		checkboxHack.bindToggleOnSpaceEnter( checkbox, button );
+	} );
+}
+
 /**
  * Make sure that clicking outside a menu closes it.
  */
@@ -63,4 +94,5 @@ mw.hook( 'util.addPortletLink' ).add( addPortletLinkHandler );
 
 module.exports = function dropdownMenus() {
 	closeDropdownsOnClickOutside();
+	bindToggleOnSpaceEnter();
 };
