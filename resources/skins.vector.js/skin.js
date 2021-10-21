@@ -47,7 +47,6 @@ function main( window ) {
 	enableCssAnimations( window.document );
 	collapsibleTabs.init();
 	sidebar.init( window );
-	dropdownMenus();
 	vector.init();
 	initSearchLoader( document );
 	// Initialize the search toggle for the main header only. The sticky header
@@ -55,6 +54,10 @@ function main( window ) {
 	searchToggle( document.querySelector( '.mw-header .search-toggle' ) );
 	languageButton();
 	stickyHeader();
+	// dropdownMenus should be placed afer sticky header is initialized in order to
+	// bind the correct event handlers to the sticky header dropdown menus (e.g.
+	// user menu).
+	dropdownMenus();
 }
 
 /**
