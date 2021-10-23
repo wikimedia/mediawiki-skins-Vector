@@ -128,10 +128,9 @@ class SkinVector extends SkinMustache {
 	 * @return array
 	 */
 	private function getLanguagesCached(): array {
-		if ( $this->languages !== null ) {
-			return $this->languages;
+		if ( $this->languages === null ) {
+			$this->languages = $this->getLanguages();
 		}
-		$this->languages = $this->getLanguages();
 		return $this->languages;
 	}
 
@@ -168,7 +167,7 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * If in modern Vector and no languages possible, OR the languages in header button
-	 * is enabled but language array is empty, then we shouldn't show the langauge list.
+	 * is enabled but language array is empty, then we shouldn't show the language list.
 	 * @return bool
 	 */
 	private function shouldHideLanguages() {
@@ -295,12 +294,12 @@ class SkinVector extends SkinMustache {
 			'data-user-page' => $menuData[ 'data-user-page' ],
 		] );
 		$userMoreData = [
-			"id" => 'p-personal-more',
-			"class" => 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
-			"html-items" => $userMoreHtmlItems,
-			"label" => $this->msg( 'vector-personal-more-label' ),
-			"heading-class" => 'vector-menu-heading',
-			"is-dropdown" => false,
+			'id' => 'p-personal-more',
+			'class' => 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
+			'html-items' => $userMoreHtmlItems,
+			'label' => $this->msg( 'vector-personal-more-label' ),
+			'heading-class' => 'vector-menu-heading',
+			'is-dropdown' => false,
 		];
 
 		$userMenuData = $menuData[ 'data-user-menu' ];
