@@ -206,7 +206,19 @@
 			"packageFiles": [
 				"resources/skins.vector.es6/main.js",
 				"resources/skins.vector.es6/searchToggle.js",
-				"resources/skins.vector.es6/stickyHeader.js"
+				"resources/skins.vector.es6/stickyHeader.js",
+				"resources/skins.vector.es6/scrollObserver.js",
+				"resources/skins.vector.es6/AB.js",
+				{
+					"name": "resources/skins.vector.es6/config.json",
+					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
+				}
+			],
+			"dependencies": [
+				"skins.vector.icons.js",
+				"mediawiki.page.ready",
+				"mediawiki.util",
+				"mediawiki.experiments"
 			]
 		},
 		"skins.vector.js": {
@@ -363,6 +375,27 @@
 				"logged_out": false
 			},
 			"description": "@var array Enables the edit icons if $wgVectorStickyHeader is true."
+		},
+		"VectorWebABTestEnrollment": {
+			"value": {
+				"name": "vector.sticky_header_2021_11",
+				"enabled": false,
+				"buckets": {
+					"unsampled": {
+						"samplingRate": "0.1"
+					},
+					"control": {
+						"samplingRate": "0.3"
+					},
+					"stickyHeaderDisabled": {
+						"samplingRate": "0.3"
+					},
+					"stickyHeaderEnabled": {
+						"samplingRate": "0.3"
+					}
+				}
+			},
+			"description": "An associative array of A/B test configs keyed by parameters noted in mediawiki.experiments.js."
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,

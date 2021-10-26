@@ -35,6 +35,9 @@ class Hooks {
 	) {
 		return [
 			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
+			'wgVectorWebABTestEnrollment' => $config->get(
+				Constants::CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT
+			),
 		];
 	}
 

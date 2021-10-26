@@ -1,3 +1,6 @@
+/**
+ * Functions and variables to implement sticky header.
+ */
 const
 	STICKY_HEADER_ID = 'vector-sticky-header',
 	initSearchToggle = require( './searchToggle.js' ),
@@ -7,7 +10,8 @@ const
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
-	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle';
+	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
+	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header_2021_11';
 
 /**
  * Copies attribute from an element to another.
@@ -223,32 +227,53 @@ function isInViewport( element ) {
 }
 
 /**
+ * Add hooks for sticky header when Visual Editor is used.
+ *
+ * @param {HTMLElement} element target feature
+ * @param {HTMLElement} targetIntersection intersection element
+ * @param {IntersectionObserver} observer
+ */
+function addVisualEditorHooks( element, targetIntersection, observer ) {
+	// When Visual Editor is activated, hide the sticky header.
+	mw.hook( 've.activate' ).add( () => {
+		// eslint-disable-next-line mediawiki/class-doc
+		element.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		observer.unobserve( targetIntersection );
+	} );
+
+	// When Visual Editor is deactivated (by clicking "Read" tab at top of page), show sticky header
+	// by re-triggering the observer.
+	mw.hook( 've.deactivationComplete' ).add( () => {
+		observer.observe( targetIntersection );
+	} );
+
+	// After saving edits, re-apply the sticky header if the target is not in the viewport.
+	mw.hook( 'postEdit.afterRemoval' ).add( () => {
+		if ( !isInViewport( targetIntersection ) ) {
+			// eslint-disable-next-line mediawiki/class-doc
+			element.classList.add( STICKY_HEADER_VISIBLE_CLASS );
+			observer.observe( targetIntersection );
+		}
+	} );
+}
+
+/**
  * Makes sticky header functional for modern Vector.
  *
  * @param {HTMLElement} header
- * @param {HTMLElement} stickyIntersection
  * @param {HTMLElement} userMenu
  * @param {Element} userMenuStickyContainer
+ * @param {IntersectionObserver} stickyObserver
+ * @param {HTMLElement} stickyIntersection
  */
 function makeStickyHeaderFunctional(
 	header,
-	stickyIntersection,
 	userMenu,
-	userMenuStickyContainer
+	userMenuStickyContainer,
+	stickyObserver,
+	stickyIntersection
 ) {
 	const
-		/* eslint-disable-next-line compat/compat */
-		stickyObserver = new IntersectionObserver( function ( entries ) {
-			if ( !entries[ 0 ].isIntersecting && entries[ 0 ].boundingClientRect.top < 0 ) {
-				// Viewport has crossed the bottom edge of firstHeading so show sticky header.
-				// eslint-disable-next-line mediawiki/class-doc
-				header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
-			} else {
-				// Viewport is above the bottom edge of firstHeading so hide sticky header.
-				// eslint-disable-next-line mediawiki/class-doc
-				header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
-			}
-		} ),
 		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
 		userMenuClone = /** @type {HTMLElement} */( userMenu.cloneNode( true ) ),
 		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' ),
@@ -306,23 +331,6 @@ function makeStickyHeaderFunctional(
 	);
 
 	stickyObserver.observe( stickyIntersection );
-
-	// When Visual Editor is activated, hide sticky header.
-	mw.hook( 've.activate' ).add( disableStickyHeader );
-
-	// When Visual Editor is deactivated, by cliking "read" tab at top of page, show sticky header.
-	mw.hook( 've.deactivationComplete' ).add( () => {
-		stickyObserver.observe( stickyIntersection );
-	} );
-
-	// After saving edits, re-apply the sticky header if the target is not in the viewport.
-	mw.hook( 'postEdit.afterRemoval' ).add( () => {
-		if ( !isInViewport( stickyIntersection ) ) {
-			// eslint-disable-next-line mediawiki/class-doc
-			header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
-			stickyObserver.observe( stickyIntersection );
-		}
-	} );
 }
 
 /**
@@ -365,29 +373,59 @@ function isAllowedAction( action ) {
 	return disallowedActions.indexOf( action ) < 0 && !hasDiffId;
 }
 
-module.exports = function initStickyHeader() {
-	const header = document.getElementById( STICKY_HEADER_ID ),
-		stickyIntersection = document.getElementById(
-			FIRST_HEADING_ID
-		),
-		userMenu = document.getElementById( USER_MENU_ID ),
-		userMenuStickyContainer = document.getElementsByClassName(
-			STICKY_HEADER_USER_MENU_CONTAINER_CLASS
-		)[ 0 ],
-		allowedNamespace = isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
-		allowedAction = isAllowedAction( mw.config.get( 'wgAction' ) );
+const
+	header = document.getElementById( STICKY_HEADER_ID ),
+	stickyIntersection = document.getElementById(
+		FIRST_HEADING_ID
+	),
+	userMenu = document.getElementById( USER_MENU_ID ),
+	userMenuStickyContainer = document.getElementsByClassName(
+		STICKY_HEADER_USER_MENU_CONTAINER_CLASS
+	)[ 0 ],
+	allowedNamespace = isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
+	allowedAction = isAllowedAction( mw.config.get( 'wgAction' ) );
 
-	if ( !(
-		header &&
+/**
+ * Check if all conditions are met to enable sticky header
+ *
+ * @return {boolean}
+ */
+function isStickyHeaderAllowed() {
+	// @ts-ignore
+	return header &&
 		stickyIntersection &&
 		userMenu &&
 		userMenuStickyContainer &&
 		allowedNamespace &&
 		allowedAction &&
-		'IntersectionObserver' in window ) ) {
+		'IntersectionObserver' in window;
+}
+
+/**
+ * @param {IntersectionObserver} observer
+ */
+function initStickyHeader( observer ) {
+	if ( !isStickyHeaderAllowed() ) {
 		return;
 	}
 
-	makeStickyHeaderFunctional( header, stickyIntersection, userMenu, userMenuStickyContainer );
+	makeStickyHeaderFunctional(
+		// @ts-ignore
+		header,
+		userMenu,
+		userMenuStickyContainer,
+		observer,
+		stickyIntersection
+	);
+	// @ts-ignore
 	setupSearchIfNeeded( header );
+	// @ts-ignore
+	addVisualEditorHooks( header, stickyIntersection, observer );
+}
+
+module.exports = {
+	initStickyHeader,
+	isStickyHeaderAllowed,
+	header,
+	STICKY_HEADER_EXPERIMENT_NAME
 };

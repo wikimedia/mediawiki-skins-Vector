@@ -207,6 +207,14 @@ final class Constants {
 	public const FEATURE_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
 
 	/**
+	 * Defines whether the Sticky Header A/B test is running. See
+	 * https://phabricator.wikimedia.org/T292587 for additional detail about the test.
+	 *
+	 * @var string
+	 */
+	public const CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT = 'VectorWebABTestEnrollment';
+
+	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.
