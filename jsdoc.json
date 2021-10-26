@@ -21,6 +21,7 @@
 				"Document": "https://developer.mozilla.org/docs/Web/API/Document",
 				"Element": "https://developer.mozilla.org/docs/Web/API/Element",
 				"Event": "https://developer.mozilla.org/docs/Web/API/Event",
+				"EventTarget": "https://developer.mozilla.org/docs/Web/API/EventTarget",
 				"HTMLElement": "https://developer.mozilla.org/docs/Web/API/HTMLElement",
 				"Node": "https://developer.mozilla.org/docs/Web/API/Node",
 				"NodeList": "https://developer.mozilla.org/docs/Web/API/NodeList",

@@ -60,7 +60,7 @@ function makeNodeTrackable( node ) {
 
 /**
  *
- * @param {null|HTMLElement|Node} node
+ * @param {null|HTMLElement|Node|EventTarget} node
  * @return {HTMLElement}
  */
 function toHTMLElement( node ) {
@@ -122,12 +122,15 @@ function prepareIcons( header, history, talk ) {
  * @param {HTMLElement|null} primaryEdit
  * @param {boolean} isProtected
  * @param {HTMLElement|null} secondaryEdit
+ * @param {Function} disableStickyHeader function to call to disable the sticky
+ *  header.
  */
 function prepareEditIcons(
 	header,
 	primaryEdit,
 	isProtected,
-	secondaryEdit
+	secondaryEdit,
+	disableStickyHeader
 ) {
 	const
 		primaryEditSticky = toHTMLElement(
@@ -158,8 +161,38 @@ function prepareEditIcons(
 	} else {
 		removeNode( protectedSticky );
 		copyButtonAttributes( primaryEdit, primaryEditSticky );
+
+		primaryEditSticky.addEventListener( 'click', function ( ev ) {
+			const target = toHTMLElement( ev.target );
+			const $ve = $( primaryEdit );
+
+			if ( target && $ve.length ) {
+				const event = $.Event( 'click' );
+				$ve.trigger( event );
+				// The link has been progressively enhanced.
+				if ( event.isDefaultPrevented() ) {
+					disableStickyHeader();
+					ev.preventDefault();
+				}
+			}
+		} );
 		if ( secondaryEdit ) {
 			copyButtonAttributes( secondaryEdit, wikitextSticky );
+			wikitextSticky.addEventListener( 'click', function ( ev ) {
+				const target = toHTMLElement( ev.target );
+				if ( target ) {
+					const $edit = $( secondaryEdit );
+					if ( $edit.length ) {
+						const event = $.Event( 'click' );
+						$edit.trigger( event );
+						// The link has been progressively enhanced.
+						if ( event.isDefaultPrevented() ) {
+							disableStickyHeader();
+							ev.preventDefault();
+						}
+					}
+				}
+			} );
 		} else {
 			removeNode( wikitextSticky );
 		}
@@ -251,22 +284,24 @@ function makeStickyHeaderFunctional(
 	const isProtected = !!protectedEdit;
 	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
 	const secondaryEdit = veEdit ? ceEdit : null;
+	const disableStickyHeader = () => {
+		// eslint-disable-next-line mediawiki/class-doc
+		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		stickyObserver.unobserve( stickyIntersection );
+	};
 
 	prepareEditIcons(
 		header,
 		toHTMLElement( primaryEdit ),
 		isProtected,
-		toHTMLElement( secondaryEdit )
+		toHTMLElement( secondaryEdit ),
+		disableStickyHeader
 	);
 
 	stickyObserver.observe( stickyIntersection );
 
 	// When Visual Editor is activated, hide sticky header.
-	mw.hook( 've.activationComplete' ).add( () => {
-		// eslint-disable-next-line mediawiki/class-doc
-		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
-		stickyObserver.unobserve( stickyIntersection );
-	} );
+	mw.hook( 've.activate' ).add( disableStickyHeader );
 
 	// When Visual Editor is deactivated, by cliking "read" tab at top of page, show sticky header.
 	mw.hook( 've.deactivationComplete' ).add( () => {
