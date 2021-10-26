@@ -376,11 +376,20 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * Generate data needed to generate the sticky header.
-	 * Lack of i18n is intentional and will be done as part of follow up work.
 	 * @param array $searchBoxData
+	 * @param bool $includeEditIcons
 	 * @return array
 	 */
-	private function getStickyHeaderData( $searchBoxData ): array {
+	private function getStickyHeaderData( $searchBoxData, $includeEditIcons ): array {
+		$btns = [
+			self::TALK_ICON,
+			self::HISTORY_ICON,
+		];
+		if ( $includeEditIcons ) {
+			$btns[] = self::EDIT_WIKITEXT_ICON;
+			$btns[] = self::EDIT_PROTECTED_ICON;
+			$btns[] = self::EDIT_VE_ICON;
+		}
 		return [
 			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : null,
 			'data-button-start' => [
@@ -391,13 +400,7 @@ class SkinVector extends SkinMustache {
 				'class' => 'vector-sticky-header-search-toggle',
 			],
 			'data-search' => $searchBoxData,
-			'data-buttons' => [
-				self::TALK_ICON,
-				self::HISTORY_ICON,
-				self::EDIT_WIKITEXT_ICON,
-				self::EDIT_PROTECTED_ICON,
-				self::EDIT_VE_ICON
-			]
+			'data-buttons' => $btns,
 		];
 	}
 
@@ -452,6 +455,9 @@ class SkinVector extends SkinMustache {
 					false,
 					false,
 					'vector-sticky-search-form'
+				),
+				VectorServices::getFeatureManager()->isFeatureEnabled(
+					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
 		] );

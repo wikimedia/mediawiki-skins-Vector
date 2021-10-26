@@ -174,7 +174,17 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const QUERY_PARAM_STICKY_HEADER_EDIT = 'vectorstickyheaderedit';
+
+	/**
+	 * @var string
+	 */
 	public const CONFIG_STICKY_HEADER = 'VectorStickyHeader';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_STICKY_HEADER_EDIT = 'VectorStickyHeaderEdit';
 
 	/**
 	 * @var string
@@ -184,7 +194,17 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const REQUIREMENT_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
+
+	/**
+	 * @var string
+	 */
 	public const FEATURE_STICKY_HEADER = 'StickyHeader';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
 
 	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads

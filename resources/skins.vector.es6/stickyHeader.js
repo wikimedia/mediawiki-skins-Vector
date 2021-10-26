@@ -133,11 +133,14 @@ function prepareEditIcons(
 	disableStickyHeader
 ) {
 	const
-		primaryEditSticky = toHTMLElement(
+		primaryEditStickyElement = header.querySelector(
+			'#ca-ve-edit-sticky-header'
+		),
+		primaryEditSticky = primaryEditStickyElement ? toHTMLElement(
 			header.querySelector(
 				'#ca-ve-edit-sticky-header'
 			)
-		),
+		) : null,
 		protectedSticky = toHTMLElement(
 			header.querySelector(
 				'#ca-viewsource-sticky-header'
@@ -149,6 +152,10 @@ function prepareEditIcons(
 			)
 		);
 
+	// If no primary edit icon is present the feature is disabled.
+	if ( !primaryEditSticky ) {
+		return;
+	}
 	if ( !primaryEdit ) {
 		removeNode( protectedSticky );
 		removeNode( wikitextSticky );

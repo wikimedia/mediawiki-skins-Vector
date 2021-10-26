@@ -357,6 +357,13 @@
 			},
 			"description": "@var array Enables a persistent header that allows quick access to user links, editing tools, search and other links while scrolling down a page"
 		},
+		"VectorStickyHeaderEdit": {
+			"value": {
+				"logged_in": true,
+				"logged_out": false
+			},
+			"description": "@var array Enables the edit icons if $wgVectorStickyHeader is true."
+		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
 			"description": "@var boolean Temporary feature flag that disables saving the sidebar expanded/collapsed state as a user-preference (triggered via clicking the main menu icon). This is intended as a temporary kill-switch in the event that the DB is overloaded with writes to the user_options table."
