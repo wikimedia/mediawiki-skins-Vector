@@ -1,8 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ninjastrikers"
+			"Ninjastrikers",
+			"咽頭べさ"
 		]
 	},
+	"vector-view-edit": "ဖျင်ဆင်တာႏ",
+	"vector-view-history": "ထွားရာႏဇာႏဝင်ႏ",
+	"vector-view-view": "ဟော်ꩻတာႏ",
+	"vector-more-actions": "ထဲင်းယင်း",
 	"vector-intro-page": "Help:ငဝ်းတယ်ႏအွဉ်"
 }
