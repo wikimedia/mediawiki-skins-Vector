@@ -15,9 +15,6 @@ const main = () => {
 	stickyHeader();
 };
 
-if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
-	main();
-} else {
-	// This is needed when document.readyState === 'loading'.
-	document.addEventListener( 'DOMContentLoaded', () => main );
-}
+module.exports = {
+	main: main
+};
