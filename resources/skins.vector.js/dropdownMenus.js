@@ -4,6 +4,10 @@ var
 	checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack,
 	CHECKBOX_HACK_CONTAINER_SELECTOR = '.vector-menu-dropdown',
 	CHECKBOX_HACK_CHECKBOX_SELECTOR = '.vector-menu-checkbox',
+	// In core's checkboxHack.js, it is recommended to use a  label element as a
+	// button that toggles the checkbox. In Vector's dropdown menus that use the
+	// Menu.mustache template, a checkbox is used as both the "button" and the
+	// "checkbox".
 	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-menu-checkbox',
 	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-menu-content';
 
