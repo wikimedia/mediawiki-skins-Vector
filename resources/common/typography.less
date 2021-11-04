@@ -70,6 +70,13 @@ pre,
 	}
 }
 
+// FIXME:
+// Ideally these rules should apply only to .mw-body-content
+// However this requires a #user-notice and community consultation
+// to prepare gadget developers for this potential disruptive change.
+// The `:not` pseudo class is used for now, to handle cases
+// where multiple mw-body-content elements appear in the page.
+.mw-body-content:not( .vector-body .mw-body-content ),
 .vector-body {
 	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
