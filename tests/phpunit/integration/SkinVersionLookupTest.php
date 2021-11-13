@@ -54,13 +54,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
 
 		$this->assertSame(
-			$skinVersionLookup->getVersion(),
 			'alpha',
+			$skinVersionLookup->getVersion(),
 			'Query parameter is the first priority.'
 		);
 		$this->assertSame(
-			$skinVersionLookup->isLegacy(),
 			false,
+			$skinVersionLookup->isLegacy(),
 			'Version is non-Legacy.'
 		);
 	}
@@ -93,13 +93,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
 
 		$this->assertSame(
-			$skinVersionLookup->getVersion(),
 			'beta',
+			$skinVersionLookup->getVersion(),
 			'User preference is the second priority.'
 		);
 		$this->assertSame(
-			$skinVersionLookup->isLegacy(),
 			false,
+			$skinVersionLookup->isLegacy(),
 			'Version is non-Legacy.'
 		);
 	}
@@ -132,13 +132,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
 
 		$this->assertSame(
-			$skinVersionLookup->getVersion(),
 			'1',
+			$skinVersionLookup->getVersion(),
 			'Config is the third priority and distinguishes logged in users from anonymous users.'
 		);
 		$this->assertSame(
-			$skinVersionLookup->isLegacy(),
 			true,
+			$skinVersionLookup->isLegacy(),
 			'Version is Legacy.'
 		);
 	}
@@ -171,13 +171,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
 
 		$this->assertSame(
-			$skinVersionLookup->getVersion(),
 			'2',
+			$skinVersionLookup->getVersion(),
 			'Config is the third priority and distinguishes anonymous users from logged in users.'
 		);
 		$this->assertSame(
-			$skinVersionLookup->isLegacy(),
 			false,
+			$skinVersionLookup->isLegacy(),
 			'Version is non-Legacy.'
 		);
 	}
