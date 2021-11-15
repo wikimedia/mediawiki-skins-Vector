@@ -18,6 +18,7 @@
 		"wmf": {
 			"linkMap": {
 				"\"addEventListener\"": "https://developer.mozilla.org/docs/Web/API/EventTarget/addEventListener",
+				"jQuery": "https://api.jquery.com",
 				"Document": "https://developer.mozilla.org/docs/Web/API/Document",
 				"Element": "https://developer.mozilla.org/docs/Web/API/Element",
 				"Event": "https://developer.mozilla.org/docs/Web/API/Event",

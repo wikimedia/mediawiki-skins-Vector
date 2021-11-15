@@ -179,10 +179,13 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"icons": [
-				"history",
-				"speechBubbles",
 				"edit",
 				"editLock",
+				"halfStar",
+				"history",
+				"speechBubbles",
+				"star",
+				"unStar",
 				"wikiText"
 			]
 		},
@@ -231,6 +234,7 @@
 			"dependencies": [
 				"skins.vector.icons.js",
 				"mediawiki.page.ready",
+				"mediawiki.page.watch.ajax",
 				"mediawiki.util",
 				"mediawiki.experiments"
 			]
