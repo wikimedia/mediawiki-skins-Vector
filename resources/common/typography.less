@@ -70,12 +70,6 @@ pre,
 	}
 }
 
-// FIXME: All styles here should apply to .mw-body-content eventually.
-// The problem is lots of user, gadgets, styles and scripts
-// make assumptions about the font-size being set on the parent .vector-body element.
-// This however breaks integrations with extensions that replicate mw-body-content element
-// See [[phab:T287733]].
-.mw-body-content:not( #mw-content-text ),
 .vector-body {
 	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
