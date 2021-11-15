@@ -3,6 +3,7 @@
 		"authors": [
 			"Ammarpad",
 			"DonCamillo",
+			"Em-em",
 			"Gwanki",
 			"Salihu aliyu"
 		]
@@ -18,5 +19,6 @@
 	"vector-view-history": "Nuna tarihin",
 	"vector-view-view": "Karanta",
 	"vector-more-actions": "Mafi",
+	"vector-searchsuggest-containing": "Duba shafukan dake dauke da <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Taimako:Gabatarwa"
 }

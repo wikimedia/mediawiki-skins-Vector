@@ -32,6 +32,7 @@
 	"vector-jumptocontent": "Zumbe a 'u condenute",
 	"vector-more-actions": "De cchiù",
 	"vector-search-loader": "Stoche a careche le suggereminde de recerche",
+	"vector-searchsuggest-containing": "Cirche le pàggene ca tènene <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:'Ndroduzione",
 	"vector-anon-user-menu-pages": "Pàggene pe le cangiature non trasute",
 	"vector-anon-user-menu-pages-learn": "'mbare de cchiù",

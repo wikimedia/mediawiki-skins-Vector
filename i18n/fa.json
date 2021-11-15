@@ -39,6 +39,7 @@
 	"vector-jumptocontent": "پرش به محتوا",
 	"vector-more-actions": "بیشتر",
 	"vector-search-loader": "بارگیری پیشنهادهای جستجو",
+	"vector-searchsuggest-containing": "جستجو برای صفحه‌های حاوی <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:مقدمه",
 	"vector-anon-user-menu-pages": "صفحه‌ها برای ویرایشگران خارج‌شده از سامانه",
 	"vector-anon-user-menu-pages-learn": "بیشتر بدانید",

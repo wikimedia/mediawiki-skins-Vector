@@ -33,6 +33,7 @@
 	"vector-jumptocontent": "Прејди на содржината",
 	"vector-more-actions": "Повеќе",
 	"vector-search-loader": "Вчитувам предлози за пребарувањето",
+	"vector-searchsuggest-containing": "Пребарај страници кои го содржат <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Вовед",
 	"vector-anon-user-menu-pages": "Страници за одјавени уредници",
 	"vector-anon-user-menu-pages-learn": "дознајте повеќе",

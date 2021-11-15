@@ -36,6 +36,7 @@
 	"vector-jumptocontent": "Edukira joan",
 	"vector-more-actions": "Gehiago",
 	"vector-search-loader": "Bilaketa gomendioak kargatzen",
+	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> duten orrialdeak bilatu",
 	"vector-intro-page": "Laguntza:Sarrera",
 	"vector-anon-user-menu-pages": "Izena eman gabeko erabiltzaileentzako orrialdeak",
 	"vector-anon-user-menu-pages-learn": "gehiago ikasi",
