@@ -13,7 +13,7 @@
 	},
 	"skinname-vector": "Vector",
 	"vector-skin-desc": "Osuvremenjena inačica MonoBooka s obnovljenim dizajnom i mnogim poboljšanjima u upotrebljivosti",
-	"prefs-vector-enable-vector-1-label": "Rabi stari (baštinjeni) izgled imena Vector",
+	"prefs-vector-enable-vector-1-label": "Rabi stari izgled imena Vector",
 	"prefs-vector-enable-vector-1-help": "Tijekom nekoliko godina osvježavat će se izgled sučelja imena Vector. Baštinjeni Vector omogućit će Vam upotrebu pregleda starije inačice Vectora (do mjeseca prosinca 2019.). Ako želite saznati više o tehnološkome osuvremenjivanju posjetite naše [[mw:Reading/Web/Desktop_Improvements|stranice projekta na MedijaWikiju]].",
 	"vector-opt-out": "Prebaci na stari izgled",
 	"vector-opt-out-tooltip": "Promijenite Vaše postavke i vratite se na stari izgled (baštinjeni Vector)",

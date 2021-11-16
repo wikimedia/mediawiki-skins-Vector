@@ -12,7 +12,8 @@
 			"Helder.wiki",
 			"Jaideraf",
 			"Opraco",
-			555
+			555,
+			"Luan"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -43,7 +44,9 @@
 	"vector-search-loader": "Carregando sugestões de pesquisa",
 	"vector-anon-user-menu-pages": "Páginas para editores conectados",
 	"vector-anon-user-menu-pages-learn": "saiba mais",
+	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição",
 	"vector-personal-more-label": "Links do usuário",
 	"vector-main-menu-tooltip": "Menu principal",
-	"tooltip-vector-anon-user-menu-title": "Mais opções"
+	"tooltip-vector-anon-user-menu-title": "Mais opções",
+	"vector-menu-checkbox-expanded": "expandido"
 }

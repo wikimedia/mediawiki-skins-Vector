@@ -18,7 +18,7 @@
 	"prefs-vector-enable-vector-1-help": "আগামী কয়েক বছর ধরে, আমরা ধীরে ধীরে ভেক্টর আবরণ হালনাগাদ করব। উত্তরাধিকার ভেক্টর আপনাকে ভেক্টরের পুরনো সংস্করণ দেখার অনুমতি দেবে (ডিসেম্বর ২০১৯ অনুযায়ী)। এই হালনাগাদ সম্পর্কে আরও জানতে, আমাদের [[mw:Reading/Web/Desktop_Improvements|প্রকল্প পাতায়]] যান।",
 	"vector-opt-out": "পুরনো চেহারাতে যান",
 	"vector-opt-out-tooltip": "আবরণটির পুরনো চেহারাতে ফিরে যেতে আপনার সেটিংস পরিবর্তন করুন (উত্তরাধিকার ভেক্টর)",
-	"vector.css": "/* এখানের সকল CSS ভেক্টর আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
+	"vector.css": "/* এখানের সকল সিএসএস ভেক্টর আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
 	"vector.js": "/* এখানের সকল জাভাস্ক্রিপ্ট ভেক্টর আবরণ ব্যবহারকারীদের জন্য লোড হবে */",
 	"vector-action-toggle-sidebar": "পার্শ্বদণ্ড দেখান",
 	"vector-language-button-label": "{{PLURAL:$1|$1টি ভাষা}}",
@@ -40,5 +40,10 @@
 	"vector-search-loader": "অনুসন্ধানের পরামর্শ লোড করা হচ্ছে",
 	"vector-anon-user-menu-pages": "অনিবন্ধিত সম্পাদকের জন্য পাতা",
 	"vector-anon-user-menu-pages-learn": "আরও জানুন",
-	"vector-personal-more-label": "ব্যবহারকারী সংযোগ"
+	"vector-anon-user-menu-pages-label": "সম্পাদনা করা সম্পর্কে আরও জানুন",
+	"vector-personal-more-label": "ব্যবহারকারী সংযোগ",
+	"vector-main-menu-tooltip": "প্রধান মেনু",
+	"tooltip-vector-anon-user-menu-title": "আরও বিকল্প",
+	"vector-menu-checkbox-expanded": "প্রসারিত",
+	"vector-menu-checkbox-collapsed": "সংকোচিত"
 }
