@@ -371,7 +371,7 @@
 		},
 		"VectorStickyHeaderEdit": {
 			"value": {
-				"logged_in": true,
+				"logged_in": false,
 				"logged_out": false
 			},
 			"description": "@var array Enables the edit icons if $wgVectorStickyHeader is true."
