@@ -4,7 +4,6 @@
 	{{#tabindex}}tabindex="{{.}}"{{/tabindex}}
 	{{#event}}data-event-name="{{.}}"{{/event}}
 	class="mw-ui-button{{#is-quiet}} mw-ui-quiet{{/is-quiet}}{{#icon}} mw-ui-icon mw-ui-icon-element mw-ui-icon-{{.}}{{/icon}} {{class}}">
-	{{{html-vector-button-icon}}}
-	<span>{{label}}</span>
+	{{{html-vector-button-icon}}}<span>{{label}}</span>
 {{#href}}</a>{{/href}}
 {{^href}}</button>{{/href}}
