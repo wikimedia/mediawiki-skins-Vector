@@ -39,6 +39,7 @@
 	"vector-jumptocontent": "본문으로 이동",
 	"vector-more-actions": "더 보기",
 	"vector-search-loader": "검색 제안을 불러오는 중",
+	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> 항목이 포함된 글을 검색",
 	"vector-intro-page": "Help:소개",
 	"vector-anon-user-menu-pages": "로그아웃한 편집자를 위한 문서",
 	"vector-anon-user-menu-pages-learn": "더 알아보기",
