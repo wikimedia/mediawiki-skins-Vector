@@ -630,6 +630,7 @@ class SkinVector extends SkinMustache {
 			'tabindex' => '-1',
 			'label' => $this->getULSLabel( 'vector-language-button-label' ),
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
+			'event' => 'ui.dropdown-p-lang-btn-sticky-header'
 		];
 	}
 
