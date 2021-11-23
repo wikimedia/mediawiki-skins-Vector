@@ -23,6 +23,7 @@
 namespace Vector;
 
 use Config;
+use MediaWiki\User\UserOptionsLookup;
 use User;
 use WebRequest;
 
@@ -61,6 +62,10 @@ final class SkinVersionLookup {
 	 * @var Config
 	 */
 	private $config;
+	/**
+	 * @var UserOptionsLookup
+	 */
+	private $userOptionsLookup;
 
 	/**
 	 * This constructor accepts all dependencies needed to obtain the skin version. The dependencies
@@ -69,11 +74,18 @@ final class SkinVersionLookup {
 	 * @param WebRequest $request
 	 * @param User $user
 	 * @param Config $config
+	 * @param UserOptionsLookup $userOptionsLookup
 	 */
-	public function __construct( WebRequest $request, User $user, Config $config ) {
+	public function __construct(
+		WebRequest $request,
+		User $user,
+		Config $config,
+		UserOptionsLookup $userOptionsLookup
+	) {
 		$this->request = $request;
 		$this->user = $user;
 		$this->config = $config;
+		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**
@@ -102,11 +114,12 @@ final class SkinVersionLookup {
 		// sessions are unavailable at that time so it's not possible to determine whether the
 		// preference is for a logged in user or an anonymous user. Since new users are known to have
 		// had their user preferences initialized in `Hooks::onLocalUserCreated()`, that means all
-		// subsequent requests to `User->getOption()` that do not have a preference set are either
-		// existing accounts or anonymous users. Login state makes the distinction.
+		// subsequent requests to `UserOptionsLookup->getOption()` that do not have a preference set
+		//are either existing accounts or anonymous users. Login state makes the distinction.
 		return (string)$this->request->getVal(
 			Constants::QUERY_PARAM_SKIN_VERSION,
-			$this->user->getOption(
+			$this->userOptionsLookup->getOption(
+				$this->user,
 				Constants::PREF_KEY_SKIN_VERSION,
 				$this->config->get(
 					$this->user->isRegistered()

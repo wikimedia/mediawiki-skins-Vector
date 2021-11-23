@@ -21,6 +21,7 @@
 namespace Vector\FeatureManagement\Tests;
 
 use HashConfig;
+use MediaWiki\User\UserOptionsLookup;
 use User;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
 use Vector\SkinVersionLookup;
@@ -48,8 +49,10 @@ class LatestSkinVersionRequirementTest extends \MediaWikiUnitTestCase {
 
 		$user = $this->createMock( User::class );
 		$user->method( 'isRegistered' )->willReturn( true );
-		$user->method( 'getOption' )
-			->will( $this->returnArgument( 1 ) );
+
+		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
+		$userOptionsLookup->method( 'getOption' )
+			->will( $this->returnArgument( 2 ) );
 
 		$request = $this->createMock( WebRequest::class );
 		$request->method( 'getVal' )
@@ -59,7 +62,8 @@ class LatestSkinVersionRequirementTest extends \MediaWikiUnitTestCase {
 			new SkinVersionLookup(
 				$request,
 				$user,
-				$config
+				$config,
+				$userOptionsLookup
 			)
 		);
 

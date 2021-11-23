@@ -585,7 +585,9 @@ class SkinVector extends SkinMustache {
 	private function isSidebarVisible() {
 		$skin = $this->getSkin();
 		if ( $skin->getUser()->isRegistered() ) {
-			$userPrefSidebarState = $skin->getUser()->getOption(
+			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+			$userPrefSidebarState = $userOptionsLookup->getOption(
+				$skin->getUser(),
 				Constants::PREF_KEY_SIDEBAR_VISIBLE
 			);
 

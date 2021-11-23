@@ -19,6 +19,7 @@
  * @since 1.35
  */
 
+use MediaWiki\User\UserOptionsLookup;
 use Vector\SkinVersionLookup;
 
 /**
@@ -41,17 +42,15 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$user
 			->method( 'isRegistered' )
 			->willReturn( false );
-		$user
-			->method( 'getOption' )
-			->with( $this->anything(), '2' )
-			->willReturn( 'beta' );
 
 		$config = new HashConfig( [
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', 'beta' );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
 		$this->assertSame(
 			'alpha',
@@ -80,17 +79,15 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$user
 			->method( 'isRegistered' )
 			->willReturn( false );
-		$user
-			->method( 'getOption' )
-			->with( $this->anything(), '2' )
-			->willReturn( 'beta' );
 
 		$config = new HashConfig( [
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', 'beta' );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
 		$this->assertSame(
 			'beta',
@@ -119,17 +116,15 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$user
 			->method( 'isRegistered' )
 			->willReturn( true );
-		$user
-			->method( 'getOption' )
-			->with( $this->anything(), '1' )
-			->willReturn( '1' );
 
 		$config = new HashConfig( [
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '1', '1' );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
 		$this->assertSame(
 			'1',
@@ -158,17 +153,15 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$user
 			->method( 'isRegistered' )
 			->willReturn( false );
-		$user
-			->method( 'getOption' )
-			->with( $this->anything(), '2' )
-			->willReturn( '2' );
 
 		$config = new HashConfig( [
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', '2' );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
 		$this->assertSame(
 			'2',
@@ -180,5 +173,19 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			$skinVersionLookup->isLegacy(),
 			'Version is non-Legacy.'
 		);
+	}
+
+	/**
+	 * @param User $user
+	 * @param mixed|null $defaultOverride
+	 * @param mixed|null $returnVal
+	 * @return UserOptionsLookup
+	 */
+	private function getUserOptionsLookupMock( $user, $defaultOverride, $returnVal ) {
+		$mock = $this->createMock( UserOptionsLookup::class );
+		$mock->method( 'getOption' )
+			->with( $user, $this->anything(), $defaultOverride )
+			->willReturn( $returnVal );
+		return $mock;
 	}
 }

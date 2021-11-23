@@ -55,7 +55,8 @@ return [
 				new SkinVersionLookup(
 					$context->getRequest(),
 					$context->getUser(),
-					$services->getService( Constants::SERVICE_CONFIG )
+					$services->getService( Constants::SERVICE_CONFIG ),
+					$services->getUserOptionsLookup()
 				)
 			)
 		);
