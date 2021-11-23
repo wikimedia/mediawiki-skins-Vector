@@ -31,20 +31,27 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 class HTMLLegacySkinVersionFieldTest extends \MediaWikiIntegrationTestCase {
 
 	public function provideDefault() {
-		yield [ 'true' ];
-		yield [ 1 ];
+		return [
+			[ false, '0' ],
+			[ false, false ],
+			[ true, '1' ],
+			[ true, true ],
+		];
 	}
 
 	/**
 	 * @dataProvider provideDefault
 	 * @covers ::__construct
 	 */
-	public function testConstructValidatesDefault( $default ) {
-		$this->expectException( \Wikimedia\Assert\PreconditionException::class );
-
-		new HTMLLegacySkinVersionField( [
-			'default' => $default
+	public function testConstructValidatesDefault( $expected, $default ) {
+		$field = new HTMLLegacySkinVersionField( [
+			'default' => $default,
+			'fieldname' => 'VectorSkinVersion',
 		] );
+		$this->assertSame(
+			$expected,
+			$field->getDefault()
+		);
 	}
 
 	public function provideGetInput() {
