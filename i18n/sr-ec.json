@@ -38,5 +38,6 @@
 	"vector-search-loader": "Учитавам предлоге претраге",
 	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",
 	"vector-anon-user-menu-pages-learn": "детаљније",
-	"vector-personal-more-label": "Кориснички линкови"
+	"vector-personal-more-label": "Кориснички линкови",
+	"tooltip-vector-anon-user-menu-title": "Више опција"
 }
