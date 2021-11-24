@@ -116,12 +116,23 @@
 		.vector-search-box {
 			display: block;
 			flex-basis: unit( 500px / @font-size-browser / @font-size-base, em );
+
+			.wvui-typeahead-search {
+				// .wvui-input__input left padding (36px) - the .wvui-icon svg width (20px)
+				// - the icon left padding (12px [1]) = 4px
+				// [1] see .wvui-typeahead-search--show-thumbnail .wvui-input__input:focus)
+				margin-left: 4px;
+			}
 		}
 
-		// Increase the start margin of the search box to account for the input
+		// T296318 Increase the start margin of the search box to account for the input
 		// expanding on focus.
 		.vector-search-box-show-thumbnail {
-			margin-left: @size-search-expand;
+			margin-left: @margin-end-search;
+
+			.wvui-input__start-icon {
+				color: @colorGray2;
+			}
 		}
 	}
 }
