@@ -61,7 +61,7 @@ const PERSONAL_MENU_TEMPLATE_DATA = {
 const LOGGED_IN_ITEMS = `
 	<li id="pt-userpage" class="user-links-collapsible-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userAvatar" href="/wiki/User:Test" dir="auto" title="Your user page [ctrl-option-.]" accesskey="."><span>Test</span></a></li>
 	<li id="pt-mytalk"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userTalk" href="/wiki/User_talk:WikiUser" title="Your talk page [⌃⌥n]" accesskey="n"><span>Talk</span></a></li>
-	<li id="pt-sandbox"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-markup" href="/wiki/User:WikiUser/sandbox" title="Your sandbox"><span>Sandbox</span></a></li>
+	<li id="pt-sandbox"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-sandbox" href="/wiki/User:WikiUser/sandbox" title="Your sandbox"><span>Sandbox</span></a></li>
 	<li id="pt-preferences"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-settings" href="/wiki/Special:Preferences" title="Your preferences"><span>Preferences</span></a></li>
 	<li id="pt-watchlist"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-unStar" href="/wiki/Special:Watchlist" title="A list of pages you are monitoring for changes [⌃⌥l]" accesskey="l"><span>Watchlist</span></a></li>
 	<li id="pt-mycontris"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-wikimedia-userContributions" href="/wiki/Special:Contributions/WikiUser" title="A list of your contributions [⌃⌥y]" accesskey="y"><span>Contributions</span></a></li>
