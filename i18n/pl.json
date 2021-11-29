@@ -34,6 +34,7 @@
 	"vector-jumptocontent": "Przejdź do zawartości",
 	"vector-more-actions": "Więcej",
 	"vector-search-loader": "Wczytywanie sugestii",
+	"vector-searchsuggest-containing": "Szukaj stron zawierających <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Pomoc:Pierwsze kroki",
 	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",
 	"vector-anon-user-menu-pages-learn": "dowiedz się więcej",
