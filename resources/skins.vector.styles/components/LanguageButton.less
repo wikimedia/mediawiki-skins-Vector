@@ -24,7 +24,9 @@
 		// Remove opacity on language button (it applies to more menu because of label color).
 		opacity: 1;
 
-		span {
+		// FIXME: `span:not` rule can be removed when cache has cleared.
+		span:not( .mw-ui-icon ),
+		.vector-menu-heading-label {
 			// Special treatment for language button, based on Vector font-size
 			font-size: @font-size-base;
 		}
