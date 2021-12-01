@@ -35,7 +35,7 @@ function initApp( searchForm ) {
 		// Pass additional config from server.
 		}, config )
 	)
-		.mount( searchForm );
+		.mount( searchForm.parentNode );
 }
 /**
  * @param {Document} document
