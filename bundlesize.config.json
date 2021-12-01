@@ -17,6 +17,6 @@
 	},
 	{
 		"resourceModule": "skins.vector.icons",
-		"maxSize": "500 B"
+		"maxSize": "1 kB"
 	}
 ]

@@ -183,7 +183,12 @@
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"variants": [],
+			"variants": {
+				"progressive": {
+					"color": "#36c",
+					"global": true
+				}
+			},
 			"icons": [
 				"language",
 				"ellipsis",
