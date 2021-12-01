@@ -48,7 +48,7 @@ function onHideFeature( element, group ) {
  *
  * @param {string} direction the scroll direction
  */
-function logScrollEvent( direction ) {
+function fireScrollHook( direction ) {
 	if ( direction === 'down' ) {
 		// @ts-ignore
 		mw.hook( SCROLL_HOOK ).fire( { context: SCROLL_CONTEXT_BELOW } );
@@ -85,6 +85,6 @@ module.exports = {
 	initScrollObserver,
 	onShowFeature,
 	onHideFeature,
-	logScrollEvent,
+	fireScrollHook,
 	FEATURE_TEST_GROUP
 };

@@ -427,5 +427,6 @@ module.exports = {
 	initStickyHeader,
 	isStickyHeaderAllowed,
 	header,
+	stickyIntersection,
 	STICKY_HEADER_EXPERIMENT_NAME
 };
