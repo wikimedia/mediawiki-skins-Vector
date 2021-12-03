@@ -10,6 +10,8 @@ const
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
+	ULS_STICKY_CLASS = 'uls-dialog-sticky',
+	ULS_HIDE_CLASS = 'uls-dialog-sticky-hide',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
 	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header_2021_11';
@@ -36,6 +38,8 @@ function show() {
 		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
 	}
+	// eslint-disable-next-line mediawiki/class-doc
+	document.body.classList.remove( ULS_HIDE_CLASS );
 }
 
 /**
@@ -45,6 +49,8 @@ function hide() {
 	if ( header ) {
 		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		// eslint-disable-next-line mediawiki/class-doc
+		document.body.classList.add( ULS_HIDE_CLASS );
 	}
 }
 
@@ -438,6 +444,27 @@ function initStickyHeader( observer ) {
 	setupSearchIfNeeded( header );
 	// @ts-ignore
 	addVisualEditorHooks( header, stickyIntersection, observer );
+
+	// Make sure ULS outside sticky header disables the sticky header behaviour.
+	// @ts-ignore
+	mw.hook( 'mw.uls.compact_language_links.open' ).add( function ( $trigger ) {
+		if ( $trigger.attr( 'id' ) !== 'p-lang-btn-sticky-header' ) {
+			const bodyClassList = document.body.classList;
+			bodyClassList.remove( ULS_HIDE_CLASS );
+			bodyClassList.remove( ULS_STICKY_CLASS );
+		}
+	} );
+
+	// Make sure ULS dialog is sticky.
+	// @ts-ignore
+	const langBtn = header.querySelector( '#p-lang-btn-sticky-header' );
+	if ( langBtn ) {
+		langBtn.addEventListener( 'click', function () {
+			const bodyClassList = document.body.classList;
+			bodyClassList.remove( ULS_HIDE_CLASS );
+			bodyClassList.add( ULS_STICKY_CLASS );
+		} );
+	}
 }
 
 module.exports = {
