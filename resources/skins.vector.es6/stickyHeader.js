@@ -3,6 +3,7 @@
  */
 const
 	STICKY_HEADER_ID = 'vector-sticky-header',
+	header = document.getElementById( STICKY_HEADER_ID ),
 	initSearchToggle = require( './searchToggle.js' ),
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
@@ -24,6 +25,26 @@ function copyAttribute( from, to, attribute ) {
 	const fromAttr = from.getAttribute( attribute );
 	if ( fromAttr ) {
 		to.setAttribute( attribute, fromAttr );
+	}
+}
+
+/**
+ * Show the sticky header.
+ */
+function show() {
+	if ( header ) {
+		// eslint-disable-next-line mediawiki/class-doc
+		header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
+	}
+}
+
+/**
+ * Hide the sticky header.
+ */
+function hide() {
+	if ( header ) {
+		// eslint-disable-next-line mediawiki/class-doc
+		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 	}
 }
 
@@ -93,13 +114,13 @@ function removeClassFromNodes( nodes, className ) {
 /**
  * Makes sticky header icons functional for modern Vector.
  *
- * @param {HTMLElement} header
+ * @param {HTMLElement} headerElement
  * @param {HTMLElement|null} history
  * @param {HTMLElement|null} talk
  */
-function prepareIcons( header, history, talk ) {
-	const historySticky = header.querySelector( '#ca-history-sticky-header' ),
-		talkSticky = header.querySelector( '#ca-talk-sticky-header' );
+function prepareIcons( headerElement, history, talk ) {
+	const historySticky = headerElement.querySelector( '#ca-history-sticky-header' ),
+		talkSticky = headerElement.querySelector( '#ca-talk-sticky-header' );
 
 	if ( !historySticky || !talkSticky ) {
 		throw new Error( 'Sticky header has unexpected HTML' );
@@ -122,7 +143,7 @@ function prepareIcons( header, history, talk ) {
 /**
  * Render sticky header edit or protected page icons for modern Vector.
  *
- * @param {HTMLElement} header
+ * @param {HTMLElement} headerElement
  * @param {HTMLElement|null} primaryEdit
  * @param {boolean} isProtected
  * @param {HTMLElement|null} secondaryEdit
@@ -130,28 +151,28 @@ function prepareIcons( header, history, talk ) {
  *  header.
  */
 function prepareEditIcons(
-	header,
+	headerElement,
 	primaryEdit,
 	isProtected,
 	secondaryEdit,
 	disableStickyHeader
 ) {
 	const
-		primaryEditStickyElement = header.querySelector(
+		primaryEditStickyElement = headerElement.querySelector(
 			'#ca-ve-edit-sticky-header'
 		),
 		primaryEditSticky = primaryEditStickyElement ? toHTMLElement(
-			header.querySelector(
+			headerElement.querySelector(
 				'#ca-ve-edit-sticky-header'
 			)
 		) : null,
 		protectedSticky = toHTMLElement(
-			header.querySelector(
+			headerElement.querySelector(
 				'#ca-viewsource-sticky-header'
 			)
 		),
 		wikitextSticky = toHTMLElement(
-			header.querySelector(
+			headerElement.querySelector(
 				'#ca-edit-sticky-header'
 			)
 		);
@@ -229,15 +250,13 @@ function isInViewport( element ) {
 /**
  * Add hooks for sticky header when Visual Editor is used.
  *
- * @param {HTMLElement} element target feature
  * @param {HTMLElement} targetIntersection intersection element
  * @param {IntersectionObserver} observer
  */
-function addVisualEditorHooks( element, targetIntersection, observer ) {
+function addVisualEditorHooks( targetIntersection, observer ) {
 	// When Visual Editor is activated, hide the sticky header.
 	mw.hook( 've.activate' ).add( () => {
-		// eslint-disable-next-line mediawiki/class-doc
-		element.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		hide();
 		observer.unobserve( targetIntersection );
 	} );
 
@@ -250,8 +269,7 @@ function addVisualEditorHooks( element, targetIntersection, observer ) {
 	// After saving edits, re-apply the sticky header if the target is not in the viewport.
 	mw.hook( 'postEdit.afterRemoval' ).add( () => {
 		if ( !isInViewport( targetIntersection ) ) {
-			// eslint-disable-next-line mediawiki/class-doc
-			element.classList.add( STICKY_HEADER_VISIBLE_CLASS );
+			show();
 			observer.observe( targetIntersection );
 		}
 	} );
@@ -260,14 +278,14 @@ function addVisualEditorHooks( element, targetIntersection, observer ) {
 /**
  * Makes sticky header functional for modern Vector.
  *
- * @param {HTMLElement} header
+ * @param {HTMLElement} headerElement
  * @param {HTMLElement} userMenu
  * @param {Element} userMenuStickyContainer
  * @param {IntersectionObserver} stickyObserver
  * @param {HTMLElement} stickyIntersection
  */
 function makeStickyHeaderFunctional(
-	header,
+	headerElement,
 	userMenu,
 	userMenuStickyContainer,
 	stickyObserver,
@@ -305,7 +323,7 @@ function makeStickyHeaderFunctional(
 		userMenuStickyContainerInner.appendChild( userMenuClone );
 	}
 
-	prepareIcons( header,
+	prepareIcons( headerElement,
 		document.querySelector( '#ca-history a' ),
 		document.querySelector( '#ca-talk a' )
 	);
@@ -318,12 +336,12 @@ function makeStickyHeaderFunctional(
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
 		// eslint-disable-next-line mediawiki/class-doc
-		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		headerElement.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
 
 	prepareEditIcons(
-		header,
+		headerElement,
 		toHTMLElement( primaryEdit ),
 		isProtected,
 		toHTMLElement( secondaryEdit ),
@@ -334,11 +352,11 @@ function makeStickyHeaderFunctional(
 }
 
 /**
- * @param {HTMLElement} header
+ * @param {HTMLElement} headerElement
  */
-function setupSearchIfNeeded( header ) {
+function setupSearchIfNeeded( headerElement ) {
 	const
-		searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
+		searchToggle = headerElement.querySelector( SEARCH_TOGGLE_SELECTOR );
 
 	if ( !document.body.classList.contains( 'skin-vector-search-vue' ) ) {
 		return;
@@ -374,7 +392,6 @@ function isAllowedAction( action ) {
 }
 
 const
-	header = document.getElementById( STICKY_HEADER_ID ),
 	stickyIntersection = document.getElementById(
 		FIRST_HEADING_ID
 	),
@@ -424,6 +441,8 @@ function initStickyHeader( observer ) {
 }
 
 module.exports = {
+	show,
+	hide,
 	initStickyHeader,
 	isStickyHeaderAllowed,
 	header,

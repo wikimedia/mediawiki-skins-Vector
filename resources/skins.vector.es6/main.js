@@ -18,6 +18,7 @@ const main = () => {
 
 	// Get the A/B test config for sticky header if enabled.
 	const
+		FEATURE_TEST_GROUP = 'stickyHeaderEnabled',
 		testConfig = AB.getEnabledExperiment(),
 		stickyConfig = testConfig &&
 			// @ts-ignore
@@ -25,10 +26,11 @@ const main = () => {
 			testConfig : null,
 		// Note that the default test group is set to experience the feature by default.
 		// @ts-ignore
-		testGroup = stickyConfig ? stickyConfig.group : scrollObserver.FEATURE_TEST_GROUP,
+		testGroup = stickyConfig ? stickyConfig.group : FEATURE_TEST_GROUP,
 		targetElement = stickyHeader.header,
 		targetIntersection = stickyHeader.stickyIntersection,
-		isStickyHeaderAllowed = stickyHeader.isStickyHeaderAllowed() && testGroup !== 'unsampled';
+		isStickyHeaderAllowed = stickyHeader.isStickyHeaderAllowed() &&
+			testGroup !== 'unsampled' && AB.isInTestGroup( testGroup, FEATURE_TEST_GROUP );
 
 	// Fire the A/B test enrollment hook.
 	AB.initAB( testGroup );
@@ -38,13 +40,13 @@ const main = () => {
 	const observer = scrollObserver.initScrollObserver(
 		() => {
 			if ( targetElement && isStickyHeaderAllowed ) {
-				scrollObserver.onShowFeature( targetElement, testGroup );
+				stickyHeader.show();
 			}
 			scrollObserver.fireScrollHook( 'down' );
 		},
 		() => {
 			if ( targetElement && isStickyHeaderAllowed ) {
-				scrollObserver.onHideFeature( targetElement, testGroup );
+				stickyHeader.hide();
 			}
 			scrollObserver.fireScrollHook( 'up' );
 		}

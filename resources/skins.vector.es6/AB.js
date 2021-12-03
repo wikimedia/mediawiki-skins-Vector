@@ -83,6 +83,17 @@ function getEnabledExperiment() {
 }
 
 /**
+ * Determine if user is in test group to experience feature.
+ *
+ * @param {string} bucket the bucket name the user is assigned
+ * @param {string} targetGroup the target test group to experience feature
+ * @return {boolean} true if the user should experience feature
+ */
+function isInTestGroup( bucket, targetGroup ) {
+	return bucket === targetGroup;
+}
+
+/**
  * Fire hook to register A/B test enrollment.
  *
  * @param {string} bucket the bucket user is assigned to
@@ -103,6 +114,7 @@ function initAB( bucket ) {
 }
 
 module.exports = {
+	isInTestGroup,
 	getEnabledExperiment,
 	initAB
 };
