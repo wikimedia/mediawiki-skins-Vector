@@ -135,6 +135,37 @@ return [
 			]
 		);
 
+		// Feature: T293470: Language in main page header
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_LANGUAGE_IN_MAIN_PAGE_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER,
+				Constants::QUERY_PARAM_LANGUAGE_IN_MAIN_PAGE_HEADER,
+				null
+			)
+		);
+
+		$featureManager->registerSimpleRequirement(
+			Constants::REQUIREMENT_IS_MAIN_PAGE,
+			$context->getTitle() ? $context->getTitle()->isMainPage() : false
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
+				Constants::REQUIREMENT_IS_MAIN_PAGE,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER
+			]
+		);
+
 		// Feature: Use Wvui Search
 		// ================================
 		$featureManager->registerRequirement(

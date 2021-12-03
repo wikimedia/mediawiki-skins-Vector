@@ -358,6 +358,13 @@
 			},
 			"description": "@var array Moves the language links from the sidebar into a menu beside the page title. Also moves the indicators to the line below, next to the tagline (siteSub)."
 		},
+		"VectorLanguageInMainPageHeader": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var When `VectorLanguageInHeader` is enabled, determines whether the Main Page's language button should be at the top or bottom of the content. The default position on the main page is at the bottom."
+		},
 		"VectorLanguageInHeaderTreatmentABTest": {
 			"value": false,
 			"description": "@var boolean Enables or disables the language in header treatment A/B test. See https://phabricator.wikimedia.org/T280825 and associated tasks for additional detail."
