@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Midnight Gambler",
-			"Paul Beppler"
+			"Paul Beppler",
+			"Iohanen"
 		]
 	},
 	"vector-action-addsection": "Abschnitt hinzufüche",
@@ -11,10 +12,10 @@
 	"vector-action-protect": "Schütz",
 	"vector-action-undelete": "Wiederherstelle",
 	"vector-action-unprotect": "Seiteschutz ännre",
-	"vector-view-create": "Erstell",
-	"vector-view-edit": "Beoorbeite",
-	"vector-view-history": "Versionsgeschicht",
+	"vector-view-create": "Erstelle",
+	"vector-view-edit": "Beaarvete",
+	"vector-view-history": "Versionsgeschichd",
 	"vector-view-view": "Lese",
 	"vector-view-viewsource": "Quelltext oonzeiche",
-	"vector-more-actions": "Meahr"
+	"vector-more-actions": "Meh"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Gastaz",
 			"Giromin Cangiaxo",
-			"S4b1nuz E.656"
+			"S4b1nuz E.656",
+			"N. Longo"
 		]
 	},
 	"vector-skin-desc": "Verscion moderna do MonoBook co-in aspetto rinovou e di belli avantaggi inta dœuviabilitæ",
@@ -12,12 +13,12 @@
 	"vector-opt-out": "Passa a l'aspetto vegio",
 	"vector-opt-out-tooltip": "Cangia e to impostassioin pe tornâ a-a vixoalizassion da pelle vegia (legacy Vector)",
 	"vector-action-addsection": "Azónzi discusción",
-	"vector-action-delete": "Scancella",
-	"vector-action-move": "Mescia",
-	"vector-action-protect": "Protezi",
+	"vector-action-delete": "Scancélla",
+	"vector-action-move": "Méscia",
+	"vector-action-protect": "Protézzi",
 	"vector-action-undelete": "Recuppera",
 	"vector-action-unprotect": "Cangia a proteçion",
-	"vector-view-create": "Crea",
+	"vector-view-create": "Crêa",
 	"vector-view-edit": "Modìfica",
 	"vector-view-history": "Cronologîa",
 	"vector-view-view": "Lêzi",

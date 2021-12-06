@@ -6,13 +6,20 @@
 			"Ex13",
 			"MaGa",
 			"Neptune, the Mystic",
-			"Tivek"
+			"Tivek",
+			"Ivi104",
+			"Ponor"
 		]
 	},
+	"skinname-vector": "Vector",
 	"vector-skin-desc": "Osuvremenjena inačica MonoBooka s obnovljenim dizajnom i mnogim poboljšanjima u upotrebljivosti",
-	"prefs-vector-enable-vector-1-label": "Rabi stari (baštinjeni) izgled imena Vector",
-	"prefs-vector-enable-vector-1-help": "Tijekom nekoliko godina osvježavat će se izgled sučelja imena Vector. Baštinjeni Vector omogućit će Vam upotrebu pregleda starije inačice Vectora (do mjeseca prosinca 2019.). Ako želite saznati više o tehnološkome osuvremenjivanju posjetite naše [[mw:Reading/Web/Desktop_Improvements|stranice projekta na MedijaWikiju]].",
+	"prefs-vector-enable-vector-1-label": "Rabi staru inačicu izgleda Vector",
+	"prefs-vector-enable-vector-1-help": "Izgled sučelja Vector osvježavat će se tijekom nekoliko godina. Ova postavka omogućit će Vam upotrebu inačice Vectora iz prosinca 2019. Više o tehnološkome osuvremenjavanju saznajte na [[mw:Reading/Web/Desktop_Improvements|stranici  projekta na MediaWikiju]].",
 	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite postavke i vratite se na stari izgled sučelja Vector",
+	"vector.css": "/* Sav kôd CSS-a na ovoj stranici bit će učitan upotrebljavačima izgleda Vector */",
+	"vector.js": "/* Sav kôd JavaScripta na ovoj stranici bit će učitan upotrebljavačima izgleda Vector */",
+	"vector-action-toggle-sidebar": "Uključi / isključi bočnu traku",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Premjesti",

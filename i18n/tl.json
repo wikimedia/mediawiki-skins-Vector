@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"AnakngAraw",
-			"Sky Harbor"
+			"Sky Harbor",
+			"GinawaSaHapon"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -11,10 +12,10 @@
 	"vector-action-addsection": "Magdagdag ng paksa",
 	"vector-action-delete": "Burahin",
 	"vector-action-move": "Ilipat",
-	"vector-action-protect": "Ipagsanggalang",
+	"vector-action-protect": "Protektahan",
 	"vector-action-undelete": "Alisin ang pagbubura",
 	"vector-action-unprotect": "Baguhin ang pagsasanggalang",
-	"vector-view-create": "Likhain",
+	"vector-view-create": "Gawin",
 	"vector-view-edit": "Baguhin",
 	"vector-view-history": "Tingnan ang kasaysayan",
 	"vector-view-view": "Basahin",
