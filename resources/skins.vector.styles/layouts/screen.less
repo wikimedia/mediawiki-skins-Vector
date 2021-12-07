@@ -239,6 +239,9 @@ body {
 	.skin-vector-disable-max-width & {
 		// Allow the max-width of content on history/special pages to be wider than
 		// the max-width of content on article pages.
+		// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
+		// to support easier navigation between tabs.
+		// See T293441 for further information on that.
 		max-width: none;
 	}
 }
