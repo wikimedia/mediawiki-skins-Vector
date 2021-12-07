@@ -1,13 +1,6 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
-// T296321 Set an explicit height. This is needed for scroll padding and for other
-// sticky elements on the page. Setting the height in relative units enables
-// the header's height to adapt to the browser's font size setting. Because
-// this variable is used to determine top offsets for sticky elements where the
-// font-size might not be 16px, using rem avoids the cascading effects of em units.
-@height-sticky-header: unit( 50px / @font-size-browser, rem );
-
 .vector-sticky-header {
 	width: 100%;
 	height: @height-sticky-header;
@@ -17,7 +10,7 @@
 	right: 0;
 	z-index: @z-index-header;
 	transform: translateY( -100% );
-	transition: transform 250ms linear;
+	transition: @transition-sticky-header;
 	display: flex;
 	align-items: center;
 	max-width: @max-width-page-container + @padding-horizontal-page-container + @padding-horizontal-page-container;
