@@ -398,6 +398,7 @@ class SkinVector extends SkinMustache {
 				'is-quiet' => true,
 				'tabindex' => '-1',
 				'class' => 'vector-sticky-header-search-toggle',
+				'event' => 'ui.' . $searchBoxData['form-id'] . '.icon'
 			],
 			'data-search' => $searchBoxData,
 			'data-buttons' => $btns,
