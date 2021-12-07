@@ -277,6 +277,26 @@ final class Constants {
 	public const FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER = 'LanguageInMainPageHeader';
 
 	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR = 'LanguageAlertInSidebar';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_LANGUAGE_ALERT_IN_SIDEBAR = 'VectorLanguageAlertInSidebar';
+
+	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_LANGUAGE_ALERT_IN_SIDEBAR = 'languagealertinsidebar';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_LANGUAGE_ALERT_IN_SIDEBAR = 'LanguageAlertInSidebar';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
