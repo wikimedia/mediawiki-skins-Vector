@@ -5,6 +5,7 @@
 			"咽頭べさ"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ဘာႏသာႏငဝ်းငွါ|$1 ဘာႏသာႏငဝ်းငွါဖိုင်ႏ}}",
 	"vector-action-addsection": "ထဲမ်သော့ꩻထဲင်း အကျောင်ꩻခရာႏတသာ",
 	"vector-action-delete": "ယားကုဲင်",
 	"vector-action-move": "ခြုဲင်း",

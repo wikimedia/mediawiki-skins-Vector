@@ -4,6 +4,7 @@
 			"Noktonissian"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ᨽᩣᩈᩣ}}",
 	"vector-action-addsection": "ᨽᩮᩥ᩠᩵ᨾᩉ᩠ᩅᩫᨡᩬᩴ᩶",
 	"vector-action-move": "ᨸᩖ᩠᩵ᨿᩁᨩᩨ᩵",
 	"vector-view-create": "ᨸᩖᩯᨦ",
