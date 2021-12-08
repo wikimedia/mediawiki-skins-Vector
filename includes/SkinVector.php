@@ -154,15 +154,40 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * @param string $location Either 'top' or 'bottom' is accepted.
 	 * @return bool
 	 */
-	private function isLanguagesInHeader() {
+	private function isLanguagesInContentAt( $location ) {
+		if ( !$this->canHaveLanguages() ) {
+			return false;
+		}
 		$featureManager = VectorServices::getFeatureManager();
-		// Disable button on pages without languages (based on Wikibase RepoItemLinkGenerator class)
-
-		return $this->canHaveLanguages() && $featureManager->isFeatureEnabled(
+		$inContent = $featureManager->isFeatureEnabled(
 			Constants::FEATURE_LANGUAGE_IN_HEADER
 		);
+		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
+
+		switch ( $location ) {
+			case 'top':
+				return $isMainPage ? $inContent && $featureManager->isFeatureEnabled(
+					Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER
+				) : $inContent;
+			case 'bottom':
+				return $inContent && $isMainPage && !$featureManager->isFeatureEnabled(
+					Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER
+				);
+			default:
+				throw new RuntimeException( 'unknown language button location' );
+		}
+	}
+
+	/**
+	 * Whether or not the languages are out of the sidebar and in the content either at
+	 * the top or the bottom.
+	 * @return bool
+	 */
+	private function isLanguagesInContent() {
+		return $this->isLanguagesInContentAt( 'top' ) || $this->isLanguagesInContentAt( 'bottom' );
 	}
 
 	/**
@@ -174,7 +199,7 @@ class SkinVector extends SkinMustache {
 		return !$this->isLegacy() &&
 			!$this->canHaveLanguages() ||
 			// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
-			( $this->isLanguagesInHeader() && empty( $this->getLanguagesCached() ) );
+			( $this->isLanguagesInContent() && empty( $this->getLanguagesCached() ) );
 	}
 
 	/**
@@ -438,7 +463,9 @@ class SkinVector extends SkinMustache {
 
 			'sidebar-visible' => $this->isSidebarVisible(),
 
-			'is-language-in-header' => $this->isLanguagesInHeader(),
+			'is-language-in-content' => $this->isLanguagesInContent(),
+			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
+			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 
 			'data-search-box' => $this->getSearchData(
 				$parentData['data-search-box'],
@@ -706,7 +733,7 @@ class SkinVector extends SkinMustache {
 				break;
 		}
 
-		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInHeader() ) {
+		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInContent() ) {
 			$portletData = array_merge( $portletData, $this->getULSPortletData() );
 		}
 		$class = $portletData['class'];
@@ -738,7 +765,7 @@ class SkinVector extends SkinMustache {
 				$type = self::MENU_TYPE_DEFAULT;
 				break;
 			case 'lang':
-				$type = $this->isLanguagesInHeader() ?
+				$type = $this->isLanguagesInContent() ?
 					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_PORTAL;
 				break;
 			default:

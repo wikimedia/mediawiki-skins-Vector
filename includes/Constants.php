@@ -252,6 +252,31 @@ final class Constants {
 	public const CONFIG_SEARCH_TREATMENT_AB_TEST = 'VectorSearchTreatmentABTest';
 
 	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_IS_MAIN_PAGE = 'IsMainPage';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER = 'LanguageInMainPageHeader';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_LANGUAGE_IN_MAIN_PAGE_HEADER = 'VectorLanguageInMainPageHeader';
+
+	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_LANGUAGE_IN_MAIN_PAGE_HEADER = 'languageinmainpageheader';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER = 'LanguageInMainPageHeader';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
