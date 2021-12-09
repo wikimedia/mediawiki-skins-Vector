@@ -416,7 +416,8 @@ class SkinVector extends SkinMustache {
 			$btns[] = self::EDIT_VE_ICON;
 		}
 		return [
-			'data-primary-action' => !$this->shouldHideLanguages() ? $this->getULSButtonData() : null,
+			'data-primary-action' => $this->isLanguagesInContent() ?
+				$this->getULSButtonData() : null,
 			'data-button-start' => [
 				'label' => $this->msg( 'search' ),
 				'icon' => 'wikimedia-search',
