@@ -12,7 +12,7 @@ const
 	USER_MENU_ID = 'p-personal',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
-	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header_2021_11';
+	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header';
 
 /**
  * Copies attribute from an element to another.

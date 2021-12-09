@@ -2,7 +2,7 @@
  * Example A/B test configuration for sticky header:
  *
  * $wgVectorABTestEnrollment = [
- *     'name' => 'vector.sticky_header_2021_11',
+ *     'name' => 'vector.sticky_header',
  *     'enabled' => true,
  *     'buckets' => [
  *         'unsampled' => [

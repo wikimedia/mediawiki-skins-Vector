@@ -390,7 +390,7 @@
 		},
 		"VectorWebABTestEnrollment": {
 			"value": {
-				"name": "vector.sticky_header_2021_11",
+				"name": "vector.sticky_header",
 				"enabled": false,
 				"buckets": {
 					"unsampled": {
