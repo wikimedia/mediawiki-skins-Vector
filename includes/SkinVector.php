@@ -676,10 +676,10 @@ class SkinVector extends SkinMustache {
 			'aria-label' => $this->getULSLabel( 'vector-language-button-aria-label' ),
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
-			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language' ),
+			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
 			'heading-class' =>
 				' vector-menu-heading ' .
-				' mw-ui-button mw-ui-quiet'
+				' mw-ui-button mw-ui-quiet mw-ui-progressive'
 			];
 
 		// Adds class to hide language button

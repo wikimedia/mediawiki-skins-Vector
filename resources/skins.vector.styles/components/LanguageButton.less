@@ -34,6 +34,32 @@
 		&:after {
 			top: 0;
 		}
+
+		// T291286: Temporarily use progressive ULS style
+		&.mw-ui-progressive.mw-ui-quiet {
+			.mw-ui-icon:before {
+				// Ensure inverted language icon is white
+				opacity: 1;
+			}
+
+			&:after {
+				// Invert arrow color
+				background-image: url( ../common/images/arrow-down-progressive.svg );
+				opacity: 1;
+			}
+		}
+	}
+
+	input:active + .vector-menu-heading {
+		&.mw-ui-progressive.mw-ui-quiet {
+			.mw-ui-icon {
+				filter: brightness( 0 ) invert( 1 );
+			}
+
+			&:after {
+				background-image: url( ../common/images/arrow-down-invert.svg );
+			}
+		}
 	}
 
 	.vector-menu-content {
