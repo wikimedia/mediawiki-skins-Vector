@@ -8,11 +8,36 @@
 	// Align with the portal heading/links
 	// `.portal` + `.portal .body`
 	margin: 8px @margin-end-portal 8px @margin-start-portal + @margin-start-portal-body;
-}
 
-.mw-sidebar-action-link {
-	font-size: @font-size-portal-list-item;
-	font-weight: bold;
+	// Styles for SidebarAction template.
+	.mw-sidebar-action-item {
+		h3.mw-sidebar-action-heading {
+			display: block;
+			background-image: url( ../common/images/portal-separator.png ); // Support: IE 9, Fx 3.6-15, Safari 5.1-6, Chrome 10-25
+			background-image: linear-gradient( to right, @border-color-portal-heading-transparent 0, @border-color-portal-heading 33%, @border-color-portal-heading 66%, @border-color-portal-heading-transparent 100% ); // Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
+			background-position: center bottom;
+			background-repeat: no-repeat;
+			background-size: 100% @border-width-base;
+			color: @color-base--subtle;
+			margin: 0.75em 0;
+			border: 0;
+			padding: 0.3em 0;
+			font-size: @font-size-nav-main-heading;
+			font-weight: normal;
+			cursor: default;
+		}
+
+		.link-only a {
+			font-size: @font-size-portal-list-item;
+			font-weight: bold;
+		}
+
+		// T295555 style overrides for temporary language switch alert (can be removed later ).
+		.messagebox {
+			padding: 0.75em;
+			font-size: @font-size-portal-list-item;
+		}
+	}
 }
 
 #mw-sidebar-button {

@@ -166,6 +166,31 @@ return [
 			]
 		);
 
+		// Feature: T295555: Language switch alert in sidebar
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_LANGUAGE_ALERT_IN_SIDEBAR,
+				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR,
+				Constants::QUERY_PARAM_LANGUAGE_ALERT_IN_SIDEBAR,
+				null
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
+			]
+		);
+
 		// Feature: Use Wvui Search
 		// ================================
 		$featureManager->registerRequirement(
