@@ -27,15 +27,19 @@
 			cursor: default;
 		}
 
-		.link-only a {
-			font-size: @font-size-portal-list-item;
-			font-weight: bold;
+		.mw-sidebar-action-content {
+			> * {
+				font-size: @font-size-portal-list-item;
+			}
+
+			> a {
+				font-weight: bold;
+			}
 		}
 
 		// T295555 style overrides for temporary language switch alert (can be removed later ).
 		.messagebox {
 			padding: 0.75em;
-			font-size: @font-size-portal-list-item;
 		}
 	}
 }
