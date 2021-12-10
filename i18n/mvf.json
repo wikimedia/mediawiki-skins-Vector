@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Enkhsaihan2005"
+			"Enkhsaihan2005",
+			"Wikibilig"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ᠬᠡᠯᠡ}}",
 	"vector-view-edit": "ᠵᠠᠰᠠᠪᠤᠷᠢᠯᠠᠬᠤ",
 	"vector-view-history": "ᠲᠡᠦᠬᠡ",
 	"vector-view-view": "ᠤᠩᠰᠢᠬᠤ",
