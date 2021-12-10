@@ -445,11 +445,7 @@ class SkinVector extends SkinMustache {
 			$htmlContent = $htmlData['html-content'];
 		}
 
-		$htmlClasses = array_key_exists( 'html-class', $htmlData )
-			? [ 'html-class' => $htmlData['html-class'] ]
-			: [];
-
-		return $headingOptions + $htmlClasses + [
+		return $headingOptions + [
 			'html-content' => $htmlContent,
 		];
 	}
@@ -538,7 +534,6 @@ class SkinVector extends SkinMustache {
 			];
 			$htmlData = [
 				'link' => $optOutUrl,
-				'html-class' => [ 'link-only' ],
 			];
 			$commonSkinData['data-emphasized-sidebar-action'][] = $this->makeSidebarActionData(
 				$htmlData,
@@ -556,8 +551,10 @@ class SkinVector extends SkinMustache {
 			// T295555 Add language switch alert message temporarily (to be removed).
 			if ( $this->shouldLanguageAlertBeInSidebar() && !$parentData['is-mainpage'] ) {
 				$languageSwitchAlert = [
-					'html-content' => $this->msg( 'vector-language-redirect-to-top' )->parse(),
-					'html-class' => [ 'messagebox' ],
+					'html-content' => Html::rawElement( 'div',
+						[ 'class' => 'messagebox' ],
+						$this->msg( 'vector-language-redirect-to-top' )->parse()
+					),
 				];
 				$headingOptions = [
 					'heading' => $this->msg( 'vector-languages' )->plain(),
