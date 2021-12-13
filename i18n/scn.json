@@ -9,6 +9,7 @@
 		]
 	},
 	"vector-skin-desc": "Virsioni muderna di MonoBook cu n'aspettu novu e tanti migghiuramenti nta l'usabbilità",
+	"vector-languages": "Lingui",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 lingui}}",
 	"vector-action-addsection": "Agghiunci n'argumentu",
 	"vector-action-delete": "Cancella",

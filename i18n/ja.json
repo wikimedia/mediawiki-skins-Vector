@@ -17,6 +17,7 @@
 			"Whym",
 			"Yusuke1109",
 			"しぃ",
+			"ひまり",
 			"青子守歌"
 		]
 	},
@@ -29,6 +30,7 @@
 	"vector.css": "/* ここに記述したCSSは、Vectorスキンの利用者全てに読み込まれます */",
 	"vector.js": "/* ここに記述したJavaScriptは、Vectorスキンの利用者全てに読み込まれます */",
 	"vector-action-toggle-sidebar": "サイドバーの切り替え",
+	"vector-languages": "言語",
 	"vector-language-button-label": "{{PLURAL:$1|言語}}",
 	"vector-action-addsection": "話題追加",
 	"vector-action-delete": "削除",

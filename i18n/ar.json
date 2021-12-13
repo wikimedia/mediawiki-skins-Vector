@@ -25,6 +25,7 @@
 	"vector.css": "/* ستؤثِّر الأنماط المتراصة CSS المعروضة هنا على مستخدمي واجهة فكتور */",
 	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
+	"vector-languages": "لغات",
 	"vector-language-button-label": "بلغات أخرى ($1)",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",

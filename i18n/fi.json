@@ -21,6 +21,7 @@
 	"vector.css": "/* Tämä sivu sisältää Vektori-ulkoasua muuttavia tyylejä. */",
 	"vector.js": "/* Tämän sivun JavaScript-koodi liitetään Vektori-tyyliin */",
 	"vector-action-toggle-sidebar": "Näytä/piilota sivupalkki",
+	"vector-languages": "Kielet",
 	"vector-language-button-aria-label": "Mene artikkeliin toisella kielellä. Saatavilla {{PLURAL:$1|$1 kielellä}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 kieli|$1 kieltä}}",
 	"vector-action-addsection": "Lisää aihe",

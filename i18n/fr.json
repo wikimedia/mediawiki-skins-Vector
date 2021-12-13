@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Akeron",
 			"Crochet.david",
 			"DavidL",
@@ -29,6 +30,7 @@
 	"vector.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Vector */",
 	"vector.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Vector */",
 	"vector-action-toggle-sidebar": "Afficher / masquer la barre latérale",
+	"vector-languages": "Langues",
 	"vector-language-button-aria-label": "Aller à un article dans une autre langue. Disponible en {{PLURAL:$1|$1 langue|$1 langues}}.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
 	"vector-language-variant-switcher-label": "Modifier la variante de langue",

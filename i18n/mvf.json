@@ -6,6 +6,8 @@
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᠬᠡᠯᠡ}}",
+	"vector-action-addsection": "ᠰᠡᠳᠦᠪ ᠨᠡᠮᠡᠬᠦ",
+	"vector-view-create": "ᠡᠭᠦᠰᠬᠡᠬᠦ",
 	"vector-view-edit": "ᠵᠠᠰᠠᠪᠤᠷᠢᠯᠠᠬᠤ",
 	"vector-view-history": "ᠲᠡᠦᠬᠡ",
 	"vector-view-view": "ᠤᠩᠰᠢᠬᠤ",
