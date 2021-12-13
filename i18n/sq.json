@@ -6,7 +6,8 @@
 			"MicroBoy",
 			"Mikullovci11",
 			"Olsi",
-			"Besnik b"
+			"Besnik b",
+			"Ftillimi"
 		]
 	},
 	"vector-action-addsection": "Shto një temë",
@@ -18,7 +19,7 @@
 	"vector-view-create": "Krijo",
 	"vector-view-edit": "Redakto",
 	"vector-view-history": "Shihni historikun",
-	"vector-view-view": "Lexoni",
+	"vector-view-view": "Lexo",
 	"vector-view-viewsource": "Shihni burimin",
 	"vector-more-actions": "Më tepër"
 }
