@@ -34,6 +34,19 @@ function bindToggleOnSpaceEnter() {
 }
 
 /**
+ * T295085: Close all dropdown menus when page is unloaded to prevent them from
+ * being open when navigating back to a page.
+ */
+function bindCloseOnUnload() {
+	addEventListener( 'beforeunload', function () {
+		document.querySelectorAll( CHECKBOX_HACK_CHECKBOX_SELECTOR + ':checked' )
+			.forEach( function ( checkbox ) {
+				/** @type {HTMLInputElement} */ ( checkbox ).checked = false;
+			} );
+	} );
+}
+
+/**
  * Make sure that clicking outside a menu closes it.
  */
 function closeDropdownsOnClickOutside() {
@@ -99,4 +112,5 @@ mw.hook( 'util.addPortletLink' ).add( addPortletLinkHandler );
 module.exports = function dropdownMenus() {
 	closeDropdownsOnClickOutside();
 	bindToggleOnSpaceEnter();
+	bindCloseOnUnload();
 };
