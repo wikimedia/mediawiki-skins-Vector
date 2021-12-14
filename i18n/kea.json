@@ -6,6 +6,7 @@
 			"Waldyrious"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 língua}}",
 	"vector-action-addsection": "Adisiona tópiku",
 	"vector-action-delete": "Paga",
 	"vector-action-protect": "Proteji",
