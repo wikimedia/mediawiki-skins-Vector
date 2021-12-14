@@ -203,7 +203,7 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Returns HTML for the create account button inside the anon user links
+	 * Returns HTML for the create account link inside the anon user links
 	 * @param string[] $returnto array of query strings used to build the login link
 	 * @param string[] $class array of CSS classes to add.
 	 * @param bool $includeIcon Set true to include icon CSS classes.
@@ -212,6 +212,7 @@ class SkinVector extends SkinMustache {
 	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData['single-id'] = 'pt-createaccount';
+		unset( $createAccountData['icon'] );
 
 		if ( $includeIcon ) {
 			$class = array_merge(
@@ -224,9 +225,34 @@ class SkinVector extends SkinMustache {
 		}
 
 		$createAccountData['class'] = $class;
-		$htmlCreateAccount = $this->makeLink( 'create-account', $createAccountData );
+		return $this->makeLink( 'create-account', $createAccountData );
+	}
 
-		return $htmlCreateAccount;
+	/**
+	 * Returns HTML for the watchlist link inside user links
+	 * @return string
+	 */
+	private function getWatchlistHTML() {
+		$title = $this->getTitle();
+		$pageurl = $title->getLocalURL();
+		$href = self::makeSpecialUrl( 'Watchlist' );
+		$watchlistData = [
+			'text' => $this->msg( 'mywatchlist' )->text(),
+			'href' => $href,
+			'active' => ( $href == $pageurl ),
+			'single-id' => 'pt-watchlist',
+			'class' => [
+				'mw-ui-button',
+				'mw-ui-quiet',
+				'mw-ui-icon',
+				'mw-ui-icon-element',
+				'mw-ui-icon-wikimedia-unStar'
+			]
+		];
+
+		$featureManager = VectorServices::getFeatureManager();
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_USER_LINKS_WATCHLIST ) ?
+			$this->makeLink( 'watchlist', $watchlistData ) : '';
 	}
 
 	/**
@@ -317,6 +343,7 @@ class SkinVector extends SkinMustache {
 			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
 			'data-notifications' => $menuData[ 'data-notifications' ],
 			'data-user-page' => $menuData[ 'data-user-page' ],
+			'html-vector-watchlist' => $this->getWatchlistHTML(),
 		] );
 		$userMoreData = [
 			'id' => 'p-personal-more',

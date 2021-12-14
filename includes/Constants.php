@@ -207,6 +207,23 @@ final class Constants {
 	public const FEATURE_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
 
 	/**
+	 * @var string
+	 */
+	public const FEATURE_USER_LINKS_WATCHLIST = 'UserLinksWatchlist';
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_USER_LINKS_WATCHLIST = 'UserLinksWatchlist';
+	/**
+	 * @var string
+	 */
+	public const CONFIG_USER_LINKS_WATCHLIST = 'VectorUserLinksWatchlist';
+	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_USER_LINKS_WATCHLIST = 'vectoruserlinkswatchlist';
+
+	/**
 	 * Defines whether the Sticky Header A/B test is running. See
 	 * https://phabricator.wikimedia.org/T292587 for additional detail about the test.
 	 *

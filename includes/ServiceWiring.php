@@ -261,6 +261,21 @@ return [
 			)
 		);
 
+		// Temporary feature flag for moving watchlist out of user menu
+		// Remove when the new watchlist icon is in OOUI
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_USER_LINKS_WATCHLIST,
+				Constants::REQUIREMENT_USER_LINKS_WATCHLIST,
+				Constants::QUERY_PARAM_USER_LINKS_WATCHLIST,
+				null
+			)
+		);
+
 		$featureManager->registerFeature(
 			Constants::FEATURE_STICKY_HEADER,
 			[
@@ -277,6 +292,15 @@ return [
 				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER_EDIT,
+			]
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_USER_LINKS_WATCHLIST,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
+				Constants::REQUIREMENT_USER_LINKS_WATCHLIST,
 			]
 		);
 

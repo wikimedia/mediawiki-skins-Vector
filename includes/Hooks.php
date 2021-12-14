@@ -213,6 +213,12 @@ class Hooks {
 				$content_navigation['user-menu']['userpage'],
 				$COLLAPSE_MENU_ITEM_CLASS
 			);
+			if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USER_LINKS_WATCHLIST ) ) {
+				self::appendClassToListItem(
+					$content_navigation['user-menu']['watchlist'],
+					$COLLAPSE_MENU_ITEM_CLASS
+				);
+			}
 			// Remove logout link from user-menu and recreate it in SkinVector,
 			unset( $content_navigation['user-menu']['logout'] );
 			// Don't show icons for anon menu items (besides login and create account).
@@ -272,11 +278,10 @@ class Hooks {
 	/**
 	 * Updates user interface preferences for modern Vector to upgrade icon/button menu items.
 	 *
-	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 * @param string $menu identifier
 	 */
-	private static function updateMenuItems( $sk, &$content_navigation, $menu ) {
+	private static function updateMenuItems( &$content_navigation, $menu ) {
 		foreach ( $content_navigation[$menu] as $key => $item ) {
 			$hasButton = $item['button'] ?? false;
 			$hideText = $item['text-hidden'] ?? false;
@@ -337,12 +342,12 @@ class Hooks {
 				// for extensions that have opted in.
 				if ( isset( $content_navigation['user-interface-preferences'] ) ) {
 					self::updateMenuItems(
-						$sk, $content_navigation, 'user-interface-preferences'
+						$content_navigation, 'user-interface-preferences'
 					);
 				}
 				if ( isset( $content_navigation['notifications'] ) ) {
 					self::updateMenuItems(
-						$sk, $content_navigation, 'notifications'
+						$content_navigation, 'notifications'
 					);
 				}
 			}

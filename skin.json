@@ -405,6 +405,10 @@
 			},
 			"description": "@var array Enables the edit icons if $wgVectorStickyHeader is true."
 		},
+		"VectorUserLinksWatchlist": {
+			"value": false,
+			"description": "@var string Enables moving the watchlist to outside the user menu if true. This feature flag is temporary and subject to removal. "
+		},
 		"VectorWebABTestEnrollment": {
 			"value": {
 				"name": "vector.sticky_header",
