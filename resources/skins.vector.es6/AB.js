@@ -101,7 +101,7 @@ function isInTestGroup( bucket, targetGroup ) {
 function initAB( bucket ) {
 	// Send data to WikimediaEvents to log A/B test initialization if experiment is enabled
 	// and if the user is logged in.
-	if ( ABTestConfig.enabled && !mw.user.isAnon() ) {
+	if ( ABTestConfig.enabled && !mw.user.isAnon() && bucket !== 'unsampled' ) {
 		// @ts-ignore
 		mw.hook( 'mediawiki.web_AB_test_enrollment' ).fire( getABTestGroupExperimentName() );
 
