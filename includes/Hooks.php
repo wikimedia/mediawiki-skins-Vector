@@ -7,6 +7,7 @@ use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoaderContext;
+use RuntimeException;
 use Skin;
 use SkinTemplate;
 use SkinVector;
@@ -24,6 +25,41 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
  */
 class Hooks {
 	/**
+	 * @param Config $config
+	 * @return array
+	 */
+	private static function getActiveABTest( $config ) {
+		$ab = $config->get(
+			Constants::CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT
+		);
+		if ( count( $ab ) === 0 ) {
+			// If array is empty then no experiment and need to validate.
+			return $ab;
+		}
+		if ( !array_key_exists( 'buckets', $ab ) ) {
+			throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Must contain buckets key.' );
+		}
+		if ( !array_key_exists( 'unsampled', $ab['buckets'] ) ) {
+			throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Must define an `unsampled` bucket.' );
+		} else {
+			// check bucket values.
+			foreach ( $ab['buckets'] as $bucketName => $bucketDefinition ) {
+				if ( !is_array( $bucketDefinition ) ) {
+					throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Buckets should be arrays' );
+				}
+				$samplingRate = $bucketDefinition['samplingRate'];
+				if ( is_string( $samplingRate ) ) {
+					throw new RuntimeException(
+						'Invalid VectorWebABTestEnrollment value: Sampling rate should be number between 0 and 1.'
+					);
+				}
+			}
+		}
+
+		return $ab;
+	}
+
+	/**
 	 * Passes config variables to Vector (modern) ResourceLoader module.
 	 * @param ResourceLoaderContext $context
 	 * @param Config $config
@@ -35,9 +71,7 @@ class Hooks {
 	) {
 		return [
 			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
-			'wgVectorWebABTestEnrollment' => $config->get(
-				Constants::CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT
-			),
+			'wgVectorWebABTestEnrollment' => self::getActiveABTest( $config ),
 		];
 	}
 

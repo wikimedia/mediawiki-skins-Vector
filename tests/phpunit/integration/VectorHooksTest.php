@@ -43,6 +43,123 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
+	public function provideGetVectorResourceLoaderConfig() {
+		return [
+			[
+				[
+					'VectorWebABTestEnrollment' => [],
+					'VectorSearchHost' => 'en.wikipedia.org'
+				],
+				[
+					'wgVectorSearchHost' => 'en.wikipedia.org',
+					'wgVectorWebABTestEnrollment' => [],
+				]
+			],
+			[
+				[
+					'VectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+						'buckets' => [
+								'unsampled' => [
+										'samplingRate' => 1,
+								],
+								'control' => [
+										'samplingRate' => 0
+								],
+								'stickyHeaderEnabled' => [
+										'samplingRate' => 0
+								],
+								'stickyHeaderDisabled' => [
+										'samplingRate' => 0
+								],
+						],
+					],
+					'VectorSearchHost' => 'en.wikipedia.org'
+				],
+				[
+					'wgVectorSearchHost' => 'en.wikipedia.org',
+					'wgVectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+						'buckets' => [
+								'unsampled' => [
+										'samplingRate' => 1,
+								],
+								'control' => [
+										'samplingRate' => 0
+								],
+								'stickyHeaderEnabled' => [
+										'samplingRate' => 0
+								],
+								'stickyHeaderDisabled' => [
+										'samplingRate' => 0
+								],
+						],
+					],
+				]
+			],
+		];
+	}
+
+	public function provideGetVectorResourceLoaderConfigWithExceptions() {
+		return [
+			# Bad experiment (no buckets)
+			[
+				[
+					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+					],
+				]
+			],
+			# Bad experiment (no unsampled bucket)
+			[
+				[
+					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+						'buckets' => [
+							'a' => [
+								'samplingRate' => 0
+							],
+						]
+					],
+				]
+			],
+			# Bad experiment (wrong format)
+			[
+				[
+					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+						'buckets' => [
+							'unsampled' => 1,
+						]
+					],
+				]
+			],
+			# Bad experiment (samplingRate defined as string)
+			[
+				[
+					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorWebABTestEnrollment' => [
+						'name' => 'vector.sticky_header',
+						'enabled' => true,
+						'buckets' => [
+							'unsampled' => [
+								'samplingRate' => '1'
+							],
+						]
+					],
+				]
+			],
+		];
+	}
+
 	/**
 	 * @covers ::shouldDisableMaxWidth
 	 */
@@ -217,6 +334,36 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			],
 			$prefs,
 			'Preferences are inserted directly after skin.'
+		);
+	}
+
+	/**
+	 * @covers ::getVectorResourceLoaderConfig
+	 * @dataProvider provideGetVectorResourceLoaderConfig
+	 */
+	public function testGetVectorResourceLoaderConfig( $configData, $expected ) {
+		$config = new HashConfig( $configData );
+		$vectorConfig = Hooks::getVectorResourceLoaderConfig(
+			$this->createMock( ResourceLoaderContext::class ),
+			$config
+		);
+
+		$this->assertSame(
+			$vectorConfig,
+			$expected
+		);
+	}
+
+	/**
+	 * @covers ::getVectorResourceLoaderConfig
+	 * @dataProvider provideGetVectorResourceLoaderConfigWithExceptions
+	 */
+	public function testGetVectorResourceLoaderConfigWithExceptions( $configData ) {
+		$config = new HashConfig( $configData );
+		$this->expectException( RuntimeException::class );
+		$vectorConfig = Hooks::getVectorResourceLoaderConfig(
+			$this->createMock( ResourceLoaderContext::class ),
+			$config
 		);
 	}
 
