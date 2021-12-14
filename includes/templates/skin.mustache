@@ -56,7 +56,7 @@
 
 	{{^is-language-in-content}}
 	{{>Indicators}}
-	<h1 id="firstHeading" class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+	{{{html-title-heading}}}
 	{{/is-language-in-content}}
 
 	{{#is-language-in-content}}
@@ -64,7 +64,7 @@
 		{{#is-language-in-content-top}}
 			{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
 		{{/is-language-in-content-top}}
-		<h1 id="firstHeading" class="firstHeading" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+		{{{html-title-heading}}}
 		{{>Indicators}}
 		{{#is-article}}
 			<div id="siteSub" class="noprint">{{msg-tagline}}</div>
