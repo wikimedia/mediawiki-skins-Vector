@@ -462,6 +462,16 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Determines if the Table of Contents should be visible.
+	 *
+	 * @return bool
+	 */
+	private function isTableOfContentsVisible(): bool {
+		$featureManager = VectorServices::getFeatureManager();
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -497,6 +507,8 @@ class SkinVector extends SkinMustache {
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
+
+			'is-vector-table-of-contents-visible' => $this->isTableOfContentsVisible(),
 
 			'data-search-box' => $this->getSearchData(
 				$parentData['data-search-box'],

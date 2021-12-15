@@ -191,6 +191,30 @@ return [
 			]
 		);
 
+		// Feature: T297610: Table of Contents
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_TABLE_OF_CONTENTS,
+				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
+				Constants::QUERY_PARAM_TABLE_OF_CONTENTS,
+				null
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_TABLE_OF_CONTENTS,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
+				Constants::REQUIREMENT_TABLE_OF_CONTENTS
+			]
+		);
+
 		// Feature: Use Wvui Search
 		// ================================
 		$featureManager->registerRequirement(

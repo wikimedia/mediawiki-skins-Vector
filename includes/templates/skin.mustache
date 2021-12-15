@@ -43,6 +43,9 @@
 	{{#sidebar-visible}}checked{{/sidebar-visible}}>
 
 {{>Header}}
+
+{{#is-vector-table-of-contents-visible}}{{>TableOfContents}}{{/is-vector-table-of-contents-visible}}
+
 <div class="mw-workspace-container">
 	{{>Navigation}}
 	<div class="mw-content-container">

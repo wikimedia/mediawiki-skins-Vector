@@ -420,6 +420,13 @@
 		"VectorDisableSidebarPersistence": {
 			"value": false,
 			"description": "@var boolean Temporary feature flag that disables saving the sidebar expanded/collapsed state as a user-preference (triggered via clicking the main menu icon). This is intended as a temporary kill-switch in the event that the DB is overloaded with writes to the user_options table."
+		},
+		"VectorTableOfContents": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
 		}
 	},
 	"ServiceWiringFiles": [

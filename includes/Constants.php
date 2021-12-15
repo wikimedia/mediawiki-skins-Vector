@@ -297,6 +297,26 @@ final class Constants {
 	public const FEATURE_LANGUAGE_ALERT_IN_SIDEBAR = 'LanguageAlertInSidebar';
 
 	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_TABLE_OF_CONTENTS = 'TableOfContents';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_TABLE_OF_CONTENTS = 'VectorTableOfContents';
+
+	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_TABLE_OF_CONTENTS = 'tableofcontents';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_TABLE_OF_CONTENTS = 'TableOfContents';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
