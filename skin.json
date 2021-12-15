@@ -2,9 +2,18 @@
 	"name": "Vector",
 	"version": "1.0.0",
 	"author": [
+		"[https://www.mediawiki.org/wiki/Reading/Web/Team Readers Web Team]",
 		"Trevor Parscal",
 		"Roan Kattouw",
-		"..."
+		"Alex Hollender",
+		"Bernard Wang",
+		"Clare Ming",
+		"Jan Drewniak",
+		"Jon Robson",
+		"Nick Ray",
+		"Sam Smith",
+		"Stephen Niedzielski",
+		"Volker E."
 	],
 	"url": "https://www.mediawiki.org/wiki/Skin:Vector",
 	"descriptionmsg": "vector-skin-desc",
