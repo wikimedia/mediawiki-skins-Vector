@@ -97,6 +97,10 @@ class SkinVector extends SkinMustache {
 	];
 	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
+	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
+	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
+	private const CLASS_ICON_BUTTON = 'mw-ui-icon mw-ui-icon-element';
+	private const CLASS_ICON_LABEL = 'mw-ui-icon mw-ui-icon-before';
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -120,6 +124,17 @@ class SkinVector extends SkinMustache {
 	public function __construct( array $options ) {
 		$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
 		parent::__construct( $options );
+	}
+
+	/**
+	 * @param string $icon the name of the icon without wikimedia- prefix.
+	 * @return string
+	 */
+	private function iconClass( $icon ) {
+		if ( $icon ) {
+			return 'mw-ui-icon-wikimedia-' . $icon;
+		}
+		return '';
 	}
 
 	/**
@@ -230,8 +245,8 @@ class SkinVector extends SkinMustache {
 			$class = array_merge(
 				$class,
 				[
-					'mw-ui-icon mw-ui-icon-before',
-					'mw-ui-icon-wikimedia-' . ( $createAccountData[ 'icon' ] ?? '' )
+					self::CLASS_ICON_LABEL,
+					self::iconClass( $createAccountData[ 'icon' ] ?? '' )
 				]
 			);
 		}
@@ -254,11 +269,9 @@ class SkinVector extends SkinMustache {
 			'active' => ( $href == $pageurl ),
 			'single-id' => 'pt-watchlist',
 			'class' => [
-				'mw-ui-button',
-				'mw-ui-quiet',
-				'mw-ui-icon',
-				'mw-ui-icon-element',
-				'mw-ui-icon-wikimedia-unStar'
+				self::CLASS_QUIET_BUTTON,
+				self::CLASS_ICON_BUTTON,
+				self::iconClass( 'unStar' )
 			]
 		];
 
@@ -280,8 +293,8 @@ class SkinVector extends SkinMustache {
 		$loginData['class']  = [
 			'vector-menu-content-item',
 			'vector-menu-content-item-login',
-			'mw-ui-icon mw-ui-icon-before',
-			'mw-ui-icon-wikimedia-' . ( $loginData[ 'icon' ] ?? '' )
+			self::CLASS_ICON_LABEL,
+			self::iconClass( $loginData[ 'icon' ] ?? '' )
 		];
 
 		$learnMoreLinkData = [
@@ -314,8 +327,8 @@ class SkinVector extends SkinMustache {
 		$logoutLinkData['class'] = [
 			'vector-menu-content-item',
 			'vector-menu-content-item-logout',
-			'mw-ui-icon mw-ui-icon-before',
-			'mw-ui-icon-wikimedia-' . ( $logoutLinkData[ 'icon' ] ?? '' )
+			self::CLASS_ICON_LABEL,
+			self::iconClass( $logoutLinkData[ 'icon' ] ?? '' )
 		];
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
@@ -335,8 +348,7 @@ class SkinVector extends SkinMustache {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto, [
-			'mw-ui-button',
-			'mw-ui-quiet'
+			self::CLASS_QUIET_BUTTON
 		], false );
 
 		$templateParser = $this->getTemplateParser();
@@ -794,7 +806,8 @@ class SkinVector extends SkinMustache {
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
 			'heading-class' =>
 				' vector-menu-heading ' .
-				' mw-ui-button mw-ui-quiet mw-ui-progressive'
+				self::CLASS_QUIET_BUTTON . ' ' .
+				self::CLASS_PROGRESSIVE
 			];
 
 		// Adds class to hide language button
@@ -833,10 +846,11 @@ class SkinVector extends SkinMustache {
 				$portletData['class'] .= $this->loggedin ?
 					' vector-user-menu-logged-in' :
 					' vector-user-menu-logged-out';
-				$portletData['heading-class'] .= ' mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element';
+				$portletData['heading-class'] .= ' ' . self::CLASS_QUIET_BUTTON . ' ' .
+					self::CLASS_ICON_BUTTON . ' ';
 				$portletData['heading-class'] .= $this->loggedin ?
-					' mw-ui-icon-wikimedia-userAvatar' :
-					' mw-ui-icon-wikimedia-ellipsis';
+					self::iconClass( 'userAvatar' ) :
+					self::iconClass( 'ellipsis' );
 			}
 		}
 		switch ( $portletData['id'] ) {
