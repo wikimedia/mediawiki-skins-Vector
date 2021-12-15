@@ -423,8 +423,7 @@
 		},
 		"VectorTableOfContents": {
 			"value": {
-				"logged_in": false,
-				"logged_out": false
+				"default": false
 			},
 			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
 		}
