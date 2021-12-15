@@ -428,22 +428,19 @@ function isStickyHeaderAllowed() {
  * @param {IntersectionObserver} observer
  */
 function initStickyHeader( observer ) {
-	if ( !isStickyHeaderAllowed() ) {
+	if ( !isStickyHeaderAllowed() || !header || !userMenu || !stickyIntersection ) {
 		return;
 	}
 
 	makeStickyHeaderFunctional(
-		// @ts-ignore
 		header,
 		userMenu,
 		userMenuStickyContainer,
 		observer,
 		stickyIntersection
 	);
-	// @ts-ignore
 	setupSearchIfNeeded( header );
-	// @ts-ignore
-	addVisualEditorHooks( header, stickyIntersection, observer );
+	addVisualEditorHooks( stickyIntersection, observer );
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	// @ts-ignore
