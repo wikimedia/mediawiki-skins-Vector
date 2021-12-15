@@ -26,6 +26,7 @@
 	"vector.css": "/* Размещённый здесь CSS будет применяться к векторной теме оформления  */",
 	"vector.js": "/* Размещённый здесь код JavaScript будет загружаться пользователям, использующим тему оформления Vector */",
 	"vector-action-toggle-sidebar": "Переключить боковую панель",
+	"vector-languages": "Языки",
 	"vector-language-button-label": "{{PLURAL:$1|$1 язык|$1 языка|$1 языков}}",
 	"vector-action-addsection": "Добавить тему",
 	"vector-action-delete": "Удалить",
