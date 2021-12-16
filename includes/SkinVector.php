@@ -105,7 +105,8 @@ class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
-	private const SEARCH_EXPANDING_CLASS = 'vector-search-box-show-thumbnail';
+	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
+	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
 	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
@@ -583,7 +584,8 @@ class SkinVector extends SkinMustache {
 				!$this->isLegacy(),
 				// is primary mode of search
 				true,
-				'searchform'
+				'searchform',
+				true
 			),
 			'data-vector-sticky-header' => VectorServices::getFeatureManager()->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
@@ -593,7 +595,8 @@ class SkinVector extends SkinMustache {
 					// Collapse inside search box is disabled.
 					false,
 					false,
-					'vector-sticky-search-form'
+					'vector-sticky-search-form',
+					false
 				),
 				VectorServices::getFeatureManager()->isFeatureEnabled(
 					Constants::FEATURE_STICKY_HEADER_EDIT
@@ -657,9 +660,16 @@ class SkinVector extends SkinMustache {
 	 * @param bool $isCollapsible
 	 * @param bool $isPrimary
 	 * @param string $formId
+	 * @param bool $autoExpandWidth
 	 * @return array modified version of $searchBoxData
 	 */
-	private function getSearchData( array $searchBoxData, bool $isCollapsible, bool $isPrimary, string $formId ) {
+	private function getSearchData(
+		array $searchBoxData,
+		bool $isCollapsible,
+		bool $isPrimary,
+		string $formId,
+		bool $autoExpandWidth
+	) {
 		$searchClass = '';
 
 		// Determine the search widget treatment to send to the user
@@ -671,8 +681,9 @@ class SkinVector extends SkinMustache {
 			$searchClass .= ' vector-search-box-collapses ';
 		}
 
-		if ( $this->shouldSearchExpand() ) {
-			$searchClass .= ' ' . self::SEARCH_EXPANDING_CLASS;
+		if ( $this->doesSearchHaveThumbnails() ) {
+			$searchClass .= ' ' . self::SEARCH_SHOW_THUMBNAIL_CLASS .
+				( $autoExpandWidth ? ' ' . self::SEARCH_AUTO_EXPAND_WIDTH_CLASS : '' );
 		}
 
 		// Annotate search box with a component class.
@@ -728,15 +739,12 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Determines whether or not the search input should expand when focused
-	 * before WVUI search is loaded. In WVUI, the search input expands to
-	 * accomodate thumbnails in the suggestion list. When thumbnails are
-	 * disabled, the input should not expand. Note this is only relevant for WVUI
-	 * search (not legacy search).
+	 * Returns `true` if WVUI is enabled to show thumbnails and `false` otherwise.
+	 * Note this is only relevant for WVUI search (not legacy search).
 	 *
 	 * @return bool
 	 */
-	private function shouldSearchExpand(): bool {
+	private function doesSearchHaveThumbnails(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 
 		return $featureManager->isFeatureEnabled( Constants::FEATURE_USE_WVUI_SEARCH ) &&
