@@ -4,18 +4,14 @@ var
 	checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack,
 	CHECKBOX_HACK_CONTAINER_SELECTOR = '.vector-menu-dropdown',
 	CHECKBOX_HACK_CHECKBOX_SELECTOR = '.vector-menu-checkbox',
-	// In core's checkboxHack.js, it is recommended to use a  label element as a
-	// button that toggles the checkbox. In Vector's dropdown menus that use the
-	// Menu.mustache template, a checkbox is used as both the "button" and the
-	// "checkbox".
-	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-menu-checkbox',
+	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-menu-heading',
 	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-menu-content';
 
 /**
  * Add the ability for users to toggle dropdown menus using the enter key (as
  * well as space) using core's checkboxHack.
  */
-function bindToggleOnSpaceEnter() {
+function bind() {
 	// Search for all dropdown containers using the CHECKBOX_HACK_CONTAINER_SELECTOR.
 	var containers = document.querySelectorAll( CHECKBOX_HACK_CONTAINER_SELECTOR );
 
@@ -29,7 +25,7 @@ function bindToggleOnSpaceEnter() {
 			return;
 		}
 
-		checkboxHack.bindToggleOnSpaceEnter( checkbox, button );
+		checkboxHack.bind( window, checkbox, button, target );
 	} );
 }
 
@@ -43,20 +39,6 @@ function bindCloseOnUnload() {
 			.forEach( function ( checkbox ) {
 				/** @type {HTMLInputElement} */ ( checkbox ).checked = false;
 			} );
-	} );
-}
-
-/**
- * Make sure that clicking outside a menu closes it.
- */
-function closeDropdownsOnClickOutside() {
-	$( document.body ).on( 'click', function ( ev ) {
-		var $closestPortlet = $( ev.target ).closest( '.mw-portlet' );
-		// Uncheck (close) any menus that are open.
-		// eslint-disable-next-line no-jquery/no-global-selector
-		$( '.vector-menu-checkbox:checked' ).not(
-			$closestPortlet.find( '.vector-menu-checkbox' )
-		).prop( 'checked', false );
 	} );
 }
 
@@ -110,7 +92,6 @@ Array.prototype.forEach.call(
 mw.hook( 'util.addPortletLink' ).add( addPortletLinkHandler );
 
 module.exports = function dropdownMenus() {
-	closeDropdownsOnClickOutside();
-	bindToggleOnSpaceEnter();
+	bind();
 	bindCloseOnUnload();
 };
