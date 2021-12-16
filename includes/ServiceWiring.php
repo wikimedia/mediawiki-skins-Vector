@@ -112,18 +112,6 @@ return [
 			)
 		);
 
-		if (
-			$context->getUser()->isRegistered() &&
-			$featureManager->isRequirementMet( Constants::REQUIREMENT_LATEST_SKIN_VERSION )
-		) {
-			$bucket = 'vector.language_test_2_' . (
-				$featureManager->isRequirementMet( $requirementName )
-					? 'a'
-					: 'b'
-				);
-			$services->getStatsdDataFactory()->increment( $bucket );
-		}
-
 		// ---
 
 		$featureManager->registerFeature(
