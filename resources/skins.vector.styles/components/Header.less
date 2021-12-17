@@ -32,15 +32,6 @@
 		flex-grow: 1;
 	}
 
-	// Allocate space for the extra width of the input when the search component
-	// has thumbnails.
-	//
-	// FIXME: This can be removed when WVUI in core has been upgraded to use the
-	// `.wvui-typeahead-search--auto-expand-width` class.
-	.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--auto-expand-width ) {
-		margin-left: @size-search-expand;
-	}
-
 	@media ( min-width: @width-breakpoint-desktop ) {
 		@margin-start-search: 40px;
 
@@ -60,7 +51,7 @@
 				max-width: @max-width-search;
 			}
 
-			&.vector-search-box-show-thumbnail {
+			&.vector-search-box-auto-expand-width {
 				margin-left: unit( ( @margin-start-search - @size-search-expand ) / @font-size-browser / @font-size-base, em ); // 1.14285714em @ 16 & 0.875em
 
 				> div {
@@ -95,16 +86,6 @@
 
 			.wvui-typeahead-search__wrapper {
 				position: static;
-			}
-
-			// Position the start of suggestion list at the start of the input.
-			//
-			// FIXME: This can be removed when WVUI in core has been upgraded to use
-			// the `.wvui-typeahead-search--auto-expand-width` class.
-			.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--auto-expand-width ) {
-				.wvui-typeahead-search__suggestions {
-					left: 0;
-				}
 			}
 		}
 	}

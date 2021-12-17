@@ -93,19 +93,20 @@
 	}
 
 	.vector-search-box-show-thumbnail {
-		.searchButton {
+		&.vector-search-box-auto-expand-width .searchButton {
 			// Accounts for the margin that allocates space for the input expanding and
 			// 1px input border.
 			left: @size-search-expand + @border-width-base;
 		}
 
-		.vector-search-box-input {
+		&.vector-search-box-auto-expand-width .vector-search-box-input {
 			margin-left: @size-search-expand;
 			width: ~'calc( 100% - @{size-search-expand} )';
 		}
 
 		// Recreate WVUI expanding input.
-		.vector-search-box-input:focus {
+		&:not( .vector-search-box-auto-expand-width ) .vector-search-box-input,
+		&.vector-search-box-auto-expand-width .vector-search-box-input:focus {
 			margin-left: 0;
 			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
 			padding-left: ~'calc( @{size-search-figure} + @{size-search-expand} )';
@@ -113,7 +114,8 @@
 		}
 
 		// Reposition search icon for expanded input.
-		.vector-search-box-input:focus ~ .searchButton {
+		&:not( .vector-search-box-auto-expand-width ) .vector-search-box-input ~ .searchButton,
+		&.vector-search-box-auto-expand-width .vector-search-box-input:focus ~ .searchButton {
 			// Derived from
 			// https://gerrit.wikimedia.org/g/wvui/+/refs/changes/93/650593/10/src/components/typeahead-search/TypeaheadSearch.vue#655
 			// (12px of space between the border and the icon) with 1px to account for the focused input border.
