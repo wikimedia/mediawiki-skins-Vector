@@ -111,6 +111,18 @@ class SkinVector extends SkinMustache {
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
 	/**
+	 * Updates the constructor to conditionally disable table of contents in article
+	 * body.
+	 * Note, the constructor can only check feature flags that do not vary on whether the
+	 * user is logged in e.g. features with the 'default' key set.
+	 * @inheritDoc
+	 */
+	public function __construct( array $options ) {
+		$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
+		parent::__construct( $options );
+	}
+
+	/**
 	 * Whether or not the legacy version of the skin is being used.
 	 *
 	 * @return bool
@@ -402,6 +414,12 @@ class SkinVector extends SkinMustache {
 	public function generateHTML() {
 		if ( $this->isLegacy() ) {
 			$this->options['template'] = 'skin-legacy';
+			if ( $this->isTableOfContentsVisibleInSidebar() ) {
+				throw new RuntimeException(
+					'The table of contents flag cannot safely be applied without ' .
+					'breaking legacy Vector. Please fix T291098 before applying.'
+				);
+			}
 		}
 		return parent::generateHTML();
 	}
@@ -493,7 +511,7 @@ class SkinVector extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function isTableOfContentsVisible(): bool {
+	private function isTableOfContentsVisibleInSidebar(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
 	}
@@ -535,7 +553,7 @@ class SkinVector extends SkinMustache {
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 
-			'is-vector-table-of-contents-visible' => $this->isTableOfContentsVisible(),
+			'is-vector-table-of-contents-visible' => $this->isTableOfContentsVisibleInSidebar(),
 
 			'data-search-box' => $this->getSearchData(
 				$parentData['data-search-box'],
