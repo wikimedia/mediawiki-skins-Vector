@@ -14,6 +14,7 @@
 	"vector.css": "/* All CSS deen hei steet gëtt vun alle Benotzer vum Ausgesinn Vector gelueden */",
 	"vector.js": "/* All JavaScript hei gëtt geluede fir Benotzer vum Layout Vector */",
 	"vector-action-toggle-sidebar": "Säitleche Menü weisen/verstoppen",
+	"vector-languages": "Sproochen",
 	"vector-language-button-aria-label": "Op en Artikel an enger anerer Sprooch wiesselen. Disponibel an {{PLURAL:$1|enger Sprooch|$1 Sproochen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprooch|$1 Sproochen}}",
 	"vector-language-variant-switcher-label": "Sproochvariant änneren",
