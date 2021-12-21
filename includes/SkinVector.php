@@ -68,6 +68,16 @@ class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
+	// Event and icon will be updated depending on watchstar state
+	private const WATCHSTAR_ICON = [
+		'href' => '#',
+		'id' => 'ca-watchstar-sticky-header',
+		'event' => 'watch-sticky-header',
+		'icon' => 'wikimedia-star',
+		'is-quiet' => true,
+		'tabindex' => '-1',
+		'class' => 'sticky-header-icon mw-watchlink'
+	];
 	private const EDIT_VE_ICON = [
 		'href' => '#',
 		'id' => 'ca-ve-edit-sticky-header',
@@ -466,6 +476,7 @@ class SkinVector extends SkinMustache {
 		$btns = [
 			self::TALK_ICON,
 			self::HISTORY_ICON,
+			self::WATCHSTAR_ICON,
 		];
 		if ( $includeEditIcons ) {
 			$btns[] = self::EDIT_WIKITEXT_ICON;
