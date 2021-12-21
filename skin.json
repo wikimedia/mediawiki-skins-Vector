@@ -232,6 +232,7 @@
 				}
 			],
 			"dependencies": [
+				"mediawiki.user",
 				"skins.vector.icons.js",
 				"mediawiki.page.ready",
 				"mediawiki.page.watch.ajax",
