@@ -17,7 +17,9 @@
 			"青子守歌",
 			"MathXplore",
 			"RYOUMA1117",
-			"しぃ"
+			"しぃ",
+			"LNDDYL",
+			"ひまり"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -29,7 +31,7 @@
 	"vector.css": "/* ここに記述したCSSは、Vectorスキンの利用者全てに読み込まれます */",
 	"vector.js": "/* ここに記述したJavaScriptは、Vectorスキンの利用者全てに読み込まれます */",
 	"vector-action-toggle-sidebar": "サイドバーの切り替え",
-	"vector-language-button-label": "{{PLURAL:$1|言語}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1の言語版}}",
 	"vector-action-addsection": "話題追加",
 	"vector-action-delete": "削除",
 	"vector-action-move": "移動",
