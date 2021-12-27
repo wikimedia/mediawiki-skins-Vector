@@ -3,6 +3,7 @@
 		"authors": [
 			"Arifin.wijaya",
 			"Bennylin",
+			"Daud I.F. Argana",
 			"Farras",
 			"Iwan Novirion",
 			"Naufal06",
@@ -20,7 +21,11 @@
 	"vector.css": "/* CSS yang ada di sini akan diterapkan pada kulit Vektor. */",
 	"vector.js": "/* Semua JavaScript di sini akan dimuatkan untuk para pengguna yang menggunakan kulit Vector */",
 	"vector-action-toggle-sidebar": "Buka/tutup bilah samping",
+	"vector-languages": "Bahasa",
+	"vector-language-button-aria-label": "Pergi ke artikel dalam bahasa lain. Terdapat {{PLURAL:$1|$1 bahasa}}",
 	"vector-language-button-label": "$1 bahasa",
+	"vector-language-redirect-to-top": "Di Wikipedia ini, pranala bahasa terletak di bagian atas halaman di sebelah judul artikel. [[#p-lang-btn|Pergi ke paling atas]].",
+	"vector-language-variant-switcher-label": "Ubah varian bahasa",
 	"vector-action-addsection": "Bagian baru",
 	"vector-action-delete": "Hapus",
 	"vector-action-move": "Pindahkan",
@@ -37,6 +42,14 @@
 	"vector-jumptocontent": "Lompat ke isi",
 	"vector-more-actions": "Lainnya",
 	"vector-search-loader": "Memuat saran pencarian",
+	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-intro-page": "Wikipedia:Pengantar",
 	"vector-anon-user-menu-pages": "Halaman penyunting yang telah keluar log",
-	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut"
+	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut",
+	"vector-anon-user-menu-pages-label": "Pelajari lebih lanjut tentang menyunting",
+	"vector-personal-more-label": "Pranala pengguna",
+	"vector-main-menu-tooltip": "Menu utama",
+	"tooltip-vector-anon-user-menu-title": "Opsi lainnya",
+	"vector-menu-checkbox-expanded": "dikembangkan",
+	"vector-menu-checkbox-collapsed": "diciutkan"
 }
