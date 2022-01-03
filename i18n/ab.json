@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Temuri rajavi",
-			"Pupsik-ipa"
+			"Pupsik-ipa",
+			"Fraxinus.cs"
 		]
 	},
 	"vector-action-move": "Ахьӡ аԥсахра",
@@ -10,5 +11,6 @@
 	"vector-view-edit": "Ариашамҭа",
 	"vector-view-history": "Аҭоурых",
 	"vector-view-view": "Аԥхьара",
-	"vector-view-viewsource": "Ахәаԥшра"
+	"vector-view-viewsource": "Ахәаԥшра",
+	"vector-more-actions": "Еиҭа"
 }
