@@ -17,6 +17,7 @@
 		:show-thumbnail="showThumbnail"
 		:show-description="showDescription"
 		:highlight-query="highlightQuery"
+		:auto-expand-width="autoExpandWidth"
 		@fetch-start="instrumentation.onFetchStart"
 		@fetch-end="instrumentation.onFetchEnd"
 		@suggestion-click="instrumentation.onSuggestionClick"
@@ -121,6 +122,10 @@ module.exports = {
 		highlightQuery: {
 			type: Boolean,
 			default: true
+		},
+		autoExpandWidth: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data: function () {

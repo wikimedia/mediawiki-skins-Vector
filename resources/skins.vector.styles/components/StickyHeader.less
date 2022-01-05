@@ -101,6 +101,11 @@
 	}
 
 	&.vector-header-search-toggled {
+		// .wvui-input__input left padding (36px) - the .wvui-icon svg width (20px)
+		// - the icon left padding (12px [1]) = 4px
+		// [1] see .wvui-typeahead-search--show-thumbnail .wvui-input__input:focus)
+		@margin-start-search-box: 4px;
+
 		.vector-sticky-header-search-toggle,
 		.vector-sticky-header-context-bar {
 			display: none;
@@ -109,23 +114,26 @@
 		.vector-search-box {
 			display: block;
 			flex-basis: unit( 500px / @font-size-browser / @font-size-base, em );
-
-			.wvui-typeahead-search {
-				// .wvui-input__input left padding (36px) - the .wvui-icon svg width (20px)
-				// - the icon left padding (12px [1]) = 4px
-				// [1] see .wvui-typeahead-search--show-thumbnail .wvui-input__input:focus)
-				margin-left: 4px;
-			}
+			margin-left: @margin-start-search-box;
 		}
 
-		// T296318 Increase the start margin of the search box to account for the input
-		// expanding on focus.
+		// T296318 Decrease the start margin of the search box to account for the
+		// icon's increased start position when the search component has thumbnails.
 		.vector-search-box-show-thumbnail {
-			margin-left: @margin-end-search;
+			margin-left: @margin-start-search-box - ( @size-search-expand / 2 );
 
 			.wvui-input__start-icon {
 				color: @colorGray2;
 			}
+		}
+
+		// Allocate space for the extra width of the input when the search component
+		// has thumbnails.
+		//
+		// FIXME: This can be removed when WVUI in core has been upgraded
+		// to use the `.wvui-typeahead-search--full-width` class.
+		.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--full-width ) {
+			margin-left: @size-search-expand;
 		}
 	}
 }

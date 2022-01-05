@@ -6,18 +6,18 @@ var
 	config = require( './config.json' );
 
 /**
- * @param {Element} searchForm
+ * @param {Element} searchBox
  * @return {void}
  */
-function initApp( searchForm ) {
-	var
+function initApp( searchBox ) {
+	var searchForm = searchBox.querySelector( '.vector-search-box-form' ),
 		titleInput = /** @type {HTMLInputElement|null} */ (
-			searchForm.querySelector( 'input[name=title]' )
+			searchBox.querySelector( 'input[name=title]' )
 		),
-		search = /** @type {HTMLInputElement|null} */ ( searchForm.querySelector( 'input[name="search"]' ) ),
+		search = /** @type {HTMLInputElement|null} */ ( searchBox.querySelector( 'input[name="search"]' ) ),
 		searchPageTitle = titleInput && titleInput.value;
 
-	if ( !search || !titleInput ) {
+	if ( !searchForm || !search || !titleInput ) {
 		throw new Error( 'Attempted to create Vue search element from an incompatible element.' );
 	}
 
@@ -31,7 +31,8 @@ function initApp( searchForm ) {
 			searchPageTitle: searchPageTitle,
 			searchTitle: search.getAttribute( 'title' ),
 			searchPlaceholder: search.getAttribute( 'placeholder' ),
-			searchQuery: search.value
+			searchQuery: search.value,
+			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false
 		// Pass additional config from server.
 		}, config )
 	)
@@ -42,11 +43,10 @@ function initApp( searchForm ) {
  * @return {void}
  */
 function main( document ) {
-	var
-		searchForms = document.querySelectorAll( '.vector-search-box-form' );
+	var searchBoxes = document.querySelectorAll( '.vector-search-box' );
 
-	searchForms.forEach( function ( searchForm ) {
-		initApp( searchForm );
+	searchBoxes.forEach( function ( searchBox ) {
+		initApp( searchBox );
 	} );
 }
 main( document );

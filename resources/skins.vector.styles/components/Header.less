@@ -32,9 +32,20 @@
 		flex-grow: 1;
 	}
 
+	// Allocate space for the extra width of the input when the search component
+	// has thumbnails.
+	//
+	// FIXME: This can be removed when WVUI in core has been upgraded to use the
+	// `.wvui-typeahead-search--auto-expand-width` class.
+	.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--auto-expand-width ) {
+		margin-left: @size-search-expand;
+	}
+
 	@media ( min-width: @width-breakpoint-desktop ) {
+		@margin-start-search: 40px;
+
 		.vector-search-box {
-			margin-left: unit( 40px / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
+			margin-left: unit( @margin-start-search / @font-size-browser / @font-size-base, em ); // 2.85714286em @ 16 & 0.875em
 			margin-right: @margin-end-search;
 
 			// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
@@ -45,9 +56,16 @@
 			min-width: @min-width-search-desktop;
 			flex-basis: @min-width-search;
 
-			&-form,
-			.wvui-typeahead-search {
+			> div {
 				max-width: @max-width-search;
+			}
+
+			&.vector-search-box-show-thumbnail {
+				margin-left: unit( ( @margin-start-search - @size-search-expand ) / @font-size-browser / @font-size-base, em ); // 1.14285714em @ 16 & 0.875em
+
+				> div {
+					max-width: @max-width-search + unit( @size-search-expand / @font-size-browser / @font-size-base, em ); // 37.42857143em @ 16 & 0.875em
+				}
 			}
 		}
 	}
@@ -75,14 +93,18 @@
 				margin-right: @margin-end-search;
 			}
 
-			// Increase the start margin of the search box to account for the input
-			// expanding on focus.
-			.vector-search-box-show-thumbnail {
-				margin-left: @size-search-expand + @padding-horizontal-tabs;
-			}
-
 			.wvui-typeahead-search__wrapper {
 				position: static;
+			}
+
+			// Position the start of suggestion list at the start of the input.
+			//
+			// FIXME: This can be removed when WVUI in core has been upgraded to use
+			// the `.wvui-typeahead-search--auto-expand-width` class.
+			.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--auto-expand-width ) {
+				.wvui-typeahead-search__suggestions {
+					left: 0;
+				}
 			}
 		}
 	}
