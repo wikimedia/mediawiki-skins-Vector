@@ -26,7 +26,6 @@
 	"ValidSkinNames": {
 		"vector-2022": {
 			"class": "SkinVector22",
-			"skippable": true,
 			"args": [
 				{
 					"name": "vector-2022",
