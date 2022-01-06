@@ -229,15 +229,13 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * If in modern Vector and no languages possible, OR the languages in header button
-	 * is enabled but language array is empty, then we shouldn't show the language list.
+	 * Show the ULS button if it's modern Vector, languages in header is enabled,
+	 * and the language array isn't empty. Hide it otherwise.
 	 * @return bool
 	 */
 	private function shouldHideLanguages() {
-		return !$this->isLegacy() &&
-			!$this->canHaveLanguages() ||
-			// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
-			( $this->isLanguagesInContent() && empty( $this->getLanguagesCached() ) );
+		// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
+		return $this->isLegacy() || !$this->isLanguagesInContent() || empty( $this->getLanguagesCached() );
 	}
 
 	/**
@@ -484,8 +482,12 @@ class SkinVector extends SkinMustache {
 			$btns[] = self::EDIT_PROTECTED_ICON;
 			$btns[] = self::EDIT_VE_ICON;
 		}
+
+		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
+		$showStickyULS = ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' )
+			&& !$this->shouldHideLanguages();
 		return [
-			'data-primary-action' => $this->isLanguagesInContent() ?
+			'data-primary-action' => $showStickyULS ?
 				$this->getULSButtonData() : null,
 			'data-button-start' => [
 				'label' => $this->msg( 'search' ),
