@@ -33,6 +33,7 @@ class SkinVector22 extends SkinVector {
 	 */
 	public static function getScriptsOption() {
 		return [
+			'skins.vector.user',
 			'skins.vector.js',
 			'skins.vector.es6',
 		];
@@ -47,6 +48,7 @@ class SkinVector22 extends SkinVector {
 		return [
 			'mediawiki.ui.button',
 			'skins.vector.styles',
+			'skins.vector.user.styles',
 			'skins.vector.icons',
 			'mediawiki.ui.icon',
 		];

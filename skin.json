@@ -115,6 +115,9 @@
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
+		"ResourceLoaderGetConfigVars": "Vector\\Hooks::onResourceLoaderGetConfigVars",
+		"ResourceLoaderSiteModulePages": "Vector\\Hooks::onResourceLoaderSiteModulePages",
+		"ResourceLoaderSiteStylesModulePages": "Vector\\Hooks::onResourceLoaderSiteStylesModulePages",
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
 		"GetPreferences": "Vector\\Hooks::onGetPreferences",
 		"PreferencesFormPreSave": "Vector\\Hooks::onPreferencesFormPreSave",
@@ -124,6 +127,12 @@
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
+		"skins.vector.user": {
+			"class": "Vector\\ResourceLoader\\VectorResourceLoaderUserModule"
+		},
+		"skins.vector.user.styles": {
+			"class": "Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
+		},
 		"skins.vector.search": {
 			"dependencies": [
 				"mediawiki.Uri",

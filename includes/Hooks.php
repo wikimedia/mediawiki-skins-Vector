@@ -431,6 +431,30 @@ class Hooks {
 	}
 
 	/**
+	 * Adds MediaWiki:Vector.css as the skin style that controls classic Vector.
+	 *
+	 * @param string $skin
+	 * @param array &$pages
+	 */
+	public static function onResourceLoaderSiteStylesModulePages( string $skin, array &$pages ) {
+		if ( $skin === Constants::SKIN_NAME_MODERN ) {
+			$pages['MediaWiki:Vector.css'] = [ 'type' => 'style' ];
+		}
+	}
+
+	/**
+	 * Adds MediaWiki:Vector.css as the skin style that controls classic Vector.
+	 *
+	 * @param string $skin
+	 * @param array &$pages
+	 */
+	public static function onResourceLoaderSiteModulePages( string $skin, array &$pages ) {
+		if ( $skin === Constants::SKIN_NAME_MODERN ) {
+			$pages['MediaWiki:Vector.js'] = [ 'type' => 'script' ];
+		}
+	}
+
+	/**
 	 * Hook executed on user's Special:Preferences form save. This is used to convert the boolean
 	 * presentation of skin version to a version string. That is, a single preference change by the
 	 * user may trigger two writes: a boolean followed by a string.
@@ -658,6 +682,25 @@ class Hooks {
 				self::getConfig(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
 				);
+		}
+
+		// [[phab:T297758]] ensure old Vector is the same as new Vector
+		// from a user script / gadget point of view.
+		if ( self::isSkinVersionLegacy() ) {
+			$vars[ 'skin' ] = 'vector';
+		}
+	}
+
+	/**
+	 * @param array &$vars Array of variables to be added into the output.
+	 * @param string $skin
+	 * @param Config $config
+	 */
+	public static function onResourceLoaderGetConfigVars( array &$vars, string $skin, Config $config ) {
+			// [[phab:T297758]] ensure old Vector is the same as new Vector
+		// from a user script / gadget point of view.
+		if ( self::isVectorSkin( $skin ) ) {
+			$vars['skin'] = 'vector';
 		}
 	}
 
