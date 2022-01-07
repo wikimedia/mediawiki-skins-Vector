@@ -71,7 +71,24 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 			const searchInput = /** @type {HTMLInputElement|null} */ ( searchBox.querySelector( 'input[type="search"]' ) );
 
 			if ( searchInput ) {
+				const beforeScrollX = window.scrollX;
+				const beforeScrollY = window.scrollY;
 				searchInput.focus();
+				// For some reason, Safari 14,15 tends to undesirably change the scroll
+				// position of `input` elements inside fixed position elements.
+				// While an Internet search suggests similar problems with mobile Safari
+				// it didn't yield any results for desktop Safari.
+				// This line resets any unexpected scrolling that occurred while the
+				// input received focus.
+				// If you are in the future with a modern version of Safari, where 14 and 15
+				// receive a low amount of page views, please reference T297636 and test
+				// to see whether this line of code can be removed.
+				// Additionally, these lines might become unnecessary when/if Safari
+				// supports the `preventScroll` focus option [1] in the future:
+				// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus#parameters
+				if ( beforeScrollX !== undefined && beforeScrollY !== undefined ) {
+					window.scroll( beforeScrollX, beforeScrollY );
+				}
 			}
 		} );
 	};
