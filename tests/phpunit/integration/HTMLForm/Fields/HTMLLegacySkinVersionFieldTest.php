@@ -72,7 +72,7 @@ class HTMLLegacySkinVersionFieldTest extends \MediaWikiIntegrationTestCase {
 			'label-message' => 'prefs-vector-enable-vector-1-label',
 			'help-message' => 'prefs-vector-enable-vector-1-help',
 			'default' => true,
-			'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ],
+			'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME_LEGACY ],
 		];
 		$skinVersionField = new HTMLLegacySkinVersionField( $params );
 		$checkField = new \HTMLCheckField( $params );

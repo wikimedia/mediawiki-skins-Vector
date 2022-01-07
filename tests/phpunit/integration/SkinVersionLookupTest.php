@@ -20,6 +20,7 @@
  */
 
 use MediaWiki\User\UserOptionsLookup;
+use Vector\Constants;
 use Vector\SkinVersionLookup;
 
 /**
@@ -44,11 +45,14 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( false );
 
 		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', 'beta' );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, 'beta', [
+			'skin' => Constants::SKIN_NAME_LEGACY,
+		] );
 
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
@@ -81,11 +85,14 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( false );
 
 		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', 'beta' );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, 'beta', [
+			'skin' => Constants::SKIN_NAME_LEGACY,
+		] );
 
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
@@ -118,11 +125,14 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( true );
 
 		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '1', '1' );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '1', [
+			'skin' => Constants::SKIN_NAME_LEGACY,
+		] );
 
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
@@ -135,6 +145,38 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			true,
 			$skinVersionLookup->isLegacy(),
 			'Version is Legacy.'
+		);
+	}
+
+	/**
+	 * @covers ::getVersion
+	 */
+	public function testSkin22() {
+		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
+		$request
+			->method( 'getVal' )
+			->willReturn( '1' );
+		$user = $this->createMock( \User::class );
+		$user
+			->method( 'isRegistered' )
+			->willReturn( true );
+
+		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
+			'VectorDefaultSkinVersion' => '1',
+			'VectorDefaultSkinVersionForExistingAccounts' => '1'
+		] );
+
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '1', [
+			'skin' => Constants::SKIN_NAME_MODERN
+		] );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
+
+		$this->assertSame(
+			'2',
+			$skinVersionLookup->getVersion(),
+			'Using the modern skin always returns 2. Ignores skinversion query string.'
 		);
 	}
 
@@ -155,11 +197,14 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( false );
 
 		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersion' => '2',
 			'VectorDefaultSkinVersionForExistingAccounts' => '1'
 		] );
 
-		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', '2' );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', [
+			'skin' => Constants::SKIN_NAME_LEGACY,
+		] );
 
 		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
 
@@ -177,15 +222,16 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 
 	/**
 	 * @param User $user
-	 * @param mixed|null $defaultOverride
-	 * @param mixed|null $returnVal
+	 * @param array $returnVal
+	 * @param array $lookup values
 	 * @return UserOptionsLookup
 	 */
-	private function getUserOptionsLookupMock( $user, $defaultOverride, $returnVal ) {
+	private function getUserOptionsLookupMock( $user, $returnVal, $lookup = [] ) {
 		$mock = $this->createMock( UserOptionsLookup::class );
 		$mock->method( 'getOption' )
-			->with( $user, $this->anything(), $defaultOverride )
-			->willReturn( $returnVal );
+			->willReturnCallback( static function ( $user, $key ) use ( $returnVal, $lookup ) {
+				return $lookup[ $key ] ?? $returnVal;
+			} );
 		return $mock;
 	}
 }

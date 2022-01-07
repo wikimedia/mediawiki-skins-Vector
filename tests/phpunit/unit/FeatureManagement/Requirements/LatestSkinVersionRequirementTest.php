@@ -45,7 +45,10 @@ class LatestSkinVersionRequirementTest extends \MediaWikiUnitTestCase {
 	 * @covers ::isMet
 	 */
 	public function testIsMet( $version, $expected, $msg ) {
-		$config = new HashConfig( [ 'VectorDefaultSkinVersionForExistingAccounts' => $version ] );
+		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
+			'VectorDefaultSkinVersionForExistingAccounts' => $version
+		] );
 
 		$user = $this->createMock( User::class );
 		$user->method( 'isRegistered' )->willReturn( true );
