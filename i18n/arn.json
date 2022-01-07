@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Clerc",
-			"Fiestoforo"
+			"Fiestoforo",
+			"Manke ruLpa"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 zugun}}",
 	"vector-action-addsection": "Püñamtun dungu",
 	"vector-action-delete": "Liftun",
 	"vector-action-move": "Wiñamün",
