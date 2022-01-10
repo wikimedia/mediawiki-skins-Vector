@@ -12,6 +12,7 @@
 	"vector-skin-desc": "Сучасная вэрсія MonoBook з абноўленым выглядам і шматлікімі паляпшэньнямі",
 	"prefs-vector-enable-vector-1-help": "Цягам наступных некалькіх гадоў мы будзем паступова абнаўляць тэму „Вэктар“. Пераемны Вэктар дазволіць вам праглядаць старую вэрсію Вэктара (паводле стану на сьнежань 2019 року). Каб даведацца пра абнаўленьні болей, зайдзіце на старонку [[mw:Reading/Web/Desktop_Improvements|нашага праекту]].",
 	"vector-language-button-aria-label": "Перайсьці да артыкула на іншай мове. Выбраць з: {{PLURAL:$1|$1 language|$1 languages}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моваў}}",
 	"vector-action-addsection": "Дадаць тэму",
 	"vector-action-delete": "Выдаліць",
 	"vector-action-move": "Перанесьці",
