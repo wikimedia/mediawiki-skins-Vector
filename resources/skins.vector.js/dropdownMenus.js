@@ -35,10 +35,10 @@ function bind() {
  */
 function bindCloseOnUnload() {
 	addEventListener( 'beforeunload', function () {
-		document.querySelectorAll( CHECKBOX_HACK_CHECKBOX_SELECTOR + ':checked' )
-			.forEach( function ( checkbox ) {
-				/** @type {HTMLInputElement} */ ( checkbox ).checked = false;
-			} );
+		var checkboxes = document.querySelectorAll( CHECKBOX_HACK_CHECKBOX_SELECTOR + ':checked' );
+		Array.prototype.forEach.call( checkboxes, function ( checkbox ) {
+			/** @type {HTMLInputElement} */ ( checkbox ).checked = false;
+		} );
 	} );
 }
 
