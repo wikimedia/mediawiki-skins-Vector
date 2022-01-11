@@ -126,15 +126,6 @@
 				color: @colorGray2;
 			}
 		}
-
-		// Allocate space for the extra width of the input when the search component
-		// has thumbnails.
-		//
-		// FIXME: This can be removed when WVUI in core has been upgraded
-		// to use the `.wvui-typeahead-search--full-width` class.
-		.wvui-typeahead-search--show-thumbnail:not( .wvui-typeahead-search--full-width ) {
-			margin-left: @size-search-expand;
-		}
 	}
 }
 
