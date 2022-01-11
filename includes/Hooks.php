@@ -121,7 +121,7 @@ class Hooks {
 		array &$config
 	) {
 		// It's better to exit before any additional check
-		if ( $context->getSkin() !== 'vector' ) {
+		if ( !self::isVectorSkin( $context->getSkin() ) ) {
 			return;
 		}
 
@@ -330,7 +330,7 @@ class Hooks {
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
 		$title = $sk->getRelevantTitle();
 
-		if ( $sk->getSkinName() === 'vector' ) {
+		if ( self::isVectorSkin( $sk->getSkinName() ) ) {
 			if (
 				$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
 				$title && $title->canExist()
