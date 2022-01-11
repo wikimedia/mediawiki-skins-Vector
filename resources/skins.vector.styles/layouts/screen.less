@@ -39,6 +39,8 @@
 // content container for aesthetic reasons. The sidebar is already displaced
 // -30px so we simply add 30px of space to the width of the sidebar.
 @margin-start-content: @width-grid-column-one + unit( 8px / @font-size-browser, em ); // 11.5em @ 16
+// Ensure there's enough space between the TOC and content container
+@margin-toc-start-content: 16em;
 
 // Tabs
 
@@ -231,6 +233,7 @@ body {
 }
 
 .mw-content-container {
+	display: flow-root;
 	max-width: @max-width-content-container;
 	margin-left: auto;
 	margin-right: auto;
@@ -283,6 +286,13 @@ body {
 	}
 }
 
+// Increase margin when TOC is enabled
+.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
+	.skin-vector-disable-max-width & {
+		margin-left: @margin-toc-start-content;
+	}
+}
+
 @media ( max-width: @max-width-margin-start-content ) {
 	// Adjusts the content and mw-article-toolbar-container.
 	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
@@ -290,11 +300,32 @@ body {
 		margin-left: @margin-start-content;
 	}
 
+	// Increase margin when TOC is enabled
+	.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
+	.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+		margin-left: @margin-toc-start-content;
+	}
+
 	// Specificity needed to disable the default animations at lower resolutions.
 	.vector-animations-ready .mw-sidebar {
 		// Remove sidebar transition at smaller widths.
 		.transition( none );
 	}
+}
+
+// Update article page's content container when
+// TOC is visible and when TOC is enabled and the sidebar is open
+.vector-toc-visible .mw-workspace-container .mw-content-container,
+.vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
+.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
+.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+	// Use !important to override checkbox status dependent styles applied above
+	margin-left: @margin-toc-start-content !important; /* stylelint-disable-line declaration-no-important */
+}
+
+// Prevent center align when TOC is visible
+.vector-toc-visible .mw-workspace-container {
+	margin-left: initial;
 }
 
 @media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {

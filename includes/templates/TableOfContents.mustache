@@ -1,3 +1,16 @@
-<div id="mw-panel-toc" class="mw-sidebar">
-	<!-- sticky TOC goes here -->
-</div>
+<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-header">
+	<div class="sidebar-toc-header">
+		<h2 class="sidebar-toc-title" aria-hidden="true">Contents</h2>
+	</div>
+	<ul id="table-of-contents">
+	{{#array-sections}}
+	<li class="sidebar-toc-level-{{toclevel}}">
+		<a href="#{{anchor}}">
+			<div class="sidebar-toc-text">
+			<span class="sidebar-toc-numb">{{number}}</span> {{line}}</div>
+		</a>
+		{{#has-subsections}}<ul>{{/has-subsections}}
+		{{#is-last-item}}</li></ul>{{/is-last-item}}
+	{{/array-sections}}
+	</ul>
+</nav>
