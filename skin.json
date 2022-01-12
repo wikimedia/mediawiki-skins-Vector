@@ -96,6 +96,7 @@
 		}
 	},
 	"SkinLessImportPaths": {
+		"vector-2022": "resources/mediawiki.less",
 		"vector": "resources/mediawiki.less"
 	},
 	"MessagesDirs": {
