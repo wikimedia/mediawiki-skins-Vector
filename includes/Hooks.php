@@ -216,21 +216,15 @@ class Hooks {
 	 * @param array &$content_navigation
 	 */
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
-		$COLLAPSE_MENU_ITEM_CLASS = 'user-links-collapsible-item';
-
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
-		if ( $sk->loggedin ) {
+		if ( $sk->getUser()->isRegistered() ) {
 			// Remove user page from personal menu dropdown for logged in users at higher resolutions.
-			self::appendClassToListItem(
-				$content_navigation['user-menu']['userpage'],
-				$COLLAPSE_MENU_ITEM_CLASS
+			self::makeMenuItemCollapsible(
+				$content_navigation['user-menu']['userpage']
 			);
-			if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_USER_LINKS_WATCHLIST ) ) {
-				self::appendClassToListItem(
-					$content_navigation['user-menu']['watchlist'],
-					$COLLAPSE_MENU_ITEM_CLASS
-				);
-			}
+			self::makeMenuItemCollapsible(
+				$content_navigation['user-menu']['watchlist']
+			);
 			// Remove logout link from user-menu and recreate it in SkinVector,
 			unset( $content_navigation['user-menu']['logout'] );
 			// Don't show icons for anon menu items (besides login and create account).
@@ -255,15 +249,13 @@ class Hooks {
 
 		// ULS and user page links are hidden at lower resolutions.
 		if ( $content_navigation['user-interface-preferences'] ) {
-			self::appendClassToListItem(
-				$content_navigation['user-interface-preferences']['uls'],
-				$COLLAPSE_MENU_ITEM_CLASS
+			self::makeMenuItemCollapsible(
+				$content_navigation['user-interface-preferences']['uls']
 			);
 		}
 		if ( $content_navigation['user-page'] ) {
-			self::appendClassToListItem(
-				$content_navigation['user-page']['userpage'],
-				$COLLAPSE_MENU_ITEM_CLASS
+			self::makeMenuItemCollapsible(
+				$content_navigation['user-page']['userpage']
 			);
 
 			// Style the user page link as mw-ui-button.
@@ -273,6 +265,19 @@ class Hooks {
 				true
 			);
 		}
+	}
+
+	/**
+	 * Modifies list item to make it collapsible.
+	 *
+	 * @param array &$item
+	 */
+	private static function makeMenuItemCollapsible( array &$item ) {
+		$COLLAPSE_MENU_ITEM_CLASS = 'user-links-collapsible-item';
+		self::appendClassToListItem(
+			$item,
+			$COLLAPSE_MENU_ITEM_CLASS
+		);
 	}
 
 	/**
@@ -297,10 +302,15 @@ class Hooks {
 		foreach ( $content_navigation[$menu] as $key => $item ) {
 			$hasButton = $item['button'] ?? false;
 			$hideText = $item['text-hidden'] ?? false;
+			$isCollapsible = $item['collapsible'] ?? false;
 			$icon = $item['icon'] ?? '';
 			unset( $item['button'] );
 			unset( $item['icon'] );
 			unset( $item['text-hidden'] );
+			unset( $item['collapsible'] );
+			if ( $isCollapsible ) {
+				self::makeMenuItemCollapsible( $item );
+			}
 
 			if ( $hasButton ) {
 				$item['link-class'][] = 'mw-ui-button mw-ui-quiet';
@@ -308,7 +318,7 @@ class Hooks {
 
 			if ( $icon ) {
 				if ( $hideText ) {
-					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element mw-ui-icon-' . $icon;
+					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-' . $icon;
 				} else {
 					$item['link-html'] = self::makeIcon( $icon );
 				}
@@ -336,6 +346,20 @@ class Hooks {
 				$title && $title->canExist()
 			) {
 				self::updateActionsMenu( $content_navigation );
+			}
+
+			// watchlist item is not present if not logged in.
+			$wlItem = $content_navigation['user-menu']['watchlist'] ?? null;
+			if ( $wlItem !== null ) {
+				$content_navigation['vector-user-menu-overflow'] = [
+					'watchlist' => $wlItem + [
+						'button' => true,
+						'collapsible' => true,
+						'text-hidden' => true,
+						'id' => 'pt-watchlist-2',
+					],
+				];
+				self::updateMenuItems( $content_navigation, 'vector-user-menu-overflow' );
 			}
 
 			if ( isset( $content_navigation['user-menu'] ) ) {

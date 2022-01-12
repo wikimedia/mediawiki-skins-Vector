@@ -298,27 +298,11 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * Returns HTML for the watchlist link inside user links
+	 * @param array|null $watchlistMenuData (optional)
 	 * @return string
 	 */
-	private function getWatchlistHTML() {
-		$title = $this->getTitle();
-		$pageurl = $title->getLocalURL();
-		$href = self::makeSpecialUrl( 'Watchlist' );
-		$watchlistData = [
-			'text' => $this->msg( 'mywatchlist' )->text(),
-			'href' => $href,
-			'active' => ( $href == $pageurl ),
-			'single-id' => 'pt-watchlist',
-			'class' => [
-				self::CLASS_QUIET_BUTTON,
-				self::CLASS_ICON_BUTTON,
-				self::iconClass( 'unStar' )
-			]
-		];
-
-		$featureManager = VectorServices::getFeatureManager();
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_USER_LINKS_WATCHLIST ) ?
-			$this->makeLink( 'watchlist', $watchlistData ) : '';
+	private function getWatchlistHTML( $watchlistMenuData = null ) {
+		return $watchlistMenuData ? $watchlistMenuData['html-items'] : '';
 	}
 
 	/**
@@ -408,7 +392,7 @@ class SkinVector extends SkinMustache {
 			'data-user-interface-preferences' => $menuData[ 'data-user-interface-preferences' ],
 			'data-notifications' => $menuData[ 'data-notifications' ],
 			'data-user-page' => $menuData[ 'data-user-page' ],
-			'html-vector-watchlist' => $this->getWatchlistHTML(),
+			'html-vector-watchlist' => $this->getWatchlistHTML( $menuData[ 'data-vector-user-menu-overflow' ] ?? null ),
 		] );
 		$userMoreData = [
 			'id' => 'p-personal-more',
