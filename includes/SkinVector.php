@@ -494,6 +494,10 @@ class SkinVector extends SkinMustache {
 			// the user navigates to a page with a hash fragment in the URI). For this
 			// reason, we can't rely on the `vector-sticky-header-visible` class as it
 			// is added too late.
+			//
+			// Please note that this class applies scroll padding which does not work
+			// when applied to the body tag in Chrome, Safari, and Firefox (and
+			// possibly others). It must instead be applied to the html tag.
 			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
 		}
 
