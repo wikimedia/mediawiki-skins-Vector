@@ -217,7 +217,8 @@ class Hooks {
 	 */
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
-		if ( $sk->getUser()->isRegistered() ) {
+		// user-menu may not be present e.g. during an edit.
+		if ( $sk->getUser()->isRegistered() && in_array( 'user-menu', $content_navigation ) ) {
 			// Remove user page from personal menu dropdown for logged in users at higher resolutions.
 			self::makeMenuItemCollapsible(
 				$content_navigation['user-menu']['userpage']
