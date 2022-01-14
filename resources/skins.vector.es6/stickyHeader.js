@@ -319,7 +319,11 @@ function addVisualEditorHooks( targetIntersection, observer ) {
 	// When Visual Editor is deactivated (by clicking "Read" tab at top of page), show sticky header
 	// by re-triggering the observer.
 	mw.hook( 've.deactivationComplete' ).add( () => {
-		observer.observe( targetIntersection );
+		// Wait for the next repaint or we might calculate that
+		// sticky header should not be visible (T299114)
+		requestAnimationFrame( () => {
+			observer.observe( targetIntersection );
+		} );
 	} );
 
 	// After saving edits, re-apply the sticky header if the target is not in the viewport.
