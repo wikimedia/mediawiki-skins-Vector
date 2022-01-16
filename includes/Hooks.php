@@ -428,8 +428,8 @@ class Hooks {
 				// Only show this section when the Vector skin is checked. The JavaScript client also uses
 				// this state to determine whether to show or hide the whole section.
 				// If migration mode is enabled, the section is always hidden.
-				'hide-if' => self::isMigrationMode() ? [ '!==', 'wpskin', '0' ] :
-					[ '!==', 'wpskin', Constants::SKIN_NAME_LEGACY ],
+				'hide-if' => self::isMigrationMode() ? [ '!==', 'skin', '0' ] :
+					[ '!==', 'skin', Constants::SKIN_NAME_LEGACY ],
 			],
 			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
 				'type' => 'api',
