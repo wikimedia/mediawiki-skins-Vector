@@ -17,7 +17,7 @@ use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
  * @coversDefaultClass \Vector\Hooks
  */
 class VectorHooksTest extends MediaWikiIntegrationTestCase {
-	private const HIDE_IF = [ '!==', 'wpskin', Constants::SKIN_NAME_LEGACY ];
+	private const HIDE_IF = [ '!==', 'skin', Constants::SKIN_NAME_LEGACY ];
 
 	private const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
 
