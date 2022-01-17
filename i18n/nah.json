@@ -3,7 +3,8 @@
 		"authors": [
 			"Akapochtli",
 			"Ricardo gs",
-			"Taresi"
+			"Taresi",
+			"Languaeditor"
 		]
 	},
 	"vector-action-addsection": "Xicahxilti netlahtolpepechtiliztli",
@@ -17,5 +18,5 @@
 	"vector-view-history": "Tiquittaz tlahtollotl",
 	"vector-view-view": "Tamapohuaz",
 	"vector-view-viewsource": "Xiquitta tzintiliztli",
-	"vector-more-actions": "Ocachi"
+	"vector-more-actions": "Achiyok"
 }
