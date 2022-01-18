@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gilbert Ndihokubwayo"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ururimi|$1 indimi}}",
+	"vector-view-history": "Raba uko vyagiye birakurikirana",
+	"vector-view-view": "Soma",
+	"vector-more-actions": "Ibindi"
+}
