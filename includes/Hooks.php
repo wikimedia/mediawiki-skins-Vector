@@ -208,18 +208,17 @@ class Hooks {
 	}
 
 	/**
-	 * Updates personal navigation menu (user links) for modern Vector wherein user page, create account and login links
-	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
-	 * removed to preserve existing behavior.
+	 * Updates personal navigation menu (user links) dropdown for modern Vector:
+	 *  - Adds icons
+	 *  - Makes user page and watchlist collapsible
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
-	private static function updateUserLinksItems( $sk, &$content_navigation ) {
+	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
-		// user-menu may not be present e.g. during an edit.
-		if ( $sk->getUser()->isRegistered() && in_array( 'user-menu', $content_navigation ) ) {
-			// Remove user page from personal menu dropdown for logged in users at higher resolutions.
+		if ( $sk->getUser()->isRegistered() ) {
+			// Remove user page from personal menu dropdown for logged in use
 			self::makeMenuItemCollapsible(
 				$content_navigation['user-menu']['userpage']
 			);
@@ -247,7 +246,21 @@ class Hooks {
 			// are set to false.
 			unset( $content_navigation['user-menu']['login-private'] );
 		}
+	}
 
+	/**
+	 * Updates personal navigation menu (user links) for modern Vector wherein user page, create account and login links
+	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
+	 * removed to preserve existing behavior.
+	 *
+	 * @param SkinTemplate $sk
+	 * @param array &$content_navigation
+	 */
+	private static function updateUserLinksItems( $sk, &$content_navigation ) {
+		$hasUserMenu = $content_navigation['user-menu'] ?? false;
+		if ( $hasUserMenu ) {
+			self::updateUserLinksDropdownItems( $sk, $content_navigation );
+		}
 		// ULS and user page links are hidden at lower resolutions.
 		if ( $content_navigation['user-interface-preferences'] ) {
 			self::makeMenuItemCollapsible(
