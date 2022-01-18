@@ -148,6 +148,114 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		);
 	}
 
+	public function providerAnonUserMigrationMode() {
+		return [
+			// When no query string just return DefaultSkin version.
+			[
+				Constants::SKIN_NAME_LEGACY,
+				null,
+				Constants::SKIN_VERSION_LEGACY,
+			],
+			[
+				Constants::SKIN_NAME_MODERN,
+				null,
+				Constants::SKIN_VERSION_LATEST,
+			],
+			// When useskin=vector return legacy Vector version.
+			[
+				Constants::SKIN_NAME_LEGACY,
+				Constants::SKIN_NAME_LEGACY,
+				Constants::SKIN_VERSION_LEGACY,
+			],
+			[
+				Constants::SKIN_NAME_MODERN,
+				Constants::SKIN_NAME_LEGACY,
+				Constants::SKIN_VERSION_LEGACY,
+			],
+			// When useskin=vector-2022 return modern Vector.
+			[
+				Constants::SKIN_NAME_MODERN,
+				Constants::SKIN_NAME_MODERN,
+				Constants::SKIN_VERSION_LATEST,
+			],
+			[
+				Constants::SKIN_NAME_LEGACY,
+				Constants::SKIN_NAME_MODERN,
+				Constants::SKIN_VERSION_LATEST,
+			],
+		];
+	}
+
+	/**
+	 * @covers ::getVersion
+	 * @dataProvider providerAnonUserMigrationMode
+	 */
+	public function testVectorAnonUserMigrationModeWithUseSkinVector(
+		string $defaultSkin,
+		$useSkin,
+		$expectedVersion
+	) {
+		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
+		$request
+			->method( 'getVal' )
+			->with( 'useskin' )
+			->willReturn( $useSkin );
+		$user = $this->createMock( \User::class );
+		$user
+			->method( 'isRegistered' )
+			->willReturn( false );
+
+		$config = new HashConfig( [
+			'DefaultSkin' => $defaultSkin,
+			'VectorSkinMigrationMode' => true,
+			'VectorDefaultSkinVersion' => '2',
+			'VectorDefaultSkinVersionForExistingAccounts' => '2'
+		] );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', [
+			'skin' => $defaultSkin,
+		] );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
+
+		$this->assertSame(
+			$expectedVersion,
+			$skinVersionLookup->getVersion(),
+			'useskin=vector query string yields legacy skin in migration mode'
+		);
+	}
+
+	/**
+	 * @covers ::getVersion
+	 */
+	public function testVectorRegisteredUserMigrationMode() {
+		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
+		$request
+			->method( 'getVal' )
+			->willReturn( null );
+		$user = $this->createMock( \User::class );
+		$user
+			->method( 'isRegistered' )
+			->willReturn( true );
+
+		$config = new HashConfig( [
+			'DefaultSkin' => 'vector',
+			'VectorSkinMigrationMode' => true,
+			'VectorDefaultSkinVersion' => '1',
+			'VectorDefaultSkinVersionForExistingAccounts' => '1'
+		] );
+		$userOptionsLookup = $this->getUserOptionsLookupMock( $user, '2', [
+			'skin' => Constants::SKIN_NAME_LEGACY
+		] );
+
+		$skinVersionLookup = new SkinVersionLookup( $request, $user, $config, $userOptionsLookup );
+
+		$this->assertSame(
+			'2',
+			$skinVersionLookup->getVersion(),
+			'If legacy skin is set with skin version modern, then the user gets modern skin still'
+		);
+	}
+
 	/**
 	 * @covers ::getVersion
 	 */

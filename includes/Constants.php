@@ -163,6 +163,12 @@ final class Constants {
 	public const QUERY_PARAM_SKIN_VERSION = 'useskinversion';
 
 	/**
+	 * Override the skin user preference and site Config. See readme.
+	 * @var string
+	 */
+	public const QUERY_PARAM_SKIN = 'useskin';
+
+	/**
 	 * @var string
 	 */
 	public const FEATURE_USE_WVUI_SEARCH = 'UseWvuiSearch';
