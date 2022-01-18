@@ -587,9 +587,10 @@ class SkinVector extends SkinMustache {
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
-		$parentData = parent::getTemplateData();
+		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 		$featureManager = VectorServices::getFeatureManager();
 
+		//
 		// Naming conventions for Mustache parameters.
 		//
 		// Value type (first segment):
@@ -927,29 +928,62 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * @inheritDoc
+	 * Performs updates to all portlets.
+	 *
+	 * @param array $data
 	 * @return array
 	 */
-	protected function getPortletData(
-		$label,
-		array $urls = []
+	private function decoratePortletsData( array $data ) {
+		foreach ( $data['data-portlets'] as $key => $pData ) {
+			$data['data-portlets'][$key] = $this->decoratePortletData(
+				$key,
+				$pData
+			);
+		}
+		$sidebar = $data['data-portlets-sidebar'];
+		$sidebar['data-portlets-first'] = $this->decoratePortletData(
+			'navigation', $sidebar['data-portlets-first']
+		);
+		$rest = $sidebar['array-portlets-rest'];
+		foreach ( $rest as $key => $pData ) {
+			$rest[$key] = $this->decoratePortletData(
+				$pData['id'], $pData
+			);
+		}
+		$sidebar['array-portlets-rest'] = $rest;
+		$data['data-portlets-sidebar'] = $sidebar;
+		return $data;
+	}
+
+	/**
+	 * Performs the following updates to portlet data:
+	 * - Adds concept of menu types
+	 * - Marks the selected variant in the variant portlet
+	 * - modifies tooltips of personal and user-menu portlets
+	 * @param string $key
+	 * @param array $portletData
+	 * @return array
+	 */
+	private function decoratePortletData(
+		string $key,
+		array $portletData
 	): array {
-		switch ( $label ) {
-			case 'user-menu':
-			case 'actions':
-			case 'variants':
+		switch ( $key ) {
+			case 'data-user-menu':
+			case 'data-actions':
+			case 'data-variants':
 				$type = self::MENU_TYPE_DROPDOWN;
 				break;
-			case 'views':
-			case 'namespaces':
+			case 'data-views':
+			case 'data-namespaces':
 				$type = self::MENU_TYPE_TABS;
 				break;
-			case 'notifications':
-			case 'personal':
-			case 'user-page':
+			case 'data-notifications':
+			case 'data-personal':
+			case 'data-user-page':
 				$type = self::MENU_TYPE_DEFAULT;
 				break;
-			case 'lang':
+			case 'data-languages':
 				$type = $this->isLanguagesInContent() ?
 					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_PORTAL;
 				break;
@@ -959,20 +993,19 @@ class SkinVector extends SkinMustache {
 		}
 
 		$portletData = $this->decoratePortletClass(
-			parent::getPortletData( $label, $urls ),
+			$portletData,
 			$type
 		);
 
 		// Special casing for Variant to change label to selected.
 		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
-		if ( $label === 'variants' ) {
-			foreach ( $urls as $key => $item ) {
-			// Check the class of the item for a `selected` class and if so, propagate the items
-			// label to the main label.
-				if ( isset( $item['class'] ) && stripos( $item['class'], 'selected' ) !== false ) {
-					$portletData['label'] = $item['text'];
-				}
-			}
+		if ( $key === 'data-variants' ) {
+			$languageConverterFactory = MediaWikiServices::getInstance()->getLanguageConverterFactory();
+			$pageLang = $this->getTitle()->getPageLanguage();
+			$converter = $languageConverterFactory->getLanguageConverter( $pageLang );
+			$portletData['label'] = $pageLang->getVariantname(
+				$converter->getPreferredVariant()
+			);
 			// T289523 Add aria-label data to the language variant switcher.
 			$portletData['aria-label'] = $this->msg( 'vector-language-variant-switcher-label' );
 		}
@@ -981,13 +1014,13 @@ class SkinVector extends SkinMustache {
 		// Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for the user icon (dropdown
 		// indicator for user links menu) for logged-in users. This overrides the tooltip for the user links menu icon
 		// which is an ellipsis for anonymous users.
-		if ( $label === 'user-menu' && !$this->isLegacy() && !$this->loggedin ) {
+		if ( $key === 'data-user-menu' && !$this->isLegacy() && !$this->loggedin ) {
 			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
 		}
 
 		// Set tooltip to empty string for the personal menu for both logged-in and logged-out users to avoid showing
 		// the tooltip for legacy version.
-		if ( $label === 'personal' && $this->isLegacy() ) {
+		if ( $key === 'data-personal' && $this->isLegacy() ) {
 			$portletData['html-tooltip'] = '';
 		}
 
