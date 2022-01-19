@@ -5,6 +5,8 @@
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ururimi|$1 indimi}}",
+	"vector-view-create": "Tanguza",
+	"vector-view-edit": "Hinyanyura inyandiko",
 	"vector-view-history": "Raba uko vyagiye birakurikirana",
 	"vector-view-view": "Soma",
 	"vector-more-actions": "Ibindi"
