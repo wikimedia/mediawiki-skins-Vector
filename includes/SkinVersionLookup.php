@@ -107,6 +107,19 @@ final class SkinVersionLookup {
 	 * @throws \ConfigException
 	 */
 	public function getVersion(): string {
+		$migrationMode = $this->config->get( 'VectorSkinMigrationMode' );
+		// In migration mode, the useskin parameter is the source of truth.
+		if ( $migrationMode ) {
+			$useSkin = $this->request->getVal(
+				Constants::QUERY_PARAM_SKIN
+			);
+			if ( $useSkin ) {
+				return $useSkin === Constants::SKIN_NAME_LEGACY ?
+					Constants::SKIN_VERSION_LEGACY :
+					Constants::SKIN_VERSION_LATEST;
+			}
+		}
+
 		// If skin key is not vector, then version should be considered legacy.
 
 		// If skin is "Vector" invoke additional skin versioning detection.
@@ -138,9 +151,12 @@ final class SkinVersionLookup {
 			)
 		);
 
-		// If we are in migration mode, we must check the skin version preference.
-		if ( $this->config->get( 'VectorSkinMigrationMode' ) ) {
+		// If we are in migration mode...
+		if ( $migrationMode ) {
+			// ... we must check the skin version preference for logged in users.
+			// No need to check for anons as wgDefaultSkin has already been consulted at this point.
 			if (
+				$this->user->isRegistered() &&
 				$skin === Constants::SKIN_NAME_LEGACY &&
 				$skinVersionPref === Constants::SKIN_VERSION_LATEST
 			) {
