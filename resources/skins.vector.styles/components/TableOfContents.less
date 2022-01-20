@@ -1,0 +1,65 @@
+@import '../../common/variables.less';
+
+@subcategory-indent: 8px;
+
+.sidebar-toc {
+	width: 200px;
+	max-height: 90vh;
+	overflow: auto;
+	padding: 12px;
+	float: left;
+	position: sticky;
+	top: calc( @height-sticky-header + 1.5em );
+	background-color: @background-color-base;
+	border: @border-base;
+	border-radius: @border-radius-base;
+
+	.sidebar-toc-header {
+		padding-bottom: 12px;
+	}
+
+	.sidebar-toc-title {
+		font-weight: bold;
+		font-size: @font-size-heading-3;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	.sidebar-toc-numb {
+		display: none;
+	}
+
+	.sidebar-toc-text {
+		padding-bottom: 5px;
+	}
+
+	ul {
+		margin: 0;
+		list-style: none;
+		line-height: 18px;
+
+		li {
+			list-style-type: none;
+			padding-left: @subcategory-indent;
+
+			a {
+				color: @color-base;
+				font-size: @font-size-base;
+			}
+
+			&.sidebar-toc-level-1 {
+				padding-left: 0;
+
+				> a {
+					color: @color-link;
+				}
+			}
+		}
+	}
+}
+
+// Hide TOC when sidebar is open
+.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .sidebar-toc {
+	display: none;
+}

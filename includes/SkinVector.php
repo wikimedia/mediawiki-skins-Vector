@@ -136,6 +136,7 @@ class SkinVector extends SkinMustache {
 	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
+	private const TABLE_OF_CONTENTS_ENABLED_CLASS = 'vector-toc-enabled';
 	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 	private const CLASS_ICON_BUTTON = 'mw-ui-icon mw-ui-icon-element';
@@ -485,6 +486,10 @@ class SkinVector extends SkinMustache {
 			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
 		}
 
+		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) ) {
+			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::TABLE_OF_CONTENTS_ENABLED_CLASS ] );
+		}
+
 		return $original;
 	}
 
@@ -557,12 +562,17 @@ class SkinVector extends SkinMustache {
 
 	/**
 	 * Determines if the Table of Contents should be visible.
+	 * TOC is visible on main namespaces except for the Main Page
+	 * when the feature flag is on.
 	 *
 	 * @return bool
 	 */
 	private function isTableOfContentsVisibleInSidebar(): bool {
 		$featureManager = VectorServices::getFeatureManager();
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
+		$title = $this->getTitle();
+		$isMainNS = $title ? $title->inNamespaces( 0 ) : false;
+		$isMainPage = $title ? $title->isMainPage() : false;
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) && $isMainNS && !$isMainPage;
 	}
 
 	/**
