@@ -222,9 +222,14 @@ class Hooks {
 			self::makeMenuItemCollapsible(
 				$content_navigation['user-menu']['userpage']
 			);
-			self::makeMenuItemCollapsible(
-				$content_navigation['user-menu']['watchlist']
-			);
+			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
+			// See [[phab:T299671]]
+			$wlItem = $content_navigation['user-menu']['watchlist'] ?? false;
+			if ( $wlItem ) {
+				self::makeMenuItemCollapsible(
+					$wlItem
+				);
+			}
 			// Remove logout link from user-menu and recreate it in SkinVector,
 			unset( $content_navigation['user-menu']['logout'] );
 			// Don't show icons for anon menu items (besides login and create account).
