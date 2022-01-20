@@ -4,6 +4,7 @@
 			"Chrumps",
 			"Matma Rex",
 			"Msz2001",
+			"Openbk",
 			"Rail",
 			"Sp5uhe"
 		]
@@ -17,7 +18,9 @@
 	"vector.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector-action-toggle-sidebar": "Przełącz panel boczny",
+	"vector-languages": "Języki",
 	"vector-language-button-label": "$1 {{PLURAL:$1|język|języki|języków}}",
+	"vector-language-redirect-to-top": "W tym projekcie linki pomiędzy różnymi wersjami językowymi znajdują się na górze strony, naprzeciw jej tytułu. [[#p-lang-btn|Przejdź do góry]].",
 	"vector-action-addsection": "Dodaj temat",
 	"vector-action-delete": "Usuń",
 	"vector-action-move": "Przenieś",

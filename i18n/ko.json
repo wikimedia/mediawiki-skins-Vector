@@ -9,6 +9,7 @@
 			"MemphisA5",
 			"Revi",
 			"Ykhwong",
+			"메이",
 			"아라"
 		]
 	},
@@ -24,7 +25,7 @@
 	"vector-languages": "언어",
 	"vector-language-button-aria-label": "다른 언어로 문서를 방문합니다. {{PLURAL:$1|$1개 언어}}로 읽을 수 있습니다",
 	"vector-language-button-label": "{{PLURAL:$1|$1개 언어}}",
-	"vector-language-redirect-to-top": "이 위키백과에서 언어 링크는 문서 제목 건녀편의 문서 최상단에 있습니다. [[#p-lang-btn|최상단으로 이동합니다]].",
+	"vector-language-redirect-to-top": "이 위키백과에서 언어 링크는 문서 제목 건너편의 문서 최상단에 있습니다. [[#p-lang-btn|최상단으로 이동합니다]].",
 	"vector-action-addsection": "새 주제",
 	"vector-action-delete": "삭제",
 	"vector-action-move": "이동",
