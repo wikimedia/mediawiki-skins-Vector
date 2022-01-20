@@ -20,11 +20,9 @@
 
 namespace Vector\FeatureManagement\Tests;
 
-use HashConfig;
 use MediaWiki\User\UserOptionsLookup;
 use User;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
-use Vector\SkinVersionLookup;
 use WebRequest;
 
 /**
@@ -36,38 +34,33 @@ class LatestSkinVersionRequirementTest extends \MediaWikiUnitTestCase {
 
 	public function provideIsMet() {
 		// $version, $expected, $msg
-		yield 'not met' => [ '1', false, '"1" isn\'t considered latest.' ];
-		yield 'met' => [ '2', true, '"2" is considered latest.' ];
+		yield 'not met' => [ 'vector', null, false, '"1" isn\'t considered latest.' ];
+		yield 'met' => [ 'vector-2022', null, true, '"2" is considered latest.' ];
+		yield 'met (useskin override)' => [ 'vector', 'vector-2022', true, 'useskin overrides' ];
+		yield 'not met (useskin override)' => [ 'vector-2022', 'vector', false, 'useskin overrides' ];
 	}
 
 	/**
 	 * @dataProvider provideIsMet
 	 * @covers ::isMet
 	 */
-	public function testIsMet( $version, $expected, $msg ) {
-		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
-			'VectorDefaultSkinVersionForExistingAccounts' => $version
-		] );
-
+	public function testIsMet( $skin, $useSkin, $expected, $msg ) {
 		$user = $this->createMock( User::class );
 		$user->method( 'isRegistered' )->willReturn( true );
+		$user->method( 'isSafeToLoad' )->willReturn( true );
 
 		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookup->method( 'getOption' )
-			->will( $this->returnArgument( 2 ) );
+			->willReturn( $skin );
 
 		$request = $this->createMock( WebRequest::class );
 		$request->method( 'getVal' )
-			->will( $this->returnArgument( 1 ) );
+			->willReturn( $useSkin );
 
 		$requirement = new LatestSkinVersionRequirement(
-			new SkinVersionLookup(
-				$request,
-				$user,
-				$config,
-				$userOptionsLookup
-			)
+			$request,
+			$user,
+			$userOptionsLookup
 		);
 
 		$this->assertSame( $expected, $requirement->isMet(), $msg );

@@ -7,7 +7,6 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use HashConfig;
-use HTMLForm;
 use MediaWiki\User\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
@@ -18,8 +17,6 @@ use User;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
-use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
-use Vector\SkinVector;
 use Vector\SkinVector22;
 use Vector\SkinVectorLegacy;
 
@@ -291,21 +288,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	/**
-	 * @covers ::onGetPreferences
-	 */
-	public function testOnGetPreferencesShowPreferencesDisabled() {
-		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
-			'VectorShowSkinPreferences' => false,
-		] );
-		$this->setService( 'Vector.Config', $config );
-
-		$prefs = [];
-		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
-		$this->assertSame( [], $prefs, 'No preferences are added.' );
-	}
-
 	private function setFeatureLatestSkinVersionIsEnabled( $isEnabled ) {
 		$featureManager = new FeatureManager();
 		$featureManager->registerSimpleRequirement( Constants::REQUIREMENT_LATEST_SKIN_VERSION, $isEnabled );
@@ -314,48 +296,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		] );
 
 		$this->setService( Constants::SERVICE_FEATURE_MANAGER, $featureManager );
-	}
-
-	/**
-	 * @covers ::onGetPreferences
-	 */
-	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionFoundLegacy() {
-		$isLegacy = true;
-		$this->setFeatureLatestSkinVersionIsEnabled( !$isLegacy );
-		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
-			'VectorShowSkinPreferences' => true,
-			'VectorDefaultSidebarVisibleForAuthorisedUser' => true,
-		] );
-		$this->setService( 'Vector.Config', $config );
-
-		$prefs = [
-			'foo' => [],
-			'skin' => [],
-			'bar' => []
-		];
-		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
-		$this->assertEquals(
-			[
-				'foo' => [],
-				'skin' => [],
-				'VectorSkinVersion' => [
-					'class' => HTMLLegacySkinVersionField::class,
-					'label-message' => 'prefs-vector-enable-vector-1-label',
-					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => self::SKIN_PREFS_SECTION,
-					'default' => $isLegacy,
-					'hide-if' => self::HIDE_IF,
-				],
-				'VectorSidebarVisible' => [
-					'type' => 'api',
-					'default' => true
-				],
-				'bar' => [],
-			],
-			$prefs,
-			'Preferences are inserted directly after skin.'
-		);
 	}
 
 	/**
@@ -389,117 +329,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::onGetPreferences
-	 */
-	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLegacy() {
-		$isLegacy = false;
-		$this->setFeatureLatestSkinVersionIsEnabled( !$isLegacy );
-		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
-			'VectorDefaultSidebarVisibleForAuthorisedUser' => true,
-			'VectorShowSkinPreferences' => true,
-		] );
-		$this->setService( 'Vector.Config', $config );
-
-		$prefs = [
-			'foo' => [],
-			'bar' => []
-		];
-		Hooks::onGetPreferences( $this->getTestUser()->getUser(), $prefs );
-		$this->assertEquals(
-			[
-				'foo' => [],
-				'bar' => [],
-				'VectorSkinVersion' => [
-					'class' => HTMLLegacySkinVersionField::class,
-					'label-message' => 'prefs-vector-enable-vector-1-label',
-					'help-message' => 'prefs-vector-enable-vector-1-help',
-					'section' => self::SKIN_PREFS_SECTION,
-					'default' => $isLegacy,
-					'hide-if' => self::HIDE_IF,
-				],
-				'VectorSidebarVisible' => [
-					'type' => 'api',
-					'default' => true
-				],
-			],
-			$prefs,
-			'Preferences are appended.'
-		);
-	}
-
-	/**
-	 * @covers ::onPreferencesFormPreSave
-	 */
-	public function testOnPreferencesFormPreSaveVectorEnabledLegacyNewPreference() {
-		$formData = [
-			'skin' => 'vector',
-			'VectorSkinVersion' => Constants::SKIN_VERSION_LEGACY,
-		];
-		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( User::class );
-		$userOptionsManager = $this->createMock( UserOptionsManager::class );
-		$userOptionsManager->expects( $this->never() )
-			->method( 'setOption' );
-		$this->setService( 'UserOptionsManager', $userOptionsManager );
-		$result = true;
-		$oldPreferences = [];
-
-		Hooks::onPreferencesFormPreSave( $formData, $form, $user, $result, $oldPreferences );
-	}
-
-	/**
-	 * @covers ::onPreferencesFormPreSave
-	 */
-	public function testOnPreferencesFormPreSaveVectorDisabledNoOldPreference() {
-		$formData = [
-			'VectorSkinVersion' => Constants::SKIN_VERSION_LATEST,
-		];
-		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( User::class );
-		$userOptionsManager = $this->createMock( UserOptionsManager::class );
-		$userOptionsManager->expects( $this->never() )
-			->method( 'setOption' );
-		$this->setService( 'UserOptionsManager', $userOptionsManager );
-		$result = true;
-		$oldPreferences = [];
-
-		Hooks::onPreferencesFormPreSave( $formData, $form, $user, $result, $oldPreferences );
-	}
-
-	/**
-	 * @covers ::onPreferencesFormPreSave
-	 */
-	public function testOnPreferencesFormPreSaveVectorDisabledOldPreference() {
-		$formData = [
-			'VectorSkinVersion' => Constants::SKIN_VERSION_LATEST,
-		];
-		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
-			'VectorShowSkinPreferences' => false,
-		] );
-		$form = $this->createMock( HTMLForm::class );
-		$user = $this->createMock( User::class );
-		$userOptionsManager = $this->createMock( UserOptionsManager::class );
-		$userOptionsManager->expects( $this->once() )
-			->method( 'setOption' )
-			->with( $user, 'VectorSkinVersion', 'old' );
-		$this->setService( 'Vector.Config', $config );
-		$this->setService( 'UserOptionsManager', $userOptionsManager );
-		$result = true;
-		$oldPreferences = [
-			'VectorSkinVersion' => 'old',
-		];
-
-		Hooks::onPreferencesFormPreSave( $formData, $form, $user, $result, $oldPreferences );
-	}
-
-	/**
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLegacy() {
 		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
 		] );
 		$this->setService( 'Vector.Config', $config );
@@ -508,7 +341,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$userOptionsManager = $this->createMock( UserOptionsManager::class );
 		$userOptionsManager->expects( $this->once() )
 			->method( 'setOption' )
-			->with( $user, 'VectorSkinVersion', Constants::SKIN_VERSION_LEGACY );
+			->with( $user, 'skin', Constants::SKIN_NAME_LEGACY );
 		$this->setService( 'UserOptionsManager', $userOptionsManager );
 		$isAutoCreated = false;
 		Hooks::onLocalUserCreated( $user, $isAutoCreated );
@@ -519,7 +352,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testOnLocalUserCreatedLatest() {
 		$config = new HashConfig( [
-			'VectorSkinMigrationMode' => false,
 			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
 		] );
 		$this->setService( 'Vector.Config', $config );
@@ -528,7 +360,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$userOptionsManager = $this->createMock( UserOptionsManager::class );
 		$userOptionsManager->expects( $this->once() )
 			->method( 'setOption' )
-			->with( $user, 'VectorSkinVersion', Constants::SKIN_VERSION_LATEST );
+			->with( $user, 'skin', Constants::SKIN_NAME_MODERN );
 		$this->setService( 'UserOptionsManager', $userOptionsManager );
 		$isAutoCreated = false;
 		Hooks::onLocalUserCreated( $user, $isAutoCreated );
@@ -541,7 +373,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->setMwGlobals( [
 			'wgVectorUseIconWatch' => true
 		] );
-		$skin = new SkinVector( [ 'name' => 'vector' ] );
+		$skin = new SkinVector22( [ 'name' => 'vector' ] );
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
 			'actions' => [
