@@ -1,0 +1,161 @@
+/**
+ * Called when a new intersection is observed.
+ *
+ * @callback OnIntersection
+ * @param {HTMLElement} element The section that triggered the new intersection change.
+ */
+
+/**
+ * @typedef {Object} SectionObserver
+ * @property {Function} pause Pauses intersection observation until `resume` is called.
+ * @property {Function} resume Resumes intersection observation.
+ * @property {Function} unmount Cleans up event listeners and intersection
+ * observer. Should be called when the observer is permanently no longer needed.
+ */
+
+/**
+ * Observe intersection changes with the viewport for one or more tags within a
+ * container. This is intended to be used with the headings in the content so
+ * that the corresponding section(s) in the table of contents can be "activated"
+ * (e.g. bolded).
+ *
+ * When sectionObserver notices a new intersection change, the
+ * `props.onIntersection` callback will be fired with the corresponding section
+ * as a param.
+ *
+ * Because sectionObserver uses a scroll event listener (in combination with
+ * IntersectionObserver), the changes are throttled to a default maximum rate of
+ * 200ms so that the main thread is not excessively blocked.
+ * IntersectionObserver is used to asynchronously calculate the positions of the
+ * observed tags off the main thread and in a manner that does not cause
+ * expensive forced synchronous layouts.
+ *
+ * @param {Object} props
+ * @param {HTMLElement} props.container A container element that contains the `props.tagNames`.
+ * @param {string[]} props.tagNames The list of tag names that should be observed.
+ * @param {OnIntersection} props.onIntersection
+ * @param {number} [props.topMargin] The number of pixels to shrink the top of
+ * the viewport's bounding box before calculating intersections. This is useful
+ * for sticky elements (e.g. sticky headers). Defaults to 0 pixels.
+ * @param {number} [props.throttleMs] The number of milliseconds that the scroll
+ * handler should be throttled.
+ * @return {SectionObserver}
+ */
+module.exports = function sectionObserver( props ) {
+	props = Object.assign( {
+		topMargin: 0,
+		throttleMs: 200,
+		onIntersection: () => {}
+	}, props );
+
+	const tagGroups = props.tagNames.map( ( tagName ) => {
+		// `.getElementsByTagName` returns a live HTMLCollection object which will
+		// automatically update itself if tags are added or removed within the
+		// container (e.g. this might happen after a user adds or removes sections
+		// with VisualEditor ).
+		return props.container.getElementsByTagName( tagName );
+	} );
+	let /** @type {boolean} */ inThrottle = false;
+	let /** @type {HTMLElement | undefined} */ current;
+	// eslint-disable-next-line compat/compat
+	const observer = new IntersectionObserver( ( entries ) => {
+		let /** @type {IntersectionObserverEntry | undefined} */ closestNegativeEntry;
+		let /** @type {IntersectionObserverEntry | undefined} */ closestPositiveEntry;
+		const topMargin = /** @type {number} */ ( props.topMargin );
+
+		entries.forEach( ( entry ) => {
+			const top =
+					entry.boundingClientRect.top - topMargin;
+			if (
+				top > 0 &&
+				(
+					closestPositiveEntry === undefined ||
+					top < closestPositiveEntry.boundingClientRect.top - topMargin
+				)
+			) {
+				closestPositiveEntry = entry;
+			}
+
+			if (
+				top <= 0 &&
+				(
+					closestNegativeEntry === undefined ||
+					top > closestNegativeEntry.boundingClientRect.top - topMargin
+				)
+			) {
+				closestNegativeEntry = entry;
+			}
+		} );
+
+		const closestTag =
+			/** @type {HTMLElement} */ ( closestNegativeEntry ? closestNegativeEntry.target :
+				/** @type {IntersectionObserverEntry} */ ( closestPositiveEntry ).target
+			);
+
+		// If the intersection is new, fire the `onIntersection` callback.
+		if ( current !== closestTag ) {
+			props.onIntersection( closestTag );
+		}
+		current = closestTag;
+
+		// When finished finding the intersecting element, stop observing all
+		// observed elements. The scroll event handler will be responsible for
+		// throttling and reobserving the elements again. Because we don't have a
+		// wrapper element around our content headings and their children, we can't
+		// rely on IntersectionObserver (which is optimized to detect intersecting
+		// elements *within* the viewport) to reliably fire this callback without
+		// this manual step. Instead, we offload the work of calculating the
+		// position of each element in an efficient manner to IntersectionObserver,
+		// but do not use it to detect when a new element has entered the viewport.
+		observer.disconnect();
+	} );
+
+	function calcIntersection() {
+		// IntersectionObserver will asynchronously calculate the boundingClientRect
+		// of each observed element off the main thread after `observe` is called.
+		tagGroups.forEach( ( tags ) => {
+			for ( let i = 0; i < tags.length; i++ ) {
+				observer.observe( tags[ i ] );
+			}
+		} );
+	}
+
+	function handleScroll() {
+		// Throttle the scroll event handler to fire at a rate limited by `props.throttleMs`.
+		if ( !inThrottle ) {
+			inThrottle = true;
+
+			setTimeout( () => {
+				calcIntersection();
+				inThrottle = false;
+			}, props.throttleMs );
+		}
+	}
+
+	function bindScrollListener() {
+		window.addEventListener( 'scroll', handleScroll );
+	}
+
+	function unbindScrollListener() {
+		window.removeEventListener( 'scroll', handleScroll );
+	}
+
+	bindScrollListener();
+	// Calculate intersection on page load.
+	calcIntersection();
+
+	return {
+		pause() {
+			unbindScrollListener();
+			// Assume current is no longer valid while paused.
+			current = undefined;
+		},
+		resume() {
+			bindScrollListener();
+		},
+		unmount() {
+			unbindScrollListener();
+			observer.disconnect();
+		}
+	};
+};
