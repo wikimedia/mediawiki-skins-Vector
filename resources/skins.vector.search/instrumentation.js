@@ -1,4 +1,4 @@
-/* global FetchEndEvent, SuggestionClickEvent, SubmitEvent */
+/* global FetchEndEvent, SuggestionClickEvent, SearchSubmitEvent */
 /** @module Instrumentation */
 
 /**
@@ -13,10 +13,14 @@ var INPUT_LOCATION_MOVED = 'header-moved',
 	// mediawiki.searchSuggest performance. Marks and Measures will only be
 	// recorded on the Vector skin and only if browser supported.
 	shouldTestSearchPerformance = !!( window.performance &&
+		// @ts-ignore
 		window.requestAnimationFrame &&
 		/* eslint-disable compat/compat */
+		// @ts-ignore
 		performance.mark &&
+		// @ts-ignore
 		performance.measure &&
+		// @ts-ignore
 		performance.getEntriesByName &&
 		performance.clearMarks ),
 	/* eslint-enable compat/compat */
@@ -88,7 +92,7 @@ function onFetchEnd( event ) {
 }
 
 /**
- * @param {SuggestionClickEvent|SubmitEvent} event
+ * @param {SuggestionClickEvent|SearchSubmitEvent} event
  */
 function onSuggestionClick( event ) {
 	mw.track( 'mediawiki.searchSuggest', {
