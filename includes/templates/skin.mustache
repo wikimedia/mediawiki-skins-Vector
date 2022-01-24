@@ -34,7 +34,7 @@
 }}
 <div class="mw-page-container">
 	<a class="mw-jump-link" href="#content">{{msg-vector-jumptocontent}}</a>
-	<div class="mw-page-container-inner {{#is-vector-table-of-contents-visible}} vector-toc-visible{{/is-vector-table-of-contents-visible}}">
+	<div class="mw-page-container-inner {{#data-toc}} vector-toc-visible{{/data-toc}}">
 
 <input
 	type="checkbox"
@@ -46,9 +46,9 @@
 
 <div class="mw-workspace-container">
 	{{>Navigation}}
-	{{#is-vector-table-of-contents-visible}}
+	{{#data-toc}}
 		{{>TableOfContents}}
-	{{/is-vector-table-of-contents-visible}}
+	{{/data-toc}}
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
