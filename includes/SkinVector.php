@@ -640,14 +640,16 @@ class SkinVector extends SkinMustache {
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
+			$migrationMode = $this->getConfig()->get( 'VectorSkinMigrationMode' );
+			$query = $migrationMode ? 'useskin=vector&' : '';
 			// Note: This data is also passed to legacy template where it is unused.
 			$optOutUrl = [
 				'text' => $this->msg( 'vector-opt-out' )->text(),
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
-					'mw-prefsection-rendering-skin-skin-prefs'
-				)->getLinkURL( 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
+					$migrationMode ? 'mw-prefsection-rendering-skin-skin-prefs' : 'mw-prefsection-rendering-skin-skin'
+				)->getLinkURL( $query . 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
 				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
 				'active' => false,
 			];
