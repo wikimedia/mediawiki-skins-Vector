@@ -108,16 +108,20 @@ final class SkinVersionLookup {
 	 */
 	public function getVersion(): string {
 		$migrationMode = $this->config->get( 'VectorSkinMigrationMode' );
+		$useSkin = $this->request->getVal(
+			Constants::QUERY_PARAM_SKIN
+		);
 		// In migration mode, the useskin parameter is the source of truth.
 		if ( $migrationMode ) {
-			$useSkin = $this->request->getVal(
-				Constants::QUERY_PARAM_SKIN
-			);
 			if ( $useSkin ) {
 				return $useSkin === Constants::SKIN_NAME_LEGACY ?
 					Constants::SKIN_VERSION_LEGACY :
 					Constants::SKIN_VERSION_LATEST;
 			}
+		}
+		// [[phab:T299971]]
+		if ( $useSkin === Constants::SKIN_NAME_MODERN ) {
+			return Constants::SKIN_VERSION_LATEST;
 		}
 
 		// If skin key is not vector, then version should be considered legacy.

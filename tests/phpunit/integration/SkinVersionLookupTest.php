@@ -36,8 +36,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
 		$request
 			->method( 'getVal' )
-			->with( $this->anything(), 'beta' )
-			->willReturn( 'alpha' );
+			->willReturnCallback( static function ( $key ) {
+				if ( $key === Constants::QUERY_PARAM_SKIN ) {
+					return null;
+				} else {
+					return 'alpha';
+				}
+			} );
 
 		$user = $this->createMock( \User::class );
 		$user
@@ -76,8 +81,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
 		$request
 			->method( 'getVal' )
-			->with( $this->anything(), 'beta' )
-			->willReturn( 'beta' );
+			->willReturnCallback( static function ( $key ) {
+				if ( $key === Constants::QUERY_PARAM_SKIN ) {
+					return null;
+				} else {
+					return 'beta';
+				}
+			} );
 
 		$user = $this->createMock( \User::class );
 		$user
@@ -116,8 +126,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
 		$request
 			->method( 'getVal' )
-			->with( $this->anything(), '1' )
-			->willReturn( '1' );
+			->willReturnCallback( static function ( $key ) {
+				if ( $key === Constants::QUERY_PARAM_SKIN ) {
+					return null;
+				} else {
+					return '1';
+				}
+			} );
 
 		$user = $this->createMock( \User::class );
 		$user
@@ -296,8 +311,13 @@ class SkinVersionLookupTest extends \MediaWikiIntegrationTestCase {
 		$request = $this->getMockBuilder( \WebRequest::class )->getMock();
 		$request
 			->method( 'getVal' )
-			->with( $this->anything(), '2' )
-			->willReturn( '2' );
+			->willReturnCallback( static function ( $key ) {
+				if ( $key === Constants::QUERY_PARAM_SKIN ) {
+					return null;
+				} else {
+					return '2';
+				}
+			} );
 
 		$user = $this->createMock( \User::class );
 		$user
