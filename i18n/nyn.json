@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kakonjo"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 orurimi|$1 endimi}}",
+	"vector-action-addsection": "Taho omuhajaano",
+	"vector-action-move": "Tambuza",
+	"vector-view-create": "Hangaho",
+	"vector-view-edit": "Gorora",
+	"vector-view-history": "Reba ebi'kozirwe",
+	"vector-view-view": "Shoma",
+	"vector-more-actions": "Ebikukiraho"
+}
