@@ -16,7 +16,9 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
 	CAN_TEST_SEARCH = !!(
 		window.performance &&
 		/* eslint-disable compat/compat */
+		// @ts-ignore
 		performance.mark &&
+		// @ts-ignore
 		performance.measure &&
 		performance.getEntriesByName ),
 	/* eslint-enable compat/compat */
