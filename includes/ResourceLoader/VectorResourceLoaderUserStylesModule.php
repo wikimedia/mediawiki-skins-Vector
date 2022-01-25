@@ -16,7 +16,6 @@ class VectorResourceLoaderUserStylesModule extends ResourceLoaderUserStylesModul
 		$user = $context->getUserObj();
 		$pages = [];
 		if ( $config->get( 'AllowUserCss' ) && !$user->isAnon() && ( $skin === Constants::SKIN_NAME_MODERN ) ) {
-			$pages = parent::getPages( $context );
 			$userPage = $user->getUserPage()->getPrefixedDBkey();
 			$pages["$userPage/vector.css"] = [ 'type' => 'style' ];
 		}
