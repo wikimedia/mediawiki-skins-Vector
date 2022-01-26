@@ -2,7 +2,8 @@
 	"private": true,
 	"scripts": {
 		"start": "bash dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s resources/skins.vector.styles",
-		"test": "npm -s run lint && tsc && npm -s run doc",
+		"test": "npm -s run lint && tsc && npm run test:unit && npm -s run doc",
+		"test:unit": "jest --silent",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:fix:js": "npm -s run lint:js -- --fix",
 		"lint:fix:styles": "npm -s run lint:styles -- --fix",
@@ -18,14 +19,18 @@
 	"devDependencies": {
 		"@babel/core": "7.7.7",
 		"@storybook/html": "5.2.8",
+		"@types/jest": "26.0.24",
 		"@types/jquery": "3.3.33",
 		"@types/mustache": "4.0.1",
 		"@types/node-fetch": "2.5.7",
+		"@vue/test-utils": "1.1.0",
+		"@wikimedia/mw-node-qunit": "6.3.0",
 		"@wikimedia/types-wikimedia": "0.2.0",
-		"@wikimedia/wvui": "0.3.0",
+		"@wikimedia/wvui": "0.3.5",
 		"babel-loader": "8.0.6",
 		"eslint-config-wikimedia": "0.20.0",
 		"grunt-banana-checker": "0.9.0",
+		"jest": "26.4.2",
 		"jsdoc": "3.6.7",
 		"jsdoc-wmf-theme": "0.0.3",
 		"less": "3.8.1",
@@ -36,6 +41,7 @@
 		"stylelint-config-wikimedia": "0.11.1",
 		"svgo": "2.3.1",
 		"typescript": "4.5.5",
-		"vue": "2.6.11"
+		"vue": "2.6.11",
+		"vue-jest": "3.0.7"
 	}
 }

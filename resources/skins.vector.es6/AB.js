@@ -116,5 +116,9 @@ function initAB( bucket ) {
 module.exports = {
 	isInTestGroup,
 	getEnabledExperiment,
-	initAB
+	initAB,
+	test: {
+		getBucketName,
+		getABTestGroupExperimentName
+	}
 };
