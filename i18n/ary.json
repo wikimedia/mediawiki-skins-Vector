@@ -9,6 +9,7 @@
 			"Zanatos"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 لوغة|$1 لوغات}}",
 	"vector-action-addsection": "زيد شي موضوع",
 	"vector-action-delete": "محي",
 	"vector-action-move": "حوّل",
