@@ -25,6 +25,7 @@
 				"EventTarget": "https://developer.mozilla.org/docs/Web/API/EventTarget",
 				"HTMLElement": "https://developer.mozilla.org/docs/Web/API/HTMLElement",
 				"IntersectionObserver": "https://developer.mozilla.org/docs/Web/API/IntersectionObserver",
+				"IntersectionObserverEntry": "https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry",
 				"Node": "https://developer.mozilla.org/docs/Web/API/Node",
 				"NodeList": "https://developer.mozilla.org/docs/Web/API/NodeList",
 				"HTMLInputElement": "https://developer.mozilla.org/docs/Web/API/HTMLInputElement",

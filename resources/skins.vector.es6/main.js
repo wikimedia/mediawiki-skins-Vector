@@ -3,7 +3,13 @@ const
 	searchToggle = require( './searchToggle.js' ),
 	stickyHeader = require( './stickyHeader.js' ),
 	scrollObserver = require( './scrollObserver.js' ),
-	AB = require( './AB.js' );
+	AB = require( './AB.js' ),
+	initSectionObserver = require( './sectionObserver.js' ),
+	initTableOfContents = require( './tableOfContents.js' ),
+	TOC_ID = 'mw-panel-toc',
+	BODY_CONTENT_ID = 'bodyContent',
+	HEADLINE_SELECTOR = '.mw-headline',
+	TOC_SECTION_ID_PREFIX = 'toc-';
 
 /**
  * @return {void}
@@ -58,6 +64,53 @@ const main = () => {
 	} else if ( targetIntersection ) {
 		observer.observe( targetIntersection );
 	}
+
+	// Table of contents
+	const tocElement = document.getElementById( TOC_ID );
+	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+
+	if ( !(
+		tocElement &&
+		bodyContent &&
+		window.IntersectionObserver &&
+		window.requestAnimationFrame )
+	) {
+		return;
+	}
+
+	// eslint-disable-next-line prefer-const
+	let /** @type {initSectionObserver.SectionObserver} */ sectionObserver;
+	const tableOfContents = initTableOfContents( {
+		container: tocElement,
+		onSectionClick: () => {
+			sectionObserver.pause();
+
+			// Ensure the browser has finished painting and has had enough time to
+			// scroll to the section before resuming section observer. One rAF should
+			// be sufficient in most browsers, but Firefox 96.0.2 seems to require two
+			// rAFs.
+			requestAnimationFrame( () => {
+				requestAnimationFrame( () => {
+					sectionObserver.resume();
+				} );
+			} );
+		}
+	} );
+	sectionObserver = initSectionObserver( {
+		container: bodyContent,
+		tagNames: [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+		topMargin: targetElement ? targetElement.getBoundingClientRect().height : 0,
+		/**
+		 * @param {HTMLElement} section
+		 */
+		onIntersection: ( section ) => {
+			const headline = section.querySelector( HEADLINE_SELECTOR );
+
+			if ( headline ) {
+				tableOfContents.activateSection( TOC_SECTION_ID_PREFIX + headline.id );
+			}
+		}
+	} );
 };
 
 module.exports = {

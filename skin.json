@@ -264,6 +264,8 @@
 				"resources/skins.vector.es6/stickyHeader.js",
 				"resources/skins.vector.es6/scrollObserver.js",
 				"resources/skins.vector.es6/AB.js",
+				"resources/skins.vector.es6/tableOfContents.js",
+				"resources/skins.vector.es6/sectionObserver.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
