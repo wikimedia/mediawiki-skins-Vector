@@ -673,9 +673,9 @@ class SkinVector extends SkinMustache {
 			// T295555 Add language switch alert message temporarily (to be removed).
 			if ( $this->shouldLanguageAlertBeInSidebar() && !$parentData['is-mainpage'] ) {
 				$languageSwitchAlert = [
-					'html-content' => Html::rawElement( 'div',
-						[ 'class' => 'messagebox' ],
-						$this->msg( 'vector-language-redirect-to-top' )->parse()
+					'html-content' => Html::noticeBox(
+						$this->msg( 'vector-language-redirect-to-top' )->parse(),
+						'vector-language-sidebar-alert'
 					),
 				];
 				$headingOptions = [
