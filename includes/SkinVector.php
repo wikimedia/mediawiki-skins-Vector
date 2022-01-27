@@ -583,6 +583,7 @@ class SkinVector extends SkinMustache {
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
 		$parentData = parent::getTemplateData();
+		$featureManager = VectorServices::getFeatureManager();
 
 		// Naming conventions for Mustache parameters.
 		//
@@ -600,7 +601,6 @@ class SkinVector extends SkinMustache {
 		//   It should be followed by the name of the hook in hyphenated lowercase.
 		//
 		// Conditionally used values must use null to indicate absence (not false or '').
-
 		$commonSkinData = array_merge( $parentData, [
 			'is-legacy' => $this->isLegacy(),
 
@@ -611,9 +611,6 @@ class SkinVector extends SkinMustache {
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
-
-			'is-vector-table-of-contents-visible' => $this->isTableOfContentsVisibleInSidebar(),
-
 			'data-search-box' => $this->getSearchData(
 				$parentData['data-search-box'],
 				!$this->isLegacy(),
@@ -622,7 +619,7 @@ class SkinVector extends SkinMustache {
 				'searchform',
 				true
 			),
-			'data-vector-sticky-header' => VectorServices::getFeatureManager()->isFeatureEnabled(
+			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $this->getStickyHeaderData(
 				$this->getSearchData(
@@ -633,11 +630,15 @@ class SkinVector extends SkinMustache {
 					'vector-sticky-search-form',
 					false
 				),
-				VectorServices::getFeatureManager()->isFeatureEnabled(
+				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
 		] );
+
+		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
+			unset( $commonSkinData['data-toc'] );
+		}
 
 		if ( $skin->getUser()->isRegistered() ) {
 			$migrationMode = $this->getConfig()->get( 'VectorSkinMigrationMode' );
