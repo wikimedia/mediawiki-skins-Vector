@@ -453,7 +453,7 @@
 		},
 		"VectorStickyHeader": {
 			"value": {
-				"logged_in": false,
+				"logged_in": true,
 				"logged_out": false
 			},
 			"description": "@var array Enables a persistent header that allows quick access to user links, editing tools, search and other links while scrolling down a page"
