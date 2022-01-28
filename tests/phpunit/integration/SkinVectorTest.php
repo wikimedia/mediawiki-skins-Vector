@@ -86,6 +86,18 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$views = $props['data-views'];
 		$namespaces = $props['data-namespaces'];
 
+		// The mediawiki core specification might change at any time
+		// so let's limit the values we test to those we are aware of.
+		$keysToTest = [
+			'id', 'class', 'html-tooltip', 'html-items',
+			'html-after-portal', 'html-before-portal',
+			'label', 'heading-class', 'is-dropdown'
+		];
+		foreach ( $views as $key => $value ) {
+			if ( !in_array( $key, $keysToTest ) ) {
+				unset( $views[ $key] );
+			}
+		}
 		$this->assertSame(
 			[
 				// Provided by core
