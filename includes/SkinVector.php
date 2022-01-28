@@ -557,7 +557,12 @@ class SkinVector extends SkinMustache {
 	 */
 	private function shouldLanguageAlertBeInSidebar(): bool {
 		$featureManager = VectorServices::getFeatureManager();
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR );
+		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
+		$shouldShowOnMainPage = $isMainPage &&
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
+		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage &&
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
+			$shouldShowOnMainPage;
 	}
 
 	/**
@@ -671,7 +676,7 @@ class SkinVector extends SkinMustache {
 			);
 
 			// T295555 Add language switch alert message temporarily (to be removed).
-			if ( $this->shouldLanguageAlertBeInSidebar() && !$parentData['is-mainpage'] ) {
+			if ( $this->shouldLanguageAlertBeInSidebar() ) {
 				$languageSwitchAlert = [
 					'html-content' => Html::rawElement( 'div',
 						[ 'class' => 'messagebox' ],
