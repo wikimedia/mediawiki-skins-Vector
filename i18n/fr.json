@@ -35,7 +35,7 @@
 	"vector-languages": "Langues",
 	"vector-language-button-aria-label": "Aller à un article dans une autre langue. Disponible en {{PLURAL:$1|$1 langue|$1 langues}}.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
-	"vector-language-redirect-to-top": "Sur ce wiki, les liens interlangues sont placés en haut à droite du titre de la page. [[#p-lang-btn|Aller en haut]].",
+	"vector-language-redirect-to-top": "Sur ce wiki {{SITENAME}}, les liens interlangues sont placés en haut à droite du titre de la page. [[#p-lang-btn|Aller en haut]].",
 	"vector-language-variant-switcher-label": "Modifier la variante de langue",
 	"vector-action-addsection": "Ajouter un sujet",
 	"vector-action-delete": "Supprimer",

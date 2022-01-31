@@ -16,6 +16,7 @@
 		]
 	},
 	"skinname-vector": "Векторне",
+	"tooltip-pt-watchlist-2": "Список сторінок, зміни в яких Ви моніторите",
 	"vector-skin-desc": "Сучасна версія MonoBook зі свіжим виглядом і багатьма зручними покращеннями",
 	"prefs-vector-enable-vector-1-label": "Використовувати стару версію",
 	"prefs-vector-enable-vector-1-help": "Протягом наступних декількох років ми поступово оновлюватимемо тему оформлення «Векторне». Стара версія цього оформлення дозволить вам бачити його таким, яким воно було станом на грудень 2019 року. Щоб дізнатись більше про ці оновлення, відвідайте нашу [[mw:Reading/Web/Desktop_Improvements|сторінку проєкту]].",
@@ -24,8 +25,10 @@
 	"vector.css": "/* Увесь CSS-код буде завантажений в темі оформлення Векторне */",
 	"vector.js": "/* Увесь тут код JavaScript буде завантажений для всіх користувачів, що використовують векторну тему оформлення */",
 	"vector-action-toggle-sidebar": "Перемкнути бічну панель",
+	"vector-languages": "Мови",
 	"vector-language-button-aria-label": "Перейдіть до статті іншою мовою. Доступний у {{PLURAL:$1|$1 мові|$1 мовах}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мови|$1 мов}}",
+	"vector-language-redirect-to-top": "Цією мовою {{GRAMMAR:locative|{{SITENAME}}}} посилання на інші мовні версії розташовані угорі сторінки з іншого боку від її назви. [[#p-lang-btn|Перейти угору]].",
 	"vector-language-variant-switcher-label": "Змінити варіант мови",
 	"vector-action-addsection": "Додати тему",
 	"vector-action-delete": "Вилучити",

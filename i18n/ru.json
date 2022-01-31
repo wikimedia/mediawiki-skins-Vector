@@ -13,6 +13,7 @@
 			"Ole Yves",
 			"Stjn",
 			"Sunpriat",
+			"Tanzun",
 			"Thothsum",
 			"Александр Сигачёв"
 		]
@@ -28,6 +29,7 @@
 	"vector-action-toggle-sidebar": "Переключить боковую панель",
 	"vector-languages": "Языки",
 	"vector-language-button-label": "{{PLURAL:$1|$1 язык|$1 языка|$1 языков}}",
+	"vector-language-redirect-to-top": "На сайте {{SITENAME}} языковые ссылки находятся в начале страницы, напротив заголовка статьи. [[#p-lang-btn|Перейти к началу]].",
 	"vector-action-addsection": "Добавить тему",
 	"vector-action-delete": "Удалить",
 	"vector-action-move": "Переименовать",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adam N.",
 			"Armando-Martin",
 			"Avengium",
 			"Crazymadlover",
@@ -29,6 +30,7 @@
 	"vector-action-toggle-sidebar": "Mostrar u ocultar la barra lateral",
 	"vector-language-button-aria-label": "Ir a un artículo en otro idioma. Disponible en {{PLURAL:$1|$1 idioma|$1 idiomas}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
+	"vector-language-redirect-to-top": "En este {{SITENAME}} los enlaces de lengua están al frente de la página a través de de el título de artículo. [[#p-lang-btn|Va a superior]].",
 	"vector-language-variant-switcher-label": "Cambiar variante de idioma",
 	"vector-action-addsection": "Añadir tema",
 	"vector-action-delete": "Borrar",

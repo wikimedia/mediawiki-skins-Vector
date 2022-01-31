@@ -22,7 +22,7 @@
 	"vector-languages": "Sprachen",
 	"vector-language-button-aria-label": "Zu einem Artikel in einer anderen Sprache gehen. Verfügbar in {{PLURAL:$1|$1 Sprache|$1 Sprachen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprache|$1 Sprachen}}",
-	"vector-language-redirect-to-top": "In dieser Wikipedia befinden sich die Sprachlinks am oberen Rand der Seite gegenüber dem Artikeltitel. [[#p-lang-btn|Zum Anfang]].",
+	"vector-language-redirect-to-top": "In {{SITENAME}} befinden sich die Sprachlinks am oberen Rand der Seite gegenüber dem Artikeltitel. [[#p-lang-btn|Zum Anfang]].",
 	"vector-language-variant-switcher-label": "Sprachvariante ändern",
 	"vector-action-addsection": "Abschnitt hinzufügen",
 	"vector-action-delete": "Löschen",
