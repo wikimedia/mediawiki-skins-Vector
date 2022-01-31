@@ -309,6 +309,12 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionFoundLegacy() {
 		$isLegacy = true;
 		$this->setFeatureLatestSkinVersionIsEnabled( !$isLegacy );
+		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
+			'VectorShowSkinPreferences' => true,
+			'VectorDefaultSidebarVisibleForAuthorisedUser' => true,
+		] );
+		$this->setService( 'Vector.Config', $config );
 
 		$prefs = [
 			'foo' => [],
@@ -375,6 +381,12 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testOnGetPreferencesShowPreferencesEnabledSkinSectionMissingLegacy() {
 		$isLegacy = false;
 		$this->setFeatureLatestSkinVersionIsEnabled( !$isLegacy );
+		$config = new HashConfig( [
+			'VectorSkinMigrationMode' => false,
+			'VectorDefaultSidebarVisibleForAuthorisedUser' => true,
+			'VectorShowSkinPreferences' => true,
+		] );
+		$this->setService( 'Vector.Config', $config );
 
 		$prefs = [
 			'foo' => [],
