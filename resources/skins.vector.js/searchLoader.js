@@ -140,7 +140,7 @@ function markLoadEnd( startMarker, endMarker, measureMarker ) {
  */
 function initSearchLoader( document ) {
 	var searchBoxes = document.querySelectorAll( '.vector-search-box' ),
-		shouldUseCoreSearch;
+		isWikidata = mw.config.get( 'wgWikiID' ) === 'wikidatawiki';
 
 	// Allow developers to defined $wgVectorSearchHost in LocalSettings to target different APIs
 	if ( config.wgVectorSearchHost ) {
@@ -151,28 +151,16 @@ function initSearchLoader( document ) {
 		return;
 	}
 
-	shouldUseCoreSearch = !document.body.classList.contains( 'skin-vector-search-vue' );
-
 	/**
-	 * 1. If $wgVectorUseWvuiSearch is false,
-	 *    or we are in a browser that doesn't support fetch
-	 *    load the legacy searchSuggest module. The check for window.fetch
+	 * 1. If we are in a browser that doesn't support fetch fall back to non-JS version.
+	 *   The check for window.fetch
 	 *    can be removed when IE11 support is finally officially dropped.
-	 * 2. If we're using a different search module, enable the loading indicator
-	 *    before the search module loads.
+	 * 2. Disable on Wikidata per T281318 until the REST API is ready.
 	 **/
-	if ( shouldUseCoreSearch || !window.fetch ) {
-		Array.prototype.forEach.call( searchBoxes, function ( searchBox ) {
-			var input = searchBox.querySelector( 'input[name="search"]' );
-			if ( input ) {
-				loadSearchModule(
-					input,
-					'mediawiki.searchSuggest',
-					null,
-					null
-				);
-			}
-		} );
+	if ( isWikidata || !window.fetch ) {
+		document.body.classList.remove(
+			'skin-vector-search-vue'
+		);
 		return;
 	}
 
