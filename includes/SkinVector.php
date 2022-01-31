@@ -558,7 +558,7 @@ class SkinVector extends SkinMustache {
 	private function shouldLanguageAlertBeInSidebar(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
-		$shouldShowOnMainPage = $isMainPage &&
+		$shouldShowOnMainPage = $isMainPage && !empty( $this->getLanguagesCached() ) &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
 		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
