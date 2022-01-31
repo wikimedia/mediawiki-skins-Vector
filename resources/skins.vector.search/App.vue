@@ -41,16 +41,16 @@
 
 <script>
 /* global SubmitEvent */
-var wvui = require( 'wvui-search' ),
+const wvui = require( 'wvui-search' ),
 	instrumentation = require( './instrumentation.js' );
 
 module.exports = {
 	name: 'App',
 	components: wvui,
-	mounted: function () {
+	mounted() {
 		// access the element associated with the wvui-typeahead-search component
 		// eslint-disable-next-line no-jquery/variable-pattern
-		var wvuiSearchForm = this.$refs.searchForm.$el;
+		const wvuiSearchForm = this.$refs.searchForm.$el;
 
 		if ( this.autofocusInput ) {
 			// TODO: The wvui-typeahead-search component does not accept an autofocus parameter
@@ -64,13 +64,13 @@ module.exports = {
 		 *
 		 * @return {void|Object}
 		 */
-		getClient: function () {
+		getClient: () => {
 			return mw.config.get( 'wgVectorSearchClient', undefined );
 		},
-		language: function () {
+		language: () => {
 			return mw.config.get( 'wgUserLanguage' );
 		},
-		domain: function () {
+		domain: () => {
 			// It might be helpful to allow this to be configurable in future.
 			return mw.config.get( 'wgVectorSearchHost', location.host );
 		}
@@ -128,7 +128,7 @@ module.exports = {
 			default: false
 		}
 	},
-	data: function () {
+	data() {
 		return {
 			// -1 here is the default "active suggestion index" defined in the
 			// `wvui-typeahead-search` component (see
@@ -142,7 +142,7 @@ module.exports = {
 		/**
 		 * @param {SubmitEvent} event
 		 */
-		onSubmit: function ( event ) {
+		onSubmit( event ) {
 			this.wprov = instrumentation.getWprovFromResultIndex( event.index );
 
 			instrumentation.listeners.onSubmit( event );

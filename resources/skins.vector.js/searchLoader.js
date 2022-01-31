@@ -152,12 +152,10 @@ function initSearchLoader( document ) {
 	}
 
 	/**
-	 * 1. If we are in a browser that doesn't support fetch fall back to non-JS version.
-	 *   The check for window.fetch
-	 *    can be removed when IE11 support is finally officially dropped.
+	 * 1. If we are in a browser that doesn't support ES6 fall back to non-JS version.
 	 * 2. Disable on Wikidata per T281318 until the REST API is ready.
 	 **/
-	if ( isWikidata || !window.fetch ) {
+	if ( isWikidata || mw.loader.getState( 'skins.vector.search' ) === null ) {
 		document.body.classList.remove(
 			'skin-vector-search-vue'
 		);
