@@ -649,8 +649,8 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Returns `true` if WVUI is enabled to show thumbnails and `false` otherwise.
-	 * Note this is only relevant for WVUI search (not legacy search).
+	 * Returns `true` if Vue search is enabled to show thumbnails and `false` otherwise.
+	 * Note this is only relevant for Vue search experience (not legacy search).
 	 *
 	 * @return bool
 	 */

@@ -34,7 +34,7 @@
 	"vector-jumptocontent": "Jump to content",
 	"vector-more-actions": "More",
 	"vector-search-loader": "Loading search suggestions",
-	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Contents",
 	"vector-toc-beginning": "Beginning",

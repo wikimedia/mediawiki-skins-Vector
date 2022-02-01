@@ -8,6 +8,9 @@
 	"env": {
 		"browser": true
 	},
+	"globals": {
+		"exports": true
+	},
 	"parserOptions": {
 		"sourceType": "module"
 	},

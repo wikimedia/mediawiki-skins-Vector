@@ -49,7 +49,7 @@
 	"vector-jumptocontent": "Accessibility link for jumping to the content and skipping the navigation. Visually hidden by default.",
 	"vector-more-actions": "Label in the Vector skin's menu for the less-important or rarer actions which are not shown as tabs (like moving the page, or for sysops deleting or protecting the page), as well as (for users with a narrow viewing window in their browser) the less-important tab actions which the user's browser is unable to fit in. {{Identical|More}}",
 	"vector-search-loader": "Text to display below search input while the search suggestion module is loading",
-	"vector-searchsuggest-containing": "Label used in the special item of the search suggestions list which gives the user an option to perform a full text search for the term. Used in the WVUI typeahead search component.",
+	"vector-searchsuggest-containing": "Label used in the special item of the search suggestions list which gives the user an option to perform a full text search for the term. Used in the Codex typeahead search component.",
 	"vector-intro-page": "Introduction or tutorial page for the wiki. Typically either Project/Help:Introduction ([[d:Q3945]]) or Project/Help:Tutorial ([[d:Q915263]]).",
 	"vector-toc-heading": "Heading of table of contents\n\n{{Identical|Content}}",
 	"vector-toc-beginning": "Shown in the table of contents: Text of link to the beginning of the article.",
