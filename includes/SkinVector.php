@@ -654,7 +654,7 @@ class SkinVector extends SkinMustache {
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
-					$migrationMode ? 'mw-prefsection-rendering-skin-skin-prefs' : 'mw-prefsection-rendering-skin-skin'
+					$migrationMode ? 'mw-prefsection-rendering-skin' : 'mw-prefsection-rendering-skin-skin-prefs'
 				)->getLinkURL( $query . 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
 				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
 				'active' => false,
