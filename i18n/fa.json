@@ -13,7 +13,9 @@
 			"Zack90"
 		]
 	},
-	"skinname-vector": "وکتور",
+	"skinname-vector": "وکتور لگاسی (۲۰۱۰)",
+	"skinname-vector-2022": "وکتور (۲۰۲۲)",
+	"tooltip-pt-watchlist-2": "فهرستی از صفحه‌هایی که شما تغییرات آن‌ها را دنبال می‌کنید",
 	"vector-skin-desc": "نگارش مدرن مونوبوک با نمای تازه و بهینه‌سازی‌های کاربردی",
 	"prefs-vector-enable-vector-1-label": "استفاده از وکتور قدیمی",
 	"prefs-vector-enable-vector-1-help": "در چند سال آینده، ما کم‌کم پوستهٔ وکتور را به‌روزرسانی خواهیم کرد. وکتور قدیمی به شما اجازه می‌دهد تا از نسخهٔ قدیمی وکتور (نسخهٔ دسامبر ۲۰۱۹) استفاده کنید. برای کسب اطلاعات بیشتر در خصوص به‌روزرسانی‌ها، به [[mw:Reading/Web/Desktop_Improvements|صفحهٔ پروژه]] مراجعه کنید.",
@@ -23,7 +25,10 @@
 	"vector.js": "/* دستورات جاوااسکریپت که در این بخش قرار بگیرد برای کاربرانی که از پوستهٔ وکتور استفاده کنند بارگیری می‌شود */",
 	"vector-action-toggle-sidebar": "جمع و باز کردن نوار کناری",
 	"vector-languages": "زبان‌ها",
+	"vector-language-button-aria-label": "به مقاله‌ای به یک زبان دیگر بروید. در {{PLURAL:$1|$1 زبان}} در دسترس است",
 	"vector-language-button-label": "{{PLURAL:$1|$1 زبان}}",
+	"vector-language-redirect-to-top": "در این {{SITENAME}} پیوندهای زبانی در بالای صفحه و هم‌تراز با عنوان مقاله قرار دارند. [[#p-lang-btn|رفتن به بالا]].",
+	"vector-language-variant-switcher-label": "تغییر گونهٔ زبان",
 	"vector-action-addsection": "افزودن بخش",
 	"vector-action-delete": "حذف",
 	"vector-action-move": "انتقال",
@@ -44,5 +49,10 @@
 	"vector-intro-page": "Help:مقدمه",
 	"vector-anon-user-menu-pages": "صفحه‌ها برای ویرایشگران خارج‌شده از سامانه",
 	"vector-anon-user-menu-pages-learn": "بیشتر بدانید",
-	"vector-personal-more-label": "پیوندهای کاربر"
+	"vector-anon-user-menu-pages-label": "دربارهٔ ویرایش بیشتر بدانید",
+	"vector-personal-more-label": "پیوندهای کاربر",
+	"vector-main-menu-tooltip": "منوی اصلی",
+	"tooltip-vector-anon-user-menu-title": "گزینه‌های بیشتر",
+	"vector-menu-checkbox-expanded": "گسترده",
+	"vector-menu-checkbox-collapsed": "جمع‌شده"
 }
