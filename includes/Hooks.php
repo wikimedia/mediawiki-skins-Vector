@@ -359,7 +359,8 @@ class Hooks {
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
 		$title = $sk->getRelevantTitle();
 
-		if ( self::isVectorSkin( $sk->getSkinName() ) ) {
+		$skinName = $sk->getSkinName();
+		if ( self::isVectorSkin( $skinName ) ) {
 			if (
 				$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
 				$title && $title->canExist()
@@ -382,7 +383,7 @@ class Hooks {
 			}
 
 			if ( isset( $content_navigation['user-menu'] ) ) {
-				if ( self::isSkinVersionLegacy() ) {
+				if ( self::isSkinVersionLegacy( $skinName ) ) {
 					// Remove user page from personal toolbar since it will be inside the personal menu for logged-in
 					// users in legacy Vector.
 					unset( $content_navigation['user-page'] );
@@ -392,7 +393,7 @@ class Hooks {
 				}
 			}
 
-			if ( !self::isSkinVersionLegacy() ) {
+			if ( !self::isSkinVersionLegacy( $skinName ) ) {
 				// Upgrade preferences and notifications to icon buttons
 				// for extensions that have opted in.
 				if ( isset( $content_navigation['user-interface-preferences'] ) ) {
@@ -603,7 +604,7 @@ class Hooks {
 		//
 		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-legacy for an up-to-date
 		// list.
-		if ( self::isSkinVersionLegacy() ) {
+		if ( self::isSkinVersionLegacy( $skinName ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
 		} else {
 			// The modern Vector skin must also carry skin-vector for compatibility with older
@@ -613,7 +614,7 @@ class Hooks {
 
 		$config = $sk->getConfig();
 		// Should we disable the max-width styling?
-		if ( !self::isSkinVersionLegacy() && $sk->getTitle() && self::shouldDisableMaxWidth(
+		if ( !self::isSkinVersionLegacy( $skinName ) && $sk->getTitle() && self::shouldDisableMaxWidth(
 			$config->get( 'VectorMaxWidthOptions' ),
 			$sk->getTitle(),
 			$out->getRequest()->getValues()
@@ -709,13 +710,14 @@ class Hooks {
 	 */
 	public static function onMakeGlobalVariablesScript( &$vars, OutputPage $out ) {
 		$skin = $out->getSkin();
-		if ( !self::isVectorSkin( $skin->getSkinName() ) ) {
+		$skinName = $skin->getSkinName();
+		if ( !self::isVectorSkin( $skinName ) ) {
 			return;
 		}
 
 		$user = $out->getUser();
 
-		if ( $user->isRegistered() && self::isSkinVersionLegacy() ) {
+		if ( $user->isRegistered() && self::isSkinVersionLegacy( $skinName ) ) {
 			$vars[ 'wgVectorDisableSidebarPersistence' ] =
 				self::getConfig(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
@@ -724,7 +726,7 @@ class Hooks {
 
 		// [[phab:T297758]] ensure old Vector is the same as new Vector
 		// from a user script / gadget point of view.
-		if ( self::isSkinVersionLegacy() ) {
+		if ( self::isSkinVersionLegacy( $skinName ) ) {
 			$vars[ 'skin' ] = 'vector';
 		}
 	}
@@ -762,12 +764,21 @@ class Hooks {
 
 	/**
 	 * Gets whether the current skin version is the legacy version.
+	 * Should mirror SkinVector::isLegacy
 	 *
 	 * @see VectorServices::getFeatureManager
 	 *
+	 * @param string $skinName hint that can be used to detect modern vector.
 	 * @return bool
 	 */
-	private static function isSkinVersionLegacy(): bool {
-		return !VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
+	private static function isSkinVersionLegacy( $skinName = '' ): bool {
+		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
+			return false;
+		}
+
+		$isLatestSkinFeatureEnabled = VectorServices::getFeatureManager()
+			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
+
+		return !$isLatestSkinFeatureEnabled;
 	}
 }
