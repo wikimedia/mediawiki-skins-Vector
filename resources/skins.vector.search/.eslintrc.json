@@ -1,5 +1,16 @@
 {
 	"extends": [
 		"../../.eslintrcEs6.json"
-	]
+	],
+	"rules": {
+		"jsdoc/no-undefined-types": [
+			"error",
+			{
+				"definedTypes": [
+					"RequestInit",
+					"MwMap"
+				]
+			}
+		]
+	}
 }

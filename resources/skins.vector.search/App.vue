@@ -42,6 +42,7 @@
 <script>
 /* global SubmitEvent */
 const wvui = require( 'wvui-search' ),
+	client = require( './restSearchClient.js' ),
 	instrumentation = require( './instrumentation.js' );
 
 module.exports = {
@@ -62,10 +63,10 @@ module.exports = {
 		/**
 		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
 		 *
-		 * @return {void|Object}
+		 * @return {module:restSearchClient~SearchClient}
 		 */
 		getClient: () => {
-			return mw.config.get( 'wgVectorSearchClient', undefined );
+			return client( mw.config );
 		},
 		language: () => {
 			return mw.config.get( 'wgUserLanguage' );
