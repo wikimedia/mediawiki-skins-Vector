@@ -97,8 +97,7 @@ const main = () => {
 		}
 	} );
 	sectionObserver = initSectionObserver( {
-		container: bodyContent,
-		tagNames: [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6' ),
 		topMargin: targetElement ? targetElement.getBoundingClientRect().height : 0,
 		/**
 		 * @param {HTMLElement} section
