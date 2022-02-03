@@ -723,25 +723,6 @@ class Hooks {
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
 				);
 		}
-
-		// [[phab:T297758]] ensure old Vector is the same as new Vector
-		// from a user script / gadget point of view.
-		if ( self::isSkinVersionLegacy( $skinName ) ) {
-			$vars[ 'skin' ] = 'vector';
-		}
-	}
-
-	/**
-	 * @param array &$vars Array of variables to be added into the output.
-	 * @param string $skin
-	 * @param Config $config
-	 */
-	public static function onResourceLoaderGetConfigVars( array &$vars, string $skin, Config $config ) {
-			// [[phab:T297758]] ensure old Vector is the same as new Vector
-		// from a user script / gadget point of view.
-		if ( self::isVectorSkin( $skin ) ) {
-			$vars['skin'] = 'vector';
-		}
 	}
 
 	/**

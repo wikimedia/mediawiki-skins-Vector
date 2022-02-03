@@ -115,7 +115,6 @@
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"Hooks": {
-		"ResourceLoaderGetConfigVars": "Vector\\Hooks::onResourceLoaderGetConfigVars",
 		"ResourceLoaderSiteModulePages": "Vector\\Hooks::onResourceLoaderSiteModulePages",
 		"ResourceLoaderSiteStylesModulePages": "Vector\\Hooks::onResourceLoaderSiteStylesModulePages",
 		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
