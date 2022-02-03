@@ -3,14 +3,8 @@
 		<h2 class="sidebar-toc-title" aria-hidden="true">Contents</h2>
 	</div>
 	<ul id="table-of-contents">
-	{{#array-sections}}
-	<li id="toc-{{anchor}}" class="sidebar-toc-list-item sidebar-toc-level-{{toclevel}}">
-		<a class="sidebar-toc-link" href="#{{anchor}}">
-			<div class="sidebar-toc-text">
-			<span class="sidebar-toc-numb">{{number}}</span>{{{line}}}</div>
-		</a>
-		{{#has-subsections}}<ul>{{/has-subsections}}
-		{{#is-last-item}}</li></ul>{{/is-last-item}}
-	{{/array-sections}}
+		{{#array-sections}}
+		{{>TableOfContents__line}}
+		{{/array-sections}}
 	</ul>
 </nav>
