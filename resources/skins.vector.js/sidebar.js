@@ -129,6 +129,17 @@ function saveSidebarState( checkbox ) {
 	return debounce( 1000, function () {
 		api = api || new mw.Api();
 		api.saveOption( SIDEBAR_PREFERENCE_NAME, checkbox.checked ? 1 : 0 );
+
+		// Trigger a resize event so other parts of the page can adapt:
+		var event;
+		if ( typeof Event === 'function' ) {
+			event = new Event( 'resize' );
+		} else {
+			// IE11
+			event = window.document.createEvent( 'UIEvents' );
+			event.initUIEvent( 'resize', true, false, window, 0 );
+		}
+		window.dispatchEvent( event );
 	} );
 }
 
