@@ -11,13 +11,15 @@
  * @property {Function} resume Resumes intersection observation.
  * @property {Function} unmount Cleans up event listeners and intersection
  * observer. Should be called when the observer is permanently no longer needed.
+ * @property {NodeList} elements A list of HTML elements to observe for
+ * intersection changes.
  */
 
 /**
- * Observe intersection changes with the viewport for one or more tags within a
- * container. This is intended to be used with the headings in the content so
- * that the corresponding section(s) in the table of contents can be "activated"
- * (e.g. bolded).
+ * Observe intersection changes with the viewport for one or more elements. This
+ * is intended to be used with the headings in the content so that the
+ * corresponding section(s) in the table of contents can be "activated" (e.g.
+ * bolded).
  *
  * When sectionObserver notices a new intersection change, the
  * `props.onIntersection` callback will be fired with the corresponding section
@@ -31,8 +33,8 @@
  * expensive forced synchronous layouts.
  *
  * @param {Object} props
- * @param {HTMLElement} props.container A container element that contains the `props.tagNames`.
- * @param {string[]} props.tagNames The list of tag names that should be observed.
+ * @param {NodeList} props.elements A list of HTML elements to observe for
+ * intersection changes. This list can be updated through the `elements` setter.
  * @param {OnIntersection} props.onIntersection
  * @param {number} [props.topMargin] The number of pixels to shrink the top of
  * the viewport's bounding box before calculating intersections. This is useful
@@ -48,13 +50,6 @@ module.exports = function sectionObserver( props ) {
 		onIntersection: () => {}
 	}, props );
 
-	const tagGroups = props.tagNames.map( ( tagName ) => {
-		// `.getElementsByTagName` returns a live HTMLCollection object which will
-		// automatically update itself if tags are added or removed within the
-		// container (e.g. this might happen after a user adds or removes sections
-		// with VisualEditor ).
-		return props.container.getElementsByTagName( tagName );
-	} );
 	let /** @type {boolean} */ inThrottle = false;
 	let /** @type {HTMLElement | undefined} */ current;
 	// eslint-disable-next-line compat/compat
@@ -113,10 +108,8 @@ module.exports = function sectionObserver( props ) {
 	function calcIntersection() {
 		// IntersectionObserver will asynchronously calculate the boundingClientRect
 		// of each observed element off the main thread after `observe` is called.
-		tagGroups.forEach( ( tags ) => {
-			for ( let i = 0; i < tags.length; i++ ) {
-				observer.observe( tags[ i ] );
-			}
+		props.elements.forEach( ( element ) => {
+			observer.observe( /** @type {HTMLElement} */ ( element ) );
 		} );
 	}
 
@@ -156,6 +149,12 @@ module.exports = function sectionObserver( props ) {
 		unmount() {
 			unbindScrollListener();
 			observer.disconnect();
+		},
+		/**
+		 * @param {NodeList} list
+		 */
+		set elements( list ) {
+			props.elements = list;
 		}
 	};
 };
