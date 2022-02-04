@@ -63,18 +63,22 @@ function addPortletLinkHandler( item, data ) {
 		'vector-menu-dropdown-noicon'
 	);
 
-	if ( isIconCapable && data.id && link ) {
+	if ( isIconCapable && link ) {
 		// If class was previously added this will be a no-op so it is safe to call even
 		// if we've previously enhanced it.
 		link.classList.add(
 			'mw-ui-icon',
-			'mw-ui-icon-before',
+			'mw-ui-icon-before'
+		);
+
+		if ( data.id ) {
 			// The following class allows gadgets developers to style or hide an icon.
 			// * mw-ui-icon-vector-gadget-<id>
 			// The class is considered stable and should not be removed without
 			// a #user-notice.
-			'mw-ui-icon-vector-gadget-' + data.id
-		);
+			// eslint-disable-next-line mediawiki/class-doc
+			link.classList.add( 'mw-ui-icon-vector-gadget-' + data.id );
+		}
 	}
 }
 
