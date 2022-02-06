@@ -1,7 +1,6 @@
 <?php
 
-use Vector\Constants;
-use Vector\VectorServices;
+namespace Vector;
 
 /**
  * @ingroup Skins

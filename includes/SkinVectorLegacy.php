@@ -1,5 +1,7 @@
 <?php
 
+namespace Vector;
+
 /**
  * @ingroup Skins
  * @package Vector

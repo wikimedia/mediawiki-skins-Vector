@@ -22,10 +22,18 @@
  * @ingroup Skins
  */
 
+namespace Vector;
+
+use Action;
+use ExtensionRegistry;
+use Html;
+use Linker;
 use MediaWiki\MediaWikiServices;
-use Vector\Constants;
-use Vector\Hooks;
-use Vector\VectorServices;
+use RuntimeException;
+use SkinMustache;
+use SkinTemplate;
+use SpecialPage;
+use Title;
 
 /**
  * Skin subclass for Vector that may be the new or old version of Vector.
@@ -1015,3 +1023,5 @@ class SkinVector extends SkinMustache {
 		];
 	}
 }
+
+class_alias( SkinVector::class, 'SkinVector' );

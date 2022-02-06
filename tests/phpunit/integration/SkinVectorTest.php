@@ -6,8 +6,8 @@ use HashConfig;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
-use SkinVector;
 use Title;
+use Vector\SkinVector;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -16,12 +16,12 @@ use Wikimedia\TestingAccessWrapper;
  * @group Vector
  * @group Skins
  *
- * @coversDefaultClass \SkinVector
+ * @coversDefaultClass \Vector\SkinVector
  */
 class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @return \SkinVector
+	 * @return SkinVector
 	 */
 	private function provideVectorTemplateObject() {
 		$template = new SkinVector( [ 'name' => 'vector' ] );

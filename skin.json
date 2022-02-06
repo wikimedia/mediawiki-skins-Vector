@@ -25,7 +25,7 @@
 	},
 	"ValidSkinNames": {
 		"vector-2022": {
-			"class": "SkinVector22",
+			"class": "Vector\\SkinVector22",
 			"args": [
 				{
 					"name": "vector-2022",
@@ -62,7 +62,7 @@
 			]
 		},
 		"vector": {
-			"class": "SkinVector",
+			"class": "Vector\\SkinVector",
 			"@args": "See SkinVector::__construct for more detail.",
 			"args": [
 				{
@@ -109,8 +109,7 @@
 	},
 	"AutoloadClasses": {
 		"SkinVector": "includes/SkinVector.php",
-		"SkinVectorLegacy": "includes/SkinVectorLegacy.php",
-		"SkinVector22": "includes/SkinVector22.php"
+		"Vector\\SkinVector": "includes/SkinVector.php"
 	},
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"

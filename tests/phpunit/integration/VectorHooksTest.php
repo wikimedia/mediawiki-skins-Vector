@@ -9,6 +9,7 @@ use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
 use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
+use Vector\SkinVector;
 
 /**
  * Integration tests for Vector Hooks.
