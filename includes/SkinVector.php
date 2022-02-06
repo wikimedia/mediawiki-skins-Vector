@@ -178,7 +178,7 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Whether or not the legacy version of the skin is being used.
+	 * Whether the legacy version of the skin is being used.
 	 *
 	 * @return bool
 	 */
@@ -288,7 +288,7 @@ class SkinVector extends SkinMustache {
 				$class,
 				[
 					self::CLASS_ICON_LABEL,
-					self::iconClass( $createAccountData[ 'icon' ] ?? '' )
+					$this->iconClass( $createAccountData[ 'icon' ] ?? '' )
 				]
 			);
 		}
@@ -320,7 +320,7 @@ class SkinVector extends SkinMustache {
 			'vector-menu-content-item',
 			'vector-menu-content-item-login',
 			self::CLASS_ICON_LABEL,
-			self::iconClass( $loginData[ 'icon' ] ?? '' )
+			$this->iconClass( $loginData[ 'icon' ] ?? '' )
 		];
 
 		$learnMoreLinkData = [
@@ -354,7 +354,7 @@ class SkinVector extends SkinMustache {
 			'vector-menu-content-item',
 			'vector-menu-content-item-logout',
 			self::CLASS_ICON_LABEL,
-			self::iconClass( $logoutLinkData[ 'icon' ] ?? '' )
+			$this->iconClass( $logoutLinkData[ 'icon' ] ?? '' )
 		];
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
@@ -586,7 +586,6 @@ class SkinVector extends SkinMustache {
 	public function getTemplateData(): array {
 		$skin = $this;
 		$out = $skin->getOutput();
-		$title = $out->getTitle();
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 		$featureManager = VectorServices::getFeatureManager();
 
@@ -784,8 +783,6 @@ class SkinVector extends SkinMustache {
 	 * @return bool
 	 */
 	private function doesSearchHaveThumbnails(): bool {
-		$featureManager = VectorServices::getFeatureManager();
-
 		return $this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
 	}
 
@@ -825,10 +822,9 @@ class SkinVector extends SkinMustache {
 	 * @return string
 	 */
 	private function getULSLabel( string $message ) {
-		$label = $this->msg( $message )
+		return $this->msg( $message )
 			->numParams( count( $this->getLanguagesCached() ) )
 			->escaped();
-		return $label;
 	}
 
 	/**
@@ -906,8 +902,8 @@ class SkinVector extends SkinMustache {
 				$portletData['heading-class'] .= ' ' . self::CLASS_QUIET_BUTTON . ' ' .
 					self::CLASS_ICON_BUTTON . ' ';
 				$portletData['heading-class'] .= $this->loggedin ?
-					self::iconClass( 'userAvatar' ) :
-					self::iconClass( 'ellipsis' );
+					$this->iconClass( 'userAvatar' ) :
+					$this->iconClass( 'ellipsis' );
 			}
 		}
 		switch ( $portletData['id'] ) {
