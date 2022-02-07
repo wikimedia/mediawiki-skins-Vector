@@ -58,7 +58,7 @@
 	}
 
 	&-start {
-		flex-grow: 1;
+		min-width: 0;
 	}
 
 	//
@@ -69,30 +69,15 @@
 		margin: 0 15px;
 		padding-left: 30px;
 		white-space: nowrap;
+		min-width: 0;
 	}
 
 	&-context-bar-primary {
-		position: relative;
-		max-width: 500px;
 		overflow: hidden;
-		padding-right: 10px;
 		font-family: @font-family-serif;
 		// T296320 closest standardized option to 22px (24px)
 		font-size: @font-size-heading-2;
-
-		// T289814 Fade out page titles longer than 500px.
-		/* Stylelint rule broken for vendor prefixes: https://github.com/stylelint/stylelint/issues/1939 */
-		/* stylelint-disable function-linear-gradient-no-nonstandard-direction */
-		&:after {
-			content: '';
-			position: absolute;
-			left: 480px;
-			width: 100%;
-			height: 100%;
-			background-color: transparent;
-			background-image: -webkit-linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
-			background-image: linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 1 ) 20px );
-		}
+		text-overflow: ellipsis;
 	}
 
 	.vector-search-box {
