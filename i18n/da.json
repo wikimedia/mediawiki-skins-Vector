@@ -4,11 +4,13 @@
 			"Antonla",
 			"Byrial",
 			"Christian List",
+			"Jan Friberg",
 			"Peter Alberti",
 			"Saederup92",
 			"Weblars"
 		]
 	},
+	"tooltip-pt-watchlist-2": "En liste af sider du overvåger for ændringer",
 	"vector-skin-desc": "Moderne version af MonoBook med frisk udseende og mange forbedringer af brugervenligheden",
 	"prefs-vector-enable-vector-1-label": "Brug klassisk Vector",
 	"prefs-vector-enable-vector-1-help": "I løbet af de næste år vil vi gradvis opdatere Vector-udseendet. Klassisk Vector vil vise den gamle version af Vector (per december 2019). For at læse mere om opdateringen, se [[mw:Reading/Web/Desktop_Improvements|vores projektside]].",

@@ -17,6 +17,7 @@
 		]
 	},
 	"skinname-vector": "فكتور",
+	"tooltip-pt-watchlist-2": "قائمة الصفحات التي تُراقب التغييرات عليها",
 	"vector-skin-desc": "نسخة حديثة من مونوبوك بمظهر جديد وتحسينات لسهولة الاستخدام",
 	"prefs-vector-enable-vector-1-label": "استخدم Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "على مدار السنوات القليلة القادمة، سنقوم بتحديث واجهة Vector بشكل تدريجي. سيسمح لك Legacy Vector بمشاهدة الإصدار القديم من Vector (اعتبارا من ديسمبر 2019). لمعرفة المزيد حول التحديثات، انتقل إلى [[mw:Reading/Web/Desktop_Improvements|صفحة المشروع]].",
@@ -26,6 +27,7 @@
 	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
 	"vector-languages": "لغات",
+	"vector-language-button-aria-label": "اذهب إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|$1 لغة|$1 لغات}}",
 	"vector-language-button-label": "بلغات أخرى ($1)",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",
