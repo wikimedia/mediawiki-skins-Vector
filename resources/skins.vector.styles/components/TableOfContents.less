@@ -6,7 +6,7 @@
 	width: 200px;
 	max-height: 90vh;
 	overflow: auto;
-	padding: 12px;
+	padding: 12px 12px 12px 26px;
 	float: left;
 	position: sticky;
 	top: calc( @height-sticky-header + 1.5em );
@@ -26,12 +26,6 @@
 		border: 0;
 	}
 
-	.sidebar-toc-list-item-active {
-		> a {
-			font-weight: bold;
-		}
-	}
-
 	.sidebar-toc-link > * {
 		// Prevent click events on the link's contents so that we can use event
 		// delegation and have the target be the anchor element instead.
@@ -46,27 +40,30 @@
 		padding-bottom: 5px;
 	}
 
-	ul {
+	#table-of-contents,
+	.sidebar-toc-list {
 		margin: 0;
 		list-style: none;
 		line-height: 18px;
+	}
 
-		li {
-			list-style-type: none;
-			padding-left: @subcategory-indent;
+	.sidebar-toc-list-item {
+		display: block;
+		position: relative;
+		list-style-type: none;
+		padding-left: @subcategory-indent;
 
-			a {
-				color: @color-base;
-				font-size: @font-size-base;
-			}
+		a {
+			color: @color-base;
+			font-size: @font-size-base;
+		}
+	}
 
-			&.sidebar-toc-level-1 {
-				padding-left: 0;
+	.sidebar-toc-list-item.sidebar-toc-level-1 {
+		padding-left: 0;
 
-				> a {
-					color: @color-link;
-				}
-			}
+		& > a {
+			color: @color-link;
 		}
 	}
 }
@@ -74,4 +71,47 @@
 // Hide TOC when sidebar is open
 .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .sidebar-toc {
 	display: none;
+}
+
+// Highlight active section
+.sidebar-toc .sidebar-toc-list-item-active > .sidebar-toc-link {
+	font-weight: bold;
+}
+
+// For no-js users, toggling is disabled and icon is hidden
+.sidebar-toc .sidebar-toc-toggle {
+	display: none;
+}
+
+// Collapse ToC sections by default, excluding no-js or prefers-reduced-motion
+@media ( prefers-reduced-motion: no-preference ) {
+	.client-js .sidebar-toc {
+		.sidebar-toc-level-1 .sidebar-toc-list-item {
+			display: none;
+		}
+
+		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-list-item {
+			display: block;
+		}
+
+		.sidebar-toc-toggle {
+			position: absolute;
+			font-size: 0.7em; // reduces size of toggle icon (by an arbitrary amount)
+			top: 4px; // visually center icon (at least at default font size)
+			left: -18px;
+			transform: rotate( -90deg );
+		}
+
+		.sidebar-toc-level-1 > .sidebar-toc-toggle {
+			display: block;
+		}
+
+		.sidebar-toc-level-1 > .sidebar-toc-list:empty + .sidebar-toc-toggle {
+			display: none;
+		}
+
+		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
+			transform: rotate( 0deg );
+		}
+	}
 }
