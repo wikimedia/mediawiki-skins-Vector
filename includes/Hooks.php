@@ -606,10 +606,6 @@ class Hooks {
 		// list.
 		if ( self::isSkinVersionLegacy( $skinName ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
-		} else {
-			// The modern Vector skin must also carry skin-vector for compatibility with older
-			// skins.
-			$bodyAttrs['class'] .= ' skin-vector skin-vector-search-vue';
 		}
 
 		$config = $sk->getConfig();

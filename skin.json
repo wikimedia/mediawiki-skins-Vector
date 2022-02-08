@@ -36,6 +36,10 @@
 							"tag": "span"
 						}
 					},
+					"bodyClasses": [
+						"skin-vector",
+						"skin-vector-search-vue"
+					],
 					"messages": [
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
