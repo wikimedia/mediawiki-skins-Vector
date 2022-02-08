@@ -269,6 +269,7 @@
 				"resources/skins.vector.es6/AB.js",
 				"resources/skins.vector.es6/tableOfContents.js",
 				"resources/skins.vector.es6/sectionObserver.js",
+				"resources/skins.vector.es6/deferUntilFrame.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"

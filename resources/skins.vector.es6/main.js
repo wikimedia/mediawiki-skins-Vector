@@ -6,6 +6,7 @@ const
 	AB = require( './AB.js' ),
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
+	deferUntilFrame = require( './deferUntilFrame.js' ),
 	TOC_ID = 'mw-panel-toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
@@ -85,15 +86,26 @@ const main = () => {
 		onSectionClick: () => {
 			sectionObserver.pause();
 
-			// Ensure the browser has finished painting and has had enough time to
-			// scroll to the section before resuming section observer. One rAF should
-			// be sufficient in most browsers, but Firefox 96.0.2 seems to require two
-			// rAFs.
-			requestAnimationFrame( () => {
-				requestAnimationFrame( () => {
-					sectionObserver.resume();
-				} );
-			} );
+			// T297614: We want the link that the user has clicked inside the TOC to
+			// be "active" (e.g. bolded) regardless of whether the browser's scroll
+			// position corresponds to that section. Therefore, we need to temporarily
+			// ignore section observer until the browser has finished scrolling to the
+			// section (if needed).
+			//
+			// However, because the scroll event happens asyncronously after the user
+			// clicks on a link and may not even happen at all (e.g. the user has
+			// scrolled all the way to the bottom and clicks a section that is already
+			// in the viewport), determining when we should resume section observer is
+			// a bit tricky.
+			//
+			// Because a scroll event may not even be triggered after clicking the
+			// link, we instead allow the browser to perform a maximum number of
+			// repaints before resuming sectionObserver. Per T297614#7687656, Firefox
+			// 97.0 wasn't consistently activating the table of contents section that
+			// the user clicked even after waiting 2 frames. After further
+			// investigation, it sometimes waits up to 3 frames before painting the
+			// new scroll position so we have that as the limit.
+			deferUntilFrame( () => sectionObserver.resume(), 3 );
 		}
 	} );
 	sectionObserver = initSectionObserver( {
