@@ -91,24 +91,32 @@ class HTMLLegacySkinVersionFieldTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function provideLoadDataFromRequest() {
-		yield [ null, Constants::SKIN_VERSION_LEGACY ];
-		yield [ true, Constants::SKIN_VERSION_LEGACY ];
-		yield [ false, Constants::SKIN_VERSION_LATEST ];
+		// User just load the form, fallback to default.
+		yield [ null, false, Constants::SKIN_VERSION_LEGACY ];
+		// User submit the form, load from request.
+		yield [ null, true, Constants::SKIN_VERSION_LATEST ];
+		yield [ true, true, Constants::SKIN_VERSION_LEGACY ];
+		// In normal request you can't get the 'false' value though.
+		yield [ false, true, Constants::SKIN_VERSION_LATEST ];
 	}
 
 	/**
 	 * @dataProvider provideLoadDataFromRequest
 	 * @covers ::loadDataFromRequest
 	 */
-	public function testLoadDataFromRequest( $wpVectorSkinVersion, $expectedResult ) {
+	public function testLoadDataFromRequest( $wpVectorSkinVersion, $wasPosted, $expectedResult ) {
 		$skinVerionField = new HTMLLegacySkinVersionField( [
 			'fieldname' => 'VectorSkinVersion',
 			'default' => true,
 		] );
 
-		$request = new \WebRequest();
-		$request->setVal( 'wpVectorSkinVersion', $wpVectorSkinVersion );
+		$requestData = [ 'wpVectorSkinVersion' => $wpVectorSkinVersion ];
+		if ( $wasPosted ) {
+			// Check field would load data from requst if it pass the isSubmitAttempt() check.
+			$requestData['wpEditToken'] = 'ABC123';
+		}
+		$request = new \FauxRequest( $requestData, $wasPosted );
 
-		$this->assertSame( $skinVerionField->loadDataFromRequest( $request ), $expectedResult );
+		$this->assertSame( $expectedResult, $skinVerionField->loadDataFromRequest( $request ) );
 	}
 }
