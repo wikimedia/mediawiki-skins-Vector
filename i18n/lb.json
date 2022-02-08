@@ -5,7 +5,8 @@
 			"Robby"
 		]
 	},
-	"skinname-vector": "Vector",
+	"skinname-vector": "Vector (Versioun vun 2010)",
+	"skinname-vector-2022": "Vector (2022)",
 	"tooltip-pt-watchlist-2": "Eng Lëscht vu Säiten, bei deenen Dir op Ännerungen oppasst",
 	"vector-skin-desc": "Modern Versioun vu Monobook mat frëschem Look a ville Verbesserunge vun der Benotzerfrëndlechkeet",
 	"prefs-vector-enable-vector-1-label": "Déi al-Versioun vu Vector benotzen",
@@ -18,6 +19,7 @@
 	"vector-languages": "Sproochen",
 	"vector-language-button-aria-label": "Op en Artikel an enger anerer Sprooch wiesselen. Disponibel an {{PLURAL:$1|enger Sprooch|$1 Sproochen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprooch|$1 Sproochen}}",
+	"vector-language-redirect-to-top": "Op {{SITENAME}} sinn d'Linken op aner Sproochen uewen op der Säit riets niewent dem Titel vum Artikel. : [[#p-lang-btn|No uewe goen]]",
 	"vector-language-variant-switcher-label": "Sproochvariant änneren",
 	"vector-action-addsection": "Sujet derbäisetzen",
 	"vector-action-delete": "Läschen",
