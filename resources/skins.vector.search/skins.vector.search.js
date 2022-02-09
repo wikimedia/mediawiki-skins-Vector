@@ -1,6 +1,6 @@
 /** @module search */
 
-var
+const
 	Vue = require( 'vue' ).default || require( 'vue' ),
 	App = require( './App.vue' ),
 	config = require( './config.json' );
@@ -10,7 +10,7 @@ var
  * @return {void}
  */
 function initApp( searchBox ) {
-	var searchForm = searchBox.querySelector( '.vector-search-box-form' ),
+	const searchForm = searchBox.querySelector( '.vector-search-box-form' ),
 		titleInput = /** @type {HTMLInputElement|null} */ (
 			searchBox.querySelector( 'input[name=title]' )
 		),
@@ -43,9 +43,9 @@ function initApp( searchBox ) {
  * @return {void}
  */
 function main( document ) {
-	var searchBoxes = document.querySelectorAll( '.vector-search-box' );
+	const searchBoxes = document.querySelectorAll( '.vector-search-box' );
 
-	searchBoxes.forEach( function ( searchBox ) {
+	searchBoxes.forEach( ( searchBox ) => {
 		initApp( searchBox );
 	} );
 }

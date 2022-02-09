@@ -7,7 +7,7 @@
  *
  * @see https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/skins/Vector/+/refs/heads/master/includes/Constants.php
  */
-var INPUT_LOCATION_MOVED = 'header-moved',
+const INPUT_LOCATION_MOVED = 'header-moved',
 	wgScript = mw.config.get( 'wgScript' ),
 	// T251544: Collect search performance metrics to compare Vue search with
 	// mediawiki.searchSuggest performance. Marks and Measures will only be
@@ -143,7 +143,7 @@ function getWprovFromResultIndex( index ) {
  * @return {string}
  */
 function generateUrl( suggestion, meta ) {
-	var result = new mw.Uri( wgScript );
+	const result = new mw.Uri( wgScript );
 
 	if ( typeof suggestion !== 'string' ) {
 		suggestion = suggestion.title;
@@ -158,9 +158,9 @@ function generateUrl( suggestion, meta ) {
 
 module.exports = {
 	listeners: {
-		onFetchStart: onFetchStart,
-		onFetchEnd: onFetchEnd,
-		onSuggestionClick: onSuggestionClick,
+		onFetchStart,
+		onFetchEnd,
+		onSuggestionClick,
 
 		// As of writing (2020/12/08), both the "click-result" and "submit-form" kind of
 		// mediawiki.searchSuggestion events result in a "click" SearchSatisfaction event being
@@ -177,6 +177,6 @@ module.exports = {
 		// [1] https://phabricator.wikimedia.org/T257698#6416826
 		onSubmit: onSuggestionClick
 	},
-	getWprovFromResultIndex: getWprovFromResultIndex,
-	generateUrl: generateUrl
+	getWprovFromResultIndex,
+	generateUrl
 };

@@ -137,6 +137,7 @@
 			"class": "Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
 		},
 		"skins.vector.search": {
+			"es6": true,
 			"dependencies": [
 				"mediawiki.Uri",
 				"wvui-search"
