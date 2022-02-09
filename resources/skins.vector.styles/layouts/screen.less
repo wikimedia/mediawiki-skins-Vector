@@ -11,9 +11,6 @@
 // Sidebar
 @width-grid-column-one: 11em;
 
-// Menu button
-@margin-horizontal-sidebar-button-icon: unit( 12px / @font-size-browser, em); // 0.75em @ 16
-
 // Adjust the left position of the sidebar to align it with the sidebar menu button,
 // in the header, while ensuring the background gradient still extends to the edge of the screen.
 // note: the 1px comes from the transparent border of the sidebar button.
@@ -152,12 +149,6 @@ body {
 		left: auto;
 		right: -@border-width-base;
 	}
-}
-
-#mw-sidebar-button {
-	float: left; // Browser: IE9 support - button as flex-child fallback.
-	margin-left: -@margin-horizontal-sidebar-button-icon;
-	margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 }
 
 #mw-panel {

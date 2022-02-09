@@ -17,7 +17,7 @@
 .mw-header {
 	// A min-height is set to account for projects where no icon is set.
 	min-height: @height-logo-icon;
-	margin: @margin-top-header 0 @margin-bottom-header;
+	margin: @margin-top-header 0 @margin-bottom-header 0;
 	padding: @padding-vertical-header 0;
 	// Vertical centering of header elements (IE>=11), requires flex.
 	// Non-flex fallback for IE<=9: float rule on the child elements.
@@ -25,6 +25,11 @@
 	flex-wrap: nowrap;
 	// https://caniuse.com/#search=align-items
 	align-items: center;
+
+	#mw-sidebar-button {
+		float: left; // Browser: IE9 support - button as flex-child fallback.
+		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
+	}
 
 	.vector-search-box {
 		float: left;
