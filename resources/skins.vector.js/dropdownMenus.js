@@ -66,7 +66,6 @@ function addPortletLinkHandler( item, data ) {
 	if ( isIconCapable && data.id && link ) {
 		// If class was previously added this will be a no-op so it is safe to call even
 		// if we've previously enhanced it.
-		// eslint-disable-next-line mediawiki/class-doc
 		link.classList.add(
 			'mw-ui-icon',
 			'mw-ui-icon-before',

@@ -4,7 +4,6 @@
  * That doesn't happen in this file but the linter still throws an error.
  * https://github.com/wikimedia/eslint-plugin-mediawiki/blob/master/docs/rules/class-doc.md
  */
-/* eslint-disable mediawiki/class-doc */
 
 /** @interface VectorResourceLoaderVirtualConfig */
 /** @interface MediaWikiPageReadyModule */

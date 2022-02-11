@@ -54,19 +54,15 @@ module.exports = function tableOfContents( props ) {
 		const parentSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
 
 		if ( activeChildSection ) {
-			// eslint-disable-next-line mediawiki/class-doc
 			activeChildSection.classList.remove( ACTIVE_SECTION_CLASS );
 		}
 		if ( activeParentSection ) {
-			// eslint-disable-next-line mediawiki/class-doc
 			activeParentSection.classList.remove( ACTIVE_SECTION_CLASS );
 		}
 
-		// eslint-disable-next-line mediawiki/class-doc
 		tocSection.classList.add( ACTIVE_SECTION_CLASS );
 
 		if ( parentSection ) {
-			// eslint-disable-next-line mediawiki/class-doc
 			parentSection.classList.add( ACTIVE_SECTION_CLASS );
 		}
 
