@@ -21,6 +21,7 @@
 	"vector-action-toggle-sidebar": "Přepnout postranní panel",
 	"vector-language-button-aria-label": "Přejděte k článku v jiném jazyce. Je dostupný v {{PLURAL:$1|$1 jazyce|$1 jazycích}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazyků}}",
+	"vector-language-redirect-to-top": "Tady na {{SITENAME}} jsou mezijazykové odkazy nahoře na stránce, vpravo od názvu článku. [[#p-lang-btn|Jít nahoru]].",
 	"vector-action-addsection": "Přidat téma",
 	"vector-action-delete": "Smazat",
 	"vector-action-move": "Přesunout",

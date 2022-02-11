@@ -4,6 +4,7 @@
 			"KuboF",
 			"Mirin",
 			"Objectivesea",
+			"Robin van der Vliet",
 			"Yekrats"
 		]
 	},
@@ -11,6 +12,7 @@
 	"vector-skin-desc": "Moderna versio de MonoBook kun freŝa aspekto kaj plibonigo de uzebleco",
 	"vector.css": "/* La jena CSS influos la paĝaspekton por uzantoj de la Vektora temo. */",
 	"vector.js": "/* La jena Ĝavaskripto ŝargiĝos por uzantoj de la Vektora temo. */",
+	"vector-language-button-label": "{{PLURAL:$1|$1 lingvo|$1 lingvoj}}",
 	"vector-action-addsection": "Aldoni temon",
 	"vector-action-delete": "Forigi",
 	"vector-action-move": "Alinomi",
