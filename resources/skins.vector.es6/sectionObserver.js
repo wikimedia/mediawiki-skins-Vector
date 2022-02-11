@@ -1,18 +1,6 @@
 /**
- * Called when a new intersection is observed.
- *
  * @callback OnIntersection
  * @param {HTMLElement} element The section that triggered the new intersection change.
- */
-
-/**
- * @typedef {Object} SectionObserver
- * @property {Function} pause Pauses intersection observation until `resume` is called.
- * @property {Function} resume Resumes intersection observation.
- * @property {Function} unmount Cleans up event listeners and intersection
- * observer. Should be called when the observer is permanently no longer needed.
- * @property {NodeList} elements A list of HTML elements to observe for
- * intersection changes.
  */
 
 /**
@@ -35,7 +23,7 @@
  * @param {Object} props
  * @param {NodeList} props.elements A list of HTML elements to observe for
  * intersection changes. This list can be updated through the `elements` setter.
- * @param {OnIntersection} props.onIntersection
+ * @param {OnIntersection} props.onIntersection Called when a new intersection is observed.
  * @param {number} [props.topMargin] The number of pixels to shrink the top of
  * the viewport's bounding box before calculating intersections. This is useful
  * for sticky elements (e.g. sticky headers). Defaults to 0 pixels.
@@ -133,28 +121,55 @@ module.exports = function sectionObserver( props ) {
 		window.removeEventListener( 'scroll', handleScroll );
 	}
 
+	/**
+	 * Pauses intersection observation until `resume` is called.
+	 */
+	function pause() {
+		unbindScrollListener();
+		// Assume current is no longer valid while paused.
+		current = undefined;
+	}
+
+	/**
+	 * Resumes intersection observation.
+	 */
+	function resume() {
+		bindScrollListener();
+	}
+
+	/**
+	 * Cleans up event listeners and intersection observer. Should be called when
+	 * the observer is permanently no longer needed.
+	 */
+	function unmount() {
+		unbindScrollListener();
+		observer.disconnect();
+	}
+
+	/**
+	 * Set a list of HTML elements to observe for intersection changes.
+	 *
+	 * @param {NodeList} list
+	 */
+	function setElements( list ) {
+		props.elements = list;
+	}
+
 	bindScrollListener();
 	// Calculate intersection on page load.
 	calcIntersection();
 
+	/**
+	 * @typedef {Object} SectionObserver
+	 * @property {pause} pause
+	 * @property {resume} resume
+	 * @property {unmount} unmount
+	 * @property {setElements} setElements
+	 */
 	return {
-		pause() {
-			unbindScrollListener();
-			// Assume current is no longer valid while paused.
-			current = undefined;
-		},
-		resume() {
-			bindScrollListener();
-		},
-		unmount() {
-			unbindScrollListener();
-			observer.disconnect();
-		},
-		/**
-		 * @param {NodeList} list
-		 */
-		set elements( list ) {
-			props.elements = list;
-		}
+		pause,
+		resume,
+		unmount,
+		setElements
 	};
 };

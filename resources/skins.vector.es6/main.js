@@ -79,11 +79,10 @@ const main = () => {
 		return;
 	}
 
-	// eslint-disable-next-line prefer-const
-	let /** @type {initSectionObserver.SectionObserver} */ sectionObserver;
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
 		onSectionClick: () => {
+			// eslint-disable-next-line no-use-before-define
 			sectionObserver.pause();
 
 			// T297614: We want the link that the user has clicked inside the TOC to
@@ -105,15 +104,14 @@ const main = () => {
 			// the user clicked even after waiting 2 frames. After further
 			// investigation, it sometimes waits up to 3 frames before painting the
 			// new scroll position so we have that as the limit.
+			//
+			// eslint-disable-next-line no-use-before-define
 			deferUntilFrame( () => sectionObserver.resume(), 3 );
 		}
 	} );
-	sectionObserver = initSectionObserver( {
+	const sectionObserver = initSectionObserver( {
 		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6' ),
 		topMargin: targetElement ? targetElement.getBoundingClientRect().height : 0,
-		/**
-		 * @param {HTMLElement} section
-		 */
 		onIntersection: ( section ) => {
 			const headline = section.querySelector( HEADLINE_SELECTOR );
 
