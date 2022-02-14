@@ -94,18 +94,11 @@
 
 		.sidebar-toc-toggle {
 			position: absolute;
+			display: block;
 			font-size: 0.7em; // reduces size of toggle icon (by an arbitrary amount)
 			top: 4px; // visually center icon (at least at default font size)
 			left: -18px;
 			transform: rotate( -90deg );
-		}
-
-		.sidebar-toc-level-1 > .sidebar-toc-toggle {
-			display: block;
-		}
-
-		.sidebar-toc-level-1 > .sidebar-toc-list:empty + .sidebar-toc-toggle {
-			display: none;
 		}
 
 		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
