@@ -29,6 +29,7 @@
 	"vector-languages": "لغات",
 	"vector-language-button-aria-label": "اذهب إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|$1 لغة|$1 لغات}}",
 	"vector-language-button-label": "بلغات أخرى ($1)",
+	"vector-language-redirect-to-top": "في هذه ال{{SITENAME}}، روابط اللغات موجودة في الزاوية العليا اليسرى إلى جانت العنوان. [[#p-lang-btn|انتقل إلى أعلى]].",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",
 	"vector-action-move": "انقل",

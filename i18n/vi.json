@@ -8,6 +8,7 @@
 			"Nguyễn Mạnh An",
 			"Prenn",
 			"Thienhau2003",
+			"Thingofme",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
 			"Withoutaname"
@@ -27,7 +28,7 @@
 	"vector-languages": "Ngôn ngữ",
 	"vector-language-button-aria-label": "Xem bài viết trong ngôn ngữ khác. Bài có sẵn trong {{PLURAL:$1}}$1 ngôn ngữ",
 	"vector-language-button-label": "$1 ngôn ngữ",
-	"vector-language-redirect-to-top": "Trên Wikipedia, các liên kết giữa ngôn ngữ nằm ở đầu trang đối diện với tiêu đề bài viết. [[#p-lang-btn|Đi tới đầu trang]].",
+	"vector-language-redirect-to-top": "Trên {{SITENAME}} này các liên kết giữa ngôn ngữ nằm ở đầu trang đối diện với tiêu đề bài viết. [[#p-lang-btn|Đi tới đầu trang]].",
 	"vector-language-variant-switcher-label": "Thay đổi biến thể ngôn ngữ",
 	"vector-action-addsection": "Thêm đề tài",
 	"vector-action-delete": "Xóa",
