@@ -26,7 +26,6 @@ function bindSearchBoxHandler( searchBox, header ) {
 			!ev.target.closest( '.wvui-typeahead-suggestion' ) &&
 			!searchBox.contains( ev.target )
 		) {
-			// eslint-disable-next-line mediawiki/class-doc
 			header.classList.remove( SEARCH_VISIBLE_CLASS );
 
 			document.removeEventListener( 'click', clickHandler );
@@ -54,7 +53,6 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 		// from the page when clicked.
 		ev.preventDefault();
 
-		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.add( SEARCH_VISIBLE_CLASS );
 
 		// Defer binding the search box handler until after the event bubbles to the

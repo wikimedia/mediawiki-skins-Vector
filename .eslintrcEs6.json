@@ -17,5 +17,8 @@
 				"VectorHeaderObserver": "VectorHeaderObserver"
 			}
 		}
+	},
+	"rules": {
+		"mediawiki/class-doc": "off"
 	}
 }

@@ -35,10 +35,8 @@ function copyAttribute( from, to, attribute ) {
  */
 function show() {
 	if ( header ) {
-		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
 	}
-	// eslint-disable-next-line mediawiki/class-doc
 	document.body.classList.remove( ULS_HIDE_CLASS );
 }
 
@@ -47,9 +45,7 @@ function show() {
  */
 function hide() {
 	if ( header ) {
-		// eslint-disable-next-line mediawiki/class-doc
 		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
-		// eslint-disable-next-line mediawiki/class-doc
 		document.body.classList.add( ULS_HIDE_CLASS );
 	}
 }
@@ -112,7 +108,6 @@ function removeNode( node ) {
  */
 function removeClassFromNodes( nodes, className ) {
 	Array.prototype.forEach.call( nodes, function ( node ) {
-		// eslint-disable-next-line mediawiki/class-doc
 		node.classList.remove( className );
 	} );
 }
@@ -124,12 +119,9 @@ function removeClassFromNodes( nodes, className ) {
  * @param {string} status 'watched', 'unwatched', or 'temporary'
  */
 function updateStickyWatchlink( watchSticky, status ) {
-	/* eslint-disable mediawiki/class-doc */
 	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-star', status === 'unwatched' );
 	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-unStar', status === 'watched' );
 	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-halfStar', status === 'temporary' );
-	/* eslint-enable mediawiki/class-doc */
-
 	watchSticky.setAttribute( 'data-event-name', status === 'unwatched' ? 'watch-sticky-header' : 'unwatch-sticky-header' );
 }
 
@@ -396,7 +388,6 @@ function makeStickyHeaderFunctional(
 	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
-		// eslint-disable-next-line mediawiki/class-doc
 		headerElement.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
