@@ -303,7 +303,7 @@ function isInViewport( element ) {
  */
 function addVisualEditorHooks( targetIntersection, observer ) {
 	// When Visual Editor is activated, hide the sticky header.
-	mw.hook( 've.activate' ).add( () => {
+	mw.hook( 've.activationStart' ).add( () => {
 		hide();
 		observer.unobserve( targetIntersection );
 	} );
