@@ -258,7 +258,8 @@
 				"logIn",
 				"logOut",
 				"imageGallery",
-				"userGroup"
+				"userGroup",
+				"downTriangle"
 			]
 		},
 		"skins.vector.es6": {

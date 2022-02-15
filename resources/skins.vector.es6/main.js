@@ -81,9 +81,13 @@ const main = () => {
 
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
-		onSectionClick: () => {
+		onSectionClick: ( id ) => {
+
 			// eslint-disable-next-line no-use-before-define
 			sectionObserver.pause();
+
+			tableOfContents.expandSection( id );
+			tableOfContents.changeActiveSection( id );
 
 			// T297614: We want the link that the user has clicked inside the TOC to
 			// be "active" (e.g. bolded) regardless of whether the browser's scroll
@@ -116,7 +120,7 @@ const main = () => {
 			const headline = section.querySelector( HEADLINE_SELECTOR );
 
 			if ( headline ) {
-				tableOfContents.activateSection( TOC_SECTION_ID_PREFIX + headline.id );
+				tableOfContents.changeActiveSection( TOC_SECTION_ID_PREFIX + headline.id );
 			}
 		}
 	} );
