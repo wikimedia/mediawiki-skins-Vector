@@ -6,10 +6,12 @@
 			"Casual",
 			"CoderSI",
 			"Nataev",
-			"Sociologist"
+			"Sociologist",
+			"Malikxan"
 		]
 	},
 	"skinname-vector": "Vektor",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ta til}}",
 	"vector-action-addsection": "Mavzu qoʻshish",
 	"vector-action-delete": "O‘chirish",
 	"vector-action-move": "Ko‘chirish",
