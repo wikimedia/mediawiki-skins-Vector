@@ -1,22 +1,34 @@
+const SECTION_CLASS = 'sidebar-toc-list-item';
 const ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
 const EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
 const PARENT_SECTION_CLASS = 'sidebar-toc-level-1';
 const LINK_CLASS = 'sidebar-toc-link';
-const LIST_ITEM_CLASS = 'sidebar-toc-list-item';
+const TOGGLE_CLASS = 'sidebar-toc-toggle';
+
+/**
+ * Called when a list item is clicked.
+ *
+ * @callback onHeadingClick
+ * @param {string} id The id of the clicked list item.
+ */
+
+/**
+ * Called when an arrow is clicked.
+ *
+ * @callback onToggleClick
+ * @param {string} id The id of the list item corresponding to the arrow.
+ */
 
 /**
  * Initializes the sidebar's Table of Contents.
  *
  * @param {Object} props
  * @param {HTMLElement} props.container
- * @param {OnSectionClick} [props.onSectionClick]
+ * @param {onHeadingClick} props.onHeadingClick
+ * @param {onToggleClick} props.onToggleClick
  * @return {TableOfContents}
  */
 module.exports = function tableOfContents( props ) {
-	props = Object.assign( {
-		onSectionClick: () => {}
-	}, props );
-
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
 	let /** @type {HTMLElement | undefined} */ activeSubSection;
 	let /** @type {Array<HTMLElement>} */ expandedSections = [];
@@ -177,27 +189,26 @@ module.exports = function tableOfContents( props ) {
 		}
 	}
 
-	/**
-	 * Called when a list item is clicked.
-	 *
-	 * @callback OnSectionClick
-	 * @param {string} id The id of the clicked list item.
-	 */
 	function bindClickListener() {
 		props.container.addEventListener( 'click', function ( e ) {
 			if (
-				!( e.target instanceof HTMLElement && e.target.classList.contains( LINK_CLASS ) )
+				!( e.target instanceof HTMLElement )
 			) {
 				return;
 			}
 
 			const tocSection =
-				/** @type {HTMLElement | null} */ ( e.target.closest( `.${LIST_ITEM_CLASS}` ) );
+				/** @type {HTMLElement | null} */ ( e.target.closest( `.${SECTION_CLASS}` ) );
 
 			if ( tocSection && tocSection.id ) {
-				// @ts-ignore
-				props.onSectionClick( tocSection.id );
+				if ( e.target.classList.contains( LINK_CLASS ) ) {
+					props.onHeadingClick( tocSection.id );
+				}
+				if ( e.target.classList.contains( TOGGLE_CLASS ) ) {
+					props.onToggleClick( tocSection.id );
+				}
 			}
+
 		} );
 	}
 
@@ -210,12 +221,16 @@ module.exports = function tableOfContents( props ) {
 	 * @property {toggleExpandSection} toggleExpandSection
 	 * @property {string} ACTIVE_SECTION_CLASS
 	 * @property {string} EXPANDED_SECTION_CLASS
+	 * @property {string} LINK_CLASS
+	 * @property {string} TOGGLE_CLASS
 	 */
 	return {
 		expandSection,
 		changeActiveSection,
 		toggleExpandSection,
 		ACTIVE_SECTION_CLASS,
-		EXPANDED_SECTION_CLASS
+		EXPANDED_SECTION_CLASS,
+		LINK_CLASS,
+		TOGGLE_CLASS
 	};
 };

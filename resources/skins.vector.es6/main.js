@@ -81,7 +81,7 @@ const main = () => {
 
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
-		onSectionClick: ( id ) => {
+		onHeadingClick: ( id ) => {
 
 			// eslint-disable-next-line no-use-before-define
 			sectionObserver.pause();
@@ -111,6 +111,9 @@ const main = () => {
 			//
 			// eslint-disable-next-line no-use-before-define
 			deferUntilFrame( () => sectionObserver.resume(), 3 );
+		},
+		onToggleClick: ( id ) => {
+			tableOfContents.toggleExpandSection( id );
 		}
 	} );
 	const sectionObserver = initSectionObserver( {
