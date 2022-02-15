@@ -46,9 +46,9 @@
 
 <div class="mw-workspace-container">
 	{{>Navigation}}
-	{{#data-toc}}
-		{{>TableOfContents}}
-	{{/data-toc}}
+	<div class="mw-table-of-contents-container mw-sticky-header-element">
+		{{#data-toc}}{{>TableOfContents}}{{/data-toc}}
+	</div>
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
@@ -100,6 +100,4 @@
 </div>
 	</div> {{! END mw-page-container-inner }}
 </div> {{! END mw-page-container }}
-{{#data-vector-sticky-header}}
-{{>StickyHeader}}
-{{/data-vector-sticky-header}}
+{{#data-vector-sticky-header}}{{>StickyHeader}}{{/data-vector-sticky-header}}
