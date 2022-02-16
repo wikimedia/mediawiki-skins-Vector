@@ -145,6 +145,7 @@
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
 				"resources/skins.vector.search/instrumentation.js",
+				"resources/skins.vector.search/fetch.js",
 				"resources/skins.vector.search/restSearchClient.js",
 				"resources/skins.vector.search/App.vue",
 				{
