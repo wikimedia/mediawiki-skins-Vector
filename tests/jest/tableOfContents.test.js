@@ -1,38 +1,65 @@
 // @ts-nocheck
-const tableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
-
-const template = `
-    <ul>
-
-        <li id="toc-foo" class="sidebar-toc-level-1">
-            <a href="#foo">foo</a>
-        </li>
-
-        <li id="toc-bar" class="sidebar-toc-level-1">
-            <a href="#bar">bar</a>
-            <ul>
-                <li id="toc-baz">
-                    <a href="#baz">baz</a>
-                </li>
-            </ul>
-        </li>
-
-        <li id="toc-qux" class="sidebar-toc-level-1">
-            <a href="#qux">qux</a>
-        </li>
-
-    </ul>
-`;
+const mustache = require( 'mustache' );
+const fs = require( 'fs' );
+const tableOfContentsTemplate = fs.readFileSync( 'includes/templates/TableOfContents.mustache', 'utf8' );
+const tableOfContentsTopSectionTemplate = fs.readFileSync( 'includes/templates/TableOfContents__topSection.mustache', 'utf8' );
+const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOfContents__line.mustache', 'utf8' );
+const initTableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
 
 let toc, fooSection, barSection, bazSection, quxSection;
+const onHeadingClick = jest.fn();
+const onToggleClick = jest.fn();
+
+const templateData = {
+	'array-sections': [ {
+		toclevel: 1,
+		number: '1',
+		line: 'foo',
+		anchor: 'foo',
+		'array-sections': null
+	}, {
+		toclevel: 1,
+		number: '2',
+		line: 'bar',
+		anchor: 'bar',
+		'array-sections': [ {
+			toclevel: 2,
+			number: '2.1',
+			line: 'baz',
+			anchor: 'baz',
+			'array-sections': null
+		} ]
+	}, {
+		toclevel: 1,
+		number: '3',
+		line: 'qux',
+		anchor: 'qux',
+		'array-sections': null
+	} ]
+};
+
+/* eslint-disable camelcase */
+const renderedHTML = mustache.render( tableOfContentsTemplate, templateData, {
+	TableOfContents__topSection: tableOfContentsTopSectionTemplate,
+	TableOfContents__line: tableOfContentsLineTemplate
+} );
+/* eslint-enable camelcase */
 
 beforeEach( () => {
-	document.body.innerHTML = template;
-	toc = tableOfContents( { container: document.body } );
-	fooSection = document.getElementById( 'toc-foo' );
-	barSection = document.getElementById( 'toc-bar' );
-	bazSection = document.getElementById( 'toc-baz' );
-	quxSection = document.getElementById( 'toc-qux' );
+	document.body.innerHTML = renderedHTML;
+	toc = initTableOfContents( {
+		container: /** @type {HTMLElement} */ document.getElementById( 'mw-panel-toc' ),
+		onHeadingClick,
+		onToggleClick
+	} );
+	fooSection = /** @type {HTMLElement} */ document.getElementById( 'toc-foo' );
+	barSection = /** @type {HTMLElement} */ document.getElementById( 'toc-bar' );
+	bazSection = /** @type {HTMLElement} */ document.getElementById( 'toc-baz' );
+	quxSection = /** @type {HTMLElement} */ document.getElementById( 'toc-qux' );
+} );
+
+test( 'Table of contents renders', () => {
+	expect( document.body.innerHTML ).toMatchSnapshot();
 } );
 
 test( 'Table of contents changes the active sections', () => {
@@ -97,4 +124,21 @@ test( 'Table of contents toggles expanded sections', () => {
 	expect(
 		fooSection.classList.contains( toc.EXPANDED_SECTION_CLASS )
 	).toEqual( false );
+} );
+
+describe( 'Table of contents binds event listeners', () => {
+	test( 'for onHeadingClick', () => {
+		const heading = document.querySelector( `#toc-foo .${toc.LINK_CLASS}` );
+		heading.click();
+
+		expect( onToggleClick ).not.toBeCalled();
+		expect( onHeadingClick ).toBeCalled();
+	} );
+	test( 'for onToggleClick', () => {
+		const toggle = document.querySelector( `#toc-bar .${toc.TOGGLE_CLASS}` );
+		toggle.click();
+
+		expect( onHeadingClick ).not.toBeCalled();
+		expect( onToggleClick ).toBeCalled();
+	} );
 } );
