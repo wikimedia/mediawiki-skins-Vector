@@ -639,6 +639,7 @@ class SkinVector extends SkinMustache {
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
+			'data-toc' => $this->getTocData( $parentData['data-toc'] ?? [] )
 		] );
 
 		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
@@ -694,6 +695,25 @@ class SkinVector extends SkinMustache {
 		}
 
 		return $commonSkinData;
+	}
+
+	/**
+	 * Annotates table of contents data with Vector-specific information.
+	 *
+	 * @param array $tocData
+	 * @return array
+	 */
+	private function getTocData( array $tocData ): array {
+		if ( empty( $tocData ) ) {
+			return [];
+		}
+
+		return array_merge( $tocData, [
+			'vector-is-collapse-sections-enabled' =>
+				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
+					'VectorTableOfContentsCollapseAtCount'
+				)
+		] );
 	}
 
 	/**

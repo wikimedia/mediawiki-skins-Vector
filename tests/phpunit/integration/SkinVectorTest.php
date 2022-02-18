@@ -18,7 +18,7 @@ use Wikimedia\TestingAccessWrapper;
 class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @return \VectorTemplate
+	 * @return \SkinVector
 	 */
 	private function provideVectorTemplateObject() {
 		$template = new SkinVector( [ 'name' => 'vector' ] );
@@ -42,6 +42,105 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 		$values = explode( ' ', $element->getAttribute( $attribute ) );
 		return in_array( $search, $values );
+	}
+
+	public function provideGetTocData() {
+		$tocData = [
+			'number-section-count' => 2,
+			'array-sections' => [
+				[
+					'toclevel' => 1,
+					'level' => '2',
+					'line' => 'A',
+					'number' => '1',
+					'index' => '1',
+					'fromtitle' => 'Test',
+					'byteoffset' => 231,
+					'anchor' => 'A',
+					'array-sections' => [
+						[
+							'toclevel' => 2,
+							'level' => '4',
+							'line' => 'A1',
+							'number' => '1.1',
+							'index' => '2',
+							'fromtitle' => 'Test',
+							'byteoffset' => 245,
+							'anchor' => 'A1'
+						]
+					]
+				],
+			]
+		];
+
+		return [
+			// When zero sections
+			[
+				// $tocData
+				[],
+				// wgVectorTableOfContentsCollapseAtCount
+				1,
+				// expected 'vector-is-collapse-sections-enabled' value
+				false
+			],
+			// When number of multiple sections is lower than configured value
+			[
+				// $tocData
+				$tocData,
+				// wgVectorTableOfContentsCollapseAtCount
+				3,
+				// expected 'vector-is-collapse-sections-enabled' value
+				false
+			],
+			// When number of multiple sections is equal to the configured value
+			[
+				// $tocData
+				$tocData,
+				// wgVectorTableOfContentsCollapseAtCount
+				2,
+				// expected 'vector-is-collapse-sections-enabled' value
+				true
+			],
+			// When number of multiple sections is higher than configured value
+			[
+				// $tocData
+				$tocData,
+				// wgVectorTableOfContentsCollapseAtCount
+				1,
+				// expected 'vector-is-collapse-sections-enabled' value
+				true
+			],
+		];
+	}
+
+	/**
+	 * @covers ::getTocData
+	 * @dataProvider provideGetTOCData
+	 */
+	public function testGetTocData(
+		array $tocData,
+		int $configValue,
+		bool $expected
+	) {
+		$this->setMwGlobals( [
+			'wgVectorTableOfContentsCollapseAtCount' => $configValue
+		] );
+
+		$skinVector = new SkinVector( [ 'name' => 'vector-2022' ] );
+		$openSkinVector = TestingAccessWrapper::newFromObject( $skinVector );
+		$data = $openSkinVector->getTocData( $tocData );
+
+		if ( empty( $tocData ) ) {
+			$this->assertEquals( [], $data, 'toc data is empty when given an empty array' );
+			return;
+		}
+		$this->assertArrayHasKey( 'vector-is-collapse-sections-enabled', $data );
+		$this->assertEquals(
+			$expected,
+			$data['vector-is-collapse-sections-enabled'],
+			'vector-is-collapse-sections-enabled has correct value'
+		);
+		$this->assertArrayHasKey( 'array-sections', $data );
 	}
 
 	/**

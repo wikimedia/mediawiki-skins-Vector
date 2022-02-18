@@ -6,32 +6,32 @@ const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
 
 /**
- * Called when a list item is clicked.
- *
  * @callback onHeadingClick
  * @param {string} id The id of the clicked list item.
  */
 
 /**
- * Called when an arrow is clicked.
- *
  * @callback onToggleClick
  * @param {string} id The id of the list item corresponding to the arrow.
  */
 
 /**
+ * @typedef {Object} TableOfContentsProps
+ * @property {HTMLElement} container The container element for the table of contents.
+ * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
+ * @property {onToggleClick} onToggleClick Called when a list item is clicked.
+ */
+
+/**
  * Initializes the sidebar's Table of Contents.
  *
- * @param {Object} props
- * @param {HTMLElement} props.container
- * @param {onHeadingClick} props.onHeadingClick
- * @param {onToggleClick} props.onToggleClick
+ * @param {TableOfContentsProps} props
  * @return {TableOfContents}
  */
 module.exports = function tableOfContents( props ) {
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
 	let /** @type {HTMLElement | undefined} */ activeSubSection;
-	let /** @type {Array<HTMLElement>} */ expandedSections = [];
+	let /** @type {Array<HTMLElement>} */ expandedSections;
 
 	/**
 	 * @typedef {Object} activeSectionIds
@@ -212,7 +212,20 @@ module.exports = function tableOfContents( props ) {
 		} );
 	}
 
-	bindClickListener();
+	/**
+	 * Binds event listeners and sets the default state of the component.
+	 */
+	function initialize() {
+		// Sync component state to the default rendered state of the table of contents.
+		expandedSections = Array.from(
+			props.container.querySelectorAll( `.${EXPANDED_SECTION_CLASS}` )
+		);
+
+		// Bind event listeners.
+		bindClickListener();
+	}
+
+	initialize();
 
 	/**
 	 * @typedef {Object} TableOfContents

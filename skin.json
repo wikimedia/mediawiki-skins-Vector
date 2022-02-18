@@ -496,6 +496,10 @@
 				"default": false
 			},
 			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
+		},
+		"VectorTableOfContentsCollapseAtCount": {
+			"value": 20,
+			"description": "@var When `VectorTableOfContents` is enabled, the minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		}
 	},
 	"ServiceWiringFiles": [
