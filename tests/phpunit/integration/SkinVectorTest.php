@@ -1,7 +1,10 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
+use Exception;
+use HashConfig;
 use MediaWikiIntegrationTestCase;
+use ReflectionMethod;
 use RequestContext;
 use SkinVector;
 use Title;
@@ -230,6 +233,190 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame(
 			'mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu',
 			$props['data-personal']['class']
+		);
+	}
+
+	/**
+	 * Standard config for Language Alert in Sidebar
+	 * @return array
+	 */
+	private function enableLanguageAlertFeatureConfig(): array {
+		return [
+			'VectorLanguageInHeader' => [
+				'logged_in' => true,
+				'logged_out' => true
+			],
+			'VectorLanguageInMainPageHeader' => [
+				'logged_in' => false,
+				'logged_out' => false
+			],
+			'VectorLanguageAlertInSidebar' => [
+				'logged_in' => true,
+				'logged_out' => true
+			],
+		];
+	}
+
+	public function providerLanguageAlertRequirements() {
+		$testTitle = Title::makeTitle( NS_MAIN, 'Test' );
+		$testTitleMainPage = Title::makeTitle( NS_MAIN, 'MAIN_PAGE' );
+		return [
+			'When none of the requirements are present, do not show alert' => [
+				// Configuration requirements for language in header and alert in sidebar
+				[],
+				// Title instance
+				$testTitle,
+				// Cached languages
+				[],
+				// Is the language selector at the top of the content?
+				false,
+				// Should the language button be hidden?
+				false,
+				// Expected
+				false
+			],
+			'When the feature is enabled and languages should be hidden, do not show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitle,
+				[], true, true, false
+			],
+			'When the language alert feature is disabled, do not show alert' => [
+				[
+					'VectorLanguageInHeader' => [
+						'logged_in' => true,
+						'logged_out' => true
+					],
+					'VectorLanguageAlertInSidebar' => [
+						'logged_in' => false,
+						'logged_out' => false
+					]
+				],
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], true, false, false
+			],
+			'When the language in header feature is disabled, do not show alert' => [
+				[
+					'VectorLanguageInHeader' => [
+						'logged_in' => false,
+						'logged_out' => false
+					],
+					'VectorLanguageAlertInSidebar' => [
+						'logged_in' => true,
+						'logged_out' => true
+					]
+				],
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], true, false, false
+			],
+			'When it is a main page, feature is enabled, and there are no languages, do not show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitleMainPage,
+				[], true, true, false
+			],
+			'When it is a non-main page, feature is enabled, and there are no languages, do not show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitle,
+				[], true, true, false
+			],
+			'When it is a main page, header feature is disabled, and there are languages, do not show alert' => [
+				[
+					'VectorLanguageInHeader' => [
+						'logged_in' => false,
+						'logged_out' => false
+					],
+					'VectorLanguageAlertInSidebar' => [
+						'logged_in' => true,
+						'logged_out' => true
+					]
+				],
+				$testTitleMainPage,
+				[ 'fr', 'en', 'ko' ], true, true, false
+			],
+			'When it is a non-main page, alert feature is disabled, there are languages, do not show alert' => [
+				[
+					'VectorLanguageInHeader' => [
+						'logged_in' => true,
+						'logged_out' => true
+					],
+					'VectorLanguageAlertInSidebar' => [
+						'logged_in' => false,
+						'logged_out' => false
+					]
+				],
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], true, true, false
+			],
+			'When most requirements are present but languages are not at the top, do not show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], false, false, false
+			],
+			'When most requirements are present but languages should be hidden, do not show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], true, true, false
+			],
+			'When it is a main page, features are enabled, and there are languages, show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitleMainPage,
+				[ 'fr', 'en', 'ko' ], true, false, true
+			],
+			'When all the requirements are present on a non-main page, show alert' => [
+				$this->enableLanguageAlertFeatureConfig(),
+				$testTitle,
+				[ 'fr', 'en', 'ko' ], true, false, true
+			],
+		];
+	}
+
+	/**
+	 * @dataProvider providerLanguageAlertRequirements
+	 * @covers ::shouldLanguageAlertBeInSidebar
+	 * @param array $requirements
+	 * @param Title $title
+	 * @param array $getLanguagesCached
+	 * @param bool $isLanguagesInContentAt
+	 * @param bool $shouldHideLanguages
+	 * @param bool $expected
+	 * @throws Exception
+	 */
+	public function testShouldLanguageAlertBeInSidebar(
+		array $requirements,
+		Title $title,
+		array $getLanguagesCached,
+		bool $isLanguagesInContentAt,
+		bool $shouldHideLanguages,
+		bool $expected
+	) {
+		$config = new HashConfig( array_merge( $requirements, [
+			'DefaultSkin' => 'vector-2022',
+			'VectorDefaultSkinVersion' => '2',
+			'VectorSkinMigrationMode' => true,
+		] ) );
+		$this->installMockMwServices( $config );
+
+		$mockSkinVector = $this->getMockBuilder( SkinVector::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [ 'getTitle', 'getLanguagesCached','isLanguagesInContentAt', 'shouldHideLanguages' ] )
+			->getMock();
+		$mockSkinVector->method( 'getTitle' )
+			->willReturn( $title );
+		$mockSkinVector->method( 'getLanguagesCached' )
+			->willReturn( $getLanguagesCached );
+		$mockSkinVector->method( 'isLanguagesInContentAt' )->with( 'top' )
+			->willReturn( $isLanguagesInContentAt );
+		$mockSkinVector->method( 'shouldHideLanguages' )
+			->willReturn( $shouldHideLanguages );
+
+		$shouldLanguageAlertBeInSidebarMethod = new ReflectionMethod(
+			SkinVector::class,
+			'shouldLanguageAlertBeInSidebar'
+		);
+		$shouldLanguageAlertBeInSidebarMethod->setAccessible( true );
+
+		$this->assertSame(
+			$shouldLanguageAlertBeInSidebarMethod->invoke( $mockSkinVector ),
+			$expected
 		);
 	}
 

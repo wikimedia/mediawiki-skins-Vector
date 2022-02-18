@@ -186,7 +186,7 @@ class SkinVector extends SkinMustache {
 	 * Calls getLanguages with caching.
 	 * @return array
 	 */
-	private function getLanguagesCached(): array {
+	protected function getLanguagesCached(): array {
 		if ( $this->languages === null ) {
 			$this->languages = $this->getLanguages();
 		}
@@ -216,7 +216,7 @@ class SkinVector extends SkinMustache {
 	 * @param string $location Either 'top' or 'bottom' is accepted.
 	 * @return bool
 	 */
-	private function isLanguagesInContentAt( $location ) {
+	protected function isLanguagesInContentAt( $location ) {
 		if ( !$this->canHaveLanguages() ) {
 			return false;
 		}
@@ -254,7 +254,7 @@ class SkinVector extends SkinMustache {
 	 * and the language array isn't empty. Hide it otherwise.
 	 * @return bool
 	 */
-	private function shouldHideLanguages() {
+	protected function shouldHideLanguages() {
 		// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
 		return $this->isLegacy() || !$this->isLanguagesInContent() || empty( $this->getLanguagesCached() );
 	}
@@ -542,7 +542,7 @@ class SkinVector extends SkinMustache {
 		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
 		$shouldShowOnMainPage = $isMainPage && !empty( $this->getLanguagesCached() ) &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
-		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage &&
+		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
 			$shouldShowOnMainPage;
 	}
