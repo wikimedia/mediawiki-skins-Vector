@@ -22,7 +22,7 @@
 	"vector-languages": "ენები",
 	"vector-language-button-aria-label": "სხვაენოვან სტატიაზე გადასვლა. ხელმისაწვდომია $1 ენაზე",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ენა|$1 ენა}}",
-	"vector-language-redirect-to-top": "ამ {{#swich:{{SITENAME}}|ვიკიპედია=ვიკიპედიაში|ვიქსიკონი=ვიქსიკონში|ვიკიციტატა=ვიკიციტატაში}} სხვა ენების ბმულები მოცემულია ამ გვერდის თავში, სათაურის გასწვრივ. [[#p-lang-btn|თავში გადასვლა]].",
+	"vector-language-redirect-to-top": "ამ საიტზე სხვა ენების ბმულები მოცემულია გვერდის დასაწყისში, სათაურის გასწვრივ. [[#p-lang-btn|დასაწყისთან გადასვლა]].",
 	"vector-language-variant-switcher-label": "ენის ვარიანტის შეცვლა",
 	"vector-action-addsection": "თემის ჩამატება",
 	"vector-action-delete": "წაშლა",
