@@ -113,6 +113,15 @@ function removeClassFromNodes( nodes, className ) {
 }
 
 /**
+ * @param {NodeList} nodes
+ */
+function removeNodes( nodes ) {
+	Array.prototype.forEach.call( nodes, function ( node ) {
+		node.parentNode.removeChild( node );
+	} );
+}
+
+/**
  * Ensures a sticky header button has the correct attributes
  *
  * @param {HTMLElement} watchSticky
@@ -328,6 +337,32 @@ function addVisualEditorHooks( targetIntersection, observer ) {
 }
 
 /**
+ * @param {HTMLElement} userMenu
+ * @return {HTMLElement} cloned userMenu
+ */
+function prepareUserMenu( userMenu ) {
+	const
+		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
+		userMenuClone = /** @type {HTMLElement} */( userMenu.cloneNode( true ) ),
+		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' );
+	// Update all ids of the cloned user menu to make them unique.
+	makeNodeTrackable( userMenuClone );
+	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
+	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
+	removeNodes( userMenuClone.querySelectorAll( '.mw-list-item-js' ) );
+	removeClassFromNodes(
+		userMenuClone.querySelectorAll( '.user-links-collapsible-item' ),
+		'user-links-collapsible-item'
+	);
+	// Prevents user menu from being focusable, T290201
+	const userMenuCheckbox = userMenuClone.querySelector( 'input' );
+	if ( userMenuCheckbox ) {
+		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
+	}
+	return userMenuClone;
+}
+
+/**
  * Makes sticky header functional for modern Vector.
  *
  * @param {HTMLElement} headerElement
@@ -344,35 +379,12 @@ function makeStickyHeaderFunctional(
 	stickyIntersection
 ) {
 	const
-		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
-		userMenuClone = /** @type {HTMLElement} */( userMenu.cloneNode( true ) ),
-		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' ),
 		userMenuStickyContainerInner = userMenuStickyContainer
 			.querySelector( VECTOR_USER_LINKS_SELECTOR );
 
-	// Update all ids of the cloned user menu to make them unique.
-	makeNodeTrackable( userMenuClone );
-	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
-
-	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
-	const gadgetLinks = userMenuClone.querySelector( 'mw-list-item-js' );
-	if ( gadgetLinks ) {
-		gadgetLinks.remove();
-	}
-	removeClassFromNodes(
-		userMenuClone.querySelectorAll( '.user-links-collapsible-item' ),
-		'user-links-collapsible-item'
-	);
-
-	// Prevents user menu from being focusable, T290201
-	const userMenuCheckbox = userMenuClone.querySelector( 'input' );
-	if ( userMenuCheckbox ) {
-		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
-	}
-
 	// Clone the updated user menu to the sticky header.
 	if ( userMenuStickyContainerInner ) {
-		userMenuStickyContainerInner.appendChild( userMenuClone );
+		userMenuStickyContainerInner.appendChild( prepareUserMenu( userMenu ) );
 	}
 
 	prepareIcons( headerElement,
@@ -513,6 +525,7 @@ function initStickyHeader( observer ) {
 module.exports = {
 	show,
 	hide,
+	prepareUserMenu,
 	initStickyHeader,
 	isStickyHeaderAllowed,
 	header,
