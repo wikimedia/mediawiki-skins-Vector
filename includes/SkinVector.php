@@ -155,18 +155,6 @@ class SkinVector extends SkinMustache {
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
 	/**
-	 * Updates the constructor to conditionally disable table of contents in article
-	 * body.
-	 * Note, the constructor can only check feature flags that do not vary on whether the
-	 * user is logged in e.g. features with the 'default' key set.
-	 * @inheritDoc
-	 */
-	public function __construct( array $options ) {
-		$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
-		parent::__construct( $options );
-	}
-
-	/**
 	 * @param string $icon the name of the icon without wikimedia- prefix.
 	 * @return string
 	 */
@@ -455,12 +443,6 @@ class SkinVector extends SkinMustache {
 	public function generateHTML() {
 		if ( $this->isLegacy() ) {
 			$this->options['template'] = SkinVectorLegacy::getTemplateOption();
-			if ( $this->isTableOfContentsVisibleInSidebar() ) {
-				throw new RuntimeException(
-					'The table of contents flag cannot safely be applied without ' .
-					'breaking legacy Vector. Please fix T291098 before applying.'
-				);
-			}
 		}
 		return parent::generateHTML();
 	}
@@ -566,21 +548,6 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Determines if the Table of Contents should be visible.
-	 * TOC is visible on main namespaces except for the Main Page
-	 * when the feature flag is on.
-	 *
-	 * @return bool
-	 */
-	private function isTableOfContentsVisibleInSidebar(): bool {
-		$featureManager = VectorServices::getFeatureManager();
-		$title = $this->getTitle();
-		$isMainNS = $title ? $title->inNamespaces( 0 ) : false;
-		$isMainPage = $title ? $title->isMainPage() : false;
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) && $isMainNS && !$isMainPage;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -640,10 +607,6 @@ class SkinVector extends SkinMustache {
 				)
 			) : false,
 		] );
-
-		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
-			unset( $commonSkinData['data-toc'] );
-		}
 
 		if ( $skin->getUser()->isRegistered() ) {
 			$migrationMode = $this->getConfig()->get( 'VectorSkinMigrationMode' );
