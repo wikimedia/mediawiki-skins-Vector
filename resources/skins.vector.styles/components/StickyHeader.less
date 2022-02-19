@@ -79,6 +79,11 @@
 		// T296320 closest standardized option to 22px (24px)
 		font-size: @font-size-heading-2;
 		text-overflow: ellipsis;
+
+		// T300134 Prevent text from wrapping in the sticky header.
+		wbr {
+			display: none;
+		}
 	}
 
 	.vector-search-box {
