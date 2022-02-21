@@ -36,8 +36,6 @@
 // content container for aesthetic reasons. The sidebar is already displaced
 // -30px so we simply add 30px of space to the width of the sidebar.
 @margin-start-content: @width-grid-column-one + unit( 8px / @font-size-browser, em ); // 11.5em @ 16
-// Ensure there's enough space between the TOC and content container
-@margin-toc-start-content: 16em;
 
 // Tabs
 
@@ -152,17 +150,28 @@ body {
 }
 
 #mw-panel {
-	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 	position: absolute;
+	top: 0;
 	// Sidebar is displaced from the workspace container so that the
 	// sidebar is flush with the edge of the screen at small widths.
 	left: -@padding-horizontal-page-container;
-	width: @width-grid-column-one;
-	.box-sizing( border-box );
-	// To avoid the white part of the gradient colliding with the sidebar links
-	// we apply top and bottom padding.
-	padding: 8px 0 40px @padding-left-sidebar;
 	z-index: @z-index-sidebar;
+}
+
+// Update positioning when TOC is enabled
+.vector-toc-enabled #mw-panel {
+	position: static;
+	float: left;
+}
+
+.mw-table-of-contents-container {
+	position: sticky;
+	float: left;
+	clear: both;
+	// Defaults to the top of the viewport unless .mw-sticky-header-element
+	// overrides it.
+	top: 0;
+	padding-top: 1.5em;
 }
 
 .parsoid-body {
@@ -240,22 +249,6 @@ body {
 	}
 }
 
-.mw-sidebar-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-}
-
-.mw-table-of-contents-container {
-	float: left;
-	position: sticky;
-	// Defaults to the top of the viewport unless .mw-sticky-header-element
-	// overrides it.
-	top: 0;
-	padding-top: 1.5em;
-}
-
 .mw-footer-container {
 	padding-top: 50px;
 	padding-bottom: 82px;
@@ -268,6 +261,11 @@ body {
 // start of the sidebar.
 #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
 	.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
+}
+
+// Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
+.vector-toc-enabled #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
+	display: none;
 }
 
 // Responsive overrides.
@@ -319,20 +317,12 @@ body {
 .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
-	// Use !important to override checkbox status dependent styles applied above
-	margin-left: @margin-toc-start-content !important; /* stylelint-disable-line declaration-no-important */
+	margin-left: @margin-toc-start-content;
 }
 
 // Prevent center align when TOC is visible
 .vector-toc-visible .mw-workspace-container {
 	margin-left: initial;
-}
-
-@media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {
-	#mw-panel {
-		background: @background-color-page-container;
-		border-right: 1px solid @border-color-sidebar;
-	}
 }
 
 @media ( min-width: @width-breakpoint-desktop ) {
@@ -351,6 +341,7 @@ body {
 			width: 100%;
 			position: relative;
 			left: 0;
+			float: none;
 		}
 
 		// !important as we always want to disable the margin-left on these elements

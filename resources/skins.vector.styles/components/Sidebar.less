@@ -4,6 +4,25 @@
 @import '../../skins.vector.styles.legacy/components/Sidebar.less';
 @import './checkboxHack.less';
 
+.mw-sidebar {
+	width: @width-grid-column-one;
+	// To avoid the white part of the gradient colliding with the sidebar links
+	// we apply top and bottom padding.
+	padding: 8px 0 40px @padding-left-sidebar;
+	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
+	.box-sizing( border-box );
+}
+
+// Update styling when TOC is enabled
+.vector-toc-enabled .mw-sidebar {
+	width: @width-sidebar;
+	// Temporary magic number, will be calculated after TOC specs are finalized
+	padding: 12px 19px 12px 9px;
+	background-image: none;
+	background-color: @border-color-sidebar;
+	border: @border-base;
+}
+
 .mw-sidebar-action {
 	// Align with the portal heading/links
 	// `.portal` + `.portal .body`
@@ -75,6 +94,13 @@
 	.transform( translateX( -100% ) );
 }
 
+@media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {
+	.mw-sidebar {
+		background: @background-color-page-container;
+		border-right: 1px solid @border-color-sidebar;
+	}
+}
+
 // Disable transitions on page load. No-JS users will unfortunately miss out. A similar pattern is
 // used in Minerva's DropDownList. See enableCssAnimations() in skin.vector.js/index.js for context
 // and additional details on how this class is added.
@@ -99,11 +125,4 @@
 			box-shadow @transition-duration-base;
 		);
 	}
-}
-
-// Update article page's content container when table of contents is enabled
-.vector-toc-enabled #mw-panel {
-	width: @margin-toc-start-content;
-	background-color: @background-color-base;
-	background-image: none;
 }
