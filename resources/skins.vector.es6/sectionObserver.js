@@ -15,7 +15,6 @@
  * handler should be throttled.
  */
 
-// eslint-disable-next-line jsdoc/require-returns
 /**
  * Observe intersection changes with the viewport for one or more elements. This
  * is intended to be used with the headings in the content so that the
@@ -33,8 +32,8 @@
  * observed tags off the main thread and in a manner that does not cause
  * expensive forced synchronous layouts.
  *
- * @namespace SectionObserver
  * @param {SectionObserverProps} props
+ * @return {SectionObserver}
  */
 module.exports = function sectionObserver( props ) {
 	props = Object.assign( {
@@ -128,9 +127,6 @@ module.exports = function sectionObserver( props ) {
 
 	/**
 	 * Pauses intersection observation until `resume` is called.
-	 *
-	 * @memberof SectionObserver
-	 * @instance
 	 */
 	function pause() {
 		unbindScrollListener();
@@ -140,9 +136,6 @@ module.exports = function sectionObserver( props ) {
 
 	/**
 	 * Resumes intersection observation.
-	 *
-	 * @memberof SectionObserver
-	 * @instance
 	 */
 	function resume() {
 		bindScrollListener();
@@ -151,9 +144,6 @@ module.exports = function sectionObserver( props ) {
 	/**
 	 * Cleans up event listeners and intersection observer. Should be called when
 	 * the observer is permanently no longer needed.
-	 *
-	 * @memberof SectionObserver
-	 * @instance
 	 */
 	function unmount() {
 		unbindScrollListener();
@@ -164,8 +154,6 @@ module.exports = function sectionObserver( props ) {
 	 * Set a list of HTML elements to observe for intersection changes.
 	 *
 	 * @param {NodeList} list
-	 * @memberof SectionObserver
-	 * @instance
 	 */
 	function setElements( list ) {
 		props.elements = list;
@@ -175,6 +163,13 @@ module.exports = function sectionObserver( props ) {
 	// Calculate intersection on page load.
 	calcIntersection();
 
+	/**
+	 * @typedef {Object} SectionObserver
+	 * @property {pause} pause
+	 * @property {resume} resume
+	 * @property {unmount} unmount
+	 * @property {setElements} setElements
+	 */
 	return {
 		pause,
 		resume,
