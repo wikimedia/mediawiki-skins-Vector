@@ -4,6 +4,19 @@
  */
 
 /**
+ * @typedef {Object} SectionObserverProps
+ * @property {NodeList} elements A list of HTML elements to observe for
+ * intersection changes. This list can be updated through the `elements` setter.
+ * @property {OnIntersection} onIntersection Called when a new intersection is observed.
+ * @property {number} [topMargin] The number of pixels to shrink the top of
+ * the viewport's bounding box before calculating intersections. This is useful
+ * for sticky elements (e.g. sticky headers). Defaults to 0 pixels.
+ * @property {number} [throttleMs] The number of milliseconds that the scroll
+ * handler should be throttled.
+ */
+
+// eslint-disable-next-line jsdoc/require-returns
+/**
  * Observe intersection changes with the viewport for one or more elements. This
  * is intended to be used with the headings in the content so that the
  * corresponding section(s) in the table of contents can be "activated" (e.g.
@@ -20,16 +33,8 @@
  * observed tags off the main thread and in a manner that does not cause
  * expensive forced synchronous layouts.
  *
- * @param {Object} props
- * @param {NodeList} props.elements A list of HTML elements to observe for
- * intersection changes. This list can be updated through the `elements` setter.
- * @param {OnIntersection} props.onIntersection Called when a new intersection is observed.
- * @param {number} [props.topMargin] The number of pixels to shrink the top of
- * the viewport's bounding box before calculating intersections. This is useful
- * for sticky elements (e.g. sticky headers). Defaults to 0 pixels.
- * @param {number} [props.throttleMs] The number of milliseconds that the scroll
- * handler should be throttled.
- * @return {SectionObserver}
+ * @namespace SectionObserver
+ * @param {SectionObserverProps} props
  */
 module.exports = function sectionObserver( props ) {
 	props = Object.assign( {
@@ -123,6 +128,9 @@ module.exports = function sectionObserver( props ) {
 
 	/**
 	 * Pauses intersection observation until `resume` is called.
+	 *
+	 * @memberof SectionObserver
+	 * @instance
 	 */
 	function pause() {
 		unbindScrollListener();
@@ -132,6 +140,9 @@ module.exports = function sectionObserver( props ) {
 
 	/**
 	 * Resumes intersection observation.
+	 *
+	 * @memberof SectionObserver
+	 * @instance
 	 */
 	function resume() {
 		bindScrollListener();
@@ -140,6 +151,9 @@ module.exports = function sectionObserver( props ) {
 	/**
 	 * Cleans up event listeners and intersection observer. Should be called when
 	 * the observer is permanently no longer needed.
+	 *
+	 * @memberof SectionObserver
+	 * @instance
 	 */
 	function unmount() {
 		unbindScrollListener();
@@ -150,6 +164,8 @@ module.exports = function sectionObserver( props ) {
 	 * Set a list of HTML elements to observe for intersection changes.
 	 *
 	 * @param {NodeList} list
+	 * @memberof SectionObserver
+	 * @instance
 	 */
 	function setElements( list ) {
 		props.elements = list;
@@ -159,13 +175,6 @@ module.exports = function sectionObserver( props ) {
 	// Calculate intersection on page load.
 	calcIntersection();
 
-	/**
-	 * @typedef {Object} SectionObserver
-	 * @property {pause} pause
-	 * @property {resume} resume
-	 * @property {unmount} unmount
-	 * @property {setElements} setElements
-	 */
 	return {
 		pause,
 		resume,
