@@ -1,3 +1,5 @@
+/** @module SectionObserver */
+
 /**
  * @callback OnIntersection
  * @param {HTMLElement} element The section that triggered the new intersection change.

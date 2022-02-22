@@ -1,3 +1,5 @@
+/** @module TableOfContents */
+
 const SECTION_CLASS = 'sidebar-toc-list-item';
 const ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
 const EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
