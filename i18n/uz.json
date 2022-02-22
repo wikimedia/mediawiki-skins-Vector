@@ -11,10 +11,14 @@
 		]
 	},
 	"skinname-vector": "Vektor",
+	"prefs-vector-enable-vector-1-label": "Eski Vektordan foydalanish",
+	"prefs-vector-enable-vector-1-help": "Keyingi bir necha yil ichida biz Vektor tashqi koʻrinishini asta-sekinlik bilan yangilaymiz. „Eski Vektor“ Vektorning eski versiyasini koʻrishga izn beradi (2019-yil dekabrga koʻra).\nYangilanishlar haqida batafsil maʼlumot uchun [[mw:Reading/Web/Desktop_Improvements|loyiha sahifamizga]] oʻting.",
+	"vector-opt-out": "Eski koʻrinishiga almashtirish",
+	"vector-action-toggle-sidebar": "Yonqutini ochish/yopish",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ta til}}",
 	"vector-action-addsection": "Mavzu qoʻshish",
-	"vector-action-delete": "O‘chirish",
-	"vector-action-move": "Ko‘chirish",
+	"vector-action-delete": "Oʻchirish",
+	"vector-action-move": "Koʻchirish",
 	"vector-action-protect": "Himoyalash",
 	"vector-action-undelete": "Tiklash",
 	"vector-action-unprotect": "Himoyani oʻzgartirish",
@@ -23,5 +27,9 @@
 	"vector-view-history": "Tarix",
 	"vector-view-view": "Mutolaa",
 	"vector-view-viewsource": "Manbasini koʻrish",
-	"vector-more-actions": "Yana"
+	"vector-jumptonavigation": "Navigatsiya qismiga oʻtish",
+	"vector-jumptosearch": "Qidirish qismiga oʻtish",
+	"vector-jumptocontent": "Kontent qismiga oʻtish",
+	"vector-more-actions": "Yana",
+	"vector-search-loader": "Qidiruv takliflari yuklanmoqda"
 }
