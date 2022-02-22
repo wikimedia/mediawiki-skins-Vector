@@ -22,11 +22,12 @@ const TOGGLE_CLASS = 'sidebar-toc-toggle';
  * @property {onToggleClick} onToggleClick Called when a list item is clicked.
  */
 
+// eslint-disable-next-line jsdoc/require-returns
 /**
  * Initializes the sidebar's Table of Contents.
  *
+ * @namespace TableOfContents
  * @param {TableOfContentsProps} props
- * @return {TableOfContents}
  */
 module.exports = function tableOfContents( props ) {
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
@@ -107,6 +108,8 @@ module.exports = function tableOfContents( props ) {
 	 * to a top level heading in the ToC.
 	 *
 	 * @param {string} id
+	 * @memberof TableOfContents
+	 * @instance
 	 */
 	function expandSection( id ) {
 		const tocSection = document.getElementById( id );
@@ -133,8 +136,9 @@ module.exports = function tableOfContents( props ) {
 	}
 
 	/**
-	 *
 	 * @param {string} id
+	 * @memberof TableOfContents
+	 * @instance
 	 */
 	function changeActiveSection( id ) {
 
@@ -176,6 +180,8 @@ module.exports = function tableOfContents( props ) {
 
 	/**
 	 * @param {string} id
+	 * @memberof TableOfContents
+	 * @instance
 	 */
 	function toggleExpandSection( id ) {
 		const expandedSectionIds = getExpandedSectionIds();
@@ -227,16 +233,6 @@ module.exports = function tableOfContents( props ) {
 
 	initialize();
 
-	/**
-	 * @typedef {Object} TableOfContents
-	 * @property {changeActiveSection} changeActiveSection
-	 * @property {expandSection} expandSection
-	 * @property {toggleExpandSection} toggleExpandSection
-	 * @property {string} ACTIVE_SECTION_CLASS
-	 * @property {string} EXPANDED_SECTION_CLASS
-	 * @property {string} LINK_CLASS
-	 * @property {string} TOGGLE_CLASS
-	 */
 	return {
 		expandSection,
 		changeActiveSection,
