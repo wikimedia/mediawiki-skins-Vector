@@ -86,20 +86,12 @@ function makeNodeTrackable( node ) {
 }
 
 /**
- *
- * @param {null|HTMLElement|Node|EventTarget} node
- * @return {HTMLElement}
- */
-function toHTMLElement( node ) {
-	// @ts-ignore
-	return node;
-}
-
-/**
- * @param {HTMLElement} node
+ * @param {Element} node
  */
 function removeNode( node ) {
-	toHTMLElement( node.parentNode ).removeChild( node );
+	if ( node.parentNode ) {
+		node.parentNode.removeChild( node );
+	}
 }
 
 /**
@@ -124,7 +116,7 @@ function removeNodes( nodes ) {
 /**
  * Ensures a sticky header button has the correct attributes
  *
- * @param {HTMLElement} watchSticky
+ * @param {Element} watchSticky
  * @param {string} status 'watched', 'unwatched', or 'temporary'
  */
 function updateStickyWatchlink( watchSticky, status ) {
@@ -153,10 +145,10 @@ function watchstarCallback( $link, isWatched, expiry ) {
 /**
  * Makes sticky header icons functional for modern Vector.
  *
- * @param {HTMLElement} headerElement
- * @param {HTMLElement|null} history
- * @param {HTMLElement|null} talk
- * @param {HTMLElement|null} watch
+ * @param {Element} headerElement
+ * @param {Element|null} history
+ * @param {Element|null} talk
+ * @param {Element|null} watch
  */
 function prepareIcons( headerElement, history, talk, watch ) {
 	const historySticky = headerElement.querySelector( '#ca-history-sticky-header' ),
@@ -170,20 +162,17 @@ function prepareIcons( headerElement, history, talk, watch ) {
 	if ( history ) {
 		copyButtonAttributes( history, historySticky );
 	} else {
-		// @ts-ignore
-		historySticky.parentNode.removeChild( historySticky );
+		removeNode( historySticky );
 	}
 	if ( talk ) {
 		copyButtonAttributes( talk, talkSticky );
 	} else {
-		// @ts-ignore
-		talkSticky.parentNode.removeChild( talkSticky );
+		removeNode( talkSticky );
 	}
-	if ( watch && watch.parentNode instanceof HTMLElement ) {
+	if ( watch && watch.parentNode instanceof Element ) {
 		const watchContainer = watch.parentNode;
 		copyButtonAttributes( watch, watchSticky );
 		updateStickyWatchlink(
-			// @ts-ignore
 			watchSticky,
 			watchContainer.classList.contains( 'mw-watchlink-temp' ) ? 'temporary' :
 				watchContainer.getAttribute( 'id' ) === 'ca-watch' ? 'unwatched' : 'watched'
@@ -192,18 +181,17 @@ function prepareIcons( headerElement, history, talk, watch ) {
 		const watchLib = require( /** @type {string} */( 'mediawiki.page.watch.ajax' ) );
 		watchLib.watchstar( $( watchSticky ), mw.config.get( 'wgRelevantPageName' ), watchstarCallback );
 	} else {
-		// @ts-ignore
-		watchSticky.parentNode.removeChild( watchSticky );
+		removeNode( watchSticky );
 	}
 }
 
 /**
  * Render sticky header edit or protected page icons for modern Vector.
  *
- * @param {HTMLElement} headerElement
- * @param {HTMLElement|null} primaryEdit
+ * @param {Element} headerElement
+ * @param {Element|null} primaryEdit
  * @param {boolean} isProtected
- * @param {HTMLElement|null} secondaryEdit
+ * @param {Element|null} secondaryEdit
  * @param {Function} disableStickyHeader function to call to disable the sticky
  *  header.
  */
@@ -215,27 +203,18 @@ function prepareEditIcons(
 	disableStickyHeader
 ) {
 	const
-		primaryEditStickyElement = headerElement.querySelector(
+		primaryEditSticky = headerElement.querySelector(
 			'#ca-ve-edit-sticky-header'
 		),
-		primaryEditSticky = primaryEditStickyElement ? toHTMLElement(
-			headerElement.querySelector(
-				'#ca-ve-edit-sticky-header'
-			)
-		) : null,
-		protectedSticky = toHTMLElement(
-			headerElement.querySelector(
-				'#ca-viewsource-sticky-header'
-			)
+		protectedSticky = headerElement.querySelector(
+			'#ca-viewsource-sticky-header'
 		),
-		wikitextSticky = toHTMLElement(
-			headerElement.querySelector(
-				'#ca-edit-sticky-header'
-			)
+		wikitextSticky = headerElement.querySelector(
+			'#ca-edit-sticky-header'
 		);
 
 	// If no primary edit icon is present the feature is disabled.
-	if ( !primaryEditSticky ) {
+	if ( !primaryEditSticky || !wikitextSticky || !protectedSticky ) {
 		return;
 	}
 	if ( !primaryEdit ) {
@@ -252,9 +231,8 @@ function prepareEditIcons(
 		copyButtonAttributes( primaryEdit, primaryEditSticky );
 
 		primaryEditSticky.addEventListener( 'click', function ( ev ) {
-			const target = toHTMLElement( ev.target );
+			const target = ev.target;
 			const $ve = $( primaryEdit );
-
 			if ( target && $ve.length ) {
 				const event = $.Event( 'click' );
 				$ve.trigger( event );
@@ -268,7 +246,7 @@ function prepareEditIcons(
 		if ( secondaryEdit ) {
 			copyButtonAttributes( secondaryEdit, wikitextSticky );
 			wikitextSticky.addEventListener( 'click', function ( ev ) {
-				const target = toHTMLElement( ev.target );
+				const target = ev.target;
 				if ( target ) {
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
@@ -291,7 +269,7 @@ function prepareEditIcons(
 /**
  * Check if element is in viewport.
  *
- * @param {HTMLElement} element
+ * @param {Element} element
  * @return {boolean}
  */
 function isInViewport( element ) {
@@ -307,7 +285,7 @@ function isInViewport( element ) {
 /**
  * Add hooks for sticky header when Visual Editor is used.
  *
- * @param {HTMLElement} targetIntersection intersection element
+ * @param {Element} targetIntersection intersection element
  * @param {IntersectionObserver} observer
  */
 function addVisualEditorHooks( targetIntersection, observer ) {
@@ -337,13 +315,13 @@ function addVisualEditorHooks( targetIntersection, observer ) {
 }
 
 /**
- * @param {HTMLElement} userMenu
- * @return {HTMLElement} cloned userMenu
+ * @param {Element} userMenu
+ * @return {Element} cloned userMenu
  */
 function prepareUserMenu( userMenu ) {
 	const
 		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
-		userMenuClone = /** @type {HTMLElement} */( userMenu.cloneNode( true ) ),
+		userMenuClone = /** @type {Element} */( userMenu.cloneNode( true ) ),
 		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' );
 	// Update all ids of the cloned user menu to make them unique.
 	makeNodeTrackable( userMenuClone );
@@ -365,11 +343,11 @@ function prepareUserMenu( userMenu ) {
 /**
  * Makes sticky header functional for modern Vector.
  *
- * @param {HTMLElement} headerElement
- * @param {HTMLElement} userMenu
+ * @param {Element} headerElement
+ * @param {Element} userMenu
  * @param {Element} userMenuStickyContainer
  * @param {IntersectionObserver} stickyObserver
- * @param {HTMLElement} stickyIntersection
+ * @param {Element} stickyIntersection
  */
 function makeStickyHeaderFunctional(
 	headerElement,
@@ -406,9 +384,9 @@ function makeStickyHeaderFunctional(
 
 	prepareEditIcons(
 		headerElement,
-		toHTMLElement( primaryEdit ),
+		primaryEdit,
 		isProtected,
-		toHTMLElement( secondaryEdit ),
+		secondaryEdit,
 		disableStickyHeader
 	);
 
@@ -416,7 +394,7 @@ function makeStickyHeaderFunctional(
 }
 
 /**
- * @param {HTMLElement} headerElement
+ * @param {Element} headerElement
  */
 function setupSearchIfNeeded( headerElement ) {
 	const
@@ -472,10 +450,9 @@ const
  * @return {boolean}
  */
 function isStickyHeaderAllowed() {
-	// @ts-ignore
-	return header &&
-		stickyIntersection &&
-		userMenu &&
+	return !!header &&
+		!!stickyIntersection &&
+		!!userMenu &&
 		userMenuStickyContainer &&
 		allowedNamespace &&
 		allowedAction &&
@@ -511,7 +488,6 @@ function initStickyHeader( observer ) {
 	} );
 
 	// Make sure ULS dialog is sticky.
-	// @ts-ignore
 	const langBtn = header.querySelector( '#p-lang-btn-sticky-header' );
 	if ( langBtn ) {
 		langBtn.addEventListener( 'click', function () {
