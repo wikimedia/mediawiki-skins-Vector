@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Keresturec"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 язик|$1 язики}}",
+	"vector-view-create": "Витвориц",
+	"vector-view-edit": "Ушориц",
+	"vector-view-history": "Опать историю",
+	"vector-view-view": "Читай",
+	"vector-more-actions": "Вецей"
+}
