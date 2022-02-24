@@ -7,9 +7,10 @@
 			"ShimunUfesoj"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 lenggwahe|$1 mga lenggwahe}}",
 	"vector-action-addsection": "Magdagdag nin pag-uulayan",
 	"vector-action-delete": "puraon",
-	"vector-action-move": "Ibalyó",
+	"vector-action-move": "Ibalyo",
 	"vector-action-protect": "Protektaran",
 	"vector-action-undelete": "Bawion sa pagkapara",
 	"vector-action-unprotect": "Ribayan an proteksyon",
