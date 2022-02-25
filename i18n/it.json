@@ -10,7 +10,8 @@
 			"Melos",
 			"Pietrodn",
 			"Sakretsu",
-			"Scompo"
+			"Scompo",
+			"ValterVB"
 		]
 	},
 	"tooltip-pt-watchlist-2": "La lista delle pagine che stai tenendo sotto osservazione",
@@ -23,6 +24,7 @@
 	"vector.js": "/* Il codice JavaScript inserito qui viene caricato dagli utenti che usano il tema Vector */",
 	"vector-languages": "Lingue",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 lingue}}",
+	"vector-language-redirect-to-top": "Su questa {{SITENAME}} gli interlink sono in cima alla pagina a destra del titolo. [[#p-lang-btn|Vai in cima]].",
 	"vector-action-addsection": "Aggiungi discussione",
 	"vector-action-delete": "Cancella",
 	"vector-action-move": "Sposta",
@@ -34,5 +36,6 @@
 	"vector-view-history": "Cronologia",
 	"vector-view-view": "Leggi",
 	"vector-view-viewsource": "Visualizza wikitesto",
-	"vector-more-actions": "Altro"
+	"vector-more-actions": "Altro",
+	"vector-searchsuggest-containing": "Cerca le pagine che contengono <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
