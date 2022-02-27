@@ -12,7 +12,7 @@
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"doc": "jsdoc -c jsdoc.json && npm run build-storybook -s resources/skins.vector.styles",
 		"build-storybook": "bash dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
-		"minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
+		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
 		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
 	"pre-commit": "pre-commit",
@@ -40,7 +40,7 @@
 		"node-fetch": "2.6.1",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.11.1",
-		"svgo": "2.3.1",
+		"svgo": "2.8.0",
 		"typescript": "4.5.5",
 		"vue": "2.6.11",
 		"vue-jest": "3.0.7"
