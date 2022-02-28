@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Keresturec"
+		]
+	},
+	"vector-action-addsection": "Додай тему",
+	"vector-action-delete": "Посцерай",
+	"vector-action-move": "Пременовац",
+	"vector-action-protect": "Защициц",
+	"vector-view-create": "Витвориц",
+	"vector-view-edit": "Ушориц",
+	"vector-view-history": "Опать историю",
+	"vector-view-view": "Читай",
+	"vector-more-actions": "Вецей"
+}

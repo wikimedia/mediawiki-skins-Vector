@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Trondtr",
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
 	"vector-action-addsection": "Lasseet fáádá",
@@ -14,5 +15,7 @@
 	"vector-view-history": "Čääiti historjá",
 	"vector-view-view": "Luuvâ",
 	"vector-view-viewsource": "Čääiti käldeekoodi",
+	"vector-jumptonavigation": "Njuškii navigistmân",
+	"vector-jumptosearch": "Njuškii ucâmân",
 	"vector-more-actions": "Eenâb"
 }
