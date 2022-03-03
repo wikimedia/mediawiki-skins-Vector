@@ -3,13 +3,13 @@
 @subcategory-indent: 8px;
 
 .sidebar-toc {
-	width: 200px;
+	width: @width-sidebar;
 	max-height: 90vh;
+	padding: 20px 12px 20px 26px;
+	.box-sizing( border-box );
 	overflow: auto;
-	padding: 12px 12px 12px 26px;
-	background-color: @background-color-base;
+	background-color: @border-color-sidebar;
 	border: @border-base;
-	border-radius: @border-radius-base;
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;
@@ -63,11 +63,6 @@
 			color: @color-link;
 		}
 	}
-}
-
-// Hide TOC when sidebar is open
-.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .sidebar-toc {
-	display: none;
 }
 
 // Highlight active section
