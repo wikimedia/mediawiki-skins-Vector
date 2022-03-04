@@ -238,16 +238,20 @@ class Hooks implements
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
 		$user = $sk->getUser();
-		if ( $user->isRegistered() ) {
-			// Remove user page from personal menu dropdown for logged in use
-			// Note we need to check for userpage, as a registered user in
-			// future may be an anonymous user who has been assigned a temporary
-			// account.
-			if ( isset( $content_navigation['user-menu']['userpage'] ) ) {
-				self::makeMenuItemCollapsible(
-					$content_navigation['user-menu']['userpage']
-				);
+		$isTemp = $user->isTemp();
+		$isRegistered = $user->isRegistered();
+		if ( $isTemp ) {
+			if ( isset( $content_navigation['user-page']['tmpuserpage'] ) ) {
+				self::makeMenuItemCollapsible( $content_navigation['user-page']['tmpuserpage'] );
 			}
+			if ( isset( $content_navigation['user-menu']['tmpuserpage'] ) ) {
+				self::makeMenuItemCollapsible( $content_navigation['user-menu']['tmpuserpage'] );
+			}
+		} elseif ( $isRegistered ) {
+			// Remove user page from personal menu dropdown for logged in use
+			self::makeMenuItemCollapsible(
+				$content_navigation['user-menu']['userpage']
+			);
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
 			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
@@ -257,6 +261,8 @@ class Hooks implements
 			}
 			// Remove logout link from user-menu and recreate it in SkinVector,
 			unset( $content_navigation['user-menu']['logout'] );
+		}
+		if ( $isRegistered ) {
 			// Don't show icons for anon menu items (besides login and create account).
 			// Prefix user link items with associated icon.
 			$user_menu = $content_navigation['user-menu'];
@@ -268,6 +274,8 @@ class Hooks implements
 		} else {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
+		}
+		if ( !$isRegistered || $isTemp ) {
 			// "Create account" link is handled manually by Vector
 			unset( $content_navigation['user-menu']['createaccount'] );
 			// "Login" link is handled manually by Vector
