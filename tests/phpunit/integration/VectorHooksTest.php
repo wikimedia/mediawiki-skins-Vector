@@ -20,6 +20,7 @@ use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
 use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 use Vector\SkinVector;
+use Vector\SkinVector22;
 
 /**
  * Integration tests for Vector Hooks.
@@ -579,7 +580,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'updateUserLinksDropdownItems'
 		);
 		$updateUserLinksDropdownItems->setAccessible( true );
-		$skin = new SkinVector( [ 'name' => 'vector' ] );
+		$skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
 		// Anon user
 		$skin->getUser()->setId( '1' );
 		$contentAnon = [
@@ -609,16 +610,82 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'User page link in user links dropdown requires collapsible class'
 		);
 		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['userpage']['link-class'],
-			'User page link in user links dropdown requires icon classes'
+			'User page link in user links dropdown requires before icon classes'
 		);
 		$this->assertContains( 'user-links-collapsible-item', $contentRegistered['user-menu']['watchlist']['class'],
 			'Watchlist link in user links dropdown requires collapsible class'
 		);
 		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['watchlist']['link-class'],
-			'Watchlist link in user links dropdown requires icon classes'
+			'Watchlist link in user links dropdown requires before icon classes'
 		);
 		$this->assertFalse( isset( $contentRegistered['user-menu']['logout'] ),
 			'Logout link in user links dropdown is not set'
+		);
+	}
+
+	/**
+	 * @covers ::updateUserLinksOverflowItems
+	 */
+	public function testUpdateUserLinksOverflowItems() {
+		$updateUserLinksOverflowItems = new ReflectionMethod(
+			Hooks::class,
+			'updateUserLinksOverflowItems'
+		);
+		$updateUserLinksOverflowItems->setAccessible( true );
+		$content = [
+			'notifications' => [
+				'alert' => [ 'class' => [], 'icon' => 'alert' ],
+			],
+			'user-interface-preferences' => [
+				'uls' => [ 'class' => [], 'icon' => 'uls' ],
+			],
+			'user-page' => [
+				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
+			],
+			'vector-user-menu-overflow' => [
+				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
+			],
+		];
+		$updateUserLinksOverflowItems->invokeArgs( null, [ &$content ] );
+		$this->assertContains( 'user-links-collapsible-item',
+			$content['user-interface-preferences']['uls']['class'],
+			'ULS link in user links overflow requires collapsible class'
+		);
+		$this->assertContains( 'user-links-collapsible-item',
+			$content['user-page']['userpage']['class'],
+			'User page link in user links overflow requires collapsible class'
+		);
+		$this->assertContains( 'mw-ui-button',
+			$content['user-page']['userpage']['link-class'],
+			'User page link in user links overflow requires button classes'
+		);
+		$this->assertContains( 'mw-ui-quiet',
+			$content['user-page']['userpage']['link-class'],
+			'User page link in user links overflow requires quiet button classes'
+		);
+		$this->assertNotContains( 'mw-ui-icon',
+			$content['user-page']['userpage']['class'],
+			'User page link in user links overflow does not have icon classes'
+		);
+		$this->assertContains( 'user-links-collapsible-item',
+			$content['vector-user-menu-overflow']['watchlist']['class'],
+			'Watchlist link in user links overflow requires collapsible class'
+		);
+		$this->assertContains( 'mw-ui-button',
+			$content['vector-user-menu-overflow']['watchlist']['link-class'],
+			'Watchlist link in user links overflow requires button classes'
+		);
+		$this->assertContains( 'mw-ui-quiet',
+			$content['vector-user-menu-overflow']['watchlist']['link-class'],
+			'Watchlist link in user links overflow requires quiet button classes'
+		);
+		$this->assertContains( 'mw-ui-icon-element',
+			$content['vector-user-menu-overflow']['watchlist']['link-class'],
+			'Watchlist link in user links overflow hides text'
+		);
+		$this->assertTrue(
+			$content['vector-user-menu-overflow']['watchlist']['id'] === 'pt-watchlist-2',
+			'Watchlist link in user links has unique id'
 		);
 	}
 }

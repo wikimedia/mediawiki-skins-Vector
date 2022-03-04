@@ -261,36 +261,67 @@ class Hooks {
 	}
 
 	/**
+	 * Updates personal navigation menu (user links) overflow items for modern Vector
+	 * including 'notification', 'user-interface-preferences', 'user-page', 'vector-user-menu-overflow'
+	 *
+	 * @param array &$content_navigation
+	 */
+	private static function updateUserLinksOverflowItems( &$content_navigation ) {
+		// Upgrade preferences, notifications, and watchlist to icon buttons
+		// for extensions that have opted in.
+		if ( isset( $content_navigation['notifications'] ) ) {
+			self::updateMenuItems( $content_navigation, 'notifications' );
+		}
+		if ( isset( $content_navigation['user-interface-preferences']['uls'] ) ) {
+			$content_navigation['user-interface-preferences']['uls'] += [
+				'collapsible' => true,
+			];
+			self::updateMenuItems( $content_navigation, 'user-interface-preferences' );
+		}
+		if ( isset( $content_navigation['user-page']['userpage'] ) ) {
+			$content_navigation['user-page']['userpage'] = array_merge( $content_navigation['user-page']['userpage'], [
+				'button' => true,
+				'collapsible' => true,
+				'icon' => null,
+			] );
+			self::updateMenuItems( $content_navigation, 'user-page' );
+		}
+		if ( isset( $content_navigation['vector-user-menu-overflow']['watchlist'] ) ) {
+			$content_navigation['vector-user-menu-overflow']['watchlist'] += [
+				'button' => true,
+				'collapsible' => true,
+				'text-hidden' => true,
+				'id' => 'pt-watchlist-2',
+			];
+			self::updateMenuItems( $content_navigation, 'vector-user-menu-overflow' );
+		}
+	}
+
+	/**
 	 * Updates personal navigation menu (user links) for modern Vector wherein user page, create account and login links
 	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
 	 * removed to preserve existing behavior.
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
-	 * @suppress PhanTypeArraySuspiciousNullable False positives
 	 */
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
-		$hasUserMenu = $content_navigation['user-menu'] ?? false;
-		if ( $hasUserMenu ) {
-			self::updateUserLinksDropdownItems( $sk, $content_navigation );
-		}
-		// ULS and user page links are hidden at lower resolutions.
-		if ( $content_navigation['user-interface-preferences'] ) {
-			self::makeMenuItemCollapsible(
-				$content_navigation['user-interface-preferences']['uls']
-			);
-		}
-		if ( $content_navigation['user-page'] ) {
-			self::makeMenuItemCollapsible(
-				$content_navigation['user-page']['userpage']
-			);
+		$skinName = $sk->getSkinName();
+		if ( self::isSkinVersionLegacy( $skinName ) ) {
+			// Remove user page from personal toolbar since it will be inside the personal menu for logged-in
+			// users in legacy Vector.
+			unset( $content_navigation['user-page'] );
+		} else {
+			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
+				// Copy watchlist data into 'vector-user-menu-overflow'
+				$content_navigation['vector-user-menu-overflow'] = [
+					'watchlist' => $content_navigation['user-menu']['watchlist']
+				];
 
-			// Style the user page link as mw-ui-button.
-			self::addListItemClass(
-				$content_navigation['user-page']['userpage'],
-				[ 'mw-ui-button',  'mw-ui-quiet' ],
-				true
-			);
+				self::updateUserLinksDropdownItems( $sk, $content_navigation );
+			}
+
+			self::updateUserLinksOverflowItems( $content_navigation );
 		}
 	}
 
@@ -340,15 +371,19 @@ class Hooks {
 			}
 
 			if ( $hasButton ) {
-				$item['link-class'][] = 'mw-ui-button mw-ui-quiet';
+				self::addListItemClass( $item, [ 'mw-ui-button', 'mw-ui-quiet' ], true );
 			}
 
 			if ( $icon ) {
 				if ( $hideText ) {
-					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element'
-						. ' mw-ui-icon-wikimedia-' . $icon
+					$iconElementClasses = [ 'mw-ui-icon', 'mw-ui-icon-element',
 						// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
-						. ' mw-ui-icon-' . $icon;
+						'mw-ui-icon-' . $icon,
+						// FIXME: Some icon names are prefixed with `wikimedia-`.
+						// We should seek to remove all these instances.
+						'mw-ui-icon-wikimedia-' . $icon
+					];
+					self::addListItemClass( $item, $iconElementClasses, true );
 				} else {
 					$item['link-html'] = self::makeIcon( $icon );
 				}
@@ -379,45 +414,7 @@ class Hooks {
 				self::updateActionsMenu( $content_navigation );
 			}
 
-			// watchlist item is not present if not logged in.
-			$wlItem = $content_navigation['user-menu']['watchlist'] ?? null;
-			if ( $wlItem !== null ) {
-				$content_navigation['vector-user-menu-overflow'] = [
-					'watchlist' => $wlItem + [
-						'button' => true,
-						'collapsible' => true,
-						'text-hidden' => true,
-						'id' => 'pt-watchlist-2',
-					],
-				];
-				self::updateMenuItems( $content_navigation, 'vector-user-menu-overflow' );
-			}
-
-			if ( isset( $content_navigation['user-menu'] ) ) {
-				if ( self::isSkinVersionLegacy( $skinName ) ) {
-					// Remove user page from personal toolbar since it will be inside the personal menu for logged-in
-					// users in legacy Vector.
-					unset( $content_navigation['user-page'] );
-				} else {
-					// For modern Vector, rearrange some links in the personal toolbar.
-					self::updateUserLinksItems( $sk, $content_navigation );
-				}
-			}
-
-			if ( !self::isSkinVersionLegacy( $skinName ) ) {
-				// Upgrade preferences and notifications to icon buttons
-				// for extensions that have opted in.
-				if ( isset( $content_navigation['user-interface-preferences'] ) ) {
-					self::updateMenuItems(
-						$content_navigation, 'user-interface-preferences'
-					);
-				}
-				if ( isset( $content_navigation['notifications'] ) ) {
-					self::updateMenuItems(
-						$content_navigation, 'notifications'
-					);
-				}
-			}
+			self::updateUserLinksItems( $sk, $content_navigation );
 		}
 	}
 
