@@ -10,6 +10,7 @@ use HashConfig;
 use HTMLForm;
 use MediaWiki\User\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
+use ReflectionMethod;
 use ResourceLoaderContext;
 use RuntimeException;
 use Title;
@@ -566,6 +567,58 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse(
 			strpos( $contentNavUnWatch['actions']['move']['class'], 'icon' ) !== false,
 			'List item other than watch or unwatch should not have an "icon" class'
+		);
+	}
+
+	/**
+	 * @covers ::updateUserLinksDropdownItems
+	 */
+	public function testUpdateUserLinksDropdownItems() {
+		$updateUserLinksDropdownItems = new ReflectionMethod(
+			Hooks::class,
+			'updateUserLinksDropdownItems'
+		);
+		$updateUserLinksDropdownItems->setAccessible( true );
+		$skin = new SkinVector( [ 'name' => 'vector' ] );
+		// Anon user
+		$skin->getUser()->setId( '1' );
+		$contentAnon = [
+			'user-menu' => [
+				'anonuserpage' => [ 'class' => [], 'icon' => 'anonuserpage' ],
+				'createaccount' => [ 'class' => [], 'icon' => 'createaccount' ],
+				'login' => [ 'class' => [], 'icon' => 'login' ],
+				'login-private' => [ 'class' => [], 'icon' => 'login-private' ],
+			],
+		];
+		$updateUserLinksDropdownItems->invokeArgs( null, [ $skin, &$contentAnon ] );
+		$this->assertTrue(
+			count( $contentAnon['user-menu'] ) === 0,
+			'Anon user page, create account, login, and login private links are removed from anon user links dropdown'
+		);
+		// Registered user
+		$skin->getUser()->setId( '1' );
+		$contentRegistered = [
+			'user-menu' => [
+				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
+				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
+				'logout' => [ 'class' => [], 'icon' => 'logout' ],
+			],
+		];
+		$updateUserLinksDropdownItems->invokeArgs( null, [ $skin, &$contentRegistered ] );
+		$this->assertContains( 'user-links-collapsible-item', $contentRegistered['user-menu']['userpage']['class'],
+			'User page link in user links dropdown requires collapsible class'
+		);
+		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['userpage']['link-class'],
+			'User page link in user links dropdown requires icon classes'
+		);
+		$this->assertContains( 'user-links-collapsible-item', $contentRegistered['user-menu']['watchlist']['class'],
+			'Watchlist link in user links dropdown requires collapsible class'
+		);
+		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['watchlist']['link-class'],
+			'Watchlist link in user links dropdown requires icon classes'
+		);
+		$this->assertFalse( isset( $contentRegistered['user-menu']['logout'] ),
+			'Logout link in user links dropdown is not set'
 		);
 	}
 }

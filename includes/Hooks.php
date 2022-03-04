@@ -214,6 +214,8 @@ class Hooks {
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
+	 * @suppress PhanTypeArraySuspiciousNullable False positives
+	 * @suppress PhanTypePossiblyInvalidDimOffset False positives
 	 */
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
@@ -224,10 +226,9 @@ class Hooks {
 			);
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
-			$wlItem = $content_navigation['user-menu']['watchlist'] ?? false;
-			if ( $wlItem ) {
+			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
 				self::makeMenuItemCollapsible(
-					$wlItem
+					$content_navigation['user-menu']['watchlist']
 				);
 			}
 			// Remove logout link from user-menu and recreate it in SkinVector,
@@ -260,6 +261,7 @@ class Hooks {
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
+	 * @suppress PhanTypeArraySuspiciousNullable False positives
 	 */
 	private static function updateUserLinksItems( $sk, &$content_navigation ) {
 		$hasUserMenu = $content_navigation['user-menu'] ?? false;
