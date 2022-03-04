@@ -24,8 +24,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	 * @return SkinVector
 	 */
 	private function provideVectorTemplateObject() {
-		$template = new SkinVector( [ 'name' => 'vector' ] );
-		return $template;
+		return new SkinVector( [ 'name' => 'vector' ] );
 	}
 
 	/**

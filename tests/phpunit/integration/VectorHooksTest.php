@@ -4,7 +4,16 @@
  * @ingroup skins
  */
 
+namespace MediaWiki\Skins\Vector\Tests\Integration;
+
+use HashConfig;
+use HTMLForm;
 use MediaWiki\User\UserOptionsManager;
+use MediaWikiIntegrationTestCase;
+use ResourceLoaderContext;
+use RuntimeException;
+use Title;
+use User;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;

@@ -19,6 +19,9 @@
  * @since 1.35
  */
 
+namespace MediaWiki\Skins\Vector\Tests\Integration;
+
+use HashConfig;
 use MediaWiki\User\UserOptionsLookup;
 use Vector\Constants;
 use Vector\SkinVersionLookup;
