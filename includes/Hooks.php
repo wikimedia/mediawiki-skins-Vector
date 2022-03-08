@@ -203,7 +203,13 @@ class Hooks {
 	 */
 	private static function addIconToListItem( &$item, $icon_name ) {
 		// Set the default menu icon classes.
-		$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before', 'mw-ui-icon-wikimedia-' . $icon_name ];
+		$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before',
+			// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
+			'mw-ui-icon-' . $icon_name,
+			// FIXME: Some icon names are prefixed with `wikimedia-`.
+			// We should seek to remove all these instances.
+			'mw-ui-icon-wikimedia-' . $icon_name
+		];
 		self::addListItemClass( $item, $menu_icon_classes, true );
 	}
 
@@ -339,7 +345,10 @@ class Hooks {
 
 			if ( $icon ) {
 				if ( $hideText ) {
-					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-' . $icon;
+					$item['link-class'][] = 'mw-ui-icon mw-ui-icon-element'
+						. ' mw-ui-icon-wikimedia-' . $icon
+						// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
+						. ' mw-ui-icon-' . $icon;
 				} else {
 					$item['link-html'] = self::makeIcon( $icon );
 				}
