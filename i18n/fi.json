@@ -14,8 +14,9 @@
 			"SuperPete"
 		]
 	},
-	"skinname-vector": "Vektori",
+	"skinname-vector": "Vanha Vektori (2010)",
 	"skinname-vector-2022": "Vektori (2022)",
+	"vector-specialversion-name": "Vektori",
 	"vector-skin-desc": "Uudistettu versio MonoBookista raikkaalla ulkoasulla ja useilla käytettävyysparannuksilla",
 	"prefs-vector-enable-vector-1-label": "Käytä vanhaa Vektoria",
 	"prefs-vector-enable-vector-1-help": "Seuraavien muutaman vuoden aikana päivitämme Vektori-ulkoasua vaiheittain. Vanha Vektori mahdollistaa Vektorin vanhan (joulukuu 2019) version käyttämisen. Saadaksesi lisätietoa päivityksistä katso [[mw:Reading/Web/Desktop_Improvements|projektisivumme]].",
