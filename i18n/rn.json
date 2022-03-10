@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Gilbert Ndihokubwayo"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ururimi|$1 indimi}}",
 	"vector-action-addsection": "Ongeraho ishingiro",
 	"vector-view-create": "Tanguza",
-	"vector-view-edit": "Hinyanyura inyandiko",
+	"vector-view-edit": "hinyanyura inyandiko",
 	"vector-view-history": "Raba uko vyagiye birakurikirana",
 	"vector-view-view": "Soma",
 	"vector-more-actions": "Ibindi"
