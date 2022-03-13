@@ -126,7 +126,7 @@ function initCheckboxHack( checkbox, button ) {
  * @return {any}
  */
 function saveSidebarState( checkbox ) {
-	return debounce( 1000, function () {
+	return debounce( function () {
 		api = api || new mw.Api();
 		api.saveOption( SIDEBAR_PREFERENCE_NAME, checkbox.checked ? 1 : 0 );
 
@@ -140,7 +140,7 @@ function saveSidebarState( checkbox ) {
 			event.initUIEvent( 'resize', true, false, window, 0 );
 		}
 		window.dispatchEvent( event );
-	} );
+	}, 1000 );
 }
 
 /**
