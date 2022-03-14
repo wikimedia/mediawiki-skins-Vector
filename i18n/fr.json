@@ -55,7 +55,7 @@
 	"vector-search-loader": "Chargement des suggestions de recherche",
 	"vector-searchsuggest-containing": "Rechercher les pages contenant <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
-	"vector-anon-user-menu-pages": "Pages pour les rédacteurs déconnectés",
+	"vector-anon-user-menu-pages": "Pages pour les contributeurs déconnectés",
 	"vector-anon-user-menu-pages-learn": "en savoir plus",
 	"vector-anon-user-menu-pages-label": "En savoir plus sur la contribution",
 	"vector-personal-more-label": "Liens utilisateur",
