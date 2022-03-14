@@ -126,8 +126,7 @@ class Hooks {
 		}
 
 		// Tell the `mediawiki.page.ready` module not to wire up search.
-		// This allows us to use $wgVectorUseWvuiSearch to decide to load
-		// the historic jquery autocomplete search or the new Vue implementation.
+		// This allows us to use the new Vue implementation.
 		// ResourceLoaderContext has no knowledge of legacy / modern Vector
 		// and from its point of view they are the same thing.
 		// Please see the modules `skins.vector.js` and `skins.vector.legacy.js`
