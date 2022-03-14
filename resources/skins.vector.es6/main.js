@@ -8,6 +8,7 @@ const
 	initTableOfContents = require( './tableOfContents.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	TOC_ID = 'mw-panel-toc',
+	LEGACY_TOC_ID = 'toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-';
@@ -68,7 +69,13 @@ const main = () => {
 
 	// Table of contents
 	const tocElement = document.getElementById( TOC_ID );
+	const legacyTOCElement = document.getElementById( LEGACY_TOC_ID );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+
+	// Add event data attributes to legacy TOC
+	if ( legacyTOCElement ) {
+		legacyTOCElement.setAttribute( 'data-event-name', 'ui.toc' );
+	}
 
 	if ( !(
 		tocElement &&
