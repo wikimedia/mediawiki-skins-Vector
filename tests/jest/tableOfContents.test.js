@@ -18,6 +18,8 @@ const onToggleClick = jest.fn();
  */
 function render( templateProps = {} ) {
 	const templateData = Object.assign( {
+		'is-vector-toc-beginning-enabled': true,
+		'msg-vector-toc-beginning': 'Beginning',
 		'msg-vector-toc-heading': 'Contents',
 		'vector-is-collapse-sections-enabled': false,
 		'array-sections': [ {
