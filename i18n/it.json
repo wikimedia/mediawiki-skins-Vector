@@ -11,7 +11,8 @@
 			"Sakretsu",
 			"Scompo",
 			"Ajeje Brazorf",
-			"ValterVB"
+			"ValterVB",
+			"Pierpao"
 		]
 	},
 	"vector-skin-desc": "Versione moderna del MonoBook con un aspetto rinnovato e molti miglioramenti dell'usabilità",
@@ -22,7 +23,7 @@
 	"vector.css": "/* Gli stili CSS inseriti qui si applicano agli utenti che usano il tema Vector */",
 	"vector.js": "/* Il codice JavaScript inserito qui viene caricato dagli utenti che usano il tema Vector */",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 lingue}}",
-	"vector-action-addsection": "Aggiungi argomento",
+	"vector-action-addsection": "Aggiungi discussione",
 	"vector-action-delete": "Cancella",
 	"vector-action-move": "Sposta",
 	"vector-action-protect": "Proteggi",
