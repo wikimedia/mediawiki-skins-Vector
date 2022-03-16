@@ -37,6 +37,7 @@
 	"vector-search-loader": "Loading search suggestions",
 	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
+	"vector-toc-heading": "Contents",
 	"vector-anon-user-menu-pages": "Pages for logged out editors",
 	"vector-anon-user-menu-pages-learn": "learn more",
 	"vector-anon-user-menu-pages-label": "Learn more about editing",
