@@ -35,7 +35,6 @@ const main = () => {
 		// @ts-ignore
 		testGroup = stickyConfig ? stickyConfig.group : FEATURE_TEST_GROUP,
 		targetElement = stickyHeader.header,
-		// @ts-ignore
 		targetIntersection = stickyHeader.stickyIntersection,
 		isStickyHeaderAllowed = stickyHeader.isStickyHeaderAllowed() &&
 			testGroup !== 'unsampled' && AB.isInTestGroup( testGroup, FEATURE_TEST_GROUP );

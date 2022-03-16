@@ -33,7 +33,7 @@
 		"@wikimedia/types-wikimedia": "0.2.0",
 		"@wikimedia/wvui": "0.3.5",
 		"babel-loader": "8.0.6",
-		"eslint-config-wikimedia": "0.22.1",
+		"eslint-config-wikimedia": "0.20.0",
 		"grunt-banana-checker": "0.9.0",
 		"jest": "26.4.2",
 		"jest-fetch-mock": "3.0.3",
