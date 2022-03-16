@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AnupamM",
 			"Saurmandal",
 			"Sfic",
 			"Siddhartha Ghai",
@@ -30,7 +31,7 @@
 	"vector-action-undelete": "हटाना वापस लें",
 	"vector-action-unprotect": "सुरक्षा बदलें",
 	"vector-view-create": "बनाएँ",
-	"vector-view-edit": "सम्पादन",
+	"vector-view-edit": "संपादित करें",
 	"vector-view-history": "इतिहास देखें",
 	"vector-view-view": "पढ़ें",
 	"vector-view-viewsource": "स्रोत देखें",

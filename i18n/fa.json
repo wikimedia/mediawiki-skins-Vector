@@ -31,7 +31,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 زبان}}",
 	"vector-language-redirect-to-top": "در این {{SITENAME}} پیوندهای زبانی در بالای صفحه و هم‌تراز با عنوان مقاله قرار دارند. [[#p-lang-btn|رفتن به بالا]].",
 	"vector-language-variant-switcher-label": "تغییر گونهٔ زبان",
-	"vector-action-addsection": "افزودن بخش",
+	"vector-action-addsection": "افزودن بحث",
 	"vector-action-delete": "حذف",
 	"vector-action-move": "انتقال",
 	"vector-action-protect": "محافظت",

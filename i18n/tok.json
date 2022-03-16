@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gtbot2007",
 			"Robin van der Vliet"
 		]
 	},
 	"vector-action-delete": "o weka",
-	"vector-view-edit": "o ante"
+	"vector-view-edit": "o ante",
+	"vector-more-actions": "mute"
 }

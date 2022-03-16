@@ -28,7 +28,7 @@
 	"vector-languages": "Kielet",
 	"vector-language-button-aria-label": "Mene artikkeliin toisella kielellä. Saatavilla {{PLURAL:$1|$1 kielellä}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 kieli|$1 kieltä}}",
-	"vector-language-redirect-to-top": "Tällä sivustolla ({{SITENAME}}) kielilinkit ovat artikkelin yläosassa artikkelin otsikon vieressä. [[#p-lang-btn|Sivun yläosaan]].",
+	"vector-language-redirect-to-top": "Tällä sivustolla ({{SITENAME}}) kielilinkit ovat artikkelin yläosassa otsikon vieressä. [[#p-lang-btn|Sivun yläosaan]].",
 	"vector-action-addsection": "Lisää aihe",
 	"vector-action-delete": "Poista",
 	"vector-action-move": "Siirrä",
