@@ -16,6 +16,11 @@
 		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"
 	},
 	"pre-commit": "pre-commit",
+	"peerDependencies": {
+		"babel-core": "6.26.3",
+		"vue-template-compiler": "2.6.11",
+		"@vue/composition-api": "1.4.5"
+	},
 	"devDependencies": {
 		"@babel/core": "7.7.7",
 		"@storybook/html": "5.2.8",

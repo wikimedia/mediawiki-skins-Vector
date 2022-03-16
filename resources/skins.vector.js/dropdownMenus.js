@@ -76,7 +76,6 @@ function addPortletLinkHandler( item, data ) {
 			// * mw-ui-icon-vector-gadget-<id>
 			// The class is considered stable and should not be removed without
 			// a #user-notice.
-			// eslint-disable-next-line mediawiki/class-doc
 			link.classList.add( 'mw-ui-icon-vector-gadget-' + data.id );
 		}
 	}
