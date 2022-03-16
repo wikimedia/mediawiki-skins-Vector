@@ -312,11 +312,13 @@ class Hooks {
 			// users in legacy Vector.
 			unset( $content_navigation['user-page'] );
 		} else {
-			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
-				// Copy watchlist data into 'vector-user-menu-overflow'
-				$content_navigation['vector-user-menu-overflow'] = [
-					'watchlist' => $content_navigation['user-menu']['watchlist']
-				];
+			if ( isset( $content_navigation['user-menu'] ) ) {
+				if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
+					// Copy watchlist data into 'vector-user-menu-overflow'
+					$content_navigation['vector-user-menu-overflow'] = [
+						'watchlist' => $content_navigation['user-menu']['watchlist']
+					];
+				}
 
 				self::updateUserLinksDropdownItems( $sk, $content_navigation );
 			}
