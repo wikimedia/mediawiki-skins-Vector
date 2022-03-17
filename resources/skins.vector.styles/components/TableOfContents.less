@@ -1,12 +1,14 @@
 @import '../../common/variables.less';
 
 @subcategory-indent: 8px;
+@fade-height: 40px;
+@vertical-padding: 25px;
 
 .sidebar-toc {
 	display: none;
 	width: @width-sidebar;
-	max-height: 90vh;
-	padding: 20px 12px 20px 26px;
+	max-height: 75vh;
+	padding: @vertical-padding 12px 0 26px;
 	.box-sizing( border-box );
 	overflow: auto;
 	background-color: @border-color-sidebar;
@@ -38,11 +40,16 @@
 		padding-bottom: 5px;
 	}
 
-	#table-of-contents,
+	.sidebar-toc-contents,
 	.sidebar-toc-list {
 		margin: 0;
 		list-style: none;
 		line-height: 18px;
+	}
+
+	.sidebar-toc-contents {
+		margin-bottom: -@fade-height;
+		padding-bottom: @vertical-padding;
 	}
 
 	.sidebar-toc-list-item {
@@ -64,6 +71,24 @@
 			color: @color-link;
 		}
 	}
+}
+
+// Hide scrollbar but allow scrolling for Chrome, Safari, and Opera
+.sidebar-toc::-webkit-scrollbar {
+	display: none;
+}
+
+// T302076 Add scrollable indicator as fade
+.sidebar-toc:after {
+	content: '';
+	display: block;
+	position: sticky; // Make it stick to the bottom like position:fixed inside an element
+	// By defining all the values it will always be fixed
+	bottom: 0;
+	left: 0;
+	height: @fade-height;
+	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
+	pointer-events: none; // Make the link below the fade clickable
 }
 
 // Highlight active section
