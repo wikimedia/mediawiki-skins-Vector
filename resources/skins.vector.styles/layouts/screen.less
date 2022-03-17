@@ -321,7 +321,9 @@ body {
 .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
-	margin-left: @margin-toc-start-content;
+	@media ( min-width: @width-breakpoint-tablet ) {
+		margin-left: @margin-toc-start-content;
+	}
 }
 
 // Prevent center align when TOC is visible
