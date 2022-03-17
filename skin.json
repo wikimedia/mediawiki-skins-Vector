@@ -285,6 +285,7 @@
 				"resources/skins.vector.es6/tableOfContents.js",
 				"resources/skins.vector.es6/sectionObserver.js",
 				"resources/skins.vector.es6/deferUntilFrame.js",
+				"resources/skins.vector.es6/linkHijack.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
@@ -467,20 +468,17 @@
 		},
 		"VectorWebABTestEnrollment": {
 			"value": {
-				"name": "vector.sticky_header",
+				"name": "skin-vector-toc-experiment",
 				"enabled": false,
 				"buckets": {
 					"unsampled": {
-						"samplingRate": 0.1
+						"samplingRate": 0.8
 					},
 					"control": {
-						"samplingRate": 0.3
+						"samplingRate": 0.1
 					},
-					"stickyHeaderDisabled": {
-						"samplingRate": 0.3
-					},
-					"stickyHeaderEnabledTreatment": {
-						"samplingRate": 0.3
+					"treatment": {
+						"samplingRate": 0.1
 					}
 				}
 			},

@@ -7,6 +7,8 @@ const
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
+	linkHijack = require( './linkHijack.js' ),
+	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	TOC_ID = 'mw-panel-toc',
 	TOC_ID_LEGACY = 'toc',
 	BODY_CONTENT_ID = 'bodyContent',
@@ -15,7 +17,8 @@ const
 	TOC_LEGACY_PLACEHOLDER_TAG = 'mw:tocplace',
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
-	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {};
+	TOC_QUERY_PARAM = 'tableofcontents',
+	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
 
 /**
  * @callback OnIntersection
@@ -144,8 +147,26 @@ const main = () => {
 		tocElement &&
 		bodyContent &&
 		window.IntersectionObserver &&
-		window.requestAnimationFrame )
-	) {
+		window.requestAnimationFrame
+	) ) {
+		return;
+	}
+
+	const experiment =
+		!!ABTestConfig.enabled &&
+		ABTestConfig.name === TOC_EXPERIMENT_NAME &&
+		document.body.classList.contains( ABTestConfig.name ) &&
+		// eslint-disable-next-line compat/compat
+		window.URLSearchParams &&
+		initExperiment( ABTestConfig );
+	const isInTreatmentBucket = !!experiment && experiment.isInTreatmentBucket();
+
+	if ( experiment && experiment.isInSample() ) {
+		linkHijack( TOC_QUERY_PARAM, isInTreatmentBucket ? '1' : '0' );
+	}
+
+	if ( experiment && !isInTreatmentBucket ) {
+		// Return early if the old TOC is shown.
 		return;
 	}
 

@@ -118,7 +118,6 @@ abstract class SkinVector extends SkinMustache {
 	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
-	private const TABLE_OF_CONTENTS_ENABLED_CLASS = 'vector-toc-enabled';
 	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 	private const CLASS_ICON_BUTTON = 'mw-ui-icon mw-ui-icon-element';
@@ -403,10 +402,6 @@ abstract class SkinVector extends SkinMustache {
 			// when applied to the body tag in Chrome, Safari, and Firefox (and
 			// possibly others). It must instead be applied to the html tag.
 			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
-		}
-
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) ) {
-			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::TABLE_OF_CONTENTS_ENABLED_CLASS ] );
 		}
 
 		return $original;
