@@ -434,11 +434,11 @@ function isAllowedAction( action ) {
 }
 
 const
-	pageStickyIntersection = document.getElementById(
+	stickyIntersection = document.getElementById(
 		FIRST_HEADING_ID
 	),
-	pageUserMenu = document.getElementById( USER_MENU_ID ),
-	pageUserMenuStickyContainer = document.getElementsByClassName(
+	userMenu = document.getElementById( USER_MENU_ID ),
+	userMenuStickyContainer = document.getElementsByClassName(
 		STICKY_HEADER_USER_MENU_CONTAINER_CLASS
 	)[ 0 ],
 	allowedNamespace = isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
@@ -451,9 +451,9 @@ const
  */
 function isStickyHeaderAllowed() {
 	return !!header &&
-		!!pageStickyIntersection &&
-		!!pageUserMenu &&
-		pageUserMenuStickyContainer &&
+		!!stickyIntersection &&
+		!!userMenu &&
+		userMenuStickyContainer &&
 		allowedNamespace &&
 		allowedAction &&
 		'IntersectionObserver' in window;
@@ -463,19 +463,19 @@ function isStickyHeaderAllowed() {
  * @param {IntersectionObserver} observer
  */
 function initStickyHeader( observer ) {
-	if ( !isStickyHeaderAllowed() || !header || !pageUserMenu || !pageStickyIntersection ) {
+	if ( !isStickyHeaderAllowed() || !header || !userMenu || !stickyIntersection ) {
 		return;
 	}
 
 	makeStickyHeaderFunctional(
 		header,
-		pageUserMenu,
-		pageUserMenuStickyContainer,
+		userMenu,
+		userMenuStickyContainer,
 		observer,
-		pageStickyIntersection
+		stickyIntersection
 	);
 	setupSearchIfNeeded( header );
-	addVisualEditorHooks( pageStickyIntersection, observer );
+	addVisualEditorHooks( stickyIntersection, observer );
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	// @ts-ignore
@@ -505,6 +505,6 @@ module.exports = {
 	initStickyHeader,
 	isStickyHeaderAllowed,
 	header,
-	pageStickyIntersection,
+	stickyIntersection,
 	STICKY_HEADER_EXPERIMENT_NAME
 };

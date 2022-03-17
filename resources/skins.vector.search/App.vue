@@ -24,18 +24,16 @@
 		@submit="onSubmit"
 	>
 		<template #default>
-			<input
-				type="hidden"
+			<input type="hidden"
 				name="title"
 				:value="searchPageTitle"
 			>
-			<input
-				type="hidden"
+			<input type="hidden"
 				name="wprov"
 				:value="wprov"
 			>
 		</template>
-		<template #search-footer-text>
+		<template #search-footer-text="{ searchQuery }">
 			<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
 		</template>
 	</wvui-typeahead-search>
@@ -47,11 +45,36 @@ const wvui = require( 'wvui-search' ),
 	client = require( './restSearchClient.js' ),
 	instrumentation = require( './instrumentation.js' );
 
-// @vue/component
 module.exports = {
 	name: 'App',
-	components: {
-		WvuiTypeaheadSearch: wvui.WvuiTypeaheadSearch
+	components: wvui,
+	mounted() {
+		// access the element associated with the wvui-typeahead-search component
+		// eslint-disable-next-line no-jquery/variable-pattern
+		const wvuiSearchForm = this.$refs.searchForm.$el;
+
+		if ( this.autofocusInput ) {
+			// TODO: The wvui-typeahead-search component does not accept an autofocus parameter
+			// or directive. This can be removed when its does.
+			wvuiSearchForm.querySelector( 'input' ).focus();
+		}
+	},
+	computed: {
+		/**
+		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
+		 *
+		 * @return {module:restSearchClient~SearchClient}
+		 */
+		getClient: () => {
+			return client( mw.config );
+		},
+		language: () => {
+			return mw.config.get( 'wgUserLanguage' );
+		},
+		domain: () => {
+			// It might be helpful to allow this to be configurable in future.
+			return mw.config.get( 'wgVectorSearchHost', location.host );
+		}
 	},
 	props: {
 		id: {
@@ -72,38 +95,38 @@ module.exports = {
 		},
 		/** The keyboard shortcut to focus search. */
 		searchAccessKey: {
-			type: String,
-			default: ''
+			type: String
 		},
 		/** The access key informational tip for search. */
 		searchTitle: {
-			type: String,
-			default: ''
+			type: String
 		},
 		/** The ghost text shown when no search query is entered. */
 		searchPlaceholder: {
-			type: String,
-			default: ''
+			type: String
 		},
 		/**
 		 * The search query string taken from the server-side rendered input immediately before
 		 * client render.
 		 */
 		searchQuery: {
-			type: String,
-			default: ''
+			type: String
 		},
 		showThumbnail: {
-			type: Boolean
+			type: Boolean,
+			default: true
 		},
 		showDescription: {
-			type: Boolean
+			type: Boolean,
+			default: true
 		},
 		highlightQuery: {
-			type: Boolean
+			type: Boolean,
+			default: true
 		},
 		autoExpandWidth: {
-			type: Boolean
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
@@ -116,23 +139,6 @@ module.exports = {
 			instrumentation: instrumentation.listeners
 		};
 	},
-	computed: {
-		/**
-		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
-		 *
-		 * @return {module:restSearchClient~SearchClient}
-		 */
-		getClient: () => {
-			return client( mw.config );
-		},
-		language: () => {
-			return mw.config.get( 'wgUserLanguage' );
-		},
-		domain: () => {
-			// It might be helpful to allow this to be configurable in future.
-			return mw.config.get( 'wgVectorSearchHost', location.host );
-		}
-	},
 	methods: {
 		/**
 		 * @param {SubmitEvent} event
@@ -141,17 +147,6 @@ module.exports = {
 			this.wprov = instrumentation.getWprovFromResultIndex( event.index );
 
 			instrumentation.listeners.onSubmit( event );
-		}
-	},
-	mounted() {
-		// access the element associated with the wvui-typeahead-search component
-		// eslint-disable-next-line no-jquery/variable-pattern
-		const wvuiSearchForm = this.$refs.searchForm.$el;
-
-		if ( this.autofocusInput ) {
-			// TODO: The wvui-typeahead-search component does not accept an autofocus parameter
-			// or directive. This can be removed when its does.
-			wvuiSearchForm.querySelector( 'input' ).focus();
 		}
 	}
 };
