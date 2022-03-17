@@ -3,14 +3,15 @@ const
 	searchToggle = require( './searchToggle.js' ),
 	stickyHeader = require( './stickyHeader.js' ),
 	scrollObserver = require( './scrollObserver.js' ),
-	AB = require( './AB.js' ),
+	initExperiment = require( './AB.js' ),
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	TOC_ID = 'mw-panel-toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
-	TOC_SECTION_ID_PREFIX = 'toc-';
+	TOC_SECTION_ID_PREFIX = 'toc-',
+	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {};
 
 /**
  * @return {void}
@@ -23,24 +24,25 @@ const main = () => {
 		searchToggle( searchToggleElement );
 	}
 
-	// Get the A/B test config for sticky header if enabled.
+	// If necessary, initialize experiment and fire the A/B test enrollment hook.
+	const stickyHeaderExperiment =
+		!!ABTestConfig.enabled &&
+		ABTestConfig.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME &&
+		!mw.user.isAnon() &&
+		stickyHeader.isStickyHeaderAllowed() &&
+		initExperiment( Object.assign( {}, ABTestConfig, { token: mw.user.getId() } ) );
+
+	// Remove class if present on the html element so that scroll padding isn't undesirably
+	// applied to users who don't experience the new treatment.
+	if ( stickyHeaderExperiment && !stickyHeaderExperiment.isInTreatmentBucket() ) {
+		document.documentElement.classList.remove( 'vector-sticky-header-enabled' );
+	}
+
 	const
-		FEATURE_TEST_GROUP = 'stickyHeaderEnabled',
-		testConfig = AB.getEnabledExperiment(),
-		stickyConfig = testConfig &&
-			// @ts-ignore
-			testConfig.experimentName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ?
-			testConfig : null,
-		// Note that the default test group is set to experience the feature by default.
-		// @ts-ignore
-		testGroup = stickyConfig ? stickyConfig.group : FEATURE_TEST_GROUP,
 		targetElement = stickyHeader.header,
 		targetIntersection = stickyHeader.stickyIntersection,
-		isStickyHeaderAllowed = stickyHeader.isStickyHeaderAllowed() &&
-			testGroup !== 'unsampled' && AB.isInTestGroup( testGroup, FEATURE_TEST_GROUP );
-
-	// Fire the A/B test enrollment hook.
-	AB.initAB( testGroup );
+		isStickyHeaderAllowed = stickyHeaderExperiment ?
+			stickyHeaderExperiment.isInTreatmentBucket() : stickyHeader.isStickyHeaderAllowed();
 
 	// Set up intersection observer for sticky header functionality and firing scroll event hooks
 	// for event logging if AB test is enabled.
