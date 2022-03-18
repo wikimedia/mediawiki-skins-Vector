@@ -682,7 +682,9 @@ class SkinVector extends SkinMustache {
 	 * @return array
 	 */
 	private function getTocData( array $tocData ): array {
-		if ( empty( $tocData ) ) {
+		// If the table of contents has no items, we won't output it.
+		// empty array is interpreted by Mustache as falsey.
+		if ( empty( $tocData ) || empty( $tocData[ 'array-sections' ] ) ) {
 			return [];
 		}
 
