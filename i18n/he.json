@@ -38,6 +38,7 @@
 	"vector-search-loader": "טעינת הצעות חיפוש",
 	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
+	"vector-toc-heading": "תוכן עניינים",
 	"vector-anon-user-menu-pages": "דפים לעורכים שלא נכנסו לחשבון",
 	"vector-anon-user-menu-pages-learn": "מידע נוסף",
 	"vector-anon-user-menu-pages-label": "מידע נוסף על עריכה",

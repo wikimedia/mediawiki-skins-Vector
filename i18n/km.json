@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sovichet",
 			"គីមស៊្រុន",
 			"វ័ណថារិទ្ធ"
 		]
@@ -18,5 +19,6 @@
 	"vector-view-history": "មើល​ប្រវត្តិ​",
 	"vector-view-view": "អាន",
 	"vector-view-viewsource": "មើល​កូដ",
-	"vector-more-actions": "ច្រើនទៀត"
+	"vector-more-actions": "ច្រើនទៀត",
+	"vector-toc-heading": "មាតិកា"
 }
