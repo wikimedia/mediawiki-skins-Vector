@@ -56,5 +56,7 @@
 	"vector-anon-user-menu-pages-label": "Подробнее о редактировании",
 	"vector-personal-more-label": "Пользовательские ссылки",
 	"vector-main-menu-tooltip": "Главное меню",
-	"tooltip-vector-anon-user-menu-title": "Больше возможностей"
+	"tooltip-vector-anon-user-menu-title": "Больше возможностей",
+	"vector-menu-checkbox-expanded": "раскрыто",
+	"vector-menu-checkbox-collapsed": "скрыто"
 }

@@ -5,10 +5,12 @@
 			"Amire80",
 			"Manik Soren",
 			"Ramjit Tudu",
+			"Rocky 734",
 			"Samar88",
 			"Srabony90"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ᱯᱟᱹᱨᱥᱤ|$1 ᱯᱟᱹᱨᱥᱤ ᱠᱚ}}",
 	"vector-action-addsection": "ᱥᱟᱛᱚᱢ ᱥᱮᱞᱮᱫ",
 	"vector-action-delete": "ᱜᱮᱫ ᱜᱤᱰᱤ",
 	"vector-action-move": "ᱩᱪᱟᱹᱲ",
