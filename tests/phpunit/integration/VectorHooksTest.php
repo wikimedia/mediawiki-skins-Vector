@@ -21,6 +21,7 @@ use Vector\Hooks;
 use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 use Vector\SkinVector;
 use Vector\SkinVector22;
+use Vector\SkinVectorLegacy;
 
 /**
  * Integration tests for Vector Hooks.
@@ -568,6 +569,54 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse(
 			strpos( $contentNavUnWatch['actions']['move']['class'], 'icon' ) !== false,
 			'List item other than watch or unwatch should not have an "icon" class'
+		);
+	}
+
+	/**
+	 * @covers ::updateUserLinksItems
+	 */
+	public function testUpdateUserLinksItems() {
+		$vector2022Skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
+		$contentNav = [
+			'user-page' => [
+				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
+			],
+			'user-menu' => [
+				'login' => [ 'class' => [], 'icon' => 'login' ],
+			]
+		];
+		$contentNavWatchlist = [
+			'user-menu' => [
+				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
+			]
+		];
+		$vectorLegacySkin = new SkinVectorLegacy( [ 'name' => 'vector' ] );
+		$contentNavLegacy = [
+			'user-page' => [
+				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
+			]
+		];
+
+		Hooks::onSkinTemplateNavigation( $vector2022Skin, $contentNav );
+		$this->assertFalse( isset( $contentNav['vector-user-menu-overflow'] ),
+			'watchlist data is not copied to vector-user-menu-overflow when not provided'
+		);
+		$this->assertFalse( isset( $contentNav['user-page']['login'] ),
+			'updateUserLinksDropdownItems is called when user-page is defined'
+		);
+		$this->assertContains( 'mw-ui-button',
+			$contentNav['user-page']['userpage']['link-class'],
+			'updateUserLinksOverflowItems is called when not legacy'
+		);
+
+		Hooks::onSkinTemplateNavigation( $vector2022Skin, $contentNavWatchlist );
+		$this->assertTrue( isset( $contentNavWatchlist['vector-user-menu-overflow'] ),
+			'watchlist data is copied to vector-user-menu-overflow when provided'
+		);
+
+		Hooks::onSkinTemplateNavigation( $vectorLegacySkin, $contentNavLegacy );
+		$this->assertFalse( isset( $contentNavLegacy['user-page'] ),
+			'user-page is unset for legacy vector'
 		);
 	}
 
