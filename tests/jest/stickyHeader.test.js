@@ -6,8 +6,6 @@ describe( 'sticky header', () => {
 		menu.innerHTML = `<input type="checkbox" id="p-personal-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-p-personal" class="vector-menu-checkbox" aria-labelledby="p-personal-label" aria-expanded="true">
 		<h3 id="p-personal-label" aria-label="" class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-userAvatar" aria-hidden="true">
 			<span class="vector-menu-heading-label">Personal tools</span>
-				<span class="vector-menu-checkbox-expanded">expanded</span>
-				<span class="vector-menu-checkbox-collapsed">collapsed</span>
 		</h3>
 <div class="vector-menu-content">
 	<ul class="vector-menu-content-list">

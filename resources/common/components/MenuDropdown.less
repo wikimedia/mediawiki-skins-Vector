@@ -60,24 +60,6 @@
 		z-index: @z-index-menu;
 	}
 
-	// Hide elements visually but not from screen readers.
-	.vector-menu-checkbox-expanded,
-	.vector-menu-checkbox-collapsed {
-		.mixin-screen-reader-text();
-	}
-
-	// Reveal correct "expanded" or "collapsed" status text to screen readers based off checked status.
-	// !important needed to override `.mw-ui-button.mw-ui-icon-element:not(.mw-ui-icon-with-label-desktop) span` rule in core
-	.vector-menu-checkbox:checked + .vector-menu-heading .vector-menu-checkbox-expanded,
-	.vector-menu-checkbox:not( :checked ) + .vector-menu-heading .vector-menu-checkbox-collapsed {
-		display: inline !important; /* stylelint-disable-line declaration-no-important */
-	}
-
-	.vector-menu-checkbox:not( :checked ) + .vector-menu-heading .vector-menu-checkbox-expanded,
-	.vector-menu-checkbox:checked + .vector-menu-heading .vector-menu-checkbox-collapsed {
-		display: none !important; /* stylelint-disable-line declaration-no-important */
-	}
-
 	// Hide and show menu content based off checked status.
 	.vector-menu-checkbox:checked ~ .vector-menu-content {
 		opacity: 1;
