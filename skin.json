@@ -476,12 +476,12 @@
 					"stickyHeaderDisabled": {
 						"samplingRate": 0.3
 					},
-					"stickyHeaderEnabled": {
+					"stickyHeaderEnabledTreatment": {
 						"samplingRate": 0.3
 					}
 				}
 			},
-			"description": "An associative array of A/B test configs keyed by parameters noted in mediawiki.experiments.js."
+			"description": "An associative array of A/B test configs keyed by parameters noted in mediawiki.experiments.js. There must be an `unsampled` bucket that represents a population excluded from the experiment. Additionally, the treatment bucket(s) must include a case-insensitive `treatment` substring in their name (e.g. `treatment`, `stickyHeaderTreatment`, `sticky-header-treatment`)"
 		},
 		"VectorDisableSidebarPersistence": {
 			"value": false,
