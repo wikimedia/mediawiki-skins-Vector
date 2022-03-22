@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Edith Nwobu",
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba"
@@ -17,5 +18,6 @@
 	"vector-view-history": "Lèe ị̀ta",
 	"vector-view-view": "Gụ̀ọ",
 	"vector-view-viewsource": "Zi mkpurụ",
-	"vector-more-actions": "Ọzọ"
+	"vector-more-actions": "Ọzọ",
+	"vector-toc-heading": "Ndịna"
 }
