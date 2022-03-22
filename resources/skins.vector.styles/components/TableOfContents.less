@@ -3,6 +3,7 @@
 @subcategory-indent: 8px;
 
 .sidebar-toc {
+	display: none;
 	width: @width-sidebar;
 	max-height: 90vh;
 	padding: 20px 12px 20px 26px;
@@ -99,5 +100,11 @@
 		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
 			transform: rotate( 0deg );
 		}
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.sidebar-toc {
+		display: block;
 	}
 }
