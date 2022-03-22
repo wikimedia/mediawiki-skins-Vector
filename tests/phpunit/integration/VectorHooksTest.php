@@ -630,8 +630,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 		$updateUserLinksDropdownItems->setAccessible( true );
 		$skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
-		// Anon user
-		$skin->getUser()->setId( '1' );
 		$contentAnon = [
 			'user-menu' => [
 				'anonuserpage' => [ 'class' => [], 'icon' => 'anonuserpage' ],
