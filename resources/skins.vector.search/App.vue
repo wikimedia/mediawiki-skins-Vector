@@ -7,6 +7,7 @@
 		:suggestions-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
 		:title="searchTitle"
+		:article-path="articlePath"
 		:placeholder="searchPlaceholder"
 		:aria-label="searchPlaceholder"
 		:search-page-title="searchPageTitle"
@@ -60,6 +61,10 @@ module.exports = {
 		}
 	},
 	computed: {
+		/**
+		 * @return {string}
+		 */
+		articlePath: () => mw.config.get( 'wgScript' ),
 		/**
 		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
 		 *
