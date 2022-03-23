@@ -43,20 +43,6 @@ final class Constants {
 	 */
 	public const SERVICE_FEATURE_MANAGER = 'Vector.FeatureManager';
 
-	// These are tightly coupled to skin.json's config.
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_SHOW_SKIN_PREFERENCES = 'VectorShowSkinPreferences';
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_DEFAULT_SKIN_VERSION = 'VectorDefaultSkinVersion';
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_EXISTING_ACCOUNTS =
-		'VectorDefaultSkinVersionForExistingAccounts';
 	/**
 	 * @var string
 	 */

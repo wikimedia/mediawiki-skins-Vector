@@ -3,11 +3,13 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use Exception;
 use HashConfig;
+use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
 use Title;
-use Vector\SkinVector;
+use Vector\SkinVector22;
+use Vector\SkinVectorLegacy;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -15,16 +17,16 @@ use Wikimedia\TestingAccessWrapper;
  * @package MediaWiki\Skins\Vector\Tests\Unit
  * @group Vector
  * @group Skins
- *
- * @coversDefaultClass \Vector\SkinVector
  */
 class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @return SkinVector
+	 * @return SkinVectorLegacy
 	 */
 	private function provideVectorTemplateObject() {
-		return new SkinVector( [ 'name' => 'vector' ] );
+		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
+		$template = $skinFactory->makeSkin( 'vector' );
+		return $template;
 	}
 
 	/**
@@ -116,7 +118,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getTocData
+	 * @covers \Vector\SkinVector::getTocData
 	 * @dataProvider provideGetTOCData
 	 */
 	public function testGetTocData(
@@ -128,7 +130,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			'wgVectorTableOfContentsCollapseAtCount' => $configValue
 		] );
 
-		$skinVector = new SkinVector( [ 'name' => 'vector-2022' ] );
+		$skinVector = new SkinVectorLegacy( [ 'name' => 'vector-2022' ] );
 		$openSkinVector = TestingAccessWrapper::newFromObject( $skinVector );
 		$data = $openSkinVector->getTocData( $tocData );
 
@@ -146,7 +148,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getTemplateData
+	 * @covers \Vector\SkinVector::getTemplateData
 	 */
 	public function testGetTemplateData() {
 		$title = Title::newFromText( 'SkinVector' );
@@ -370,7 +372,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider providerLanguageAlertRequirements
-	 * @covers ::shouldLanguageAlertBeInSidebar
+	 * @covers \Vector\SkinVector::shouldLanguageAlertBeInSidebar
 	 * @param array $requirements
 	 * @param Title $title
 	 * @param array $getLanguagesCached
@@ -394,7 +396,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		] ) );
 		$this->installMockMwServices( $config );
 
-		$mockSkinVector = $this->getMockBuilder( SkinVector::class )
+		$mockSkinVector = $this->getMockBuilder( SkinVector22::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getTitle', 'getLanguagesCached','isLanguagesInContentAt', 'shouldHideLanguages' ] )
 			->getMock();
@@ -408,7 +410,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $shouldHideLanguages );
 
 		$shouldLanguageAlertBeInSidebarMethod = new ReflectionMethod(
-			SkinVector::class,
+			SkinVector22::class,
 			'shouldLanguageAlertBeInSidebar'
 		);
 		$shouldLanguageAlertBeInSidebarMethod->setAccessible( true );

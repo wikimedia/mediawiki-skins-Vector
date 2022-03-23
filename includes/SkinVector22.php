@@ -9,16 +9,12 @@ namespace Vector;
  */
 class SkinVector22 extends SkinVector {
 	/**
+	 * Updates the constructor to conditionally disable table of contents in article
+	 * body. Note, the constructor can only check feature flags that do not vary on
+	 * whether the user is logged in e.g. features with the 'default' key set.
 	 * @inheritDoc
-	 * Updates the constructor to conditionally disable table of contents in article body.
 	 */
-	public function __construct( $options = [] ) {
-		$options += [
-			'template' => self::getTemplateOption(),
-			'scripts' => self::getScriptsOption(),
-			'styles' => self::getStylesOption(),
-		];
-
+	public function __construct( array $options ) {
 		$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
 		parent::__construct( $options );
 	}
@@ -39,40 +35,12 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
-	 * Temporary static function while we deprecate SkinVector class.
+	 * Temporary function while we deprecate SkinVector class.
 	 *
-	 * @return string
+	 * @return bool
 	 */
-	public static function getTemplateOption() {
-		return 'skin';
-	}
-
-	/**
-	 * Temporary static function while we deprecate SkinVector class.
-	 *
-	 * @return array
-	 */
-	public static function getScriptsOption() {
-		return [
-			'skins.vector.user',
-			'skins.vector.js',
-			'skins.vector.es6',
-		];
-	}
-
-	/**
-	 * Temporary static function while we deprecate SkinVector class.
-	 *
-	 * @return array
-	 */
-	public static function getStylesOption() {
-		return [
-			'mediawiki.ui.button',
-			'skins.vector.styles',
-			'skins.vector.user.styles',
-			'skins.vector.icons',
-			'mediawiki.ui.icon',
-		];
+	protected function isLegacy(): bool {
+		return false;
 	}
 
 	/**

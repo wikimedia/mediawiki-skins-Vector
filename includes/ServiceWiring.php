@@ -28,7 +28,6 @@ use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
 use Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
-use Vector\SkinVersionLookup;
 
 return [
 	Constants::SERVICE_CONFIG => static function ( MediaWikiServices $services ) {
@@ -51,12 +50,9 @@ return [
 
 		$featureManager->registerRequirement(
 			new LatestSkinVersionRequirement(
-				new SkinVersionLookup(
-					$context->getRequest(),
-					$context->getUser(),
-					$services->getService( Constants::SERVICE_CONFIG ),
-					$services->getUserOptionsLookup()
-				)
+				$context->getRequest(),
+				$context->getUser(),
+				$services->getUserOptionsLookup()
 			)
 		);
 
@@ -197,6 +193,7 @@ return [
 			Constants::FEATURE_TABLE_OF_CONTENTS,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_TABLE_OF_CONTENTS
 			]
 		);

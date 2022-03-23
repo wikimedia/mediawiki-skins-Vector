@@ -3,7 +3,6 @@
 namespace Vector;
 
 use Config;
-use HTMLForm;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
 use ResourceLoaderContext;
@@ -12,7 +11,6 @@ use Skin;
 use SkinTemplate;
 use Title;
 use User;
-use Vector\HTMLForm\Fields\HTMLLegacySkinVersionField;
 
 /**
  * Presentation hook handlers for Vector skin.
@@ -420,70 +418,6 @@ class Hooks {
 	}
 
 	/**
-	 * Add Vector preferences to the user's Special:Preferences page directly underneath skins
-	 * provided that $wgVectorSkinMigrationMode is not enabled.
-	 *
-	 * @param User $user User whose preferences are being modified.
-	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
-	 */
-	public static function onGetPreferences( User $user, array &$prefs ) {
-		if ( !self::getConfig( Constants::CONFIG_KEY_SHOW_SKIN_PREFERENCES ) ) {
-			// Do not add Vector skin specific preferences.
-			return;
-		}
-
-		// If migration mode was enabled, and the skin version is set to modern,
-		// switch over the skin.
-		if ( self::isMigrationMode() && !self::isSkinVersionLegacy() ) {
-			MediaWikiServices::getInstance()->getUserOptionsManager()->setOption(
-				$user,
-				Constants::PREF_KEY_SKIN,
-				Constants::SKIN_NAME_MODERN
-			);
-		}
-
-		// Preferences to add.
-		$vectorPrefs = [
-			Constants::PREF_KEY_SKIN_VERSION => [
-				'class' => HTMLLegacySkinVersionField::class,
-				// The checkbox title.
-				'label-message' => 'prefs-vector-enable-vector-1-label',
-				// Show a little informational snippet underneath the checkbox.
-				'help-message' => 'prefs-vector-enable-vector-1-help',
-				// The tab location and title of the section to insert the checkbox. The bit after the slash
-				// indicates that a prefs-skin-prefs string will be provided.
-				'section' => 'rendering/skin/skin-prefs',
-				'default' => self::isSkinVersionLegacy(),
-				// Only show this section when the Vector skin is checked. The JavaScript client also uses
-				// this state to determine whether to show or hide the whole section.
-				// If migration mode is enabled, the section is always hidden.
-				'hide-if' => self::isMigrationMode() ? [ '!==', 'skin', '0' ] :
-					[ '!==', 'skin', Constants::SKIN_NAME_LEGACY ],
-			],
-			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
-				'type' => 'api',
-				'default' => self::getConfig( Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER )
-			],
-		];
-
-		// Seek the skin preference section to add Vector preferences just below it.
-		$skinSectionIndex = array_search(
-			Constants::PREF_KEY_SKIN, array_keys( $prefs )
-		);
-		if ( $skinSectionIndex !== false ) {
-			// Skin preference section found. Inject Vector skin-specific preferences just below it.
-			// This pattern can be found in Popups too. See T246162.
-			$vectorSectionIndex = $skinSectionIndex + 1;
-			$prefs = array_slice( $prefs, 0, $vectorSectionIndex, true )
-				+ $vectorPrefs
-				+ array_slice( $prefs, $vectorSectionIndex, null, true );
-		} else {
-			// Skin preference section not found. Just append Vector skin-specific preferences.
-			$prefs += $vectorPrefs;
-		}
-	}
-
-	/**
 	 * Adds MediaWiki:Vector.css as the skin style that controls classic Vector.
 	 *
 	 * @param string $skin
@@ -508,62 +442,6 @@ class Hooks {
 	}
 
 	/**
-	 * Hook executed on user's Special:Preferences form save. This is used to convert the boolean
-	 * presentation of skin version to a version string. That is, a single preference change by the
-	 * user may trigger two writes: a boolean followed by a string.
-	 *
-	 * @param array &$formData Form data submitted by user
-	 * @param HTMLForm $form A preferences form
-	 * @param User $user Logged-in user
-	 * @param bool &$result Variable defining is form save successful
-	 * @param array $oldPreferences
-	 */
-	public static function onPreferencesFormPreSave(
-		array &$formData,
-		HTMLForm $form,
-		User $user,
-		&$result,
-		$oldPreferences
-	) {
-		$userManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-		$skinVersion = $formData[ Constants::PREF_KEY_SKIN_VERSION ] ?? '';
-		$skin = $formData[ Constants::PREF_KEY_SKIN ] ?? '';
-		$isVectorEnabled = self::isVectorSkin( $skin );
-
-		if (
-			self::isMigrationMode() &&
-			$skin === Constants::SKIN_NAME_LEGACY &&
-			$skinVersion === Constants::SKIN_VERSION_LATEST
-		) {
-			// Mismatch between skin and version. Use skin.
-			$userManager->setOption(
-				$user,
-				Constants::PREF_KEY_SKIN_VERSION,
-				Constants::SKIN_VERSION_LEGACY
-			);
-		}
-
-		if ( !$isVectorEnabled && array_key_exists( Constants::PREF_KEY_SKIN_VERSION, $oldPreferences ) ) {
-			// The setting was cleared. However, this is likely because a different skin was chosen and
-			// the skin version preference was hidden.
-			$userManager->setOption(
-				$user,
-				Constants::PREF_KEY_SKIN_VERSION,
-				$oldPreferences[ Constants::PREF_KEY_SKIN_VERSION ]
-			);
-		}
-	}
-
-	/**
-	 * Check whether we can start migrating users to use skin preference.
-	 *
-	 * @return bool
-	 */
-	private static function isMigrationMode(): bool {
-		return self::getConfig( 'VectorSkinMigrationMode' );
-	}
-
-	/**
 	 * Called one time when initializing a users preferences for a newly created account.
 	 *
 	 * @param User $user Newly created user object.
@@ -572,23 +450,12 @@ class Hooks {
 	public static function onLocalUserCreated( User $user, $isAutoCreated ) {
 		$default = self::getConfig( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
 		$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-		// Permanently set the default preference. The user can later change this preference, however,
-		// self::onLocalUserCreated() will not be executed for that account again.
 		$optionsManager->setOption(
 			$user,
-			Constants::PREF_KEY_SKIN_VERSION,
-			$default
+			Constants::PREF_KEY_SKIN,
+			$default === Constants::SKIN_VERSION_LEGACY ?
+				Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
 		);
-
-		// Also set the skin key if migration mode is enabled.
-		if ( self::isMigrationMode() ) {
-			$optionsManager->setOption(
-				$user,
-				Constants::PREF_KEY_SKIN,
-				$default === Constants::SKIN_VERSION_LEGACY ?
-					Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
-			);
-		}
 	}
 
 	/**
@@ -731,7 +598,7 @@ class Hooks {
 	}
 
 	/**
-	 * Get a configuration variable such as `Constants::CONFIG_KEY_SHOW_SKIN_PREFERENCES`.
+	 * Get a configuration variable.
 	 *
 	 * @param string $name Name of configuration option.
 	 * @return mixed Value configured.
@@ -757,7 +624,7 @@ class Hooks {
 	 * @param string $skinName hint that can be used to detect modern vector.
 	 * @return bool
 	 */
-	private static function isSkinVersionLegacy( $skinName = '' ): bool {
+	private static function isSkinVersionLegacy( $skinName ): bool {
 		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
 			return false;
 		}

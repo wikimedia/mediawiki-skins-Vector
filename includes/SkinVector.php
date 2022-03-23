@@ -37,6 +37,7 @@ use Title;
 
 /**
  * Skin subclass for Vector that may be the new or old version of Vector.
+ * IMPORTANT: DO NOT put new code here.
  *
  * @ingroup Skins
  * Skins extending SkinVector are not supported
@@ -44,33 +45,12 @@ use Title;
  * @package Vector
  * @internal
  *
- * # Migration Plan (please remove stages when done)
- *
- * Stage 1:
- * In future when we are ready to transition to two separate skins in this order:
- * - Use $wgSkipSkins to hide vector-2022.
- * - Remove skippable field from the `vector-2022` skin version. This will defer the code to the
- *   configuration option wgSkipSkins
- * - Set $wgVectorSkinMigrationMode = true and unset the Vector entry in wgSkipSkins
- * - for one wiki, to trial run. This will expose Vector in preferences. The new Vector will show
- *   as Vector (2022) to begin with and the skin version preference will be hidden.
- * - Check VectorPrefDiffInstrumentation instrumentation is still working.
- *
- * Stage 2:
- * - Set $wgVectorSkinMigrationMode = true for all wikis and update skin preference labels
- *   (See Iebe60b560069c8cfcdeed3f5986b8be35501dcbc). This will hide the skin version
- *    preference, and update the skin preference instead.
- * - We will set $wgDefaultSkin = 'vector-2022'; for desktop improvements wikis.
- *  - Run script that updates prefs table, migrating any rows where skin=vector AND
- *    skinversion = 2 to skin=vector22, skinversion=2
- *
- * Stage 3:
+ * @todo
  *  - Move all modern code into SkinVector22.
  *  - Move legacy skin code from SkinVector to SkinVectorLegacy.
- *  - Update skin.json `vector` key to point to SkinVectorLegacy.
  *  - SkinVector left as alias if necessary.
  */
-class SkinVector extends SkinMustache {
+abstract class SkinVector extends SkinMustache {
 	/** @var null|array for caching purposes */
 	private $languages;
 	/** @var int */
@@ -173,22 +153,7 @@ class SkinVector extends SkinMustache {
 		return '';
 	}
 
-	/**
-	 * Whether the legacy version of the skin is being used.
-	 *
-	 * @return bool
-	 */
-	protected function isLegacy(): bool {
-		$options = $this->getOptions();
-		if ( $options['name'] === Constants::SKIN_NAME_MODERN ) {
-			return false;
-		}
-		$isLatestSkinFeatureEnabled = MediaWikiServices::getInstance()
-			->getService( Constants::SERVICE_FEATURE_MANAGER )
-			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
-
-		return !$isLatestSkinFeatureEnabled;
-	}
+	abstract protected function isLegacy(): bool;
 
 	/**
 	 * Calls getLanguages with caching.
@@ -426,36 +391,6 @@ class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Updates modules for use in legacy Vector skin.
-	 * Do not repeat this pattern. Will be addressed in T291098.
-	 * @inheritDoc
-	 */
-	public function getDefaultModules() {
-		// FIXME: Do not repeat this pattern. Will be addressed in T291098.
-		if ( $this->isLegacy() ) {
-			$this->options['scripts'] = SkinVectorLegacy::getScriptsOption();
-			$this->options['styles'] = SkinVectorLegacy::getStylesOption();
-		} else {
-			$this->options['scripts'] = SkinVector22::getScriptsOption();
-			$this->options['styles'] = SkinVector22::getStylesOption();
-		}
-		return parent::getDefaultModules();
-	}
-
-	/**
-	 * Updates HTML generation for use in legacy Vector skin.
-	 * Do not repeat this pattern. Will be addressed in T291098.
-	 *
-	 * @inheritDoc
-	 */
-	public function generateHTML() {
-		if ( $this->isLegacy() ) {
-			$this->options['template'] = SkinVectorLegacy::getTemplateOption();
-		}
-		return parent::generateHTML();
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getHtmlElementAttributes() {
@@ -625,16 +560,14 @@ class SkinVector extends SkinMustache {
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
-			$migrationMode = $this->getConfig()->get( 'VectorSkinMigrationMode' );
-			$query = $migrationMode ? 'useskin=vector&' : '';
 			// Note: This data is also passed to legacy template where it is unused.
 			$optOutUrl = [
 				'text' => $this->msg( 'vector-opt-out' )->text(),
 				'href' => SpecialPage::getTitleFor(
 					'Preferences',
 					false,
-					$migrationMode ? 'mw-prefsection-rendering-skin' : 'mw-prefsection-rendering-skin-skin-prefs'
-				)->getLinkURL( $query . 'wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
+					'mw-prefsection-rendering-skin'
+				)->getLinkURL( 'useskin=vector&wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
 				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
 				'active' => false,
 			];
