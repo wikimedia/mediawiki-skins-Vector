@@ -2,9 +2,8 @@
  * Functions and variables to implement sticky header.
  */
 const
-	STICKY_HEADER_ID = 'vector-sticky-header',
-	header = document.getElementById( STICKY_HEADER_ID ),
 	initSearchToggle = require( './searchToggle.js' ),
+	STICKY_HEADER_ID = 'vector-sticky-header',
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
@@ -32,22 +31,22 @@ function copyAttribute( from, to, attribute ) {
 
 /**
  * Show the sticky header.
+ *
+ * @param {Element} header
  */
-function show() {
-	if ( header ) {
-		header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
-	}
+function show( header ) {
+	header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
 	document.body.classList.remove( ULS_HIDE_CLASS );
 }
 
 /**
  * Hide the sticky header.
+ *
+ * @param {Element} header
  */
-function hide() {
-	if ( header ) {
-		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
-		document.body.classList.add( ULS_HIDE_CLASS );
-	}
+function hide( header ) {
+	header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+	document.body.classList.add( ULS_HIDE_CLASS );
 }
 
 /**
@@ -145,15 +144,15 @@ function watchstarCallback( $link, isWatched, expiry ) {
 /**
  * Makes sticky header icons functional for modern Vector.
  *
- * @param {Element} headerElement
+ * @param {Element} header
  * @param {Element|null} history
  * @param {Element|null} talk
  * @param {Element|null} watch
  */
-function prepareIcons( headerElement, history, talk, watch ) {
-	const historySticky = headerElement.querySelector( '#ca-history-sticky-header' ),
-		talkSticky = headerElement.querySelector( '#ca-talk-sticky-header' ),
-		watchSticky = headerElement.querySelector( '#ca-watchstar-sticky-header' );
+function prepareIcons( header, history, talk, watch ) {
+	const historySticky = header.querySelector( '#ca-history-sticky-header' ),
+		talkSticky = header.querySelector( '#ca-talk-sticky-header' ),
+		watchSticky = header.querySelector( '#ca-watchstar-sticky-header' );
 
 	if ( !historySticky || !talkSticky || !watchSticky ) {
 		throw new Error( 'Sticky header has unexpected HTML' );
@@ -188,7 +187,7 @@ function prepareIcons( headerElement, history, talk, watch ) {
 /**
  * Render sticky header edit or protected page icons for modern Vector.
  *
- * @param {Element} headerElement
+ * @param {Element} header
  * @param {Element|null} primaryEdit
  * @param {boolean} isProtected
  * @param {Element|null} secondaryEdit
@@ -196,20 +195,20 @@ function prepareIcons( headerElement, history, talk, watch ) {
  *  header.
  */
 function prepareEditIcons(
-	headerElement,
+	header,
 	primaryEdit,
 	isProtected,
 	secondaryEdit,
 	disableStickyHeader
 ) {
 	const
-		primaryEditSticky = headerElement.querySelector(
+		primaryEditSticky = header.querySelector(
 			'#ca-ve-edit-sticky-header'
 		),
-		protectedSticky = headerElement.querySelector(
+		protectedSticky = header.querySelector(
 			'#ca-viewsource-sticky-header'
 		),
-		wikitextSticky = headerElement.querySelector(
+		wikitextSticky = header.querySelector(
 			'#ca-edit-sticky-header'
 		);
 
@@ -285,14 +284,15 @@ function isInViewport( element ) {
 /**
  * Add hooks for sticky header when Visual Editor is used.
  *
- * @param {Element} targetIntersection intersection element
+ * @param {Element} header
+ * @param {Element} stickyIntersection intersection element
  * @param {IntersectionObserver} observer
  */
-function addVisualEditorHooks( targetIntersection, observer ) {
+function addVisualEditorHooks( header, stickyIntersection, observer ) {
 	// When Visual Editor is activated, hide the sticky header.
 	mw.hook( 've.activationStart' ).add( () => {
-		hide();
-		observer.unobserve( targetIntersection );
+		hide( header );
+		observer.unobserve( stickyIntersection );
 	} );
 
 	// When Visual Editor is deactivated (by clicking "Read" tab at top of page), show sticky header
@@ -301,15 +301,15 @@ function addVisualEditorHooks( targetIntersection, observer ) {
 		// Wait for the next repaint or we might calculate that
 		// sticky header should not be visible (T299114)
 		requestAnimationFrame( () => {
-			observer.observe( targetIntersection );
+			observer.observe( stickyIntersection );
 		} );
 	} );
 
 	// After saving edits, re-apply the sticky header if the target is not in the viewport.
 	mw.hook( 'postEdit.afterRemoval' ).add( () => {
-		if ( !isInViewport( targetIntersection ) ) {
-			show();
-			observer.observe( targetIntersection );
+		if ( !isInViewport( stickyIntersection ) ) {
+			show( header );
+			observer.observe( stickyIntersection );
 		}
 	} );
 }
@@ -343,14 +343,14 @@ function prepareUserMenu( userMenu ) {
 /**
  * Makes sticky header functional for modern Vector.
  *
- * @param {Element} headerElement
+ * @param {Element} header
  * @param {Element} userMenu
  * @param {Element} userMenuStickyContainer
  * @param {IntersectionObserver} stickyObserver
  * @param {Element} stickyIntersection
  */
 function makeStickyHeaderFunctional(
-	headerElement,
+	header,
 	userMenu,
 	userMenuStickyContainer,
 	stickyObserver,
@@ -365,7 +365,7 @@ function makeStickyHeaderFunctional(
 		userMenuStickyContainerInner.appendChild( prepareUserMenu( userMenu ) );
 	}
 
-	prepareIcons( headerElement,
+	prepareIcons( header,
 		document.querySelector( '#ca-history a' ),
 		document.querySelector( '#ca-talk a' ),
 		document.querySelector( '#ca-watch a, #ca-unwatch a' )
@@ -378,12 +378,12 @@ function makeStickyHeaderFunctional(
 	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
-		headerElement.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
 
 	prepareEditIcons(
-		headerElement,
+		header,
 		primaryEdit,
 		isProtected,
 		secondaryEdit,
@@ -394,11 +394,11 @@ function makeStickyHeaderFunctional(
 }
 
 /**
- * @param {Element} headerElement
+ * @param {Element} header
  */
-function setupSearchIfNeeded( headerElement ) {
+function setupSearchIfNeeded( header ) {
 	const
-		searchToggle = headerElement.querySelector( SEARCH_TOGGLE_SELECTOR );
+		searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
 
 	if ( !document.body.classList.contains( 'skin-vector-search-vue' ) ) {
 		return;
@@ -433,49 +433,32 @@ function isAllowedAction( action ) {
 	return disallowedActions.indexOf( action ) < 0 && !hasDiffId;
 }
 
-const
-	stickyIntersection = document.getElementById(
-		FIRST_HEADING_ID
-	),
-	userMenu = document.getElementById( USER_MENU_ID ),
-	userMenuStickyContainer = document.getElementsByClassName(
+/**
+ * @typedef {Object} StickyHeaderProps
+ * @property {Element} header
+ * @property {Element} userMenu
+ * @property {IntersectionObserver} observer
+ * @property {Element} stickyIntersection
+ */
+
+/**
+ * @param {StickyHeaderProps} props
+ */
+function initStickyHeader( props ) {
+	const userMenuStickyContainer = document.getElementsByClassName(
 		STICKY_HEADER_USER_MENU_CONTAINER_CLASS
-	)[ 0 ],
-	allowedNamespace = isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
-	allowedAction = isAllowedAction( mw.config.get( 'wgAction' ) );
-
-/**
- * Check if all conditions are met to enable sticky header
- *
- * @return {boolean}
- */
-function isStickyHeaderAllowed() {
-	return !!header &&
-		!!stickyIntersection &&
-		!!userMenu &&
-		userMenuStickyContainer &&
-		allowedNamespace &&
-		allowedAction &&
-		'IntersectionObserver' in window;
-}
-
-/**
- * @param {IntersectionObserver} observer
- */
-function initStickyHeader( observer ) {
-	if ( !isStickyHeaderAllowed() || !header || !userMenu || !stickyIntersection ) {
-		return;
-	}
+	)[ 0 ];
 
 	makeStickyHeaderFunctional(
-		header,
-		userMenu,
+		props.header,
+		props.userMenu,
 		userMenuStickyContainer,
-		observer,
-		stickyIntersection
+		props.observer,
+		props.stickyIntersection
 	);
-	setupSearchIfNeeded( header );
-	addVisualEditorHooks( stickyIntersection, observer );
+
+	setupSearchIfNeeded( props.header );
+	addVisualEditorHooks( props.header, props.stickyIntersection, props.observer );
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	// @ts-ignore
@@ -488,7 +471,7 @@ function initStickyHeader( observer ) {
 	} );
 
 	// Make sure ULS dialog is sticky.
-	const langBtn = header.querySelector( '#p-lang-btn-sticky-header' );
+	const langBtn = props.header.querySelector( '#p-lang-btn-sticky-header' );
 	if ( langBtn ) {
 		langBtn.addEventListener( 'click', function () {
 			const bodyClassList = document.body.classList;
@@ -502,9 +485,11 @@ module.exports = {
 	show,
 	hide,
 	prepareUserMenu,
+	isAllowedNamespace,
+	isAllowedAction,
 	initStickyHeader,
-	isStickyHeaderAllowed,
-	header,
-	stickyIntersection,
+	STICKY_HEADER_ID,
+	FIRST_HEADING_ID,
+	USER_MENU_ID,
 	STICKY_HEADER_EXPERIMENT_NAME
 };

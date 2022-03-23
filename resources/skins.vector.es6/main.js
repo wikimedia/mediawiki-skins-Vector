@@ -52,12 +52,30 @@ const main = () => {
 		searchToggle( searchToggleElement );
 	}
 
-	// If necessary, initialize experiment and fire the A/B test enrollment hook.
-	const stickyHeaderExperiment =
+	// Sticky header
+	const
+		header = document.getElementById( stickyHeader.STICKY_HEADER_ID ),
+		stickyIntersection = document.getElementById( stickyHeader.FIRST_HEADING_ID ),
+		userMenu = document.getElementById( stickyHeader.USER_MENU_ID ),
+		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
+		allowedAction = stickyHeader.isAllowedAction( mw.config.get( 'wgAction' ) );
+
+	const isStickyHeaderAllowed =
+		!!header &&
+		!!stickyIntersection &&
+		!!userMenu &&
+		allowedNamespace &&
+		allowedAction &&
+		'IntersectionObserver' in window;
+
+	const isExperimentEnabled =
 		!!ABTestConfig.enabled &&
 		ABTestConfig.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME &&
 		!mw.user.isAnon() &&
-		stickyHeader.isStickyHeaderAllowed() &&
+		isStickyHeaderAllowed;
+
+	// If necessary, initialize experiment and fire the A/B test enrollment hook.
+	const stickyHeaderExperiment = isExperimentEnabled &&
 		initExperiment( Object.assign( {}, ABTestConfig, { token: mw.user.getId() } ) );
 
 	// Remove class if present on the html element so that scroll padding isn't undesirably
@@ -66,11 +84,9 @@ const main = () => {
 		document.documentElement.classList.remove( 'vector-sticky-header-enabled' );
 	}
 
-	const
-		targetElement = stickyHeader.header,
-		targetIntersection = stickyHeader.stickyIntersection,
-		isStickyHeaderAllowed = stickyHeaderExperiment ?
-			stickyHeaderExperiment.isInTreatmentBucket() : stickyHeader.isStickyHeaderAllowed();
+	const isStickyHeaderEnabled = stickyHeaderExperiment ?
+		stickyHeaderExperiment.isInTreatmentBucket() :
+		isStickyHeaderAllowed;
 
 	// Table of contents
 	const tocElement = document.getElementById( TOC_ID );
@@ -84,8 +100,8 @@ const main = () => {
 	// either feature.
 	const observer = scrollObserver.initScrollObserver(
 		() => {
-			if ( targetElement && isStickyHeaderAllowed ) {
-				stickyHeader.show();
+			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
+				stickyHeader.show( header );
 			}
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
 			if ( tocLegacyTargetIntersection ) {
@@ -93,22 +109,25 @@ const main = () => {
 			}
 		},
 		() => {
-			if ( targetElement && isStickyHeaderAllowed ) {
-				stickyHeader.hide();
+			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
+				stickyHeader.hide( header );
 			}
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 			if ( tocLegacyTargetIntersection ) {
 				scrollObserver.fireScrollHook( 'up', TOC_SCROLL_HOOK );
 			}
 		}
-
 	);
 
-	// Initiate observer for sticky header.
-	if ( isStickyHeaderAllowed ) {
-		stickyHeader.initStickyHeader( observer );
-	} else if ( targetIntersection ) {
-		observer.observe( targetIntersection );
+	if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
+		stickyHeader.initStickyHeader( {
+			header,
+			userMenu,
+			observer,
+			stickyIntersection
+		} );
+	} else if ( stickyIntersection ) {
+		observer.observe( stickyIntersection );
 	}
 
 	// Initiate observer for table of contents in main content.
@@ -169,7 +188,7 @@ const main = () => {
 	} );
 	const sectionObserver = initSectionObserver( {
 		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6, .mw-body-content' ),
-		topMargin: targetElement ? targetElement.getBoundingClientRect().height : 0,
+		topMargin: header ? header.getBoundingClientRect().height : 0,
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
 };
