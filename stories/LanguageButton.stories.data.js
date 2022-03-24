@@ -12,8 +12,7 @@ export const languageData = {
 	// icon classes and button classes
 	'checkbox-class': 'mw-interlanguage-selector',
 	'html-vector-heading-icon': makeIcon( 'wikimedia-language' ),
-	'heading-class': 'vector-menu-heading ' +
-		'mw-ui-button mw-ui-quiet',
+	'heading-class': 'mw-ui-button mw-ui-quiet',
 	'html-tooltip': 'A message tooltip-p-lang must exist for this to appear',
 	label: '10 languages',
 	'html-user-language-attributes': htmlUserLanguageAttributes,

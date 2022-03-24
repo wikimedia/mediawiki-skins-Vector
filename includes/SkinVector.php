@@ -353,7 +353,6 @@ abstract class SkinVector extends SkinMustache {
 			'class' => 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
 			'html-items' => $userMoreHtmlItems,
 			'label' => $this->msg( 'vector-personal-more-label' ),
-			'heading-class' => 'vector-menu-heading',
 			'is-dropdown' => false,
 		];
 
@@ -741,11 +740,8 @@ abstract class SkinVector extends SkinMustache {
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
-			'heading-class' =>
-				' vector-menu-heading ' .
-				self::CLASS_QUIET_BUTTON . ' ' .
-				self::CLASS_PROGRESSIVE
-			];
+			'heading-class' => self::CLASS_QUIET_BUTTON . ' ' . self::CLASS_PROGRESSIVE
+		];
 
 		// Adds class to hide language button
 		// Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
@@ -773,7 +769,7 @@ abstract class SkinVector extends SkinMustache {
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
-		$portletData['heading-class'] = 'vector-menu-heading';
+		$portletData['heading-class'] = '';
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
 		if ( $portletData['id'] === 'p-personal' ) {
 			if ( $this->isLegacy() ) {
