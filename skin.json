@@ -61,6 +61,7 @@
 						"vector-main-menu-tooltip",
 						"vector-jumptosearch",
 						"vector-jumptocontent",
+						"vector-toc-beginning",
 						"vector-toc-heading",
 						"search",
 						"searchbutton",
@@ -498,6 +499,10 @@
 				"default": false
 			},
 			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
+		},
+		"VectorTableOfContentsBeginning": {
+			"value": true,
+			"description": "@var boolean Temporary feature flag that controls link to beginning of article."
 		},
 		"VectorTableOfContentsCollapseAtCount": {
 			"value": 20,

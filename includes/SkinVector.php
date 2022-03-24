@@ -622,6 +622,9 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		return array_merge( $tocData, [
+			'is-vector-toc-beginning-enabled' => $this->getConfig()->get(
+				'VectorTableOfContentsBeginning'
+			),
 			'vector-is-collapse-sections-enabled' =>
 				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
 					'VectorTableOfContentsCollapseAtCount'
