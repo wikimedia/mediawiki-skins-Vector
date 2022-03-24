@@ -29,9 +29,8 @@ class SkinVector22 extends SkinVector {
 	private function isTableOfContentsVisibleInSidebar(): bool {
 		$featureManager = VectorServices::getFeatureManager();
 		$title = $this->getTitle();
-		$isMainNS = $title ? $title->inNamespaces( 0 ) : false;
 		$isMainPage = $title ? $title->isMainPage() : false;
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) && $isMainNS && !$isMainPage;
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS ) && !$isMainPage;
 	}
 
 	/**
