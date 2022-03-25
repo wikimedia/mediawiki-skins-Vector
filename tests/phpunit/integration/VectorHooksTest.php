@@ -10,6 +10,7 @@ use HashConfig;
 use MediaWiki\User\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
+use RequestContext;
 use ResourceLoaderContext;
 use RuntimeException;
 use Title;
@@ -475,8 +476,13 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			count( $contentAnon['user-menu'] ) === 0,
 			'Anon user page, create account, login, and login private links are removed from anon user links dropdown'
 		);
+
 		// Registered user
-		$skin->getUser()->setId( '1' );
+		$registeredUser = $this->createMock( User::class );
+		$registeredUser->method( 'isRegistered' )->willReturn( true );
+		$context = new RequestContext();
+		$context->setUser( $registeredUser );
+		$skin->setContext( $context );
 		$contentRegistered = [
 			'user-menu' => [
 				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
