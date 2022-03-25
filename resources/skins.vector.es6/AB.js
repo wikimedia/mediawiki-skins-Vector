@@ -158,7 +158,6 @@ module.exports = function webABTest( props ) {
 		// Send data to WikimediaEvents to log A/B test initialization if the subject
 		// has been sampled into the experiment.
 		if ( isInSample() ) {
-			// @ts-ignore
 			mw.hook( WEB_AB_TEST_ENROLLMENT_HOOK ).fire( {
 				group: getBucket(),
 				experimentName: props.name

@@ -11,10 +11,8 @@ const
  */
 function fireScrollHook( direction ) {
 	if ( direction === 'down' ) {
-		// @ts-ignore
 		mw.hook( SCROLL_HOOK ).fire( { context: SCROLL_CONTEXT_BELOW } );
 	} else {
-		// @ts-ignore
 		mw.hook( SCROLL_HOOK ).fire( {
 			context: SCROLL_CONTEXT_ABOVE,
 			action: SCROLL_ACTION
