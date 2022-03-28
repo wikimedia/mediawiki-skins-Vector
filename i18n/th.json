@@ -3,6 +3,7 @@
 		"authors": [
 			"Aefgh39622",
 			"Ans",
+			"Bebiezaza",
 			"Geonuch",
 			"Horus",
 			"Octahedron80",
@@ -20,6 +21,8 @@
 	"vector.css": "/* สไตล์ชีตในหน้านี้จะส่งผลแก่ผู้ใช้ที่ใช้สกินเวกเตอร์ */",
 	"vector.js": "/* จาวาสคริปต์ใด ๆ ในหน้านี้จะถูกโหลดให้แก่ผู้ใช้ที่ใช้สกินเวกเตอร์ */",
 	"vector-action-toggle-sidebar": "เปิด/ปิดแถบข้าง",
+	"vector-languages": "ภาษา",
+	"vector-language-button-aria-label": "ไปที่บทความในภาษาอื่น ซึ่งมีใน {{PLURAL:$1|}}$1 ภาษา",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ภาษา}}",
 	"vector-language-redirect-to-top": "ลิงก์ข้ามไปยังรุ่นภาษาอื่นของบทความนี้ถูกย้ายไปด้านบนแล้วที่ทางขวาของชื่อหน้า [[#p-lang-btn|ไปด้านบน]]",
 	"vector-action-addsection": "เพิ่มหัวข้อ",
@@ -38,5 +41,9 @@
 	"vector-jumptocontent": "ข้ามไปเนื้อหา",
 	"vector-more-actions": "เพิ่มเติม",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
-	"vector-toc-heading": "เนื้อหา"
+	"vector-toc-heading": "เนื้อหา",
+	"vector-anon-user-menu-pages": "หน้าสำหรับผู้แก้ไขที่ออกจากระบบ",
+	"vector-anon-user-menu-pages-learn": "เรียนรู้เพิ่มเติม",
+	"vector-main-menu-tooltip": "เมนูหลัก",
+	"tooltip-vector-anon-user-menu-title": "ตัวเลือกเพิ่มเติม"
 }

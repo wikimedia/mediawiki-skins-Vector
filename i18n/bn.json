@@ -9,6 +9,7 @@
 			"Sourav Halder",
 			"Tauhid16",
 			"Wikitanvir",
+			"Yahya",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -48,6 +49,7 @@
 	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> থাকা পাতাগুলিতে অনুসন্ধান করুন",
 	"vector-intro-page": "Help:ভূমিকা",
 	"vector-toc-heading": "পরিচ্ছেদসমূহ",
+	"vector-toc-beginning": "শুরু",
 	"vector-anon-user-menu-pages": "অনিবন্ধিত সম্পাদকের জন্য পাতা",
 	"vector-anon-user-menu-pages-learn": "আরও জানুন",
 	"vector-anon-user-menu-pages-label": "সম্পাদনা করা সম্পর্কে আরও জানুন",

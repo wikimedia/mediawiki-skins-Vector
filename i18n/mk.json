@@ -41,6 +41,7 @@
 	"vector-searchsuggest-containing": "Пребарај страници кои го содржат <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Вовед",
 	"vector-toc-heading": "Содржина",
+	"vector-toc-beginning": "Почеток",
 	"vector-anon-user-menu-pages": "Страници за одјавени уредници",
 	"vector-anon-user-menu-pages-learn": "дознајте повеќе",
 	"vector-anon-user-menu-pages-label": "Дознајте повеќе за уредувањето",
