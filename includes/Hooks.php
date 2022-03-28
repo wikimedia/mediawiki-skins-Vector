@@ -222,11 +222,17 @@ class Hooks {
 	 */
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
-		if ( $sk->getUser()->isRegistered() ) {
+		$user = $sk->getUser();
+		if ( $user->isRegistered() ) {
 			// Remove user page from personal menu dropdown for logged in use
-			self::makeMenuItemCollapsible(
-				$content_navigation['user-menu']['userpage']
-			);
+			// Note we need to check for userpage, as a registered user in
+			// future may be an anonymous user who has been assigned a temporary
+			// account.
+			if ( isset( $content_navigation['user-menu']['userpage'] ) ) {
+				self::makeMenuItemCollapsible(
+					$content_navigation['user-menu']['userpage']
+				);
+			}
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
 			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
