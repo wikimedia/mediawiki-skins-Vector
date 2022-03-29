@@ -961,5 +961,3 @@ abstract class SkinVector extends SkinMustache {
 		];
 	}
 }
-
-class_alias( SkinVector::class, 'SkinVector' );
