@@ -15,6 +15,30 @@ const
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {};
 
 /**
+ * @callback OnIntersection
+ * @param {HTMLElement} element The section that triggered the new intersection change.
+ */
+
+/**
+ * @ignore
+ * @param {Function} changeActiveSection
+ * @return {OnIntersection}
+ */
+const getHeadingIntersectionHandler = ( changeActiveSection ) => {
+	/**
+	 * @param {HTMLElement} section
+	 */
+	return ( section ) => {
+		const headline = section.classList.contains( 'mw-body-content' ) ?
+			section :
+			section.querySelector( HEADLINE_SELECTOR );
+		if ( headline ) {
+			changeActiveSection( `${TOC_SECTION_ID_PREFIX}${headline.id}` );
+		}
+	};
+};
+
+/**
  * @return {void}
  */
 const main = () => {
@@ -126,18 +150,15 @@ const main = () => {
 		}
 	} );
 	const sectionObserver = initSectionObserver( {
-		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6' ),
+		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6, .mw-body-content' ),
 		topMargin: targetElement ? targetElement.getBoundingClientRect().height : 0,
-		onIntersection: ( section ) => {
-			const headline = section.querySelector( HEADLINE_SELECTOR );
-
-			if ( headline ) {
-				tableOfContents.changeActiveSection( TOC_SECTION_ID_PREFIX + headline.id );
-			}
-		}
+		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
 };
 
 module.exports = {
-	main: main
+	main,
+	test: {
+		getHeadingIntersectionHandler
+	}
 };
