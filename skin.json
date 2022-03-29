@@ -35,12 +35,12 @@
 					"link": {
 						"text-wrapper": {
 							"tag": "span"
-						},
-						"bodyClasses": [
-							"skin-vector",
-							"skin-vector-search-vue"
-						]
+						}
 					},
+					"bodyClasses": [
+						"skin-vector",
+						"skin-vector-search-vue"
+					],
 					"scripts": [
 						"skins.vector.user",
 						"skins.vector.js",
