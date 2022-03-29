@@ -528,8 +528,7 @@ abstract class SkinVector extends SkinMustache {
 				true,
 				'searchform',
 				true
-			),
-			'data-toc' => $this->getTocData( $parentData['data-toc'] ?? [] )
+			)
 		] );
 
 		if ( $skin->getUser()->isRegistered() ) {
@@ -579,30 +578,6 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		return $commonSkinData;
-	}
-
-	/**
-	 * Annotates table of contents data with Vector-specific information.
-	 *
-	 * @param array $tocData
-	 * @return array
-	 */
-	private function getTocData( array $tocData ): array {
-		// If the table of contents has no items, we won't output it.
-		// empty array is interpreted by Mustache as falsey.
-		if ( empty( $tocData ) || empty( $tocData[ 'array-sections' ] ) ) {
-			return [];
-		}
-
-		return array_merge( $tocData, [
-			'is-vector-toc-beginning-enabled' => $this->getConfig()->get(
-				'VectorTableOfContentsBeginning'
-			),
-			'vector-is-collapse-sections-enabled' =>
-				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
-					'VectorTableOfContentsCollapseAtCount'
-				)
-		] );
 	}
 
 	/**

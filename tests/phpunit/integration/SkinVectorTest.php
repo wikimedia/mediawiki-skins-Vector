@@ -49,6 +49,10 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	public function provideGetTocData() {
+		$config = [
+			'VectorTableOfContentsBeginning' => true,
+			'VectorTableOfContentsCollapseAtCount' => 1
+		];
 		$tocData = [
 			'number-section-count' => 2,
 			'array-sections' => [
@@ -61,90 +65,136 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 					'fromtitle' => 'Test',
 					'byteoffset' => 231,
 					'anchor' => 'A',
+					'array-sections' =>	[],
+					'is-top-level-section' => true,
+					'is-parent-section' => false,
+				],
+				[
+					'toclevel' => 1,
+					'level' => '4',
+					'line' => 'B',
+					'number' => '2',
+					'index' => '2',
+					'fromtitle' => 'Test',
+					'byteoffset' => 245,
+					'anchor' => 'B',
+					'array-sections' =>	[],
+					'is-top-level-section' => true,
+					'is-parent-section' => false,
+				]
+			]
+		];
+		$nestedTocData = [
+			'number-section-count' => 2,
+			'array-sections' => [
+				[
+					'toclevel' => 1,
+					'level' => '2',
+					'line' => 'A',
+					'number' => '1',
+					'index' => '1',
+					'fromtitle' => 'Test',
+					'byteoffset' => 231,
+					'anchor' => 'A',
 					'array-sections' => [
-						[
-							'toclevel' => 2,
-							'level' => '4',
-							'line' => 'A1',
-							'number' => '1.1',
-							'index' => '2',
-							'fromtitle' => 'Test',
-							'byteoffset' => 245,
-							'anchor' => 'A1'
-						]
-					]
+						'toclevel' => 2,
+						'level' => '4',
+						'line' => 'A1',
+						'number' => '1.1',
+						'index' => '2',
+						'fromtitle' => 'Test',
+						'byteoffset' => 245,
+						'anchor' => 'A1',
+						'array-sections' => [],
+						'is-top-level-section' => false,
+						'is-parent-section' => false,
+					],
+					'is-top-level-section' => true,
+					'is-parent-section' => true,
 				],
 			]
 		];
 
+		$expectedConfigData = [
+			'is-vector-toc-beginning-enabled' => $config[ 'VectorTableOfContentsBeginning' ],
+			'vector-is-collapse-sections-enabled' =>
+				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ]
+		];
+		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );
+		$context = RequestContext::getMain();
+		$buttonLabel = $context->msg( 'vector-toc-toggle-button-label',
+			$expectedNestedTocData[ 'array-sections' ][ 0 ][ 'line' ]
+		)->text();
+		$expectedNestedTocData[ 'array-sections' ][ 0 ][ 'vector-button-label' ] = $buttonLabel;
+
 		return [
 			// When zero sections
 			[
-				// $tocData
 				[],
-				// wgVectorTableOfContentsCollapseAtCount
-				1,
-				// expected 'vector-is-collapse-sections-enabled' value
-				false
+				$config,
+				// TOC data is empty when given an empty array
+				[]
 			],
 			// When number of multiple sections is lower than configured value
 			[
-				// $tocData
 				$tocData,
-				// wgVectorTableOfContentsCollapseAtCount
-				3,
-				// expected 'vector-is-collapse-sections-enabled' value
-				false
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 3 ] ),
+				// 'vector-is-collapse-sections-enabled' value is false
+				array_merge( $tocData, $expectedConfigData, [
+					'vector-is-collapse-sections-enabled' => false
+				] )
 			],
 			// When number of multiple sections is equal to the configured value
 			[
-				// $tocData
 				$tocData,
-				// wgVectorTableOfContentsCollapseAtCount
-				2,
-				// expected 'vector-is-collapse-sections-enabled' value
-				true
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 2 ] ),
+				// 'vector-is-collapse-sections-enabled' value is true
+				array_merge( $tocData, $expectedConfigData )
 			],
 			// When number of multiple sections is higher than configured value
 			[
-				// $tocData
 				$tocData,
-				// wgVectorTableOfContentsCollapseAtCount
-				1,
-				// expected 'vector-is-collapse-sections-enabled' value
-				true
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 1 ] ),
+				// 'vector-is-collapse-sections-enabled' value is true
+				array_merge( $tocData, $expectedConfigData )
+			],
+			// When "Beginning" TOC section is configured to be turned off
+			[
+				$tocData,
+				array_merge( $config, [ 'VectorTableOfContentsBeginning' => false ] ),
+				// 'is-vector-toc-beginning-enabled' value is false
+				array_merge( $tocData, $expectedConfigData, [
+					'is-vector-toc-beginning-enabled' => false
+				] )
+			],
+			// When TOC has sections with top level parent sections
+			[
+				$nestedTocData,
+				$config,
+				// 'vector-button-label' is provided for top level parent sections
+				$expectedNestedTocData
 			],
 		];
 	}
 
 	/**
-	 * @covers \Vector\SkinVector::getTocData
+	 * @covers \Vector\SkinVector22::getTocData
 	 * @dataProvider provideGetTOCData
 	 */
 	public function testGetTocData(
 		array $tocData,
-		int $configValue,
-		bool $expected
+		array $config,
+		array $expected
 	) {
 		$this->setMwGlobals( [
-			'wgVectorTableOfContentsCollapseAtCount' => $configValue
+			'wgVectorTableOfContentsCollapseAtCount' => $config['VectorTableOfContentsCollapseAtCount'],
+			'wgVectorTableOfContentsBeginning' => $config['VectorTableOfContentsBeginning'],
 		] );
 
-		$skinVector = new SkinVectorLegacy( [ 'name' => 'vector-2022' ] );
+		$skinVector = new SkinVector22( [ 'name' => 'vector-2022' ] );
 		$openSkinVector = TestingAccessWrapper::newFromObject( $skinVector );
 		$data = $openSkinVector->getTocData( $tocData );
-
-		if ( empty( $tocData ) ) {
-			$this->assertEquals( [], $data, 'toc data is empty when given an empty array' );
-			return;
-		}
-		$this->assertArrayHasKey( 'vector-is-collapse-sections-enabled', $data );
-		$this->assertEquals(
-			$expected,
-			$data['vector-is-collapse-sections-enabled'],
-			'vector-is-collapse-sections-enabled has correct value'
-		);
-		$this->assertArrayHasKey( 'array-sections', $data );
+		$this->assertEquals( $expected, $data );
 	}
 
 	/**

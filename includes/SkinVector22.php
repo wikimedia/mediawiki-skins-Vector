@@ -78,6 +78,38 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Annotates table of contents data with Vector-specific information.
+	 *
+	 * @param array $tocData
+	 * @return array
+	 */
+	private function getTocData( array $tocData ): array {
+		// If the table of contents has no items, we won't output it.
+		// empty array is interpreted by Mustache as falsey.
+		if ( empty( $tocData ) || empty( $tocData[ 'array-sections' ] ) ) {
+			return [];
+		}
+
+		// Populate button labels for collapsible TOC sections
+		foreach ( $tocData[ 'array-sections' ] as &$section ) {
+			if ( $section['is-top-level-section'] && $section['is-parent-section'] ) {
+				$section['vector-button-label'] =
+					$this->msg( 'vector-toc-toggle-button-label', $section['line'] )->text();
+			}
+		}
+
+		return array_merge( $tocData, [
+			'is-vector-toc-beginning-enabled' => $this->getConfig()->get(
+				'VectorTableOfContentsBeginning'
+			),
+			'vector-is-collapse-sections-enabled' =>
+				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
+					'VectorTableOfContentsCollapseAtCount'
+				)
+		] );
+	}
+
+	/**
 	 * Temporary function while we deprecate SkinVector class.
 	 *
 	 * @return bool
@@ -92,6 +124,9 @@ class SkinVector22 extends SkinVector {
 	public function getTemplateData(): array {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
+
+		$parentData['data-toc'] = $this->getTocData( $parentData['data-toc'] ?? [] );
+
 		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
 			unset( $parentData['data-toc'] );
 		}
