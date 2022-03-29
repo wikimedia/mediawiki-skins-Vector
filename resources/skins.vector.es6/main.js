@@ -8,10 +8,13 @@ const
 	initTableOfContents = require( './tableOfContents.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	TOC_ID = 'mw-panel-toc',
-	LEGACY_TOC_ID = 'toc',
+	TOC_ID_LEGACY = 'toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
+	TOC_LEGACY_PLACEHOLDER_TAG = 'mw:tocplace',
+	TOC_SCROLL_HOOK = 'table_of_contents',
+	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {};
 
 /**
@@ -69,38 +72,53 @@ const main = () => {
 		isStickyHeaderAllowed = stickyHeaderExperiment ?
 			stickyHeaderExperiment.isInTreatmentBucket() : stickyHeader.isStickyHeaderAllowed();
 
-	// Set up intersection observer for sticky header functionality and firing scroll event hooks
-	// for event logging if AB test is enabled.
+	// Table of contents
+	const tocElement = document.getElementById( TOC_ID );
+	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
+	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+	const tocLegacyPlaceholder = document.getElementsByTagName( TOC_LEGACY_PLACEHOLDER_TAG )[ 0 ];
+	const tocLegacyTargetIntersection = tocElementLegacy || tocLegacyPlaceholder;
+
+	// Set up intersection observer for sticky header and table of contents functionality
+	// and to fire scroll event hooks for event logging if AB tests are enabled for
+	// either feature.
 	const observer = scrollObserver.initScrollObserver(
 		() => {
 			if ( targetElement && isStickyHeaderAllowed ) {
 				stickyHeader.show();
 			}
-			scrollObserver.fireScrollHook( 'down' );
+			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
+			if ( tocLegacyTargetIntersection ) {
+				scrollObserver.fireScrollHook( 'down', TOC_SCROLL_HOOK );
+			}
 		},
 		() => {
 			if ( targetElement && isStickyHeaderAllowed ) {
 				stickyHeader.hide();
 			}
-			scrollObserver.fireScrollHook( 'up' );
+			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
+			if ( tocLegacyTargetIntersection ) {
+				scrollObserver.fireScrollHook( 'up', TOC_SCROLL_HOOK );
+			}
 		}
 
 	);
 
+	// Initiate observer for sticky header.
 	if ( isStickyHeaderAllowed ) {
 		stickyHeader.initStickyHeader( observer );
 	} else if ( targetIntersection ) {
 		observer.observe( targetIntersection );
 	}
 
-	// Table of contents
-	const tocElement = document.getElementById( TOC_ID );
-	const legacyTOCElement = document.getElementById( LEGACY_TOC_ID );
-	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+	// Initiate observer for table of contents in main content.
+	if ( tocLegacyTargetIntersection ) {
+		observer.observe( tocLegacyTargetIntersection );
+	}
 
 	// Add event data attributes to legacy TOC
-	if ( legacyTOCElement ) {
-		legacyTOCElement.setAttribute( 'data-event-name', 'ui.toc' );
+	if ( tocElementLegacy ) {
+		tocElementLegacy.setAttribute( 'data-event-name', 'ui.toc' );
 	}
 
 	if ( !(
