@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gorgich"
+			"Gorgich",
+			"TayfunEt."
 		]
 	},
+	"vector-action-delete": "Йок ет",
+	"vector-action-move": "Тагы",
 	"vector-view-edit": "Туьрлентуьв",
 	"vector-view-view": "Окув",
 	"vector-more-actions": "Тагы"
