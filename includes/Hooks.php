@@ -449,13 +449,15 @@ class Hooks {
 	 */
 	public static function onLocalUserCreated( User $user, $isAutoCreated ) {
 		$default = self::getConfig( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
-		$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-		$optionsManager->setOption(
-			$user,
-			Constants::PREF_KEY_SKIN,
-			$default === Constants::SKIN_VERSION_LEGACY ?
-				Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
-		);
+		if ( $default ) {
+			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
+			$optionsManager->setOption(
+				$user,
+				Constants::PREF_KEY_SKIN,
+				$default === Constants::SKIN_VERSION_LEGACY ?
+					Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
+			);
+		}
 	}
 
 	/**
