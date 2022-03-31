@@ -105,6 +105,66 @@ module.exports = function tableOfContents( props ) {
 	}
 
 	/**
+	 * Scroll active section into view if necessary
+	 *
+	 * @param {string} id The id of the element to be scrolled to in the Table of Contents.
+	 */
+	function scrollToActiveSection( id ) {
+		const section = document.getElementById( id );
+		if ( !section ) {
+			return;
+		}
+
+		// Get currently visible active link
+		let link = section.firstElementChild;
+		// @ts-ignore
+		if ( link && !link.offsetParent ) {
+			// If active link is a hidden subsection, use active parent link
+			const { parent: activeTopId } = getActiveSectionIds();
+			const parentSection = document.getElementById( activeTopId || '' );
+			if ( parentSection ) {
+				link = parentSection.firstElementChild;
+			} else {
+				link = null;
+			}
+		}
+
+		const isContainerScrollable = props.container.scrollHeight > props.container.clientHeight;
+		if ( link && isContainerScrollable ) {
+			const containerRect = props.container.getBoundingClientRect();
+			const linkRect = link.getBoundingClientRect();
+
+			// Pixels above or below the TOC where we start scrolling the active section into view
+			const hiddenThreshold = 100;
+			const midpoint = ( containerRect.bottom - containerRect.top ) / 2;
+			const linkHiddenTopValue = containerRect.top - linkRect.top;
+			// Because the bottom of the TOC can extend below the viewport,
+			// min() is used to find the value where the active section first becomes hidden
+			const linkHiddenBottomValue = linkRect.bottom -
+				Math.min( containerRect.bottom, window.innerHeight );
+
+			// Respect 'prefers-reduced-motion' user preference
+			const mediaQuery = window.matchMedia( '(prefers-reduced-motion: reduce)' );
+			const scrollBehavior = ( !mediaQuery || !mediaQuery.matches ) ? 'smooth' : undefined;
+
+			// Manually increment and decrement TOC scroll rather than using scrollToView
+			// in order to account for threshold
+			if ( linkHiddenTopValue + hiddenThreshold > 0 ) {
+				props.container.scrollTo( {
+					top: props.container.scrollTop - linkHiddenTopValue - midpoint,
+					behavior: scrollBehavior
+				} );
+			}
+			if ( linkHiddenBottomValue + hiddenThreshold > 0 ) {
+				props.container.scrollTo( {
+					top: props.container.scrollTop + linkHiddenBottomValue + midpoint,
+					behavior: scrollBehavior
+				} );
+			}
+		}
+	}
+
+	/**
 	 * Adds the `EXPANDED_SECTION_CLASS` CSS class name
 	 * to a top level heading in the ToC.
 	 *
@@ -147,6 +207,7 @@ module.exports = function tableOfContents( props ) {
 		} else {
 			deactivateSections();
 			activateSection( id );
+			scrollToActiveSection( id );
 		}
 	}
 
