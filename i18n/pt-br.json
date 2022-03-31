@@ -13,6 +13,7 @@
 			"Jaideraf",
 			"Luan",
 			"Opraco",
+			"YuriNikolai",
 			555
 		]
 	},
@@ -46,6 +47,7 @@
 	"vector-search-loader": "Carregando sugestões de pesquisa",
 	"vector-searchsuggest-containing": "Procurar pelas páginas contendo <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Wikipédia:Boas-vindas",
+	"vector-toc-heading": "Conteúdo",
 	"vector-anon-user-menu-pages": "Páginas para editores conectados",
 	"vector-anon-user-menu-pages-learn": "saiba mais",
 	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição",

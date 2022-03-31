@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ammarpad",
+			"Bello Na'im",
 			"DonCamillo",
 			"Edith Nwobu",
 			"Em-em",
@@ -22,5 +23,6 @@
 	"vector-view-view": "Karanta",
 	"vector-more-actions": "Mafi",
 	"vector-searchsuggest-containing": "Duba shafukan dake dauke da <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
-	"vector-intro-page": "Taimako:Gabatarwa"
+	"vector-intro-page": "Taimako:Gabatarwa",
+	"vector-toc-beginning": "Farawa"
 }
