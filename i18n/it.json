@@ -38,5 +38,8 @@
 	"vector-view-view": "Leggi",
 	"vector-view-viewsource": "Visualizza wikitesto",
 	"vector-more-actions": "Altro",
-	"vector-searchsuggest-containing": "Cerca le pagine che contengono <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Cerca le pagine che contengono <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-intro-page": "Aiuto:Introduzione",
+	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
+	"vector-anon-user-menu-pages-learn": "ulteriori informazioni"
 }
