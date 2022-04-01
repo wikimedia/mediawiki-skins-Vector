@@ -60,12 +60,6 @@ abstract class SkinVector extends SkinMustache {
 	/** @var int */
 	private const MENU_TYPE_DROPDOWN = 2;
 	private const MENU_TYPE_PORTAL = 3;
-	private const NO_ICON = [
-		'icon' => 'none',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
-	];
 	private const TALK_ICON = [
 		'href' => '#',
 		'id' => 'ca-talk-sticky-header',
@@ -495,7 +489,6 @@ abstract class SkinVector extends SkinMustache {
 	 */
 	public function getTemplateData(): array {
 		$skin = $this;
-		$out = $skin->getOutput();
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 		$featureManager = VectorServices::getFeatureManager();
 
