@@ -56,6 +56,7 @@
 	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducción",
 	"vector-toc-heading": "Contenidos",
+	"vector-toc-beginning": "Inicio",
 	"vector-anon-user-menu-pages": "Páginas para editores desconectados",
 	"vector-anon-user-menu-pages-learn": "más información",
 	"vector-anon-user-menu-pages-label": "Obtenga más información sobre editar",
