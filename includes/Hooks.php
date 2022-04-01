@@ -627,13 +627,6 @@ class Hooks {
 	 * @return bool
 	 */
 	private static function isSkinVersionLegacy( $skinName ): bool {
-		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
-			return false;
-		}
-
-		$isLatestSkinFeatureEnabled = VectorServices::getFeatureManager()
-			->isFeatureEnabled( Constants::FEATURE_LATEST_SKIN );
-
-		return !$isLatestSkinFeatureEnabled;
+		return $skinName === Constants::SKIN_NAME_LEGACY;
 	}
 }

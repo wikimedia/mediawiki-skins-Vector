@@ -26,7 +26,6 @@ use MediaWiki\MediaWikiServices;
 use Vector\Constants;
 use Vector\FeatureManagement\FeatureManager;
 use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
-use Vector\FeatureManagement\Requirements\LatestSkinVersionRequirement;
 use Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 
 return [
@@ -44,25 +43,7 @@ return [
 			)
 		);
 
-		// Feature: Latest skin
-		// ====================
 		$context = RequestContext::getMain();
-
-		$featureManager->registerRequirement(
-			new LatestSkinVersionRequirement(
-				$context->getRequest(),
-				$context->getUser(),
-				$services->getUserOptionsLookup()
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_LATEST_SKIN,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
-			]
-		);
 
 		// Feature: Languages in sidebar
 		// ================================
@@ -113,7 +94,6 @@ return [
 			Constants::FEATURE_LANGUAGE_IN_HEADER,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
 			]
 		);
@@ -142,7 +122,6 @@ return [
 			Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_IS_MAIN_PAGE,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER
@@ -168,7 +147,6 @@ return [
 			Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
 			]
@@ -193,7 +171,6 @@ return [
 			Constants::FEATURE_TABLE_OF_CONTENTS,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_TABLE_OF_CONTENTS
 			]
 		);
@@ -230,7 +207,6 @@ return [
 			Constants::FEATURE_STICKY_HEADER,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_STICKY_HEADER
 			]
 		);
@@ -239,7 +215,6 @@ return [
 			Constants::FEATURE_STICKY_HEADER_EDIT,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LATEST_SKIN_VERSION,
 				Constants::REQUIREMENT_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER_EDIT,
 			]
