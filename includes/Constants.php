@@ -91,16 +91,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_LATEST_SKIN_VERSION = 'LatestSkinVersion';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_LATEST_SKIN = 'LatestSkin';
-
-	/**
-	 * @var string
-	 */
 	public const FEATURE_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	/**
@@ -141,18 +131,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const QUERY_PARAM_LANGUAGE_IN_HEADER = 'languageinheader';
-
-	/**
-	 * Override the skin version user preference and site Config. See readme.
-	 * @var string
-	 */
-	public const QUERY_PARAM_SKIN_VERSION = 'useskinversion';
-
-	/**
-	 * Override the skin user preference and site Config. See readme.
-	 * @var string
-	 */
-	public const QUERY_PARAM_SKIN = 'useskin';
 
 	/**
 	 * @var string

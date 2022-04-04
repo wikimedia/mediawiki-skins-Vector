@@ -46,10 +46,27 @@ class SkinVector22 extends SkinVector {
 	 * @return array
 	 */
 	public function getTemplateData(): array {
-		$data = parent::getTemplateData();
+		$featureManager = VectorServices::getFeatureManager();
+		$parentData = parent::getTemplateData();
 		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
-			unset( $data['data-toc'] );
+			unset( $parentData['data-toc'] );
 		}
-		return $data;
+		return $parentData + [
+			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
+				Constants::FEATURE_STICKY_HEADER
+			) ? $this->getStickyHeaderData(
+				$this->getSearchData(
+					$parentData['data-search-box'],
+					// Collapse inside search box is disabled.
+					false,
+					false,
+					'vector-sticky-search-form',
+					false
+				),
+				$featureManager->isFeatureEnabled(
+					Constants::FEATURE_STICKY_HEADER_EDIT
+				)
+			) : false,
+		];
 	}
 }

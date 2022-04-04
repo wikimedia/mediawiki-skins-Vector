@@ -418,7 +418,7 @@ abstract class SkinVector extends SkinMustache {
 	 * @param bool $includeEditIcons
 	 * @return array
 	 */
-	private function getStickyHeaderData( $searchBoxData, $includeEditIcons ): array {
+	final protected function getStickyHeaderData( $searchBoxData, $includeEditIcons ): array {
 		$btns = [
 			self::TALK_ICON,
 			self::HISTORY_ICON,
@@ -534,21 +534,6 @@ abstract class SkinVector extends SkinMustache {
 				'searchform',
 				true
 			),
-			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
-				Constants::FEATURE_STICKY_HEADER
-			) ? $this->getStickyHeaderData(
-				$this->getSearchData(
-					$parentData['data-search-box'],
-					// Collapse inside search box is disabled.
-					false,
-					false,
-					'vector-sticky-search-form',
-					false
-				),
-				$featureManager->isFeatureEnabled(
-					Constants::FEATURE_STICKY_HEADER_EDIT
-				)
-			) : false,
 			'data-toc' => $this->getTocData( $parentData['data-toc'] ?? [] )
 		] );
 
@@ -635,7 +620,7 @@ abstract class SkinVector extends SkinMustache {
 	 * @param bool $autoExpandWidth
 	 * @return array modified version of $searchBoxData
 	 */
-	private function getSearchData(
+	final protected function getSearchData(
 		array $searchBoxData,
 		bool $isCollapsible,
 		bool $isPrimary,

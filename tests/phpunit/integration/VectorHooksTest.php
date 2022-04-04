@@ -16,7 +16,6 @@ use RuntimeException;
 use Title;
 use User;
 use Vector\Constants;
-use Vector\FeatureManagement\FeatureManager;
 use Vector\Hooks;
 use Vector\SkinVector22;
 use Vector\SkinVectorLegacy;
@@ -287,16 +286,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			Hooks::shouldDisableMaxWidth( $options, $title, $requestValues ),
 			$msg
 		);
-	}
-
-	private function setFeatureLatestSkinVersionIsEnabled( $isEnabled ) {
-		$featureManager = new FeatureManager();
-		$featureManager->registerSimpleRequirement( Constants::REQUIREMENT_LATEST_SKIN_VERSION, $isEnabled );
-		$featureManager->registerFeature( Constants::FEATURE_LATEST_SKIN, [
-			Constants::REQUIREMENT_LATEST_SKIN_VERSION
-		] );
-
-		$this->setService( Constants::SERVICE_FEATURE_MANAGER, $featureManager );
 	}
 
 	/**

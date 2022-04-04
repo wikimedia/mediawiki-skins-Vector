@@ -16,4 +16,11 @@ class SkinVectorLegacy extends SkinVector {
 	protected function isLegacy(): bool {
 		return true;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function isLanguagesInContentAt( $location ) {
+		return false;
+	}
 }
