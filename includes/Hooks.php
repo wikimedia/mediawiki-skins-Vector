@@ -553,6 +553,11 @@ class Hooks {
 		) ) {
 			$bodyAttrs['class'] .= ' skin-vector-disable-max-width';
 		}
+
+		$featureManager = VectorServices::getFeatureManager();
+		if ( $featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER ) ) {
+			$bodyAttrs['class'] .= ' vector-language-in-header-enabled';
+		}
 	}
 
 	/**
