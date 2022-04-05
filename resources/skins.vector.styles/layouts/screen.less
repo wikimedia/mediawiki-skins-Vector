@@ -267,6 +267,12 @@ body {
 	.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
 }
 
+.skin-vector-toc-experiment-control .mw-table-of-contents-container,
+.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container,
+.skin-vector-toc-experiment-treatment #toc {
+	display: none;
+}
+
 // Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
 .vector-toc-enabled #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
 	display: none;

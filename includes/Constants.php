@@ -173,12 +173,11 @@ final class Constants {
 	public const FEATURE_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
 
 	/**
-	 * Defines whether the Sticky Header A/B test is running. See
-	 * https://phabricator.wikimedia.org/T292587 for additional detail about the test.
+	 * Defines whether an A/B test is running.
 	 *
 	 * @var string
 	 */
-	public const CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT = 'VectorWebABTestEnrollment';
+	public const CONFIG_WEB_AB_TEST_ENROLLMENT = 'VectorWebABTestEnrollment';
 
 	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
@@ -269,6 +268,11 @@ final class Constants {
 	 * @var string
 	 */
 	public const FEATURE_TABLE_OF_CONTENTS = 'TableOfContents';
+
+	/**
+	 * @var string
+	 */
+	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**
 	 * This class is for namespacing constants only. Forbid construction.

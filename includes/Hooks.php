@@ -40,7 +40,7 @@ class Hooks {
 	 */
 	private static function getActiveABTest( $config ) {
 		$ab = $config->get(
-			Constants::CONFIG_STICKY_HEADER_TREATMENT_AB_TEST_ENROLLMENT
+			Constants::CONFIG_WEB_AB_TEST_ENROLLMENT
 		);
 		if ( count( $ab ) === 0 ) {
 			// If array is empty then no experiment and need to validate.
@@ -461,6 +461,59 @@ class Hooks {
 	}
 
 	/**
+	 * Returns the necessary TOC classes.
+	 *
+	 * @param Skin $sk
+	 * @param Config $config
+	 * @return string[]
+	 */
+	private static function getTocClasses( Skin $sk, $config ): array {
+		if ( !( $sk instanceof SkinVector22 ) ) {
+			return [];
+		}
+
+		$classes = [];
+
+		$isTocABTestEnabled = $sk->isTOCABTestEnabled();
+		if ( $isTocABTestEnabled || $sk->isTOCEnabled() ) {
+			$classes[] = 'vector-toc-enabled';
+		}
+
+		if (
+			$sk->isTableOfContentsVisibleInSidebar() &&
+			$isTocABTestEnabled
+		) {
+			/** @var \WikimediaEvents\WebABTest\WebABTestArticleIdFactory */
+			$webABTestArticleIdFactory = MediaWikiServices::getInstance()->getService(
+				Constants::WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE
+			);
+			$experimentConfig = $config->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
+			$bucketKeys = array_keys( $experimentConfig['buckets'] );
+
+			$ab = $webABTestArticleIdFactory->makeWebABTestArticleIdStrategy(
+				$webABTestArticleIdFactory->filterExcludedBucket( $bucketKeys ),
+				1 - $experimentConfig['buckets']['unsampled']['samplingRate'],
+				Constants::QUERY_PARAM_TABLE_OF_CONTENTS,
+				$sk->getContext()
+			);
+
+			if ( !$ab ) {
+				return $classes;
+			}
+
+			$bucket = $ab->getBucket();
+
+			if ( $bucket ) {
+				$experimentName = $experimentConfig[ 'name' ];
+				$classes[] = $experimentName;
+				$classes[] = "$experimentName-$bucket";
+			}
+		}
+
+		return $classes;
+	}
+
+	/**
 	 * Called when OutputPage::headElement is creating the body tag to allow skins
 	 * and extensions to add attributes they might need to the body of the page.
 	 *
@@ -473,6 +526,7 @@ class Hooks {
 		if ( !self::isVectorSkin( $skinName ) ) {
 			return;
 		}
+		$config = $sk->getConfig();
 
 		// As of 2020/08/13, this CSS class is referred to by the following deployed extensions:
 		//
@@ -486,7 +540,11 @@ class Hooks {
 			$bodyAttrs['class'] .= ' skin-vector-legacy';
 		}
 
-		$config = $sk->getConfig();
+		$tocClasses = self::getTocClasses( $sk, $config );
+		if ( $tocClasses ) {
+			$bodyAttrs['class'] .= ' ' . implode( ' ', $tocClasses );
+		}
+
 		// Should we disable the max-width styling?
 		if ( !self::isSkinVersionLegacy( $skinName ) && $sk->getTitle() && self::shouldDisableMaxWidth(
 			$config->get( 'VectorMaxWidthOptions' ),
