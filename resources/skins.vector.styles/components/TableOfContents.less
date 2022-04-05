@@ -79,16 +79,17 @@
 }
 
 // T302076 Add scrollable indicator as fade
-.sidebar-toc:after {
+.mw-table-of-contents-container:after {
 	content: '';
 	display: block;
-	position: sticky; // Make it stick to the bottom like position:fixed inside an element
-	// By defining all the values it will always be fixed
-	bottom: 0;
+	position: relative;
+	bottom: @fade-height;
 	left: 0;
 	height: @fade-height;
 	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
 	pointer-events: none; // Make the link below the fade clickable
+	border: @border-base;
+	border-top: 0;
 }
 
 // Highlight active section
