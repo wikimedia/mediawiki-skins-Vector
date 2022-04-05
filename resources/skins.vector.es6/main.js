@@ -207,8 +207,11 @@ const main = () => {
 			tableOfContents.toggleExpandSection( id );
 		}
 	} );
+	const headingSelector = [
+		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+	].map( ( tag ) => `.mw-parser-output > ${tag}` ).join( ',' );
 	const sectionObserver = initSectionObserver( {
-		elements: bodyContent.querySelectorAll( 'h1, h2, h3, h4, h5, h6, .mw-body-content' ),
+		elements: bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` ),
 		topMargin: header ? header.getBoundingClientRect().height : 0,
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
