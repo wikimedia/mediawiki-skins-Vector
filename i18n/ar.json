@@ -13,7 +13,8 @@
 			"علاء",
 			"Michel Bakni",
 			"Shbib Al-Subaie",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"NEHAOUA"
 		]
 	},
 	"skinname-vector": "فكتور",
@@ -25,7 +26,7 @@
 	"vector.css": "/* ستؤثِّر الأنماط المتراصة CSS المعروضة هنا على مستخدمي واجهة فكتور */",
 	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
-	"vector-language-button-label": "{{PLURAL:$1|zero=لا لغات|one=لغة واحدة|two=لغتان|few=1$ لغات|many=1$ لغة|1$ لغات}}",
+	"vector-language-button-label": "بلغات أخرى ($1)",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",
 	"vector-action-move": "انقل",
