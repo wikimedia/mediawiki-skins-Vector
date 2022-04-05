@@ -322,10 +322,9 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLegacy() {
-		$config = new HashConfig( [
-			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
+		$this->setMwGlobals( [
+			'wgVectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
 		] );
-		$this->setService( 'Vector.Config', $config );
 
 		$user = $this->createMock( User::class );
 		$userOptionsManager = $this->createMock( UserOptionsManager::class );
@@ -341,10 +340,9 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLatest() {
-		$config = new HashConfig( [
-			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
+		$this->setMwGlobals( [
+			'wgVectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
 		] );
-		$this->setService( 'Vector.Config', $config );
 
 		$user = $this->createMock( User::class );
 		$userOptionsManager = $this->createMock( UserOptionsManager::class );

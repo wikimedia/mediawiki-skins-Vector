@@ -128,9 +128,6 @@
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"
 	},
-	"ConfigRegistry": {
-		"vector": "GlobalVarConfig::newInstance"
-	},
 	"Hooks": {
 		"ResourceLoaderSiteModulePages": "Vector\\Hooks::onResourceLoaderSiteModulePages",
 		"ResourceLoaderSiteStylesModulePages": "Vector\\Hooks::onResourceLoaderSiteStylesModulePages",

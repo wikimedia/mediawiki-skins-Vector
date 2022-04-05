@@ -448,7 +448,8 @@ class Hooks {
 	 * @param bool $isAutoCreated
 	 */
 	public static function onLocalUserCreated( User $user, $isAutoCreated ) {
-		$default = self::getConfig( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$default = $config->get( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
 		if ( $default ) {
 			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
 			$optionsManager->setOption(
@@ -651,28 +652,10 @@ class Hooks {
 
 		if ( $user->isRegistered() && self::isSkinVersionLegacy( $skinName ) ) {
 			$vars[ 'wgVectorDisableSidebarPersistence' ] =
-				self::getConfig(
+				$out->getConfig()->get(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
 				);
 		}
-	}
-
-	/**
-	 * Get a configuration variable.
-	 *
-	 * @param string $name Name of configuration option.
-	 * @return mixed Value configured.
-	 * @throws \ConfigException
-	 */
-	private static function getConfig( $name ) {
-		return self::getServiceConfig()->get( $name );
-	}
-
-	/**
-	 * @return \Config
-	 */
-	private static function getServiceConfig() {
-		return MediaWikiServices::getInstance()->getService( Constants::SERVICE_CONFIG );
 	}
 
 	/**
