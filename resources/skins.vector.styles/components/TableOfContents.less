@@ -79,17 +79,17 @@
 }
 
 // T302076 Add scrollable indicator as fade
-.mw-table-of-contents-container:after {
+.sidebar-toc:after {
 	content: '';
 	display: block;
-	position: relative;
-	bottom: @fade-height;
+	position: absolute;
+	bottom: @border-width-base;
 	left: 0;
+	right: 0;
 	height: @fade-height;
 	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
 	pointer-events: none; // Make the link below the fade clickable
-	border: @border-base;
-	border-top: 0;
+	margin: 0 @border-width-base;
 }
 
 // Highlight active section
