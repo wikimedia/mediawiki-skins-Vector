@@ -178,8 +178,10 @@ module.exports = function tableOfContents( props ) {
 		}
 
 		const parentSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
+		const toggle = tocSection.querySelector( `.${TOGGLE_CLASS}` );
 
-		if ( parentSection && expandedSections.indexOf( parentSection ) < 0 ) {
+		if ( parentSection && toggle && expandedSections.indexOf( parentSection ) < 0 ) {
+			toggle.setAttribute( 'aria-expanded', 'true' );
 			parentSection.classList.add( EXPANDED_SECTION_CLASS );
 			expandedSections.push( parentSection );
 		}
@@ -229,7 +231,10 @@ module.exports = function tableOfContents( props ) {
 	function collapseSections( selectedIds ) {
 		const sectionIdsToCollapse = selectedIds || getExpandedSectionIds();
 		expandedSections = expandedSections.filter( function ( section ) {
-			if ( sectionIdsToCollapse.indexOf( section.id ) > -1 ) {
+			const isSelected = sectionIdsToCollapse.indexOf( section.id ) > -1;
+			const toggle = isSelected ? section.getElementsByClassName( TOGGLE_CLASS ) : undefined;
+			if ( isSelected && toggle && toggle.length > 0 ) {
+				toggle[ 0 ].setAttribute( 'aria-expanded', 'false' );
 				section.classList.remove( EXPANDED_SECTION_CLASS );
 				return false;
 			}
@@ -252,6 +257,23 @@ module.exports = function tableOfContents( props ) {
 		}
 	}
 
+	/**
+	 * Set aria-expanded attribute for all toggle buttons.
+	 */
+	function initializeExpandedStatus() {
+		const parentSections = props.container.querySelectorAll( `.${PARENT_SECTION_CLASS}` );
+		parentSections.forEach( ( section ) => {
+			const expanded = section.classList.contains( EXPANDED_SECTION_CLASS );
+			const toggle = section.querySelector( `.${TOGGLE_CLASS}` );
+			if ( toggle ) {
+				toggle.setAttribute( 'aria-expanded', expanded.toString() );
+			}
+		} );
+	}
+
+	/**
+	 * Bind event listeners for clicking on section headings and toggle buttons.
+	 */
 	function bindClickListener() {
 		props.container.addEventListener( 'click', function ( e ) {
 			if (
@@ -283,6 +305,9 @@ module.exports = function tableOfContents( props ) {
 		expandedSections = Array.from(
 			props.container.querySelectorAll( `.${EXPANDED_SECTION_CLASS}` )
 		);
+
+		// Initialize toggle buttons aria-expanded attribute.
+		initializeExpandedStatus();
 
 		// Bind event listeners.
 		bindClickListener();
