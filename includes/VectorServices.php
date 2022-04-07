@@ -18,7 +18,7 @@ final class VectorServices {
 	 * Gets the feature manager service.
 	 *
 	 * Per its definition in ServiceWiring.php, the feature manager service is bound to the global
-	 * request and user objects and to the _Vector.Config_ service.
+	 * request and user objects.
 	 *
 	 * @return FeatureManager
 	 */

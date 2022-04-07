@@ -11,13 +11,13 @@ use FatalError;
  */
 final class Constants {
 	/**
-	 * This is tightly coupled to the ConfigRegistry field in skin.json.
+	 * This is tightly coupled to the ValidSkinNames field in skin.json.
 	 * @var string
 	 */
 	public const SKIN_NAME_MODERN = 'vector-2022';
 
 	/**
-	 * This is tightly coupled to the ConfigRegistry field in skin.json.
+	 * This is tightly coupled to the ValidSkinNames field in skin.json.
 	 * @var string
 	 */
 	public const SKIN_NAME_LEGACY = 'vector';
@@ -32,11 +32,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const SKIN_VERSION_LATEST = '2';
-
-	/**
-	 * @var string
-	 */
-	public const SERVICE_CONFIG = 'Vector.Config';
 
 	/**
 	 * @var string

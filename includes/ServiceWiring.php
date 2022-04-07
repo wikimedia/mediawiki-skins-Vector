@@ -29,9 +29,6 @@ use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 
 return [
-	Constants::SERVICE_CONFIG => static function ( MediaWikiServices $services ) {
-		return $services->getService( 'ConfigFactory' )->makeConfig( Constants::SKIN_NAME_LEGACY );
-	},
 	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
 		$featureManager = new FeatureManager();
 
