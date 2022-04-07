@@ -22,8 +22,7 @@ final class Constants {
 	 */
 	public const SKIN_NAME_LEGACY = 'vector';
 
-	// These are tightly coupled to PREF_KEY_SKIN_VERSION and skin.json's configs. See skin.json for
-	// documentation.
+	// These are used to provide different default skin for new users.
 	/**
 	 * @var string
 	 */
@@ -43,6 +42,7 @@ final class Constants {
 	 */
 	public const SERVICE_FEATURE_MANAGER = 'Vector.FeatureManager';
 
+	// These are tightly coupled to skin.json's configs. See skin.json for documentation.
 	/**
 	 * @var string
 	 */
@@ -65,11 +65,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const PREF_KEY_SKIN = 'skin';
-
-	/**
-	 * @var string
-	 */
-	public const PREF_KEY_SKIN_VERSION = 'VectorSkinVersion';
 
 	/**
 	 * @var string

@@ -679,8 +679,6 @@ class Hooks {
 	 * Gets whether the current skin version is the legacy version.
 	 * Should mirror SkinVector::isLegacy
 	 *
-	 * @see VectorServices::getFeatureManager
-	 *
 	 * @param string $skinName hint that can be used to detect modern vector.
 	 * @return bool
 	 */
