@@ -23,7 +23,14 @@ const config = {
 		],
 		includeWarnings: true,
 		includeNotices: true,
-		hideElements: '#content'
+		hideElements: '#content',
+		chromeLaunchConfig: {
+			headless: true,
+			args: [
+				'--no-sandbox',
+				'--disable-setuid-sandbox'
+			]
+		}
 	}
 };
 
