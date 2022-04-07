@@ -4,6 +4,7 @@ const fs = require( 'fs' );
 const fetch = require( 'node-fetch' );
 const path = require( 'path' );
 const pa11y = require( 'pa11y' );
+const { program } = require( 'commander' );
 
 const htmlReporter = require( path.resolve( __dirname, './reporter/reporter.js' ) );
 const config = require( path.resolve( __dirname, 'a11y.config.js' ) );
@@ -38,18 +39,15 @@ function sendMetrics( namespace, name, count ) {
  */
 async function runTests( opts ) {
 	try {
-		if ( !config.env[ opts.env ] ) {
-			throw new Error( `Invalid env value: '${opts.env}'` );
-		}
-
-		if ( opts.env !== 'ci' && opts.logResults ) {
-			throw new Error( "Results can only be logged with '--env ci'" );
-		}
-
-		const tests = config.tests( opts.env );
-		const allTestsHaveNames = tests.filter( ( test ) => test.name ).length === tests.length;
-		if ( !allTestsHaveNames ) {
+		const tests = config.tests;
+		const allValidTests = tests.filter( ( test ) => test.name ).length === tests.length;
+		if ( !allValidTests ) {
 			throw new Error( 'Config missing test name' );
+		}
+
+		const canLogResults = process.env.BEACON_URL && config.namespace;
+		if ( opts.logResults && !canLogResults ) {
+			throw new Error( 'Unable to log results, missing config or env variables' );
 		}
 
 		resetReportDir();
@@ -81,10 +79,7 @@ async function runTests( opts ) {
 
 			// Send data to Graphite
 			// BEACON_URL is only defined in CI env
-			if ( opts.env === 'ci' && opts.logResults && process.env.BEACON_URL ) {
-				if ( !config.namespace ) {
-					throw new Error( 'Config missing namespace' );
-				}
+			if ( opts.logResults && canLogResults ) {
 				await sendMetrics( config.namespace, testResult.name, errorNum )
 					.then( ( response ) => {
 						if ( response.ok ) {
@@ -109,10 +104,7 @@ async function runTests( opts ) {
 }
 
 function setupCLI() {
-	const { program } = require( 'commander' );
-
 	program
-		.requiredOption( '-e, --env <env>', 'determine which urls tests are run on, development or ci' )
 		.option( '-s, --silent', 'avoids logging results summary to console', false )
 		.option( '-l, --logResults', 'log a11y results to Graphite, should only be used with --env ci', false )
 		.action( ( opts ) => {
