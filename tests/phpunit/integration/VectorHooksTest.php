@@ -27,9 +27,6 @@ use Vector\SkinVectorLegacy;
  * @coversDefaultClass \Vector\Hooks
  */
 class VectorHooksTest extends MediaWikiIntegrationTestCase {
-	private const HIDE_IF = [ '!==', 'skin', Constants::SKIN_NAME_LEGACY ];
-
-	private const SKIN_PREFS_SECTION = 'rendering/skin/skin-prefs';
 
 	/**
 	 * @param bool $excludeMainPage
