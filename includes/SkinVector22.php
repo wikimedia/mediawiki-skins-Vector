@@ -64,14 +64,13 @@ class SkinVector22 extends SkinVector {
 
 		if (
 			!$title ||
-			$title->getArticleID() === 0 ||
 			$title->isMainPage()
 		) {
 			return false;
 		}
 
 		if ( $this->isTOCABTestEnabled() ) {
-			return true;
+			return $title->getArticleID() !== 0;
 		}
 
 		return $this->isTOCEnabled();
