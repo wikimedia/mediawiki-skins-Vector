@@ -57,6 +57,7 @@
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Sommaire",
 	"vector-toc-beginning": "Début",
+	"vector-toc-toggle-button-label": "Afficher / masquer la sous-section $1",
 	"vector-anon-user-menu-pages": "Pages pour les contributeurs déconnectés",
 	"vector-anon-user-menu-pages-learn": "en savoir plus",
 	"vector-anon-user-menu-pages-label": "En savoir plus sur la contribution",

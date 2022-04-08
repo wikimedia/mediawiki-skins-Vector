@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Edith Nwobu",
+			"Pasjoesscc",
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba"
@@ -19,5 +20,6 @@
 	"vector-view-view": "Gụ̀ọ",
 	"vector-view-viewsource": "Zi mkpurụ",
 	"vector-more-actions": "Ọzọ",
-	"vector-toc-heading": "Ndịna"
+	"vector-toc-heading": "Ndịna",
+	"vector-toc-toggle-button-label": "Chọba ndịnisiokwu $1"
 }
