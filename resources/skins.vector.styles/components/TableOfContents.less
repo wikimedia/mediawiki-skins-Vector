@@ -1,18 +1,18 @@
 @import '../../common/variables.less';
 
-@subcategory-indent: 8px;
+@subcategory-padding: 8px;
 @fade-height: 40px;
-@vertical-padding: 25px;
+@vertical-padding: 20px;
+@toggle-icon-size: 1.834em;
 
 .sidebar-toc {
 	display: none;
 	width: @width-sidebar;
 	max-height: 75vh;
-	padding: @vertical-padding 12px 0 26px;
+	padding: @vertical-padding @subcategory-padding @vertical-padding ~'calc( @{subcategory-padding} * 4 )';
 	.box-sizing( border-box );
 	overflow: auto;
 	background-color: @border-color-sidebar;
-	border: @border-base;
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;
@@ -20,7 +20,7 @@
 
 	.sidebar-toc-title {
 		font-weight: bold;
-		font-size: @font-size-heading-3;
+		font-size: @font-size-reset;
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -37,7 +37,7 @@
 	}
 
 	.sidebar-toc-text {
-		padding-bottom: 5px;
+		padding: ~'calc( @{subcategory-padding} / 2 )'  0;
 	}
 
 	.sidebar-toc-contents,
@@ -48,14 +48,14 @@
 	}
 
 	.sidebar-toc-contents {
-		padding-bottom: @vertical-padding;
+		padding-bottom: ~'calc( @{vertical-padding} / 2 )';
 	}
 
 	.sidebar-toc-list-item {
 		display: block;
 		position: relative;
 		list-style-type: none;
-		padding-left: @subcategory-indent;
+		padding-left: @subcategory-padding;
 
 		a {
 			color: @color-base;
@@ -82,7 +82,7 @@
 	content: '';
 	display: block;
 	position: absolute;
-	bottom: @border-width-base;
+	bottom: 0;
 	left: 0;
 	right: 0;
 	height: @fade-height;
@@ -115,11 +115,14 @@
 
 		.sidebar-toc-toggle {
 			position: absolute;
+			top: 1px; // visually center icon
+			left: ~'calc( -1 * @{toggle-icon-size} - 1px )'; // leaves 6px between icon + text
 			display: block;
-			font-size: 0.7em; // reduces size of toggle icon (by an arbitrary amount)
-			top: 4px; // visually center icon (at least at default font size)
-			left: -18px;
+			width: @toggle-icon-size; // ~22px @ 12
+			height: @toggle-icon-size;
+			font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
 			transform: rotate( -90deg );
+			transition: 100ms;
 		}
 
 		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {

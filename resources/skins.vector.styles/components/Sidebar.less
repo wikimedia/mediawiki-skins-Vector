@@ -4,6 +4,16 @@
 @import '../../skins.vector.styles.legacy/components/Sidebar.less';
 @import './checkboxHack.less';
 
+// T305069 Layout adjustments of sidebar elements:
+// Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
+@margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
+// Top of sidebar TOC border horizontally aligns with page title underline rule.
+@top-margin-sidebar-toc_title_inline: 3.5em;
+// Top of sidebar TOC border normal spacing.
+@top-margin-sidebar-toc: 1.5em;
+// Top of sidebar main menu border horizontally aligns with top of tool tabs above page title.
+@top-margin-sidebar-content: -2.5em;
+
 .mw-sidebar {
 	width: @width-grid-column-one;
 	// To avoid the white part of the gradient colliding with the sidebar links
@@ -14,13 +24,46 @@
 }
 
 // Update styling when TOC is enabled
-.vector-toc-enabled .mw-sidebar {
-	width: @width-sidebar;
-	// Temporary magic number, will be calculated after TOC specs are finalized
-	padding: 12px 19px 12px 9px;
-	background-image: none;
-	background-color: @border-color-sidebar;
-	border: @border-base;
+.vector-toc-enabled {
+	.mw-sidebar {
+		width: @width-sidebar;
+		// Temporary magic number, will be calculated after TOC specs are finalized
+		padding: 12px 19px 12px 9px;
+		margin-top: @top-margin-sidebar-content;
+		margin-left: @margin-start-sidebar-content;
+		background-image: none;
+		background-color: @border-color-sidebar;
+	}
+
+	.sidebar-toc {
+		margin-top: @top-margin-sidebar-toc_title_inline;
+		margin-left: @margin-start-sidebar-content;
+	}
+
+	// T305069 Apply different top spacing to the topmost sidebar element during menu toggling when sidebar is open.
+	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container {
+		.sidebar-toc {
+			margin-top: @top-margin-sidebar-toc;
+		}
+
+		@media ( max-width: @width-breakpoint-tablet ) {
+			.mw-sidebar {
+				margin-top: 0;
+				margin-left: 0;
+			}
+
+			.sidebar-toc {
+				display: none;
+				margin-top: 0;
+			}
+		}
+	}
+
+	// T305069 When scrolling down, override the top padding of the sticky TOC that is applied during menu toggling
+	// so that the top of sticky TOC remains at the top of the viewport with normal padding. See scrollObserver.js.
+	&.vector-scrolled-below-table-of-contents .sidebar-toc {
+		margin-top: @top-margin-sidebar-toc;
+	}
 }
 
 .mw-sidebar-action {

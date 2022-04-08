@@ -6,7 +6,9 @@ const
 	SCROLL_TOC_HOOK = 'vector.table_of_contents_scroll',
 	SCROLL_TOC_CONTEXT_ABOVE = 'scrolled-above-table-of-contents',
 	SCROLL_TOC_CONTEXT_BELOW = 'scrolled-below-table-of-contents',
-	SCROLL_TOC_ACTION = 'scroll-to-toc';
+	SCROLL_TOC_ACTION = 'scroll-to-toc',
+	SCROLL_TOC_PARAMETER = 'table_of_contents',
+	SCROLL_TOC_BELOW_CLASS = 'vector-scrolled-below-table-of-contents';
 
 /**
  * @typedef {Object} scrollVariables
@@ -29,7 +31,7 @@ function getScrollVariables( hook ) {
 		scrollVariables.scrollContextBelow = SCROLL_TITLE_CONTEXT_BELOW;
 		scrollVariables.scrollContextAbove = SCROLL_TITLE_CONTEXT_ABOVE;
 		scrollVariables.scrollAction = SCROLL_TITLE_ACTION;
-	} else if ( hook === 'table_of_contents' ) {
+	} else if ( hook === SCROLL_TOC_PARAMETER ) {
 		scrollVariables.scrollHook = SCROLL_TOC_HOOK;
 		scrollVariables.scrollContextBelow = SCROLL_TOC_CONTEXT_BELOW;
 		scrollVariables.scrollContextAbove = SCROLL_TOC_CONTEXT_ABOVE;
@@ -53,11 +55,19 @@ function fireScrollHook( direction, hook ) {
 		mw.hook( scrollVariables.scrollHook ).fire( {
 			context: scrollVariables.scrollContextBelow
 		} );
+		// Piggy back on this function to apply needed class for shifting TOC.
+		if ( hook === SCROLL_TOC_PARAMETER ) {
+			document.body.classList.add( SCROLL_TOC_BELOW_CLASS );
+		}
 	} else {
 		mw.hook( scrollVariables.scrollHook ).fire( {
 			context: scrollVariables.scrollContextAbove,
 			action: scrollVariables.scrollAction
 		} );
+		// Piggy back on this function to apply needed class for shifting TOC.
+		if ( hook === SCROLL_TOC_PARAMETER ) {
+			document.body.classList.remove( SCROLL_TOC_BELOW_CLASS );
+		}
 	}
 }
 
