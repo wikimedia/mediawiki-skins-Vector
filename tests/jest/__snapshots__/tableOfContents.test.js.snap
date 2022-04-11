@@ -24,7 +24,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 		<div class=\\"sidebar-toc-text\\">
 		<span class=\\"sidebar-toc-numb\\">2</span>bar</div>
 	</a>
-		<button aria-controls=\\"toc-bar-sublist\\" class=\\"mw-ui-icon mw-ui-icon-wikimedia-downTriangle mw-ui-icon-small sidebar-toc-toggle\\" aria-expanded=\\"true\\">
+		<button aria-controls=\\"toc-bar-sublist\\" class=\\"mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle\\" aria-expanded=\\"true\\">
 			Toggle bar subsection
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"sidebar-toc-list\\">
@@ -83,7 +83,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 		<div class=\\"sidebar-toc-text\\">
 		<span class=\\"sidebar-toc-numb\\">2</span>bar</div>
 	</a>
-		<button aria-controls=\\"toc-bar-sublist\\" class=\\"mw-ui-icon mw-ui-icon-wikimedia-downTriangle mw-ui-icon-small sidebar-toc-toggle\\" aria-expanded=\\"false\\">
+		<button aria-controls=\\"toc-bar-sublist\\" class=\\"mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small sidebar-toc-toggle\\" aria-expanded=\\"false\\">
 			Toggle bar subsection
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"sidebar-toc-list\\">
