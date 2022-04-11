@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"C933103",
-			"Wxyveronica"
+			"Wxyveronica",
+			"StarrySky"
 		]
 	},
+	"vector-view-edit": "編輯",
+	"vector-view-history": "檢視歷史",
 	"vector-view-view": "閱讀",
 	"vector-more-actions": "更多"
 }
