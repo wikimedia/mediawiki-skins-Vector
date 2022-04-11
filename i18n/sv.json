@@ -43,6 +43,8 @@
 	"vector-search-loader": "Laddar in sökförslag",
 	"vector-searchsuggest-containing": "Sök efter sidor som innehåller <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
+	"vector-toc-heading": "Innehåll",
+	"vector-toc-toggle-button-label": "Växla underavsnittet $1",
 	"vector-anon-user-menu-pages": "Sidor för utloggade redigerade",
 	"vector-anon-user-menu-pages-learn": "läs mer",
 	"vector-anon-user-menu-pages-label": "Läs mer om redigering",
