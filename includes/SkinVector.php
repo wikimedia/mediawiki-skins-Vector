@@ -235,6 +235,7 @@ abstract class SkinVector extends SkinMustache {
 	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData['single-id'] = 'pt-createaccount';
+		unset( $createAccountData['icon'] );
 
 		if ( $includeIcon ) {
 			$class = array_merge(
@@ -267,9 +268,7 @@ abstract class SkinVector extends SkinMustache {
 	 * @return string
 	 */
 	private function getAnonMenuBeforePortletHTML( $returnto, $useCombinedLoginLink ) {
-		// 'single-id' must be provided for `makeLink` to populate `title`, `accesskey` and other attributes
 		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
-		$loginData['single-id'] = 'pt-login';
 		$loginData['class']  = [
 			'vector-menu-content-item',
 			'vector-menu-content-item-login',
@@ -314,7 +313,6 @@ abstract class SkinVector extends SkinMustache {
 		unset( $logoutLinkData['icon'] );
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
-			'msg-tooltip-pt-logout' => $this->msg( 'tooltip-pt-logout' ),
 			'htmlLogout' => $this->makeLink( 'logout', $logoutLinkData )
 		] );
 	}
@@ -619,13 +617,14 @@ abstract class SkinVector extends SkinMustache {
 		// At lower resolutions the search input is hidden search and only the submit button is shown.
 		// It should behave like a form submit link (e.g. submit the form with no input value).
 		// We'll wire this up in a later task T284242.
-		$searchBoxData['data-collapse-icon'] = [
+		$collapseIconAttrs = Linker::tooltipAndAccesskeyAttribs( 'search' );
+		$searchBoxData['data-collapse-icon'] = array_merge( [
 			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl(),
 			'label' => $this->msg( 'search' ),
 			'icon' => 'wikimedia-search',
 			'is-quiet' => true,
 			'class' => 'search-toggle',
-		];
+		], $collapseIconAttrs );
 
 		return $searchBoxData;
 	}
