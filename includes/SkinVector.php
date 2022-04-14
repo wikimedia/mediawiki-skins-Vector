@@ -121,7 +121,6 @@ abstract class SkinVector extends SkinMustache {
 	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 	private const CLASS_ICON_BUTTON = 'mw-ui-icon mw-ui-icon-element';
-	private const CLASS_ICON_LABEL = 'mw-ui-icon mw-ui-icon-before';
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -227,26 +226,21 @@ abstract class SkinVector extends SkinMustache {
 	/**
 	 * Returns HTML for the create account link inside the anon user links
 	 * @param string[] $returnto array of query strings used to build the login link
-	 * @param string[] $class array of CSS classes to add.
-	 * @param bool $includeIcon Set true to include icon CSS classes.
+	 * @param bool $isDropdownItem Set true for create account link inside the user menu dropdown
+	 *  which includes icon classes and is not styled like a button
 	 * @return string
 	 */
-	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
+	private function getCreateAccountHTML( $returnto, $isDropdownItem ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
-		$createAccountData['single-id'] = 'pt-createaccount';
-
-		if ( $includeIcon ) {
-			$class = array_merge(
-				$class,
-				[
-					self::CLASS_ICON_LABEL,
-					$this->iconClass( $createAccountData[ 'icon' ] ?? '' )
-				]
-			);
-		}
-
-		$createAccountData['class'] = $class;
-		unset( $createAccountData['icon'] );
+		$createAccountData = array_merge( $createAccountData, [
+			'class' => $isDropdownItem ? [
+				'vector-menu-content-item',
+			] : '',
+			'collapsible' => true,
+			'icon' => $isDropdownItem ? $createAccountData['icon'] : null,
+			'button' => !$isDropdownItem,
+		] );
+		$createAccountData = Hooks::updateMenuItem( $createAccountData, true );
 		return $this->makeLink( 'create-account', $createAccountData );
 	}
 
@@ -267,24 +261,15 @@ abstract class SkinVector extends SkinMustache {
 	 * @return string
 	 */
 	private function getAnonMenuBeforePortletHTML( $returnto, $useCombinedLoginLink, $isTempUser ) {
-		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
-		$loginData['class']  = [
-			'vector-menu-content-item',
-			'vector-menu-content-item-login',
-			self::CLASS_ICON_LABEL,
-			$this->iconClass( $loginData[ 'icon' ] ?? '' )
-		];
-		unset( $loginData['icon'] );
-
-		$templateData = [
-			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, [
-				'user-links-collapsible-item',
-				'vector-menu-content-item',
-			], true ),
-			'htmlLogin' => $this->makeLink( 'login', $loginData ),
-		];
-
 		$templateParser = $this->getTemplateParser();
+		$loginLinkData = array_merge( $this->buildLoginData( $returnto, $useCombinedLoginLink ), [
+			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-login' ],
+		] );
+		$loginLinkData = Hooks::updateMenuItem( $loginLinkData, true );
+		$templateData = [
+			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, true ),
+			'htmlLogin' => $this->makeLink( 'login', $loginLinkData ),
+		];
 
 		if ( $isTempUser ) {
 			$templateName = 'UserLinks__templogin';
@@ -308,16 +293,12 @@ abstract class SkinVector extends SkinMustache {
 	 * @return string
 	 */
 	private function getLogoutHTML() {
-		$logoutLinkData = $this->buildLogoutLinkData();
-		$templateParser = $this->getTemplateParser();
-		$logoutLinkData['class'] = [
-			'vector-menu-content-item',
-			'vector-menu-content-item-logout',
-			self::CLASS_ICON_LABEL,
-			$this->iconClass( $logoutLinkData[ 'icon' ] ?? '' )
-		];
-		unset( $logoutLinkData['icon'] );
+		$logoutLinkData = array_merge( $this->buildLogoutLinkData(), [
+			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-logout' ],
+		] );
+		$logoutLinkData = Hooks::updateMenuItem( $logoutLinkData, true );
 
+		$templateParser = $this->getTemplateParser();
 		return $templateParser->processTemplate( 'UserLinks__logout', [
 			'htmlLogout' => $this->makeLink( 'logout', $logoutLinkData )
 		] );
@@ -334,9 +315,7 @@ abstract class SkinVector extends SkinMustache {
 		$isTempUser = $user->isTemp();
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
-		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto, [
-			self::CLASS_QUIET_BUTTON
-		], false );
+		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto, false );
 
 		$templateParser = $this->getTemplateParser();
 		// See T288428#7303233. The following conditional checks whether config is disabling account creation for

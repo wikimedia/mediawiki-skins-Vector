@@ -484,6 +484,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'updateUserLinksDropdownItems'
 		);
 		$updateUserLinksDropdownItems->setAccessible( true );
+
+		// Anon users
 		$skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
 		$contentAnon = [
 			'user-menu' => [
@@ -516,14 +518,18 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertContains( 'user-links-collapsible-item', $contentRegistered['user-menu']['userpage']['class'],
 			'User page link in user links dropdown requires collapsible class'
 		);
-		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['userpage']['link-class'],
-			'User page link in user links dropdown requires before icon classes'
+		$this->assertEquals(
+			'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>',
+			$contentRegistered['user-menu']['userpage']['link-html'],
+			'User page link in user links dropdown has link-html'
 		);
 		$this->assertContains( 'user-links-collapsible-item', $contentRegistered['user-menu']['watchlist']['class'],
 			'Watchlist link in user links dropdown requires collapsible class'
 		);
-		$this->assertContains( 'mw-ui-icon-before', $contentRegistered['user-menu']['watchlist']['link-class'],
-			'Watchlist link in user links dropdown requires before icon classes'
+		$this->assertEquals(
+			'<span class="mw-ui-icon mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist"></span>',
+			$contentRegistered['user-menu']['watchlist']['link-html'],
+			'Watchlist link in user links dropdown has link-html'
 		);
 		$this->assertFalse( isset( $contentRegistered['user-menu']['logout'] ),
 			'Logout link in user links dropdown is not set'
@@ -594,5 +600,80 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			$content['vector-user-menu-overflow']['watchlist']['id'] === 'pt-watchlist-2',
 			'Watchlist link in user links has unique id'
 		);
+	}
+
+	public function provideUpdateMenuItem() {
+		return [
+			// Removes extra attributes
+			[
+				[ 'class' => [], 'icon' => '', 'button' => false, 'text-hidden' => false, 'collapsible' => false ],
+				false,
+				[ 'class' => [] ],
+			],
+			// Adds link-html
+			[
+				[ 'class' => [], 'icon' => 'userpage' ],
+				false,
+				[
+					'class' => [],
+					'link-html' =>
+					'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+				],
+			],
+			// Adds collapsible class
+			[
+				[ 'class' => [], 'collapsible' => true ],
+				false,
+				[ 'class' => [ 'user-links-collapsible-item' ] ],
+			],
+			// Adds button classes
+			[
+				[ 'class' => [], 'button' => true ],
+				false,
+				[ 'class' => [], 'link-class' => [ 'mw-ui-button', 'mw-ui-quiet' ] ],
+			],
+			// Adds text hidden classes
+			[
+				[ 'class' => [], 'text-hidden' => true, 'icon' => 'userpage' ],
+				false,
+				[ 'class' => [], 'link-class' => [
+					'mw-ui-icon',
+					'mw-ui-icon-element',
+					'mw-ui-icon-userpage',
+					'mw-ui-icon-wikimedia-userpage'
+				] ],
+			],
+			// Adds classes for link data
+			[
+				[ 'class' => [], 'button' => true, 'text-hidden' => true, 'icon' => 'userpage' ],
+				true,
+				[ 'class' => [
+					'mw-ui-button',
+					'mw-ui-quiet',
+					'mw-ui-icon',
+					'mw-ui-icon-element',
+					'mw-ui-icon-userpage',
+					'mw-ui-icon-wikimedia-userpage'
+				] ],
+			]
+		];
+	}
+
+	/**
+	 * @covers ::updateMenuItem
+	 * @dataProvider provideUpdateMenuItem
+	 */
+	public function testUpdateMenuItem(
+		array $menuItem,
+		bool $isLinkData,
+		array $expected
+	) {
+		$updateMenuItem = new ReflectionMethod(
+			Hooks::class,
+			'updateMenuItem'
+		);
+		$updateMenuItem->setAccessible( true );
+		$data = $updateMenuItem->invokeArgs( null, [ $menuItem, $isLinkData ] );
+		$this->assertEquals( $expected, $data );
 	}
 }

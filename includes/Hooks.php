@@ -208,32 +208,12 @@ class Hooks implements
 	}
 
 	/**
-	 * Adds an icon to the list item of a menu.
-	 *
-	 * @param array &$item
-	 * @param string $icon_name
-	 */
-	private static function addIconToListItem( &$item, $icon_name ) {
-		// Set the default menu icon classes.
-		$menu_icon_classes = [ 'mw-ui-icon', 'mw-ui-icon-before',
-			// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
-			'mw-ui-icon-' . $icon_name,
-			// FIXME: Some icon names are prefixed with `wikimedia-`.
-			// We should seek to remove all these instances.
-			'mw-ui-icon-wikimedia-' . $icon_name
-		];
-		self::addListItemClass( $item, $menu_icon_classes, true );
-	}
-
-	/**
 	 * Updates personal navigation menu (user links) dropdown for modern Vector:
 	 *  - Adds icons
 	 *  - Makes user page and watchlist collapsible
 	 *
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
-	 * @suppress PhanTypeArraySuspiciousNullable False positives
-	 * @suppress PhanTypePossiblyInvalidDimOffset False positives
 	 */
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
@@ -242,39 +222,37 @@ class Hooks implements
 		$isRegistered = $user->isRegistered();
 		if ( $isTemp ) {
 			if ( isset( $content_navigation['user-page']['tmpuserpage'] ) ) {
-				self::makeMenuItemCollapsible( $content_navigation['user-page']['tmpuserpage'] );
+				$content_navigation['user-page']['tmpuserpage']['collapsible'] = true;
+				$content_navigation['user-page']['tmpuserpage'] =
+					self::updateMenuItem( $content_navigation['user-page']['tmpuserpage'] );
 			}
 			if ( isset( $content_navigation['user-menu']['tmpuserpage'] ) ) {
-				self::makeMenuItemCollapsible( $content_navigation['user-menu']['tmpuserpage'] );
+				$content_navigation['user-menu']['tmpuserpage']['collapsible'] = true;
+				$content_navigation['user-menu']['tmpuserpage'] =
+					self::updateMenuItem( $content_navigation['user-menu']['tmpuserpage'] );
 			}
 		} elseif ( $isRegistered ) {
 			// Remove user page from personal menu dropdown for logged in use
-			self::makeMenuItemCollapsible(
-				$content_navigation['user-menu']['userpage']
-			);
+			$content_navigation['user-menu']['userpage']['collapsible'] = true;
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
 			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
-				self::makeMenuItemCollapsible(
-					$content_navigation['user-menu']['watchlist']
-				);
+				$content_navigation['user-menu']['watchlist']['collapsible'] = true;
 			}
 			// Remove logout link from user-menu and recreate it in SkinVector,
 			unset( $content_navigation['user-menu']['logout'] );
 		}
+
 		if ( $isRegistered ) {
-			// Don't show icons for anon menu items (besides login and create account).
 			// Prefix user link items with associated icon.
-			$user_menu = $content_navigation['user-menu'];
+			// Don't show icons for anon menu items (besides login and create account).
 			// Loop through each menu to check/append its link classes.
-			foreach ( $user_menu as $menu_key => $menu_value ) {
-				$icon_name = $menu_value['icon'] ?? '';
-				self::addIconToListItem( $content_navigation['user-menu'][$menu_key], $icon_name );
-			}
+			self::updateMenuItems( $content_navigation, 'user-menu' );
 		} else {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
 		}
+
 		if ( !$isRegistered || $isTemp ) {
 			// "Create account" link is handled manually by Vector
 			unset( $content_navigation['user-menu']['createaccount'] );
@@ -291,6 +269,8 @@ class Hooks implements
 	 * including 'notification', 'user-interface-preferences', 'user-page', 'vector-user-menu-overflow'
 	 *
 	 * @param array &$content_navigation
+	 * @suppress PhanTypeInvalidDimOffset False positives
+	 * @suppress PhanTypeMismatchArgumentInternal False positives
 	 */
 	private static function updateUserLinksOverflowItems( &$content_navigation ) {
 		// Upgrade preferences, notifications, and watchlist to icon buttons
@@ -376,7 +356,47 @@ class Hooks implements
 	 */
 	public static function makeIcon( $name ) {
 		// Html::makeLink will pass this through rawElement
-		return '<span class="mw-ui-icon mw-ui-icon-' . $name . '"></span>';
+		return '<span class="mw-ui-icon mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
+	}
+
+	/**
+	 * Updates template data for Vector menu items.
+	 *
+	 * @param array $item Menu data to update
+	 * @param bool $isLinkData false if data is for li element (i.e. makeListItem()),
+	 * true if for link element (i.e. makeLink())
+	 * @return array $item Updated menu data
+	 */
+	public static function updateMenuItem( $item, $isLinkData = false ) {
+		$hasButton = $item['button'] ?? false;
+		$hideText = $item['text-hidden'] ?? false;
+		$isCollapsible = $item['collapsible'] ?? false;
+		$icon = $item['icon'] ?? '';
+		unset( $item['button'] );
+		unset( $item['icon'] );
+		unset( $item['text-hidden'] );
+		unset( $item['collapsible'] );
+		if ( $isCollapsible ) {
+			self::makeMenuItemCollapsible( $item );
+		}
+		if ( $hasButton ) {
+			self::addListItemClass( $item, [ 'mw-ui-button', 'mw-ui-quiet' ], !$isLinkData );
+		}
+		if ( $icon ) {
+			if ( $hideText ) {
+				$iconElementClasses = [ 'mw-ui-icon', 'mw-ui-icon-element',
+					// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
+					'mw-ui-icon-' . $icon,
+					// FIXME: Some icon names are prefixed with `wikimedia-`.
+					// We should seek to remove all these instances.
+					'mw-ui-icon-wikimedia-' . $icon
+				];
+				self::addListItemClass( $item, $iconElementClasses, !$isLinkData );
+			} else {
+				$item['link-html'] = self::makeIcon( $icon );
+			}
+		}
+		return $item;
 	}
 
 	/**
@@ -387,37 +407,7 @@ class Hooks implements
 	 */
 	private static function updateMenuItems( &$content_navigation, $menu ) {
 		foreach ( $content_navigation[$menu] as $key => $item ) {
-			$hasButton = $item['button'] ?? false;
-			$hideText = $item['text-hidden'] ?? false;
-			$isCollapsible = $item['collapsible'] ?? false;
-			$icon = $item['icon'] ?? '';
-			unset( $item['button'] );
-			unset( $item['icon'] );
-			unset( $item['text-hidden'] );
-			unset( $item['collapsible'] );
-			if ( $isCollapsible ) {
-				self::makeMenuItemCollapsible( $item );
-			}
-
-			if ( $hasButton ) {
-				self::addListItemClass( $item, [ 'mw-ui-button', 'mw-ui-quiet' ], true );
-			}
-
-			if ( $icon ) {
-				if ( $hideText ) {
-					$iconElementClasses = [ 'mw-ui-icon', 'mw-ui-icon-element',
-						// Some extensions declare icons without the wikimedia- prefix. e.g. Echo
-						'mw-ui-icon-' . $icon,
-						// FIXME: Some icon names are prefixed with `wikimedia-`.
-						// We should seek to remove all these instances.
-						'mw-ui-icon-wikimedia-' . $icon
-					];
-					self::addListItemClass( $item, $iconElementClasses, true );
-				} else {
-					$item['link-html'] = self::makeIcon( $icon );
-				}
-			}
-			$content_navigation[$menu][$key] = $item;
+			$content_navigation[$menu][$key] = self::updateMenuItem( $item );
 		}
 	}
 
