@@ -13,6 +13,7 @@ const
 	ULS_HIDE_CLASS = 'uls-dialog-sticky-hide',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
+	STICKY_HEADER_EDIT_EXPERIMENT_NAME = 'vector.sticky_header_edit',
 	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header';
 
 /**
@@ -212,6 +213,7 @@ function prepareEditIcons(
 	if ( !primaryEditSticky || !wikitextSticky || !protectedSticky ) {
 		return;
 	}
+
 	if ( !primaryEdit ) {
 		removeNode( protectedSticky );
 		removeNode( wikitextSticky );
@@ -343,13 +345,15 @@ function prepareUserMenu( userMenu ) {
  * @param {Element} userMenuStickyContainer
  * @param {IntersectionObserver} stickyObserver
  * @param {Element} stickyIntersection
+ * @param {boolean} disableEditIcons
  */
 function makeStickyHeaderFunctional(
 	header,
 	userMenu,
 	userMenuStickyContainer,
 	stickyObserver,
-	stickyIntersection
+	stickyIntersection,
+	disableEditIcons
 ) {
 	const
 		userMenuStickyContainerInner = userMenuStickyContainer
@@ -370,7 +374,9 @@ function makeStickyHeaderFunctional(
 	const ceEdit = document.querySelector( '#ca-edit a' );
 	const protectedEdit = document.querySelector( '#ca-viewsource a' );
 	const isProtected = !!protectedEdit;
-	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
+	// For sticky header edit A/B test, conditionally remove the edit icon by setting null.
+	// Otherwise, use either protected, ve, or source edit (in that order).
+	const primaryEdit = disableEditIcons ? null : protectedEdit || veEdit || ceEdit;
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
 		document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
@@ -434,6 +440,7 @@ function isAllowedAction( action ) {
  * @property {Element} userMenu
  * @property {IntersectionObserver} observer
  * @property {Element} stickyIntersection
+ * @property {boolean} disableEditIcons
  */
 
 /**
@@ -449,7 +456,8 @@ function initStickyHeader( props ) {
 		props.userMenu,
 		userMenuStickyContainer,
 		props.observer,
-		props.stickyIntersection
+		props.stickyIntersection,
+		props.disableEditIcons
 	);
 
 	setupSearchIfNeeded( props.header );
@@ -486,5 +494,6 @@ module.exports = {
 	STICKY_HEADER_ID,
 	FIRST_HEADING_ID,
 	USER_MENU_ID,
+	STICKY_HEADER_EDIT_EXPERIMENT_NAME,
 	STICKY_HEADER_EXPERIMENT_NAME
 };
