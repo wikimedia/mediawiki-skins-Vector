@@ -235,7 +235,6 @@ abstract class SkinVector extends SkinMustache {
 	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData['single-id'] = 'pt-createaccount';
-		unset( $createAccountData['icon'] );
 
 		if ( $includeIcon ) {
 			$class = array_merge(
@@ -248,6 +247,7 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		$createAccountData['class'] = $class;
+		unset( $createAccountData['icon'] );
 		return $this->makeLink( 'create-account', $createAccountData );
 	}
 
@@ -276,6 +276,7 @@ abstract class SkinVector extends SkinMustache {
 			self::CLASS_ICON_LABEL,
 			$this->iconClass( $loginData[ 'icon' ] ?? '' )
 		];
+		unset( $loginData['icon'] );
 
 		$learnMoreLinkData = [
 			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
@@ -310,6 +311,7 @@ abstract class SkinVector extends SkinMustache {
 			self::CLASS_ICON_LABEL,
 			$this->iconClass( $logoutLinkData[ 'icon' ] ?? '' )
 		];
+		unset( $logoutLinkData['icon'] );
 
 		return $templateParser->processTemplate( 'UserLinks__logout', [
 			'msg-tooltip-pt-logout' => $this->msg( 'tooltip-pt-logout' ),
