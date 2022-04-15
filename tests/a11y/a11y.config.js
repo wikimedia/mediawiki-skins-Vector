@@ -8,7 +8,7 @@ const testData = {
 };
 
 module.exports = {
-	reportDir: 'docs/a11y',
+	reportDir: 'log/a11y',
 	namespace: 'Vector',
 	defaults: {
 		viewport: {
@@ -33,11 +33,14 @@ module.exports = {
 	tests: [
 		{
 			name: 'default',
-			url: testData.baseUrl + testData.defaultPage
+			url: testData.baseUrl + testData.pageUrl,
+			actions: [
+				'click #mw-sidebar-button'
+			]
 		},
 		{
 			name: 'logged_in',
-			url: testData.baseUrl + testData.defaultPage,
+			url: testData.baseUrl + testData.pageUrl,
 			wait: '500',
 			actions: [
 				'click #p-personal-checkbox',
@@ -47,12 +50,13 @@ module.exports = {
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
 				'click #wpLoginAttempt',
-				'wait for #pt-userpage-2 to be visible' // Confirm login was successful
+				'wait for #pt-userpage-2 to be visible', // Confirm login was successful
+				'click #mw-sidebar-button'
 			]
 		},
 		{
 			name: 'search',
-			url: testData.baseUrl + testData.defaultPage,
+			url: testData.baseUrl + testData.pageUrl,
 			rootElement: '#p-search',
 			wait: '500',
 			actions: [

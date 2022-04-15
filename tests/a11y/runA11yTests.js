@@ -14,7 +14,7 @@ const config = require( path.resolve( __dirname, 'a11y.config.js' ) );
  */
 function resetReportDir() {
 	// Delete and create report directory
-	fs.rmdirSync( config.reportDir, { recursive: true } );
+	fs.rmSync( config.reportDir, { recursive: true } );
 	fs.mkdirSync( config.reportDir, { recursive: true } );
 }
 
@@ -27,8 +27,8 @@ function resetReportDir() {
  * @return {Promise<any>}
  */
 function sendMetrics( namespace, name, count ) {
-	const metricPrefix = 'MediaWiki.a11y';
-	const url = `${process.env.BEACON_URL}${metricPrefix}.${namespace}.${name}=${count}c`;
+	const metricPrefix = 'ci_a11y';
+	const url = `${process.env.WMF_JENKINS_BEACON_URL}${metricPrefix}.${namespace}.${name}=${count}c`;
 	return fetch( url );
 }
 
@@ -38,6 +38,12 @@ function sendMetrics( namespace, name, count ) {
  * @param {Object} opts
  */
 async function runTests( opts ) {
+	if ( !process.env.MW_SERVER ||
+		!process.env.MEDIAWIKI_USER ||
+		!process.env.MEDIAWIKI_PASSWORD ) {
+		throw new Error( 'Missing env variables' );
+	}
+
 	try {
 		const tests = config.tests;
 		const allValidTests = tests.filter( ( test ) => test.name ).length === tests.length;
@@ -45,7 +51,7 @@ async function runTests( opts ) {
 			throw new Error( 'Config missing test name' );
 		}
 
-		const canLogResults = process.env.BEACON_URL && config.namespace;
+		const canLogResults = process.env.WMF_JENKINS_BEACON_URL && config.namespace;
 		if ( opts.logResults && !canLogResults ) {
 			throw new Error( 'Unable to log results, missing config or env variables' );
 		}
@@ -78,7 +84,7 @@ async function runTests( opts ) {
 			}
 
 			// Send data to Graphite
-			// BEACON_URL is only defined in CI env
+			// WMF_JENKINS_BEACON_URL is only defined in CI env
 			if ( opts.logResults && canLogResults ) {
 				await sendMetrics( config.namespace, testResult.name, errorNum )
 					.then( ( response ) => {
