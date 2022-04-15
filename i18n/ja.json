@@ -25,7 +25,6 @@
 		]
 	},
 	"skinname-vector": "Vector",
-	"tooltip-pt-watchlist-2": "変更をウォッチしているページの一覧",
 	"vector-skin-desc": "2種類のVectorスキンを提供します。\n* 2011 - MonoBookのモダンバージョンで、新しい外観と多くのユーザビリティの向上が図られています。\n* 2022年 - WMF [[mw:Desktop Improvements]] プロジェクトの一部として作られたVector。",
 	"prefs-vector-enable-vector-1-label": "古いVector外装を使用する",
 	"prefs-vector-enable-vector-1-help": "今後数年にわたり、Vectorスキンを徐々に更新していく予定です。Legacy Vectorでは、(2019年12月時点の) 古いVector外装を表示できます。アップデートについての詳細は、[[mw:Reading/Web/Desktop_Improvements|プロジェクトページ]]をご覧ください。",
