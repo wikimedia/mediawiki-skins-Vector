@@ -24,7 +24,6 @@
 
 namespace Vector;
 
-use Action;
 use ExtensionRegistry;
 use Html;
 use Linker;
@@ -166,8 +165,7 @@ abstract class SkinVector extends SkinMustache {
 	 * @return bool
 	 */
 	private function canHaveLanguages(): bool {
-		$action = Action::getActionName( $this->getContext() );
-		if ( $action !== 'view' ) {
+		if ( $this->getContext()->getActionName() !== 'view' ) {
 			return false;
 		}
 		$title = $this->getTitle();
