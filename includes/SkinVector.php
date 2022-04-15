@@ -235,7 +235,6 @@ abstract class SkinVector extends SkinMustache {
 	private function getCreateAccountHTML( $returnto, $class, $includeIcon ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData['single-id'] = 'pt-createaccount';
-		unset( $createAccountData['icon'] );
 
 		if ( $includeIcon ) {
 			$class = array_merge(
