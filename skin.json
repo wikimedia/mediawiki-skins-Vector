@@ -63,13 +63,16 @@
 						"vector-jumptocontent",
 						"vector-toc-beginning",
 						"vector-toc-heading",
+						"vector-article-tools-nav-label",
+						"vector-site-nav-label",
 						"search",
 						"searchbutton",
 						"searcharticle",
 						"searchsuggest-search",
 						"sitesubtitle",
 						"sitetitle",
-						"tagline"
+						"tagline",
+						"personaltools"
 					]
 				}
 			]
