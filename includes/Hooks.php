@@ -448,6 +448,25 @@ class Hooks {
 	}
 
 	/**
+	 * Adds the persistent sidebar hidden API preference.
+	 *
+	 * @param User $user User whose preferences are being modified.
+	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
+	 */
+	public static function onGetPreferences( User $user, array &$prefs ) {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$vectorPrefs = [
+			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
+				'type' => 'api',
+				'default' => $config->get(
+					Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
+				),
+			],
+		];
+		$prefs += $vectorPrefs;
+	}
+
+	/**
 	 * Called one time when initializing a users preferences for a newly created account.
 	 *
 	 * @param User $user Newly created user object.
