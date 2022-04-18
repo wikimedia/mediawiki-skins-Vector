@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Hasslaebetch"
 		]
 	},
+	"vector-action-delete": "Yẽese",
 	"vector-action-move": "Kedme",
+	"vector-action-protect": "Kogle",
 	"vector-view-create": "Naane",
 	"vector-view-edit": "Tekre",
 	"vector-view-view": "Karme",

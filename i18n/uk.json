@@ -16,7 +16,9 @@
 			"Тест"
 		]
 	},
-	"skinname-vector": "Векторне",
+	"skinname-vector": "Старий вектор (2010)",
+	"skinname-vector-2022": "Вектор (2022)",
+	"vector-specialversion-name": "Вектор",
 	"vector-skin-desc": "Надає дві теми Vector:\n* 2011 — Сучасна версія MonoBook зі свіжим виглядом і багатьма зручними покращеннями.\n* 2022 — Vector, розроблений у рамках проєкту ФВМ зі [[mw:Desktop Improvements|стаціонарних покращень]].",
 	"prefs-vector-enable-vector-1-label": "Використовувати стару версію",
 	"prefs-vector-enable-vector-1-help": "Протягом наступних декількох років ми поступово оновлюватимемо тему оформлення «Векторне». Стара версія цього оформлення дозволить вам бачити його таким, яким воно було станом на грудень 2019 року. Щоб дізнатись більше про ці оновлення, відвідайте нашу [[mw:Reading/Web/Desktop_Improvements|сторінку проєкту]].",
@@ -50,6 +52,7 @@
 	"vector-intro-page": "Help:Вступ",
 	"vector-toc-heading": "Зміст",
 	"vector-toc-beginning": "Початок",
+	"vector-toc-toggle-button-label": "Перемкнути підрозділ $1",
 	"vector-anon-user-menu-pages": "Сторінка для редакторів, які вийшли з системи",
 	"vector-anon-user-menu-pages-learn": "дізнатися більше",
 	"vector-anon-user-menu-pages-label": "Дізнатися більше про редагування",
