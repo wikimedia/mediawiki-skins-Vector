@@ -266,12 +266,6 @@ body {
 	.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
 }
 
-.skin-vector-toc-experiment-control .mw-table-of-contents-container,
-.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container,
-.skin-vector-toc-experiment-treatment #toc {
-	display: none;
-}
-
 // Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
 .vector-toc-enabled #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
 	display: none;
@@ -320,20 +314,26 @@ body {
 	}
 }
 
+.skin-vector-toc-experiment-control .mw-table-of-contents-container,
+.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container,
+.skin-vector-toc-experiment-treatment #toc {
+	display: none;
+}
+
 // Update article page's content container when
-// TOC is visible and when TOC is enabled and the sidebar is open
-.vector-toc-visible .mw-workspace-container .mw-content-container,
-.vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
+// TOC is visible and when TOC is enabled and the sidebar is open.
+//
+// T306366: When the TOC AB test is enabled, both the old and new TOC are in the
+// HTML but only one is actually visible. Prevent the left margin from undesirably
+// applying if bucketed into the control or unsampled groups which won't show
+// the new TOC.
+body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-content-container,
+body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
 	@media ( min-width: @width-breakpoint-tablet ) {
 		margin-left: @margin-toc-start-content;
 	}
-}
-
-// Prevent center align when TOC is visible
-.vector-toc-visible .mw-workspace-container {
-	margin-left: initial;
 }
 
 @media ( min-width: @width-breakpoint-desktop ) {
