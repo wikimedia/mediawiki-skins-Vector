@@ -412,7 +412,7 @@ function makeStickyHeaderFunctional(
 
 	prepareIcons( header,
 		document.querySelector( '#ca-history a' ),
-		document.querySelector( '#ca-talk a' ),
+		document.querySelector( '#ca-talk:not( .selected ) a' ),
 		document.querySelector( '#ca-watch a, #ca-unwatch a' )
 	);
 
@@ -463,8 +463,9 @@ function setupSearchIfNeeded( header ) {
  * @return {boolean}
  */
 function isAllowedNamespace( namespaceNumber ) {
-	// Corresponds to Main, User, Wikipedia, Template, Help, Category, Portal, Module.
-	const allowedNamespaceNumbers = [ 0, 2, 4, 10, 12, 14, 100, 828 ];
+	// Corresponds to Main, Main talk, User, User talk, Wikipedia,
+	// Template, Help, Category, Portal, Module.
+	const allowedNamespaceNumbers = [ 0, 1, 2, 3, 4, 10, 12, 14, 100, 828 ];
 	return allowedNamespaceNumbers.indexOf( namespaceNumber ) > -1;
 }
 
