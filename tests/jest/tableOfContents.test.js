@@ -92,6 +92,11 @@ function mount( templateProps = {} ) {
 }
 
 describe( 'Table of contents', () => {
+	beforeEach( () => {
+		// @ts-ignore
+		global.window.matchMedia = jest.fn( () => ( {} ) );
+	} );
+
 	describe( 'renders', () => {
 		test( 'when `vector-is-collapse-sections-enabled` is false', () => {
 			const toc = mount();
