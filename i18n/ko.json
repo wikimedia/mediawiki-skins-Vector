@@ -10,7 +10,9 @@
 			"Ykhwong",
 			"아라",
 			"Apzp79",
-			"메이"
+			"메이",
+			"Bluehill",
+			"Ellif"
 		]
 	},
 	"skinname-vector": "벡터",
@@ -20,7 +22,7 @@
 	"vector-opt-out": "이전 스타일로 전환",
 	"vector-opt-out-tooltip": "내 설정을 과거의 스킨 모습(레거시 벡터)으로 되돌립니다",
 	"vector.css": "/* 여기의 모든 CSS는 벡터 스킨을 사용하는 사용자에게 로드됩니다 */",
-	"vector.js": "/* 여기의 자바스크립트는 벡터 스킨을 사용하는 사용자에게 적용됩니다 */",
+	"vector.js": "/* 여기의 모든 자바스크립트는 벡터 스킨을 사용하는 사용자에게 로드됩니다 */",
 	"vector-action-toggle-sidebar": "사이드바 토글",
 	"vector-language-button-label": "{{PLURAL:$1|$1개 언어}}",
 	"vector-action-addsection": "새 주제",
