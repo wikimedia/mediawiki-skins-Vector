@@ -466,5 +466,4 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			$shouldLanguageAlertBeInSidebarMethod->invoke( $mockSkinVector )
 		);
 	}
-
 }

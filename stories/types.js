@@ -81,6 +81,6 @@
 
 /**
  * @typedef {Object} UserLinksDefinition
- * @property {MenuDefinition} data-user-more
+ * @property {MenuDefinition} data-user-menu-overflow
  * @property {MenuDefinition} data-user-menu
  */
