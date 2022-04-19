@@ -3,7 +3,7 @@
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is false 1`] = `
 "<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\">
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
-		<h2 class=\\"sidebar-toc-title\\" aria-hidden=\\"true\\">Contents</h2>
+		<p class=\\"sidebar-toc-title\\">Contents</p>
 	</div>
 	<ul class=\\"sidebar-toc-contents\\">
 		<li id=\\"toc-mw-content-text\\" class=\\"sidebar-toc-list-item sidebar-toc-level-1\\">
@@ -62,7 +62,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is true 1`] = `
 "<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\">
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
-		<h2 class=\\"sidebar-toc-title\\" aria-hidden=\\"true\\">Contents</h2>
+		<p class=\\"sidebar-toc-title\\">Contents</p>
 	</div>
 	<ul class=\\"sidebar-toc-contents\\">
 		<li id=\\"toc-mw-content-text\\" class=\\"sidebar-toc-list-item sidebar-toc-level-1\\">
