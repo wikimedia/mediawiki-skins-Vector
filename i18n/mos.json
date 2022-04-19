@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abdul Fatawu 352",
 			"Amire80",
 			"Hasslaebetch"
 		]
@@ -10,6 +11,7 @@
 	"vector-action-protect": "Kogle",
 	"vector-view-create": "Naane",
 	"vector-view-edit": "Tekre",
+	"vector-view-history": "Gese kibare",
 	"vector-view-view": "Karme",
 	"vector-more-actions": "Paase"
 }
