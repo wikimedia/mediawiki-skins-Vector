@@ -365,7 +365,9 @@ abstract class SkinVector extends SkinMustache {
 			$userMenuData[ 'html-after-portal' ] .= $this->getLogoutHTML();
 		}
 
+		$moreItems = substr_count( $userMoreData['html-items'], '<li' );
 		return [
+			'is-wide' => $moreItems > 3,
 			'data-user-more' => $userMoreData,
 			'data-user-menu' => $userMenuData
 		];
