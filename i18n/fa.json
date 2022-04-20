@@ -11,7 +11,8 @@
 			"Ladsgroup",
 			"Reza1615",
 			"Zack90",
-			"Beginneruser"
+			"Beginneruser",
+			"Mojtabakd"
 		]
 	},
 	"skinname-vector": "وکتور",
@@ -24,7 +25,7 @@
 	"vector.js": "/* دستورات جاوااسکریپت که در این بخش قرار بگیرد برای کاربرانی که از پوستهٔ وکتور استفاده کنند بارگیری می‌شود */",
 	"vector-action-toggle-sidebar": "جمع و باز کردن نوار کناری",
 	"vector-language-button-label": "{{PLURAL:$1|$1 زبان}}",
-	"vector-action-addsection": "افزودن بحث",
+	"vector-action-addsection": "افزودن مبحث",
 	"vector-action-delete": "حذف",
 	"vector-action-move": "انتقال",
 	"vector-action-protect": "محافظت",
@@ -42,7 +43,7 @@
 	"vector-search-loader": "بارگیری پیشنهادهای جستجو",
 	"vector-anon-user-menu-pages": "صفحه‌هایی برای ویرایشگرانی که از سامانه خارج شدند",
 	"vector-anon-user-menu-pages-learn": "بیشتر بدانید",
-	"vector-anon-user-menu-pages-label": "دربارهٔ ویرایش بیشتر بدانید",
+	"vector-anon-user-menu-pages-label": "دربارهٔ ویرایش‌کردن بیشتر بدانید",
 	"vector-personal-more-label": "پیوندهای کاربر",
 	"vector-main-menu-tooltip": "منوی اصلی",
 	"tooltip-vector-anon-user-menu-title": "گزینه‌های بیشتر",

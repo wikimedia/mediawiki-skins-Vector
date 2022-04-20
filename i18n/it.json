@@ -36,5 +36,6 @@
 	"vector-view-viewsource": "Visualizza wikitesto",
 	"vector-more-actions": "Altro",
 	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
-	"vector-anon-user-menu-pages-learn": "ulteriori informazioni"
+	"vector-anon-user-menu-pages-learn": "ulteriori informazioni",
+	"vector-main-menu-tooltip": "Menu principale"
 }
