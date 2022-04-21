@@ -102,32 +102,30 @@
 	cursor: pointer;
 }
 
-// Collapse ToC sections by default, excluding no-js or prefers-reduced-motion
-@media ( prefers-reduced-motion: no-preference ) {
-	.client-js .sidebar-toc {
-		.sidebar-toc-level-1 .sidebar-toc-list-item {
-			display: none;
-		}
+// Collapse ToC sections by default, excluding no-js
+.client-js .sidebar-toc {
+	.sidebar-toc-level-1 .sidebar-toc-list-item {
+		display: none;
+	}
 
-		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-list-item {
-			display: block;
-		}
+	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-list-item {
+		display: block;
+	}
 
-		.sidebar-toc-toggle {
-			position: absolute;
-			top: 1px; // visually center icon
-			left: ~'calc( -1 * @{toggle-icon-size} - 1px )'; // leaves 6px between icon + text
-			display: block;
-			width: @toggle-icon-size; // ~22px @ 12
-			height: @toggle-icon-size;
-			font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
-			transform: rotate( -90deg );
-			transition: 100ms;
-		}
+	.sidebar-toc-toggle {
+		position: absolute;
+		top: 1px; // visually center icon
+		left: ~'calc( -1 * @{toggle-icon-size} - 1px )'; // leaves 6px between icon + text
+		display: block;
+		width: @toggle-icon-size; // ~22px @ 12
+		height: @toggle-icon-size;
+		font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
+		transform: rotate( -90deg );
+		transition: @transition-duration-base;
+	}
 
-		.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
-			transform: rotate( 0deg );
-		}
+	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
+		transform: rotate( 0deg );
 	}
 }
 
