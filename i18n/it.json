@@ -41,5 +41,6 @@
 	"vector-searchsuggest-containing": "Cerca le pagine che contengono <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Aiuto:Introduzione",
 	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
-	"vector-anon-user-menu-pages-learn": "ulteriori informazioni"
+	"vector-anon-user-menu-pages-learn": "ulteriori informazioni",
+	"vector-main-menu-tooltip": "Menu principale"
 }
