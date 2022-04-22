@@ -6,6 +6,7 @@
 			"Hasslaebetch"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-action-addsection": "Paase wɛɛbgẽ",
 	"vector-action-delete": "Yẽese",
 	"vector-action-move": "Kedme",

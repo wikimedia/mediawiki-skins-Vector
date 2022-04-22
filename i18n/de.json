@@ -41,7 +41,7 @@
 	"vector-search-loader": "Laden von Suchvorschlägen",
 	"vector-searchsuggest-containing": "Suche nach Seiten, die <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> enthalten",
 	"vector-intro-page": "Help:Einführung",
-	"vector-toc-heading": "Inhalte",
+	"vector-toc-heading": "Inhaltsverzeichnis",
 	"vector-toc-beginning": "Anfang",
 	"vector-toc-toggle-button-label": "Unterabschnitt $1 umschalten",
 	"vector-anon-user-menu-pages": "Seiten für abgemeldete Benutzer",
