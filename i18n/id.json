@@ -44,6 +44,8 @@
 	"vector-search-loader": "Memuat saran pencarian",
 	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Wikipedia:Pengantar",
+	"vector-toc-heading": "Daftar isi",
+	"vector-toc-beginning": "Awal",
 	"vector-anon-user-menu-pages": "Halaman penyunting yang telah keluar log",
 	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut",
 	"vector-anon-user-menu-pages-label": "Pelajari lebih lanjut tentang menyunting",
