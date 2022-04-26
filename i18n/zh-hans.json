@@ -22,7 +22,8 @@
 			"Xiplus",
 			"Xzonn",
 			"Yfdyh000",
-			"落花有意12138"
+			"落花有意12138",
+			50829
 		]
 	},
 	"skinname-vector": "旧版Vector（2010）",
@@ -58,7 +59,7 @@
 	"vector-searchsuggest-containing": "搜索包含<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>的页面",
 	"vector-intro-page": "Help:新手入门",
 	"vector-toc-heading": "目录",
-	"vector-toc-beginning": "开始",
+	"vector-toc-beginning": "开头",
 	"vector-toc-toggle-button-label": "切换 $1 小节",
 	"vector-anon-user-menu-pages": "未登录编辑者的页面",
 	"vector-anon-user-menu-pages-learn": "了解详情",
