@@ -309,7 +309,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testGetVectorResourceLoaderConfigWithExceptions( $configData ) {
 		$config = new HashConfig( $configData );
 		$this->expectException( RuntimeException::class );
-		$vectorConfig = Hooks::getVectorResourceLoaderConfig(
+		Hooks::getVectorResourceLoaderConfig(
 			$this->createMock( ResourceLoaderContext::class ),
 			$config
 		);
@@ -329,8 +329,11 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			->method( 'setOption' )
 			->with( $user, 'skin', Constants::SKIN_NAME_LEGACY );
 		$this->setService( 'UserOptionsManager', $userOptionsManager );
-		$isAutoCreated = false;
-		Hooks::onLocalUserCreated( $user, $isAutoCreated );
+
+		// NOTE: Using $this->getServiceContainer()->getHookContainer()->run( ... )
+		// will instead call Echo's legacy hook as that is already registered which
+		// will break this test. Use Vector's hook handler instead.
+		( new Hooks() )->onLocalUserCreated( $user, false );
 	}
 
 	/**
@@ -347,8 +350,11 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			->method( 'setOption' )
 			->with( $user, 'skin', Constants::SKIN_NAME_MODERN );
 		$this->setService( 'UserOptionsManager', $userOptionsManager );
-		$isAutoCreated = false;
-		Hooks::onLocalUserCreated( $user, $isAutoCreated );
+
+		// NOTE: Using $this->getServiceContainer()->getHookContainer()->run( ... )
+		// will instead call Echo's legacy hook as that is already registered which
+		// will break this test. Use Vector's hook handler instead.
+		( new Hooks() )->onLocalUserCreated( $user, false );
 	}
 
 	/**

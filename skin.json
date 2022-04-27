@@ -128,14 +128,22 @@
 	"AutoloadNamespaces": {
 		"Vector\\": "includes/"
 	},
+	"ConfigRegistry": {
+		"vector": "GlobalVarConfig::newInstance"
+	},
+	"HookHandlers": {
+		"VectorHooks": {
+			"class": "Vector\\Hooks"
+		}
+	},
 	"Hooks": {
-		"GetPreferences": "Vector\\Hooks::onGetPreferences",
-		"ResourceLoaderSiteModulePages": "Vector\\Hooks::onResourceLoaderSiteModulePages",
-		"ResourceLoaderSiteStylesModulePages": "Vector\\Hooks::onResourceLoaderSiteStylesModulePages",
-		"SkinPageReadyConfig": "Vector\\Hooks::onSkinPageReadyConfig",
-		"LocalUserCreated": "Vector\\Hooks::onLocalUserCreated",
-		"OutputPageBodyAttributes": "Vector\\Hooks::onOutputPageBodyAttributes",
-		"MakeGlobalVariablesScript": "Vector\\Hooks::onMakeGlobalVariablesScript"
+		"GetPreferences": "VectorHooks",
+		"LocalUserCreated": "VectorHooks",
+		"MakeGlobalVariablesScript": "VectorHooks",
+		"OutputPageBodyAttributes": "VectorHooks",
+		"ResourceLoaderSiteModulePages": "VectorHooks",
+		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
+		"SkinPageReadyConfig": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
