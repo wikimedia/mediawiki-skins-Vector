@@ -23,11 +23,6 @@
 	justify-content: space-between;
 	box-sizing: border-box;
 
-	// If the user has expressed their preference for reduced motion, then disable animation for the sticky header.
-	@media ( prefers-reduced-motion: reduce ) {
-		transition: none;
-	}
-
 	@media ( min-width: @width-breakpoint-desktop ) {
 		padding: 6px 25px;
 	}

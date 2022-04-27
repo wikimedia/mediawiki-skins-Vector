@@ -54,6 +54,15 @@ module.exports = function tableOfContents( props ) {
 	}
 
 	/**
+	 * Does the user prefer reduced motion?
+	 *
+	 * @return {boolean}
+	 */
+	const prefersReducedMotion = () => {
+		return window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+	};
+
+	/**
 	 * Sets an `ACTIVE_SECTION_CLASS` on the element with an id that matches `id`.
 	 * If the element is not a top level heading (e.g. element with the
 	 * `PARENT_SECTION_CLASS`), the top level heading will also have the
@@ -78,7 +87,12 @@ module.exports = function tableOfContents( props ) {
 
 		const topSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
 
-		if ( selectedTocSection === topSection ) {
+		// The bolding of sections is arguably not "motion", however does provide a distraction to readers
+		// who are scrolling by visibly changing the table of contents. This can be removed if someone has
+		// a strong argument for why this should not be considered motion.
+		if ( prefersReducedMotion() ) {
+			return;
+		} else if ( selectedTocSection === topSection ) {
 			activeTopSection = topSection;
 			activeTopSection.classList.add( ACTIVE_SECTION_CLASS );
 		} else {
@@ -144,8 +158,7 @@ module.exports = function tableOfContents( props ) {
 				Math.min( containerRect.bottom, window.innerHeight );
 
 			// Respect 'prefers-reduced-motion' user preference
-			const mediaQuery = window.matchMedia( '(prefers-reduced-motion: reduce)' );
-			const scrollBehavior = ( !mediaQuery || !mediaQuery.matches ) ? 'smooth' : undefined;
+			const scrollBehavior = prefersReducedMotion() ? 'smooth' : undefined;
 
 			// Manually increment and decrement TOC scroll rather than using scrollToView
 			// in order to account for threshold
