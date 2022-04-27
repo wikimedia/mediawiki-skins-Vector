@@ -36,5 +36,6 @@
 	"vector-jumptosearch": "跳去搵嘢",
 	"vector-jumptocontent": "跳去內容",
 	"vector-more-actions": "多啲",
-	"vector-search-loader": "載入緊搜索提議"
+	"vector-search-loader": "載入緊搜索提議",
+	"vector-toc-heading": "目錄"
 }
