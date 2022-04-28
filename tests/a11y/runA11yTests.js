@@ -14,7 +14,9 @@ const config = require( path.resolve( __dirname, 'a11y.config.js' ) );
  */
 function resetReportDir() {
 	// Delete and create report directory
-	fs.rmSync( config.reportDir, { recursive: true } );
+	if ( fs.existsSync( config.reportDir ) ) {
+		fs.rmSync( config.reportDir, { recursive: true } );
+	}
 	fs.mkdirSync( config.reportDir, { recursive: true } );
 }
 
