@@ -33,6 +33,7 @@ use SkinMustache;
 use SkinTemplate;
 use SpecialPage;
 use Title;
+use User;
 
 /**
  * Skin subclass for Vector that may be the new or old version of Vector.
@@ -262,9 +263,10 @@ abstract class SkinVector extends SkinMustache {
 	 * Returns HTML for the create account button, login button and learn more link inside the anon user menu
 	 * @param string[] $returnto array of query strings used to build the login link
 	 * @param bool $useCombinedLoginLink if a combined login/signup link will be used
+	 * @param bool $isTempUser
 	 * @return string
 	 */
-	private function getAnonMenuBeforePortletHTML( $returnto, $useCombinedLoginLink ) {
+	private function getAnonMenuBeforePortletHTML( $returnto, $useCombinedLoginLink, $isTempUser ) {
 		$loginData = $this->buildLoginData( $returnto, $useCombinedLoginLink );
 		$loginData['class']  = [
 			'vector-menu-content-item',
@@ -274,23 +276,30 @@ abstract class SkinVector extends SkinMustache {
 		];
 		unset( $loginData['icon'] );
 
-		$learnMoreLinkData = [
-			'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-			'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
-			'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
-		];
-		$learnMoreLink = $this->makeLink( '', $learnMoreLinkData );
-
-		$templateParser = $this->getTemplateParser();
-		return $templateParser->processTemplate( 'UserLinks__login', [
+		$templateData = [
 			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, [
 				'user-links-collapsible-item',
 				'vector-menu-content-item',
 			], true ),
 			'htmlLogin' => $this->makeLink( 'login', $loginData ),
-			'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' ),
-			'htmlLearnMoreLink' => $learnMoreLink
-		] );
+		];
+
+		$templateParser = $this->getTemplateParser();
+
+		if ( $isTempUser ) {
+			$templateName = 'UserLinks__templogin';
+		} else {
+			$templateName = 'UserLinks__login';
+			$learnMoreLinkData = [
+				'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
+				'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
+				'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
+			];
+			$templateData['htmlLearnMoreLink'] = $this->makeLink( '', $learnMoreLinkData );
+			$templateData['msgLearnMore'] = $this->msg( 'vector-anon-user-menu-pages' );
+		}
+
+		return $templateParser->processTemplate( $templateName, $templateData );
 	}
 
 	/**
@@ -317,11 +326,12 @@ abstract class SkinVector extends SkinMustache {
 	/**
 	 * Returns template data for UserLinks.mustache
 	 * @param array $menuData existing menu template data to be transformed and copied for UserLinks
-	 * @param bool $isAnon if the user is logged out, used to conditionally provide data
-	 * @param array $searchBoxData representing search box.
+	 * @param User $user the context user
 	 * @return array
 	 */
-	private function getUserLinksTemplateData( $menuData, $isAnon, $searchBoxData ): array {
+	private function getUserLinksTemplateData( $menuData, $user ): array {
+		$isAnon = !$user->isRegistered();
+		$isTempUser = $user->isTemp();
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$htmlCreateAccount = $this->getCreateAccountHTML( $returnto, [
@@ -336,7 +346,8 @@ abstract class SkinVector extends SkinMustache {
 		// Supporting removing items via hook involves unnecessary additional complexity we'd rather avoid at this time.
 		// (see https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/713505/3)
 		// Account creation can be disabled by setting `$wgGroupPermissions['*']['createaccount'] = false;`
-		$isCreateAccountAllowed = $isAnon && $this->getAuthority()->isAllowed( 'createaccount' );
+		$isCreateAccountAllowed = ( $isAnon || $isTempUser )
+			&& $this->getAuthority()->isAllowed( 'createaccount' );
 		$userMoreHtmlItems = $templateParser->processTemplate( 'UserLinks__more', [
 			'is-anon' => $isAnon,
 			'is-create-account-allowed' => $isCreateAccountAllowed,
@@ -355,10 +366,11 @@ abstract class SkinVector extends SkinMustache {
 		];
 
 		$userMenuData = $menuData[ 'data-user-menu' ];
-		if ( $isAnon ) {
+		if ( $isAnon || $isTempUser ) {
 			$userMenuData[ 'html-before-portal' ] .= $this->getAnonMenuBeforePortletHTML(
 				$returnto,
-				$useCombinedLoginLink
+				$useCombinedLoginLink,
+				$isTempUser
 			);
 		} else {
 			// Appending as to not override data potentially set by the onSkinAfterPortlet hook.
@@ -529,7 +541,8 @@ abstract class SkinVector extends SkinMustache {
 			)
 		] );
 
-		if ( $skin->getUser()->isRegistered() ) {
+		$user = $skin->getUser();
+		if ( $user->isRegistered() ) {
 			// Note: This data is also passed to legacy template where it is unused.
 			$optOutUrl = [
 				'text' => $this->msg( 'vector-opt-out' )->text(),
@@ -553,8 +566,7 @@ abstract class SkinVector extends SkinMustache {
 		if ( !$this->isLegacy() ) {
 			$commonSkinData['data-vector-user-links'] = $this->getUserLinksTemplateData(
 				$commonSkinData['data-portlets'],
-				$commonSkinData['is-anon'],
-				$commonSkinData['data-search-box']
+				$user
 			);
 
 			// T295555 Add language switch alert message temporarily (to be removed).
@@ -781,9 +793,14 @@ abstract class SkinVector extends SkinMustache {
 					' vector-user-menu-logged-out';
 				$portletData['heading-class'] .= ' ' . self::CLASS_QUIET_BUTTON . ' ' .
 					self::CLASS_ICON_BUTTON . ' ';
-				$portletData['heading-class'] .= $this->loggedin ?
-					$this->iconClass( 'userAvatar' ) :
-					$this->iconClass( 'ellipsis' );
+				if ( $this->getUser()->isTemp() ) {
+					$icon = 'userAnonymous';
+				} elseif ( $this->loggedin ) {
+					$icon = 'userAvatar';
+				} else {
+					$icon = 'ellipsis';
+				}
+				$portletData['heading-class'] .= $this->iconClass( $icon );
 			}
 		}
 		switch ( $portletData['id'] ) {
