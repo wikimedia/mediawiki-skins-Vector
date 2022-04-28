@@ -26,3 +26,67 @@
 		}
 	}
 }
+
+// FIXME: This can be merged with the above when cached HTML contains the vector-article-toolbar class.
+.vector-article-toolbar .mw-article-toolbar-container {
+	display: flex;
+	@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
+
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		padding-right: @padding-horizontal-tabs - 1px;
+	}
+
+	.vector-menu-tabs {
+		// Account for background-image gradient.
+		margin-top: -1px;
+	}
+
+	.vector-menu-dropdown .vector-menu-heading {
+		background-image: linear-gradient( to bottom, rgba( 167, 215, 249, 0 ) 0, @border-color-content 100% );
+		background-repeat: no-repeat;
+		// Contain gradient to 1px × 100% size and draw from top to bottom-left or -right corner.
+		background-size: @border-width-base 100%;
+		background-position: right bottom;
+		height: 100%;
+	}
+
+	#right-navigation {
+		display: flex;
+		flex-grow: 1;
+		justify-content: end;
+		border-bottom: @border-width-base @border-style-base @border-color-content;
+		// Layout correction - as it was before introduce of flex box.
+		margin-right: -1px;
+
+		@media ( min-width: @width-breakpoint-desktop-wide ) {
+			margin-right: -@border-base-ems * 3;
+		}
+	}
+
+	#left-navigation {
+		display: flex;
+		border-bottom: @border-width-base @border-style-base @border-color-content;
+
+		// Layout correction - as it was before introduce of flex box.
+		@media ( min-width: @width-breakpoint-desktop-wide ) {
+			margin-left: @border-base-ems * 3;
+		}
+	}
+
+	.vector-menu-tabs li {
+		margin-top: 1px;
+
+		&.selected {
+			background: #fff;
+		}
+	}
+}
+
+// Currently when right navigation is empty and sidebar is open no
+// border is shown. This can intentionally be removed at a later date but
+// is preserved to reduce number of UI regressions in current release.
+@media ( max-width: @width-breakpoint-tablet ) {
+	#mw-sidebar-checkbox:checked ~ .mw-workspace-container #right-navigation.right-navigation-empty {
+		border-bottom: 0;
+	}
+}
