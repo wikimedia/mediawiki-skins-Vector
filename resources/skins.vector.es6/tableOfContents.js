@@ -87,12 +87,7 @@ module.exports = function tableOfContents( props ) {
 
 		const topSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
 
-		// The bolding of sections is arguably not "motion", however does provide a distraction to
-		// readers who are scrolling by visibly changing the table of contents. This can be removed
-		// if someone has a strong argument for why this should not be considered motion.
-		if ( prefersReducedMotion() ) {
-			return;
-		} else if ( selectedTocSection === topSection ) {
+		if ( selectedTocSection === topSection ) {
 			activeTopSection = topSection;
 			activeTopSection.classList.add( ACTIVE_SECTION_CLASS );
 		} else {
