@@ -351,7 +351,8 @@
 			"mediawiki.special": "skinStyles/mediawiki.special.less",
 			"+ext.relatedArticles.readMore": "skinStyles/ext.relatedArticles.readMore.less",
 			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
-			"+ext.uls.interface": "skinStyles/ext.uls.interface.less"
+			"+ext.uls.interface": "skinStyles/ext.uls.interface.less",
+			"+ext.visualEditor.base": "skinStyles/ext.visualEditor.less"
 		},
 		"vector": {
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
