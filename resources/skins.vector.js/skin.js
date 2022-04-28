@@ -1,6 +1,4 @@
-var collapsibleTabs = require( '../skins.vector.legacy.js/collapsibleTabs.js' ),
-	vector = require( '../skins.vector.legacy.js/vector.js' ),
-	languageButton = require( './languageButton.js' ),
+var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ),
 	sidebar = require( './sidebar.js' );
@@ -43,9 +41,7 @@ function enableCssAnimations( document ) {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	collapsibleTabs.init();
 	sidebar.init( window );
-	vector.init();
 	initSearchLoader( document );
 	languageButton();
 	dropdownMenus();

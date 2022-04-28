@@ -349,9 +349,10 @@ class Hooks implements
 	 * Modifies list item to make it collapsible.
 	 *
 	 * @param array &$item
+	 * @param string $prefix defaults to user-links-
 	 */
-	private static function makeMenuItemCollapsible( array &$item ) {
-		$COLLAPSE_MENU_ITEM_CLASS = 'user-links-collapsible-item';
+	private static function makeMenuItemCollapsible( array &$item, string $prefix = 'user-links-' ) {
+		$COLLAPSE_MENU_ITEM_CLASS = $prefix . 'collapsible-item';
 		self::appendClassToListItem(
 			$item,
 			$COLLAPSE_MENU_ITEM_CLASS
@@ -413,6 +414,33 @@ class Hooks implements
 	}
 
 	/**
+	 * Vector 2022 only:
+	 * Creates an additional menu that will be injected inside the more (cactions)
+	 * dropdown menu. This menu is a clone of `views` and this menu will only be
+	 * shown at low resolutions (when the `views` menu is hidden).
+	 *
+	 * An additional menu is used instead of adding to the existing cactions menu
+	 * so that the emptyPortlet logic for that menu is preserved and the cactions menu
+	 * is not shown at large resolutions when empty (e.g. all items including collapsed
+	 * items are hidden).
+	 *
+	 * @param array &$content_navigation
+	 */
+	private static function createMoreOverflowMenu( &$content_navigation ) {
+		$clonedViews = [];
+		foreach ( array_keys( $content_navigation['views'] ?? [] ) as $key ) {
+			$newItem = $content_navigation['views'][$key];
+			self::makeMenuItemCollapsible(
+				$newItem,
+				'vector-more-'
+			);
+			$clonedViews['more-' . $key] = $newItem;
+		}
+		// Inject collapsible menu items ahead of existing actions.
+		$content_navigation['views-overflow'] = $clonedViews;
+	}
+
+	/**
 	 * Upgrades Vector's watch action to a watchstar.
 	 * This is invoked inside SkinVector, not via skin registration, as skin hooks
 	 * are not guaranteed to run last.
@@ -435,6 +463,9 @@ class Hooks implements
 			}
 
 			self::updateUserLinksItems( $sk, $content_navigation );
+		}
+		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
+			self::createMoreOverflowMenu( $content_navigation );
 		}
 	}
 

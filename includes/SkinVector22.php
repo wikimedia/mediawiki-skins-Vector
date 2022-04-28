@@ -118,6 +118,21 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Merges the `view-overflow` menu into the `action` menu.
+	 * This ensures that the previous state of the menu e.g. emptyPortlet class
+	 * is preserved.
+	 * @param array $data
+	 * @return array
+	 */
+	private function mergeViewOverflowIntoActions( $data ) {
+		$portlets = $data['data-portlets'];
+		$actions = $portlets['data-actions'];
+		$overflow = $portlets['data-views-overflow'];
+		$data['data-portlets']['data-actions']['html-items'] = $overflow['html-items'] . $actions['html-items'];
+		return $data;
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getTemplateData(): array {
@@ -129,6 +144,8 @@ class SkinVector22 extends SkinVector {
 		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
 			unset( $parentData['data-toc'] );
 		}
+		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
+
 		return $parentData + [
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER

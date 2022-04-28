@@ -316,8 +316,6 @@
 				},
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/sidebar.js",
-				"resources/skins.vector.legacy.js/collapsibleTabs.js",
-				"resources/skins.vector.legacy.js/vector.js",
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/searchLoader.js"
 			],

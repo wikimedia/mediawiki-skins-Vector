@@ -63,6 +63,26 @@ function addPortletLinkHandler( item, data ) {
 		'vector-menu-dropdown-noicon'
 	);
 
+	// The views menu has limited space so we need to decide whether there is space
+	// to accomodate the new item and if not to redirect to the more dropdown.
+	/* eslint-disable no-jquery/no-global-selector */
+	if ( $menu.prop( 'id' ) === 'p-views' ) {
+		// @ts-ignore if undefined as NaN will be ignored
+		var availableWidth = $( '.mw-article-toolbar-container' ).width() -
+			// @ts-ignore
+			$( '#p-namespaces' ).width() - $( '#p-variants' ).width() -
+			// @ts-ignore
+			$( '#p-views' ).width() - $( '#p-cactions' ).width();
+		var moreDropdown = document.querySelector( '#p-cactions ul' );
+		// If the screen width is less than 720px then the views menu is hidden
+		if ( moreDropdown && ( availableWidth < 0 || window.innerWidth < 720 ) ) {
+			moreDropdown.appendChild( item );
+			// reveal if hidden
+			mw.util.showPortlet( 'p-cactions' );
+		}
+	}
+	/* eslint-enable no-jquery/no-global-selector */
+
 	if ( isIconCapable && link ) {
 		// If class was previously added this will be a no-op so it is safe to call even
 		// if we've previously enhanced it.

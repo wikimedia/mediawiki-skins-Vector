@@ -1,0 +1,26 @@
+@import '../../common/variables.less';
+
+.mw-article-toolbar-container {
+	.mw-portlet-views {
+		display: none;
+
+		@media ( min-width: @width-breakpoint-tablet ) {
+			display: block;
+		}
+	}
+
+	.vector-more-collapsible-item {
+		display: none;
+
+		@media ( max-width: @width-breakpoint-tablet ) {
+			display: block;
+		}
+	}
+
+	// Make sure pcactions is displayed (even if .emptyPortlet present)
+	.mw-portlet-cactions {
+		@media ( max-width: @width-breakpoint-tablet ) {
+			display: block;
+		}
+	}
+}
