@@ -10,7 +10,9 @@
 			"Patrik L."
 		]
 	},
-	"skinname-vector": "Vektor",
+	"skinname-vector": "Starý Vektor (2010)",
+	"skinname-vector-2022": "Vektor (2022)",
+	"vector-specialversion-name": "Vektor",
 	"vector-skin-desc": "Poskytuje 2 vzhledy Vektor:\n* 2011 - Moderní verze vzhledu Kniha s novějším vzhledem a vylepšenou použitelností.\n* 2022 - Vektor vytvořený jako součást projektu WMF [[mw:Desktop Improvements]].",
 	"prefs-vector-enable-vector-1-label": "Použít starý Vektor",
 	"prefs-vector-enable-vector-1-help": "V následujících letech budeme postupně aktualizovat vzhled Vektor. Starý Vektor vám umožní používat starou verzi Vektoru z prosince 2019. Více o aktualizacích se dozvíte na naší [[mw:Reading/Web/Desktop_Improvements|projektové stránce]].",
@@ -23,6 +25,7 @@
 	"vector-language-button-aria-label": "Přejděte k článku v jiném jazyce. Je dostupný v {{PLURAL:$1|$1 jazyce|$1 jazycích}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazyků}}",
 	"vector-language-redirect-to-top": "Tady na {{GRAMMAR:6sg|{{SITENAME}}}} jsou mezijazykové odkazy nahoře na stránce, napravo od názvu článku. [[#p-lang-btn|Jít nahoru]].",
+	"vector-language-variant-switcher-label": "Změnit variantu jazyka",
 	"vector-action-addsection": "Přidat téma",
 	"vector-action-delete": "Smazat",
 	"vector-action-move": "Přesunout",
@@ -39,9 +42,13 @@
 	"vector-jumptocontent": "Přeskočit na obsah",
 	"vector-more-actions": "Další",
 	"vector-search-loader": "Načítají se návrhy pro hledání",
-	"vector-intro-page": "Pomoc:Úvod",
+	"vector-intro-page": "Nápověda:Úvod",
+	"vector-toc-heading": "Obsah",
+	"vector-toc-beginning": "Začátek",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
+	"vector-anon-user-menu-pages-label": "Více informací o editování",
 	"vector-personal-more-label": "Uživatelské odkazy",
-	"vector-main-menu-tooltip": "Hlavní menu"
+	"vector-main-menu-tooltip": "Hlavní menu",
+	"tooltip-vector-anon-user-menu-title": "Další možnosti"
 }
