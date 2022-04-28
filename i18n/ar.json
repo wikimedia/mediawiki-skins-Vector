@@ -14,10 +14,13 @@
 			"زكريا",
 			"علاء",
 			"محمد أحمد عبد الفتاح",
-			"NEHAOUA"
+			"NEHAOUA",
+			"Dyolf77 (WMF)",
+			"Wahrani"
 		]
 	},
-	"skinname-vector": "فكتور",
+	"skinname-vector": "فكتور القديم (2010)",
+	"skinname-vector-2022": "فيكتور (2022)",
 	"tooltip-pt-watchlist-2": "قائمة الصفحات التي تُراقب التغييرات عليها",
 	"vector-skin-desc": "توفر نسختان من مظهر فيكتور:\n* 2021 - النسخة الحديثة من مظهر مونوبوك بمظهر أحدث وتحسينات لسهولة الاستخدام.\n* 2022 - نسخة فيكتور المبنيّة كجزءٍ من مشروع ويكيميديا [[mw:Desktop Improvements|لتحسينات نسخة سطح المكتب]].",
 	"prefs-vector-enable-vector-1-label": "استخدم Legacy Vector",
@@ -28,8 +31,8 @@
 	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
 	"vector-languages": "لغات",
-	"vector-language-button-aria-label": "اذهب إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|$1 لغة|$1 لغات}}",
-	"vector-language-button-label": "بلغات أخرى ($1)",
+	"vector-language-button-aria-label": "{{GENDER:|اذهب|اذهبي}} إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|لا لغة|لغة واحدة|لغتين|$1 لغات|$1 لغة}}",
+	"vector-language-button-label": "{{PLURAL:$1|لا لغة|لغة واحدة|لغتان|$1 لغات|$1 لغة}}",
 	"vector-language-redirect-to-top": "في نسخة {{SITENAME}} هذه، وصلات اللغات موجودة في الزاوية العليا اليسرى بجانب العنوان. [[#p-lang-btn|انتقل إلى الأعلى]].",
 	"vector-language-variant-switcher-label": "غيّر لهجة اللغة",
 	"vector-action-addsection": "أضف موضوعًا",
