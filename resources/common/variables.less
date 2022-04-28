@@ -113,9 +113,12 @@
 @margin-horizontal-sidebar-button-icon: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
 
 // Sidebar
-@margin-toc-start-content: 18.5em;
-@space-end-sidebar: 3.25em;
-@width-sidebar: @margin-toc-start-content - @space-end-sidebar;
+@width-sidebar-px: 220;
+@width-sidebar-px-wide: 244;
+@margin-toc-start-content: unit( ( @width-sidebar-px + 24 ) / @font-size-browser, em );
+@margin-toc-start-content-wide: unit( ( @width-sidebar-px-wide + 52 ) / @font-size-browser, em ); // 18.5em;
+@width-sidebar: unit( @width-sidebar-px / @font-size-browser, em );
+@width-sidebar-wide: unit( @width-sidebar-px-wide / @font-size-browser, em );
 
 // Search
 @min-width-search-button: 28px;
@@ -172,4 +175,5 @@
 // Layout
 //
 @max-width-page-container: unit( 1514px / @font-size-browser, em ); // 99.75em @ 16
-@padding-horizontal-page-container: unit( 40px / @font-size-browser, em ); // 1.875em @ 16
+@padding-horizontal-page-container: unit( 32px / @font-size-browser, em );
+@padding-horizontal-page-container-wide: unit( 40px / @font-size-browser, em );

@@ -13,7 +13,6 @@
 	transition: @transition-sticky-header;
 	display: flex;
 	align-items: center;
-	max-width: @max-width-page-container + @padding-horizontal-page-container + @padding-horizontal-page-container;
 	margin: 0 auto;
 	background: @background-color-base;
 	background-color: #fffffff7;
@@ -25,6 +24,12 @@
 
 	@media ( min-width: @width-breakpoint-desktop ) {
 		padding: 6px 25px;
+		max-width: @max-width-page-container + ( @padding-horizontal-page-container * 2 );
+	}
+
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		padding: 6px 25px;
+		max-width: @max-width-page-container + ( @padding-horizontal-page-container-wide * 2 );
 	}
 
 	// T298836 Hide the sticky header at lower resolutions.
