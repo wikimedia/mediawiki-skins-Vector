@@ -9,7 +9,7 @@
 		]
 	},
 	"skinname-vector": "Vector zaharra (2010)",
-	"vector-skin-desc": "MonoBook-en bertsio modernoa, itxura berriarekin eta erabilgarritasun hobekuntza askorekin",
+	"vector-skin-desc": "2 Vector itxura ematen ditu: \n* 2011 - MonoBooken bertsio modernoa, itxura hobearekin eta erabilgarritasun hobekuntza askorekin.\n* 2022 - [[mw:Desktop Improvements]] proiektuak garattuako Vectorren bertsioa.",
 	"prefs-vector-enable-vector-1-label": "Erabili Vector itxura zaharra",
 	"prefs-vector-enable-vector-1-help": "Hurrengo urteotan, pixkanaka joango gara Vector itxura aldatzen. Vector itxura zaharrak oraindik aukera emango dizu Vectorrek zuen itxura zaharra (2019ko abendukoa) erabiltzeko. Aldaketei buruz gehiago jakiteko, zoaz [[mw:Reading/Web/Desktop_Improvements|proiektuaren orrira]].",
 	"vector-opt-out": "Aldatu itxura zaharrera",
@@ -40,6 +40,9 @@
 	"vector-search-loader": "Bilaketa gomendioak kargatzen",
 	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> duten orrialdeak bilatu",
 	"vector-intro-page": "Laguntza:Sarrera",
+	"vector-toc-heading": "Edukiak",
+	"vector-toc-beginning": "Hasiera",
+	"vector-toc-toggle-button-label": "Erakutsi/ezkutatu $1 azpiatal",
 	"vector-anon-user-menu-pages": "Izena eman gabeko erabiltzaileentzako orrialdeak",
 	"vector-anon-user-menu-pages-learn": "gehiago ikasi",
 	"vector-anon-user-menu-pages-label": "Artikuluak aldatzeari buruz gehiago ikasi",
