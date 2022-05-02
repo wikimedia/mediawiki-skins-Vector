@@ -5,7 +5,9 @@
 		display: none;
 
 		@media ( min-width: @width-breakpoint-tablet ) {
-			display: block;
+			&:not( .emptyPortlet ) {
+				display: block;
+			}
 		}
 	}
 
@@ -18,7 +20,7 @@
 	}
 
 	// Make sure pcactions is displayed (even if .emptyPortlet present)
-	.mw-portlet-cactions {
+	.vector-has-collapsible-items {
 		@media ( max-width: @width-breakpoint-tablet ) {
 			display: block;
 		}

@@ -128,6 +128,11 @@ class SkinVector22 extends SkinVector {
 		$portlets = $data['data-portlets'];
 		$actions = $portlets['data-actions'];
 		$overflow = $portlets['data-views-overflow'];
+		// if the views overflow menu is not empty, then signal that the more menu despite
+		// being initially empty now has collapsible items.
+		if ( !$overflow['is-empty'] ) {
+			$data['data-portlets']['data-actions']['class'] .= ' vector-has-collapsible-items';
+		}
 		$data['data-portlets']['data-actions']['html-items'] = $overflow['html-items'] . $actions['html-items'];
 		return $data;
 	}
