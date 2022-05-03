@@ -1,7 +1,6 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 @import '../layouts/screen.less';
-@import '../../skins.vector.styles.legacy/components/Sidebar.less';
 @import './checkboxHack.less';
 
 // T305069 Layout adjustments of sidebar elements:
@@ -21,6 +20,11 @@
 	padding: 8px 0 40px @padding-left-sidebar;
 	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 	.box-sizing( border-box );
+
+	// Hide #p-navigation label
+	#p-navigation .vector-menu-heading {
+		display: none;
+	}
 }
 
 // Update styling when TOC is enabled
@@ -36,7 +40,6 @@
 	}
 
 	.sidebar-toc {
-		position: relative;
 		margin-top: @top-margin-sidebar-toc_title_inline;
 		margin-left: @margin-start-sidebar-content;
 	}
