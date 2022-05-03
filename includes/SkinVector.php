@@ -357,13 +357,11 @@ abstract class SkinVector extends SkinMustache {
 			'data-user-page' => $menuData[ 'data-user-page' ],
 			'html-vector-watchlist' => $this->getWatchlistHTML( $menuData[ 'data-vector-user-menu-overflow' ] ?? null ),
 		] );
-		$userMoreData = [
+		$userMoreData = $this->decoratePortletData( 'data-user-more', [
 			'id' => 'p-personal-more',
-			'class' => 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
+			'class' => 'mw-portlet mw-portlet-personal-more vector-user-menu-more',
 			'html-items' => $userMoreHtmlItems,
-			'label' => $this->msg( 'vector-personal-more-label' ),
-			'is-dropdown' => false,
-		];
+		] );
 
 		$userMenuData = $menuData[ 'data-user-menu' ];
 		if ( $isAnon || $isTempUser ) {
@@ -874,6 +872,7 @@ abstract class SkinVector extends SkinMustache {
 			case 'data-notifications':
 			case 'data-personal':
 			case 'data-user-page':
+			case 'data-user-more':
 				$type = self::MENU_TYPE_DEFAULT;
 				break;
 			case 'data-languages':
@@ -919,6 +918,8 @@ abstract class SkinVector extends SkinMustache {
 
 		return $portletData + [
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
+			// In modern vector only dropdown and portal menus render a label element
+			'has-label' => $this->isLegacy() || $type === self::MENU_TYPE_DROPDOWN || $type === self::MENU_TYPE_PORTAL,
 		];
 	}
 }

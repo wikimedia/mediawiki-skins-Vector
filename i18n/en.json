@@ -42,7 +42,8 @@
 	"vector-anon-user-menu-pages": "Pages for logged out editors",
 	"vector-anon-user-menu-pages-learn": "learn more",
 	"vector-anon-user-menu-pages-label": "Learn more about editing",
-	"vector-personal-more-label": "User links",
 	"vector-main-menu-tooltip": "Main menu",
+	"vector-article-tools-nav-label": "Article tools",
+	"vector-site-nav-label": "Site",
 	"tooltip-vector-anon-user-menu-title": "More options"
 }
