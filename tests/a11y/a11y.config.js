@@ -8,7 +8,7 @@ const testData = {
 };
 
 module.exports = {
-	reportDir: 'log/a11y',
+	reportDir: 'log/',
 	namespace: 'Vector',
 	defaults: {
 		viewport: {
