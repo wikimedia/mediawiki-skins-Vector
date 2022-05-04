@@ -29,5 +29,8 @@
 	"vector-jumptonavigation": "Idi na navigaciju",
 	"vector-jumptosearch": "Idi na pretragu",
 	"vector-more-actions": "Više",
-	"vector-search-loader": "Učitavam prijedloge pretrage"
+	"vector-search-loader": "Učitavam prijedloge pretrage",
+	"vector-anon-user-menu-pages-learn": "detaljnije",
+	"vector-main-menu-tooltip": "Glavni meni",
+	"tooltip-vector-anon-user-menu-title": "Više opcija"
 }

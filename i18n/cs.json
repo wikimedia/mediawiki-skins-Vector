@@ -6,7 +6,8 @@
 			"Matěj Suchánek",
 			"Mormegil",
 			"Patriccck",
-			"Patrik L."
+			"Patrik L.",
+			"Fraxinus.cs"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -37,6 +38,8 @@
 	"vector-search-loader": "Načítají se návrhy pro hledání",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
+	"vector-anon-user-menu-pages-label": "Více informací o editování",
 	"vector-personal-more-label": "Uživatelské odkazy",
-	"vector-main-menu-tooltip": "Hlavní menu"
+	"vector-main-menu-tooltip": "Hlavní menu",
+	"tooltip-vector-anon-user-menu-title": "Další možnosti"
 }
