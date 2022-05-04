@@ -1,6 +1,5 @@
 @import '../../common/variables.less';
 
-@subcategory-padding: 8px;
 @fade-height: 40px;
 @vertical-padding: 20px;
 @toggle-icon-size: 1.834em;
@@ -9,10 +8,15 @@
 	display: none;
 	width: @width-sidebar;
 	max-height: 75vh;
-	padding: @vertical-padding @subcategory-padding @vertical-padding ~'calc( @{subcategory-padding} * 4 )';
+	padding: @vertical-padding 12px @vertical-padding 32px;
 	.box-sizing( border-box );
 	overflow: auto;
 	background-color: @border-color-sidebar;
+
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		width: @width-sidebar-wide;
+		padding-right: 8px;
+	}
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;
@@ -45,7 +49,7 @@
 	}
 
 	.sidebar-toc-text {
-		padding: ~'calc( @{subcategory-padding} / 2 )'  0;
+		padding: 4px  0;
 	}
 
 	.sidebar-toc-contents,
@@ -63,7 +67,7 @@
 		display: block;
 		position: relative;
 		list-style-type: none;
-		padding-left: @subcategory-padding;
+		padding-left: 8px;
 
 		a {
 			font-size: @font-size-base;

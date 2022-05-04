@@ -57,7 +57,7 @@
 // smaller and will start horizontal scrolling instead.
 @min-width-supported:
 	unit( 500px / @font-size-browser, em ) -
-	( 2 * @padding-horizontal-page-container );
+	( 2 * @padding-horizontal-page-container-wide );
 // 31.25em - 3.75em = 27.5em @ 16
 @border-color-sidebar: @background-color-secondary--modern;
 @background-color-secondary--modern: #f8f9fa;
@@ -155,6 +155,10 @@ body {
 	// sidebar is flush with the edge of the screen at small widths.
 	left: -@padding-horizontal-page-container;
 	z-index: @z-index-sidebar;
+
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		left: -@padding-horizontal-page-container-wide;
+	}
 }
 
 // Update positioning when TOC is enabled
@@ -207,6 +211,16 @@ body {
 	// For devices too small, they should be more useable with horizontal scrolling.
 	// e.g. Portrait on an iPad
 	min-width: @min-width-supported;
+
+	@media ( min-width: @width-breakpoint-desktop ) {
+		padding-left: @padding-horizontal-page-container;
+		padding-right: @padding-horizontal-page-container;
+	}
+
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		padding-left: @padding-horizontal-page-container-wide;
+		padding-right: @padding-horizontal-page-container-wide;
+	}
 }
 
 .skin--responsive .mw-page-container {
@@ -287,13 +301,6 @@ body {
 	}
 }
 
-// Increase margin when TOC is enabled
-.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
-	.skin-vector-disable-max-width & {
-		margin-left: @margin-toc-start-content;
-	}
-}
-
 @media ( max-width: @max-width-margin-start-content ) {
 	// Adjusts the content and mw-article-toolbar-container.
 	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
@@ -327,6 +334,7 @@ body {
 // HTML but only one is actually visible. Prevent the left margin from undesirably
 // applying if bucketed into the control or unsampled groups which won't show
 // the new TOC.
+.skin-vector-disable-max-width .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
 .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
@@ -334,12 +342,9 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
 	@media ( min-width: @width-breakpoint-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}
-}
 
-@media ( min-width: @width-breakpoint-desktop ) {
-	.mw-page-container {
-		padding-left: @padding-horizontal-page-container;
-		padding-right: @padding-horizontal-page-container;
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		margin-left: @margin-toc-start-content-wide;
 	}
 }
 

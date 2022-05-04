@@ -34,14 +34,25 @@
 		// Temporary magic number, will be calculated after TOC specs are finalized
 		padding: 12px 19px 12px 9px;
 		margin-top: @top-margin-sidebar-content;
-		margin-left: @margin-start-sidebar-content;
 		background-image: none;
 		background-color: @border-color-sidebar;
+
+		@media ( min-width: @width-breakpoint-desktop-wide ) {
+			width: @width-sidebar-wide;
+		}
 	}
 
 	.sidebar-toc {
 		margin-top: @top-margin-sidebar-toc_title_inline;
-		margin-left: @margin-start-sidebar-content;
+	}
+
+	.mw-sidebar,
+	.sidebar-toc {
+		margin-left: 0;
+
+		@media ( min-width: @width-breakpoint-desktop-wide ) {
+			margin-left: @margin-start-sidebar-content;
+		}
 	}
 
 	// T305069 Apply different top spacing to the topmost sidebar element during menu toggling when sidebar is open.
