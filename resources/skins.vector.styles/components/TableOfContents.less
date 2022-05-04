@@ -81,12 +81,11 @@
 	display: block;
 	position: absolute;
 	bottom: 0;
-	left: 0;
-	right: 0;
+	left: @margin-start-sidebar-content; // T306893: Ensure scrollable indicator is contained in the TOC
+	right: @border-width-base; // Ensure scrollable indicator doesn't cover border/scrollbar
 	height: @fade-height;
 	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
 	pointer-events: none; // Make the link below the fade clickable
-	margin: 0 @border-width-base;
 }
 
 // Highlight active section
