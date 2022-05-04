@@ -294,9 +294,13 @@ module.exports = function tableOfContents( props ) {
 				/** @type {HTMLElement | null} */ ( e.target.closest( `.${SECTION_CLASS}` ) );
 
 			if ( tocSection && tocSection.id ) {
-				if ( e.target.classList.contains( LINK_CLASS ) ) {
+				// In case section link contains HTML,
+				// test if click occurs on any child elements.
+				if ( e.target.closest( `.${LINK_CLASS}` ) ) {
 					props.onHeadingClick( tocSection.id );
 				}
+				// Toggle button does not contain child elements,
+				// so classList check will suffice.
 				if ( e.target.classList.contains( TOGGLE_CLASS ) ) {
 					props.onToggleClick( tocSection.id );
 				}
