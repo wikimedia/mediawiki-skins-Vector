@@ -7,7 +7,7 @@ const templateData = {
 	'is-wide': false,
 	'data-user-more': {
 		id: 'p-personal-more',
-		class: 'mw-portlet mw-portlet-personal-more vector-menu vector-user-menu-more',
+		class: 'mw-portlet mw-portlet-personal-more vector-user-menu-more',
 		label: 'Toggle sidebar',
 		'html-items': `
 			<li id="ca-uls" class="user-links-collapsible-item mw-list-item active"><a href="#" class="uls-trigger mw-ui-button mw-ui-quiet"><span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span> <span>English</span></a></li>
@@ -18,7 +18,7 @@ const templateData = {
 	},
 	'data-user-menu': {
 		id: 'p-personal',
-		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu vector-menu-dropdown',
+		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
 		label: 'Personal tools',
 		'html-items': `
 			<li id="pt-userpage" class="user-links-collapsible-item mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar" href="/wiki/User:Admin" title="Your user page [.]" accesskey="."><span>Admin</span></a></li>

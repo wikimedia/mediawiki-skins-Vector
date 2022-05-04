@@ -72,7 +72,7 @@ const LOGGED_OUT_ITEMS = `
 `;
 
 const additionalUserMoreData = {
-	class: 'vector-menu vector-user-menu-more',
+	class: 'vector-user-menu-more',
 	'heading-class': '',
 	'is-dropdown': false
 };

@@ -753,10 +753,10 @@ abstract class SkinVector extends SkinMustache {
 		int $type = self::MENU_TYPE_DEFAULT
 	) {
 		$extraClasses = [
-			self::MENU_TYPE_DROPDOWN => 'vector-menu vector-menu-dropdown',
-			self::MENU_TYPE_TABS => 'vector-menu vector-menu-tabs',
-			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
-			self::MENU_TYPE_DEFAULT => 'vector-menu',
+			self::MENU_TYPE_DROPDOWN => 'vector-menu-dropdown',
+			self::MENU_TYPE_TABS => 'vector-menu-tabs',
+			self::MENU_TYPE_PORTAL => 'vector-menu-portal portal',
+			self::MENU_TYPE_DEFAULT => '',
 		];
 		if ( $this->isLegacy() ) {
 			$extraClasses[self::MENU_TYPE_TABS] .= ' vector-menu-tabs-legacy';

@@ -256,7 +256,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				// Provided by core
 				'id' => 'p-views',
 				'class' => 'mw-portlet mw-portlet-views emptyPortlet ' .
-					'vector-menu vector-menu-tabs vector-menu-tabs-legacy',
+					'vector-menu-tabs vector-menu-tabs-legacy',
 				'html-tooltip' => '',
 				'html-items' => '',
 				'html-after-portal' => '',
@@ -271,19 +271,19 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$variants = $props['data-variants'];
 		$actions = $props['data-actions'];
 		$this->assertSame(
-			'mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs vector-menu-tabs-legacy',
+			'mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy',
 			$namespaces['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-variants vector-menu-dropdown-noicon vector-menu vector-menu-dropdown',
+			'mw-portlet mw-portlet-variants vector-menu-dropdown-noicon vector-menu-dropdown',
 			$variants['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-cactions vector-menu-dropdown-noicon vector-menu vector-menu-dropdown',
+			'mw-portlet mw-portlet-cactions vector-menu-dropdown-noicon vector-menu-dropdown',
 			$actions['class']
 		);
 		$this->assertSame(
-			'mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu',
+			'mw-portlet mw-portlet-personal vector-user-menu-legacy',
 			$props['data-personal']['class']
 		);
 	}

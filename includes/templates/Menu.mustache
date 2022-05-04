@@ -2,7 +2,7 @@
 	See @typedef MenuDefinition
 }}
 
-<div id="{{id}}"{{#class}} class="{{.}}"{{/class}} {{{html-tooltip}}} {{{html-user-language-attributes}}}>
+<div id="{{id}}" class="vector-menu{{#class}} {{.}}{{/class}}" {{{html-tooltip}}} {{{html-user-language-attributes}}}>
 	{{!
 		Dropdown menus use the checkbox hack and require `input` and `label` elements.
 		`aria-label` is applied to the `input` which is semantically a button.
@@ -14,7 +14,7 @@
 		role="button"
 		aria-haspopup="true"
 		data-event-name="ui.dropdown-{{id}}"
-		class="{{#checkbox-class}}{{.}} {{/checkbox-class}}vector-menu-checkbox"
+		class="vector-menu-checkbox{{#checkbox-class}} {{.}}{{/checkbox-class}}"
 		{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
 	/>
 	<label
