@@ -37,6 +37,20 @@
 		flex-grow: 1;
 	}
 
+	&-content,
+	&-aside {
+		display: flex;
+		align-items: center;
+	}
+
+	&-aside {
+		float: left;
+	}
+
+	&-content {
+		flex-grow: 1;
+	}
+
 	@media ( min-width: @width-breakpoint-desktop ) {
 		.vector-search-box {
 			margin-right: @margin-end-search;
