@@ -55,7 +55,8 @@
 	"vector-anon-user-menu-pages": "ログアウトした編集者のページ",
 	"vector-anon-user-menu-pages-learn": "もっと詳しく",
 	"vector-anon-user-menu-pages-label": "編集の詳細",
-	"vector-personal-more-label": "ユーザーリンク",
 	"vector-main-menu-tooltip": "メインメニュー",
+	"vector-article-tools-nav-label": "記事ツール",
+	"vector-site-nav-label": "サイト",
 	"tooltip-vector-anon-user-menu-title": "その他の操作"
 }

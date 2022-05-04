@@ -28,6 +28,7 @@
 	"vector-view-view": "చదువు",
 	"vector-view-viewsource": "మూలాన్ని చూపించు",
 	"vector-more-actions": "మరిన్ని",
-	"vector-toc-heading": "కంటెంటులు",
+	"vector-toc-heading": "విషయ సూచిక",
+	"vector-toc-beginning": "ప్రవేశిక",
 	"vector-toc-toggle-button-label": "$1 ఉపవర్గాన్ని టాగుల్ చెయ్యి"
 }
