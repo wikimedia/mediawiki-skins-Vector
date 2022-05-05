@@ -396,6 +396,7 @@ abstract class SkinVector extends SkinMustache {
 			$btns[] = self::EDIT_PROTECTED_ICON;
 			$btns[] = self::EDIT_VE_ICON;
 		}
+		$btns[] = $this->getAddSectionButtonData();
 
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 		$showStickyULS = ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' )
@@ -682,6 +683,24 @@ abstract class SkinVector extends SkinMustache {
 		return $this->msg( $message )
 			->numParams( count( $this->getLanguagesCached() ) )
 			->escaped();
+	}
+
+	/**
+	 * Creates button data for the "Add section" button in the sticky header
+	 *
+	 * @return array
+	 */
+	private function getAddSectionButtonData() {
+		return [
+			'href' => '#',
+			'id' => 'ca-addsection-sticky-header',
+			'event' => 'addsection-sticky-header',
+			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-speechBubbleAdd-progressive' ),
+			'label' => $this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] ),
+			'is-quiet' => true,
+			'tabindex' => '-1',
+			'class' => 'sticky-header-icon mw-ui-primary mw-ui-progressive'
+		];
 	}
 
 	/**

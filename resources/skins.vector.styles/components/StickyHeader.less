@@ -1,6 +1,8 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
+@font-size-sticky-header-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
+
 .vector-sticky-header {
 	width: 100%;
 	height: @height-sticky-header;
@@ -88,6 +90,10 @@
 		wbr {
 			display: none;
 		}
+	}
+
+	&-icons {
+		font-size: @font-size-sticky-header-links;
 	}
 
 	.vector-search-box {
