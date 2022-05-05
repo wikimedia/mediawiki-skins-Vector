@@ -46,69 +46,63 @@ async function runTests( opts ) {
 		throw new Error( 'Missing env variables' );
 	}
 
-	try {
-		const tests = config.tests;
-		const allValidTests = tests.filter( ( test ) => test.name ).length === tests.length;
-		if ( !allValidTests ) {
-			throw new Error( 'Config missing test name' );
-		}
-
-		const canLogResults = process.env.WMF_JENKINS_BEACON_URL && config.namespace;
-		if ( opts.logResults && !canLogResults ) {
-			throw new Error( 'Unable to log results, missing config or env variables' );
-		}
-
-		resetReportDir();
-
-		const testPromises = tests.map( ( test ) => {
-			const { url, name, ...testOptions } = test;
-			const options = { ...config.defaults, ...testOptions };
-			// Automatically enable screen capture for every test;
-			options.screenCapture = `${config.reportDir}/${name}.png`;
-
-			return pa11y( url, options ).then( ( testResult ) => {
-				testResult.name = name;
-				return testResult;
-			} );
-		} );
-
-		// Run tests against multiple URLs
-		const results = await Promise.all( testPromises ); // eslint-disable-line
-		results.forEach( async ( testResult ) => {
-			const name = testResult.name;
-			const errorNum = testResult.issues.filter( ( issue ) => issue.type === 'error' ).length;
-			const warningNum = testResult.issues.filter( ( issue ) => issue.type === 'warning' ).length;
-			const noticeNum = testResult.issues.filter( ( issue ) => issue.type === 'notice' ).length;
-
-			// Log results summary to console
-			if ( !opts.silent ) {
-				console.log( `'${name}'- ${errorNum} errors, ${warningNum} warnings, ${noticeNum} notices` );
-			}
-
-			// Send data to Graphite
-			// WMF_JENKINS_BEACON_URL is only defined in CI env
-			if ( opts.logResults && canLogResults ) {
-				await sendMetrics( config.namespace, testResult.name, errorNum )
-					.then( ( response ) => {
-						if ( response.ok ) {
-							console.log( `'${name}' results logged successfully` );
-						} else {
-							console.error( `Failed to log '${name}' results` );
-						}
-					} );
-			}
-
-			// Save in html report
-			const html = await htmlReporter.results( testResult );
-			fs.promises.writeFile( `${config.reportDir}/report-${name}.html`, html, 'utf8' );
-			// Save in json report
-			fs.promises.writeFile( `${config.reportDir}/report-${name}.json`, JSON.stringify( testResult, null, '  ' ), 'utf8' );
-		} );
-
-	} catch ( error ) {
-		// Output an error if it occurred
-		console.error( error.message );
+	const tests = config.tests;
+	const allValidTests = tests.filter( ( test ) => test.name ).length === tests.length;
+	if ( !allValidTests ) {
+		throw new Error( 'Config missing test name' );
 	}
+
+	const canLogResults = process.env.WMF_JENKINS_BEACON_URL && config.namespace;
+	if ( opts.logResults && !canLogResults ) {
+		throw new Error( 'Unable to log results, missing config or env variables' );
+	}
+
+	resetReportDir();
+
+	const testPromises = tests.map( ( test ) => {
+		const { url, name, ...testOptions } = test;
+		const options = { ...config.defaults, ...testOptions };
+		// Automatically enable screen capture for every test;
+		options.screenCapture = `${config.reportDir}/${name}.png`;
+
+		return pa11y( url, options ).then( ( testResult ) => {
+			testResult.name = name;
+			return testResult;
+		} );
+	} );
+
+	// Run tests against multiple URLs
+	const results = await Promise.all( testPromises ); // eslint-disable-line
+	results.forEach( async ( testResult ) => {
+		const name = testResult.name;
+		const errorNum = testResult.issues.filter( ( issue ) => issue.type === 'error' ).length;
+		const warningNum = testResult.issues.filter( ( issue ) => issue.type === 'warning' ).length;
+		const noticeNum = testResult.issues.filter( ( issue ) => issue.type === 'notice' ).length;
+
+		// Log results summary to console
+		if ( !opts.silent ) {
+			console.log( `'${name}'- ${errorNum} errors, ${warningNum} warnings, ${noticeNum} notices` );
+		}
+
+		// Send data to Graphite
+		// WMF_JENKINS_BEACON_URL is only defined in CI env
+		if ( opts.logResults && canLogResults ) {
+			await sendMetrics( config.namespace, testResult.name, errorNum )
+				.then( ( response ) => {
+					if ( response.ok ) {
+						console.log( `'${name}' results logged successfully` );
+					} else {
+						console.error( `Failed to log '${name}' results` );
+					}
+				} );
+		}
+
+		// Save in html report
+		const html = await htmlReporter.results( testResult );
+		fs.promises.writeFile( `${config.reportDir}/report-${name}.html`, html, 'utf8' );
+		// Save in json report
+		fs.promises.writeFile( `${config.reportDir}/report-${name}.json`, JSON.stringify( testResult, null, '  ' ), 'utf8' );
+	} );
 }
 
 function setupCLI() {

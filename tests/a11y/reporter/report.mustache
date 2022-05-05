@@ -89,9 +89,10 @@
 
 	<div class="page">
 
-		<h1>Accessibility Report For {{{name}}}</h1>
-		<p>Run on: {{{pageUrl}}}</p>
-		<p>Generated at: {{date}}</p>
+		<h1>Accessibility Report for "{{{name}}}"</h1>
+		<p><b>Run on:</b> {{{pageUrl}}}</p>
+		<p><b>Generated at:</b> {{date}}</p>
+		<p><b>Page screenshot:</b> <a href="./{{{name}}}.png">{{{name}}}.png</a></p>
 
 		<nav class="counts">
 			<a href="#error" class="count error">{{errorCount}} total errors</a>
@@ -101,12 +102,12 @@
 
 		{{#issueData}}
 		<div id="{{type}}" class="container">
-			<h2>{{typeLabel}}, {{typeCount}} rules</h2>
+			<h2>{{typeLabel}}, {{typeCount}} rule(s)</h2>
 			{{#messages}}
 			<div class="message {{type}}">
 				<h3>{{message}}</h3>
-				<p>Rule: {{runner}}, {{code}}</p>
-				{{#runnerExtras}}<p>Impact: {{impact}}</p>{{/runnerExtras}}
+				<p><b>Rule:</b> {{runner}}, {{code}}</p>
+				{{#runnerExtras}}<p><b>Impact:</b> {{impact}}</p>{{/runnerExtras}}
 				<h4>{{issueCount}} instance(s):</h4>
 				<ul class="issues-list">
 					{{#issues}}
