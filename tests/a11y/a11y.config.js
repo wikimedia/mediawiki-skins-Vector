@@ -1,4 +1,5 @@
 // @ts-nocheck
+const path = require( 'path' );
 
 const testData = {
 	baseUrl: process.env.MW_SERVER,
@@ -8,7 +9,8 @@ const testData = {
 };
 
 module.exports = {
-	reportDir: 'log/',
+	// LOG_DIR set in CI, used to make report files available in Jenkins
+	reportDir: process.env.LOG_DIR || path.join( process.cwd(), 'a11y/' ),
 	namespace: 'Vector',
 	defaults: {
 		viewport: {
@@ -50,8 +52,7 @@ module.exports = {
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
 				'click #wpLoginAttempt',
-				'wait for #pt-userpage-2 to be visible', // Confirm login was successful
-				'click #mw-sidebar-button'
+				'wait for #pt-userpage-2 to be visible' // Confirm login was successful
 			]
 		},
 		{
