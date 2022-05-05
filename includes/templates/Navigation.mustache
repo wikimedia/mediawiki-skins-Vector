@@ -1,17 +1,4 @@
 <div id="mw-navigation">
-	<nav id="mw-head" aria-label="{{msg-vector-article-tools-nav-label}}" role="navigation" >
-		<div class="mw-article-toolbar-container">
-			{{#data-portlets}}
-			<div id="left-navigation">
-				{{#data-namespaces}}{{>Menu}}{{/data-namespaces}}
-				{{#data-variants}}{{>Menu}}{{/data-variants}}
-			</div>
-			<div id="right-navigation">
-				{{#data-views}}{{>Menu}}{{/data-views}}
-				{{#data-actions}}{{>Menu}}{{/data-actions}}
-			</div>
-			{{/data-portlets}}
-		</div>
-	</nav>
+	{{>ArticleToolbar}}
 	{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
 </div>

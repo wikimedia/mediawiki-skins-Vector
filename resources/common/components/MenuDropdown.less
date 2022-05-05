@@ -97,6 +97,8 @@
 	}
 }
 
+// FIXME: For cached CSS. can be dropped to legacy stylesheet when
+// Ia261ea53931217f32a21b33c2ab3d4ec64efa48a has been in production for a week.
 #mw-head .vector-menu-dropdown .vector-menu-heading {
 	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
 	background-position: right bottom;
@@ -114,6 +116,7 @@
 // `.vector-menu-tabs`: Outer start border (left in LTR) of tab row.
 // `.vector-menu-tabs a`: Border between tabs and outer end (right in LTR) border.
 // `#mw-head .vector-menu-dropdown .vector-menu-heading`: // Outer end (right in LTR) border of "Actions" menu.
+// #mw-head rule is legacy Vector only.
 .vector-menu-tabs,
 .vector-menu-tabs a,
 #mw-head .vector-menu-dropdown .vector-menu-heading {
