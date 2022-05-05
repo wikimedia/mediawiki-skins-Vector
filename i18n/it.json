@@ -44,5 +44,7 @@
 	"vector-toc-beginning": "Inizio",
 	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
 	"vector-anon-user-menu-pages-learn": "ulteriori informazioni",
-	"vector-main-menu-tooltip": "Menu principale"
+	"vector-main-menu-tooltip": "Menu principale",
+	"vector-article-tools-nav-label": "Strumenti per la voce",
+	"vector-site-nav-label": "Sito"
 }
