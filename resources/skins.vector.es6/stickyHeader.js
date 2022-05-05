@@ -31,21 +31,17 @@ function copyAttribute( from, to, attribute ) {
 
 /**
  * Show the sticky header.
- *
- * @param {Element} header
  */
-function show( header ) {
-	header.classList.add( STICKY_HEADER_VISIBLE_CLASS );
+function show() {
+	document.body.classList.add( STICKY_HEADER_VISIBLE_CLASS );
 	document.body.classList.remove( ULS_HIDE_CLASS );
 }
 
 /**
  * Hide the sticky header.
- *
- * @param {Element} header
  */
-function hide( header ) {
-	header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+function hide() {
+	document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 	document.body.classList.add( ULS_HIDE_CLASS );
 }
 
@@ -284,14 +280,13 @@ function isInViewport( element ) {
 /**
  * Add hooks for sticky header when Visual Editor is used.
  *
- * @param {Element} header
  * @param {Element} stickyIntersection intersection element
  * @param {IntersectionObserver} observer
  */
-function addVisualEditorHooks( header, stickyIntersection, observer ) {
+function addVisualEditorHooks( stickyIntersection, observer ) {
 	// When Visual Editor is activated, hide the sticky header.
 	mw.hook( 've.activationStart' ).add( () => {
-		hide( header );
+		hide();
 		observer.unobserve( stickyIntersection );
 	} );
 
@@ -308,7 +303,7 @@ function addVisualEditorHooks( header, stickyIntersection, observer ) {
 	// After saving edits, re-apply the sticky header if the target is not in the viewport.
 	mw.hook( 'postEdit.afterRemoval' ).add( () => {
 		if ( !isInViewport( stickyIntersection ) ) {
-			show( header );
+			show();
 			observer.observe( stickyIntersection );
 		}
 	} );
@@ -378,7 +373,7 @@ function makeStickyHeaderFunctional(
 	const primaryEdit = protectedEdit || ( veEdit || ceEdit );
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
-		header.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
+		document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
 
@@ -458,7 +453,7 @@ function initStickyHeader( props ) {
 	);
 
 	setupSearchIfNeeded( props.header );
-	addVisualEditorHooks( props.header, props.stickyIntersection, props.observer );
+	addVisualEditorHooks( props.stickyIntersection, props.observer );
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	// @ts-ignore

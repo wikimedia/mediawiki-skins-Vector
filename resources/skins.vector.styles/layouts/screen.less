@@ -183,9 +183,10 @@ body {
 	position: sticky;
 	float: left;
 	clear: both;
-	// Defaults to the top of the viewport unless .mw-sticky-header-element
-	// overrides it.
-	top: 0;
+	// Defaults to -2em to account for the TOC's top margin
+	// ensuring the TOC is 1.5em (24px) from the top of the viewport
+	// unless .mw-sticky-header-element overrides it.
+	top: calc( 1.5em - @top-margin-sidebar-toc_title_inline );
 }
 
 .parsoid-body {

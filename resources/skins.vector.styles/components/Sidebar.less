@@ -74,9 +74,9 @@
 		}
 	}
 
-	// T305069 When scrolling down, override the top padding of the sticky TOC that is applied during menu toggling
-	// so that the top of sticky TOC remains at the top of the viewport with normal padding. See scrollObserver.js.
-	&.vector-scrolled-below-table-of-contents .sidebar-toc {
+	// T305069 When scrolling down, override the top margin of the sticky TOC
+	// so that the top of sticky TOC remains at the top of the viewport with normal padding.
+	&.vector-sticky-header-visible .sidebar-toc {
 		margin-top: @top-margin-sidebar-toc;
 	}
 }
