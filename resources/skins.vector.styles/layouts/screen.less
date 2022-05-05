@@ -334,8 +334,20 @@ body {
 }
 
 .skin-vector-toc-experiment-control .mw-table-of-contents-container,
-.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container,
+.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container {
+	display: none;
+}
+
+// Cannot use display: none on legacy TOC because it needs to be accessible
+// to scrollObserver for the TOC A/B test (T303297)
+// Instead we hide the contents of the legacy TOC and reset it's styles
+// See I3f247730fa1c399e6d2e4d866677703fc24e8c58
 .skin-vector-toc-experiment-treatment #toc {
+	padding: 0;
+	border: 0;
+}
+
+.skin-vector-toc-experiment-treatment #toc > * {
 	display: none;
 }
 

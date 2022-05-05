@@ -18,7 +18,8 @@ const
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	TOC_QUERY_PARAM = 'tableofcontents',
-	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
+	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment',
+	SCROLL_TOC_BELOW_CLASS = 'vector-scrolled-below-table-of-contents';
 
 /**
  * @callback OnIntersection
@@ -95,30 +96,22 @@ const main = () => {
 	const tocElement = document.getElementById( TOC_ID );
 	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-	const tocLegacyPlaceholder = document.getElementsByTagName( TOC_LEGACY_PLACEHOLDER_TAG )[ 0 ];
-	const tocLegacyTargetIntersection = tocElementLegacy || tocLegacyPlaceholder;
 
-	// Set up intersection observer for sticky header and table of contents functionality
-	// and to fire scroll event hooks for event logging if AB tests are enabled for
-	// either feature.
+	// Set up intersection observer for page title, used by sticky header
 	const observer = scrollObserver.initScrollObserver(
 		() => {
 			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
 				stickyHeader.show( header );
+				document.body.classList.add( SCROLL_TOC_BELOW_CLASS );
 			}
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
-			if ( tocLegacyTargetIntersection ) {
-				scrollObserver.fireScrollHook( 'down', TOC_SCROLL_HOOK );
-			}
 		},
 		() => {
 			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
 				stickyHeader.hide( header );
+				document.body.classList.remove( SCROLL_TOC_BELOW_CLASS );
 			}
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
-			if ( tocLegacyTargetIntersection ) {
-				scrollObserver.fireScrollHook( 'up', TOC_SCROLL_HOOK );
-			}
 		}
 	);
 
@@ -133,9 +126,21 @@ const main = () => {
 		observer.observe( stickyIntersection );
 	}
 
+	// Setup intersection observer for TOC scroll event tracking
+	// fire hooks for event logging if AB tests are enabled
+	const tocLegacyPlaceholder = document.getElementsByTagName( TOC_LEGACY_PLACEHOLDER_TAG )[ 0 ];
+	const tocLegacyTargetIntersection = tocElementLegacy || tocLegacyPlaceholder;
 	// Initiate observer for table of contents in main content.
 	if ( tocLegacyTargetIntersection ) {
-		observer.observe( tocLegacyTargetIntersection );
+		const tocObserver = scrollObserver.initScrollObserver(
+			() => {
+				scrollObserver.fireScrollHook( 'down', TOC_SCROLL_HOOK );
+			},
+			() => {
+				scrollObserver.fireScrollHook( 'up', TOC_SCROLL_HOOK );
+			}
+		);
+		tocObserver.observe( tocLegacyTargetIntersection );
 	}
 
 	// Add event data attributes to legacy TOC
