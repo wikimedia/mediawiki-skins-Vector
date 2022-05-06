@@ -120,6 +120,14 @@ body {
 	z-index: @z-index-base;
 }
 
+// Prevents margin collapsing on first element (typically a <p>) of content.
+// Custom because .mixin-clearfix() automatically appends :after to the selector
+// and doesn't prevent margin collapsing.
+.vector-body:before {
+	content: '';
+	display: table;
+}
+
 /* Navigation Containers */
 .mw-article-toolbar-container {
 	// Clear the floats on #left-navigation and #right-navigation.

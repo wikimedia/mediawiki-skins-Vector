@@ -54,28 +54,11 @@
 	<a id="top"></a>
 	<div id="siteNotice">{{{html-site-notice}}}</div>
 
-	{{^is-language-in-content}}
-	{{>Indicators}}
-	{{{html-title-heading}}}
-	{{/is-language-in-content}}
+	{{>ContentHeader}}
 
-	{{#is-language-in-content}}
-	<header class="mw-body-header">
-		{{#is-language-in-content-top}}
-			{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
-		{{/is-language-in-content-top}}
-		{{{html-title-heading}}}
-		{{>Indicators}}
-		{{#is-article}}
-			<div id="siteSub" class="noprint">{{msg-tagline}}</div>
-		{{/is-article}}
-	</header>
-	{{/is-language-in-content}}
+	{{>ContentSubheader}}
 
 	<div id="bodyContent" class="vector-body">
-		{{^is-language-in-content}}
-			{{#is-article}}<div id="siteSub" class="noprint">{{msg-tagline}}</div>{{/is-article}}
-		{{/is-language-in-content}}
 		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 		<div id="contentSub2">{{{html-undelete-link}}}</div>
 		{{{html-user-message}}}
