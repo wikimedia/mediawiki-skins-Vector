@@ -23,6 +23,7 @@
 			"Xiplus",
 			"Xzonn",
 			"Yfdyh000",
+			"Yining Chen",
 			"落花有意12138",
 			50829
 		]
@@ -67,5 +68,7 @@
 	"vector-anon-user-menu-pages-learn": "了解详情",
 	"vector-anon-user-menu-pages-label": "了解有关编辑的更多信息",
 	"vector-main-menu-tooltip": "主菜单",
+	"vector-article-tools-nav-label": "条目工具",
+	"vector-site-nav-label": "站点",
 	"tooltip-vector-anon-user-menu-title": "更多选项"
 }
