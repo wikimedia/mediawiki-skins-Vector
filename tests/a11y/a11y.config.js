@@ -3,7 +3,7 @@ const path = require( 'path' );
 
 const testData = {
 	baseUrl: process.env.MW_SERVER,
-	pageUrl: '/wiki/Polar_bear?useskin=vector-2022',
+	pageUrl: '/wiki/Polar_bear?useskin=vector-2022&tableofcontents=1',
 	loginUser: process.env.MEDIAWIKI_USER,
 	loginPassword: process.env.MEDIAWIKI_PASSWORD
 };
@@ -23,7 +23,7 @@ module.exports = {
 		],
 		includeWarnings: true,
 		includeNotices: true,
-		hideElements: '#content',
+		hideElements: '#bodyContent',
 		chromeLaunchConfig: {
 			headless: true,
 			args: [
@@ -37,7 +37,7 @@ module.exports = {
 			name: 'default',
 			url: testData.baseUrl + testData.pageUrl,
 			actions: [
-				'click #mw-sidebar-button'
+				'check field #mw-sidebar-checkbox' // Open main menu
 			]
 		},
 		{
@@ -52,7 +52,8 @@ module.exports = {
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
 				'click #wpLoginAttempt',
-				'wait for #pt-userpage-2 to be visible' // Confirm login was successful
+				'wait for #pt-userpage-2 to be visible', // Confirm login was successful
+				'check field #mw-sidebar-checkbox' // Open main menu
 			]
 		},
 		{
