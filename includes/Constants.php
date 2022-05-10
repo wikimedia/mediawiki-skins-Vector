@@ -265,6 +265,26 @@ final class Constants {
 	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_TITLE_ABOVE_TABS = 'TitleAboveTabs';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_TITLE_ABOVE_TABS = 'VectorTitleAboveTabs';
+
+	/**
+	 * @var string
+	 */
+	public const QUERY_PARAM_TITLE_ABOVE_TABS = 'titleabovetabs';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_TITLE_ABOVE_TABS = 'TitleAboveTabs';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

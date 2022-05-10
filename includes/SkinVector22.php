@@ -167,6 +167,7 @@ class SkinVector22 extends SkinVector {
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
+			'is-title-above-tabs' => $featureManager->isFeatureEnabled( Constants::FEATURE_TITLE_ABOVE_TABS )
 		];
 	}
 }
