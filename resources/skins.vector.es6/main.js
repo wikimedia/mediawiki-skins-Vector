@@ -18,8 +18,7 @@ const
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	TOC_QUERY_PARAM = 'tableofcontents',
-	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment',
-	SCROLL_TOC_BELOW_CLASS = 'vector-scrolled-below-table-of-contents';
+	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
 
 /**
  * @callback OnIntersection
@@ -101,15 +100,13 @@ const main = () => {
 	const observer = scrollObserver.initScrollObserver(
 		() => {
 			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
-				stickyHeader.show( header );
-				document.body.classList.add( SCROLL_TOC_BELOW_CLASS );
+				stickyHeader.show();
 			}
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
 		},
 		() => {
 			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
-				stickyHeader.hide( header );
-				document.body.classList.remove( SCROLL_TOC_BELOW_CLASS );
+				stickyHeader.hide();
 			}
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 		}

@@ -9,7 +9,6 @@
 	left: 0;
 	right: 0;
 	z-index: @z-index-header;
-	transform: translateY( -100% );
 	transition: @transition-sticky-header;
 	display: flex;
 	align-items: center;
@@ -32,18 +31,23 @@
 		max-width: @max-width-page-container + ( @padding-horizontal-page-container-wide * 2 );
 	}
 
+	// Hide sticky header and it's children until visible class is applied to the body
+	.client-js.vector-sticky-header-enabled :not( .vector-sticky-header-visible ) & {
+		transform: translateY( -100% );
+
+		> div {
+			display: none;
+		}
+	}
+
+	// Hide sticky header for no-js users
+	.client-nojs & {
+		display: none;
+	}
+
 	// T298836 Hide the sticky header at lower resolutions.
 	@media ( max-width: @width-breakpoint-desktop ) {
 		display: none;
-	}
-
-	// Hide any open menus/search results unless sticky header is visible
-	&:not( .vector-sticky-header-visible ) > div {
-		display: none;
-	}
-
-	&-visible {
-		transform: translateY( 0% );
 	}
 
 	//
@@ -118,10 +122,6 @@
 			}
 		}
 	}
-}
-
-.client-nojs .vector-sticky-header {
-	display: none;
 }
 
 @media ( min-width: @width-breakpoint-tablet ) {
