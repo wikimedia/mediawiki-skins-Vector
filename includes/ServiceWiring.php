@@ -217,6 +217,29 @@ return [
 			]
 		);
 
+		// Feature: Title above tabs
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_TITLE_ABOVE_TABS,
+				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
+				Constants::QUERY_PARAM_TITLE_ABOVE_TABS,
+				null
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_TITLE_ABOVE_TABS,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
+			]
+		);
+
 		return $featureManager;
 	}
 ];
