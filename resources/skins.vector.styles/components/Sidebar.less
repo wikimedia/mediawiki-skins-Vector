@@ -46,7 +46,7 @@
 		}
 	}
 
-	.sidebar-toc {
+	.vector-layout-legacy .sidebar-toc {
 		margin-top: @top-margin-sidebar-toc_title_inline;
 	}
 
@@ -59,12 +59,9 @@
 		}
 	}
 
+	@selector-checkbox-hack: ~'.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container';
 	// T305069 Apply different top spacing to the topmost sidebar element during menu toggling when sidebar is open.
-	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container {
-		.sidebar-toc {
-			margin-top: @top-margin-sidebar-toc;
-		}
-
+	@{selector-checkbox-hack} {
 		@media ( max-width: @width-breakpoint-desktop ) {
 			.mw-sidebar {
 				margin-top: 0;
@@ -78,9 +75,17 @@
 		}
 	}
 
+	.vector-layout-legacy @{selector-checkbox-hack} {
+		.sidebar-toc {
+			.vector-layout-legacy {
+				margin-top: @top-margin-sidebar-toc;
+			}
+		}
+	}
+
 	// T305069 When scrolling down, override the top margin of the sticky TOC
 	// so that the top of sticky TOC remains at the top of the viewport with normal padding.
-	&.vector-sticky-header-visible .sidebar-toc {
+	&.vector-sticky-header-visible .vector-layout-legacy .sidebar-toc {
 		margin-top: @top-margin-sidebar-toc;
 	}
 }

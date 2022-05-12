@@ -75,7 +75,10 @@ body {
 .mw-body,
 .parsoid-body {
 	direction: ltr;
-	padding: @padding-content;
+
+	.vector-layout-legacy & {
+		padding: @padding-content;
+	}
 }
 
 .mw-body {
@@ -131,7 +134,7 @@ body {
 }
 
 /* Navigation Containers */
-.mw-article-toolbar-container {
+.vector-layout-legacy .mw-article-toolbar-container {
 	// Clear the floats on #left-navigation and #right-navigation.
 	.mixin-clearfix();
 	// We want to keep the max-width of the article-toolbar-container the
@@ -162,7 +165,7 @@ body {
 	}
 }
 
-#mw-panel {
+.vector-layout-legacy #mw-panel {
 	position: absolute;
 	top: 0;
 	// Sidebar is displaced from the workspace container so that the
@@ -176,7 +179,7 @@ body {
 }
 
 // Update positioning when TOC is enabled
-.vector-toc-enabled #mw-panel {
+.vector-toc-enabled .vector-layout-legacy #mw-panel {
 	position: static;
 	float: left;
 }
@@ -184,12 +187,15 @@ body {
 .mw-table-of-contents-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
-	float: left;
-	clear: both;
 	// Defaults to -2em to account for the TOC's top margin
 	// ensuring the TOC is 1.5em (24px) from the top of the viewport
 	// unless .mw-sticky-header-element overrides it.
 	top: calc( 1.5em - @top-margin-sidebar-toc_title_inline );
+
+	.vector-layout-legacy & {
+		float: left;
+		clear: both;
+	}
 }
 
 .parsoid-body {
@@ -249,12 +255,15 @@ body {
 }
 
 .mw-workspace-container {
-	max-width: @max-width-workspace-container;
-	margin-left: auto;
-	margin-right: auto;
 	// The sidebar is absolutely positioned relative to the
 	// mw-workspace-container.
 	position: relative;
+
+	.vector-layout-legacy & {
+		max-width: @max-width-workspace-container;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	&.mw-footer-container {
 		// T264679: There are elements (e.g. discussion tool popovers) in the main
@@ -266,10 +275,12 @@ body {
 }
 
 .mw-content-container {
-	display: flow-root;
-	max-width: @max-width-content-container;
-	margin-left: auto;
-	margin-right: auto;
+	.vector-layout-legacy & {
+		max-width: @max-width-content-container;
+		display: flow-root;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
 	// For container logic specific to special pages and history pages.
 	.skin-vector-disable-max-width & {
@@ -311,8 +322,8 @@ body {
 
 // Adjusts the content when sidebar is open regardless of the viewport width.
 /* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-@{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container,
-@{selector-workspace-container-sidebar-open} .mw-content-container {
+.vector-layout-legacy @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container,
+.vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container {
 	// For container logic specific to special pages and history pages.
 	.skin-vector-disable-max-width & {
 		margin-left: @margin-start-content;
@@ -321,16 +332,16 @@ body {
 
 @media ( max-width: @max-width-margin-start-content ) {
 	// Adjusts the content and mw-article-toolbar-container.
-	@{selector-workspace-container-sidebar-open} .mw-content-container,
+	.vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
 	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-	@{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
+	.vector-layout-legacy @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 		margin-left: @margin-start-content;
 	}
 
 	// Increase margin when TOC is enabled
-	.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
+	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
 	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-	.vector-toc-enabled @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
+	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 		margin-left: @margin-toc-start-content;
 	}
 
@@ -366,13 +377,13 @@ body {
 // HTML but only one is actually visible. Prevent the left margin from undesirably
 // applying if bucketed into the control or unsampled groups which won't show
 // the new TOC.
-.skin-vector-disable-max-width .vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
-body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-content-container,
+.skin-vector-disable-max-width .vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
+body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled )  .vector-layout-legacy .vector-toc-visible .mw-workspace-container .mw-content-container,
 /* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible #mw-navigation .mw-article-toolbar-container,
-.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
+body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled )  .vector-layout-legacy .vector-toc-visible #mw-navigation .mw-article-toolbar-container,
+.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
 /* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-.vector-toc-enabled @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
+.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 	@media ( min-width: @width-breakpoint-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}
