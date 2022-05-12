@@ -23,7 +23,7 @@ module.exports = {
 		],
 		includeWarnings: true,
 		includeNotices: true,
-		hideElements: '#bodyContent',
+		hideElements: '#bodyContent, #mwe-pt-toolbar',
 		chromeLaunchConfig: {
 			headless: true,
 			args: [

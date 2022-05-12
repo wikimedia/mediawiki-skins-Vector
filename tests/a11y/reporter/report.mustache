@@ -52,6 +52,14 @@
 			border: 1px solid #eee;
 		}
 
+		details {
+			margin: 16px 0 16px 0;
+		}
+
+		summary {
+			font-weight: bold;
+		}
+
 		.issues-list {
 			margin-left: 0;
 			padding-left: 0;
@@ -108,16 +116,21 @@
 				<h3>{{message}}</h3>
 				<p><b>Rule:</b> {{runner}}, {{code}}</p>
 				{{#runnerExtras}}<p><b>Impact:</b> {{impact}}</p>{{/runnerExtras}}
-				<h4>{{issueCount}} instance(s):</h4>
-				<ul class="issues-list">
-					{{#issues}}
-					<li class="issue">
-						<pre>{{selector}}</pre>
-						<hr>
-						<pre>{{context}}</pre>
-					</li>
-					{{/issues}}
-				</ul>
+				<hr>
+				<details>
+					<summary>
+						{{issueCount}} instance(s):
+					</summary>
+					<ul class="issues-list">
+						{{#issues}}
+						<li class="issue">
+							<pre>{{selector}}</pre>
+							<hr>
+							<pre>{{context}}</pre>
+						</li>
+						{{/issues}}
+					</ul>
+				</details>
 			</div>
 			{{/messages}}
 		</div>
