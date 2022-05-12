@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"AnupamM",
 			"Saurmandal",
 			"Sfic",
@@ -46,5 +47,7 @@
 	"vector-anon-user-menu-pages-learn": "अधिक जानें",
 	"vector-anon-user-menu-pages-label": "संपादन के बारे में अधिक जानें",
 	"vector-main-menu-tooltip": "मुख्य मेन्यू",
+	"vector-article-tools-nav-label": "उपकरण",
+	"vector-site-nav-label": "साइट",
 	"tooltip-vector-anon-user-menu-title": "अन्य विकल्प"
 }

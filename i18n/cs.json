@@ -42,6 +42,7 @@
 	"vector-jumptocontent": "Přeskočit na obsah",
 	"vector-more-actions": "Další",
 	"vector-search-loader": "Načítají se návrhy pro hledání",
+	"vector-searchsuggest-containing": "Vyhledat stránky obsahující „<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>“",
 	"vector-intro-page": "Nápověda:Úvod",
 	"vector-toc-heading": "Obsah",
 	"vector-toc-beginning": "Začátek",
