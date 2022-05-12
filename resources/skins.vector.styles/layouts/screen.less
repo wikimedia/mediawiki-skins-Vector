@@ -8,6 +8,9 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
+@selector-workspace-container-sidebar-open: ~'.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container';
+@selector-workspace-container-sidebar-closed: ~'.mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-workspace-container';
+
 // Sidebar
 @width-grid-column-one: 11em;
 
@@ -307,7 +310,7 @@ body {
 }
 
 // Adjusts the content when sidebar is open regardless of the viewport width.
-.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container {
+@{selector-workspace-container-sidebar-open} .mw-content-container {
 	// For container logic specific to special pages and history pages.
 	.skin-vector-disable-max-width & {
 		margin-left: @margin-start-content;
@@ -316,14 +319,14 @@ body {
 
 @media ( max-width: @max-width-margin-start-content ) {
 	// Adjusts the content and mw-article-toolbar-container.
-	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
-	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+	@{selector-workspace-container-sidebar-open} .mw-content-container,
+	@{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
 		margin-left: @margin-start-content;
 	}
 
 	// Increase margin when TOC is enabled
-	.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
-	.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+	.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
+	.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
 		margin-left: @margin-toc-start-content;
 	}
 
@@ -359,11 +362,11 @@ body {
 // HTML but only one is actually visible. Prevent the left margin from undesirably
 // applying if bucketed into the control or unsampled groups which won't show
 // the new TOC.
-.skin-vector-disable-max-width .vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
+.skin-vector-disable-max-width .vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
-.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-content-container,
-.vector-toc-enabled .mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container .mw-article-toolbar-container {
+.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
+.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
 	@media ( min-width: @width-breakpoint-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}
@@ -377,7 +380,7 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
  * Makes the sidebar full screen at lower resolutions.
  */
 @media ( max-width: @width-breakpoint-tablet ) {
-	.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container {
+	@{selector-workspace-container-sidebar-open} {
 		#mw-panel {
 			width: 100%;
 			position: relative;
