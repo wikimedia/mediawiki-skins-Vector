@@ -19,9 +19,7 @@
 	},
 	"pre-commit": "pre-commit",
 	"peerDependencies": {
-		"@vue/composition-api": "1.4.5",
-		"babel-core": "6.26.3",
-		"vue-template-compiler": "2.6.11"
+		"babel-core": "6.26.3"
 	},
 	"devDependencies": {
 		"@babel/core": "7.7.7",
@@ -30,6 +28,7 @@
 		"@types/jquery": "3.3.33",
 		"@types/mustache": "4.0.1",
 		"@types/node-fetch": "2.5.7",
+		"@vue/composition-api": "1.4.5",
 		"@vue/test-utils": "1.1.0",
 		"@wikimedia/mw-node-qunit": "6.3.0",
 		"@wikimedia/types-wikimedia": "0.3.3",
@@ -52,6 +51,7 @@
 		"svgo": "2.8.0",
 		"typescript": "4.5.5",
 		"vue": "2.6.11",
-		"vue-jest": "3.0.7"
+		"vue-jest": "3.0.7",
+		"vue-template-compiler": "2.6.11"
 	}
 }
