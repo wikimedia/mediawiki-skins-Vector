@@ -512,6 +512,10 @@
 			"value": 20,
 			"description": "@var When `VectorTableOfContents` is enabled, the minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
+		"VectorGrid": {
+			"value": false,
+			"description": "@var boolean `VectorGrid` enforces a grid system"
+		},
 		"VectorTitleAboveTabs": {
 			"value": false,
 			"description": "@var boolean `VectorTitleAboveTabs` places the tittle of the page above the tabs that link to history/talk etc."
