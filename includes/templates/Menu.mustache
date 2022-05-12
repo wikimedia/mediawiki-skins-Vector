@@ -3,6 +3,12 @@
 }}
 
 <div id="{{id}}"{{#class}} class="{{.}}"{{/class}} {{{html-tooltip}}} {{{html-user-language-attributes}}}>
+	{{!
+		Dropdown menus use the checkbox hack and require `input` and `label` elements
+		The accessible label is applied to the `input` which is semantically a button
+		The `label` element is used as a visual button and is hidden from screenreaders
+		to reduce verbosity, as it's contents are already used or overridden in the `input` element
+	}}
 	{{#is-dropdown}}
 	<input type="checkbox"
 		id="{{id}}-checkbox"
@@ -10,18 +16,30 @@
 		aria-haspopup="true"
 		data-event-name="ui.dropdown-{{id}}"
 		class="{{#checkbox-class}}{{.}} {{/checkbox-class}}vector-menu-checkbox"
-		aria-labelledby="{{id}}-label"
+		{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
+		{{^aria-label}}aria-label="{{label}}"{{/aria-label}}
 	/>
-	{{/is-dropdown}}
-	{{#has-label}}
 	<label
 		id="{{id}}-label"
-		{{#aria-label}} aria-label="{{.}}"{{/aria-label}}
 		class="vector-menu-heading{{#heading-class}} {{.}}{{/heading-class}}"
+		aria-hidden="true"
 	>
 		{{{html-vector-heading-icon}}}<span class="vector-menu-heading-label">{{label}}</span>
 	</label>
-	{{/has-label}}
+	{{/is-dropdown}}
+	{{!
+		Portal menus also require `label` elements, but these
+		should not be hidden and should have an accessible label
+	}}
+	{{#is-portal}}
+	<label
+		id="{{id}}-label"
+		class="vector-menu-heading{{#heading-class}} {{.}}{{/heading-class}}"
+		{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
+	>
+		{{{html-vector-heading-icon}}}<span class="vector-menu-heading-label">{{label}}</span>
+	</label>
+	{{/is-portal}}
 	<div class="vector-menu-content">
 		{{{html-before-portal}}}
 		<ul class="vector-menu-content-list">{{{html-items}}}</ul>

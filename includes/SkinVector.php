@@ -918,8 +918,7 @@ abstract class SkinVector extends SkinMustache {
 
 		return $portletData + [
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
-			// In modern vector only dropdown and portal menus render a label element
-			'has-label' => $this->isLegacy() || $type === self::MENU_TYPE_DROPDOWN || $type === self::MENU_TYPE_PORTAL,
+			'is-portal' => $type === self::MENU_TYPE_PORTAL,
 		];
 	}
 }
