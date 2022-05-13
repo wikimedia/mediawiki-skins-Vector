@@ -117,7 +117,8 @@ final class OverridableConfigRequirement implements Requirement {
 	 * @param CentralIdLookup|null $centralIdLookup
 	 * @param string $configName Any `Config` key. This name is used to query `$config` state.
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
-	 * @param string $overrideName The name of the override presented to FeatureManager, i.e. query parameter.
+	 * @param string|null $overrideName The name of the override presented to FeatureManager, i.e. query parameter.
+	 *   When not set defaults to lowercase version of config key.
 	 * @param string|null $configTestName The name of the AB test config presented to FeatureManager if applicable.
 	 */
 	public function __construct(
@@ -127,8 +128,8 @@ final class OverridableConfigRequirement implements Requirement {
 		?CentralIdLookup $centralIdLookup,
 		string $configName,
 		string $requirementName,
-		string $overrideName,
-		?string $configTestName
+		?string $overrideName = null,
+		?string $configTestName = null
 	) {
 		$this->config = $config;
 		$this->user = $user;
@@ -136,7 +137,7 @@ final class OverridableConfigRequirement implements Requirement {
 		$this->centralIdLookup = $centralIdLookup;
 		$this->configName = $configName;
 		$this->requirementName = $requirementName;
-		$this->overrideName = $overrideName;
+		$this->overrideName = $overrideName === null ? strtolower( $configName ) : $overrideName;
 		$this->configTestName = $configTestName;
 	}
 

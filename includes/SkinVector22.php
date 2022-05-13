@@ -151,7 +151,12 @@ class SkinVector22 extends SkinVector {
 		}
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
+		$isGrid = $featureManager->isFeatureEnabled(
+			Constants::FEATURE_GRID
+		);
 		return $parentData + [
+			'is-vector-grid' => $isGrid,
+			'vector-layout-class' => $isGrid ? 'vector-layout-grid vector-toc-visible' : 'vector-layout-legacy',
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $this->getStickyHeaderData(

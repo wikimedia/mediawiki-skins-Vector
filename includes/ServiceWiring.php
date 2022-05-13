@@ -52,7 +52,7 @@ return [
 				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
-				Constants::QUERY_PARAM_LANGUAGE_IN_HEADER,
+				null,
 				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST
 			)
 		);
@@ -104,9 +104,7 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_LANGUAGE_IN_MAIN_PAGE_HEADER,
-				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER,
-				Constants::QUERY_PARAM_LANGUAGE_IN_MAIN_PAGE_HEADER,
-				null
+				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER
 			)
 		);
 
@@ -134,9 +132,7 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_LANGUAGE_ALERT_IN_SIDEBAR,
-				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR,
-				Constants::QUERY_PARAM_LANGUAGE_ALERT_IN_SIDEBAR,
-				null
+				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
 			)
 		);
 
@@ -181,9 +177,7 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_STICKY_HEADER,
-				Constants::REQUIREMENT_STICKY_HEADER,
-				Constants::QUERY_PARAM_STICKY_HEADER,
-				null
+				Constants::REQUIREMENT_STICKY_HEADER
 			)
 		);
 
@@ -194,9 +188,7 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_STICKY_HEADER_EDIT,
-				Constants::REQUIREMENT_STICKY_HEADER_EDIT,
-				Constants::QUERY_PARAM_STICKY_HEADER_EDIT,
-				null
+				Constants::REQUIREMENT_STICKY_HEADER_EDIT
 			)
 		);
 
@@ -226,9 +218,7 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_TITLE_ABOVE_TABS,
-				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
-				Constants::QUERY_PARAM_TITLE_ABOVE_TABS,
-				null
+				Constants::REQUIREMENT_TITLE_ABOVE_TABS
 			)
 		);
 
@@ -237,6 +227,32 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
+			]
+		);
+
+		// Feature: Grid
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				null,
+				Constants::CONFIG_GRID,
+				Constants::REQUIREMENT_GRID
+			)
+		);
+
+		// Requires both table of contents and title above tabs
+		// to be enabled to simplify the number of variants it needs
+		// to consider.
+		$featureManager->registerFeature(
+			Constants::FEATURE_GRID,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
+				Constants::REQUIREMENT_GRID,
+				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
 			]
 		);
 
