@@ -22,9 +22,9 @@ var languageButton = require( './languageButton.js' ),
  * }
  *
  * // This transition will be disabled initially for JavaScript users. It will never be enabled for
- * // no-JS users.
+ * // non-JavaScript users.
  * .vector-animations-ready .foo {
- *     .transition( transform 100ms ease-out; );
+ *     transition: transform 100ms ease-out;
  * }
  * ```
  *
