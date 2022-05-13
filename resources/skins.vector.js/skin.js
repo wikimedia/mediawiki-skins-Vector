@@ -18,7 +18,7 @@ var languageButton = require( './languageButton.js' ),
  * ```less
  * .foo {
  *     color: #f00;
- *     .transform( translateX( -100% ) );
+ *     transform: translateX( -100% );
  * }
  *
  * // This transition will be disabled initially for JavaScript users. It will never be enabled for

@@ -292,7 +292,7 @@ body {
 // calculate the maximum distance from the start of `mw-page-container` to the
 // start of the sidebar.
 #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
-	.transform( translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 ) );
+	transform: translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 );
 }
 
 // Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
