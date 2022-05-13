@@ -165,8 +165,9 @@
 .vector-animations-ready {
 	// Enable transition on all widths by default.
 	.mw-sidebar {
-		@timing: @transition-duration-base ease-out;
-		.transition( transform @timing, opacity @timing, visibility @timing; );
+		transition-property: transform, opacity, visibility;
+		transition-duration: @transition-duration-base;
+		transition-timing-function: ease-out;
 	}
 
 	@media ( max-width: @width-breakpoint-tablet ) {
@@ -177,10 +178,7 @@
 
 	// Enable sidebar button transitions.
 	#mw-sidebar-button {
-		.transition(
-			background-color @transition-duration-base,
-			border-color @transition-duration-base,
-			box-shadow @transition-duration-base;
-		);
+		transition-property: background-color, border-color, box-shadow;
+		transition-duration: @transition-duration-base;
 	}
 }
