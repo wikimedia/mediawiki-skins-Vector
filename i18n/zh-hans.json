@@ -3,6 +3,7 @@
 		"authors": [
 			"500000000006城",
 			"AYZ04",
+			"Bo77le",
 			"Cwek",
 			"FakeGreenHand",
 			"Func",
@@ -70,5 +71,6 @@
 	"vector-main-menu-tooltip": "主菜单",
 	"vector-article-tools-nav-label": "工具",
 	"vector-site-nav-label": "站点",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|讨论]]",
 	"tooltip-vector-anon-user-menu-title": "更多选项"
 }

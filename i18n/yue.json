@@ -21,6 +21,7 @@
 	"vector-action-toggle-sidebar": "邊欄開閂",
 	"vector-languages": "語言",
 	"vector-language-button-label": "{{PLURAL:$1|$1種語言}}",
+	"vector-language-redirect-to-top": "喺呢個{{SITENAME}}度， 其他語言嘅連結喺頁頂文章標題側邊。[[#p-lang-btn|去頁頂]]。",
 	"vector-action-addsection": "加主題",
 	"vector-action-delete": "剷走",
 	"vector-action-move": "搬",
