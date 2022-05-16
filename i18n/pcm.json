@@ -4,11 +4,13 @@
 			"Samatics"
 		]
 	},
-	"vector-action-addsection": "put anoda tin we dem fit tok abaut",
+	"vector-action-addsection": "Ad anoda topic",
+	"vector-action-delete": "Delete-am",
 	"vector-action-move": "Muv-am",
+	"vector-action-protect": "Protect-am",
 	"vector-view-create": "Mek-am",
 	"vector-view-edit": "Chenj-am",
 	"vector-view-history": "Si di tins we don hapun hia",
-	"vector-view-view": "Rid-am",
-	"vector-more-actions": "Si oda tins:"
+	"vector-view-view": "Read-am",
+	"vector-more-actions": "See other tins:"
 }
