@@ -232,6 +232,38 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				true
 			],
 			[
+				'Can be disabled with a regex match.',
+				self::makeMaxWidthConfig(
+					false,
+					[
+						/* no namespaces excluded */
+					],
+					[
+						/* no includes */
+					],
+					[ 'foo' => '[0-9]+' ]
+				),
+				Title::makeTitle( NS_MAIN, 'Test' ),
+				[ 'foo' => '1234' ],
+				true
+			],
+			[
+				'Can be disabled with a non-regex wildcard (for backwards compatibility).',
+				self::makeMaxWidthConfig(
+					false,
+					[
+						/* no namespaces excluded */
+					],
+					[
+						/* no includes */
+					],
+					[ 'foo' => '*' ]
+				),
+				Title::makeTitle( NS_MAIN, 'Test' ),
+				[ 'foo' => 'bar' ],
+				true
+			],
+			[
 				'Include can override exclusions',
 				self::makeMaxWidthConfig(
 					false,

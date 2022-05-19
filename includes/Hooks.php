@@ -651,9 +651,7 @@ class Hooks implements
 	 * Max width is disabled if:
 	 *  1) The current namespace is listed in array $options['exclude']['namespaces']
 	 *  OR
-	 *  2) The query string matches one of the name and value pairs $exclusions['querystring'].
-	 *     Note the wildcard "*" for a value, will match all query string values for the given
-	 *     query string parameter.
+	 *  2) A query string parameter matches one of the regex patterns in $exclusions['querystring'].
 	 *
 	 * @internal only for use inside tests.
 	 * @param array $options
@@ -698,16 +696,14 @@ class Hooks implements
 		}
 		$excludeQueryString = $exclusions['querystring'] ?? [];
 
-		foreach ( $excludeQueryString as $param => $excludedParamValue ) {
+		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
 			$paramValue = $requestValues[$param] ?? false;
 			if ( $paramValue ) {
-				if ( $excludedParamValue === '*' ) {
-					// check wildcard
-					return true;
-				} elseif ( $paramValue === $excludedParamValue ) {
-					// Check if the excluded param value matches
-					return true;
+				if ( $excludedParamPattern === '*' ) {
+					// Backwards compatibility for the '*' wildcard.
+					$excludedParamPattern = '.+';
 				}
+				return (bool)preg_match( "/$excludedParamPattern/", $paramValue );
 			}
 		}
 

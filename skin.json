@@ -403,8 +403,8 @@
 				"exclude": {
 					"mainpage": false,
 					"querystring": {
-						"action": "history",
-						"diff": "*"
+						"action": "(history|edit)",
+						"diff": ".+"
 					},
 					"namespaces": [
 						-1,
