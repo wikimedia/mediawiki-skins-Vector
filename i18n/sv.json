@@ -43,10 +43,14 @@
 	"vector-searchsuggest-containing": "Sök efter sidor som innehåller <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
 	"vector-toc-heading": "Innehåll",
+	"vector-toc-beginning": "Början",
 	"vector-toc-toggle-button-label": "Växla underavsnittet $1",
 	"vector-anon-user-menu-pages": "Sidor för utloggade redigerade",
 	"vector-anon-user-menu-pages-learn": "läs mer",
 	"vector-anon-user-menu-pages-label": "Läs mer om redigering",
 	"vector-main-menu-tooltip": "Huvudmeny",
+	"vector-article-tools-nav-label": "Verktyg",
+	"vector-site-nav-label": "Webbplats",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Fler alternativ"
 }
