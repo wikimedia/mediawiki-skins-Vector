@@ -466,8 +466,8 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$shouldLanguageAlertBeInSidebarMethod->setAccessible( true );
 
 		$this->assertSame(
-			$shouldLanguageAlertBeInSidebarMethod->invoke( $mockSkinVector ),
-			$expected
+			$expected,
+			$shouldLanguageAlertBeInSidebarMethod->invoke( $mockSkinVector )
 		);
 	}
 

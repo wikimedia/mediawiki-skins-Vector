@@ -297,8 +297,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$this->assertSame(
-			$vectorConfig,
-			$expected
+			$expected,
+			$vectorConfig
 		);
 	}
 
