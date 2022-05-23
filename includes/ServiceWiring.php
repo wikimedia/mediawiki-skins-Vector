@@ -23,10 +23,10 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use Vector\Constants;
-use Vector\FeatureManagement\FeatureManager;
-use Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
-use Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
+use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 
 return [
 	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {

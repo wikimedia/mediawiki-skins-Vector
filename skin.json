@@ -25,7 +25,7 @@
 	},
 	"ValidSkinNames": {
 		"vector-2022": {
-			"class": "Vector\\SkinVector22",
+			"class": "MediaWiki\\Skins\\Vector\\SkinVector22",
 			"args": [
 				{
 					"name": "vector-2022",
@@ -78,7 +78,7 @@
 			]
 		},
 		"vector": {
-			"class": "Vector\\SkinVectorLegacy",
+			"class": "MediaWiki\\Skins\\Vector\\SkinVectorLegacy",
 			"@args": "See SkinVector::__construct for more detail.",
 			"args": [
 				{
@@ -129,14 +129,17 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"Vector\\": "includes/"
+		"MediaWiki\\Skins\\Vector\\": "includes/"
+	},
+	"TestAutoloadNamespaces": {
+		"MediaWiki\\Skins\\Vector\\Tests\\": "tests/phpunit/"
 	},
 	"ConfigRegistry": {
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"HookHandlers": {
 		"VectorHooks": {
-			"class": "Vector\\Hooks"
+			"class": "MediaWiki\\Skins\\Vector\\Hooks"
 		}
 	},
 	"Hooks": {
@@ -151,10 +154,10 @@
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
 		"skins.vector.user": {
-			"class": "Vector\\ResourceLoader\\VectorResourceLoaderUserModule"
+			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserModule"
 		},
 		"skins.vector.user.styles": {
-			"class": "Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
+			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
 		},
 		"skins.vector.search": {
 			"es6": true,
@@ -170,7 +173,7 @@
 				"resources/skins.vector.search/App.vue",
 				{
 					"name": "resources/skins.vector.search/config.json",
-					"callback": "Vector\\Hooks::getVectorWvuiSearchResourceLoaderConfig"
+					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorWvuiSearchResourceLoaderConfig"
 				}
 			],
 			"messages": [
@@ -299,7 +302,7 @@
 				"resources/skins.vector.es6/linkHijack.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
-					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
+					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
 				}
 			],
 			"dependencies": [
@@ -316,7 +319,7 @@
 				"resources/skins.vector.js/skin.js",
 				{
 					"name": "resources/skins.vector.js/config.json",
-					"callback": "Vector\\Hooks::getVectorResourceLoaderConfig"
+					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
 				},
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/sidebar.js",

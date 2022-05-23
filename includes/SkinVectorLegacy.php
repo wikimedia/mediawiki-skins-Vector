@@ -1,6 +1,6 @@
 <?php
 
-namespace Vector;
+namespace MediaWiki\Skins\Vector;
 
 /**
  * @ingroup Skins

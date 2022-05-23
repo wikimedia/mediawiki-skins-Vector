@@ -1,10 +1,10 @@
 <?php
 
-namespace Vector;
+namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
-use Vector\FeatureManagement\FeatureManager;
-use Vector\Services\LanguageService;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Skins\Vector\Services\LanguageService;
 
 /**
  * A service locator for services specific to Vector.

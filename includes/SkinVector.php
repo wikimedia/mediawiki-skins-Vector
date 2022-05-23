@@ -22,7 +22,7 @@
  * @ingroup Skins
  */
 
-namespace Vector;
+namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
 use Html;

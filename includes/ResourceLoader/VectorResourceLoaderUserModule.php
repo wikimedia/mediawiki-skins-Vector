@@ -1,10 +1,10 @@
 <?php
 
-namespace Vector\ResourceLoader;
+namespace MediaWiki\Skins\Vector\ResourceLoader;
 
+use MediaWiki\Skins\Vector\Constants;
 use ResourceLoaderContext;
 use ResourceLoaderUserModule;
-use Vector\Constants;
 
 class VectorResourceLoaderUserModule extends ResourceLoaderUserModule {
 	/**
