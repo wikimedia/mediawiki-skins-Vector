@@ -7,6 +7,10 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use HashConfig;
+use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\Hooks;
+use MediaWiki\Skins\Vector\SkinVector22;
+use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\User\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
@@ -15,16 +19,12 @@ use ResourceLoaderContext;
 use RuntimeException;
 use Title;
 use User;
-use Vector\Constants;
-use Vector\Hooks;
-use Vector\SkinVector22;
-use Vector\SkinVectorLegacy;
 
 /**
  * Integration tests for Vector Hooks.
  *
  * @group Vector
- * @coversDefaultClass \Vector\Hooks
+ * @coversDefaultClass \MediaWiki\Skins\Vector\Hooks
  */
 class VectorHooksTest extends MediaWikiIntegrationTestCase {
 

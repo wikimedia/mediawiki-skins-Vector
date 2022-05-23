@@ -20,9 +20,9 @@
  * @since 1.35
  */
 
-namespace Vector\FeatureManagement;
+namespace MediaWiki\Skins\Vector\FeatureManagement;
 
-use Vector\FeatureManagement\Requirements\SimpleRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -33,7 +33,7 @@ use Wikimedia\Assert\Assert;
  *
  * @unstable
  *
- * @package Vector\FeatureManagement
+ * @package MediaWiki\Skins\Vector\FeatureManagement
  * @internal
  */
 final class FeatureManager {

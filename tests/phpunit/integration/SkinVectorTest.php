@@ -4,12 +4,12 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 use Exception;
 use HashConfig;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\SkinVector22;
+use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
 use Title;
-use Vector\SkinVector22;
-use Vector\SkinVectorLegacy;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -178,7 +178,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \Vector\SkinVector22::getTocData
+	 * @covers \MediaWiki\Skins\Vector\SkinVector22::getTocData
 	 * @dataProvider provideGetTOCData
 	 */
 	public function testGetTocData(
@@ -198,7 +198,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \Vector\SkinVector::getTemplateData
+	 * @covers \MediaWiki\Skins\Vector\SkinVector::getTemplateData
 	 */
 	public function testGetTemplateData() {
 		$title = Title::newFromText( 'SkinVector' );
@@ -422,7 +422,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider providerLanguageAlertRequirements
-	 * @covers \Vector\SkinVector::shouldLanguageAlertBeInSidebar
+	 * @covers \MediaWiki\Skins\Vector\SkinVector::shouldLanguageAlertBeInSidebar
 	 * @param array $requirements
 	 * @param Title $title
 	 * @param array $getLanguagesCached

@@ -19,14 +19,14 @@
  * @since 1.35
  */
 
-namespace Vector\FeatureManagement\Tests;
+namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement;
 
-use Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 
 /**
  * @group Vector
  * @group FeatureManagement
- * @coversDefaultClass \Vector\FeatureManagement\FeatureManager
+ * @coversDefaultClass \MediaWiki\Skins\Vector\FeatureManagement\FeatureManager
  */
 class FeatureManagerTest extends \MediaWikiUnitTestCase {
 

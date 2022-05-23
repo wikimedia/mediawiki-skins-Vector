@@ -1,5 +1,5 @@
 <?php
-namespace Vector;
+namespace MediaWiki\Skins\Vector;
 
 use FatalError;
 
