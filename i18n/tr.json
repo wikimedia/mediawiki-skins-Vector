@@ -3,6 +3,7 @@
 		"authors": [
 			"Arystanbek",
 			"BaRaN6161 TURK",
+			"Betseg",
 			"Cobija",
 			"Emperyan",
 			"Hedda",
@@ -43,6 +44,7 @@
 	"vector-jumptocontent": "İçeriğe atla",
 	"vector-more-actions": "Daha fazla",
 	"vector-search-loader": "Arama önerileri yükleniyor",
+	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> içeren sayfaları ara",
 	"vector-intro-page": "Help:Giriş",
 	"vector-toc-heading": "İçindekiler",
 	"vector-toc-beginning": "Başlangıç",

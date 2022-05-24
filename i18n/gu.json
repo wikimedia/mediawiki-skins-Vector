@@ -30,5 +30,6 @@
 	"vector-jumptosearch": "શોધ પર જાઓ",
 	"vector-jumptocontent": "લખાણ પર જાઓ",
 	"vector-more-actions": "વધુ",
-	"vector-search-loader": "શોધ સૂચનો લાવો"
+	"vector-search-loader": "શોધ સૂચનો લાવો",
+	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> ધરાવતા પાનાઓ શોધો"
 }
