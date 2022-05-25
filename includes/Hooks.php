@@ -8,11 +8,11 @@ use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use OutputPage;
-use ResourceLoaderContext;
 use RuntimeException;
 use Skin;
 use SkinTemplate;
@@ -86,12 +86,12 @@ class Hooks implements
 
 	/**
 	 * Passes config variables to Vector (modern) ResourceLoader module.
-	 * @param ResourceLoaderContext $context
+	 * @param RL\Context $context
 	 * @param Config $config
 	 * @return array
 	 */
 	public static function getVectorResourceLoaderConfig(
-		ResourceLoaderContext $context,
+		RL\Context $context,
 		Config $config
 	) {
 		return [
@@ -104,12 +104,12 @@ class Hooks implements
 	 * Generates config variables for skins.vector.search Resource Loader module (defined in
 	 * skin.json).
 	 *
-	 * @param ResourceLoaderContext $context
+	 * @param RL\Context $context
 	 * @param Config $config
 	 * @return array<string,mixed>
 	 */
 	public static function getVectorWvuiSearchResourceLoaderConfig(
-		ResourceLoaderContext $context,
+		RL\Context $context,
 		Config $config
 	): array {
 		$result = $config->get( 'VectorWvuiSearchOptions' );
@@ -125,12 +125,12 @@ class Hooks implements
 	 * Replace searchModule provided by skin.
 	 *
 	 * @since 1.35
-	 * @param ResourceLoaderContext $context
+	 * @param RL\Context $context
 	 * @param mixed[] &$config Associative array of configurable options
 	 * @return void This hook must not abort, it must return no value
 	 */
 	public function onSkinPageReadyConfig(
-		ResourceLoaderContext $context,
+		RL\Context $context,
 		array &$config
 	): void {
 		// It's better to exit before any additional check
@@ -140,7 +140,7 @@ class Hooks implements
 
 		// Tell the `mediawiki.page.ready` module not to wire up search.
 		// This allows us to use the new Vue implementation.
-		// ResourceLoaderContext has no knowledge of legacy / modern Vector
+		// Context has no knowledge of legacy / modern Vector
 		// and from its point of view they are the same thing.
 		// Please see the modules `skins.vector.js` and `skins.vector.legacy.js`
 		// for the wire up of search.
