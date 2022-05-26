@@ -27,13 +27,17 @@
 	}
 }
 
+// FIXME: Can be removed when "VectorTitleAboveTabs" is enabled and old layout is removed.
+.vector-article-toolbar + .mw-sidebar {
+	margin-top: @top-margin-sidebar-content;
+}
+
 // Update styling when TOC is enabled
 .vector-toc-enabled {
 	.mw-sidebar {
 		width: @width-sidebar;
 		// Temporary magic number, will be calculated after TOC specs are finalized
 		padding: 12px 19px 12px 9px;
-		margin-top: @top-margin-sidebar-content;
 		background-image: none;
 		background-color: @border-color-sidebar;
 

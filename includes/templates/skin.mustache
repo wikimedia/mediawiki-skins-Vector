@@ -44,7 +44,14 @@
 {{>Header}}
 
 <div class="mw-workspace-container">
-	{{>Navigation}}
+
+	<div id="mw-navigation">
+		{{^is-title-above-tabs}}
+			{{>ArticleToolbar}}
+		{{/is-title-above-tabs}}
+		{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
+	</div>
+
 	<div class="mw-table-of-contents-container mw-sticky-header-element">
 		{{#data-toc}}{{>TableOfContents}}{{/data-toc}}
 	</div>
@@ -55,6 +62,10 @@
 	<div id="siteNotice">{{{html-site-notice}}}</div>
 
 	{{>ContentHeader}}
+
+	{{#is-title-above-tabs}}
+		{{>ArticleToolbar}}
+	{{/is-title-above-tabs}}
 
 	{{>ContentSubheader}}
 

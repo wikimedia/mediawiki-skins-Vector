@@ -310,7 +310,8 @@ body {
 }
 
 // Adjusts the content when sidebar is open regardless of the viewport width.
-@{selector-workspace-container-sidebar-open} .mw-article-toolbar-container,
+/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+@{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container,
 @{selector-workspace-container-sidebar-open} .mw-content-container {
 	// For container logic specific to special pages and history pages.
 	.skin-vector-disable-max-width & {
@@ -321,13 +322,15 @@ body {
 @media ( max-width: @max-width-margin-start-content ) {
 	// Adjusts the content and mw-article-toolbar-container.
 	@{selector-workspace-container-sidebar-open} .mw-content-container,
-	@{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
+	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+	@{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 		margin-left: @margin-start-content;
 	}
 
 	// Increase margin when TOC is enabled
 	.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
-	.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
+	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+	.vector-toc-enabled @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 		margin-left: @margin-toc-start-content;
 	}
 
@@ -365,9 +368,11 @@ body {
 // the new TOC.
 .skin-vector-disable-max-width .vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-content-container,
-body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible .mw-workspace-container .mw-article-toolbar-container,
+/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled ) .vector-toc-visible #mw-navigation .mw-article-toolbar-container,
 .vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-content-container,
-.vector-toc-enabled @{selector-workspace-container-sidebar-open} .mw-article-toolbar-container {
+/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+.vector-toc-enabled @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
 	@media ( min-width: @width-breakpoint-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}
@@ -392,7 +397,8 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
 		// !important as we always want to disable the margin-left on these elements
 		// Using !important is cleaner than having to rely on specificity involved :checked elements
 		.mw-content-container,
-		.mw-article-toolbar-container {
+		/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+		#mw-navigation .mw-article-toolbar-container {
 			// stylelint-disable-next-line declaration-no-important
 			margin-left: 0 !important;
 		}
