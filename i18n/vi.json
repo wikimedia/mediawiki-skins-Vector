@@ -11,11 +11,13 @@
 			"Thingofme",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
-			"Withoutaname"
+			"Withoutaname",
+			"Ngoxuannguyenchuong"
 		]
 	},
-	"skinname-vector": "Vectơ",
+	"skinname-vector": "Vectơ cũ (2010)",
 	"skinname-vector-2022": "Vector (2022)",
+	"vector-specialversion-name": "Vectơ",
 	"tooltip-pt-watchlist-2": "Danh sách các trang bạn đang theo dõi các thay đổi",
 	"vector-skin-desc": "Cung cấp 2 giao diện Vector:\n* 2011 - Phiên bản MonoBook hiện đại với giao diện mới và nhiều cải tiến về khả năng sử dụng.\n* 2022 - Vector được xây dựng như một phần của dự án WMF [[mw:Desktop Improvements|Cải thiện phiên bản máy tính]].",
 	"prefs-vector-enable-vector-1-label": "Chế độ Vectơ cũ",

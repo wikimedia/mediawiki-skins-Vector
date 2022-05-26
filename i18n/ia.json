@@ -31,6 +31,7 @@
 	"vector-jumptocontent": "Saltar al contento",
 	"vector-more-actions": "Plus",
 	"vector-search-loader": "Cargante suggestiones de recerca",
+	"vector-searchsuggest-containing": "Cercar paginas que contine <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-anon-user-menu-pages": "Paginas pro redactores sin session aperte",
 	"vector-anon-user-menu-pages-learn": "leger plus",
