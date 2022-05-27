@@ -71,64 +71,25 @@ const main = () => {
 		allowedAction &&
 		'IntersectionObserver' in window;
 
-	/**
-	 * Initialize sticky header AB tests and determine whether to show the sticky header
-	 * based on which buckets the user is in.
-	 *
-	 * @typedef {Object} InitStickyHeaderABTests
-	 * @property {boolean} disableEditIcons - Should the sticky header have an edit icon
-	 * @property {boolean} showStickyHeader - Should the sticky header be shown
-	 * @return {InitStickyHeaderABTests}
-	 */
-	function initStickyHeaderABTests() {
+	const isExperimentEnabled =
+		!!ABTestConfig.enabled &&
+		ABTestConfig.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME &&
+		!mw.user.isAnon() &&
+		isStickyHeaderAllowed;
 
-		let show = isStickyHeaderAllowed,
-			stickyHeaderExperiment,
-			noEditIcons = true;
-
-		// Determine if user is eligible for sticky header AB test
-		if (
-			isStickyHeaderAllowed && // The sticky header can be shown on the page
-			ABTestConfig.enabled && // An AB test config is enabled
-			!mw.user.isAnon() && // The user is logged-in
-			( // One of the sticky-header AB tests is specified in the config
-				ABTestConfig.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
-				ABTestConfig.name === 'vector.sticky_header_edit'
-			)
-		) {
-			// If eligible, initialize the AB test
-			stickyHeaderExperiment = initExperiment(
-				Object.assign( {}, ABTestConfig, { token: mw.user.getId() } )
-			);
-
-			// If running initial AB test, only show sticky header to treatment group.
-			if ( stickyHeaderExperiment.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
-				show = stickyHeaderExperiment.isInTreatmentBucket();
-			}
-
-			// If running edit-button AB test, show sticky header to all buckets
-			// and show edit button for treatment group
-			if ( stickyHeaderExperiment.name === 'vector.sticky_header_edit' ) {
-				show = true;
-				if ( stickyHeaderExperiment.isInTreatmentBucket() ) {
-					noEditIcons = false;
-				}
-			}
-		}
-
-		return {
-			showStickyHeader: show,
-			disableEditIcons: noEditIcons
-		};
-	}
-
-	const { showStickyHeader, disableEditIcons } = initStickyHeaderABTests();
+	// If necessary, initialize experiment and fire the A/B test enrollment hook.
+	const stickyHeaderExperiment = isExperimentEnabled &&
+		initExperiment( Object.assign( {}, ABTestConfig, { token: mw.user.getId() } ) );
 
 	// Remove class if present on the html element so that scroll padding isn't undesirably
 	// applied to users who don't experience the new treatment.
-	if ( !showStickyHeader ) {
+	if ( stickyHeaderExperiment && !stickyHeaderExperiment.isInTreatmentBucket() ) {
 		document.documentElement.classList.remove( 'vector-sticky-header-enabled' );
 	}
+
+	const isStickyHeaderEnabled = stickyHeaderExperiment ?
+		stickyHeaderExperiment.isInTreatmentBucket() :
+		isStickyHeaderAllowed;
 
 	// Table of contents
 	const tocElement = document.getElementById( TOC_ID );
@@ -138,26 +99,25 @@ const main = () => {
 	// Set up intersection observer for page title, used by sticky header
 	const observer = scrollObserver.initScrollObserver(
 		() => {
-			if ( isStickyHeaderAllowed && showStickyHeader ) {
+			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
 				stickyHeader.show();
 			}
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
 		},
 		() => {
-			if ( isStickyHeaderAllowed && showStickyHeader ) {
+			if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
 				stickyHeader.hide();
 			}
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 		}
 	);
 
-	if ( isStickyHeaderAllowed && showStickyHeader ) {
+	if ( isStickyHeaderAllowed && isStickyHeaderEnabled ) {
 		stickyHeader.initStickyHeader( {
 			header,
 			userMenu,
 			observer,
-			stickyIntersection,
-			disableEditIcons
+			stickyIntersection
 		} );
 	} else if ( stickyIntersection ) {
 		observer.observe( stickyIntersection );
