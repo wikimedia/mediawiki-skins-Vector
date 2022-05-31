@@ -76,13 +76,6 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
 		// If running initial AB test, only show sticky header to treatment group.
 		if ( stickyHeaderExperiment.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
 			show = stickyHeaderExperiment.isInTreatmentBucket();
-
-			// Remove class if present on the html element so that scroll
-			// padding isn't applied to users who don't experience the new treatment.
-			if ( !show ) {
-				document.documentElement.classList.remove( 'vector-sticky-header-enabled' );
-			}
-
 		}
 
 		// If running edit-button AB test, show sticky header to all buckets
@@ -156,6 +149,10 @@ const main = () => {
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 		}
 	);
+
+	if ( !showStickyHeader ) {
+		stickyHeader.hide();
+	}
 
 	if ( isStickyHeaderAllowed && showStickyHeader ) {
 		stickyHeader.initStickyHeader( {

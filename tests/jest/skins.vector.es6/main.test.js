@@ -118,6 +118,10 @@ describe( 'main.js', () => {
 				} )
 			);
 			expect( result ).toMatchObject( expectedResult );
+			// Check that there are no side effects
+			expect(
+				document.documentElement.classList.contains( 'vector-sticky-header-enabled' )
+			).toBe( true );
 		} );
 	} );
 } );
