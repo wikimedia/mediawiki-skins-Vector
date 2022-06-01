@@ -5,6 +5,15 @@ const TREATMENT_BUCKET_SUBSTRING = 'treatment';
 const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
 
 /**
+ * @typedef {Object} WebABTest
+ * @property {string} name
+ * @property {function(): string} getBucket
+ * @property {function(string): boolean} isInBucket
+ * @property {function(): boolean} isInSample
+ * @property {function(): boolean} isInTreatmentBucket
+ */
+
+/**
  * @typedef {Object} SamplingRate
  * @property {number} samplingRate The desired sampling rate for the group in the range [0, 1].
  */
