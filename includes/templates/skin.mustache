@@ -44,7 +44,6 @@
 {{>Header}}
 
 <div class="mw-workspace-container">
-
 	<div id="mw-navigation">
 		{{^is-title-above-tabs}}
 			{{>ArticleToolbar}}
@@ -52,9 +51,7 @@
 		{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
 	</div>
 
-	<div class="mw-table-of-contents-container mw-sticky-header-element">
-		{{#data-toc}}{{>TableOfContents}}{{/data-toc}}
-	</div>
+	{{>TableOfContentsContainer}}
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
