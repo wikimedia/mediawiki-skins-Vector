@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ebenoffen1"
+			"Ebenoffen1",
+			"Leonard Nketsia"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 kasa|$1 kasahorow}}",
 	"vector-action-addsection": "Fa tsirasɛm ka ho",
+	"vector-action-move": "Twe kɔ",
 	"vector-view-create": "Yɛ fofor",
 	"vector-view-edit": "Sesa mu",
 	"vector-view-history": "Hwɛ abakɔsɛm",
