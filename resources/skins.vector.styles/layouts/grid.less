@@ -1,0 +1,63 @@
+//
+// Grid layout
+//
+
+.vector-layout-grid {
+	@media ( max-width: @width-breakpoint-tablet ) {
+		.mw-header {
+			// Should match grid-template-rows definition below.
+			height: 66px;
+			// Should match row-gap below.
+			margin-bottom: 24px;
+		}
+	}
+
+	@media ( min-width: @width-breakpoint-tablet ) {
+		.mw-page-container-inner {
+			display: grid;
+			width: 100%;
+			grid-template: ~'66px auto 1fr / 232px 20px minmax(0, 1fr)';
+			grid-template-areas: 'header header header'
+				'sidebar gutter content'
+				'sidebar gutter footer';
+			row-gap: 24px;
+		}
+
+		.mw-body {
+			padding-left: 0;
+		}
+
+		.mw-header {
+			grid-area: header;
+		}
+
+		.vector-sidebar-container {
+			grid-area: sidebar;
+		}
+
+		.mw-content-container {
+			grid-area: content;
+		}
+
+		.mw-footer-container {
+			grid-area: footer;
+		}
+	}
+
+	@media ( min-width: @width-breakpoint-desktop ) {
+		.mw-page-container-inner {
+			grid-template-columns: ~'284px 20px 1fr';
+		}
+	}
+
+	/* Special handling for sidebar when table of contents is visible */
+	@media ( max-width: @width-breakpoint-desktop ) {
+		@{selector-workspace-container-sidebar-closed} {
+			display: none;
+
+			& + .mw-content-container {
+				grid-column: sidebar / content;
+			}
+		}
+	}
+}
