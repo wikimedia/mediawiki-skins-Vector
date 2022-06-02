@@ -52,6 +52,7 @@
 	</div>
 
 	{{>TableOfContentsContainer}}
+{{#is-vector-grid}}</div>{{/is-vector-grid}} <!-- close .vector-sidebar-container -->
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
@@ -81,7 +82,7 @@
 </main>
 {{{html-after-content}}}
 	</div> {{! END mw-content-container }}
-</div> {{! END mw-workspace-container }}
+{{^is-vector-grid}}</div>{{/is-vector-grid}} <!-- close .vector-sidebar-container -->
 
 <div class="mw-workspace-container mw-footer-container">
 	<div class="mw-content-container">
