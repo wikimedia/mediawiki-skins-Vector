@@ -179,7 +179,6 @@ function initSearchLoader( document ) {
 		}
 		// Remove tooltips while Vue search is still loading
 		searchInput.setAttribute( 'autocomplete', 'off' );
-		searchInput.removeAttribute( 'title' );
 		setLoadingIndicatorListeners( searchInner, true, renderSearchLoadingIndicator );
 		loadSearchModule(
 			searchInput,
