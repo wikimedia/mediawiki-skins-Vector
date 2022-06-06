@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"咽頭べさ"
+		]
+	},
+	"vector-action-addsection": "ᥗᥦᥛᥴᥔᥬᥱ ᥞᥨᥝᥴᥑᥩᥲ",
+	"vector-action-delete": "ᥛᥩᥖᥱᥙᥦᥖᥲ",
+	"vector-action-move": "ᥑᥣᥭᥳ",
+	"vector-action-protect": "ᥞᥥᥳᥐᥒᥲ",
+	"vector-view-create": "ᥔᥣᥒᥲ",
+	"vector-view-edit": "ᥛᥨᥢᥳᥛᥦᥰ",
+	"vector-view-history": "ᥖᥨᥭᥰᥙᥪᥢᥰ",
+	"vector-view-view": "ᥘᥧᥴᥖᥨᥭᥰ",
+	"vector-more-actions": "ᥢᥛᥴᥘᥫᥴ"
+}
