@@ -3,10 +3,11 @@
 		"authors": [
 			"Csisc",
 			"Meno25",
+			"Michel Bakni",
 			"علاء"
 		]
 	},
-	"vector-action-addsection": "أضف موضوعا",
+	"vector-action-addsection": "أضف موضوعاً",
 	"vector-action-delete": "احذف",
 	"vector-action-move": "حوّل",
 	"vector-action-protect": "احم",
