@@ -1,4 +1,4 @@
-@import '../variables.less';
+@import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
 /**
@@ -81,4 +81,20 @@
 			background-repeat: no-repeat;
 		}
 	}
+}
+
+// Tab Separators
+// `.vector-menu-tabs`: Outer start border (left in LTR) of tab row.
+// `.vector-menu-tabs a`: Border between tabs and outer end (right in LTR) border.
+// `#mw-head .vector-menu-dropdown .vector-menu-heading`: // Outer end (right in LTR) border of "Actions" menu.
+// #mw-head rule is legacy Vector only.
+.vector-menu-tabs,
+.vector-menu-tabs a,
+#mw-head .vector-menu-dropdown .vector-menu-heading {
+	// Support: IE 9, which doesn't understand `linear-gradient`.
+	background-image: url( images/tab-separator.png );
+	background-image: linear-gradient( to bottom, rgba( 167, 215, 249, 0 ) 0, @border-color-content 100% );
+	background-repeat: no-repeat;
+	// Contain gradient to 1px × 100% size and draw from top to bottom-left or -right corner.
+	background-size: @border-width-base 100%;
 }

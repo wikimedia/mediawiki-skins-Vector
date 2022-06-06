@@ -1,6 +1,8 @@
 @import '../../common/variables.less';
 
 .mw-article-toolbar-container {
+	border-bottom: @border-tabs;
+
 	.mw-portlet-views {
 		display: none;
 
@@ -27,12 +29,6 @@
 	}
 }
 
-// T303549: When page title is above tabs, `.mw-article-toolbar-container` is
-// moved inside `.mw-body` and requires margin between itself and the tagline.
-.mw-body .mw-article-toolbar-container {
-	margin-bottom: 1.25em;
-}
-
 // FIXME: This can be merged with the above when cached HTML contains the vector-article-toolbar class.
 .vector-article-toolbar .mw-article-toolbar-container {
 	display: flex;
@@ -42,25 +38,10 @@
 		padding-right: @padding-horizontal-tabs - 1px;
 	}
 
-	.vector-menu-tabs {
-		// Account for background-image gradient.
-		margin-top: -1px;
-	}
-
-	.vector-menu-dropdown .vector-menu-heading {
-		background-image: linear-gradient( to bottom, rgba( 167, 215, 249, 0 ) 0, @border-color-content 100% );
-		background-repeat: no-repeat;
-		// Contain gradient to 1px × 100% size and draw from top to bottom-left or -right corner.
-		background-size: @border-width-base 100%;
-		background-position: right bottom;
-		height: 100%;
-	}
-
 	#right-navigation {
 		display: flex;
 		flex-grow: 1;
 		justify-content: end;
-		border-bottom: @border-width-base @border-style-base @border-color-content;
 		// Layout correction - as it was before introduce of flex box.
 		margin-right: -1px;
 
@@ -71,19 +52,10 @@
 
 	#left-navigation {
 		display: flex;
-		border-bottom: @border-width-base @border-style-base @border-color-content;
 
 		// Layout correction - as it was before introduce of flex box.
 		@media ( min-width: @width-breakpoint-desktop-wide ) {
 			margin-left: @border-base-ems * 3;
-		}
-	}
-
-	.vector-menu-tabs li {
-		margin-top: 1px;
-
-		&.selected {
-			background: #fff;
 		}
 	}
 }
