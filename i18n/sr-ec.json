@@ -7,7 +7,8 @@
 			"Obsuser",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Сербијана"
 		]
 	},
 	"skinname-vector": "Векторско",
@@ -38,6 +39,7 @@
 	"vector-search-loader": "Учитавам предлоге претраге",
 	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",
 	"vector-anon-user-menu-pages-learn": "детаљније",
+	"vector-anon-user-menu-pages-label": "Детаљније о уређивању",
 	"vector-personal-more-label": "Кориснички линкови",
 	"vector-main-menu-tooltip": "Главни мени",
 	"tooltip-vector-anon-user-menu-title": "Више опција",

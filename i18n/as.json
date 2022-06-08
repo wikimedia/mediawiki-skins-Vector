@@ -32,5 +32,10 @@
 	"vector-jumptosearch": "সন্ধানলৈ যাওক",
 	"vector-jumptocontent": "সমললৈ যাওক",
 	"vector-more-actions": "অধিক",
-	"vector-search-loader": "সন্ধান পৰামৰ্শ লোড কৰা হৈছে"
+	"vector-search-loader": "সন্ধান পৰামৰ্শ লোড কৰা হৈছে",
+	"vector-anon-user-menu-pages": "লগ-আউট কৰা সদস্যৰ বাবে পৃষ্ঠাসমূহ",
+	"vector-anon-user-menu-pages-learn": "অধিক শিকক",
+	"vector-anon-user-menu-pages-label": "সম্পাদনাৰ বিষয়ে অধিক জানক",
+	"vector-main-menu-tooltip": "মুখ্য মেনু",
+	"tooltip-vector-anon-user-menu-title": "অধিক বিকল্প"
 }
