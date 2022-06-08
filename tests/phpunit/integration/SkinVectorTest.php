@@ -255,7 +255,8 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			[
 				// Provided by core
 				'id' => 'p-views',
-				'class' => 'mw-portlet mw-portlet-views emptyPortlet vector-menu vector-menu-tabs',
+				'class' => 'mw-portlet mw-portlet-views emptyPortlet ' .
+					'vector-menu vector-menu-tabs vector-menu-tabs-legacy',
 				'html-tooltip' => '',
 				'html-items' => '',
 				'html-after-portal' => '',
@@ -270,7 +271,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$variants = $props['data-variants'];
 		$actions = $props['data-actions'];
 		$this->assertSame(
-			'mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs',
+			'mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs vector-menu-tabs-legacy',
 			$namespaces['class']
 		);
 		$this->assertSame(

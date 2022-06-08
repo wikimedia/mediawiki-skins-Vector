@@ -779,6 +779,9 @@ abstract class SkinVector extends SkinMustache {
 			self::MENU_TYPE_PORTAL => 'vector-menu vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => 'vector-menu',
 		];
+		if ( $this->isLegacy() ) {
+			$extraClasses[self::MENU_TYPE_TABS] .= ' vector-menu-tabs-legacy';
+		}
 		$portletData['heading-class'] = '';
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
 		if ( $portletData['id'] === 'p-personal' ) {
