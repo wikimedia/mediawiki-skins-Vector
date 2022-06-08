@@ -203,6 +203,14 @@ body {
 	}
 }
 
+@media ( min-width: @width-breakpoint-tablet ) {
+	// T289817 Override other sticky element offsets to ensure that other
+	// sticky elements (i.e. table headers) appear below the sticky header.
+	.mw-table-of-contents-container {
+		top: @height-sticky-header;
+	}
+}
+
 .parsoid-body {
 	padding: @padding-content;
 }

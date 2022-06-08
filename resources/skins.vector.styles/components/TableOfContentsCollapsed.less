@@ -1,0 +1,76 @@
+@import '../../common/variables.less';
+
+#vector-toc-collapsed-button {
+	display: none;
+}
+
+@media ( max-width: @width-breakpoint-desktop ) {
+	#vector-toc-collapsed-button,
+	.sidebar-toc {
+		z-index: @z-index-menu;
+	}
+
+	#vector-toc-collapsed-button {
+		// Temporary !important needed while style attribute is present in HTML.
+		// This is because new HTML can be loaded with old CSS.
+		/* stylelint-disable-next-line declaration-no-important */
+		display: block !important;
+		float: left;
+		// Reduce padding to fit with page title
+		padding: 7px 10px 7px 10px;
+
+		// Override background color for when the TOC is overlaps content
+		// as a sticky element when the page is scrolled down.
+		background-color: @background-color-base;
+
+		&:hover,
+		&:active {
+			background-color: @colorGray15;
+		}
+	}
+
+	.mw-table-of-contents-container {
+		top: 0;
+	}
+
+	.sidebar-toc {
+		position: absolute;
+		top: 44px;
+		left: 8px;
+		// !important needed to override rules in Sidebar.less
+		/* stylelint-disable-next-line declaration-no-important */
+		margin-top: 0 !important;
+
+		// Dropdown styles
+		background-color: @color-base--inverted;
+		border: @border-width-base @border-style-base @border-color-base;
+
+		// Remove TOC fade
+		&:after {
+			display: none;
+		}
+	}
+
+	#vector-toc-collapsed-checkbox:checked ~ .mw-table-of-contents-container {
+		position: relative;
+		clear: none;
+
+		.sidebar-toc {
+			display: block;
+		}
+	}
+
+	@{selector-checkbox-hack} {
+		.sidebar-toc {
+			left: 32px;
+		}
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	@{selector-checkbox-hack} {
+		.sidebar-toc {
+			left: 8px;
+		}
+	}
+}

@@ -285,7 +285,8 @@
 				"logOut",
 				"imageGallery",
 				"userGroup",
-				"expand"
+				"expand",
+				"listBullet"
 			]
 		},
 		"skins.vector.es6": {
