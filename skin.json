@@ -522,7 +522,7 @@
 		},
 		"VectorTitleAboveTabs": {
 			"value": false,
-			"description": "@var boolean `VectorTitleAboveTabs` places the tittle of the page above the tabs that link to history/talk etc."
+			"description": "@var boolean `VectorTitleAboveTabs` places the title of the page above the tabs that link to history/talk etc."
 		}
 	},
 	"ServiceWiringFiles": [
