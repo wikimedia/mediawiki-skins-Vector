@@ -322,7 +322,8 @@
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
 				},
 				"resources/skins.vector.js/dropdownMenus.js",
-				"resources/skins.vector.js/sidebar.js",
+				"resources/skins.vector.js/checkbox.js",
+				"resources/skins.vector.js/sidebarPersistence.js",
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/searchLoader.js"
 			],

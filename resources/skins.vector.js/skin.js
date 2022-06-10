@@ -1,7 +1,8 @@
 var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ),
-	sidebar = require( './sidebar.js' );
+	sidebarPersistence = require( './sidebarPersistence.js' ),
+	checkbox = require( './checkbox.js' );
 
 /**
  * Wait for first paint before calling this function. That's its whole purpose.
@@ -41,7 +42,8 @@ function enableCssAnimations( document ) {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	sidebar.init( window );
+	sidebarPersistence.init();
+	checkbox.init( window );
 	initSearchLoader( document );
 	languageButton();
 	dropdownMenus();
