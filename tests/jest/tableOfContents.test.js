@@ -95,6 +95,13 @@ describe( 'Table of contents', () => {
 	beforeEach( () => {
 		// @ts-ignore
 		global.window.matchMedia = jest.fn( () => ( {} ) );
+
+		// @ts-ignore
+		global.mw = {
+			hook: jest.fn( () => ( {
+				add: () => {}
+			} ) )
+		};
 	} );
 
 	describe( 'renders', () => {
@@ -190,6 +197,7 @@ describe( 'Table of contents', () => {
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
+			expect( mw.hook ).toBeCalledWith( 've.activationStart' );
 		} );
 
 		test( 'when expanding sections', () => {

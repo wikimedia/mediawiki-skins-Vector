@@ -323,6 +323,14 @@ module.exports = function tableOfContents( props ) {
 
 		// Bind event listeners.
 		bindClickListener();
+
+		// Hide TOC button on VE activation
+		mw.hook( 've.activationStart' ).add( () => {
+			const tocButton = document.getElementById( 'vector-toc-collapsed-button' );
+			if ( tocButton ) {
+				tocButton.style.display = 'none';
+			}
+		} );
 	}
 
 	initialize();
