@@ -4,6 +4,9 @@
  * The checkbox hack in Vector provides basic show/hide functionality with CSS
  * but JavaScript is used for progressive enhancements.
  *
+ * This code targets any element with a mw-checkbox-hack-button class. It must have
+ * a for attribute to qualify for enhancements.
+ *
  * Enhancements include:
  * - Update `aria-role`s based on expanded/collapsed state.
  * - Update button icon based on expanded/collapsed state.
@@ -13,9 +16,7 @@
 /** @interface MwApiConstructor */
 /** @interface CheckboxHack */
 
-var checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack,
-	SIDEBAR_BUTTON_ID = 'mw-sidebar-button',
-	SIDEBAR_CHECKBOX_ID = 'mw-sidebar-checkbox';
+var checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack;
 
 /**
  * Revise the button's `aria-expanded` state to match the checked state.
@@ -117,10 +118,17 @@ function initCheckboxHack( checkbox, button ) {
  * @param {Window} window
  */
 function init( window ) {
-	var checkbox = window.document.getElementById( SIDEBAR_CHECKBOX_ID ),
-		button = window.document.getElementById( SIDEBAR_BUTTON_ID );
+	var buttons = window.document.querySelectorAll( '.mw-checkbox-hack-button' );
 
-	initCheckboxHack( checkbox, button );
+	Array.prototype.forEach.call( buttons, function ( button ) {
+		var checkboxId = button.getAttribute( 'for' ),
+			checkbox = checkboxId ? window.document.getElementById( checkboxId ) : null;
+
+		if ( checkbox ) {
+			initCheckboxHack( checkbox, button );
+		}
+	} );
+
 }
 
 module.exports = {
