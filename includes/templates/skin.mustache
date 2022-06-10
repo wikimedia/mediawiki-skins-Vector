@@ -44,6 +44,9 @@
 {{>Header}}
 
 <div class="mw-workspace-container vector-sidebar-container">
+	{{#data-toc}}
+	<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+	{{/data-toc}}
 	<div id="mw-navigation">
 		{{^is-title-above-tabs}}
 			{{>ArticleToolbar}}

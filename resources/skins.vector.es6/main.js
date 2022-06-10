@@ -17,6 +17,7 @@ const
 	TOC_LEGACY_PLACEHOLDER_TAG = 'mw:tocplace',
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
+	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title',
 	TOC_QUERY_PARAM = 'tableofcontents',
 	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
 
@@ -129,11 +130,6 @@ const main = () => {
 		)
 	);
 
-	// Table of contents
-	const tocElement = document.getElementById( TOC_ID );
-	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
-	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-
 	// Set up intersection observer for page title, used by sticky header
 	const observer = scrollObserver.initScrollObserver(
 		() => {
@@ -165,6 +161,11 @@ const main = () => {
 	} else if ( stickyIntersection ) {
 		observer.observe( stickyIntersection );
 	}
+
+	// Table of contents
+	const tocElement = document.getElementById( TOC_ID );
+	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
+	const bodyContent = document.getElementById( BODY_CONTENT_ID );
 
 	// Setup intersection observer for TOC scroll event tracking
 	// fire hooks for event logging if AB tests are enabled
@@ -213,6 +214,18 @@ const main = () => {
 	if ( experiment && !isInTreatmentBucket ) {
 		// Return early if the old TOC is shown.
 		return;
+	}
+
+	// T307900 Setup observer for collapsible TOC
+	if ( stickyIntersection ) {
+		scrollObserver.initScrollObserver(
+			() => {
+				document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
+			},
+			() => {
+				document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
+			}
+		).observe( stickyIntersection );
 	}
 
 	const tableOfContents = initTableOfContents( {
