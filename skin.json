@@ -506,7 +506,7 @@
 		},
 		"VectorTableOfContents": {
 			"value": {
-				"default": false
+				"default": true
 			},
 			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
 		},
