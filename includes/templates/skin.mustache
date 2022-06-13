@@ -43,7 +43,7 @@
 
 {{>Header}}
 
-<div class="mw-workspace-container vector-sidebar-container">
+<div class="mw-workspace-container vector-sidebar-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 	{{#data-toc}}
 	<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
 	{{/data-toc}}
