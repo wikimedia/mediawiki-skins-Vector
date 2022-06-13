@@ -39,9 +39,12 @@
 	"vector-search-loader": "Otsisoovituste laadimine",
 	"vector-searchsuggest-containing": "Otsi lehekülgi, kus sisaldub <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Sissejuhatus",
+	"vector-toc-heading": "Sisukord",
+	"vector-toc-beginning": "Algus",
 	"vector-anon-user-menu-pages": "Leheküljed sisse logimata kasutajatele",
 	"vector-anon-user-menu-pages-learn": "lisateave",
 	"vector-anon-user-menu-pages-label": "Loe veel muutmise kohta",
 	"vector-main-menu-tooltip": "Peamenüü",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|arutelu]]",
 	"tooltip-vector-anon-user-menu-title": "Veel valikuid"
 }
