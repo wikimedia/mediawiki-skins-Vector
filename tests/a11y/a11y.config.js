@@ -23,7 +23,7 @@ module.exports = {
 		],
 		includeWarnings: true,
 		includeNotices: true,
-		hideElements: '#bodyContent, #mwe-pt-toolbar, #centralnotice',
+		hideElements: '#bodyContent, #siteNotice, #mwe-pt-toolbar, #centralnotice, #centralnotice_testbanner',
 		chromeLaunchConfig: {
 			headless: true,
 			args: [
