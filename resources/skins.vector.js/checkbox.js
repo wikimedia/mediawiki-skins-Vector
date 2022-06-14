@@ -1,16 +1,16 @@
 /**
- * JavaScript enhancement for appropriately marked checkbox hacks
+ * JavaScript enhancement for Vector specific checkbox hacks
  *
- * The checkbox hack in Vector provides basic show/hide functionality with CSS
- * but JavaScript is used for progressive enhancements.
+ * Most checkbox hacks use core JS for progressive enhancements (i.e. dropdownMenus.js),
+ * However the main menu and collapsible TOC use a variation of the checkbox hack
+ * that requires their own JS for enhancements.
  *
  * This code targets any element with a mw-checkbox-hack-button class. It must have
- * a for attribute to qualify for enhancements.
+ * a `for` attribute to qualify for enhancements.
  *
  * Enhancements include:
  * - Update `aria-role`s based on expanded/collapsed state.
  * - Update button icon based on expanded/collapsed state.
- *
  */
 
 /** @interface MwApiConstructor */
