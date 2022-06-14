@@ -9,11 +9,6 @@
 // Logo sizes per specification in T245190.
 @height-logo-icon: 3.125em;
 
-// Canonical version of spec: T270202
-@min-width-search: unit( 150px / @font-size-browser / @font-size-base, em ); // 10.71428571em @ 16 & 0.875em
-@min-width-search-desktop: unit( 350px / @font-size-browser / @font-size-base, em ); // 25em @ 16 & 0.875em
-@max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em
-
 .mw-header {
 	// A min-height is set to account for projects where no icon is set.
 	min-height: @height-logo-icon;
@@ -34,11 +29,6 @@
 		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 	}
 
-	.vector-search-box {
-		float: left;
-		z-index: @z-index-menu;
-	}
-
 	&-content,
 	&-aside {
 		display: flex;
@@ -53,28 +43,18 @@
 		flex-grow: 1;
 	}
 
+	@media ( min-width: @width-breakpoint-desktop-wide ) {
+		// Ensure search box is aligned with content when search thumbnails or JS is off
+		.vector-search-box:not( .vector-search-box-auto-expand-width ),
+		html:not( .client-js ) & .vector-search-box {
+			padding-left: @size-search-expand;
+		}
+	}
+
 	@media ( min-width: @width-breakpoint-desktop ) {
 		.vector-search-box {
 			.vector-layout-legacy & {
 				margin-right: @margin-end-search;
-			}
-
-			// Support: IE 8, Firefox 18-, Chrome 19-, Safari 5.1-, Opera 19-, Android 4.4.4-.
-			width: 13.2em;
-			// Support: Modern browsers, responsive width.
-			width: 20vw;
-			max-width: 100%;
-			min-width: @min-width-search-desktop;
-			flex-basis: @min-width-search;
-
-			> div {
-				max-width: @max-width-search;
-			}
-
-			&.vector-search-box-auto-expand-width {
-				> div {
-					max-width: @max-width-search + unit( @size-search-expand / @font-size-browser / @font-size-base, em ); // 37.42857143em @ 16 & 0.875em
-				}
 			}
 		}
 	}
@@ -100,6 +80,11 @@
 				position: relative;
 				margin-left: @padding-horizontal-tabs;
 				margin-right: @margin-end-search;
+
+				// Override default max width at lower resolutions
+				> div {
+					max-width: none;
+				}
 			}
 
 			.wvui-typeahead-search__wrapper {
