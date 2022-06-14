@@ -16,6 +16,8 @@
 		/* stylelint-disable-next-line declaration-no-important */
 		display: block !important;
 		float: left;
+		margin-right: 4px;
+		margin-left: -10px;
 		// Reduce padding to fit with page title
 		padding: 7px 10px 7px 10px;
 
@@ -36,7 +38,7 @@
 	.sidebar-toc {
 		position: absolute;
 		top: 44px;
-		left: 8px;
+		left: -2px;
 		// !important needed to override rules in Sidebar.less
 		/* stylelint-disable-next-line declaration-no-important */
 		margin-top: 0 !important;
@@ -59,18 +61,12 @@
 			display: block;
 		}
 	}
-
-	@{selector-checkbox-hack} {
-		.sidebar-toc {
-			left: 32px;
-		}
-	}
 }
 
-@media ( max-width: @width-breakpoint-tablet ) {
-	@{selector-checkbox-hack} {
-		.sidebar-toc {
-			left: 8px;
-		}
+@media ( min-width: @width-breakpoint-tablet ) and ( max-width: @width-breakpoint-desktop ) {
+	body:not( .vector-below-page-title ) @{selector-checkbox-hack} .sidebar-toc {
+		// Adjust TOC for when the page title is farther right on the screen
+		// i.e. when the main menu is open and the viewport is between tablet and desktop
+		left: 22px;
 	}
 }
