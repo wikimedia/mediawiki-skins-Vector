@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hanberke"
+			"Hanberke",
+			"TayfunEt."
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 Dil}}",
 	"vector-action-addsection": "Tema goş",
 	"vector-action-delete": "Öçür",
 	"vector-action-move": "Adyny üýtget",

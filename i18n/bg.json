@@ -12,6 +12,7 @@
 	"prefs-vector-enable-vector-1-label": "Използване на стария Vector",
 	"vector-opt-out": "Превключване към стария изглед",
 	"vector-action-toggle-sidebar": "Превключване на страничната лента",
+	"vector-language-button-label": "{{PLURAL:$1|$1 език|$1 езика}}",
 	"vector-action-addsection": "Добавяне на тема",
 	"vector-action-delete": "Изтриване",
 	"vector-action-move": "Преместване",
