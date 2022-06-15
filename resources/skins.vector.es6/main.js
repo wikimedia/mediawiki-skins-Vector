@@ -62,31 +62,38 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
 		stickyHeaderExperiment,
 		noEditIcons = true;
 
+	// One of the sticky header AB tests is specified in the config
+	const abTestName = abConfig.name,
+		isStickyHeaderExperiment = abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
+			abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME;
+
 	// Determine if user is eligible for sticky header AB test
 	if (
 		isStickyHeaderFeatureAllowed && // The sticky header can be shown on the page
 		abConfig.enabled && // An AB test config is enabled
-		( // One of the sticky-header AB tests is specified in the config
-			abConfig.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
-			abConfig.name === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME
-		)
+		isStickyHeaderExperiment // The AB test is one of the sticky header experiments
 	) {
 		// If eligible, initialize the AB test
 		stickyHeaderExperiment = getEnabledExperiment( abConfig );
 
 		// If running initial AB test, only show sticky header to treatment group.
-		if ( stickyHeaderExperiment.name === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
+		if ( abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
 			show = stickyHeaderExperiment.isInTreatmentBucket();
 		}
 
 		// If running edit-button AB test, show sticky header to all buckets
 		// and show edit button for treatment group
-		if ( stickyHeaderExperiment.name === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME ) {
+		if ( abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME ) {
 			show = true;
 			if ( stickyHeaderExperiment.isInTreatmentBucket() ) {
 				noEditIcons = false;
 			}
 		}
+	} else if (
+		// T310750 Account for when the current experiment is not sticky header or it's disabled.
+		isStickyHeaderFeatureAllowed && ( !abConfig.enabled || !isStickyHeaderExperiment )
+	) {
+		noEditIcons = false;
 	}
 
 	return {

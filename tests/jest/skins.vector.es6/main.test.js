@@ -38,6 +38,15 @@ describe( 'main.js', () => {
 			name: STICKY_HEADER_EDIT_EXPERIMENT_NAME,
 			enabled: true
 		};
+		const DISABLED_STICKY_HEADER_AB_EDIT = {
+			name: STICKY_HEADER_EDIT_EXPERIMENT_NAME,
+			enabled: false
+		};
+		const TABLE_OF_CONTENTS_AB = {
+			name: 'skin-vector-toc-experiment',
+			enabled: true,
+			buckets: {}
+		};
 		[
 			{
 				abConfig: STICKY_HEADER_AB_EDIT,
@@ -101,11 +110,30 @@ describe( 'main.js', () => {
 					showStickyHeader: true,
 					disableEditIcons: true
 				}
+			},
+			{
+				abConfig: TABLE_OF_CONTENTS_AB,
+				isEnabled: true,
+				isUserInTreatmentBucket: false,
+				expectedResult: {
+					showStickyHeader: true,
+					disableEditIcons: false
+				}
+			},
+			{
+				abConfig: DISABLED_STICKY_HEADER_AB_EDIT,
+				isEnabled: true,
+				isUserInTreatmentBucket: false,
+				expectedResult: {
+					showStickyHeader: true,
+					disableEditIcons: false
+				}
 			}
 		].forEach( ( { abConfig, isEnabled, isUserInTreatmentBucket, expectedResult } ) => {
 			document.documentElement.classList.add( 'vector-sticky-header-enabled' );
 			const result = test.initStickyHeaderABTests(
 				abConfig,
+				// isStickyHeaderFeatureAllowed
 				isEnabled,
 				( experiment ) => ( {
 					name: experiment.name,
