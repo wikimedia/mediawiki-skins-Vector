@@ -5,6 +5,7 @@ const
 	initSearchToggle = require( './searchToggle.js' ),
 	STICKY_HEADER_ID = 'vector-sticky-header',
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
+	STICKY_HEADER_APPENDED_PARAM = [ 'wvprov', 'sticky-header' ],
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
 	FIRST_HEADING_ID = 'firstHeading',
@@ -69,6 +70,44 @@ function suffixStickyAttribute( node, attribute ) {
 	if ( value ) {
 		node.setAttribute( attribute, value + STICKY_HEADER_APPENDED_ID );
 	}
+}
+
+/**
+ * Suffixes the href attribute of a node with a value that indicates it
+ * relates to the sticky header to support tracking instrumentation.
+ *
+ * Distinct from suffixStickyAttribute as it's intended to support followed
+ * links recording their origin.
+ *
+ * @param {Element} node
+ */
+function suffixStickyHref( node ) {
+	/* eslint-disable compat/compat */
+	// @ts-ignore
+	const url = new URL( node.href );
+	if ( url && !url.searchParams.has( STICKY_HEADER_APPENDED_PARAM[ 0 ] ) ) {
+		url.searchParams.append(
+			STICKY_HEADER_APPENDED_PARAM[ 0 ], STICKY_HEADER_APPENDED_PARAM[ 1 ]
+		);
+		// @ts-ignore
+		node.href = url.toString();
+	}
+	/* eslint-enable compat/compat */
+}
+
+/**
+ * Undoes the effect of suffixStickyHref
+ *
+ * @param {Element} node
+ */
+function unsuffixStickyHref( node ) {
+	/* eslint-disable compat/compat */
+	// @ts-ignore
+	const url = new URL( node.href );
+	url.searchParams.delete( STICKY_HEADER_APPENDED_PARAM[ 0 ] );
+	// @ts-ignore
+	node.href = url.toString();
+	/* eslint-enable compat/compat */
 }
 
 /**
@@ -223,16 +262,20 @@ function prepareEditIcons(
 		removeNode( wikitextSticky );
 		removeNode( primaryEditSticky );
 		copyButtonAttributes( primaryEdit, protectedSticky );
+		suffixStickyHref( protectedSticky );
 	} else {
 		removeNode( protectedSticky );
 		copyButtonAttributes( primaryEdit, primaryEditSticky );
+		suffixStickyHref( primaryEditSticky );
 
 		primaryEditSticky.addEventListener( 'click', function ( ev ) {
 			const target = ev.target;
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
 				const event = $.Event( 'click' );
+				suffixStickyHref( $ve[ 0 ] );
 				$ve.trigger( event );
+				unsuffixStickyHref( $ve[ 0 ] );
 				// The link has been progressively enhanced.
 				if ( event.isDefaultPrevented() ) {
 					disableStickyHeader();
@@ -242,13 +285,16 @@ function prepareEditIcons(
 		} );
 		if ( secondaryEdit ) {
 			copyButtonAttributes( secondaryEdit, wikitextSticky );
+			suffixStickyHref( wikitextSticky );
 			wikitextSticky.addEventListener( 'click', function ( ev ) {
 				const target = ev.target;
 				if ( target ) {
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
 						const event = $.Event( 'click' );
+						suffixStickyHref( $edit[ 0 ] );
 						$edit.trigger( event );
+						unsuffixStickyHref( $edit[ 0 ] );
 						// The link has been progressively enhanced.
 						if ( event.isDefaultPrevented() ) {
 							disableStickyHeader();
