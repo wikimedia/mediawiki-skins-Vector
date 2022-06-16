@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"F Samaritani"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 lìngua|$1 linguas}}",
+	"vector-view-create": "Crea"
+}

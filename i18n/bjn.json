@@ -18,5 +18,6 @@
 	"vector-view-history": "Tiringi sajarah",
 	"vector-view-view": "Baca",
 	"vector-view-viewsource": "Tiringi asal mula",
-	"vector-more-actions": "Lainnya"
+	"vector-more-actions": "Lainnya",
+	"vector-searchsuggest-containing": "Gagai laman nang baisi <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
