@@ -3,12 +3,13 @@
 		"authors": [
 			"AnakngAraw",
 			"Sky Harbor",
-			"GinawaSaHapon"
+			"GinawaSaHapon",
+			"Ianlopez1115"
 		]
 	},
 	"skinname-vector": "Vector",
-	"vector.css": "/* Ang inilagay na CSS dito ay makakaapekto sa mga tagagamit ng pabalat na Vector */",
-	"vector.js": "/* Ang anumang JavaScript dito ay ikakarga para sa mga tagagamit na gumagamit ng pabalat na Vector */",
+	"vector.css": "/* Ang lahat ng CSS dito ay ikakarga para sa mga tagagamit ng pabalat na Vector */",
+	"vector.js": "/* Ang lahat ng JavaScript dito ay ikakarga para sa mga tagagamit ng pabalat na Vector */",
 	"vector-action-addsection": "Magdagdag ng paksa",
 	"vector-action-delete": "Burahin",
 	"vector-action-move": "Ilipat",
