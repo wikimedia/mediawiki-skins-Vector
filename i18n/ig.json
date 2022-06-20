@@ -8,6 +8,7 @@
 			"Uzoma Ozurumba"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ|asụsụ}}",
 	"vector-action-addsection": "Tinyé Okwu",
 	"vector-action-delete": "Kàcha",
 	"vector-action-move": "Papụ̀",
@@ -20,6 +21,7 @@
 	"vector-view-view": "Gụ̀ọ",
 	"vector-view-viewsource": "Zi mkpurụ",
 	"vector-more-actions": "Ọzọ",
+	"vector-searchsuggest-containing": "Chọọ peeji ndị gụnyere <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-toc-heading": "Ndịna",
 	"vector-toc-toggle-button-label": "Chọba ndịnisiokwu $1"
 }

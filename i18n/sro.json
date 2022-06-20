@@ -6,7 +6,9 @@
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 lìngua|$1 linguas}}",
-	"vector-view-create": "Crea",
+	"vector-action-addsection": "Aciungi arraxonu",
+	"vector-action-move": "Movi",
+	"vector-view-create": "Cria",
 	"vector-view-edit": "Muda",
 	"vector-view-history": "Càstia sa stòria",
 	"vector-view-view": "Ligi",
