@@ -214,12 +214,13 @@ abstract class SkinVector extends SkinMustache {
 
 	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
-	 * and the language array isn't empty. Hide it otherwise.
+	 * and the ULS extension is enabled. Hide it otherwise.
+	 * There is no point in showing the language button if ULS extension is unavailable
+	 * as there is no ways to add languages without it.
 	 * @return bool
 	 */
 	protected function shouldHideLanguages() {
-		// NOTE: T276950 - This should be revisited when an empty state for the language button is chosen.
-		return $this->isLegacy() || !$this->isLanguagesInContent() || empty( $this->getLanguagesCached() );
+		return $this->isLegacy() || !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled();
 	}
 
 	/**
@@ -370,6 +371,15 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
+	 * Check whether ULS is enabled
+	 *
+	 * @return bool
+	 */
+	private function isULSExtensionEnabled(): bool {
+		return ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' );
+	}
+
+	/**
 	 * Generate data needed to generate the sticky header.
 	 * @param array $searchBoxData
 	 * @param bool $includeEditIcons
@@ -388,8 +398,7 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
-		$showStickyULS = ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' )
-			&& !$this->shouldHideLanguages();
+		$showStickyULS = $this->isULSExtensionEnabled() && !$this->shouldHideLanguages();
 		return [
 			'data-primary-action' => $showStickyULS ?
 				$this->getULSButtonData() : null,
@@ -446,6 +455,7 @@ abstract class SkinVector extends SkinMustache {
 	 */
 	public function getTemplateData(): array {
 		$skin = $this;
+
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 		$featureManager = VectorServices::getFeatureManager();
 
@@ -666,11 +676,12 @@ abstract class SkinVector extends SkinMustache {
 	 * Returns ULS button label within the context of the translated message taking a placeholder.
 	 *
 	 * @param string $message
+	 * @param int $count
 	 * @return string
 	 */
-	private function getULSLabel( string $message ) {
+	private function getULSLabel( string $message, int $count ): string {
 		return $this->msg( $message )
-			->numParams( count( $this->getLanguagesCached() ) )
+			->numParams( $count )
 			->escaped();
 	}
 
@@ -680,12 +691,14 @@ abstract class SkinVector extends SkinMustache {
 	 * @return array
 	 */
 	private function getULSButtonData() {
+		$numLanguages = count( $this->getLanguagesCached() );
+
 		return [
 			'id' => 'p-lang-btn-sticky-header',
 			'class' => 'mw-interlanguage-selector',
 			'is-quiet' => true,
 			'tabindex' => '-1',
-			'label' => $this->getULSLabel( 'vector-language-button-label' ),
+			'label' => $this->getULSLabel( 'vector-language-button-label', $numLanguages ),
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
 			'event' => 'ui.dropdown-p-lang-btn-sticky-header'
 		];
@@ -697,14 +710,23 @@ abstract class SkinVector extends SkinMustache {
 	 * @return array
 	 */
 	private function getULSPortletData() {
+		$numLanguages = count( $this->getLanguagesCached() );
+
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
-			'label' => $this->getULSLabel( 'vector-language-button-label' ),
-			'aria-label' => $this->getULSLabel( 'vector-language-button-aria-label' ),
+			// No languages present for the article.
+			// But the page can show languages if there were languages.
+			'label' => $numLanguages === 0 ?
+				$this->msg( 'vector-no-language-button-label' )->text() :
+				$this->getULSLabel( 'vector-language-button-label', $numLanguages ),
+			'aria-label' => $numLanguages === 0 ?
+				$this->msg( 'vector-no-language-button-aria-label' )->text() :
+				$this->getULSLabel( 'vector-language-button-aria-label', $numLanguages ),
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
-			'heading-class' => self::CLASS_QUIET_BUTTON . ' ' . self::CLASS_PROGRESSIVE
+			'heading-class' => self::CLASS_QUIET_BUTTON . ' ' . self::CLASS_PROGRESSIVE .
+				' mw-portlet-lang-heading-' . strval( $numLanguages ),
 		];
 
 		// Adds class to hide language button
