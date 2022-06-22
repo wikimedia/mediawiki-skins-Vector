@@ -3,6 +3,14 @@
 .mw-article-toolbar-container {
 	border-bottom: @border-tabs;
 
+	a {
+		// The hover effect is on `li` elements.
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
 	.mw-portlet-views {
 		display: none;
 
