@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"F Samaritani"
+			"F Samaritani",
+			"Jaime Sulas"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 lìngua|$1 linguas}}",
-	"vector-view-create": "Crea"
+	"vector-action-addsection": "Aciungi arraxonu",
+	"vector-action-delete": "Burra",
+	"vector-action-move": "Movi",
+	"vector-action-protect": "Cadela",
+	"vector-view-create": "Cria",
+	"vector-view-edit": "Muda",
+	"vector-view-history": "Càstia sa stòria",
+	"vector-view-view": "Ligi",
+	"vector-more-actions": "Àteru"
 }

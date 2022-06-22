@@ -3,9 +3,12 @@
 		"authors": [
 			"Tochiprecious",
 			"Ukabia",
-			"Uzoma Ozurumba"
+			"Uzoma Ozurumba",
+			"Edith Nwobu",
+			"Pasjoesscc"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ|asụsụ}}",
 	"vector-action-addsection": "Tinyé Okwu",
 	"vector-action-delete": "Kàcha",
 	"vector-action-move": "Papụ̀",
