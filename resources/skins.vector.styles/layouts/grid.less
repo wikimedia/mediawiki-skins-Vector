@@ -19,7 +19,7 @@
 }
 
 .vector-layout-grid {
-	@media ( max-width: @width-breakpoint-tablet ) {
+	@media ( max-width: @max-width-mobile ) {
 		.mw-header {
 			// Should match grid-template-rows definition below.
 			height: 66px;
@@ -28,7 +28,7 @@
 		}
 	}
 
-	@media ( min-width: @width-breakpoint-tablet ) {
+	@media ( min-width: @min-width-tablet ) {
 		.mw-page-container-inner {
 			display: grid;
 			width: 100%;
@@ -60,7 +60,7 @@
 		}
 	}
 
-	@media ( min-width: @width-breakpoint-desktop ) {
+	@media ( min-width: @min-width-desktop ) {
 		.mw-page-container-inner {
 			grid-template-columns: ~'284px 20px 1fr';
 		}
@@ -75,9 +75,11 @@
 	 * 2) the main menu is closed, the sidebar TOC is hidden at the breakpoint.
 	 * In these situation content should span the entire page.
 	 */
-	@media ( min-width: ( @width-breakpoint-tablet - 1px ) ) and ( max-width: @width-breakpoint-desktop ) {
+	@media ( min-width: ( @min-width-tablet ) ) and ( max-width: @max-width-tablet ) {
 		@{selector-sidebar-container-sidebar-closed} {
-			display: none;
+			.mw-navigation {
+				display: none;
+			}
 
 			& + .mw-content-container {
 				.mixin-column-full-width();
@@ -90,7 +92,7 @@
 		& + .mw-content-container {
 			.mixin-column-full-width();
 
-			@media ( min-width: @width-breakpoint-tablet ) and ( max-width: @width-breakpoint-desktop ) {
+			@media ( min-width: ( @min-width-tablet ) ) and ( max-width: @max-width-tablet ) {
 				.mixin-column-align-width-hamburger-icon();
 			}
 		}

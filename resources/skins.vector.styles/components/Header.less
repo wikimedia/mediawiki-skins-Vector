@@ -43,7 +43,7 @@
 		flex-grow: 1;
 	}
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		// Ensure search box is aligned with content when search thumbnails or JS is off
 		.vector-search-box:not( .vector-search-box-auto-expand-width ),
 		html:not( .client-js ) & .vector-search-box {
@@ -51,7 +51,7 @@
 		}
 	}
 
-	@media ( min-width: @width-breakpoint-desktop ) {
+	@media ( min-width: @min-width-desktop ) {
 		.vector-search-box {
 			.vector-layout-legacy & {
 				margin-right: @margin-end-search;
@@ -62,7 +62,7 @@
 	/**
 	 * Toggles the visibility of the search box at lower resolutions.
 	 */
-	@media ( max-width: @width-breakpoint-desktop ) {
+	@media ( max-width: @max-width-tablet ) {
 		&.vector-header-search-toggled {
 			#mw-sidebar-button,
 			.mw-logo,

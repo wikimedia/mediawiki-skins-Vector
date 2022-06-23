@@ -14,7 +14,7 @@
 	.mw-portlet-views {
 		display: none;
 
-		@media ( min-width: @width-breakpoint-tablet ) {
+		@media ( min-width: @min-width-tablet ) {
 			&:not( .emptyPortlet ) {
 				display: block;
 			}
@@ -24,14 +24,14 @@
 	.vector-more-collapsible-item {
 		display: none;
 
-		@media ( max-width: @width-breakpoint-tablet ) {
+		@media ( max-width: @max-width-mobile ) {
 			display: block;
 		}
 	}
 
 	// Make sure pcactions is displayed (even if .emptyPortlet present)
 	.vector-has-collapsible-items {
-		@media ( max-width: @width-breakpoint-tablet ) {
+		@media ( max-width: @max-width-mobile ) {
 			display: block;
 		}
 	}
@@ -42,7 +42,7 @@
 	display: flex;
 	@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		padding-right: @padding-horizontal-tabs - 1px;
 	}
 
@@ -53,7 +53,7 @@
 		// Layout correction - as it was before introduce of flex box.
 		margin-right: -1px;
 
-		@media ( min-width: @width-breakpoint-desktop-wide ) {
+		@media ( min-width: @min-width-desktop-wide ) {
 			margin-right: -@border-base-ems * 3;
 		}
 	}
@@ -62,7 +62,7 @@
 		display: flex;
 
 		// Layout correction - as it was before introduce of flex box.
-		@media ( min-width: @width-breakpoint-desktop-wide ) {
+		@media ( min-width: @min-width-desktop-wide ) {
 			margin-left: @border-base-ems * 3;
 		}
 	}
@@ -71,7 +71,7 @@
 // Currently when right navigation is empty and sidebar is open no
 // border is shown. This can intentionally be removed at a later date but
 // is preserved to reduce number of UI regressions in current release.
-@media ( max-width: @width-breakpoint-tablet ) {
+@media ( max-width: @max-width-mobile ) {
 	#mw-sidebar-checkbox:checked ~ .mw-workspace-container #right-navigation.right-navigation-empty {
 		border-bottom: 0;
 	}

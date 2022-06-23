@@ -6,7 +6,7 @@
 	display: none;
 }
 
-@media ( max-width: @width-breakpoint-desktop ) {
+@media ( max-width: @max-width-tablet ) {
 	#vector-toc-collapsed-button,
 	.sidebar-toc {
 		z-index: @z-index-menu;
@@ -78,7 +78,7 @@
 	}
 }
 
-@media ( min-width: @width-breakpoint-tablet ) and ( max-width: @width-breakpoint-desktop ) {
+@media ( min-width: @min-width-tablet ) and ( max-width: @max-width-tablet ) {
 	body:not( .vector-below-page-title ) @{selector-checkbox-hack} .sidebar-toc {
 		// Adjust TOC for when the main menu is open, which pushes the page title to the right
 		left: 22px;

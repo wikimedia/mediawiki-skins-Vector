@@ -41,7 +41,7 @@
 		background-image: none;
 		background-color: @border-color-sidebar;
 
-		@media ( min-width: @width-breakpoint-desktop-wide ) {
+		@media ( min-width: @min-width-desktop-wide ) {
 			width: @width-sidebar-wide;
 		}
 	}
@@ -54,7 +54,7 @@
 	.sidebar-toc {
 		margin-left: 0;
 
-		@media ( min-width: @width-breakpoint-desktop-wide ) {
+		@media ( min-width: @min-width-desktop-wide ) {
 			margin-left: @margin-start-sidebar-content;
 		}
 	}
@@ -66,7 +66,7 @@
 			margin-top: @top-margin-sidebar-toc;
 		}
 
-		@media ( max-width: @width-breakpoint-desktop ) {
+		@media ( max-width: @max-width-tablet ) {
 			.mw-sidebar {
 				margin-top: 0;
 				margin-left: 0;
@@ -174,7 +174,7 @@
 		transition-timing-function: ease-out;
 	}
 
-	@media ( max-width: @width-breakpoint-tablet ) {
+	@media ( max-width: @max-width-mobile ) {
 		.mw-sidebar {
 			transition: none;
 		}

@@ -1,6 +1,17 @@
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.ui/variables.less';
 
+//
+// == Media query breakpoints ==
+//
+@min-width-mobile: @width-breakpoint-mobile; // Above 320px
+@max-width-mobile: @width-breakpoint-tablet - 1px; // Below 719px
+@min-width-tablet: @width-breakpoint-tablet; // Above 720px
+@max-width-tablet: @width-breakpoint-desktop - 1px; // Below 999px
+@min-width-desktop: @width-breakpoint-desktop; // Above 1000px
+@max-width-desktop: @width-breakpoint-desktop-wide - 1px; // Below 1199px
+@min-width-desktop-wide: @width-breakpoint-desktop-wide; // Above 1200px
+
 // Sizing calculation primitives.
 @font-size-root: 100%;
 @font-size-browser: 16; // Assumed browser default of `16px`

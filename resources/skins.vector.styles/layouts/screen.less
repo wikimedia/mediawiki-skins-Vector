@@ -177,7 +177,7 @@ body {
 	left: -@padding-horizontal-page-container;
 	z-index: @z-index-sidebar;
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		left: -@padding-horizontal-page-container-wide;
 	}
 }
@@ -189,7 +189,7 @@ body {
 }
 
 // Remove float at lower resolutions
-@media ( max-width: @width-breakpoint-tablet ) {
+@media ( max-width: @max-width-tablet ) {
 	.vector-toc-enabled .vector-layout-legacy #mw-panel {
 		float: none;
 	}
@@ -248,12 +248,12 @@ body {
 	// e.g. Portrait on an iPad
 	min-width: @min-width-supported;
 
-	@media ( min-width: @width-breakpoint-desktop ) {
+	@media ( min-width: @min-width-desktop ) {
 		padding-left: @padding-horizontal-page-container;
 		padding-right: @padding-horizontal-page-container;
 	}
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		padding-left: @padding-horizontal-page-container-wide;
 		padding-right: @padding-horizontal-page-container-wide;
 	}
@@ -398,11 +398,11 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
 .vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
 /* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
 .vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} #mw-navigation .mw-article-toolbar-container {
-	@media ( min-width: @width-breakpoint-desktop ) {
+	@media ( min-width: @min-width-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		margin-left: @margin-toc-start-content-wide;
 	}
 }
@@ -410,7 +410,7 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
 /**
  * Makes the sidebar full screen at lower resolutions.
  */
-@media ( max-width: @width-breakpoint-tablet ) {
+@media ( max-width: @max-width-tablet ) {
 	@{selector-workspace-container-sidebar-open} {
 		#mw-panel {
 			width: 100%;

@@ -21,12 +21,12 @@
 	justify-content: space-between;
 	box-sizing: border-box;
 
-	@media ( min-width: @width-breakpoint-desktop ) {
+	@media ( min-width: @min-width-desktop ) {
 		padding: 6px 25px;
 		max-width: @max-width-page-container + ( @padding-horizontal-page-container * 2 );
 	}
 
-	@media ( min-width: @width-breakpoint-desktop-wide ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		padding: 6px 25px;
 		max-width: @max-width-page-container + ( @padding-horizontal-page-container-wide * 2 );
 	}
@@ -46,7 +46,7 @@
 	}
 
 	// T298836 Hide the sticky header at lower resolutions.
-	@media ( max-width: @width-breakpoint-desktop ) {
+	@media ( max-width: @max-width-tablet ) {
 		display: none;
 	}
 
@@ -123,7 +123,7 @@
 	}
 }
 
-@media ( min-width: @width-breakpoint-tablet ) {
+@media ( min-width: @min-width-tablet ) {
 	.client-js.vector-sticky-header-enabled {
 		// T290518: When the sticky header is enabled (feature flag is on, js is
 		// enabled, and viewport is at higher resolutions), add scroll padding to the

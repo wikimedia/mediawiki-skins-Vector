@@ -32,7 +32,7 @@
 				&.user-links-collapsible-item {
 					display: none;
 
-					@media ( min-width: @width-breakpoint-tablet ) {
+					@media ( min-width: @min-width-tablet ) {
 						display: block;
 					}
 				}
@@ -57,7 +57,7 @@
 
 			// T287522#7295558: Increase the max-width of the username when viewport
 			// allows for it.
-			@media ( min-width: @width-breakpoint-desktop-wide ) {
+			@media ( min-width: @min-width-desktop-wide ) {
 				max-width: unit( 200 / @font-size-browser / @font-size-base, em );
 			}
 		}
@@ -88,7 +88,7 @@
 			box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.25 );
 
 			.user-links-collapsible-item {
-				@media ( min-width: @width-breakpoint-tablet ) {
+				@media ( min-width: @min-width-tablet ) {
 					display: none;
 				}
 			}
