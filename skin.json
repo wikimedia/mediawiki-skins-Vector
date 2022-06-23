@@ -521,10 +521,6 @@
 		"VectorGrid": {
 			"value": false,
 			"description": "@var boolean `VectorGrid` enforces a grid system"
-		},
-		"VectorTitleAboveTabs": {
-			"value": false,
-			"description": "@var boolean `VectorTitleAboveTabs` places the title of the page above the tabs that link to history/talk etc."
 		}
 	},
 	"ServiceWiringFiles": [

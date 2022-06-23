@@ -234,21 +234,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_TITLE_ABOVE_TABS = 'TitleAboveTabs';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_TITLE_ABOVE_TABS = 'VectorTitleAboveTabs';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_TITLE_ABOVE_TABS = 'TitleAboveTabs';
-
-	/**
-	 * @var string
-	 */
 	public const CONFIG_GRID = 'VectorGrid';
 
 	/**

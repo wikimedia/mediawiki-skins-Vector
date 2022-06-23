@@ -209,27 +209,6 @@ return [
 			]
 		);
 
-		// Feature: Title above tabs
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				null,
-				Constants::CONFIG_TITLE_ABOVE_TABS,
-				Constants::REQUIREMENT_TITLE_ABOVE_TABS
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_TITLE_ABOVE_TABS,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
-			]
-		);
-
 		// Feature: Grid
 		// ================================
 		$featureManager->registerRequirement(
@@ -250,7 +229,6 @@ return [
 			Constants::FEATURE_GRID,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TITLE_ABOVE_TABS,
 				Constants::REQUIREMENT_GRID,
 				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
 			]
