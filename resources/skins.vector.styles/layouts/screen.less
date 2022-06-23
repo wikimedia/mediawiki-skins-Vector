@@ -185,13 +185,13 @@ body {
 // Update positioning when TOC is enabled
 .vector-toc-enabled .vector-layout-legacy #mw-panel {
 	position: static;
-	float: left;
+	float: none;
 }
 
-// Remove float at lower resolutions
-@media ( max-width: @max-width-tablet ) {
+// Add float at higher resolutions
+@media ( min-width: @min-width-desktop ) {
 	.vector-toc-enabled .vector-layout-legacy #mw-panel {
-		float: none;
+		float: left;
 	}
 }
 

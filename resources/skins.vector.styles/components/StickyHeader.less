@@ -10,7 +10,7 @@
 	right: 0;
 	z-index: @z-index-header;
 	transition: @transition-sticky-header;
-	display: flex;
+	display: none;
 	align-items: center;
 	margin: 0 auto;
 	background: @background-color-base;
@@ -45,9 +45,9 @@
 		display: none;
 	}
 
-	// T298836 Hide the sticky header at lower resolutions.
-	@media ( max-width: @max-width-tablet ) {
-		display: none;
+	// T298836 Only show sticky header at higher resolutions.
+	@media ( min-width: @min-width-desktop ) {
+		display: flex;
 	}
 
 	//
