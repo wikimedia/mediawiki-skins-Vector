@@ -19,6 +19,28 @@
 }
 
 .vector-layout-grid {
+	.mw-content-container {
+		max-width: @max-width-content-container;
+
+		// For container logic specific to special pages and history pages.
+		.skin-vector-disable-max-width & {
+			// Allow the max-width of content on history/special pages to be wider than
+			// the max-width of content on article pages.
+			// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
+			// to support easier navigation between tabs.
+			// See T293441 for further information on that.
+			max-width: none;
+			width: 100%;
+		}
+	}
+
+	@padding-top-footer: 50px;
+
+	.mw-footer-container {
+		padding-top: @padding-top-footer;
+		padding-bottom: 82px;
+	}
+
 	@media ( max-width: @max-width-mobile ) {
 		.mw-header {
 			// Should match grid-template-rows definition below.
@@ -29,6 +51,8 @@
 	}
 
 	@media ( min-width: @min-width-tablet ) {
+		@row-gap: 24px;
+
 		.mw-page-container-inner {
 			display: grid;
 			width: 100%;
@@ -37,7 +61,7 @@
 				'sidebar gutter content'
 				'toc gutter content'
 				'footer footer footer';
-			row-gap: 24px;
+			row-gap: @row-gap;
 		}
 
 		.mw-body {
@@ -62,6 +86,7 @@
 
 		.mw-footer-container {
 			grid-area: footer;
+			padding-top: @padding-top-footer - @row-gap;
 		}
 	}
 
