@@ -95,7 +95,12 @@ body {
 }
 
 .mw-body-subheader {
+	// avoid margin collapsing by setting a height and margin-top as this will sometimes
+	// be empty if no indicators.
+	// The total of margin-top and height should be 16px. Since we're using relative units 1em=14px
+	// We need to set both height and margin so that the margin is not ignored.
 	margin-top: 1em;
+	height: 2px;
 }
 
 .mw-header {
@@ -128,14 +133,6 @@ body {
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
-}
-
-// Prevents margin collapsing on first element (typically a <p>) of content.
-// Custom because .mixin-clearfix() automatically appends :after to the selector
-// and doesn't prevent margin collapsing.
-.vector-body:before {
-	content: '';
-	display: table;
 }
 
 /* Navigation Containers */
