@@ -526,7 +526,7 @@
 			"description": "@var The minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
 		"VectorGrid": {
-			"value": false,
+			"value": true,
 			"description": "@var boolean `VectorGrid` enforces a grid system"
 		}
 	},
