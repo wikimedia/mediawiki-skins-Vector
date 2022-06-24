@@ -2,12 +2,20 @@
 // Grid layout
 //
 
+// Makes a column span entire page
 .mixin-column-full-width() {
 	grid-column: sidebar / content;
 	margin-left: auto;
 	margin-right: auto;
 	// Needed for minimal content e.g. one word articles.
 	width: 100%;
+	box-sizing: border-box;
+}
+
+// aligns left side of column with hamburger icon.
+.mixin-column-align-width-hamburger-icon() {
+	// Align the content with the hamburger icon
+	padding: 0 0 0 @margin-horizontal-sidebar-button-icon;
 }
 
 .vector-layout-grid {
@@ -60,17 +68,20 @@
 
 	/**
 	 * Special handling for sidebar when table of contents is visible.
+	 * This only applies between the tablet and desktop breakpoints.
+	 * It shouldn't apply on mobile as it will lead to misalignment with the hamburger icon.
 	 * Cover the cases where:
 	 * 1) the main menu is closed, there is no TOC in the sidebar
 	 * 2) the main menu is closed, the sidebar TOC is hidden at the breakpoint.
 	 * In these situation content should span the entire page.
 	 */
-	@media ( max-width: @width-breakpoint-desktop ) {
+	@media ( min-width: ( @width-breakpoint-tablet - 1px ) ) and ( max-width: @width-breakpoint-desktop ) {
 		@{selector-sidebar-container-sidebar-closed} {
 			display: none;
 
 			& + .mw-content-container {
 				.mixin-column-full-width();
+				.mixin-column-align-width-hamburger-icon();
 			}
 		}
 	}
@@ -78,6 +89,10 @@
 	@{selector-sidebar-no-toc-sidebar-closed} {
 		& + .mw-content-container {
 			.mixin-column-full-width();
+
+			@media ( min-width: @width-breakpoint-tablet ) and ( max-width: @width-breakpoint-desktop ) {
+				.mixin-column-align-width-hamburger-icon();
+			}
 		}
 	}
 }
