@@ -1,7 +1,6 @@
 //
 // Grid layout
 //
-
 // Makes a column span entire page
 .mixin-column-full-width() {
 	grid-column: sidebar / content;
@@ -10,12 +9,6 @@
 	// Needed for minimal content e.g. one word articles.
 	width: 100%;
 	box-sizing: border-box;
-}
-
-// aligns left side of column with hamburger icon.
-.mixin-column-align-width-hamburger-icon() {
-	// Align the content with the hamburger icon
-	padding: 0 0 0 @margin-horizontal-sidebar-button-icon;
 }
 
 .vector-layout-grid {
@@ -41,7 +34,7 @@
 		padding-bottom: 82px;
 	}
 
-	@media ( max-width: @max-width-mobile ) {
+	@media ( max-width: @max-width-tablet ) {
 		.mw-header {
 			// Should match grid-template-rows definition below.
 			height: 66px;
@@ -50,7 +43,7 @@
 		}
 	}
 
-	@media ( min-width: @min-width-tablet ) {
+	@media ( min-width: @min-width-desktop ) {
 		@row-gap: 24px;
 
 		.mw-page-container-inner {
@@ -90,31 +83,9 @@
 		}
 	}
 
-	@media ( min-width: @min-width-desktop ) {
+	@media ( min-width: @min-width-desktop-wide ) {
 		.mw-page-container-inner {
 			grid-template-columns: ~'284px 20px 1fr';
-		}
-	}
-
-	/**
-	 * Special handling for sidebar when table of contents is visible.
-	 * This only applies between the tablet and desktop breakpoints.
-	 * It shouldn't apply on mobile as it will lead to misalignment with the hamburger icon.
-	 * Cover the cases where:
-	 * 1) the main menu is closed, there is no TOC in the sidebar
-	 * 2) the main menu is closed, the sidebar TOC is hidden at the breakpoint.
-	 * In these situation content should span the entire page.
-	 */
-	@media ( min-width: ( @min-width-tablet ) ) and ( max-width: @max-width-tablet ) {
-		@{selector-sidebar-container-sidebar-closed} {
-			.mw-navigation {
-				display: none;
-			}
-
-			& ~ .mw-content-container {
-				.mixin-column-full-width();
-				.mixin-column-align-width-hamburger-icon();
-			}
 		}
 	}
 
