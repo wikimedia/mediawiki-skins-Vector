@@ -2,7 +2,7 @@ import { htmlUserLanguageAttributes } from './utils';
 import { placeholder } from './utils';
 
 import { userLinksTemplateLegacy } from './UserLinks.stories.data';
-import { menuTemplate } from './Menu.stories.data';
+import { menuTemplate, legacyMenuTemplate } from './Menu.stories.data';
 import { PERSONAL_MENU_TEMPLATE_DATA } from './UserLinks.stories.data';
 import { pageActionsData, namespaceTabsData } from './MenuTabs.stories.data';
 import { vectorMenuTemplate, moreData, variantsData } from './MenuDropdown.stories.data';
@@ -55,11 +55,12 @@ export const NAVIGATION_TEMPLATE_DATA = {
 export const TEMPLATE_PARTIALS = Object.assign( {}, SIDEBAR_TEMPLATE_PARTIALS, {
 	Logo: logoTemplate,
 	SearchBox: searchBoxTemplate,
-	'legacy/Sidebar': sidebarLegacyTemplate,
+	LegacySidebar: sidebarLegacyTemplate,
 	Sidebar: sidebarTemplate,
+	LegacyMenu: legacyMenuTemplate,
 	VectorMenu: vectorMenuTemplate,
 	Menu: menuTemplate,
-	'legacy/UserLinks': userLinksTemplateLegacy,
+	LegacyUserLinks: userLinksTemplateLegacy,
 	Footer: footerTemplate
 }, FOOTER_TEMPLATE_PARTIALS, SEARCH_TEMPLATE_PARTIALS );
 

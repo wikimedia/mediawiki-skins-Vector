@@ -1,7 +1,7 @@
 import msgs from '../i18n/en.json';
 import mustache from 'mustache';
 import { menuTemplate } from './Menu.stories.data';
-import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/legacy/UserLinks.mustache';
+import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/LegacyUserLinks.mustache';
 import userLinksTemplate from '!!raw-loader!../includes/templates/UserLinks.mustache';
 import userLinksMoreTemplate from '!!raw-loader!../includes/templates/UserLinks__more.mustache';
 import userLinksLogoutTemplate from '!!raw-loader!../includes/templates/UserLinks__logout.mustache';
