@@ -68,7 +68,7 @@
 		{{>ArticleToolbar}}
 	{{/is-title-above-tabs}}
 
-	<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+	<div id="bodyContent" class="vector-body" {{#is-title-above-tabs}} data-mw-ve-target-container {{/is-title-above-tabs}}>
 		{{>ContentSubheader}}
 		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 		<div id="contentSub2">{{{html-undelete-link}}}</div>
