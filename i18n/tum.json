@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tumbuka Arch"
+			"Tumbuka Arch",
+			"Amire80"
 		]
 	},
 	"vector-action-addsection": "Sazgapo mutu",
@@ -10,6 +11,6 @@
 	"vector-view-create": "Yata",
 	"vector-view-edit": "Lemba",
 	"vector-view-history": "Wona mayambilo",
-	"vector-view-view": "Ẇelenga",
+	"vector-view-view": "Ŵelenga",
 	"vector-more-actions": "Vinandi"
 }

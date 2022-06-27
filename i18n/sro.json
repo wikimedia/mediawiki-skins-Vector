@@ -5,7 +5,11 @@
 			"Jaime Sulas"
 		]
 	},
-	"vector-view-create": "Crea",
+	"vector-action-addsection": "Aciungi arraxonu",
+	"vector-action-delete": "Burra",
+	"vector-action-move": "Movi",
+	"vector-action-protect": "Cadela",
+	"vector-view-create": "Cria",
 	"vector-view-edit": "Muda",
 	"vector-view-history": "Càstia sa stòria",
 	"vector-view-view": "Ligi",
