@@ -10,5 +10,6 @@
 	"vector-view-edit": "Edit",
 	"vector-view-history": "View history",
 	"vector-view-view": "Read",
-	"vector-more-actions": "More"
+	"vector-more-actions": "More",
+	"vector-searchsuggest-containing": "Search for pages wey dey contain <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
