@@ -1,6 +1,9 @@
 @import '../../common/variables.less';
 
-.mw-article-toolbar-container {
+@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
+
+.vector-article-toolbar .mw-article-toolbar-container {
+	display: flex;
 	border-bottom: @border-tabs;
 
 	a {
@@ -8,6 +11,31 @@
 		&:hover,
 		&:focus {
 			text-decoration: none;
+		}
+	}
+
+	@media ( min-width: @min-width-desktop-wide ) {
+		padding-right: @padding-horizontal-tabs - 1px;
+	}
+
+	#right-navigation {
+		display: flex;
+		flex-grow: 1;
+		justify-content: end;
+		// Layout correction - as it was before introduce of flex box.
+		margin-right: -1px;
+
+		@media ( min-width: @min-width-desktop-wide ) {
+			margin-right: -@border-base-ems * 3;
+		}
+	}
+
+	#left-navigation {
+		display: flex;
+
+		// Layout correction - as it was before introduce of flex box.
+		@media ( min-width: @min-width-desktop-wide ) {
+			margin-left: @border-base-ems * 3;
 		}
 	}
 
@@ -34,45 +62,5 @@
 		@media ( max-width: @max-width-mobile ) {
 			display: block;
 		}
-	}
-}
-
-// FIXME: This can be merged with the above when cached HTML contains the vector-article-toolbar class.
-.vector-article-toolbar .mw-article-toolbar-container {
-	display: flex;
-	@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		padding-right: @padding-horizontal-tabs - 1px;
-	}
-
-	#right-navigation {
-		display: flex;
-		flex-grow: 1;
-		justify-content: end;
-		// Layout correction - as it was before introduce of flex box.
-		margin-right: -1px;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			margin-right: -@border-base-ems * 3;
-		}
-	}
-
-	#left-navigation {
-		display: flex;
-
-		// Layout correction - as it was before introduce of flex box.
-		@media ( min-width: @min-width-desktop-wide ) {
-			margin-left: @border-base-ems * 3;
-		}
-	}
-}
-
-// Currently when right navigation is empty and sidebar is open no
-// border is shown. This can intentionally be removed at a later date but
-// is preserved to reduce number of UI regressions in current release.
-@media ( max-width: @max-width-mobile ) {
-	#mw-sidebar-checkbox:checked ~ .mw-workspace-container #right-navigation.right-navigation-empty {
-		border-bottom: 0;
 	}
 }
