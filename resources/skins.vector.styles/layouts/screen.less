@@ -203,6 +203,9 @@ body {
 	// ensuring the TOC is 1.5em (24px) from the top of the viewport
 	// unless .mw-sticky-header-element overrides it.
 	top: ~'calc( 1.5em - @{top-margin-sidebar-toc_title_inline} )';
+	@{selector-workspace-container-sidebar-open} & {
+		top: 0;
+	}
 
 	.vector-layout-legacy & {
 		clear: both;
