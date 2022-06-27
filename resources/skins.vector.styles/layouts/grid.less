@@ -2,6 +2,14 @@
 // Grid layout
 //
 
+.mixin-column-full-width() {
+	grid-column: sidebar / content;
+	margin-left: auto;
+	margin-right: auto;
+	// Needed for minimal content e.g. one word articles.
+	width: 100%;
+}
+
 .vector-layout-grid {
 	@media ( max-width: @width-breakpoint-tablet ) {
 		.mw-header {
@@ -50,16 +58,26 @@
 		}
 	}
 
-	/* Special handling for sidebar when table of contents is visible */
+	/**
+	 * Special handling for sidebar when table of contents is visible.
+	 * Cover the cases where:
+	 * 1) the main menu is closed, there is no TOC in the sidebar
+	 * 2) the main menu is closed, the sidebar TOC is hidden at the breakpoint.
+	 * In these situation content should span the entire page.
+	 */
 	@media ( max-width: @width-breakpoint-desktop ) {
-		@{selector-workspace-container-sidebar-closed} {
-			.mw-navigation {
-				display: none;
-			}
+		@{selector-sidebar-container-sidebar-closed} {
+			display: none;
 
 			& + .mw-content-container {
-				grid-column: sidebar / content;
+				.mixin-column-full-width();
 			}
+		}
+	}
+
+	@{selector-sidebar-no-toc-sidebar-closed} {
+		& + .mw-content-container {
+			.mixin-column-full-width();
 		}
 	}
 }
