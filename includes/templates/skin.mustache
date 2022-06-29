@@ -44,18 +44,22 @@
 {{>Header}}
 
 <div class="mw-workspace-container vector-sidebar-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
-	{{#data-toc}}
+	{{#data-toc}}{{^is-vector-grid}}
 	<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
-	{{/data-toc}}
+	{{/is-vector-grid}}{{/data-toc}}
 	<div id="mw-navigation">
 		{{^is-title-above-tabs}}
 			{{>ArticleToolbar}}
 		{{/is-title-above-tabs}}
 		{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
 	</div>
-
+	{{^is-vector-grid}}
 	{{>TableOfContentsContainer}}
-{{#is-vector-grid}}</div>{{/is-vector-grid}} <!-- close .vector-sidebar-container -->
+	{{/is-vector-grid}}
+{{#is-vector-grid}}</div>
+<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+{{>TableOfContentsContainer}}
+{{/is-vector-grid}} <!-- close .vector-sidebar-container -->
 	<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
