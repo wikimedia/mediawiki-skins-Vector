@@ -8,10 +8,10 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
-@selector-workspace-container-sidebar-open: ~'.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container';
-@selector-workspace-container-sidebar-closed: ~'.mw-checkbox-hack-checkbox:not( :checked ) ~ .mw-workspace-container';
-@selector-sidebar-container-sidebar-closed: ~'.mw-checkbox-hack-checkbox:not( :checked ) ~ .vector-sidebar-container';
-@selector-sidebar-no-toc-sidebar-closed: ~'.mw-checkbox-hack-checkbox:not( :checked ) ~ .vector-sidebar-container-no-toc';
+@selector-workspace-container-sidebar-open: ~'#mw-sidebar-checkbox:checked ~ .mw-workspace-container';
+@selector-workspace-container-sidebar-closed: ~'#mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container';
+@selector-sidebar-container-sidebar-closed: ~'#mw-sidebar-checkbox:not( :checked ) ~ .vector-sidebar-container';
+@selector-sidebar-no-toc-sidebar-closed: ~'#mw-sidebar-checkbox:not( :checked ) ~ .vector-sidebar-container-no-toc';
 
 // Sidebar
 @width-grid-column-one: 11em;
@@ -198,16 +198,17 @@ body {
 .mw-table-of-contents-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
-	float: left;
-	// Defaults to -2em to account for the TOC's top margin
-	// ensuring the TOC is 1.5em (24px) from the top of the viewport
-	// unless .mw-sticky-header-element overrides it.
-	top: ~'calc( 1.5em - @{top-margin-sidebar-toc_title_inline} )';
+
+	// To ensure the TOC is 1.5em (24px) from the top of the viewport when sticky
+	// we account for the TOC's top margin
+	top: ~'calc( 1.5em - @{top-margin-sidebar-toc_title_inline} )'; // top: -2em
+	// When main menu is open the TOC's top margin is reduced
 	@{selector-workspace-container-sidebar-open} & {
-		top: 0;
+		top: ~'calc( 1.5em - @{top-margin-sidebar-toc} )'; // top: 0
 	}
 
 	.vector-layout-legacy & {
+		float: left;
 		clear: both;
 	}
 }
@@ -312,17 +313,18 @@ body {
 	padding-bottom: 82px;
 }
 
+// FIXME: Delete when .vector-toc-enabled is removed (T310527)
 // We want it to appear like the sidebar is going into/coming out of
 // `.mw-page-container`, but we can't use `overflow: hidden` on
 // `.mw-page-container` because that will cut off the sidebar. Therefore, we
 // calculate the maximum distance from the start of `mw-page-container` to the
 // start of the sidebar.
-#mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
+@{selector-workspace-container-sidebar-closed} .mw-sidebar {
 	transform: translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 );
 }
 
 // Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
-.vector-toc-enabled #mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
+.vector-toc-enabled @{selector-workspace-container-sidebar-closed} .mw-sidebar {
 	display: none;
 }
 
@@ -414,8 +416,6 @@ body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment
 	@{selector-workspace-container-sidebar-open} {
 		#mw-panel {
 			width: 100%;
-			position: relative;
-			left: 0;
 		}
 
 		// !important as we always want to disable the margin-left on these elements
