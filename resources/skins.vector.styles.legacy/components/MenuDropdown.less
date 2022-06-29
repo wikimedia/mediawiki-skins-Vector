@@ -37,3 +37,16 @@
 		border-top-width: 0;
 	}
 }
+
+#mw-head .vector-menu-dropdown .vector-menu-heading {
+	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
+	background-position: right bottom;
+	float: left;
+	height: unit( 40 / @font-size-tabs / @font-size-browser, em );
+	margin: 0 -@border-width-base 0 0;
+	// `padding-right` >= `1px` effectively moves the "background border" outside of the element to
+	// act like a real border. It is necessary for `.vector-menu-dropdown .vector-menu-content-list` dropdown to align well.
+	// 0.5em equals `8px` at computed `font-size` of `14px` as visually harmonically with
+	// `padding-left` in `.vector-menu-dropdown .vector-menu-heading a`
+	padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+}
