@@ -4,6 +4,7 @@
 			"DaSupremo"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-action-addsection": "Add topic",
 	"vector-action-move": "Move am",
 	"vector-view-create": "Create",
