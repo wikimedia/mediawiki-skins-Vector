@@ -97,12 +97,12 @@ body {
 }
 
 .mw-body-subheader {
-	// avoid margin collapsing by setting a height and margin-top as this will sometimes
+	// avoid margin collapsing by setting a border-bottom and margin-top as this will sometimes
 	// be empty if no indicators.
 	// The total of margin-top and height should be 16px. Since we're using relative units 1em=14px
 	// We need to set both height and margin so that the margin is not ignored.
 	margin-top: 1em;
-	height: 2px;
+	border-bottom: solid 2px transparent;
 }
 
 .mw-header {
