@@ -11,6 +11,12 @@
 	box-sizing: border-box;
 }
 
+// aligns left side of column with hamburger icon.
+.mixin-column-align-width-hamburger-icon() {
+	// Align the content with the hamburger icon
+	padding-left: 8px;
+}
+
 .vector-layout-grid {
 	.mw-content-container {
 		max-width: @max-width-content-container;
@@ -75,6 +81,11 @@
 
 		.mw-content-container {
 			grid-area: content;
+		}
+
+		// with sidebar closed, when no table of contents, align with hamburger menu
+		@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
+			.mixin-column-align-width-hamburger-icon();
 		}
 
 		.mw-footer-container {
