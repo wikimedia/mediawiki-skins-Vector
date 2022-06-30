@@ -195,7 +195,7 @@ body {
 	}
 }
 
-.mixin-sticky-toc() {
+.mw-table-of-contents-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
 	float: left;
@@ -203,18 +203,13 @@ body {
 	// ensuring the TOC is 1.5em (24px) from the top of the viewport
 	// unless .mw-sticky-header-element overrides it.
 	top: ~'calc( 1.5em - @{top-margin-sidebar-toc_title_inline} )';
-}
-
-.vector-layout-legacy .mw-table-of-contents-container {
-	.mixin-sticky-toc();
-	clear: both;
 	@{selector-workspace-container-sidebar-open} & {
 		top: 0;
 	}
-}
 
-.sticky-toc-container {
-	.mixin-sticky-toc();
+	.vector-layout-legacy & {
+		clear: both;
+	}
 }
 
 .parsoid-body {
