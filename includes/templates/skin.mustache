@@ -91,9 +91,9 @@
 {{^is-vector-grid}}</div>{{/is-vector-grid}} <!-- close .vector-sidebar-container -->
 
 <div class="mw-workspace-container mw-footer-container">
-	<div class="mw-content-container">
+	{{^is-vector-grid}}<div class="mw-content-container">{{/is-vector-grid}}
 		{{#data-footer}}{{>Footer}}{{/data-footer}}
-	</div>
+	{{^is-vector-grid}}</div>{{/is-vector-grid}}
 </div>
 	</div> {{! END mw-page-container-inner }}
 </div> {{! END mw-page-container }}
