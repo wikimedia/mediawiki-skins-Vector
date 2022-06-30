@@ -39,24 +39,23 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 // Update styling when TOC is enabled
 .vector-toc-enabled {
 	.mw-sidebar,
-	.sidebar-toc {
+	.sidebar-toc,
+	.sidebar-toc:after {
+		// Match styles between TOC and fade element to ensure the fade covers the correct area
+		width: @width-sidebar;
 		margin-left: 0;
 
 		@media ( min-width: @min-width-desktop-wide ) {
+			width: @width-sidebar-wide;
 			margin-left: @margin-start-sidebar-content;
 		}
 	}
 
 	.mw-sidebar {
-		width: @width-sidebar;
 		// Temporary magic number, will be calculated after TOC specs are finalized
 		padding: 12px 19px 12px 9px;
 		background-image: none;
 		background-color: @border-color-sidebar;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			width: @width-sidebar-wide;
-		}
 	}
 
 	& .vector-layout-grid {

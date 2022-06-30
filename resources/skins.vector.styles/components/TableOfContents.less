@@ -2,21 +2,16 @@
 
 @fade-height: 40px;
 @vertical-padding: 20px;
+@right-padding: 12px;
 @toggle-icon-size: 1.834em;
 
 .sidebar-toc {
 	display: none;
-	width: @width-sidebar;
 	max-height: 75vh;
-	padding: @vertical-padding 12px @vertical-padding 32px;
+	padding: @vertical-padding @right-padding @vertical-padding 32px;
 	box-sizing: border-box;
 	overflow: auto;
 	background-color: @border-color-sidebar;
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		width: @width-sidebar-wide;
-		padding-right: 8px;
-	}
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;
@@ -76,10 +71,12 @@
 	display: block;
 	position: absolute;
 	bottom: 0;
-	left: @margin-start-sidebar-content; // T306893: Ensure scrollable indicator is contained in the TOC
-	right: @border-width-base; // Ensure scrollable indicator doesn't cover border/scrollbar
+	left: 0;
+	right: 0;
 	height: @fade-height;
 	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
+	background-repeat: no-repeat;
+	background-position: -@right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
 	pointer-events: none; // Make the link below the fade clickable
 }
 
