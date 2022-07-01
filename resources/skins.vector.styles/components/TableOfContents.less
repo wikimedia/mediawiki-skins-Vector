@@ -82,19 +82,26 @@
 	}
 }
 
-// T302076 Add scrollable indicator as fade
-.sidebar-toc:after {
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: @sidebar-toc-fade-height;
-	background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
-	background-repeat: no-repeat;
-	background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
-	pointer-events: none; // Make the link below the fade clickable
+// T302076: Add fade scrollable indicator when TOC is in sidebar
+// Avoid showing indicator when the TOC is collapsed in the page title, sticky header, or floating
+@media ( min-width: @min-width-desktop ) {
+	@{sidebar-toc-selector}:after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: @sidebar-toc-fade-height;
+		background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
+		background-repeat: no-repeat;
+		background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
+		pointer-events: none; // Make the link below the fade clickable
+
+		.vector-toc-collapsed & {
+			display: none;
+		}
+	}
 }
 
 // Collapse ToC sections by default, excluding no-js

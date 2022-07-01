@@ -1,3 +1,11 @@
+// @ts-ignore
+window.matchMedia = window.matchMedia || function () {
+	return {
+		matches: false,
+		onchange: () => {}
+	};
+};
+
 const { test } = require( '../../../resources/skins.vector.es6/main.js' );
 const {
 	STICKY_HEADER_EXPERIMENT_NAME,

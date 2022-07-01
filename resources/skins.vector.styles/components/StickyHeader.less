@@ -79,6 +79,23 @@
 		min-width: 0;
 	}
 
+	&-toc-container {
+		position: relative;
+		margin-left: -@icon-padding-md;
+
+		.vector-menu-heading {
+			display: none;
+
+			.vector-toc-collapsed & {
+				display: block;
+			}
+		}
+
+		.sidebar-toc {
+			margin: 0;
+		}
+	}
+
 	&-context-bar-primary {
 		overflow: hidden;
 		font-family: @font-family-serif;

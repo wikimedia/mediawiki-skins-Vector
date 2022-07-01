@@ -373,9 +373,23 @@ abstract class SkinVector extends SkinMustache {
 		}
 		$btns[] = $this->getAddSectionButtonData();
 
+		$tocPortletData = $this->decoratePortletData( 'data-sticky-header-toc', [
+			'id' => 'p-sticky-header-toc',
+			'class' => 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
+			'html-items' => '',
+			'html-vector-menu-checkbox-attributes' => 'tabindex="-1"',
+			'html-vector-menu-heading-attributes' => 'tabindex="-1"',
+			'heading-class' => implode( ' ', [
+				self::CLASS_QUIET_BUTTON,
+				self::CLASS_ICON_BUTTON,
+				$this->iconClass( 'listBullet' )
+			] ),
+		] );
+
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 		$showStickyULS = $this->isULSExtensionEnabled() && !$this->shouldHideLanguages();
 		return [
+			'data-sticky-header-toc' => $tocPortletData,
 			'data-primary-action' => $showStickyULS ?
 				$this->getULSButtonData() : null,
 			'data-button-start' => [
@@ -748,7 +762,9 @@ abstract class SkinVector extends SkinMustache {
 		if ( $this->isLegacy() ) {
 			$extraClasses[self::MENU_TYPE_TABS] .= ' vector-menu-tabs-legacy';
 		}
-		$portletData['heading-class'] = '';
+		if ( !isset( $portletData['heading-class'] ) ) {
+			$portletData['heading-class'] = '';
+		}
 		// Add target class to apply different icon to personal menu dropdown for logged in users.
 		if ( $portletData['id'] === 'p-personal' ) {
 			if ( $this->isLegacy() ) {
@@ -835,6 +851,7 @@ abstract class SkinVector extends SkinMustache {
 			case 'data-user-menu':
 			case 'data-actions':
 			case 'data-variants':
+			case 'data-sticky-header-toc':
 				$type = self::MENU_TYPE_DROPDOWN;
 				break;
 			case 'data-views':

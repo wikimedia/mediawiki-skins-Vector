@@ -2,6 +2,7 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
+const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
 const sticky = require( '../../resources/skins.vector.es6/stickyHeader.js' );
 const { userLinksHTML } = require( './userLinksData.js' );
 
@@ -58,6 +59,14 @@ const editButtonsTemplateData = [ {
 } ];
 
 const templateData = {
+	'data-sticky-header-toc': {
+		id: 'p-sticky-header-toc',
+		class: 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
+		'html-items': '',
+		'html-vector-menu-checkbox-attributes': 'tabindex="-1"',
+		'html-vector-menu-heading-attributes': 'tabindex="-1"',
+		'heading-class': 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet'
+	},
 	'data-primary-action': {
 		id: 'p-lang-btn-sticky-header',
 		class: 'mw-interlanguage-selector',
@@ -81,6 +90,7 @@ const templateData = {
 
 const renderedHTML = mustache.render( stickyHeaderTemplate, templateData, {
 	Button: buttonTemplate,
+	Menu: menuTemplate,
 	SearchBox: '<div> </div>' // ignore SearchBox for this test
 } );
 
@@ -103,5 +113,33 @@ describe( 'sticky header', () => {
 		expect( userMenu.querySelectorAll( '.mw-list-item-js' ).length > 0 ).toBeTruthy();
 		expect( newMenu.querySelectorAll( '.user-links-collapsible-item' ).length ).toBe( 0 );
 		expect( newMenu.querySelectorAll( '.mw-list-item-js' ).length ).toBe( 0 );
+	} );
+
+	describe( 'moveToc', () => {
+		const sidebarTocContainerClass = 'mw-table-of-contents-container';
+		const stickyHeaderTocContainerClass = 'vector-menu-content';
+		const tocId = 'mw-panel-toc';
+
+		function setupToc() {
+			const sidebarTocContainer = document.createElement( 'div' );
+			sidebarTocContainer.classList.add( sidebarTocContainerClass );
+			const toc = document.createElement( 'div' );
+			toc.setAttribute( 'id', tocId );
+			sidebarTocContainer.appendChild( toc );
+			document.body.appendChild( sidebarTocContainer );
+		}
+
+		test( 'moves toc to stickyheader and sidebar', () => {
+			setupToc();
+			const toc = /** @type {Element} */ ( document.getElementById( tocId ) );
+			expect( /** @type {Element} */
+				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();
+			sticky.moveToc( 'stickyheader' );
+			expect( /** @type {Element} */
+				( toc.parentNode ).classList.contains( stickyHeaderTocContainerClass ) ).toBeTruthy();
+			sticky.moveToc( 'sidebar' );
+			expect( /** @type {Element} */
+				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();
+		} );
 	} );
 } );

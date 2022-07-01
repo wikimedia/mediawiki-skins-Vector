@@ -19,10 +19,15 @@ const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
  */
 
 /**
+ * @callback onToggleCollapse
+ */
+
+/**
  * @typedef {Object} TableOfContentsProps
  * @property {HTMLElement} container The container element for the table of contents.
  * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
  * @property {onToggleClick} onToggleClick Called when a list item is clicked.
+ * @property {onToggleCollapse} onToggleCollapse Called when collapse toggle buttons are clicked.
  */
 
 /**
@@ -288,6 +293,7 @@ module.exports = function tableOfContents( props ) {
 		showHideTocElement.forEach( function ( btn ) {
 			btn.addEventListener( 'click', () => {
 				document.body.classList.toggle( TOC_COLLAPSED_CLASS );
+				props.onToggleCollapse();
 			} );
 		} );
 	}
