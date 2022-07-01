@@ -6,25 +6,29 @@
 // T305069 Layout adjustments of sidebar elements:
 // Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
 @margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
-// Top of sidebar TOC border horizontally aligns with page title underline rule.
+// Spacing when the main menu is closed, aligns sidebar TOC aligns with bottom of the page title.
 @top-margin-sidebar-toc_title_inline: 3.5em;
-// Top of sidebar TOC border normal spacing.
+// Default spacing separating the sidebar TOC from the main menu or viewport
 @top-margin-sidebar-toc: 1.5em;
 // Top of sidebar main menu border horizontally aligns with top of tool tabs above page title.
 @top-margin-sidebar-content: -2.5em;
 
 .mw-sidebar {
-	width: @width-grid-column-one;
-	// To avoid the white part of the gradient colliding with the sidebar links
-	// we apply top and bottom padding.
-	padding: 8px 0 40px @padding-left-sidebar;
-	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 	box-sizing: border-box;
 
 	// Hide #p-navigation label
 	#p-navigation .vector-menu-heading {
 		display: none;
 	}
+}
+
+// FIXME: Delete this selector when .vector-toc-enabled is removed (T310527)
+body:not( .vector-toc-enabled ) .mw-sidebar {
+	width: @width-grid-column-one;
+	// To avoid the white part of the gradient colliding with the sidebar links
+	// we apply top and bottom padding.
+	padding: 8px 0 40px @padding-left-sidebar;
+	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 }
 
 // FIXME: Can be removed when "VectorTitleAboveTabs" is enabled and old layout is removed.
@@ -34,6 +38,15 @@
 
 // Update styling when TOC is enabled
 .vector-toc-enabled {
+	.mw-sidebar,
+	.sidebar-toc {
+		margin-left: 0;
+
+		@media ( min-width: @min-width-desktop-wide ) {
+			margin-left: @margin-start-sidebar-content;
+		}
+	}
+
 	.mw-sidebar {
 		width: @width-sidebar;
 		// Temporary magic number, will be calculated after TOC specs are finalized
@@ -46,41 +59,29 @@
 		}
 	}
 
-	.sidebar-toc {
-		margin-top: @top-margin-sidebar-toc_title_inline;
-	}
-
-	.mw-sidebar,
-	.sidebar-toc {
-		margin-left: 0;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			margin-left: @margin-start-sidebar-content;
-		}
-	}
-
-	@selector-checkbox-hack: ~'.mw-checkbox-hack-checkbox:checked ~ .mw-workspace-container';
-	// T305069 Apply different top spacing to the topmost sidebar element during menu toggling when sidebar is open.
-	@{selector-checkbox-hack} {
-		.sidebar-toc {
-			margin-top: @top-margin-sidebar-toc;
-		}
-
+	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
+	@{selector-workspace-container-sidebar-open} {
 		@media ( max-width: @max-width-tablet ) {
 			.mw-sidebar {
 				margin-top: 0;
-				margin-left: 0;
-			}
-
-			.sidebar-toc {
-				display: none;
 			}
 		}
 	}
+}
 
-	// T305069 When scrolling down, override the top margin of the sticky TOC
-	// so that the top of sticky TOC remains at the top of the viewport with normal padding.
-	&.vector-sticky-header-visible .sidebar-toc {
+// FIXME: Merge margin-top styles with above when .vector-toc-enabled is removed (T310527)
+.sidebar-toc {
+	.vector-toc-enabled & {
+		margin-top: @top-margin-sidebar-toc_title_inline;
+	}
+
+	.vector-toc-enabled @{selector-workspace-container-sidebar-open} & {
+		// Main menu is open
+		margin-top: @top-margin-sidebar-toc;
+	}
+
+	.vector-toc-enabled.vector-sticky-header-visible & {
+		// Sticky header is visible
 		margin-top: @top-margin-sidebar-toc;
 	}
 }
@@ -147,7 +148,7 @@
 
 // Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
 // checkbox input for the menu panel.
-#mw-sidebar-checkbox:not( :checked ) ~ .mw-workspace-container .mw-sidebar {
+@{selector-workspace-container-sidebar-closed} .mw-sidebar {
 	// Turn off presentation so that screen readers get the same effect as visually hiding.
 	// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
 	// instead to avoid hidden rendering.

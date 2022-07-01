@@ -77,23 +77,3 @@
 		}
 	}
 }
-
-@media ( min-width: @min-width-tablet ) and ( max-width: @max-width-tablet ) {
-	body:not( .vector-below-page-title ) @{selector-checkbox-hack} .sidebar-toc {
-		// Adjust TOC for when the main menu is open, which pushes the page title to the right
-		left: 22px;
-	}
-
-	@{selector-collapsed-toc-button-checked} {
-		// Apply float styles to the TOC and main menu to ensure the absolute positioned TOC
-		// can remain in the correct location even when the main menu is open
-		& ~ .mw-table-of-contents-container {
-			clear: none;
-			float: left;
-		}
-
-		& ~ #mw-navigation .mw-sidebar {
-			float: left;
-		}
-	}
-}
