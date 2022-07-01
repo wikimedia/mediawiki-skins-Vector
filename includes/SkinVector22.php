@@ -22,6 +22,8 @@ class SkinVector22 extends SkinVector {
 	public function __construct( array $options ) {
 		if ( !$this->isTOCABTestEnabled() ) {
 			$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
+		} else {
+			$options['styles'][] = 'skins.vector.AB.styles';
 		}
 
 		parent::__construct( $options );
@@ -40,22 +42,8 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
-	 * Returns whether or not the table of contents is enabled through
-	 * FeatureManager.
-	 *
-	 * @internal
-	 * @return bool
-	 */
-	public function isTOCEnabled() {
-		$featureManager = VectorServices::getFeatureManager();
-
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
-	}
-
-	/**
 	 * Determines if the Table of Contents should be visible.
-	 * TOC is visible on main namespaces except for the Main Page
-	 * when the feature flag is on.
+	 * TOC is visible on main namespaces except for the Main Page.
 	 *
 	 * @internal
 	 * @return bool
@@ -74,7 +62,7 @@ class SkinVector22 extends SkinVector {
 			return $title->getArticleID() !== 0;
 		}
 
-		return $this->isTOCEnabled();
+		return true;
 	}
 
 	/**

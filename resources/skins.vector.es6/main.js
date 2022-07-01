@@ -7,7 +7,6 @@ const
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
-	linkHijack = require( './linkHijack.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	TOC_ID = 'mw-panel-toc',
 	TOC_ID_LEGACY = 'toc',
@@ -18,7 +17,6 @@ const
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title',
-	TOC_QUERY_PARAM = 'tableofcontents',
 	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
 
 /**
@@ -213,10 +211,6 @@ const main = () => {
 		window.URLSearchParams &&
 		initExperiment( ABTestConfig );
 	const isInTreatmentBucket = !!experiment && experiment.isInTreatmentBucket();
-
-	if ( experiment && experiment.isInSample() ) {
-		linkHijack( TOC_QUERY_PARAM, isInTreatmentBucket ? '1' : '0' );
-	}
 
 	if ( experiment && !isInTreatmentBucket ) {
 		// Return early if the old TOC is shown.

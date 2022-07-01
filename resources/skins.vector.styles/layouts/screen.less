@@ -170,8 +170,9 @@ body {
 }
 
 .vector-layout-legacy #mw-panel {
-	position: absolute;
+	position: static;
 	top: 0;
+	float: none;
 	// Sidebar is displaced from the workspace container so that the
 	// sidebar is flush with the edge of the screen at small widths.
 	left: -@padding-horizontal-page-container;
@@ -182,15 +183,9 @@ body {
 	}
 }
 
-// Update positioning when TOC is enabled
-.vector-toc-enabled .vector-layout-legacy #mw-panel {
-	position: static;
-	float: none;
-}
-
 // Add float at higher resolutions
 @media ( min-width: @min-width-desktop ) {
-	.vector-toc-enabled .vector-layout-legacy #mw-panel {
+	.vector-layout-legacy #mw-panel {
 		float: left;
 	}
 }
@@ -315,18 +310,8 @@ body {
 	padding-bottom: 82px;
 }
 
-// FIXME: Delete when .vector-toc-enabled is removed (T310527)
-// We want it to appear like the sidebar is going into/coming out of
-// `.mw-page-container`, but we can't use `overflow: hidden` on
-// `.mw-page-container` because that will cut off the sidebar. Therefore, we
-// calculate the maximum distance from the start of `mw-page-container` to the
-// start of the sidebar.
-@{selector-workspace-container-sidebar-closed} .mw-sidebar {
-	transform: translateX( -( @max-width-page-container - @max-width-workspace-container ) / 2 );
-}
-
 // Hide sidebar entirely when the checkbox is disabled and the TOC is enabled
-.vector-toc-enabled @{selector-workspace-container-sidebar-closed} .mw-sidebar {
+@{selector-workspace-container-sidebar-closed} .mw-sidebar {
 	display: none;
 }
 
@@ -347,13 +332,8 @@ body {
 }
 
 @media ( max-width: @max-width-margin-start-content ) {
-	// Adjusts the content and mw-article-toolbar-container.
+	// Increase margin to account for TOC
 	.vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container {
-		margin-left: @margin-start-content;
-	}
-
-	// Increase margin when TOC is enabled
-	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container {
 		margin-left: @margin-toc-start-content;
 	}
 
@@ -362,11 +342,6 @@ body {
 		// Remove sidebar transition at smaller widths.
 		transition: none;
 	}
-}
-
-.skin-vector-toc-experiment-control .mw-table-of-contents-container,
-.skin-vector-toc-experiment-unsampled .mw-table-of-contents-container {
-	display: none;
 }
 
 // Cannot use display: none on legacy TOC because it needs to be accessible
@@ -389,9 +364,9 @@ body {
 // HTML but only one is actually visible. Prevent the left margin from undesirably
 // applying if bucketed into the control or unsampled groups which won't show
 // the new TOC.
-.skin-vector-disable-max-width .vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
+.skin-vector-disable-max-width .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container,
 body:not( .skin-vector-toc-experiment-control ):not( .skin-vector-toc-experiment-unsampled )  .vector-layout-legacy .vector-toc-visible .mw-workspace-container .mw-content-container,
-.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container {
+.vector-layout-legacy @{selector-workspace-container-sidebar-open} .mw-content-container {
 	@media ( min-width: @min-width-desktop ) {
 		margin-left: @margin-toc-start-content;
 	}

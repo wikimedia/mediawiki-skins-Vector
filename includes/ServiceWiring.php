@@ -145,29 +145,6 @@ return [
 			]
 		);
 
-		// Feature: T297610: Table of Contents
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				null,
-				Constants::CONFIG_TABLE_OF_CONTENTS,
-				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
-				Constants::QUERY_PARAM_TABLE_OF_CONTENTS,
-				null
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_TABLE_OF_CONTENTS,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TABLE_OF_CONTENTS
-			]
-		);
-
 		// Feature: Sticky header
 		// ================================
 		$featureManager->registerRequirement(
@@ -222,15 +199,13 @@ return [
 			)
 		);
 
-		// Requires both table of contents and title above tabs
-		// to be enabled to simplify the number of variants it needs
-		// to consider.
+		// Requires title above tabs to be enabled to simplify the
+		// number of variants it needs to consider.
 		$featureManager->registerFeature(
 			Constants::FEATURE_GRID,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_GRID,
-				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
 			]
 		);
 
