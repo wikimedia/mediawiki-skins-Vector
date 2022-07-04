@@ -3,7 +3,8 @@
 		"authors": [
 			"Nertiks",
 			"Nērtiks Jōrgesuns",
-			"Peteris"
+			"Peteris",
+			"Tīgelika"
 		]
 	},
 	"vector-language-button-aria-label": "Kitawīdinais artīkelas billin, preiēiminan en {{PLURAL:$1|$1 billai|$1 bilāmans}}",
@@ -17,6 +18,7 @@
 	"vector-view-edit": "Redigīs",
 	"vector-view-history": "Enwaidinnais istōrijan",
 	"vector-view-view": "Skaitāis",
-	"vector-view-viewsource": "Enwaidinnais appun",
-	"vector-more-actions": "Tūls"
+	"vector-view-viewsource": "Wīdais kōdan",
+	"vector-more-actions": "Tūls",
+	"vector-searchsuggest-containing": "Laukīs pāusans turīnts <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
