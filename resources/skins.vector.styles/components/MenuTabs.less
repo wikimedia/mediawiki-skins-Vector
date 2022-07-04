@@ -5,85 +5,61 @@
  * Styling for namespace tabs (page, discussion) and views (read, edit, view history, watch and other actions)
  */
 
-/* Namespaces and Views */
+/* Tab list items */
 .vector-menu-tabs {
-	// Tab separator: Outer start border (left in LTR) of tab row.
 	float: left;
-	height: 2.5em;
 	padding-left: @border-width-base;
 
-	/* Navigation Labels */
-	.vector-menu-heading {
-		display: none;
-	}
-
-	ul {
-		float: left;
-		height: 100%;
-		list-style: none none;
-		margin: 0;
-		padding: 0;
-	}
-
 	li {
-		// Tab fade background: Fade inside from light grey to white.
-		float: left;
-		display: block;
-		height: 100%;
-		padding: 0;
-		line-height: @line-height-nav;
+		display: inline-block;
+		vertical-align: middle;
 		white-space: nowrap;
+		margin: 0;
 
-		&:first-child a {
-			margin-left: 0;
+		// Make first and last elements flush with edge of header.
+		&:first-child {
+			margin-left: -8px;
 		}
 
-		&:last-child a {
-			margin-right: 0;
-		}
-
-		a {
-			// Tab separator: Border between tabs and outer right border.
-			color: @color-link;
-			box-sizing: border-box;
-			display: block;
-			float: left;
-			height: unit( 40 / @font-size-tabs / @font-size-browser, em );
-			position: relative;
-			padding-top: 1.25em;
-			margin: 0 @padding-horizontal-tabs;
-			font-size: @font-size-tabs;
-			cursor: pointer;
-
-			&:hover {
-				text-decoration: none;
-				border-bottom: 1px solid;
-			}
+		&:last-child {
+			margin-right: -8px;
 		}
 	}
 
-	.new {
-		a,
-		a:visited {
-			color: @color-link-new;
-		}
+	/* focus and hover have outlines. Text underline interferes with bottom border */
+	li a:focus,
+	li a:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
 	}
 
-	.selected {
-		a {
-			border-bottom: 1px solid;
-		}
-
-		a,
-		a:visited {
-			color: @color-link-selected;
-		}
+	.new a,
+	.new a:visited {
+		color: @color-link-new;
 	}
 
-	.icon {
-		a {
-			background-position: right bottom;
-			background-repeat: no-repeat;
-		}
+	.selected a,
+	.selected a:visited {
+		color: @color-link-selected;
+		border-bottom: 1px solid;
 	}
+}
+
+/**
+ * Tab link appearance, applies to
+ * - <a> inside vector-menu-tabs  (e.g. read, edit, view, history)
+ * - vector-menu-dropdown headings (e.g. more menu, language variants, gadgets)
+*/
+.vector-menu-tabs li a,
+.vector-article-toolbar .vector-menu-heading {
+	display: block;
+	position: relative;
+	// Top bottom padding to increase clickable area.
+	padding-top: 18px;
+	padding-bottom: 7px;
+	// left & right margin separate bottom border between words,
+	// bottom margin makes link border overlap toolbar border.
+	margin: 0 8px -1px 8px;
+	cursor: pointer;
+	border-bottom: 1px solid transparent;
 }
