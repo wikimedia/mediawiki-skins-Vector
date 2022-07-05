@@ -4,6 +4,7 @@
 			"Als-Holder"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 Sproch|$1 Sproche}}",
 	"vector-action-addsection": "Abschnitt zuefiege",
 	"vector-action-delete": "Lesche",
 	"vector-action-move": "Verschiebe",

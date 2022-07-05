@@ -3,7 +3,8 @@
 		"authors": [
 			"Nertiks",
 			"Peteris",
-			"Nērtiks Jōrgesuns"
+			"Nērtiks Jōrgesuns",
+			"Tīgelika"
 		]
 	},
 	"vector-action-addsection": "Preidāis tēman",
@@ -15,6 +16,6 @@
 	"vector-view-edit": "Redigīs",
 	"vector-view-history": "Enwaidinnais istōrijan",
 	"vector-view-view": "Skaitāis",
-	"vector-view-viewsource": "Enwaidinnais appun",
+	"vector-view-viewsource": "Wīdais kōdan",
 	"vector-more-actions": "Tūls"
 }
