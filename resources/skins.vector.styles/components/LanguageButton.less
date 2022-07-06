@@ -2,10 +2,11 @@
 @import '../../common/variables.less';
 @import 'mediawiki.mixins.less';
 
-// TODO: `#p-lang-btn` Can be removed after Iebacb6a7bf3412a6ee76eb5c9fdb9471c02dd16c
-// has been in prod for 5 days.
-#p-lang-btn,
-.vector-language-in-header-enabled .mw-portlet-lang {
+// Note vector-language-in-header-enabled class is not used here as that class
+// only applies to main page.
+// This must be limited to mw-body-header as the mw-portlet-lang class is shared with
+// the language portlet that can display in the sidebar.
+.mw-body-header .mw-portlet-lang {
 	// FIXME [review whether margin-top is needed] center vertically in heading.
 	margin-top: 2px;
 	box-sizing: border-box;

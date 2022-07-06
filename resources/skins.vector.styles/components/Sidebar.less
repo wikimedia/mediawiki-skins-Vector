@@ -31,11 +31,6 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
 }
 
-// FIXME: Can be removed when "VectorTitleAboveTabs" is enabled and old layout is removed.
-.vector-article-toolbar + .mw-sidebar {
-	margin-top: @top-margin-sidebar-content;
-}
-
 // Update styling when TOC is enabled
 .vector-toc-enabled {
 	.mw-sidebar,
@@ -70,15 +65,6 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 			// Use margin-top to align TOC rather than grid row gap
 			// Applies when the TOC sticky and when the main menu is both open and closed.
 			margin-top: @top-margin-sidebar-toc;
-		}
-	}
-
-	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
-	@{selector-workspace-container-sidebar-open} {
-		@media ( max-width: @max-width-tablet ) {
-			.mw-sidebar {
-				margin-top: 0;
-			}
 		}
 	}
 }
