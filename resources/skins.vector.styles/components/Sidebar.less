@@ -59,6 +59,21 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 		}
 	}
 
+	& .vector-layout-grid {
+		@media ( min-width: @min-width-desktop ) {
+			.mw-sidebar {
+				// Prevent grid row gap from affecting TOC spacing when main menu is open
+				margin-bottom: -@grid-row-gap;
+			}
+		}
+
+		.sidebar-toc {
+			// Use margin-top to align TOC rather than grid row gap
+			// Applies when the TOC sticky and when the main menu is both open and closed.
+			margin-top: @top-margin-sidebar-toc;
+		}
+	}
+
 	/* FIXME: The following selector can be removed when the option to disable `VectorTitleAboveTabs` is removed. */
 	@{selector-workspace-container-sidebar-open} {
 		@media ( max-width: @max-width-tablet ) {
@@ -71,16 +86,17 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 
 // FIXME: Merge margin-top styles with above when .vector-toc-enabled is removed (T310527)
 .sidebar-toc {
-	.vector-toc-enabled & {
+	.vector-toc-enabled .vector-layout-legacy & {
+		// Main menu is closed
 		margin-top: @top-margin-sidebar-toc_title_inline;
 	}
 
-	.vector-toc-enabled @{selector-workspace-container-sidebar-open} & {
+	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} & {
 		// Main menu is open
 		margin-top: @top-margin-sidebar-toc;
 	}
 
-	.vector-toc-enabled.vector-sticky-header-visible & {
+	.vector-toc-enabled.vector-sticky-header-visible .vector-layout-legacy & {
 		// Sticky header is visible
 		margin-top: @top-margin-sidebar-toc;
 	}

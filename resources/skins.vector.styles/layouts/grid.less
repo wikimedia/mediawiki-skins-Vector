@@ -1,6 +1,11 @@
 //
 // Grid layout
 //
+
+@height-header: 66px;
+@width-gutter: 20px;
+@padding-top-footer: 50px;
+
 // Makes a column span entire page
 .mixin-column-full-width() {
 	grid-column: sidebar / content;
@@ -33,8 +38,6 @@
 		}
 	}
 
-	@padding-top-footer: 50px;
-
 	.mw-footer-container {
 		padding-top: @padding-top-footer;
 		padding-bottom: 82px;
@@ -42,25 +45,23 @@
 
 	@media ( max-width: @max-width-tablet ) {
 		.mw-header {
-			// Should match grid-template-rows definition below.
-			height: 66px;
-			// Should match row-gap below.
-			margin-bottom: 24px;
+			// Match header styles applied by grid-template-rows and row-gap
+			// when grid is disabled on lower resolutions
+			height: @height-header;
+			margin-bottom: @grid-row-gap;
 		}
 	}
 
 	@media ( min-width: @min-width-desktop ) {
-		@row-gap: 24px;
-
 		.mw-page-container-inner {
 			display: grid;
 			width: 100%;
-			grid-template: ~'66px min-content 1fr min-content / 232px 20px minmax(0, 1fr)';
+			grid-template: ~'@{height-header} min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
 			grid-template-areas: 'header header header'
 				'sidebar gutter content'
 				'toc gutter content'
 				'footer footer footer';
-			row-gap: @row-gap;
+			row-gap: @grid-row-gap;
 		}
 
 		.mw-body {
@@ -90,13 +91,13 @@
 
 		.mw-footer-container {
 			grid-area: footer;
-			padding-top: @padding-top-footer - @row-gap;
+			padding-top: @padding-top-footer - @grid-row-gap;
 		}
 	}
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		.mw-page-container-inner {
-			grid-template-columns: ~'284px 20px 1fr';
+			grid-template-columns: ~'284px @{width-gutter} 1fr';
 		}
 	}
 
