@@ -3,6 +3,11 @@
 const EXCLUDED_BUCKET = 'unsampled';
 const TREATMENT_BUCKET_SUBSTRING = 'treatment';
 const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
+/**
+ * @typedef {Function} TreatmentBucketFunction
+ * @param {string} [a]
+ * @return {boolean}
+ */
 
 /**
  * @typedef {Object} WebABTest
@@ -10,7 +15,7 @@ const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
  * @property {function(): string} getBucket
  * @property {function(string): boolean} isInBucket
  * @property {function(): boolean} isInSample
- * @property {function(): boolean} isInTreatmentBucket
+ * @property {TreatmentBucketFunction} isInTreatmentBucket
  */
 
 /**
@@ -41,12 +46,15 @@ const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
  *  name: 'nameOfExperiment',
  *  buckets: {
  *    unsampled: {
- *      samplingRate: 0.5
+ *      samplingRate: 0.25
  *    },
  *    control: {
  *      samplingRate: 0.25
  *    },
- *    treatment: {
+ *    treatment1: {
+ *      samplingRate: 0.25
+ *    },
+ *    treatment2: {
  *      samplingRate: 0.25
  *    }
  *  },
@@ -147,17 +155,18 @@ module.exports = function webABTest( props ) {
 
 	/**
 	 * Whether or not the subject has been bucketed in a treatment bucket as
-	 * defined by the bucket name containing the case-insensitive `treatment`
-	 * substring (e.g. 'treatment', 'sticky-header-treatment' and
-	 * 'stickyHeaderTreatment' are all assumed to be treatment buckets).
+	 * defined by the bucket name containing the case-insensitive 'treatment',
+	 * 'treatment1', or 'treatment2' substring (e.g. 'treatment', 'treatment1',
+	 * 'sticky-header-treatment1' and 'stickyHeaderTreatment2' are all assumed
+	 * to be treatment buckets).
 	 *
+	 * @param {string|null} [treatmentBucketName] lowercase name of bucket.
 	 * @return {boolean}
 	 */
-	function isInTreatmentBucket() {
+	function isInTreatmentBucket( treatmentBucketName = '' ) {
 		const bucket = getBucket();
-
 		// eslint-disable-next-line no-restricted-syntax
-		return bucket.toLowerCase().includes( TREATMENT_BUCKET_SUBSTRING );
+		return bucket.toLowerCase().includes( `${TREATMENT_BUCKET_SUBSTRING}${treatmentBucketName}` );
 	}
 
 	/**

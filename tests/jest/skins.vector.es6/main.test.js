@@ -62,7 +62,7 @@ describe( 'main.js', () => {
 				isEnabled: true,
 				isUserInTreatmentBucket: false,
 				expectedResult: {
-					showStickyHeader: true,
+					showStickyHeader: false,
 					disableEditIcons: true
 				}
 			},
@@ -78,7 +78,7 @@ describe( 'main.js', () => {
 			{
 				abConfig: STICKY_HEADER_AB,
 				isEnabled: false, // sticky header unavailable
-				isUserInTreatmentBucket: false, // not in treament bucket
+				isUserInTreatmentBucket: false, // not in treatment bucket
 				expectedResult: {
 					showStickyHeader: false,
 					disableEditIcons: true
@@ -87,7 +87,7 @@ describe( 'main.js', () => {
 			{
 				abConfig: STICKY_HEADER_AB,
 				isEnabled: true, // sticky header available
-				isUserInTreatmentBucket: false, // not in treament bucket
+				isUserInTreatmentBucket: false, // not in treatment bucket
 				expectedResult: {
 					showStickyHeader: false,
 					disableEditIcons: true
@@ -96,7 +96,7 @@ describe( 'main.js', () => {
 			{
 				abConfig: STICKY_HEADER_AB,
 				isEnabled: false, // sticky header is not available
-				isUserInTreatmentBucket: true, // but the user is in the treament bucket
+				isUserInTreatmentBucket: true, // but the user is in the treatment bucket
 				expectedResult: {
 					showStickyHeader: false,
 					disableEditIcons: true
@@ -129,27 +129,33 @@ describe( 'main.js', () => {
 					disableEditIcons: false
 				}
 			}
-		].forEach( ( { abConfig, isEnabled, isUserInTreatmentBucket, expectedResult } ) => {
-			document.documentElement.classList.add( 'vector-sticky-header-enabled' );
-			const result = test.initStickyHeaderABTests(
+		].forEach(
+			( {
 				abConfig,
-				// isStickyHeaderFeatureAllowed
 				isEnabled,
-				( experiment ) => ( {
-					name: experiment.name,
-					isInBucket: () => true,
-					isInSample: () => true,
-					getBucket: () => 'bucket',
-					isInTreatmentBucket: () => {
-						return isUserInTreatmentBucket;
-					}
-				} )
-			);
-			expect( result ).toMatchObject( expectedResult );
-			// Check that there are no side effects
-			expect(
-				document.documentElement.classList.contains( 'vector-sticky-header-enabled' )
-			).toBe( true );
-		} );
+				isUserInTreatmentBucket,
+				expectedResult
+			} ) => {
+				document.documentElement.classList.add( 'vector-sticky-header-enabled' );
+				const result = test.initStickyHeaderABTests(
+					abConfig,
+					// isStickyHeaderFeatureAllowed
+					isEnabled,
+					( experiment ) => ( {
+						name: experiment.name,
+						isInBucket: () => true,
+						isInSample: () => true,
+						getBucket: () => 'bucket',
+						isInTreatmentBucket: () => {
+							return isUserInTreatmentBucket;
+						}
+					} )
+				);
+				expect( result ).toMatchObject( expectedResult );
+				// Check that there are no side effects
+				expect(
+					document.documentElement.classList.contains( 'vector-sticky-header-enabled' )
+				).toBe( true );
+			} );
 	} );
 } );
