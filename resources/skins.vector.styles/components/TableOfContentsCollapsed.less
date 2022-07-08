@@ -4,30 +4,29 @@
 
 #vector-toc-collapsed-button {
 	display: none;
+	float: left;
+	margin-right: 4px;
+	margin-left: -@icon-padding-md;
+	// Reduce padding to fit with page title
+	padding: 7px 10px 7px 10px;
+	// Override background color for when the TOC is overlaps content
+	// as a sticky element when the page is scrolled down.
+	background-color: @background-color-base;
+
+	&:hover,
+	&:active {
+		background-color: @colorGray15;
+	}
 }
 
-@media ( max-width: @max-width-tablet ) {
-	#vector-toc-collapsed-button,
-	.sidebar-toc {
-		z-index: @z-index-menu;
-	}
+#vector-toc-collapsed-button,
+.sidebar-toc {
+	z-index: @z-index-menu;
+}
 
+.mixin-collapse-toc-page-title {
 	#vector-toc-collapsed-button {
 		display: block;
-		float: left;
-		margin-right: 4px;
-		margin-left: -10px;
-		// Reduce padding to fit with page title
-		padding: 7px 10px 7px 10px;
-
-		// Override background color for when the TOC is overlaps content
-		// as a sticky element when the page is scrolled down.
-		background-color: @background-color-base;
-
-		&:hover,
-		&:active {
-			background-color: @colorGray15;
-		}
 	}
 
 	.mw-table-of-contents-container {
@@ -59,6 +58,10 @@
 		// Hide the TOC when the button is not checked
 		display: none;
 	}
+}
+
+@media ( max-width: @max-width-tablet ) {
+	.mixin-collapse-toc-page-title();
 
 	.vector-below-page-title {
 		#vector-toc-collapsed-button,
@@ -76,6 +79,22 @@
 			// TOC button height
 			top: 36px;
 			left: 6px;
+		}
+	}
+}
+
+@media ( min-width: @min-width-desktop ) {
+	@supports ( display: grid ) {
+		.vector-toc-collapsed .vector-layout-grid {
+			.mixin-collapse-toc-page-title();
+
+			.mw-table-of-contents-container {
+				grid-area: content;
+			}
+
+			.sidebar-toc {
+				left: -@icon-padding-md;
+			}
 		}
 	}
 }
