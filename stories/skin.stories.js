@@ -1,6 +1,6 @@
 import mustache from 'mustache';
 import '../resources/common/common.less';
-import '../resources/skins.vector.styles.legacy/skin-legacy.less';
+import './skin.less';
 import legacySkinTemplate from '!!raw-loader!../includes/templates/skin-legacy.mustache';
 import {
 	LEGACY_TEMPLATE_DATA,
@@ -9,10 +9,10 @@ import {
 } from './skin.stories.data';
 
 export default {
-	title: 'Skin (legacy)'
+	title: 'Skin'
 };
 
-export const vectorLegacyLoggedOut = () => mustache.render(
+const vectorLegacyLoggedOutBody = () => mustache.render(
 	legacySkinTemplate,
 	Object.assign(
 		{},
@@ -22,7 +22,7 @@ export const vectorLegacyLoggedOut = () => mustache.render(
 	TEMPLATE_PARTIALS
 );
 
-export const vectorLegacyLoggedIn = () => mustache.render(
+const vectorLegacyLoggedInBody = () => mustache.render(
 	legacySkinTemplate,
 	Object.assign(
 		{},
@@ -31,3 +31,9 @@ export const vectorLegacyLoggedIn = () => mustache.render(
 	),
 	TEMPLATE_PARTIALS
 );
+
+export const vectorLegacyLoggedOut = () =>
+	`<div class="skin-vector-legacy">${vectorLegacyLoggedOutBody()}</div>`;
+
+export const vectorLegacyLoggedIn = () =>
+	`<div class="skin-vector-legacy">${vectorLegacyLoggedInBody()}</div>`;

@@ -6,6 +6,7 @@ import { placeholder, htmlUserLanguageAttributes,
  */
 export const languageData = {
 	id: 'p-lang-btn',
+	'is-dropdown': true,
 	// both classes needed for this to render correctly
 	class: 'mw-portlet-lang vector-menu-dropdown',
 	// mw-interlanguage-selector must be present to operate in ULS mode.

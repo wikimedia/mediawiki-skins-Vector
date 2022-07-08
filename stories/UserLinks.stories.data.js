@@ -1,6 +1,6 @@
 import msgs from '../i18n/en.json';
 import mustache from 'mustache';
-import { menuTemplate } from './Menu.stories.data';
+import { menuTemplate, legacyMenuTemplate } from './Menu.stories.data';
 import userLinksTemplateLegacy from '!!raw-loader!../includes/templates/LegacyUserLinks.mustache';
 import userLinksTemplate from '!!raw-loader!../includes/templates/UserLinks.mustache';
 import userLinksMoreTemplate from '!!raw-loader!../includes/templates/UserLinks__more.mustache';
@@ -129,7 +129,8 @@ const USER_LINKS_LOGGED_OUT_TEMPLATE_DATA = {
 };
 
 const USER_LINK_PARTIALS = {
-	Menu: menuTemplate
+	Menu: menuTemplate,
+	LegacyMenu: legacyMenuTemplate
 };
 
 export {
