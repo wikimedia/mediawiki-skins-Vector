@@ -1,14 +1,13 @@
 @import '../../common/variables.less';
 
-@fade-height: 40px;
-@vertical-padding: 20px;
-@right-padding: 12px;
-@toggle-icon-size: 1.834em;
+@sidebar-toc-fade-height: 30px;
+@sidebar-toc-vertical-padding: 20px;
+@sidebar-toc-right-padding: 12px;
+@toc-subsection-toggle-icon-size: 1.834em;
 
 .sidebar-toc {
-	display: none;
 	max-height: 75vh;
-	padding: @vertical-padding @right-padding @vertical-padding 32px;
+	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding 32px;
 	box-sizing: border-box;
 	overflow: auto;
 	background-color: @border-color-sidebar;
@@ -29,9 +28,27 @@
 		display: none;
 	}
 
+	.sidebar-toc-toggle {
+		// For no-js users, toggling is disabled and icon is hidden
+		display: none;
+		position: absolute;
+		top: 1px; // visually center icon
+		left: ~'calc( -1 * @{toc-subsection-toggle-icon-size} - 1px )'; // leaves 6px between icon + text
+		width: @toc-subsection-toggle-icon-size; // ~22px @ 12
+		height: @toc-subsection-toggle-icon-size;
+		font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
+		transition: @transition-duration-base;
+		cursor: pointer;
+	}
+
 	.sidebar-toc-link {
 		word-break: break-word;
 		color: @color-link;
+	}
+
+	.sidebar-toc-list-item-active > .sidebar-toc-link {
+		// Highlight active section
+		color: @color-base;
 	}
 
 	.sidebar-toc-text {
@@ -45,23 +62,19 @@
 		line-height: 18px;
 	}
 
-	.sidebar-toc-contents {
-		padding-bottom: ~'calc( @{vertical-padding} / 2 )';
-	}
-
 	.sidebar-toc-list-item {
 		display: block;
 		position: relative;
 		list-style-type: none;
 		padding-left: 8px;
 
+		&.sidebar-toc-level-1 {
+			padding-left: 0;
+		}
+
 		a {
 			font-size: @font-size-base;
 		}
-	}
-
-	.sidebar-toc-list-item.sidebar-toc-level-1 {
-		padding-left: 0;
 	}
 }
 
@@ -73,22 +86,11 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: @fade-height;
+	height: @sidebar-toc-fade-height;
 	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
 	background-repeat: no-repeat;
-	background-position: -@right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
+	background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
 	pointer-events: none; // Make the link below the fade clickable
-}
-
-// Highlight active section
-.sidebar-toc .sidebar-toc-list-item-active > .sidebar-toc-link {
-	color: @color-base;
-}
-
-.sidebar-toc .sidebar-toc-toggle {
-	// For no-js users, toggling is disabled and icon is hidden
-	display: none;
-	cursor: pointer;
 }
 
 // Collapse ToC sections by default, excluding no-js
@@ -102,14 +104,7 @@
 	}
 
 	.sidebar-toc-toggle {
-		position: absolute;
-		top: 1px; // visually center icon
-		left: ~'calc( -1 * @{toggle-icon-size} - 1px )'; // leaves 6px between icon + text
 		display: block;
-		width: @toggle-icon-size; // ~22px @ 12
-		height: @toggle-icon-size;
-		font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
-		transition: @transition-duration-base;
 	}
 
 	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
@@ -123,12 +118,6 @@
 
 .client-js body.rtl .sidebar-toc .sidebar-toc-toggle {
 	transform: rotate( 90deg );
-}
-
-@media ( min-width: @min-width-desktop ) {
-	.sidebar-toc {
-		display: block;
-	}
 }
 
 // T300975 following media query for TOC experiment treatment
