@@ -7,6 +7,7 @@
 			"Tīgelika"
 		]
 	},
+	"vector-language-button-label": "$1 {{PLURAL:$1|bilā|billas}}",
 	"vector-action-addsection": "Preidāis tēman",
 	"vector-action-delete": "Āupausinais",
 	"vector-action-move": "Prapīdais",

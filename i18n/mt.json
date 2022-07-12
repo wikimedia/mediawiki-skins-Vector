@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Chrisportelli",
-			"Leli Forte"
+			"Leli Forte",
+			"ToniSant"
 		]
 	},
 	"prefs-vector-enable-vector-1-help": "Fis-snin li ġejjin se naġġornaw id-dehra tal-Vector. Id-dehra tal-Vector l-antika se tħallik tara l-verżjoni preċedenti tal-Vector (sa Diċembru tal-2019). Biex tkun taf aktar dwar dawn l-aġġornament żur il-[[mw:Reading/Web/Desktop_Improvements|paġna tal-proġett]].",
 	"vector-opt-out": "Mur lura għad-dehra l-antika",
 	"vector-opt-out-tooltip": "Aqleb l-preferenzi tiegħek sabiex tmur lura għad-dehra l-antika (Vector antik)",
+	"vector-language-button-label": "{{PLURAL:$1|$1 lingwa|$1 lingwi}}",
 	"vector-action-addsection": "Żid diskussjoni",
 	"vector-action-delete": "Ħassar",
 	"vector-action-move": "Mexxi",
