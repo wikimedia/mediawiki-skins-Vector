@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bennylin",
 			"Naufal06",
 			"NoiX180",
 			"Pras",
@@ -30,5 +31,6 @@
 	"vector-jumptosearch": "Menyang panggolèkan",
 	"vector-jumptocontent": "Menyang kontèn",
 	"vector-more-actions": "Liyané",
-	"vector-search-loader": "Ngemot pamrayoganing panggolèk"
+	"vector-search-loader": "Ngemot pamrayoganing panggolèk",
+	"vector-searchsuggest-containing": "Golèk kaca sing nduwèni ukara <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }

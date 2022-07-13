@@ -4,6 +4,7 @@
 			"Marwan Mohamad"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa|$1 bahasa}}",
 	"vector-action-addsection": "Duhengi topik",
 	"vector-action-delete": "Luluta",
 	"vector-action-move": "Heyiya",
@@ -12,5 +13,6 @@
 	"vector-view-edit": "Boli'o",
 	"vector-view-history": "Bilohi riwayati",
 	"vector-view-view": "Baca",
-	"vector-more-actions": "Uweewo"
+	"vector-more-actions": "Uweewo",
+	"vector-searchsuggest-containing": "Lolohe halaman otuwa <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }

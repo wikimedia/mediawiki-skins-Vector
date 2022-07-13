@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Edwingudfriend",
+			"Hussein m mmbaga",
 			"Kipala",
 			"Lloffiwr",
 			"Muddyb",
@@ -22,5 +23,6 @@
 	"vector-view-view": "Soma",
 	"vector-view-viewsource": "Tazama msimbo",
 	"vector-jumptocontent": "Rukia yaliyomo",
-	"vector-more-actions": "Zaidi"
+	"vector-more-actions": "Zaidi",
+	"vector-searchsuggest-containing": "Tafuta kurasa zilizo na <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }

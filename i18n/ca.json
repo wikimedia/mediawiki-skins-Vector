@@ -43,7 +43,7 @@
 	"vector-more-actions": "Més",
 	"vector-search-loader": "Carregant els suggeriments de cerca",
 	"vector-searchsuggest-containing": "Cerca les pàgines que continguin <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
-	"vector-intro-page": "Project:Introducció",
+	"vector-intro-page": "Help:Introducció",
 	"vector-toc-heading": "Contingut",
 	"vector-toc-beginning": "Inici",
 	"vector-toc-toggle-button-label": "Commuta la subsecció $1",
@@ -51,5 +51,9 @@
 	"vector-anon-user-menu-pages-learn": "més informació",
 	"vector-anon-user-menu-pages-label": "Vegeu més informació sobre l'edició",
 	"vector-main-menu-tooltip": "Menú principal",
+	"vector-toc-menu-tooltip": "Taula de continguts",
+	"vector-article-tools-nav-label": "Eines",
+	"vector-site-nav-label": "Lloc",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussió]]",
 	"tooltip-vector-anon-user-menu-title": "Més opcions"
 }
