@@ -24,7 +24,10 @@
 			"Lantx",
 			"StarrySky",
 			"Winston Sung",
-			50829
+			50829,
+			"Bo77le",
+			"Diskdance",
+			"Yining Chen"
 		]
 	},
 	"skinname-vector": "旧版Vector（2010）",
@@ -41,7 +44,7 @@
 	"vector-languages": "语言",
 	"vector-language-button-aria-label": "前往另一种语言写成的文章。{{PLURAL:$1|$1种语言}}可用",
 	"vector-language-button-label": "{{PLURAL:$1|$1种语言}}",
-	"vector-language-redirect-to-top": "在 {{SITENAME}} 上，语言链接位于页面顶部，标题的旁边。[[#p-lang-btn|前往顶部]]。",
+	"vector-language-redirect-to-top": "在{{SITENAME}}中，语言链接位于页面顶部标题旁。[[#p-lang-btn|前往顶部]]。",
 	"vector-language-variant-switcher-label": "更改语言变体",
 	"vector-action-addsection": "添加话题",
 	"vector-action-delete": "删除",

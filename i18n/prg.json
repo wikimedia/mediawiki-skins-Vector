@@ -8,6 +8,7 @@
 		]
 	},
 	"vector-language-button-aria-label": "Kitawīdinais artīkelas billin, preiēiminan en {{PLURAL:$1|$1 billai|$1 bilāmans}}",
+	"vector-language-button-label": "$1 {{PLURAL:$1|bilā|billas}}",
 	"vector-language-variant-switcher-label": "Kitawīdinais billas wariāntin",
 	"vector-action-addsection": "Preidāis tēman",
 	"vector-action-delete": "Āupausinais",
