@@ -11,6 +11,7 @@ use MediaWiki\MediaWikiServices;
  */
 class SkinVector22 extends SkinVector {
 	private const TOC_AB_TEST_NAME = 'skin-vector-toc-experiment';
+	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
 
 	/**
 	 * Updates the constructor to conditionally disable table of contents in article
@@ -135,6 +136,30 @@ class SkinVector22 extends SkinVector {
 		}
 		$data['data-portlets']['data-actions']['html-items'] = $overflow['html-items'] . $actions['html-items'];
 		return $data;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getHtmlElementAttributes() {
+		$original = parent::getHtmlElementAttributes();
+
+		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_STICKY_HEADER ) ) {
+			// T290518: Add scroll padding to root element when the sticky header is
+			// enabled. This class needs to be server rendered instead of added from
+			// JS in order to correctly handle situations where the sticky header
+			// isn't visible yet but we still need scroll padding applied (e.g. when
+			// the user navigates to a page with a hash fragment in the URI). For this
+			// reason, we can't rely on the `vector-sticky-header-visible` class as it
+			// is added too late.
+			//
+			// Please note that this class applies scroll padding which does not work
+			// when applied to the body tag in Chrome, Safari, and Firefox (and
+			// possibly others). It must instead be applied to the html tag.
+			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
+		}
+
+		return $original;
 	}
 
 	/**
