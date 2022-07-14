@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Byeboer",
-			"Naudefj"
+			"Naudefj",
+			"Rooiratel"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 taal|$1 tale}}",
 	"vector-action-addsection": "Nuwe onderwerp",
 	"vector-action-delete": "Skrap",
 	"vector-action-move": "Skuif",
@@ -16,5 +18,6 @@
 	"vector-view-history": "Wys geskiedenis",
 	"vector-view-view": "Lees",
 	"vector-view-viewsource": "Wys bronteks",
-	"vector-more-actions": "Meer"
+	"vector-more-actions": "Meer",
+	"vector-searchsuggest-containing": "Soek vir bladsye wat <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> bevat"
 }
