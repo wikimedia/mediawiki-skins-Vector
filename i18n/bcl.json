@@ -4,6 +4,7 @@
 			"Daramlagon",
 			"Filipinayzd",
 			"Geopoet",
+			"Kunokuno",
 			"ShimunUfesoj"
 		]
 	},
@@ -19,5 +20,6 @@
 	"vector-view-history": "Hilingon an kasaysayan",
 	"vector-view-view": "Basahon",
 	"vector-view-viewsource": "Hilingón an ginikánan",
-	"vector-more-actions": "Labi pa"
+	"vector-more-actions": "Labi pa",
+	"vector-searchsuggest-containing": "Maghanap nin mga pahinang igwang  <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }

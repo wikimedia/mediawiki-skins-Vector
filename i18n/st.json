@@ -2,10 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Gustave London"
+			"Gustave London",
+			"Tšepo"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1| $1 puo| $1 lipuo}}",
 	"vector-view-edit": "Fetola",
 	"vector-view-history": "Sheba histori",
-	"vector-more-actions": "Lihlooho Tse Ling"
+	"vector-view-view": "Bala",
+	"vector-more-actions": "Lihlooho Tse Ling",
+	"vector-searchsuggest-containing": "Batla maqephe a nang le <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
