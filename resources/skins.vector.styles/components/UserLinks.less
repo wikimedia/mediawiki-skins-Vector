@@ -178,20 +178,13 @@
 	}
 
 	.vector-user-menu-logged-in .vector-menu-heading {
-		// FIXME: Ideally this variable should be accessible from mediawiki.skin.variables
-		// Remove it when we can.
-		@icon-padding-md: unit( 12 / @font-size-browser, em );
-		@icon-arrow-size: unit( 12px / @font-size-browser, em );
-		padding-right: @icon-padding-md + @icon-arrow-size;
+		// override user menu (.mw-ui-icon) fixed width,
+		// so chevron beside icon is visible.
+		width: auto;
 
+		// and override again to ensure the user icon is 20px wide.
 		&:before {
-			color: #54595d;
-		}
-
-		&:after {
-			background-position: 100% 0%;
-			top: @icon-padding-md + ( @icon-arrow-size / 2 );
-			right: @icon-arrow-size;
+			width: auto;
 		}
 	}
 }
