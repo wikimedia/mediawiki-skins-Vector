@@ -2,7 +2,6 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use Exception;
-use HashConfig;
 use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
@@ -121,10 +120,9 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ]
 		];
 		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );
-		$context = RequestContext::getMain();
-		$buttonLabel = $context->msg( 'vector-toc-toggle-button-label',
-			$expectedNestedTocData[ 'array-sections' ][ 0 ][ 'line' ]
-		)->text();
+
+		// qqx output
+		$buttonLabel = '(vector-toc-toggle-button-label: A)';
 		$expectedNestedTocData[ 'array-sections' ][ 0 ][ 'vector-button-label' ] = $buttonLabel;
 
 		return [
@@ -186,10 +184,8 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		array $config,
 		array $expected
 	) {
-		$this->setMwGlobals( [
-			'wgVectorTableOfContentsCollapseAtCount' => $config['VectorTableOfContentsCollapseAtCount'],
-			'wgVectorTableOfContentsBeginning' => $config['VectorTableOfContentsBeginning'],
-		] );
+		$this->overrideConfigValues( $config );
+		$this->setUserLang( 'qqx' );
 
 		$skinVector = new SkinVector22( [ 'name' => 'vector-2022' ] );
 		$openSkinVector = TestingAccessWrapper::newFromObject( $skinVector );
@@ -439,12 +435,11 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		bool $shouldHideLanguages,
 		bool $expected
 	) {
-		$config = new HashConfig( array_merge( $requirements, [
+		$this->overrideConfigValues( array_merge( $requirements, [
 			'DefaultSkin' => 'vector-2022',
 			'VectorDefaultSkinVersion' => '2',
 			'VectorSkinMigrationMode' => true,
 		] ) );
-		$this->installMockMwServices( $config );
 
 		$mockSkinVector = $this->getMockBuilder( SkinVector22::class )
 			->disableOriginalConstructor()
