@@ -7,6 +7,7 @@
 	float: left;
 	cursor: pointer;
 	position: relative;
+	line-height: 1.125em;
 
 	.vector-menu-heading {
 		color: @color-base--subtle;
@@ -43,7 +44,6 @@
 	.vector-menu-content {
 		background-color: @background-color-base;
 		list-style: none none;
-		line-height: 1.125em;
 		// Match the width of the dropdown "heading" (the tab)
 		min-width: 100%;
 		position: absolute;
@@ -84,6 +84,10 @@
 			display: block;
 			white-space: nowrap;
 			cursor: pointer;
+
+			span:not( .mw-ui-icon ) {
+				font-size: @font-size-tabs;
+			}
 		}
 	}
 
@@ -121,6 +125,7 @@
 		padding-top: 1.25em;
 		padding-left: 8px;
 		padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+		font-size: @font-size-tabs;
 		font-weight: normal;
 	}
 
