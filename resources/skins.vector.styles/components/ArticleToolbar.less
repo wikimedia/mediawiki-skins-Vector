@@ -2,41 +2,16 @@
 
 @border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
 
-.vector-article-toolbar .mw-article-toolbar-container {
-	display: flex;
+.mw-article-toolbar-container {
 	border-bottom: @border-tabs;
 
-	a {
-		// The hover effect is on `li` elements.
-		&:hover,
-		&:focus {
-			text-decoration: none;
-		}
+	/* Targets #left-navigation and #right-navigation */
+	& > div {
+		font-size: @font-size-tabs;
 	}
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		padding-right: @padding-horizontal-tabs - 1px;
-	}
-
-	#right-navigation {
-		display: flex;
-		flex-grow: 1;
-		justify-content: end;
-		// Layout correction - as it was before introduce of flex box.
-		margin-right: -1px;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			margin-right: -@border-base-ems * 3;
-		}
-	}
-
-	#left-navigation {
-		display: flex;
-
-		// Layout correction - as it was before introduce of flex box.
-		@media ( min-width: @min-width-desktop-wide ) {
-			margin-left: @border-base-ems * 3;
-		}
 	}
 
 	.mw-portlet-views {
