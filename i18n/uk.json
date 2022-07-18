@@ -51,11 +51,15 @@
 	"vector-searchsuggest-containing": "Знайдіть сторінки, що містять <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Вступ",
 	"vector-toc-heading": "Зміст",
-	"vector-toc-beginning": "Початок",
+	"vector-toc-beginning": "Вступ",
 	"vector-toc-toggle-button-label": "Перемкнути підрозділ $1",
-	"vector-anon-user-menu-pages": "Сторінка для редакторів, які вийшли з системи",
+	"vector-anon-user-menu-pages": "Сторінки для редакторів, які не ввійшли в систему",
 	"vector-anon-user-menu-pages-learn": "дізнатися більше",
 	"vector-anon-user-menu-pages-label": "Дізнатися більше про редагування",
 	"vector-main-menu-tooltip": "Головне меню",
+	"vector-toc-menu-tooltip": "Зміст",
+	"vector-article-tools-nav-label": "Інструменти",
+	"vector-site-nav-label": "Сайт",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обговорення]]",
 	"tooltip-vector-anon-user-menu-title": "Більше опцій"
 }

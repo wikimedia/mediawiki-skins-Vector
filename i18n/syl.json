@@ -1,12 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"এম আবু সাঈদ"
+			"এম আবু সাঈদ",
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 ꠝꠣꠔ|$1 ꠝꠣꠔꠣꠁꠘ}}",
+	"vector-action-addsection": "ꠐꠙꠤꠇ ꠡꠥꠞꠥ ꠇꠞꠂꠁꠘ",
+	"vector-action-delete": "ꠙꠣꠟꠣꠃꠇ꠆ꠇꠣ",
 	"vector-view-create": "ꠛꠣꠘꠣꠅ",
 	"vector-view-edit": "ꠟꠦꠈ",
 	"vector-view-history": "ꠁꠔꠤꠀꠡ ꠖꠦꠈꠇꠣ",
 	"vector-view-view": "ꠙꠠ",
-	"vector-more-actions": "ꠀꠞꠧ"
+	"vector-more-actions": "ꠀꠞꠧ",
+	"vector-searchsuggest-containing": "ꠙꠣꠔꠣ ꠕꠥꠇꠣꠃꠇ꠆ꠇꠣ ꠎꠦꠘꠅ <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
