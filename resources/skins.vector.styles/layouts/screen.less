@@ -207,11 +207,11 @@ body {
 		clear: both;
 		// To ensure the TOC is 1.5em (24px) from the top of the viewport when sticky
 		// we account for the TOC's top margin
-		top: ~'calc( 1.5em - @{top-margin-sidebar-toc_title_inline} )'; // top: -2em
+		top: ~'calc( 1.5em - @{margin-top-sidebar-toc_title_inline} )'; // top: -2em
 	}
 	.vector-layout-legacy @{selector-workspace-container-sidebar-open} & {
 		// When main menu is open the TOC's top margin is reduced
-		top: ~'calc( 1.5em - @{top-margin-sidebar-toc} )'; // top: 0
+		top: ~'calc( 1.5em - @{margin-top-sidebar-toc} )'; // top: 0
 	}
 }
 
