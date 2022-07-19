@@ -15,7 +15,7 @@
 	margin: 0 auto;
 	background: @background-color-base;
 	background-color: #fffffff7;
-	border-bottom: 1px solid @colorGray14;
+	border-bottom: @border-width-base @border-style-base @colorGray14;
 	// FIXME: Should this adapt to different thresholds? Ask Alex!
 	padding: 6px 8px 6px 10px;
 	justify-content: space-between;
@@ -70,7 +70,7 @@
 	// Components
 	//
 	&-context-bar {
-		border-left: 1px solid #c8c8c8;
+		border-left: @border-width-base @border-style-base #c8c8c8;
 		margin: 0 15px;
 		padding-left: 30px;
 		white-space: nowrap;
