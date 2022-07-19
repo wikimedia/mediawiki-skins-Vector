@@ -102,7 +102,7 @@ body {
 	// The total of margin-top and height should be 16px. Since we're using relative units 1em=14px
 	// We need to set both height and margin so that the margin is not ignored.
 	margin-top: 1em;
-	border-bottom: solid 2px transparent;
+	border-bottom: 2px @border-style-base transparent;
 }
 
 .mw-header {
@@ -333,8 +333,8 @@ body {
 // Responsive overrides.
 @media ( min-width: @min-width-page-container--padded ) {
 	.mw-page-container {
-		border-left: 1px solid @border-color-sidebar;
-		border-right: 1px solid @border-color-sidebar;
+		border-left: @border-width-base @border-style-base @border-color-sidebar;
+		border-right: @border-width-base @border-style-base @border-color-sidebar;
 	}
 }
 
