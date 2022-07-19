@@ -1,28 +1,23 @@
 <template>
-	<!-- eslint-disable-next-line vue/no-undef-components -->
-	<wvui-typeahead-search
+	<cdx-typeahead-search
 		:id="id"
 		ref="searchForm"
-		:client="getClient"
-		:domain="domain"
-		:suggestions-label="$i18n( 'searchresults' ).text()"
+		:class="rootClasses"
+		:search-results-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
 		:title="searchTitle"
-		:article-path="articlePath"
 		:placeholder="searchPlaceholder"
 		:aria-label="searchPlaceholder"
-		:search-page-title="searchPageTitle"
 		:initial-input-value="searchQuery"
 		:button-label="$i18n( 'searchbutton' ).text()"
 		:form-action="action"
-		:search-language="language"
 		:show-thumbnail="showThumbnail"
-		:show-description="showDescription"
 		:highlight-query="highlightQuery"
 		:auto-expand-width="autoExpandWidth"
-		@fetch-start="instrumentation.onFetchStart"
-		@fetch-end="instrumentation.onFetchEnd"
-		@suggestion-click="instrumentation.onSuggestionClick"
+		:search-results="suggestions"
+		:search-footer-url="searchFooterUrl"
+		@input="onInput"
+		@search-result-click="instrumentation.onSuggestionClick"
 		@submit="onSubmit"
 	>
 		<template #default>
@@ -41,19 +36,22 @@
 		<template #search-footer-text="{ searchQuery }">
 			<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
 		</template>
-	</wvui-typeahead-search>
+	</cdx-typeahead-search>
 </template>
 
 <script>
-/* global SubmitEvent */
-const wvui = require( 'wvui-search' ),
+/* global SearchSubmitEvent */
+const { CdxTypeaheadSearch } = require( '@wikimedia/codex-search' ),
+	{ defineComponent, nextTick } = require( 'vue' ),
 	client = require( './restSearchClient.js' ),
+	restClient = client( mw.config ),
+	urlGenerator = require( './urlGenerator.js' )( mw.config ),
 	instrumentation = require( './instrumentation.js' );
 
 // @vue/component
-module.exports = {
+module.exports = exports = defineComponent( {
 	name: 'App',
-	components: wvui,
+	components: { CdxTypeaheadSearch },
 	props: {
 		id: {
 			type: String,
@@ -65,7 +63,6 @@ module.exports = {
 		},
 		autofocusInput: {
 			type: Boolean,
-			// eslint-disable-next-line vue/no-boolean-default
 			default: false
 		},
 		action: {
@@ -112,44 +109,69 @@ module.exports = {
 		},
 		autoExpandWidth: {
 			type: Boolean,
-			// eslint-disable-next-line vue/no-boolean-default
 			default: false
 		}
 	},
 	data() {
 		return {
-			// -1 here is the default "active suggestion index" defined in the
-			// `wvui-typeahead-search` component (see
-			// https://gerrit.wikimedia.org/r/plugins/gitiles/wvui/+/c7af5d6d091ffb3beb4fd2723fdf50dc6bb2789b/src/components/typeahead-search/TypeaheadSearch.vue#167).
+			// -1 here is the default "active suggestion index".
 			wprov: instrumentation.getWprovFromResultIndex( -1 ),
+
+			// Suggestions to be shown in the TypeaheadSearch menu.
+			suggestions: [],
+
+			// Link to the search page for the current search query.
+			searchFooterUrl: '',
+
+			// Whether to apply a CSS class that disables the CSS transitions on the text input
+			disableTransitions: this.autofocusInput,
 
 			instrumentation: instrumentation.listeners
 		};
 	},
 	computed: {
-		/**
-		 * @return {string}
-		 */
-		articlePath: () => mw.config.get( 'wgScript' ),
-		/**
-		 * Allow wikis eg. Hebrew Wikipedia to replace the default search API client
-		 *
-		 * @return {module:restSearchClient~SearchClient}
-		 */
-		getClient: () => {
-			return client( mw.config );
-		},
-		language: () => {
-			return mw.config.get( 'wgUserLanguage' );
-		},
-		domain: () => {
-			// It might be helpful to allow this to be configurable in future.
-			return mw.config.get( 'wgVectorSearchHost', location.host );
+		rootClasses() {
+			return {
+				'vector-search-box-disable-transitions': this.disableTransitions
+			};
 		}
 	},
 	methods: {
 		/**
-		 * @param {SubmitEvent} event
+		 * Fetch suggestions when new input is received.
+		 *
+		 * @param {string} value
+		 */
+		onInput: function ( value ) {
+			const domain = mw.config.get( 'wgVectorSearchHost', location.host ),
+				query = value.trim();
+
+			if ( query === '' ) {
+				this.suggestions = [];
+				this.searchFooterUrl = '';
+				return;
+			}
+
+			instrumentation.listeners.onFetchStart();
+
+			restClient.fetchByTitle( query, domain, 10, this.showDescription ).fetch
+				.then( ( data ) => {
+					this.suggestions = data.results;
+					this.searchFooterUrl = urlGenerator.generateUrl( query );
+
+					const event = {
+						numberOfResults: data.results.length,
+						query: query
+					};
+					instrumentation.listeners.onFetchEnd( event );
+				} )
+				.catch( () => {
+					// TODO: error handling
+				} );
+		},
+
+		/**
+		 * @param {SearchSubmitEvent} event
 		 */
 		onSubmit( event ) {
 			this.wprov = instrumentation.getWprovFromResultIndex( event.index );
@@ -158,15 +180,12 @@ module.exports = {
 		}
 	},
 	mounted() {
-		// access the element associated with the wvui-typeahead-search component
-		// eslint-disable-next-line no-jquery/variable-pattern
-		const wvuiSearchForm = this.$refs.searchForm.$el;
-
 		if ( this.autofocusInput ) {
-			// TODO: The wvui-typeahead-search component does not accept an autofocus parameter
-			// or directive. This can be removed when its does.
-			wvuiSearchForm.querySelector( 'input' ).focus();
+			this.$refs.searchForm.focus();
+			nextTick( () => {
+				this.disableTransitions = false;
+			} );
 		}
 	}
-};
+} );
 </script>

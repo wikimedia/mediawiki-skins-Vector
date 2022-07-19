@@ -85,8 +85,16 @@
 				}
 			}
 
-			.wvui-typeahead-search__wrapper {
+			// Make the menu below the search input wider, to match the width of the input+button
+			// rather than just the width of the input
+			.cdx-search-input__input-wrapper {
 				position: static;
+			}
+
+			// Since the end button's corner is now right above the menu's corner, don't use a
+			// rounded corner here (T310525)
+			.cdx-typeahead-search--expanded .cdx-search-input__end-button {
+				border-bottom-right-radius: 0;
 			}
 		}
 	}

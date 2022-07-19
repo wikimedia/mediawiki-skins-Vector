@@ -108,7 +108,7 @@ class Hooks implements
 	 * @param Config $config
 	 * @return array<string,mixed>
 	 */
-	public static function getVectorWvuiSearchResourceLoaderConfig(
+	public static function getVectorSearchResourceLoaderConfig(
 		RL\Context $context,
 		Config $config
 	): array {

@@ -96,10 +96,14 @@
 	}
 
 	&.vector-header-search-toggled {
-		// .wvui-input__input left padding (36px) - the .wvui-icon svg width (20px)
-		// - the icon left padding (12px [1]) = 4px
-		// [1] see .wvui-typeahead-search--show-thumbnail .wvui-input__input:focus)
+		// .vector-sticky-header-search-toggle left border (1px) + left padding (12px)
+		// - .cdx-text-input__start-icon left offset (9px [1]) = 4px
+		// [1] see https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/text-input/TextInput.vue#257
 		@margin-start-search-box: 4px;
+		// .vector-sticky-header-search-toggle left border (1px) + left padding (12px)
+		// - .cdx-text-input__start-icon left offset (22px [2]) = -9px
+		// [2] see https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/typeahead-search/TypeaheadSearch.vue#708
+		@margin-start-search-box-with-thumbnail: -9px;
 
 		.vector-sticky-header-search-toggle,
 		.vector-sticky-header-context-bar {
@@ -114,9 +118,9 @@
 		// T296318 Decrease the start margin of the search box to account for the
 		// icon's increased start position when the search component has thumbnails.
 		.vector-search-box-show-thumbnail {
-			margin-left: @margin-start-search-box - ( @size-search-expand / 2 );
+			margin-left: @margin-start-search-box-with-thumbnail;
 
-			.wvui-input__start-icon {
+			.cdx-text-input__start-icon {
 				color: @colorGray2;
 			}
 		}

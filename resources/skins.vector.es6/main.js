@@ -107,7 +107,7 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
  */
 const main = () => {
 	// Initialize the search toggle for the main header only. The sticky header
-	// toggle is initialized after wvui search loads.
+	// toggle is initialized after Codex search loads.
 	const searchToggleElement = document.querySelector( '.mw-header .search-toggle' );
 	if ( searchToggleElement ) {
 		searchToggle( searchToggleElement );

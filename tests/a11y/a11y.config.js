@@ -63,8 +63,8 @@ module.exports = {
 			wait: '500',
 			actions: [
 				'click #searchInput',
-				'wait for .wvui-input__input to be added',
-				'set field .wvui-input__input to Test'
+				'wait for .cdx-text-input__input to be added',
+				'set field .cdx-text-input__input to Test'
 			]
 		}
 	]

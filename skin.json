@@ -163,17 +163,19 @@
 			"es6": true,
 			"dependencies": [
 				"mediawiki.Uri",
-				"wvui-search"
+				"mediawiki.util",
+				"@wikimedia/codex-search"
 			],
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
 				"resources/skins.vector.search/instrumentation.js",
 				"resources/skins.vector.search/fetch.js",
 				"resources/skins.vector.search/restSearchClient.js",
+				"resources/skins.vector.search/urlGenerator.js",
 				"resources/skins.vector.search/App.vue",
 				{
 					"name": "resources/skins.vector.search/config.json",
-					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorWvuiSearchResourceLoaderConfig"
+					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorSearchResourceLoaderConfig"
 				}
 			],
 			"messages": [
