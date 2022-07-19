@@ -12,7 +12,8 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ата",
-			"Тест"
+			"Тест",
+			"Ice bulldog"
 		]
 	},
 	"skinname-vector": "Векторне",
@@ -41,7 +42,7 @@
 	"vector-jumptocontent": "Перейти до вмісту",
 	"vector-more-actions": "Ще",
 	"vector-search-loader": "Завантажуються підказки пошуку",
-	"vector-anon-user-menu-pages": "Сторінка для редакторів, які вийшли з системи",
+	"vector-anon-user-menu-pages": "Сторінки для редакторів, які не ввійшли в систему",
 	"vector-anon-user-menu-pages-learn": "дізнатися більше",
 	"vector-anon-user-menu-pages-label": "Дізнатися більше про редагування",
 	"vector-personal-more-label": "Посилання користувачів",
