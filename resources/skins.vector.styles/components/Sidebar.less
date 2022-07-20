@@ -7,9 +7,9 @@
 // Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
 @margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
 // Spacing when the main menu is closed, aligns sidebar TOC aligns with bottom of the page title.
-@top-margin-sidebar-toc_title_inline: 3.5em;
-// Default spacing separating the sidebar TOC from the main menu or viewport
-@top-margin-sidebar-toc: 1.5em;
+@margin-top-sidebar-toc_title_inline: 3.5em;
+// Default spacing separating the sidebar TOC from the main menu or viewport.
+@margin-top-sidebar-toc: 1.5em;
 
 .mw-sidebar {
 	box-sizing: border-box;
@@ -62,7 +62,7 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 		.sidebar-toc {
 			// Use margin-top to align TOC rather than grid row gap
 			// Applies when the TOC sticky and when the main menu is both open and closed.
-			margin-top: @top-margin-sidebar-toc;
+			margin-top: @margin-top-sidebar-toc;
 		}
 	}
 }
@@ -71,17 +71,17 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 .sidebar-toc {
 	.vector-toc-enabled .vector-layout-legacy & {
 		// Main menu is closed
-		margin-top: @top-margin-sidebar-toc_title_inline;
+		margin-top: @margin-top-sidebar-toc_title_inline;
 	}
 
 	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} & {
 		// Main menu is open
-		margin-top: @top-margin-sidebar-toc;
+		margin-top: @margin-top-sidebar-toc;
 	}
 
 	.vector-toc-enabled.vector-sticky-header-visible .vector-layout-legacy & {
 		// Sticky header is visible
-		margin-top: @top-margin-sidebar-toc;
+		margin-top: @margin-top-sidebar-toc;
 	}
 }
 
