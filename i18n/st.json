@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Gustave London",
-			"Amire80"
+			"Amire80",
+			"Tšepo"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1| $1 puo| $1 lipuo}}",
 	"vector-view-edit": "Fetola",
 	"vector-view-history": "Sheba histori",
+	"vector-view-view": "Bala",
 	"vector-more-actions": "Lihlooho Tse Ling"
 }

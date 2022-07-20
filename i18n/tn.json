@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rebelagent"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 teme|$1 diteme}}",
+	"vector-action-addsection": "Tsenya Setlhogo",
+	"vector-view-create": "Dira",
+	"vector-view-edit": "Fetola",
+	"vector-view-history": "Bona Segologolo",
+	"vector-view-view": "Bala",
+	"vector-more-actions": "Bontsi"
+}
