@@ -51,6 +51,12 @@ const { CdxTypeaheadSearch } = require( '@wikimedia/codex-search' ),
 // @vue/component
 module.exports = exports = defineComponent( {
 	name: 'App',
+	compatConfig: {
+		MODE: 3
+	},
+	compilerOptions: {
+		whitespace: 'condense'
+	},
 	components: { CdxTypeaheadSearch },
 	props: {
 		id: {
