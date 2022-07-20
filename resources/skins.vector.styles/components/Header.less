@@ -12,8 +12,7 @@
 .mw-header {
 	// A min-height is set to account for projects where no icon is set.
 	min-height: @height-logo-icon;
-	// Vertical centering of header elements (IE>=11), requires flex.
-	// Non-flex fallback for IE<=9: float rule on the child elements.
+	// Vertical centering of header elements (IE>=11), requires Flexbox.
 	.flex-display();
 	flex-wrap: nowrap;
 	// https://caniuse.com/#search=align-items
@@ -25,7 +24,6 @@
 	}
 
 	#mw-sidebar-button {
-		float: left; // Browser: IE9 support - button as flex-child fallback.
 		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 	}
 
