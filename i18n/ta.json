@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"ElangoRamanujam",
 			"Jayarathina",
 			"Kaartic",
@@ -25,5 +26,5 @@
 	"vector-view-view": "படிக்கவும்",
 	"vector-view-viewsource": "மூலத்தைக் காட்டவும்",
 	"vector-more-actions": "மேலும்",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> உள்ளடக்கிய பக்கங்களை தேடு"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> உள்ளடக்கிய பக்கங்களை தேடு"
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alsandro",
+			"Amire80",
 			"David1010",
 			"გიორგიმელა",
 			"Გიო ოქრო",
@@ -40,7 +41,7 @@
 	"vector-jumptocontent": "შინაარსზე გადასვლა",
 	"vector-more-actions": "მეტი",
 	"vector-search-loader": "იტვირთვება ძიების შეთავაზებები",
-	"vector-searchsuggest-containing": "იმ გვერდების მოძებნა, რომლებიც შეიცავენ <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>-ს",
+	"vector-searchsuggest-containing": "იმ გვერდების მოძებნა, რომლებიც შეიცავენ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>-ს",
 	"vector-intro-page": "ვიკიპედია:კეთილი იყოს თქვენი მობრძანება",
 	"vector-toc-heading": "სარჩევი",
 	"vector-toc-beginning": "შესავალი",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Fitoschido",
 			"Subi",
 			"Theklan",
@@ -38,7 +39,7 @@
 	"vector-jumptocontent": "Edukira joan",
 	"vector-more-actions": "Gehiago",
 	"vector-search-loader": "Bilaketa gomendioak kargatzen",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> duten orrialdeak bilatu",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> duten orrialdeak bilatu",
 	"vector-intro-page": "Laguntza:Sarrera",
 	"vector-toc-heading": "Edukiak",
 	"vector-toc-beginning": "Hasiera",

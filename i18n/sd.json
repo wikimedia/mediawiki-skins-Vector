@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Aursani",
 			"Mehtab ahmed",
 			"Sindhu",
@@ -39,7 +40,7 @@
 	"vector-jumptocontent": "مواد ڏانھن ٽپ ڏيو",
 	"vector-more-actions": "وڌيڪ",
 	"vector-search-loader": "ڳولا صلاحون لاھيندي",
-	"vector-searchsuggest-containing": "اھي صفحا ڳوليو جن ۾ <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> آھي",
+	"vector-searchsuggest-containing": "اھي صفحا ڳوليو جن ۾ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> آھي",
 	"vector-intro-page": "Help:تعارف",
 	"vector-toc-heading": "فھرست",
 	"vector-toc-beginning": "شروعات",

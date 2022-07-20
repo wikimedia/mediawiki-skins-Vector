@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abanima",
+			"Amire80",
 			"Bachounda",
 			"Beginneruser",
 			"Calak",
@@ -52,7 +53,7 @@
 	"vector-jumptocontent": "انتقل إلى المحتوى",
 	"vector-more-actions": "المزيد",
 	"vector-search-loader": "تحميل اقتراحات البحث",
-	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "ويكيبيديا:مقدمة",
 	"vector-toc-heading": "المحتويات",
 	"vector-toc-beginning": "المقدمة",

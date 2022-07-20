@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"AnakngAraw",
 			"GinawaSaHapon",
 			"Ianlopez1115",
@@ -25,5 +26,5 @@
 	"vector-view-view": "Basahin",
 	"vector-view-viewsource": "Tingnan ang pinagmulan",
 	"vector-more-actions": "Higit pa",
-	"vector-searchsuggest-containing": "Maghanap ng mga pahina na naglalaman ng <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Maghanap ng mga pahina na naglalaman ng <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

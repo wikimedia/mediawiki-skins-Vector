@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alexander Yukal",
+			"Amire80",
 			"Ignatus",
 			"Iniquity",
 			"Jack who built the house",
@@ -53,7 +54,7 @@
 	"vector-jumptocontent": "Перейти к содержанию",
 	"vector-more-actions": "Ещё",
 	"vector-search-loader": "Загружаются поисковые предложения",
-	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",
 	"vector-toc-heading": "Содержание",
 	"vector-toc-beginning": "Начало",

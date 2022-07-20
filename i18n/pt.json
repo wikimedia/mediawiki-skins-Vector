@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Athena in Wonderland",
 			"Crazymadlover",
 			"Giro720",
@@ -39,7 +40,7 @@
 	"vector-jumptocontent": "Saltar para o conteúdo",
 	"vector-more-actions": "Mais",
 	"vector-search-loader": "A carregar sugestões de pesquisa",
-	"vector-searchsuggest-containing": "Procurar páginas que contenham <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Procurar páginas que contenham <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Wikipédia:Boas-vindas",
 	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição"
 }

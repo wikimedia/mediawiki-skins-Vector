@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abdulla",
+			"Amire80",
 			"Arystanbek",
 			"Casual",
 			"CoderSI",
@@ -39,7 +40,7 @@
 	"vector-jumptocontent": "Kontent qismiga oʻtish",
 	"vector-more-actions": "Yana",
 	"vector-search-loader": "Qidiruv takliflari yuklanmoqda",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>ni oʻz ichiga olgan sahifalar uchun qidiruv",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>ni oʻz ichiga olgan sahifalar uchun qidiruv",
 	"vector-intro-page": "Help:Mundarija",
 	"vector-toc-heading": "Mundarija",
 	"vector-toc-beginning": "Boshlanishi",

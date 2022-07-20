@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Antonla",
 			"Byrial",
 			"Christian List",
@@ -37,7 +38,7 @@
 	"vector-jumptocontent": "Spring til indhold",
 	"vector-more-actions": "Mere",
 	"vector-search-loader": "Henter søgeforslag",
-	"vector-searchsuggest-containing": "Søgning for sider der indeholder <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Søgning for sider der indeholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
 	"vector-anon-user-menu-pages": "Sider for redaktører som er logget ud",
 	"vector-anon-user-menu-pages-learn": "lær mere",

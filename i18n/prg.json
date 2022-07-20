@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Nertiks",
 			"Nērtiks Jōrgesuns",
 			"Peteris",
@@ -21,5 +22,5 @@
 	"vector-view-view": "Skaitāis",
 	"vector-view-viewsource": "Wīdais kōdan",
 	"vector-more-actions": "Tūls",
-	"vector-searchsuggest-containing": "Laukīs pāusans turīnts <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Laukīs pāusans turīnts <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

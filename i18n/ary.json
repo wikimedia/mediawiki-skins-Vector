@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abdeaitali",
+			"Amire80",
 			"Enzoreg",
 			"Reda Benkhadra",
 			"SADI9I",
@@ -23,5 +24,5 @@
 	"vector-view-view": "قرا",
 	"vector-view-viewsource": "شوف لمصدر",
 	"vector-more-actions": "كتر",
-	"vector-searchsuggest-containing": "قلب علا صفاحي فيهم <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "قلب علا صفاحي فيهم <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

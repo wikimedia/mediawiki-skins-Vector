@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Keo010122",
 			"Minh Nguyen",
 			"Nghiemtrongdai VN",
@@ -47,7 +48,7 @@
 	"vector-jumptocontent": "Bước tới nội dung",
 	"vector-more-actions": "Thêm",
 	"vector-search-loader": "Đang tải gợi ý tìm kiếm",
-	"vector-searchsuggest-containing": "Tìm trang có chứa <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Tìm trang có chứa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Giới thiệu",
 	"vector-toc-heading": "Nội dung",
 	"vector-toc-beginning": "Đầu",

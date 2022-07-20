@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Insübrich",
 			"Ninonino",
 			"Salvemm el lombard"
@@ -33,7 +34,7 @@
 	"vector-jumptocontent": "Và al contegnud",
 	"vector-more-actions": "An'mò",
 	"vector-search-loader": "Caregament di sugeriment de ricerca",
-	"vector-searchsuggest-containing": "Cerca i pagine che gh'hann dent <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Cerca i pagine che gh'hann dent <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Contegnud",
 	"vector-toc-beginning": "Inviada",

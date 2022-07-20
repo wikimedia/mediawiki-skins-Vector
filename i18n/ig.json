@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Edith Nwobu",
 			"Oby Ezeilo",
 			"Pasjoesscc",
@@ -22,7 +23,7 @@
 	"vector-view-view": "Gụ̀ọ",
 	"vector-view-viewsource": "Zi mkpurụ",
 	"vector-more-actions": "Ọzọ",
-	"vector-searchsuggest-containing": "Chọọ peeji ndị gụnyere <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Chọọ peeji ndị gụnyere <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Ndịna",
 	"vector-toc-toggle-button-label": "Chọba ndịnisiokwu $1"
 }

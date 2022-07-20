@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Acamicamacaraca",
+			"Amire80",
 			"BadDog",
 			"Milicevic01",
 			"Obsuser",
@@ -42,7 +43,7 @@
 	"vector-jumptocontent": "Пређи на садржај",
 	"vector-more-actions": "Више",
 	"vector-search-loader": "Учитавам предлоге претраге",
-	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Садржај",
 	"vector-toc-beginning": "Почетак",
 	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",

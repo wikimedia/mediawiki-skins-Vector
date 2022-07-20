@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A2y4",
+			"Amire80",
 			"Foomin10",
 			"Fryed-peach",
 			"Kkairri",
@@ -55,7 +56,7 @@
 	"vector-jumptocontent": "コンテンツにスキップ",
 	"vector-more-actions": "その他",
 	"vector-search-loader": "検索候補を読み込んでいます",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>を含むページを検索する",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>を含むページを検索する",
 	"vector-intro-page": "Help:はじめに",
 	"vector-toc-heading": "目次",
 	"vector-toc-beginning": "ページ先頭",

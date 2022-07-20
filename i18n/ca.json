@@ -3,6 +3,7 @@
 		"authors": [
 			"Abella",
 			"Aleator",
+			"Amire80",
 			"Anskar",
 			"Calak",
 			"Fitoschido",
@@ -42,7 +43,7 @@
 	"vector-jumptocontent": "Vés al contingut",
 	"vector-more-actions": "Més",
 	"vector-search-loader": "Carregant els suggeriments de cerca",
-	"vector-searchsuggest-containing": "Cerca les pàgines que continguin <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Cerca les pàgines que continguin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducció",
 	"vector-toc-heading": "Contingut",
 	"vector-toc-beginning": "Inici",

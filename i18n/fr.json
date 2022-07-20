@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Akeron",
+			"Amire80",
 			"Cigaryno",
 			"Crochet.david",
 			"DavidL",
@@ -54,7 +55,7 @@
 	"vector-jumptocontent": "Aller au contenu",
 	"vector-more-actions": "Plus",
 	"vector-search-loader": "Chargement des suggestions de recherche",
-	"vector-searchsuggest-containing": "Rechercher les pages contenant <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Rechercher les pages contenant <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Sommaire",
 	"vector-toc-beginning": "Début",

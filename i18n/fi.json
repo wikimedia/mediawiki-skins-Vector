@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
+			"Amire80",
 			"Crt",
 			"MITO",
 			"Majavah",
@@ -46,7 +47,7 @@
 	"vector-jumptocontent": "Siirry sisältöön",
 	"vector-more-actions": "Muut",
 	"vector-search-loader": "Ladataan hakuehdotuksia",
-	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Sisällysluettelo",
 	"vector-toc-beginning": "Johdanto",
 	"vector-anon-user-menu-pages": "Sivut kirjautumattomille muokkaajille",

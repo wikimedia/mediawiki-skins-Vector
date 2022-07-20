@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Ker",
 			"Pikne",
 			"WikedKentaur"
@@ -37,7 +38,7 @@
 	"vector-jumptocontent": "Mine sisu juurde",
 	"vector-more-actions": "Veel",
 	"vector-search-loader": "Otsisoovituste laadimine",
-	"vector-searchsuggest-containing": "Otsi lehekülgi, kus sisaldub <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Otsi lehekülgi, kus sisaldub <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Sissejuhatus",
 	"vector-toc-heading": "Sisukord",
 	"vector-toc-beginning": "Algus",

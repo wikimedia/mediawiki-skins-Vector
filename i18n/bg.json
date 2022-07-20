@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Borislav",
 			"DCLXVI",
 			"ShockD",
@@ -28,5 +29,5 @@
 	"vector-jumptosearch": "Направо към търсенето",
 	"vector-jumptocontent": "Направо към съдържанието",
 	"vector-more-actions": "Още",
-	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

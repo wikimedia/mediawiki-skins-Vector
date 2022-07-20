@@ -3,6 +3,7 @@
 		"authors": [
 			"Ahmad252",
 			"Alireza Ivaz",
+			"Amire80",
 			"Beginneruser",
 			"Calak",
 			"DEXi",
@@ -47,7 +48,7 @@
 	"vector-jumptocontent": "پرش به محتوا",
 	"vector-more-actions": "بیشتر",
 	"vector-search-loader": "بارگیری پیشنهادهای جستجو",
-	"vector-searchsuggest-containing": "جستجو برای صفحه‌های دارای <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "جستجو برای صفحه‌های دارای <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:مقدمه",
 	"vector-toc-heading": "فهرست",
 	"vector-toc-beginning": "بخش آغازین",

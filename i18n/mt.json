@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Chrisportelli",
 			"Leli Forte",
 			"ToniSant"
@@ -30,7 +31,7 @@
 	"vector-jumptocontent": "Aqbeż għall-kontentut",
 	"vector-more-actions": "Aktar",
 	"vector-search-loader": "Is-suġġerimenti għat-tfittxija tegħlin",
-	"vector-searchsuggest-containing": "Fittex għal paġni li għandhom <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Fittex għal paġni li għandhom <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Kontenut",
 	"vector-toc-beginning": "Bidu",

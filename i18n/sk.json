@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Helix84",
 			"KuboF",
 			"Luky001",
@@ -32,5 +33,5 @@
 	"vector-view-view": "Čítať",
 	"vector-view-viewsource": "Zobraziť kód",
 	"vector-more-actions": "Viac",
-	"vector-searchsuggest-containing": "Hľadať stránky obsahujúce <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Hľadať stránky obsahujúce <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

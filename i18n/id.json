@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Arifin.wijaya",
 			"Bennylin",
 			"Daud I.F. Argana",
@@ -43,7 +44,7 @@
 	"vector-jumptocontent": "Lompat ke isi",
 	"vector-more-actions": "Lainnya",
 	"vector-search-loader": "Memuat saran pencarian",
-	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Bantuan:Pengantar",
 	"vector-toc-heading": "Daftar isi",
 	"vector-toc-beginning": "Awal",

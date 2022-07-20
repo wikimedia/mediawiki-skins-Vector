@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Lea.Fakauvea",
 			"Lea.fakauvea"
 		]
@@ -15,5 +16,5 @@
 	"vector-view-history": "Kamata'aga",
 	"vector-view-view": "Lau",
 	"vector-more-actions": "Mo 'ihi atu",
-	"vector-searchsuggest-containing": "Kumi pāsina e tohi ai <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Kumi pāsina e tohi ai <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

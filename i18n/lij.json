@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Gastaz",
 			"Giromin Cangiaxo",
 			"N. Longo",
@@ -34,7 +35,7 @@
 	"vector-jumptocontent": "Sâta a-o contegnûo",
 	"vector-more-actions": "Âtro",
 	"vector-search-loader": "Caregaménto di sugeriménti de çèrchia",
-	"vector-searchsuggest-containing": "Çèrca inte pàgine che contêgnan <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Çèrca inte pàgine che contêgnan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduçión",
 	"vector-toc-heading": "Ìndice",
 	"vector-toc-beginning": "Prinçìpio",

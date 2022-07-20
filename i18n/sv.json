@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Lokal Profil",
 			"Martinwiss",
 			"Najami",
@@ -40,7 +41,7 @@
 	"vector-jumptocontent": "Hoppa till innehållet",
 	"vector-more-actions": "Mer",
 	"vector-search-loader": "Laddar in sökförslag",
-	"vector-searchsuggest-containing": "Sök efter sidor som innehåller <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Sök efter sidor som innehåller <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
 	"vector-toc-heading": "Innehåll",
 	"vector-toc-beginning": "Början",

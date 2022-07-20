@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adam N.",
+			"Amire80",
 			"Armando-Martin",
 			"Avengium",
 			"Crazymadlover",
@@ -52,7 +53,7 @@
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
 	"vector-search-loader": "Cargando sugerencias de búsqueda",
-	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducción",
 	"vector-toc-heading": "Contenidos",
 	"vector-toc-beginning": "Inicio",

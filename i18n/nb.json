@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Danmichaelo",
 			"Event",
 			"Jon Harald Søby",
@@ -38,7 +39,7 @@
 	"vector-jumptocontent": "Hopp til innhold",
 	"vector-more-actions": "Mer",
 	"vector-search-loader": "Laster søkeforslag",
-	"vector-searchsuggest-containing": "Søk etter sider som inneholder <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Søk etter sider som inneholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduksjon",
 	"vector-toc-heading": "Innhold",
 	"vector-toc-beginning": "Begynnelsen",

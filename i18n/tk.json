@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Hanberke",
 			"TayfunEt."
 		]
@@ -19,5 +20,5 @@
 	"vector-view-view": "Oka",
 	"vector-view-viewsource": "Çeşmäni gör",
 	"vector-more-actions": "Has köp",
-	"vector-searchsuggest-containing": "Içindäki sahypalary gözläň <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Içindäki sahypalary gözläň <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftab1995",
 			"Aftabuzzaman",
+			"Amire80",
 			"Bellayet",
 			"Leemon2010",
 			"Nasir8891",
@@ -45,7 +46,7 @@
 	"vector-jumptocontent": "বিষয়বস্তুতে চলুন",
 	"vector-more-actions": "আরও",
 	"vector-search-loader": "অনুসন্ধানের পরামর্শ লোড করা হচ্ছে",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> থাকা পাতাগুলিতে অনুসন্ধান করুন",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থাকা পাতাগুলিতে অনুসন্ধান করুন",
 	"vector-intro-page": "Help:ভূমিকা",
 	"vector-toc-heading": "পরিচ্ছেদসমূহ",
 	"vector-toc-beginning": "শুরু",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Friðrik Bragi Dýrfjörð",
 			"Maxí",
 			"Snævar",
@@ -28,5 +29,5 @@
 	"vector-view-view": "Lesa",
 	"vector-view-viewsource": "Sýna frumkóða",
 	"vector-more-actions": "Meira",
-	"vector-searchsuggest-containing": "Leita að síðum sem innihalda <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Leita að síðum sem innihalda <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

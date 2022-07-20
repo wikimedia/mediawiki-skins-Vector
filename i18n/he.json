@@ -36,7 +36,7 @@
 	"vector-jumptocontent": "לדלג לתוכן",
 	"vector-more-actions": "עוד",
 	"vector-search-loader": "טעינת הצעות חיפוש",
-	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
 	"vector-toc-heading": "תוכן עניינים",
 	"vector-toc-beginning": "התחלה",

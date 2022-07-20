@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Anjoeli9806",
 			"Kai theos en ho logos",
 			"Redhotchili23"
@@ -19,5 +20,5 @@
 	"vector-view-view": "Magbasa",
 	"vector-view-viewsource": "Lantawon ang ginhalinan",
 	"vector-more-actions": "Dugang Pa",
-	"vector-searchsuggest-containing": "Mangita sang mga panid nga nagasulod sang <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Mangita sang mga panid nga nagasulod sang <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

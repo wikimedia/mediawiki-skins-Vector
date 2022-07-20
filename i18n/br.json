@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adriendelucca",
+			"Amire80",
 			"Fulup",
 			"Huñvreüs",
 			"Y-M D"
@@ -37,7 +38,7 @@
 	"vector-jumptocontent": "Mont d’an endalc’had",
 	"vector-more-actions": "Muioc'h",
 	"vector-search-loader": "O kargañ alioù klask",
-	"vector-searchsuggest-containing": "Klask pajennoù a zo <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> enno",
+	"vector-searchsuggest-containing": "Klask pajennoù a zo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> enno",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Taolenn",
 	"vector-toc-beginning": "Deroù",

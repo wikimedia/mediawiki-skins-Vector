@@ -3,6 +3,7 @@
 		"authors": [
 			"AS",
 			"Ahonc",
+			"Amire80",
 			"Base",
 			"Calak",
 			"DDPAT",
@@ -48,7 +49,7 @@
 	"vector-jumptocontent": "Перейти до вмісту",
 	"vector-more-actions": "Ще",
 	"vector-search-loader": "Завантажуються підказки пошуку",
-	"vector-searchsuggest-containing": "Знайдіть сторінки, що містять <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Знайдіть сторінки, що містять <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вступ",
 	"vector-toc-heading": "Зміст",
 	"vector-toc-beginning": "Вступ",

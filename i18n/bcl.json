@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Daramlagon",
 			"Filipinayzd",
 			"Geopoet",
@@ -21,5 +22,5 @@
 	"vector-view-view": "Basahon",
 	"vector-view-viewsource": "Hilingón an ginikánan",
 	"vector-more-actions": "Labi pa",
-	"vector-searchsuggest-containing": "Maghanap nin mga pahinang igwang  <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Maghanap nin mga pahinang igwang  <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

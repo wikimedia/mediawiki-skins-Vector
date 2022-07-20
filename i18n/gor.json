@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bennylin",
 			"Marwan Mohamad"
 		]
@@ -15,5 +16,5 @@
 	"vector-view-history": "Bilohi riwayati",
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Uweewo",
-	"vector-searchsuggest-containing": "Lolohe halaman otuwa <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Lolohe halaman otuwa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

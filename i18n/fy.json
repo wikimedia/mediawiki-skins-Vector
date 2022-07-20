@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kening Aldgilles",
 			"PiefPafPier",
 			"Robin van der Vliet",
@@ -40,7 +41,7 @@
 	"vector-jumptocontent": "Springe nei ynhâld",
 	"vector-more-actions": "Mear",
 	"vector-search-loader": "Laden fan syksuggestjes",
-	"vector-searchsuggest-containing": "Siden sykje mei as ynhâld <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Siden sykje mei as ynhâld <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Yntroduksje",
 	"vector-toc-heading": "Ynhâld",
 	"vector-toc-beginning": "Begjin",

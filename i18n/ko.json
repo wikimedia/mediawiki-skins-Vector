@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Apzp79",
 			"Bluehill",
 			"Ellif",
@@ -47,7 +48,7 @@
 	"vector-jumptocontent": "본문으로 이동",
 	"vector-more-actions": "더 보기",
 	"vector-search-loader": "검색 제안을 불러오는 중",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> 항목이 포함된 글을 검색",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 항목이 포함된 글을 검색",
 	"vector-intro-page": "Help:소개",
 	"vector-toc-heading": "목차",
 	"vector-toc-beginning": "처음 위치",
