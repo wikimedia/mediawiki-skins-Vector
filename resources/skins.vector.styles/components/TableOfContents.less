@@ -3,14 +3,18 @@
 @sidebar-toc-fade-height: 30px;
 @sidebar-toc-vertical-padding: 20px;
 @sidebar-toc-right-padding: 12px;
+// Sidebar TOC uses increased left padding and a negative left margin to achieve
+// a 15px spacing without clipping the chevron icon
+// https://phabricator.wikimedia.org/T312156#8095894
+@sidebar-toc-left-padding: ~'calc( 15px + @{margin-start-sidebar-content} )';
 @toc-subsection-toggle-icon-size: 1.834em;
 
 .sidebar-toc {
 	max-height: 75vh;
-	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding 32px;
+	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding @sidebar-toc-left-padding;
 	box-sizing: border-box;
 	overflow: auto;
-	background-color: @border-color-sidebar;
+	background-color: @background-color-page-container;
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;
@@ -87,7 +91,7 @@
 	left: 0;
 	right: 0;
 	height: @sidebar-toc-fade-height;
-	background: linear-gradient( rgba( 255, 255, 255, 0 ), @border-color-sidebar );
+	background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
 	background-repeat: no-repeat;
 	background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
 	pointer-events: none; // Make the link below the fade clickable
