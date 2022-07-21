@@ -95,3 +95,26 @@
 	// Contain gradient to 1px × 100% size and draw from top to bottom-left or -right corner.
 	background-size: @border-width-base 100%;
 }
+
+#mw-head .vector-menu-dropdown .vector-menu-heading {
+	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
+	background-position: right bottom;
+}
+
+.vector-menu-dropdown-noicon {
+	.vector-menu-heading {
+		// `padding-top` needs to scale with font-size.
+		padding-top: 1.25em;
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: @font-size-tabs;
+		font-weight: normal;
+	}
+
+	// Add focus state to legacy menu dropdown buttons (i.e. p-variants, p-cactions)
+	.vector-menu-checkbox:focus + .vector-menu-heading {
+		// Simulate browser focus ring
+		outline: dotted 1px; // Firefox style
+		outline: auto -webkit-focus-ring-color; // Webkit style
+	}
+}

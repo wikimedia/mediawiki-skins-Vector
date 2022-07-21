@@ -1,42 +1,42 @@
 @import '../variables.less';
 @import 'mediawiki.mixins.less';
 
-/* Variants and Actions */
+/**
+ * Targets:
+ * - language variants, Actions menus
+ * - more menu, user menu
+ * - ULS button in sticky header
+ */
+.emptyPortlet .vector-menu-heading,
+.vector-menu-dropdown .vector-menu-heading,
+.mw-interlanguage-selector {
+	display: flex;
+	color: @color-base--subtle;
+
+	&:after {
+		content: '';
+		background: url( images/arrow-down.svg ) 100% 50% no-repeat;
+		width: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		height: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
+		opacity: 0.84;
+	}
+
+	&:hover,
+	&:focus {
+		color: @color-base;
+
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
 .vector-menu-dropdown {
 	direction: ltr;
 	float: left;
 	cursor: pointer;
 	position: relative;
-
-	.vector-menu-heading {
-		color: @color-base--subtle;
-		position: relative;
-		display: block;
-		box-sizing: border-box;
-
-		&:after {
-			content: '';
-			background-image: url( images/arrow-down.svg );
-			background-position: 100% 50%;
-			background-repeat: no-repeat;
-			position: absolute;
-			top: unit( 10 / @font-size-tabs / @font-size-browser, em );
-			right: 8px;
-			bottom: 0;
-			width: unit( 16 / @font-size-tabs / @font-size-browser, em );
-			// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
-			opacity: 0.84;
-		}
-
-		&:hover,
-		&:focus {
-			color: @color-base;
-
-			&:after {
-				opacity: 1;
-			}
-		}
-	}
 
 	// The menu itself.
 	.vector-menu-content {
@@ -46,7 +46,7 @@
 		// Match the width of the dropdown "heading" (the tab)
 		min-width: 100%;
 		position: absolute;
-		top: 2.5em;
+		top: 100%;
 		left: -@border-width-base;
 		margin: 0;
 		border: @border-width-base @border-style-base @border-color-base;
@@ -117,9 +117,7 @@
 .vector-menu-dropdown-noicon {
 	.vector-menu-heading {
 		// `padding-top` needs to scale with font-size.
-		padding-top: 1.25em;
-		padding-left: 8px;
-		padding-right: unit( 24 / @font-size-tabs / @font-size-browser, em );
+		padding: 1.25em 8px 6px;
 		font-weight: normal;
 	}
 

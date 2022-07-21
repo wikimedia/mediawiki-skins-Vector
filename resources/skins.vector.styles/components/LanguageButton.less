@@ -18,11 +18,6 @@
 	}
 
 	.vector-menu-heading {
-		// stylelint-disable-next-line plugin/no-unsupported-browser-features
-		font-size: initial;
-		// reset padding styles in MenuDropdown.less with right padding for arrow.
-		padding-right: 30px;
-		padding-left: 8px;
 		// Prevent select of span text "X languages"
 		user-select: none;
 		// Remove opacity on language button (it applies to more menu because of label color).
@@ -31,10 +26,6 @@
 		.vector-menu-heading-label {
 			// Special treatment for language button, based on Vector font-size
 			font-size: @font-size-base;
-		}
-
-		&:after {
-			top: 0;
 		}
 
 		// T291286: Temporarily use progressive ULS style
@@ -97,26 +88,4 @@
 // Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
 #p-lang-btn.mw-portlet-empty {
 	display: none;
-}
-
-#p-lang-btn-sticky-header {
-	@button-padding: 12px;
-	@arrow-width: 18px;
-	position: relative;
-	padding-right: ~'calc( @{button-padding} + @{arrow-width} )';
-	white-space: nowrap;
-
-	&:after {
-		content: '';
-		background-image: url( ../common/images/arrow-down.svg );
-		background-position: 100% 50%;
-		background-repeat: no-repeat;
-		position: absolute;
-		top: 0;
-		right: @button-padding;
-		bottom: 0;
-		width: @arrow-width;
-		// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
-		opacity: 0.84;
-	}
 }
