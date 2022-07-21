@@ -543,41 +543,14 @@ class Hooks implements
 		}
 
 		$classes = [];
-
 		$isTocABTestEnabled = $sk->isTOCABTestEnabled();
-		if ( $isTocABTestEnabled || $sk->isTOCEnabled() ) {
-			$classes[] = 'vector-toc-enabled';
-		}
 
 		if (
 			$sk->isTableOfContentsVisibleInSidebar() &&
 			$isTocABTestEnabled
 		) {
-			/** @var \WikimediaEvents\WebABTest\WebABTestArticleIdFactory */
-			$webABTestArticleIdFactory = MediaWikiServices::getInstance()->getService(
-				Constants::WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE
-			);
 			$experimentConfig = $config->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
-			$bucketKeys = array_keys( $experimentConfig['buckets'] );
-
-			$ab = $webABTestArticleIdFactory->makeWebABTestArticleIdStrategy(
-				$webABTestArticleIdFactory->filterExcludedBucket( $bucketKeys ),
-				1 - $experimentConfig['buckets']['unsampled']['samplingRate'],
-				Constants::QUERY_PARAM_TABLE_OF_CONTENTS,
-				$sk->getContext()
-			);
-
-			if ( !$ab ) {
-				return $classes;
-			}
-
-			$bucket = $ab->getBucket();
-
-			if ( $bucket ) {
-				$experimentName = $experimentConfig[ 'name' ];
-				$classes[] = $experimentName;
-				$classes[] = "$experimentName-$bucket";
-			}
+			$classes[] = $experimentConfig[ 'name' ];
 		}
 
 		return $classes;

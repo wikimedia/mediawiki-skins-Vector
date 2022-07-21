@@ -210,6 +210,17 @@
 				"resources/skins.vector.styles.legacy/skin-legacy.less"
 			]
 		},
+		"skins.vector.AB.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"features": [ "toc" ],
+			"styles": [
+				"resources/skins.vector.AB.styles.less"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		},
 		"skins.vector.styles": {
 			"class": "ResourceLoaderSkinModule",
 			"features": {
@@ -224,7 +235,8 @@
 				"interface-category": true,
 				"i18n-ordered-lists": true,
 				"i18n-all-lists-margins": true,
-				"i18n-headings": true
+				"i18n-headings": true,
+				"toc": false
 			},
 			"targets": [
 				"desktop",
@@ -302,7 +314,6 @@
 				"resources/skins.vector.es6/tableOfContents.js",
 				"resources/skins.vector.es6/sectionObserver.js",
 				"resources/skins.vector.es6/deferUntilFrame.js",
-				"resources/skins.vector.es6/linkHijack.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
@@ -506,19 +517,13 @@
 			"value": false,
 			"description": "@var boolean Temporary feature flag that disables saving the sidebar expanded/collapsed state as a user-preference (triggered via clicking the main menu icon). This is intended as a temporary kill-switch in the event that the DB is overloaded with writes to the user_options table."
 		},
-		"VectorTableOfContents": {
-			"value": {
-				"default": true
-			},
-			"description": "@var When `VectorTableOfContents` is enabled, the sticky table of contents is shown."
-		},
 		"VectorTableOfContentsBeginning": {
 			"value": true,
 			"description": "@var boolean Temporary feature flag that controls link to beginning of article."
 		},
 		"VectorTableOfContentsCollapseAtCount": {
 			"value": 20,
-			"description": "@var When `VectorTableOfContents` is enabled, the minimum number of headings required to collapse all headings in the sticky table of contents by default."
+			"description": "@var The minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
 		"VectorGrid": {
 			"value": false,

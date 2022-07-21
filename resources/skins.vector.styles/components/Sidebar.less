@@ -18,68 +18,54 @@
 	#p-navigation .vector-menu-heading {
 		display: none;
 	}
+
+	// Temporary magic number, will be calculated after TOC specs are finalized
+	padding: 12px 19px 12px 9px;
+	background-image: none;
+	background-color: @background-color-secondary--modern;
 }
 
-// FIXME: Delete this selector when .vector-toc-enabled is removed (T310527)
-body:not( .vector-toc-enabled ) .mw-sidebar {
-	width: @width-grid-column-one;
-	// To avoid the white part of the gradient colliding with the sidebar links
-	// we apply top and bottom padding.
-	padding: 8px 0 40px @padding-left-sidebar;
-	background-image: linear-gradient( to bottom, @background-color-base 0%, @background-color-secondary--modern 10%, @background-color-secondary--modern 90%, @background-color-base 100% );
-}
+// Update styling to account for TOC.
+.mw-sidebar,
+.sidebar-toc,
+.sidebar-toc:after {
+	// Match styles between TOC and fade element to ensure the fade covers the correct area
+	width: @width-sidebar;
+	margin-left: 0;
 
-// Update styling when TOC is enabled
-.vector-toc-enabled {
-	.mw-sidebar,
-	.sidebar-toc,
-	.sidebar-toc:after {
-		// Match styles between TOC and fade element to ensure the fade covers the correct area
-		width: @width-sidebar;
-		margin-left: 0;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			width: @width-sidebar-wide;
-			margin-left: @margin-start-sidebar-content;
-		}
-	}
-
-	.mw-sidebar {
-		// Temporary magic number, will be calculated after TOC specs are finalized
-		padding: 12px 19px 12px 9px;
-		background-image: none;
-		background-color: @background-color-secondary--modern;
-	}
-
-	& .vector-layout-grid {
-		@media ( min-width: @min-width-desktop ) {
-			.mw-sidebar {
-				// Prevent grid row gap from affecting TOC spacing when main menu is open
-				margin-bottom: -@grid-row-gap;
-			}
-		}
-
-		.sidebar-toc {
-			// Use margin-top to align TOC rather than grid row gap
-			// Applies when the TOC sticky and when the main menu is both open and closed.
-			margin-top: @margin-top-sidebar-toc;
-		}
+	@media ( min-width: @min-width-desktop-wide ) {
+		width: @width-sidebar-wide;
+		margin-left: @margin-start-sidebar-content;
 	}
 }
 
-// FIXME: Merge margin-top styles with above when .vector-toc-enabled is removed (T310527)
-.sidebar-toc {
-	.vector-toc-enabled .vector-layout-legacy & {
+.vector-layout-grid {
+	@media ( min-width: @min-width-desktop ) {
+		.mw-sidebar {
+			// Prevent grid row gap from affecting TOC spacing when main menu is open
+			margin-bottom: -@grid-row-gap;
+		}
+	}
+
+	.sidebar-toc {
+		// Use margin-top to align TOC rather than grid row gap
+		// Applies when the TOC sticky and when the main menu is both open and closed.
+		margin-top: @margin-top-sidebar-toc;
+	}
+}
+
+.vector-layout-legacy {
+	.sidebar-toc {
 		// Main menu is closed
 		margin-top: @margin-top-sidebar-toc_title_inline;
 	}
 
-	.vector-toc-enabled .vector-layout-legacy @{selector-workspace-container-sidebar-open} & {
+	@{selector-workspace-container-sidebar-open} .sidebar-toc {
 		// Main menu is open
 		margin-top: @margin-top-sidebar-toc;
 	}
 
-	.vector-toc-enabled.vector-sticky-header-visible .vector-layout-legacy & {
+	.vector-sticky-header-visible & .sidebar-toc {
 		// Sticky header is visible
 		margin-top: @margin-top-sidebar-toc;
 	}
@@ -152,36 +138,11 @@ body:not( .vector-toc-enabled ) .mw-sidebar {
 	// instead to avoid hidden rendering.
 	visibility: hidden;
 	opacity: 0;
-	transform: translateX( -100% );
 }
 
 @media ( min-width: ( @max-width-workspace-container + ( 2 * @padding-horizontal-page-container ) ) ) {
 	.mw-sidebar {
 		background: @background-color-page-container;
 		border-right: @border-width-base @border-style-base @border-color-sidebar;
-	}
-}
-
-// Disable transitions on page load. No-JS users will unfortunately miss out. A similar pattern is
-// used in Minerva's DropDownList. See enableCssAnimations() in skin.vector.js/index.js for context
-// and additional details on how this class is added.
-.vector-animations-ready {
-	// Enable transition on all widths by default.
-	.mw-sidebar {
-		transition-property: transform, opacity, visibility;
-		transition-duration: @transition-duration-base;
-		transition-timing-function: ease-out;
-	}
-
-	@media ( max-width: @max-width-mobile ) {
-		.mw-sidebar {
-			transition: none;
-		}
-	}
-
-	// Enable sidebar button transitions.
-	#mw-sidebar-button {
-		transition-property: background-color, border-color, box-shadow;
-		transition-duration: @transition-duration-base;
 	}
 }

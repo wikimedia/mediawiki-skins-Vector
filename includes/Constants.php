@@ -209,26 +209,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_TABLE_OF_CONTENTS = 'TableOfContents';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_TABLE_OF_CONTENTS = 'VectorTableOfContents';
-
-	/**
-	 * @var string
-	 */
-	public const QUERY_PARAM_TABLE_OF_CONTENTS = 'tableofcontents';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_TABLE_OF_CONTENTS = 'TableOfContents';
-
-	/**
-	 * @var string
-	 */
 	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**
