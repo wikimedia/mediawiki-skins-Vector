@@ -59,6 +59,7 @@
 	"vector-anon-user-menu-pages-label": "Accessible version of 'vector-anon-user-menu-pages' link text, prompts user to learn more about editing",
 	"vector-main-menu-tooltip": "Used as title attribute for main menu icon on hover.",
 	"vector-toc-menu-tooltip": "Used as title attribute for table of contents icon on hover.",
+	"vector-toc-collapsible-button-label": "Used as the label for the table of contents collapsible toggle button",
 	"vector-article-tools-nav-label": "Accessible label for the article tools nav landmark",
 	"vector-site-nav-label": "Accessible label for site (main menu) nav landmark",
 	"vector-2022-prefs-talkpage": "Link to the desktop improvements project talk page which is shown before the preview link in skin preferences. See T307113 for more information.",

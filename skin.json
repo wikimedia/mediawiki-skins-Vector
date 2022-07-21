@@ -63,6 +63,8 @@
 						"vector-jumptocontent",
 						"vector-toc-beginning",
 						"vector-toc-heading",
+						"vector-toc-menu-tooltip",
+						"vector-toc-collapsible-button-label",
 						"vector-article-tools-nav-label",
 						"vector-site-nav-label",
 						"search",
