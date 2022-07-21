@@ -5,10 +5,11 @@
 			"Daniyar",
 			"GaiJin",
 			"Hedeyohu22",
-			"Kaztrans"
+			"Kaztrans",
+			"U.ayaao.p"
 		]
 	},
-	"vector-language-button-label": "$1 тіл",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тіл}}",
 	"vector-action-addsection": "Тақырып қосу",
 	"vector-action-delete": "Жою",
 	"vector-action-move": "Атауын өзгерту",
@@ -20,5 +21,6 @@
 	"vector-view-history": "Өңделу тарихы",
 	"vector-view-view": "Оқу",
 	"vector-view-viewsource": "Қайнарын қарау",
-	"vector-more-actions": "Тағы"
+	"vector-more-actions": "Тағы",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">\"$1\"</strong> бар беттерді іздеу"
 }
