@@ -261,6 +261,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"icons": [
+				"article",
 				"edit",
 				"editLock",
 				"halfStar",
