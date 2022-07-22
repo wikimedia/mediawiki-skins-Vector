@@ -430,7 +430,7 @@
 					"Special:Preferences"
 				]
 			},
-			"description": "options for configuring where where max-width should and should not apply. More details can be found in Hooks::shouldDisableMaxWidth PHP documentation."
+			"description": "options for configuring where max-width should and should not apply. More details can be found in Hooks::shouldDisableMaxWidth PHP documentation."
 		},
 		"VectorResponsive": {
 			"value": false,
