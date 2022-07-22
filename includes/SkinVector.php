@@ -840,6 +840,7 @@ abstract class SkinVector extends SkinMustache {
 				$type = self::MENU_TYPE_DROPDOWN;
 				break;
 			case 'data-views':
+			case 'data-associated-pages':
 			case 'data-namespaces':
 				$type = self::MENU_TYPE_TABS;
 				break;

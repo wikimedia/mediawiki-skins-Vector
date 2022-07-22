@@ -41,6 +41,16 @@
 						"skin-vector",
 						"skin-vector-search-vue"
 					],
+					"menus": [
+						"user-interface-preferences",
+						"user-page",
+						"user-menu",
+						"notifications",
+						"views",
+						"actions",
+						"variants",
+						"associated-pages"
+					],
 					"scripts": [
 						"skins.vector.user",
 						"skins.vector.js",
