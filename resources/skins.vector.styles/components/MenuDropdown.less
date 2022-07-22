@@ -8,25 +8,12 @@
  * - more menu, user menu
  * - ULS button in sticky header
  */
-.emptyPortlet .vector-menu-heading,
 .vector-menu-dropdown .vector-menu-heading,
 .mw-interlanguage-selector {
 	display: flex;
-	color: @color-base--subtle;
 
 	&:after {
 		.mixin-vector-menu-heading-arrow();
-		// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
-		opacity: 0.84;
-	}
-
-	&:hover,
-	&:focus {
-		color: @color-base;
-
-		&:after {
-			opacity: 1;
-		}
 	}
 }
 
@@ -40,18 +27,17 @@
 		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 		transition-property: opacity;
 		transition-duration: @transition-duration-base;
-		line-height: 1.125em;
 	}
+}
 
-	.mw-list-item {
-		a {
-			color: @color-link;
-		}
-
-		&.selected a,
-		&.selected a:visited {
-			color: @color-link-selected;
-			text-decoration: none;
-		}
+//non-standard dropdown menu item.
+.vector-user-menu-logout,
+.vector-user-menu-create-account,
+.vector-user-menu-login,
+.vector-menu-dropdown .mw-list-item {
+	a {
+		.mixin-vector-dropdown-menu-item();
+		white-space: nowrap;
+		color: @color-link;
 	}
 }
