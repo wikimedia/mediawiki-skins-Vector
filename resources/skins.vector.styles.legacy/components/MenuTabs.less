@@ -100,21 +100,3 @@
 	// Tab separator: Outer end (right in LTR) border of "Actions" menu.
 	background-position: right bottom;
 }
-
-.vector-menu-dropdown-noicon {
-	.vector-menu-heading {
-		// `padding-top` needs to scale with font-size.
-		padding-top: 1.25em;
-		padding-left: 8px;
-		padding-right: 8px;
-		font-size: @font-size-tabs;
-		font-weight: normal;
-	}
-
-	// Add focus state to legacy menu dropdown buttons (i.e. p-variants, p-cactions)
-	.vector-menu-checkbox:focus + .vector-menu-heading {
-		// Simulate browser focus ring
-		outline: dotted 1px; // Firefox style
-		outline: auto -webkit-focus-ring-color; // Webkit style
-	}
-}
