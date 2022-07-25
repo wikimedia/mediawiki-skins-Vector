@@ -475,11 +475,8 @@ abstract class SkinVector extends SkinMustache {
 		// Conditionally used values must use null to indicate absence (not false or '').
 		$commonSkinData = array_merge( $parentData, [
 			'is-legacy' => $this->isLegacy(),
-
 			'input-location' => $this->getSearchBoxInputLocation(),
-
 			'sidebar-visible' => $this->isSidebarVisible(),
-
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),

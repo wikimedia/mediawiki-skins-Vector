@@ -68,8 +68,8 @@
 
 	<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
 		{{>ContentSubheader}}
-		<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
-		<div id="contentSub2">{{{html-undelete-link}}}</div>
+		{{#html-subtitle}}<div id="contentSub"{{{html-user-language-attributes}}}>{{{.}}}</div>{{/html-subtitle}}
+		{{#html-undelete-link}}<div id="contentSub2">{{{.}}}</div>{{/html-undelete-link}}
 		{{{html-user-message}}}
 		{{{html-body-content}}}
 		{{{html-categories}}}

@@ -96,19 +96,24 @@ body {
 	}
 }
 
-.mw-body-subheader {
-	// avoid margin collapsing by setting a border-bottom and margin-top as this will sometimes
-	// be empty if no indicators.
-	// The total of margin-top and height should be 16px. Since we're using relative units 1em=14px
-	// We need to set both height and margin so that the margin is not ignored.
-	margin-top: 1em;
-	border-bottom: 2px @border-style-base transparent;
+#siteSub {
+	margin-top: 8px; // T311564
+}
+
+#contentSub,
+#contentSub2 {
+	// T311564: Override core styles to apply margin-top rather than margin-bottom
+	margin: 8px 0 0 1em !important; // stylelint-disable-line declaration-no-important
 }
 
 .mw-header {
 	// allow z-index to apply so search results overlay article
 	position: relative;
 	z-index: @z-index-header;
+}
+
+.mw-body-content {
+	margin-top: 16px;
 }
 
 /* Main column */
