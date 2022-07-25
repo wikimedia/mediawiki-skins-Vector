@@ -16,5 +16,5 @@
 	"vector-view-history": "ꠁꠔꠤꠀꠡ ꠖꠦꠈꠇꠣ",
 	"vector-view-view": "ꠙꠠ",
 	"vector-more-actions": "ꠀꠞꠧ",
-	"vector-searchsuggest-containing": "ꠙꠣꠔꠣ ꠕꠥꠇꠣꠃꠇ꠆ꠇꠣ ꠎꠦꠘꠅ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "ꠚꠣꠔꠣ ꠕꠥꠇꠣꠃꠇ꠆ꠇꠣ ꠎꠦꠘꠅ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

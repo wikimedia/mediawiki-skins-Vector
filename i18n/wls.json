@@ -6,7 +6,7 @@
 			"Lea.fakauvea"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 lea|$1 'u lea}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 lea| lea e $1}}",
 	"vector-action-addsection": "Tohi he kupu",
 	"vector-action-delete": "Molehi",
 	"vector-action-move": "Fetogi higoa",

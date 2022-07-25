@@ -33,5 +33,7 @@
 	"vector-jumptocontent": "Menyang kontèn",
 	"vector-more-actions": "Liyané",
 	"vector-search-loader": "Ngemot pamrayoganing panggolèk",
-	"vector-searchsuggest-containing": "Golèk kaca sing nduwèni ukara <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Golèk kaca sing nduwèni ukara <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-anon-user-menu-pages": "Kaca pambesut kang metu log",
+	"vector-anon-user-menu-pages-learn": "sinaoni candhaké"
 }

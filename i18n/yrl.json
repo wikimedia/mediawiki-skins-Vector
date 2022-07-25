@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Duke of Wikipädia",
 			"Karapananguasú Kururú Teremembé"
 		]
 	},
@@ -13,5 +14,6 @@
 	"vector-view-edit": "Murupiawa",
 	"vector-view-history": "E-maã marãduwapawa",
 	"vector-view-view": "Mugetá",
-	"vector-more-actions": "Yawá píri"
+	"vector-more-actions": "Yawá píri",
+	"vector-searchsuggest-containing": "Sikari papera-itá pitasuka supé <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
