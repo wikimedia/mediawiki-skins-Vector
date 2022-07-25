@@ -3,8 +3,6 @@
 	<title>
 		external link
 	</title>
-	<g fill="#36c">
-		<path d="M2 10h8V2H7V1h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7h1z"/>
-		<path d="M5 1 4 3l3 3-1 1-3-3-2 1V1z"/>
-	</g>
+	<path fill="#36c" d="M5.8 0 3.5 2.5 7 5.7 5.8 7 2.3 3.8 0 6.4V0h5.8Z"/>
+	<path stroke="#36c" d="M8 .5h3M.5 8v3m11-10v10m-.5.5H1"/>
 </svg>
