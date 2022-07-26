@@ -5,10 +5,11 @@
 			"Daniyar",
 			"GaiJin",
 			"Kaztrans",
-			"Hedeyohu22"
+			"Hedeyohu22",
+			"U.ayaao.p"
 		]
 	},
-	"vector-language-button-label": "$1 тіл",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тіл}}",
 	"vector-action-addsection": "Тақырып қосу",
 	"vector-action-delete": "Жою",
 	"vector-action-move": "Атауын өзгерту",
