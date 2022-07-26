@@ -8,8 +8,7 @@ var
 	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-menu-content';
 
 /**
- * Add the ability for users to toggle dropdown menus using the enter key (as
- * well as space) using core's checkboxHack.
+ * Enhance dropdownMenu functionality and accessibility using core's checkboxHack.
  */
 function bind() {
 	// Search for all dropdown containers using the CHECKBOX_HACK_CONTAINER_SELECTOR.
@@ -26,19 +25,6 @@ function bind() {
 		}
 
 		checkboxHack.bind( window, checkbox, button, target );
-	} );
-}
-
-/**
- * T295085: Close all dropdown menus when page is unloaded to prevent them from
- * being open when navigating back to a page.
- */
-function bindCloseOnUnload() {
-	addEventListener( 'beforeunload', function () {
-		var checkboxes = document.querySelectorAll( CHECKBOX_HACK_CHECKBOX_SELECTOR + ':checked' );
-		Array.prototype.forEach.call( checkboxes, function ( checkbox ) {
-			/** @type {HTMLInputElement} */ ( checkbox ).checked = false;
-		} );
 	} );
 }
 
@@ -115,5 +101,4 @@ mw.hook( 'util.addPortletLink' ).add( addPortletLinkHandler );
 
 module.exports = function dropdownMenus() {
 	bind();
-	bindCloseOnUnload();
 };
