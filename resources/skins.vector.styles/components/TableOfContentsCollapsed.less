@@ -60,6 +60,30 @@
 	}
 }
 
+// Override button styles for the "move to sidebar/hide" links. Default hide.
+.vector-toc-collapse-button,
+.vector-toc-uncollapse-button {
+	display: none;
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+	color: @color-primary;
+
+	&:hover {
+		color: @color-primary--hover;
+	}
+
+	&:before {
+		content: '@{msg-brackets-start}';
+		color: @color-base--subtle;
+	}
+
+	&:after {
+		content: '@{msg-brackets-end}';
+		color: @color-base--subtle;
+	}
+}
+
 @media ( max-width: @max-width-tablet ) {
 	.mixin-collapse-toc-page-title();
 
@@ -85,15 +109,29 @@
 
 @media ( min-width: @min-width-desktop ) {
 	@supports ( display: grid ) {
-		.vector-toc-collapsed .vector-layout-grid {
-			.mixin-collapse-toc-page-title();
+		.client-js {
+			.vector-toc-collapsed .vector-layout-grid {
+				.mixin-collapse-toc-page-title();
 
-			.mw-table-of-contents-container {
-				grid-area: content;
+				.mw-table-of-contents-container {
+					grid-area: content;
+				}
+
+				.sidebar-toc {
+					left: -@icon-padding-md;
+				}
 			}
 
-			.sidebar-toc {
-				left: -@icon-padding-md;
+			.vector-toc-collapsed {
+				.vector-toc-uncollapse-button {
+					display: inline-block;
+				}
+			}
+
+			body:not( .vector-toc-collapsed ) {
+				.vector-toc-collapse-button {
+					display: inline-block;
+				}
 			}
 		}
 	}

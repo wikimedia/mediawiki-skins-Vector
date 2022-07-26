@@ -1,6 +1,14 @@
 <nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
 	<div id="sidebar-toc-label" class="sidebar-toc-header">
-		<p class="sidebar-toc-title">{{ msg-vector-toc-heading }}</p>
+		<p class="sidebar-toc-title">
+		{{ msg-vector-toc-heading }}
+		<button class="vector-toc-uncollapse-button">
+			{{ msg-vector-toc-toggle-position-sidebar }}
+		</button>
+		<button class="vector-toc-collapse-button">
+			{{ msg-vector-toc-toggle-position-title }}
+		</button>
+		</p>
 	</div>
 	<ul class="sidebar-toc-contents">
 		{{#is-vector-toc-beginning-enabled}}

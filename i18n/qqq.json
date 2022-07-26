@@ -54,6 +54,8 @@
 	"vector-searchsuggest-containing": "Label used in the special item of the search suggestions list which gives the user an option to perform a full text search for the term. Used in the Codex typeahead search component.",
 	"vector-intro-page": "Introduction or tutorial page for the wiki. Typically either Project/Help:Introduction ([[d:Q3945]]) or Project/Help:Tutorial ([[d:Q915263]]).",
 	"vector-toc-heading": "Heading of table of contents\n\n{{Identical|Content}}",
+	"vector-toc-toggle-position-sidebar": "Indicator for TOC to move position into sidebar",
+	"vector-toc-toggle-position-title": "Indicator for TOC to move to collapsed state next to title",
 	"vector-toc-beginning": "Shown in the table of contents: Text of link to the beginning of the article.",
 	"vector-toc-toggle-button-label": "Used to label TOC section toggle buttons for screen readers",
 	"vector-anon-user-menu-pages": "Label describing the anon editor links in the anon user menu",

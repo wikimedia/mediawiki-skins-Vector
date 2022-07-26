@@ -39,6 +39,8 @@
 	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Contents",
+	"vector-toc-toggle-position-sidebar": "move to sidebar",
+	"vector-toc-toggle-position-title": "hide",
 	"vector-toc-beginning": "Beginning",
 	"vector-toc-toggle-button-label": "Toggle $1 subsection",
 	"vector-anon-user-menu-pages": "Pages for logged out editors",

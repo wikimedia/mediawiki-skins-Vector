@@ -6,6 +6,7 @@ const EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
 const PARENT_SECTION_CLASS = 'sidebar-toc-level-1';
 const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
+const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
 
 /**
  * @callback onHeadingClick
@@ -280,9 +281,21 @@ module.exports = function tableOfContents( props ) {
 	}
 
 	/**
+	 * Bind event listener for clicking on show/hide Table of Contents links.
+	 */
+	function bindCollapseToggleListeners() {
+		const showHideTocElement = document.querySelectorAll( '#sidebar-toc-label button' );
+		showHideTocElement.forEach( function ( btn ) {
+			btn.addEventListener( 'click', () => {
+				document.body.classList.toggle( TOC_COLLAPSED_CLASS );
+			} );
+		} );
+	}
+
+	/**
 	 * Bind event listeners for clicking on section headings and toggle buttons.
 	 */
-	function bindClickListener() {
+	function bindSubsectionToggleListeners() {
 		props.container.addEventListener( 'click', function ( e ) {
 			if (
 				!( e.target instanceof HTMLElement )
@@ -322,7 +335,8 @@ module.exports = function tableOfContents( props ) {
 		initializeExpandedStatus();
 
 		// Bind event listeners.
-		bindClickListener();
+		bindSubsectionToggleListeners();
+		bindCollapseToggleListeners();
 
 		// Hide TOC button on VE activation
 		mw.hook( 've.activationStart' ).add( () => {

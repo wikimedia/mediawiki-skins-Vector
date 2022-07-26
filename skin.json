@@ -63,6 +63,8 @@
 						"vector-jumptocontent",
 						"vector-toc-beginning",
 						"vector-toc-heading",
+						"vector-toc-toggle-position-sidebar",
+						"vector-toc-toggle-position-title",
 						"vector-toc-menu-tooltip",
 						"vector-toc-collapsible-button-label",
 						"vector-article-tools-nav-label",
@@ -250,7 +252,9 @@
 			],
 			"lessMessages": [
 				"parentheses-start",
-				"parentheses-end"
+				"parentheses-end",
+				"brackets-start",
+				"brackets-end"
 			]
 		},
 		"skins.vector.icons.js": {
