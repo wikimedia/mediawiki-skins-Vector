@@ -237,6 +237,7 @@ function prepareIcons( header, history, talk, subject, watch ) {
  * @param {Element|null} primaryEdit
  * @param {boolean} isProtected
  * @param {Element|null} secondaryEdit
+ * @param {Element|null} addSection
  * @param {Function} disableStickyHeader function to call to disable the sticky
  *  header.
  */
@@ -245,6 +246,7 @@ function prepareEditIcons(
 	primaryEdit,
 	isProtected,
 	secondaryEdit,
+	addSection,
 	disableStickyHeader
 ) {
 	const
@@ -256,7 +258,19 @@ function prepareEditIcons(
 		),
 		wikitextSticky = header.querySelector(
 			'#ca-edit-sticky-header'
+		),
+		addSectionSticky = header.querySelector(
+			'#ca-addsection-sticky-header'
 		);
+
+	if ( addSectionSticky ) {
+		if ( addSection ) {
+			copyButtonAttributes( addSection, addSectionSticky );
+			suffixStickyHref( addSectionSticky );
+		} else {
+			removeNode( addSectionSticky );
+		}
+	}
 
 	// If no primary edit icon is present the feature is disabled.
 	if ( !primaryEditSticky || !wikitextSticky || !protectedSticky ) {
@@ -452,12 +466,14 @@ function makeStickyHeaderFunctional(
 		document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
+	const addSection = document.querySelector( '#ca-addsection a' );
 
 	prepareEditIcons(
 		header,
 		primaryEdit,
 		isProtected,
 		secondaryEdit,
+		addSection,
 		disableStickyHeader
 	);
 

@@ -259,7 +259,12 @@
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"variants": [],
+			"variants": {
+				"progressive": {
+					"color": "#36c",
+					"global": true
+				}
+			},
 			"icons": [
 				"article",
 				"edit",
@@ -267,6 +272,7 @@
 				"halfStar",
 				"history",
 				"speechBubbles",
+				"speechBubbleAdd",
 				"star",
 				"unStar",
 				"wikiText"
