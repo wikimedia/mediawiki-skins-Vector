@@ -183,14 +183,16 @@ function watchstarCallback( $link, isWatched, expiry ) {
  * @param {Element} header
  * @param {Element|null} history
  * @param {Element|null} talk
+ * @param {Element|null} subject
  * @param {Element|null} watch
  */
-function prepareIcons( header, history, talk, watch ) {
+function prepareIcons( header, history, talk, subject, watch ) {
 	const historySticky = header.querySelector( '#ca-history-sticky-header' ),
 		talkSticky = header.querySelector( '#ca-talk-sticky-header' ),
+		subjectSticky = header.querySelector( '#ca-subject-sticky-header' ),
 		watchSticky = header.querySelector( '#ca-watchstar-sticky-header' );
 
-	if ( !historySticky || !talkSticky || !watchSticky ) {
+	if ( !historySticky || !talkSticky || !subjectSticky || !watchSticky ) {
 		throw new Error( 'Sticky header has unexpected HTML' );
 	}
 
@@ -199,11 +201,19 @@ function prepareIcons( header, history, talk, watch ) {
 	} else {
 		removeNode( historySticky );
 	}
+
 	if ( talk ) {
 		copyButtonAttributes( talk, talkSticky );
 	} else {
 		removeNode( talkSticky );
 	}
+
+	if ( subject ) {
+		copyButtonAttributes( subject, subjectSticky );
+	} else {
+		removeNode( subjectSticky );
+	}
+
 	if ( watch && watch.parentNode instanceof Element ) {
 		const watchContainer = watch.parentNode;
 		copyButtonAttributes( watch, watchSticky );
@@ -410,9 +420,23 @@ function makeStickyHeaderFunctional(
 		userMenuStickyContainerInner.appendChild( prepareUserMenu( userMenu ) );
 	}
 
+	let namespaceName = mw.config.get( 'wgCanonicalNamespace' );
+	const namespaceNumber = mw.config.get( 'wgNamespaceNumber' );
+	if ( namespaceNumber >= 0 && namespaceNumber % 2 === 1 ) {
+		// Remove '_talk' to get subject namespace
+		namespaceName = namespaceName.slice( 0, -5 );
+	}
+	// Title::getNamespaceKey()
+	let namespaceKey = namespaceName.toLowerCase() || 'main';
+	if ( namespaceKey === 'file' ) {
+		namespaceKey = 'image';
+	}
+	const namespaceTabId = 'ca-nstab-' + namespaceKey;
+
 	prepareIcons( header,
 		document.querySelector( '#ca-history a' ),
 		document.querySelector( '#ca-talk:not( .selected ) a' ),
+		document.querySelector( '#' + namespaceTabId + ':not( .selected ) a' ),
 		document.querySelector( '#ca-watch a, #ca-unwatch a' )
 	);
 

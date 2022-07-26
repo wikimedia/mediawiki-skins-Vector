@@ -69,6 +69,15 @@ abstract class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
+	private const SUBJECT_ICON = [
+		'href' => '#',
+		'id' => 'ca-subject-sticky-header',
+		'event' => 'subject-sticky-header',
+		'icon' => 'wikimedia-article',
+		'is-quiet' => true,
+		'tabindex' => '-1',
+		'class' => 'sticky-header-icon'
+	];
 	private const HISTORY_ICON = [
 		'href' => '#',
 		'id' => 'ca-history-sticky-header',
@@ -378,6 +387,7 @@ abstract class SkinVector extends SkinMustache {
 	final protected function getStickyHeaderData( $searchBoxData, $includeEditIcons ): array {
 		$btns = [
 			self::TALK_ICON,
+			self::SUBJECT_ICON,
 			self::HISTORY_ICON,
 			self::WATCHSTAR_ICON,
 		];
