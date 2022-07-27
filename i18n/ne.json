@@ -12,7 +12,7 @@
 	"skinname-vector": "भेक्टर",
 	"vector-opt-out": "पुरानो रूप मा स्विच गर्ने",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
-	"vector-action-addsection": "विषय थप्नुहोस",
+	"vector-action-addsection": "विषय थप्नुहोस्",
 	"vector-action-delete": "हटाउने",
 	"vector-action-move": "सार्ने",
 	"vector-action-protect": "सुरक्षित गर्ने",
@@ -21,7 +21,7 @@
 	"vector-view-create": "सृजना गर्ने",
 	"vector-view-edit": "सम्पादन",
 	"vector-view-history": "इतिहास हेर्नुहोस्",
-	"vector-view-view": "पढ्ने",
+	"vector-view-view": "पढ्नुहोस्",
 	"vector-view-viewsource": "स्रोत हेर्ने",
 	"vector-more-actions": "थप"
 }
