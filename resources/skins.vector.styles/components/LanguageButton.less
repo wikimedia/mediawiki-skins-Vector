@@ -17,6 +17,14 @@
 		opacity: 0.87;
 	}
 
+	// If there are no languages and JavaScript is not enabled there is no fallback so we hide
+	// the button altogether.
+	.mw-portlet-lang-heading-0 {
+		.client-nojs & {
+			display: none;
+		}
+	}
+
 	.vector-menu-heading {
 		// Prevent select of span text "X languages"
 		user-select: none;
