@@ -57,11 +57,11 @@
 <input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
 {{>TableOfContentsContainer}}
 {{/is-vector-grid}} <!-- close .vector-sidebar-container -->
-	<div class="mw-content-container">
+<div id="siteNotice">{{{html-site-notice}}}</div>
+<div class="mw-content-container">
 {{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 <main id="content" class="mw-body" role="main">
 	<a id="top"></a>
-	<div id="siteNotice">{{{html-site-notice}}}</div>
 
 	{{>ContentHeader}}
 	{{>ArticleToolbar}}

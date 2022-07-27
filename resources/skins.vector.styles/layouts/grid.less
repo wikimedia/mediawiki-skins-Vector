@@ -56,8 +56,9 @@
 		.mw-page-container-inner {
 			display: grid;
 			width: 100%;
-			grid-template: ~'@{height-header} min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
+			grid-template: ~'@{height-header} min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
 			grid-template-areas: 'header header header'
+				'sitebanner sitebanner sitebanner'
 				'sidebar gutter content'
 				'toc gutter content'
 				'footer footer footer';
@@ -66,6 +67,10 @@
 
 		.mw-body {
 			padding-left: 0;
+		}
+
+		#siteNotice {
+			grid-area: sitebanner;
 		}
 
 		.mw-table-of-contents-container {
