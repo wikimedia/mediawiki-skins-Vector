@@ -37,6 +37,8 @@
 	"vector-languages": "Langues",
 	"vector-language-button-aria-label": "Aller à un article dans une autre langue. Disponible en $1 langue{{PLURAL:$1||s}}.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
+	"vector-no-language-button-label": "Ajouter des langues",
+	"vector-no-language-button-aria-label": "Cet article n’existe que dans cette langue. Ajouter l’article pour d’autres langues.",
 	"vector-language-redirect-to-top": "Sur {{SITENAME}}, les liens interlangues sont placés en haut à droite du titre de la page. [[#p-lang-btn|Aller en haut]].",
 	"vector-language-variant-switcher-label": "Modifier la variante de langue",
 	"vector-action-addsection": "Ajouter un sujet",

@@ -38,6 +38,7 @@
 	"vector-languages": "言語",
 	"vector-language-button-aria-label": "特定の記事の別の言語版に移動します。 {{PLURAL:$1|利用可能な言語$1件}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1の言語版}}",
+	"vector-no-language-button-label": "言語を追加",
 	"vector-language-redirect-to-top": "この{{SITENAME}}では言語間リンクがページの先頭にある記事タイトルの向かい側に設置されています。[[#p-lang-btn|ページの先頭をご覧ください]]。",
 	"vector-language-variant-switcher-label": "別の言語に切り替える",
 	"vector-action-addsection": "話題追加",

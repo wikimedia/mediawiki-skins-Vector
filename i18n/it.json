@@ -26,6 +26,7 @@
 	"vector.js": "/* Il codice JavaScript inserito qui viene caricato dagli utenti che usano il tema Vector */",
 	"vector-languages": "Lingue",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 lingue}}",
+	"vector-no-language-button-label": "Aggiungi lingue",
 	"vector-language-redirect-to-top": "Su questa {{SITENAME}} gli interlink sono in cima alla pagina a destra del titolo. [[#p-lang-btn|Vai in cima]].",
 	"vector-action-addsection": "Aggiungi discussione",
 	"vector-action-delete": "Cancella",
