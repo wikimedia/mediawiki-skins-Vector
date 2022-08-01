@@ -198,10 +198,10 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testGetTemplateData() {
 		$title = Title::newFromText( 'SkinVector' );
-		$context = RequestContext::getMain();
-		$context->setTitle( $title );
+		$context = RequestContext::newExtraneousContext( $title );
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
+		$vectorTemplate->setContext( $context );
 		$this->setTemporaryHook( 'PersonalUrls', [
 			static function ( &$personal_urls, &$title, $skin ) {
 				$personal_urls = [
