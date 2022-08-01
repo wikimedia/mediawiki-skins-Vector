@@ -126,9 +126,7 @@ abstract class SkinVector extends SkinMustache {
 	];
 	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
-	private const CLASS_QUIET_BUTTON = 'mw-ui-button mw-ui-quiet';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
-	private const CLASS_ICON_BUTTON = 'mw-ui-icon mw-ui-icon-element';
 
 	/**
 	 * T243281: Code used to track clicks to opt-out link.
@@ -141,17 +139,6 @@ abstract class SkinVector extends SkinMustache {
 	 * @var string
 	 */
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
-
-	/**
-	 * @param string $icon the name of the icon without wikimedia- prefix.
-	 * @return string
-	 */
-	private function iconClass( $icon ) {
-		if ( $icon ) {
-			return 'mw-ui-icon-wikimedia-' . $icon;
-		}
-		return '';
-	}
 
 	abstract protected function isLegacy(): bool;
 
@@ -249,7 +236,7 @@ abstract class SkinVector extends SkinMustache {
 			'icon' => $isDropdownItem ? $createAccountData['icon'] : null,
 			'button' => !$isDropdownItem,
 		] );
-		$createAccountData = Hooks::updateMenuItem( $createAccountData, true );
+		$createAccountData = Hooks::updateLinkData( $createAccountData );
 		return $this->makeLink( 'create-account', $createAccountData );
 	}
 
@@ -265,7 +252,7 @@ abstract class SkinVector extends SkinMustache {
 		$loginLinkData = array_merge( $this->buildLoginData( $returnto, $useCombinedLoginLink ), [
 			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-login' ],
 		] );
-		$loginLinkData = Hooks::updateMenuItem( $loginLinkData, true );
+		$loginLinkData = Hooks::updateLinkData( $loginLinkData );
 		$templateData = [
 			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, true ),
 			'htmlLogin' => $this->makeLink( 'login', $loginLinkData ),
@@ -296,7 +283,7 @@ abstract class SkinVector extends SkinMustache {
 		$logoutLinkData = array_merge( $this->buildLogoutLinkData(), [
 			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-logout' ],
 		] );
-		$logoutLinkData = Hooks::updateMenuItem( $logoutLinkData, true );
+		$logoutLinkData = Hooks::updateLinkData( $logoutLinkData );
 
 		$templateParser = $this->getTemplateParser();
 		return $templateParser->processTemplate( 'UserLinks__logout', [
@@ -379,11 +366,9 @@ abstract class SkinVector extends SkinMustache {
 			'html-items' => '',
 			'html-vector-menu-checkbox-attributes' => 'tabindex="-1"',
 			'html-vector-menu-heading-attributes' => 'tabindex="-1"',
-			'heading-class' => implode( ' ', [
-				self::CLASS_QUIET_BUTTON,
-				self::CLASS_ICON_BUTTON,
-				$this->iconClass( 'listBullet' )
-			] ),
+			'button' => true,
+			'text-hidden' => true,
+			'icon' => 'listBullet'
 		] );
 
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
@@ -728,9 +713,9 @@ abstract class SkinVector extends SkinMustache {
 				$this->getULSLabel( 'vector-language-button-aria-label', $numLanguages ),
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
-			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
-			'heading-class' => self::CLASS_QUIET_BUTTON . ' ' . self::CLASS_PROGRESSIVE .
-				' mw-portlet-lang-heading-' . strval( $numLanguages ),
+			'icon' => 'language-progressive',
+			'button' => true,
+			'heading-class' => self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $numLanguages ),
 		];
 
 		// Adds class to hide language button
@@ -743,13 +728,43 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * helper for applying Vector menu classes to portlets
+	 * Creates portlet data for the user menu dropdown
+	 *
+	 * @param array $portletData
+	 * @return array
+	 */
+	private function getUserMenuPortletData( $portletData ) {
+		// Add target class to apply different icon to personal menu dropdown for logged in users.
+		$portletData['class'] .= ' vector-user-menu';
+		$portletData['class'] .= $this->loggedin ?
+			' vector-user-menu-logged-in' :
+			' vector-user-menu-logged-out';
+		if ( $this->getUser()->isTemp() ) {
+			$icon = 'userAnonymous';
+		} elseif ( $this->loggedin ) {
+			$icon = 'userAvatar';
+		} else {
+			$icon = 'ellipsis';
+			// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons.
+			// For modern Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for
+			// the user icon (dropdown indicator for user links menu) for logged-in users.
+			// This overrides the tooltip for the user links menu icon which is an ellipsis for anonymous users.
+			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
+		}
+		$portletData['icon'] = $icon;
+		$portletData['button'] = true;
+		$portletData['text-hidden'] = true;
+		return $portletData;
+	}
+
+	/**
+	 * Helper for applying Vector menu classes to portlets
 	 *
 	 * @param array $portletData returned by SkinMustache to decorate
 	 * @param int $type representing one of the menu types (see MENU_TYPE_* constants)
 	 * @return array modified version of portletData input
 	 */
-	private function decoratePortletClass(
+	private function updatePortletClasses(
 		array $portletData,
 		int $type = self::MENU_TYPE_DEFAULT
 	) {
@@ -762,47 +777,17 @@ abstract class SkinVector extends SkinMustache {
 		if ( $this->isLegacy() ) {
 			$extraClasses[self::MENU_TYPE_TABS] .= ' vector-menu-tabs-legacy';
 		}
+		$portletData['class'] .= ' ' . $extraClasses[$type];
+
 		if ( !isset( $portletData['heading-class'] ) ) {
 			$portletData['heading-class'] = '';
 		}
-		// Add target class to apply different icon to personal menu dropdown for logged in users.
-		if ( $portletData['id'] === 'p-personal' ) {
-			if ( $this->isLegacy() ) {
-				$portletData['class'] .= ' vector-user-menu-legacy';
-			} else {
-				$portletData['class'] .= ' vector-user-menu';
-				$portletData['class'] .= $this->loggedin ?
-					' vector-user-menu-logged-in' :
-					' vector-user-menu-logged-out';
-				$portletData['heading-class'] .= ' ' . self::CLASS_QUIET_BUTTON . ' ' .
-					self::CLASS_ICON_BUTTON . ' ';
-				if ( $this->getUser()->isTemp() ) {
-					$icon = 'userAnonymous';
-				} elseif ( $this->loggedin ) {
-					$icon = 'userAvatar';
-				} else {
-					$icon = 'ellipsis';
-				}
-				$portletData['heading-class'] .= $this->iconClass( $icon );
-			}
-		}
-		switch ( $portletData['id'] ) {
-			case 'p-variants':
-			case 'p-cactions':
-				$portletData['class'] .= ' vector-menu-dropdown-noicon';
-				break;
-			case 'p-vector-user-menu-overflow':
-				$portletData['class'] .= ' vector-user-menu-overflow';
-				break;
-			default:
-				break;
+		if ( $type === self::MENU_TYPE_DROPDOWN ) {
+			$portletData = Hooks::updateDropdownMenuData( $portletData );
 		}
 
-		if ( $portletData['id'] === 'p-lang' && $this->isLanguagesInContent() ) {
-			$portletData = array_merge( $portletData, $this->getULSPortletData() );
-		}
-		$class = $portletData['class'];
-		$portletData['class'] = trim( "$class $extraClasses[$type]" );
+		$portletData['class'] = trim( $portletData['class'] );
+		$portletData['heading-class'] = trim( $portletData['heading-class'] );
 		return $portletData;
 	}
 
@@ -873,10 +858,24 @@ abstract class SkinVector extends SkinMustache {
 				break;
 		}
 
-		$portletData = $this->decoratePortletClass(
-			$portletData,
-			$type
-		);
+		if ( $key === 'data-languages' && $this->isLanguagesInContent() ) {
+			$portletData = array_merge( $portletData, $this->getULSPortletData() );
+		}
+
+		if ( $key === 'data-user-menu' && !$this->isLegacy() ) {
+			$portletData = $this->getUserMenuPortletData( $portletData );
+		}
+
+		if ( $key === 'data-vector-user-menu-overflow' ) {
+			$portletData['class'] .= ' vector-user-menu-overflow';
+		}
+
+		if ( $key === 'data-personal' && $this->isLegacy() ) {
+			// Set tooltip to empty string for the personal menu for both logged-in and logged-out users
+			// to avoid showing the tooltip for legacy version.
+			$portletData['html-tooltip'] = '';
+			$portletData['class'] .= ' vector-user-menu-legacy';
+		}
 
 		// Special casing for Variant to change label to selected.
 		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
@@ -891,19 +890,10 @@ abstract class SkinVector extends SkinMustache {
 			$portletData['aria-label'] = $this->msg( 'vector-language-variant-switcher-label' );
 		}
 
-		// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons. For modern
-		// Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for the user icon (dropdown
-		// indicator for user links menu) for logged-in users. This overrides the tooltip for the user links menu icon
-		// which is an ellipsis for anonymous users.
-		if ( $key === 'data-user-menu' && !$this->isLegacy() && !$this->loggedin ) {
-			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
-		}
-
-		// Set tooltip to empty string for the personal menu for both logged-in and logged-out users to avoid showing
-		// the tooltip for legacy version.
-		if ( $key === 'data-personal' && $this->isLegacy() ) {
-			$portletData['html-tooltip'] = '';
-		}
+		$portletData = $this->updatePortletClasses(
+			$portletData,
+			$type
+		);
 
 		return $portletData + [
 			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
