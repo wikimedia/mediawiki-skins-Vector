@@ -46,6 +46,7 @@
 	"vector-searchsuggest-containing": "Vyhledat stránky obsahující „<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>“",
 	"vector-intro-page": "Nápověda:Úvod",
 	"vector-toc-heading": "Obsah",
+	"vector-toc-toggle-position-title": "skrýt",
 	"vector-toc-beginning": "Začátek",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",

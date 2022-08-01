@@ -58,6 +58,8 @@
 	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "ويكيبيديا:مقدمة",
 	"vector-toc-heading": "المحتويات",
+	"vector-toc-toggle-position-sidebar": "انقل للشريط الجانبي",
+	"vector-toc-toggle-position-title": "أخف",
 	"vector-toc-beginning": "المقدمة",
 	"vector-toc-toggle-button-label": "ثبِّت القسم الفرعي $1",
 	"vector-anon-user-menu-pages": "صفحات للمحررين الذين سجَّلوا خروجهم",

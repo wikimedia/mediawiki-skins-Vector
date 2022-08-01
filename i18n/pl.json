@@ -46,6 +46,8 @@
 	"vector-searchsuggest-containing": "Szukaj stron zawierających <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Pomoc:Pierwsze kroki",
 	"vector-toc-heading": "Zawartość",
+	"vector-toc-toggle-position-sidebar": "przenieś do paska bocznego",
+	"vector-toc-toggle-position-title": "ukryj",
 	"vector-toc-beginning": "Początek",
 	"vector-toc-toggle-button-label": "Przełącz podsekcję $1",
 	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",

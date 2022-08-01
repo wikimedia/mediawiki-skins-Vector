@@ -50,6 +50,7 @@
 	"vector-searchsuggest-containing": "Procurar pelas páginas contendo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Wikipédia:Boas-vindas",
 	"vector-toc-heading": "Conteúdo",
+	"vector-toc-toggle-position-title": "Esconder",
 	"vector-toc-beginning": "Início",
 	"vector-anon-user-menu-pages": "Páginas para editores conectados",
 	"vector-anon-user-menu-pages-learn": "saiba mais",

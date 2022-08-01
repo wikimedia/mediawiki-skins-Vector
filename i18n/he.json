@@ -41,6 +41,8 @@
 	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
 	"vector-toc-heading": "תוכן עניינים",
+	"vector-toc-toggle-position-sidebar": "העברה לסרגל הצד",
+	"vector-toc-toggle-position-title": "הסתרה",
 	"vector-toc-beginning": "התחלה",
 	"vector-toc-toggle-button-label": "שינוי מצב התת־פרק $1",
 	"vector-anon-user-menu-pages": "דפים לעורכים שלא נכנסו לחשבון",

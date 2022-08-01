@@ -43,6 +43,8 @@
 	"vector-searchsuggest-containing": "Пребарај страници кои го содржат <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вовед",
 	"vector-toc-heading": "Содржина",
+	"vector-toc-toggle-position-sidebar": "премести во страничникот",
+	"vector-toc-toggle-position-title": "скриј",
 	"vector-toc-beginning": "Почеток",
 	"vector-toc-toggle-button-label": "Префрли на поднасловот $1",
 	"vector-anon-user-menu-pages": "Страници за одјавени уредници",
