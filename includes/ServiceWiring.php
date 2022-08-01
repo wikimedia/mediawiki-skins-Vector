@@ -27,6 +27,7 @@ use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\TableOfContentsTreatmentRequirement;
 
 return [
 	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
@@ -183,6 +184,25 @@ return [
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER_EDIT,
+			]
+		);
+
+		// T313435 Feature: Table of Contents
+		// Temporary - remove after TOC A/B test is finished.
+		// ================================
+		$featureManager->registerRequirement(
+			new TableOfContentsTreatmentRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$services->getCentralIdLookupFactory()->getNonLocalLookup()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_TABLE_OF_CONTENTS,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
 			]
 		);
 
