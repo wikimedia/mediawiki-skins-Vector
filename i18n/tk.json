@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hanberke"
+			"Hanberke",
+			"Amire80",
+			"TayfunEt."
 		]
 	},
-	"vector-action-addsection": "Tema goş",
+	"vector-action-addsection": "Mowzuk goş",
 	"vector-action-delete": "Öçür",
 	"vector-action-move": "Adyny üýtget",
 	"vector-action-protect": "Goraga al",
