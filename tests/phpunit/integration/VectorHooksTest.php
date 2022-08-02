@@ -440,11 +440,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				'login' => [ 'class' => [], 'icon' => 'login' ],
 			]
 		];
-		$contentNavWatchlist = [
-			'user-menu' => [
-				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
-			]
-		];
 		$vectorLegacySkin = new SkinVectorLegacy( [ 'name' => 'vector' ] );
 		$contentNavLegacy = [
 			'user-page' => [
@@ -453,20 +448,12 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 
 		Hooks::onSkinTemplateNavigation( $vector2022Skin, $contentNav );
-		$this->assertFalse( isset( $contentNav['vector-user-menu-overflow'] ),
-			'watchlist data is not copied to vector-user-menu-overflow when not provided'
-		);
 		$this->assertFalse( isset( $contentNav['user-page']['login'] ),
-			'updateUserLinksDropdownItems is called when user-page is defined'
+			'updateUserLinksDropdownItems is called when not legacy'
 		);
 		$this->assertContains( 'mw-ui-button',
-			$contentNav['user-page']['userpage']['link-class'],
+			$contentNav['vector-user-menu-overflow']['userpage']['link-class'],
 			'updateUserLinksOverflowItems is called when not legacy'
-		);
-
-		Hooks::onSkinTemplateNavigation( $vector2022Skin, $contentNavWatchlist );
-		$this->assertTrue( isset( $contentNavWatchlist['vector-user-menu-overflow'] ),
-			'watchlist data is copied to vector-user-menu-overflow when provided'
 		);
 
 		Hooks::onSkinTemplateNavigation( $vectorLegacySkin, $contentNavLegacy );
@@ -545,6 +532,14 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'updateUserLinksOverflowItems'
 		);
 		$updateUserLinksOverflowItems->setAccessible( true );
+		$skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
+
+		// Registered user
+		$registeredUser = $this->createMock( User::class );
+		$registeredUser->method( 'isRegistered' )->willReturn( true );
+		$context = new RequestContext();
+		$context->setUser( $registeredUser );
+		$skin->setContext( $context );
 		$content = [
 			'notifications' => [
 				'alert' => [ 'class' => [], 'icon' => 'alert' ],
@@ -554,30 +549,31 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			],
 			'user-page' => [
 				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
+				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
 			],
-			'vector-user-menu-overflow' => [
+			'user-menu' => [
 				'watchlist' => [ 'class' => [], 'icon' => 'watchlist' ],
 			],
 		];
-		$updateUserLinksOverflowItems->invokeArgs( null, [ &$content ] );
+		$updateUserLinksOverflowItems->invokeArgs( null, [ $skin, &$content ] );
 		$this->assertContains( 'user-links-collapsible-item',
-			$content['user-interface-preferences']['uls']['class'],
+			$content['vector-user-menu-overflow']['uls']['class'],
 			'ULS link in user links overflow requires collapsible class'
 		);
 		$this->assertContains( 'user-links-collapsible-item',
-			$content['user-page']['userpage']['class'],
+			$content['vector-user-menu-overflow']['userpage']['class'],
 			'User page link in user links overflow requires collapsible class'
 		);
 		$this->assertContains( 'mw-ui-button',
-			$content['user-page']['userpage']['link-class'],
+			$content['vector-user-menu-overflow']['userpage']['link-class'],
 			'User page link in user links overflow requires button classes'
 		);
 		$this->assertContains( 'mw-ui-quiet',
-			$content['user-page']['userpage']['link-class'],
+			$content['vector-user-menu-overflow']['userpage']['link-class'],
 			'User page link in user links overflow requires quiet button classes'
 		);
 		$this->assertNotContains( 'mw-ui-icon',
-			$content['user-page']['userpage']['class'],
+			$content['vector-user-menu-overflow']['userpage']['class'],
 			'User page link in user links overflow does not have icon classes'
 		);
 		$this->assertContains( 'user-links-collapsible-item',
