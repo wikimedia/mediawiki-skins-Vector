@@ -21,5 +21,10 @@
 	"vector-view-view": "Lees",
 	"vector-view-viewsource": "Wys bronteks",
 	"vector-more-actions": "Meer",
-	"vector-searchsuggest-containing": "Soek vir bladsye wat <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevat"
+	"vector-searchsuggest-containing": "Soek vir bladsye wat <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevat",
+	"vector-toc-heading": "Inhoud",
+	"vector-toc-toggle-position-title": "versteek",
+	"vector-toc-beginning": "Begin",
+	"vector-toc-menu-tooltip": "Inhoudsopgawe",
+	"vector-toc-collapsible-button-label": "Wissel die inhoudsopgawe"
 }
