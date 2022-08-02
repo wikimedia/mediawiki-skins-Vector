@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Murma174",
-			"Pyt"
+			"Pyt",
+			"Amire80"
 		]
 	},
 	"vector-skin-desc": "Modern wersion faan Monobook mä frisk skak an föl muar mögelkhaiden",
@@ -18,5 +19,6 @@
 	"vector-view-history": "Ferluup uunluke",
 	"vector-view-view": "Lees",
 	"vector-view-viewsource": "Kweltekst uunluke",
-	"vector-more-actions": "Muar"
+	"vector-more-actions": "Muar",
+	"tooltip-vector-anon-user-menu-title": "Muar ütjwool"
 }
