@@ -5,12 +5,6 @@
  * However the main menu and collapsible TOC use a variation of the checkbox hack
  * that requires their own JS for enhancements.
  *
- * This code targets any element with a mw-checkbox-hack-button class. It must have
- * a `for` attribute to qualify for enhancements.
- *
- * Enhancements include:
- * - Update `aria-role`s based on expanded/collapsed state.
- * - Update button icon based on expanded/collapsed state.
  */
 
 /** @interface MwApiConstructor */
@@ -96,15 +90,15 @@ function bindToggleOnSpaceEnter( button ) {
 }
 
 /**
- * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
- * for focus and `aria-expanded`. Also, flip the icon image on click.
+ * Improve the interactivity of the sidebar panel by binding checkbox hack enhancements.
  *
  * @param {HTMLElement|null} checkbox
  * @param {HTMLElement|null} button
+ * @param {HTMLElement|null} target
  * @return {void}
  */
-function initCheckboxHack( checkbox, button ) {
-	if ( checkbox instanceof HTMLInputElement && button ) {
+function initMainMenu( checkbox, button, target ) {
+	if ( checkbox instanceof HTMLInputElement && button && target ) {
 		checkboxHack.bindToggleOnClick( checkbox, button );
 		bindUpdateAriaExpandedOnInput( checkbox, button );
 		updateAriaExpanded( checkbox, button );
@@ -113,22 +107,41 @@ function initCheckboxHack( checkbox, button ) {
 }
 
 /**
- * Initialize all JavaScript sidebar enhancements.
+ * Improve the interactivity of the collapsed TOC by binding checkbox hack enhancements.
  *
- * @param {Window} window
+ * @param {HTMLElement|null} checkbox
+ * @param {HTMLElement|null} button
+ * @param {HTMLElement|null} target
+ * @return {void}
  */
-function init( window ) {
-	var buttons = window.document.querySelectorAll( '.mw-checkbox-hack-button' );
+function initCollapsedToc( checkbox, button, target ) {
+	if ( checkbox instanceof HTMLInputElement && button && target ) {
+		checkboxHack.bindToggleOnClick( checkbox, button );
+		checkboxHack.bindDismissOnClickOutside( window, checkbox, button, target );
+		checkboxHack.bindDismissOnClickLink( checkbox, target );
+		bindUpdateAriaExpandedOnInput( checkbox, button );
+		updateAriaExpanded( checkbox, button );
+		bindToggleOnSpaceEnter( button );
+	}
+}
 
-	Array.prototype.forEach.call( buttons, function ( button ) {
-		var checkboxId = button.getAttribute( 'for' ),
-			checkbox = checkboxId ? window.document.getElementById( checkboxId ) : null;
+/**
+ * Initialize main menu and collapsed TOC enhancements.
+ *
+ * @param {Document} document
+ */
+function init( document ) {
+	initMainMenu(
+		document.getElementById( 'mw-sidebar-checkbox' ),
+		document.getElementById( 'mw-sidebar-button' ),
+		document.getElementById( 'mw-navigation' )
+	);
 
-		if ( checkbox ) {
-			initCheckboxHack( checkbox, button );
-		}
-	} );
-
+	initCollapsedToc(
+		document.getElementById( 'vector-toc-collapsed-checkbox' ),
+		document.getElementById( 'vector-toc-collapsed-button' ),
+		document.getElementById( 'mw-panel-toc' )
+	);
 }
 
 module.exports = {

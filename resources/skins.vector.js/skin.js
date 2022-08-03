@@ -43,7 +43,7 @@ function enableCssAnimations( document ) {
 function main( window ) {
 	enableCssAnimations( window.document );
 	sidebarPersistence.init();
-	checkbox.init( window );
+	checkbox.init( window.document );
 	initSearchLoader( document );
 	languageButton();
 	dropdownMenus();
