@@ -6,7 +6,9 @@
 			"Uzoma Ozurumba",
 			"Edith Nwobu",
 			"Pasjoesscc",
-			"Oby Ezeilo"
+			"Oby Ezeilo",
+			"Amire80",
+			"Ifexin"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ|asụsụ}}",
@@ -20,7 +22,7 @@
 	"vector-view-edit": "Mèzi",
 	"vector-view-history": "Lèe onye rụrụ ọrụ a",
 	"vector-view-view": "Gụ̀ọ",
-	"vector-view-viewsource": "Zi mkpurụ",
+	"vector-view-viewsource": "Lee ebeosi",
 	"vector-more-actions": "Ọzọ",
 	"vector-searchsuggest-containing": "Chọọ peeji ndị gụnyere <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
 }
