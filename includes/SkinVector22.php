@@ -167,7 +167,9 @@ class SkinVector22 extends SkinVector {
 		$isGrid = $featureManager->isFeatureEnabled(
 			Constants::FEATURE_GRID
 		);
-		return $parentData + [
+		return array_merge( $parentData, [
+			// Cast empty string to null
+			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
 			'is-vector-grid' => $isGrid,
 			'vector-layout-class' => $isGrid ? 'vector-layout-grid vector-toc-visible' : 'vector-layout-legacy',
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
@@ -185,6 +187,6 @@ class SkinVector22 extends SkinVector {
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
-		];
+		] );
 	}
 }
