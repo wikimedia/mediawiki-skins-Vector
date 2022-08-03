@@ -96,16 +96,6 @@ body {
 	}
 }
 
-#siteSub {
-	margin-top: 8px; // T311564
-}
-
-#contentSub,
-#contentSub2 {
-	// T311564: Override core styles to apply margin-top rather than margin-bottom
-	margin: 8px 0 0 1em !important; // stylelint-disable-line declaration-no-important
-}
-
 .mw-header {
 	// allow z-index to apply so search results overlay article
 	position: relative;
@@ -139,6 +129,17 @@ body {
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
+
+	#siteSub {
+		margin-top: 8px; // T311564
+	}
+
+	#contentSub,
+	#contentSub2 {
+		// T311564: Override core styles to apply margin-top rather than margin-bottom
+		margin-top: 8px;
+		margin-bottom: 0;
+	}
 }
 
 /* Navigation Containers */
