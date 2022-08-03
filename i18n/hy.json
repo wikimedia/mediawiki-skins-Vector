@@ -10,6 +10,7 @@
 	},
 	"skinname-vector": "Սովորական",
 	"vector-languages": "Լեզուներ",
+	"vector-no-language-button-label": "Ավելացնել լեզուներ",
 	"vector-action-addsection": "Ավելացնել քննարկում",
 	"vector-action-delete": "Ջնջել",
 	"vector-action-move": "Տեղափոխել այս էջը",
@@ -22,6 +23,7 @@
 	"vector-view-view": "Կարդալ",
 	"vector-view-viewsource": "Դիտել ելատեքստը",
 	"vector-more-actions": "Ավելին",
+	"vector-toc-toggle-position-title": "թաքցնել",
 	"vector-anon-user-menu-pages-learn": "իմանալ ավելին",
 	"vector-toc-menu-tooltip": "Բովանդակություն"
 }

@@ -34,5 +34,6 @@
 	"vector-view-viewsource": "Паказаць крыніцу",
 	"vector-jumptonavigation": "Перайсьці да навігацыі",
 	"vector-jumptosearch": "Перайсьці да пошуку",
-	"vector-more-actions": "Болей"
+	"vector-more-actions": "Болей",
+	"vector-searchsuggest-containing": "Пошук старонак, якія маюць <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

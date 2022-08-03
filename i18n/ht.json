@@ -1,22 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Boukman",
 			"Internoob",
 			"Masterches",
 			"Tisave"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 lang}}",
 	"vector-action-addsection": "Ajoute yon sijè",
 	"vector-action-delete": "Efase",
 	"vector-action-move": "Chanje non",
 	"vector-action-protect": "Pwoteje",
 	"vector-action-undelete": "Retabli",
-	"vector-action-unprotect": "Pa pwoteje",
+	"vector-action-unprotect": "Chanje nivo pwoteksyon",
 	"vector-view-create": "Kreye",
 	"vector-view-edit": "Modifye",
 	"vector-view-history": "Gade istorik",
 	"vector-view-view": "Li",
-	"vector-view-viewsource": "Wè kòd tèks sa a",
-	"vector-more-actions": "Plis"
+	"vector-view-viewsource": "Wè kòd paj la",
+	"vector-more-actions": "Plis",
+	"vector-searchsuggest-containing": "Fouye paj ki genyen <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
