@@ -6,8 +6,6 @@
 // T305069 Layout adjustments of sidebar elements:
 // Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
 @margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
-// Spacing when the main menu is closed, aligns sidebar TOC aligns with bottom of the page title.
-@margin-top-sidebar-toc_title_inline: 3.5em;
 // Default spacing separating the sidebar TOC from the main menu or viewport.
 @margin-top-sidebar-toc: 1.5em;
 
@@ -59,23 +57,6 @@
 	.sidebar-toc {
 		// Use margin-top to align TOC rather than grid row gap
 		// Applies when the TOC sticky and when the main menu is both open and closed.
-		margin-top: @margin-top-sidebar-toc;
-	}
-}
-
-.vector-layout-legacy {
-	.sidebar-toc {
-		// Main menu is closed
-		margin-top: @margin-top-sidebar-toc_title_inline;
-	}
-
-	@{selector-workspace-container-sidebar-open} .sidebar-toc {
-		// Main menu is open
-		margin-top: @margin-top-sidebar-toc;
-	}
-
-	.vector-sticky-header-visible & .sidebar-toc {
-		// Sticky header is visible
 		margin-top: @margin-top-sidebar-toc;
 	}
 }
@@ -139,12 +120,16 @@
 	}
 }
 
-// Use the MediaWiki checkbox hack class from checkboxHack.less. This class exists on the
-// checkbox input for the menu panel.
+// Hide sidebar entirely when the checkbox is disabled
 @{selector-workspace-container-sidebar-closed} .mw-sidebar {
-	// Turn off presentation so that screen readers get the same effect as visually hiding.
-	// Visibility and opacity can be animated. If animation is unnecessary, use `display: none`
-	// instead to avoid hidden rendering.
-	visibility: hidden;
-	opacity: 0;
+	display: none;
+}
+
+/**
+ * Makes the sidebar full screen at lower resolutions.
+ */
+@media ( max-width: @max-width-tablet ) {
+	.mw-sidebar {
+		width: 100%;
+	}
 }
