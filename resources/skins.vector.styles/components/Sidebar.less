@@ -30,11 +30,13 @@
 .sidebar-toc,
 .sidebar-toc:after {
 	// Match styles between TOC and fade element to ensure the fade covers the correct area
-	width: @width-sidebar;
+	// This is expressed in pixels to support different font sizes since our layout is currently
+	// expressed in pixels. See T313817.
+	width: @width-sidebar-px;
 	margin-left: 0;
 
 	@media ( min-width: @min-width-desktop-wide ) {
-		width: @width-sidebar-wide;
+		width: @width-sidebar-px-wide;
 		margin-left: @margin-start-sidebar-content;
 	}
 }
