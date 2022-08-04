@@ -149,15 +149,18 @@
 	}
 }
 
-.client-js .vector-sticky-header-visible {
-	// T289817 Override other sticky element offsets to ensure that other
-	// sticky elements (i.e. table headers) appear below the sticky header.
-	//
-	// @stable See the Integration notes for developers section at
-	// https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
-	.mw-sticky-header-element,
-	.charts-stickyhead th {
-		/* stylelint-disable-next-line declaration-no-important */
-		top: @height-sticky-header !important;
+// T298836 Sticky header is only shown at higher resolutions
+@media ( min-width: @min-width-desktop ) {
+	.client-js .vector-sticky-header-visible {
+		// T289817 Override other sticky element offsets to ensure that other
+		// sticky elements (i.e. table headers) appear below the sticky header.
+		//
+		// @stable See the Integration notes for developers section at
+		// https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
+		.mw-sticky-header-element,
+		.charts-stickyhead th {
+			/* stylelint-disable-next-line declaration-no-important */
+			top: @height-sticky-header !important;
+		}
 	}
 }
