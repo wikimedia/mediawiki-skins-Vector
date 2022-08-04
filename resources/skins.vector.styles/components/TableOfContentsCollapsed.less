@@ -118,7 +118,7 @@
 	@supports ( display: grid ) {
 		.client-js {
 			// Collapsed to page title
-			.vector-toc-collapsed .vector-layout-grid {
+			.vector-toc-collapsed {
 				.mixin-toc-collapsed-unmoved();
 
 				.mw-table-of-contents-container {
@@ -135,9 +135,7 @@
 				body:not( .vector-sticky-header-visible ).vector-below-page-title& {
 					.mixin-toc-collapsed-floating();
 				}
-			}
 
-			.vector-toc-collapsed {
 				.vector-toc-uncollapse-button {
 					display: inline-block;
 				}

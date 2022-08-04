@@ -22,95 +22,92 @@
 	padding-left: 8px;
 }
 
-.vector-layout-grid {
-	.mw-content-container {
-		max-width: @max-width-content-container;
+.mw-content-container {
+	max-width: @max-width-content-container;
+	// For container logic specific to special pages and history pages.
+	.skin-vector-disable-max-width & {
+		// Allow the max-width of content on history/special pages to be wider than
+		// the max-width of content on article pages.
+		// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
+		// to support easier navigation between tabs.
+		// See T293441 for further information on that.
+		max-width: none;
+		width: 100%;
+	}
+}
 
-		// For container logic specific to special pages and history pages.
-		.skin-vector-disable-max-width & {
-			// Allow the max-width of content on history/special pages to be wider than
-			// the max-width of content on article pages.
-			// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
-			// to support easier navigation between tabs.
-			// See T293441 for further information on that.
-			max-width: none;
-			width: 100%;
-		}
+.mw-footer-container {
+	padding-top: @padding-top-footer;
+	padding-bottom: 82px;
+}
+
+@media ( max-width: @max-width-tablet ) {
+	.mw-header {
+		// Match header styles applied by grid-template-rows and row-gap
+		// when grid is disabled on lower resolutions
+		height: @height-header;
+		margin-bottom: @grid-row-gap;
+	}
+}
+
+@media ( min-width: @min-width-desktop ) {
+	.mw-page-container-inner {
+		display: grid;
+		width: 100%;
+		grid-template: ~'@{height-header} min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
+		grid-template-areas: 'header header header'
+			'sitebanner sitebanner sitebanner'
+			'sidebar gutter content'
+			'toc gutter content'
+			'footer footer footer';
+		row-gap: @grid-row-gap;
+	}
+
+	.mw-body {
+		padding-left: 0;
+	}
+
+	#siteNotice {
+		grid-area: sitebanner;
+	}
+
+	.mw-table-of-contents-container {
+		grid-area: toc;
+	}
+
+	.mw-header {
+		grid-area: header;
+	}
+
+	.vector-sidebar-container {
+		grid-area: sidebar;
+	}
+
+	.mw-content-container {
+		grid-area: content;
+	}
+
+	// with sidebar closed, when no table of contents, align with hamburger menu
+	@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
+		.mixin-column-align-width-hamburger-icon();
 	}
 
 	.mw-footer-container {
-		padding-top: @padding-top-footer;
-		padding-bottom: 82px;
+		grid-area: footer;
+		padding-top: @padding-top-footer - @grid-row-gap;
 	}
+}
 
-	@media ( max-width: @max-width-tablet ) {
-		.mw-header {
-			// Match header styles applied by grid-template-rows and row-gap
-			// when grid is disabled on lower resolutions
-			height: @height-header;
-			margin-bottom: @grid-row-gap;
-		}
+@media ( min-width: @min-width-desktop-wide ) {
+	.mw-page-container-inner {
+		/* Use of minmax is important to restrict the maximum grid column width
+		more information: T314756 */
+		grid-template-columns: ~'284px @{width-gutter} minmax(0, 1fr)';
 	}
+}
 
-	@media ( min-width: @min-width-desktop ) {
-		.mw-page-container-inner {
-			display: grid;
-			width: 100%;
-			grid-template: ~'@{height-header} min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
-			grid-template-areas: 'header header header'
-				'sitebanner sitebanner sitebanner'
-				'sidebar gutter content'
-				'toc gutter content'
-				'footer footer footer';
-			row-gap: @grid-row-gap;
-		}
-
-		.mw-body {
-			padding-left: 0;
-		}
-
-		#siteNotice {
-			grid-area: sitebanner;
-		}
-
-		.mw-table-of-contents-container {
-			grid-area: toc;
-		}
-
-		.mw-header {
-			grid-area: header;
-		}
-
-		.vector-sidebar-container {
-			grid-area: sidebar;
-		}
-
-		.mw-content-container {
-			grid-area: content;
-		}
-
-		// with sidebar closed, when no table of contents, align with hamburger menu
-		@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
-			.mixin-column-align-width-hamburger-icon();
-		}
-
-		.mw-footer-container {
-			grid-area: footer;
-			padding-top: @padding-top-footer - @grid-row-gap;
-		}
-	}
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		.mw-page-container-inner {
-			/* Use of minmax is important to restrict the maximum grid column width
-			more information: T314756 */
-			grid-template-columns: ~'284px @{width-gutter} minmax(0, 1fr)';
-		}
-	}
-
-	@{selector-sidebar-no-toc-sidebar-closed} {
-		& ~ .mw-content-container {
-			.mixin-column-full-width();
-		}
+@{selector-sidebar-no-toc-sidebar-closed} {
+	& ~ .mw-content-container {
+		.mixin-column-full-width();
 	}
 }

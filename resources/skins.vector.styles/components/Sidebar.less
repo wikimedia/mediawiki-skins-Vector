@@ -9,20 +9,6 @@
 // Default spacing separating the sidebar TOC from the main menu or viewport.
 @margin-top-sidebar-toc: 1.5em;
 
-.mw-sidebar {
-	box-sizing: border-box;
-
-	// Hide #p-navigation label
-	#p-navigation .vector-menu-heading {
-		display: none;
-	}
-
-	// Temporary magic number, will be calculated after TOC specs are finalized
-	padding: 12px 19px 12px 9px;
-	background-image: none;
-	background-color: @background-color-secondary--modern;
-}
-
 // Update styling to account for TOC.
 .mw-sidebar,
 .sidebar-toc,
@@ -42,24 +28,40 @@
 .sidebar-toc,
 .sidebar-toc:after {
 	margin-left: -@margin-start-sidebar-content;
+	// Use margin-top to align TOC rather than grid row gap
+	// Applies when the TOC sticky and when the main menu is both open and closed.
+	margin-top: @margin-top-sidebar-toc;
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		margin-left: 0;
 	}
 }
 
-.vector-layout-grid {
+.mw-sidebar {
+	box-sizing: border-box;
+	// Temporary magic number, will be calculated after TOC specs are finalized
+	padding: 12px 19px 12px 9px;
+	background-image: none;
+	background-color: @background-color-secondary--modern;
+
 	@media ( min-width: @min-width-desktop ) {
-		.mw-sidebar {
-			// Prevent grid row gap from affecting TOC spacing when main menu is open
-			margin-bottom: -@grid-row-gap;
-		}
+		// Prevent grid row gap from affecting TOC spacing when main menu is open
+		margin-bottom: -@grid-row-gap;
 	}
 
-	.sidebar-toc {
-		// Use margin-top to align TOC rather than grid row gap
-		// Applies when the TOC sticky and when the main menu is both open and closed.
-		margin-top: @margin-top-sidebar-toc;
+	@media ( max-width: @max-width-tablet ) {
+		// Makes the sidebar full screen at lower resolutions.
+		width: 100%;
+	}
+
+	// Hide sidebar entirely when the checkbox is disabled
+	#mw-sidebar-checkbox:not( :checked ) ~ .vector-sidebar-container & {
+		display: none;
+	}
+
+	// Hide #p-navigation label
+	#p-navigation .vector-menu-heading {
+		display: none;
 	}
 }
 
@@ -119,19 +121,5 @@
 		&:before {
 			opacity: 1;
 		}
-	}
-}
-
-// Hide sidebar entirely when the checkbox is disabled
-@{selector-workspace-container-sidebar-closed} .mw-sidebar {
-	display: none;
-}
-
-/**
- * Makes the sidebar full screen at lower resolutions.
- */
-@media ( max-width: @max-width-tablet ) {
-	.mw-sidebar {
-		width: 100%;
 	}
 }
