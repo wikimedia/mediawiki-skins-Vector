@@ -451,11 +451,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( isset( $contentNav['user-page']['login'] ),
 			'updateUserLinksDropdownItems is called when not legacy'
 		);
-		$this->assertContains( 'mw-ui-button',
-			$contentNav['vector-user-menu-overflow']['userpage']['link-class'],
-			'updateUserLinksOverflowItems is called when not legacy'
-		);
-
 		Hooks::onSkinTemplateNavigation( $vectorLegacySkin, $contentNavLegacy );
 		$this->assertFalse( isset( $contentNavLegacy['user-page'] ),
 			'user-page is unset for legacy vector'
@@ -563,14 +558,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertContains( 'user-links-collapsible-item',
 			$content['vector-user-menu-overflow']['userpage']['class'],
 			'User page link in user links overflow requires collapsible class'
-		);
-		$this->assertContains( 'mw-ui-button',
-			$content['vector-user-menu-overflow']['userpage']['link-class'],
-			'User page link in user links overflow requires button classes'
-		);
-		$this->assertContains( 'mw-ui-quiet',
-			$content['vector-user-menu-overflow']['userpage']['link-class'],
-			'User page link in user links overflow requires quiet button classes'
 		);
 		$this->assertNotContains( 'mw-ui-icon',
 			$content['vector-user-menu-overflow']['userpage']['class'],
