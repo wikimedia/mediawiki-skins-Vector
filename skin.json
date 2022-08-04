@@ -147,6 +147,7 @@
 		}
 	},
 	"Hooks": {
+		"RequestContextCreateSkin": "VectorHooks",
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
 		"MakeGlobalVariablesScript": "VectorHooks",
@@ -419,6 +420,10 @@
 		}
 	},
 	"config": {
+		"Vector2022PreviewPages": {
+			"value": [],
+			"description": "Temporary configuration flag for allowing users to preview the new Vector skin."
+		},
 		"VectorSearchHost": {
 			"value": "",
 			"description": "Override default search API. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."

@@ -3,9 +3,11 @@
 namespace MediaWiki\Skins\Vector;
 
 use Config;
+use IContextSource;
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\Hook\OutputPageBodyAttributesHook;
+use MediaWiki\Hook\RequestContextCreateSkinHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
@@ -34,6 +36,7 @@ class Hooks implements
 	OutputPageBodyAttributesHook,
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
+	RequestContextCreateSkinHook,
 	SkinPageReadyConfigHook
 {
 	/**
@@ -618,6 +621,31 @@ class Hooks implements
 	}
 
 	/**
+	 * Temporary RequestContextCreateSkin hook handler.
+	 * Switches to new Vector on certain pages.
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RequestContextCreateSkin
+	 *
+	 * @param IContextSource $context The RequestContext object the skin is being created for.
+	 * @param Skin|null|string &$skin A variable reference you may set a Skin instance or string
+	 *                                key on to override the skin that will be used for the context.
+	 * @return bool|void
+	 */
+	public function onRequestContextCreateSkin( $context, &$skin ) {
+		if ( !$skin ) {
+			// user is anonymous
+			$user = $context->getUser();
+			$config = $context->getConfig();
+			$titles = $config->get( 'Vector2022PreviewPages' );
+			$title = $context->getTitle();
+			$titleText = $title ? $title->getPrefixedText() : null;
+			if ( $titleText && $user->isAnon() && in_array( $titleText, $titles ) ) {
+				$skin = 'vector-2022';
+			}
+		}
+	}
+
+	/**
 	 * Per the $options configuration (for use with $wgVectorMaxWidthOptions)
 	 * determine whether max-width should be disabled on the page.
 	 * For the main page: Check the value of $options['exclude']['mainpage']
@@ -704,15 +732,17 @@ class Hooks implements
 		if ( !self::isVectorSkin( $skinName ) ) {
 			return;
 		}
-
+		$config = $out->getConfig();
 		$user = $out->getUser();
 
 		if ( $user->isRegistered() && self::isSkinVersionLegacy( $skinName ) ) {
 			$vars[ 'wgVectorDisableSidebarPersistence' ] =
-				$out->getConfig()->get(
+				$config->get(
 					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
 				);
 		}
+		// Must be exposed to CentralNotice banners via mw.config
+		$vars[ 'wgVector2022PreviewPages' ] = $config->get( 'Vector2022PreviewPages' );
 	}
 
 	/**
