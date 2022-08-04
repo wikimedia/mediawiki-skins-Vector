@@ -44,6 +44,8 @@
 	// since they both appear beside each other in the article toolbar.
 	& > a,
 	.vector-menu-heading {
+		// Extensions like ProofreadPage insert images to the tabs, see T314028.
+		background-repeat: no-repeat;
 		display: inline-flex;
 		position: relative;
 		// Top & bottom padding to increase clickable area.
