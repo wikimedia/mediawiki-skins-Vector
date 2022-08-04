@@ -53,6 +53,8 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 항목이 포함된 글을 검색",
 	"vector-intro-page": "Help:소개",
 	"vector-toc-heading": "목차",
+	"vector-toc-toggle-position-sidebar": "사이드바로 이동",
+	"vector-toc-toggle-position-title": "숨기기",
 	"vector-toc-beginning": "처음 위치",
 	"vector-toc-toggle-button-label": "$1 하위분류 토글하기",
 	"vector-anon-user-menu-pages": "로그아웃한 편집자를 위한 문서",

@@ -44,6 +44,7 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> से युक्त पृष्ठ खोजें",
 	"vector-intro-page": "Help:परिचय",
 	"vector-toc-heading": "सामग्री",
+	"vector-toc-toggle-position-title": "छुपाएँ",
 	"vector-anon-user-menu-pages": "लॉग-आउट किए गए संपादकों के लिए पृष्ठ",
 	"vector-anon-user-menu-pages-learn": "अधिक जानें",
 	"vector-anon-user-menu-pages-label": "संपादन के बारे में अधिक जानें",
