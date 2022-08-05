@@ -5,12 +5,8 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
 		<p class=\\"sidebar-toc-title\\">
 		Contents
-		<button class=\\"vector-toc-uncollapse-button\\">
-			
-		</button>
-		<button class=\\"vector-toc-collapse-button\\">
-			
-		</button>
+		<button class=\\"vector-toc-uncollapse-button\\"></button>
+		<button class=\\"vector-toc-collapse-button\\"></button>
 		</p>
 	</div>
 	<ul class=\\"sidebar-toc-contents\\">
@@ -72,12 +68,8 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
 		<p class=\\"sidebar-toc-title\\">
 		Contents
-		<button class=\\"vector-toc-uncollapse-button\\">
-			
-		</button>
-		<button class=\\"vector-toc-collapse-button\\">
-			
-		</button>
+		<button class=\\"vector-toc-uncollapse-button\\"></button>
+		<button class=\\"vector-toc-collapse-button\\"></button>
 		</p>
 	</div>
 	<ul class=\\"sidebar-toc-contents\\">
