@@ -17,7 +17,9 @@
 		top: 100%;
 		left: -@border-width-base;
 		opacity: 0;
+		height: 0;
 		visibility: hidden;
+		overflow: hidden;
 		// The menu content should not be narrower than the menu button.
 		min-width: 100%;
 		margin: 0;
@@ -71,6 +73,7 @@
 	&:checked ~ .vector-menu-content {
 		opacity: 1;
 		visibility: visible;
+		height: auto;
 	}
 
 	:not( :checked ) > & {
