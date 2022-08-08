@@ -102,7 +102,9 @@
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		.mw-page-container-inner {
-			grid-template-columns: ~'284px @{width-gutter} 1fr';
+			/* Use of minmax is important to restrict the maximum grid column width
+			more information: T314756 */
+			grid-template-columns: ~'284px @{width-gutter} minmax(0, 1fr)';
 		}
 	}
 
