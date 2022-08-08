@@ -1,16 +1,30 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lea.Fakauvea"
+			"Lea.Fakauvea",
+			"Amire80",
+			"Lea.fakauvea"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Faka'aoga te Vector āfea",
+	"prefs-vector-enable-vector-1-help": "Hoki fetogi te sino o te Vector i te 'u ta'u ka hoko mai. E lave pe tau faka'aoga te Vector āfea (o Tesepeli 2019). Ki he fakakātoa o te 'u logo, vaka'i te [[mw:Reading/Web/Desktop_Improvements|pāsina gaue]].",
+	"vector-opt-out": "Fetogi ki tona āfea",
+	"vector-opt-out-tooltip": "Fetogi tau fakatu'utu'u ki hau liliu ki re Vector āfea",
+	"vector.css": "/* Ko CSS fuli i heni e faka'asi ānai ke sio ki ai nātou e faka'aoga te Vector */",
+	"vector.js": "/* Ko te 'atu JavaScript i heni e faka'asi ānai kia nātou e faka'aoga'i te Vector */",
+	"vector-action-toggle-sidebar": "Faka'asi te pou hema",
 	"vector-action-addsection": "Tohi he kupu",
 	"vector-action-delete": "Molehi",
 	"vector-action-move": "Fetogi higoa",
 	"vector-action-protect": "Puipui",
+	"vector-action-undelete": "Fakafisi",
+	"vector-action-unprotect": "Fetogi te puipui",
 	"vector-view-create": "Fa'u",
 	"vector-view-edit": "Fetogi",
 	"vector-view-history": "Kamata'aga",
 	"vector-view-view": "Lau",
+	"vector-view-viewsource": "sio te fa'u",
+	"vector-jumptonavigation": "Ki te fe'aluaki",
+	"vector-jumptosearch": "Ki te kumi",
 	"vector-more-actions": "Mo 'ihi atu"
 }
