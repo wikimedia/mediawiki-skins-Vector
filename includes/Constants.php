@@ -212,21 +212,6 @@ final class Constants {
 	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**
-	 * @var string
-	 */
-	public const CONFIG_GRID = 'VectorGrid';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_GRID = 'Grid';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_GRID = 'Grid';
-
-	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

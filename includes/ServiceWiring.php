@@ -186,29 +186,6 @@ return [
 			]
 		);
 
-		// Feature: Grid
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				null,
-				Constants::CONFIG_GRID,
-				Constants::REQUIREMENT_GRID
-			)
-		);
-
-		// Requires title above tabs to be enabled to simplify the
-		// number of variants it needs to consider.
-		$featureManager->registerFeature(
-			Constants::FEATURE_GRID,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_GRID,
-			]
-		);
-
 		return $featureManager;
 	}
 ];
