@@ -4,19 +4,21 @@
 			"Boukman",
 			"Internoob",
 			"Masterches",
-			"Tisave"
+			"Tisave",
+			"Amire80"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 lang}}",
 	"vector-action-addsection": "Ajoute yon sijè",
 	"vector-action-delete": "Efase",
 	"vector-action-move": "Chanje non",
 	"vector-action-protect": "Pwoteje",
 	"vector-action-undelete": "Retabli",
-	"vector-action-unprotect": "Pa pwoteje",
+	"vector-action-unprotect": "Chanje nivo pwoteksyon",
 	"vector-view-create": "Kreye",
 	"vector-view-edit": "Modifye",
 	"vector-view-history": "Gade istorik",
 	"vector-view-view": "Li",
-	"vector-view-viewsource": "Wè kòd tèks sa a",
+	"vector-view-viewsource": "Wè kòd paj la",
 	"vector-more-actions": "Plis"
 }
