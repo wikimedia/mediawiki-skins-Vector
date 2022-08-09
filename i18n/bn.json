@@ -52,7 +52,7 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থাকা পাতাগুলিতে অনুসন্ধান করুন",
 	"vector-intro-page": "Help:ভূমিকা",
 	"vector-toc-heading": "পরিচ্ছেদসমূহ",
-	"vector-toc-toggle-position-sidebar": "পার্শ্বদণ্ডে সরান",
+	"vector-toc-toggle-position-sidebar": "পার্শ্বদণ্ডে নিন",
 	"vector-toc-toggle-position-title": "লুকান",
 	"vector-toc-beginning": "শুরু",
 	"vector-toc-toggle-button-label": "$1 উপঅনুচ্ছেদ টগল করুন",
