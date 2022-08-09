@@ -2,8 +2,6 @@
 
 namespace MediaWiki\Skins\Vector;
 
-use MediaWiki\MediaWikiServices;
-
 /**
  * @ingroup Skins
  * @package Vector
@@ -37,8 +35,17 @@ class SkinVector22 extends SkinVector {
 		$experimentConfig = $this->getConfig()->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
 
 		return $experimentConfig['name'] === self::TOC_AB_TEST_NAME &&
-			$experimentConfig['enabled'] &&
-			MediaWikiServices::getInstance()->hasService( Constants::WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE );
+			$experimentConfig['enabled'];
+	}
+
+	/**
+	 * Check whether the user is bucketed in the treatment group for TOC.
+	 *
+	 * @return bool
+	 */
+	public function isUserInTocTreatmentBucket(): bool {
+		$featureManager = VectorServices::getFeatureManager();
+		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
 	}
 
 	/**

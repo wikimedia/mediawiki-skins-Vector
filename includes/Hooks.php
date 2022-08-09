@@ -557,14 +557,18 @@ class Hooks implements
 		}
 
 		$classes = [];
-		$isTocABTestEnabled = $sk->isTOCABTestEnabled();
-
 		if (
+			$sk->isTOCABTestEnabled() &&
 			$sk->isTableOfContentsVisibleInSidebar() &&
-			$isTocABTestEnabled
+			!$sk->getUser()->isAnon()
 		) {
+			$userBucket = !$sk->isUserInTocTreatmentBucket()
+				? 'control'
+				: 'treatment';
 			$experimentConfig = $config->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
-			$classes[] = $experimentConfig[ 'name' ];
+			$experimentName = $experimentConfig[ 'name' ];
+			$classes[] = $experimentName;
+			$classes[] = "$experimentName-$userBucket";
 		}
 
 		return $classes;

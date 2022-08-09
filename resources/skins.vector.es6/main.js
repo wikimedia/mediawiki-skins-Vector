@@ -215,6 +215,7 @@ const main = () => {
 		document.body.classList.contains( ABTestConfig.name ) &&
 		// eslint-disable-next-line compat/compat
 		window.URLSearchParams &&
+		!mw.user.isAnon() &&
 		initExperiment( ABTestConfig );
 	const isInTreatmentBucket = !!experiment && experiment.isInTreatmentBucket();
 
