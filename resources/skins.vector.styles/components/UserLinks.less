@@ -1,8 +1,11 @@
 @import '../../common/variables.less';
 @import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
+@import 'mediawiki.ui/variables.less';
 
 @font-size-user-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
+// Applies to links in the overflow menu that do not have the .mw-ui-button class.
+@overflow-link-margin: 0 8px;
 
 /**
  * Container that holds both the horizontal menu and dropdown menus.
@@ -57,6 +60,11 @@
 		align-items: center;
 	}
 
+	// Add margin to links that don't have the .mw-ui-button or related icon classes.
+	a:not( .mw-ui-button ):not( .mw-echo-notifications-badge  ) {
+		margin: 0 8px;
+	}
+
 	.user-links-collapsible-item {
 		@media ( max-width: @max-width-mobile ) {
 			display: none;
@@ -108,9 +116,14 @@
 	border-top: @border-width-base @border-style-base @colorGray14;
 }
 
-//User-page link in personal (dropdown) menu.
+//User-page link in personal (overflow) menu.
 #pt-userpage-2 {
 	max-width: unit( 155 / @font-size-browser / @font-size-user-links, em );
+
+	a {
+		// T312157 Override redlink (.new) color for non-existant userpage
+		color: @color-primary;
+	}
 
 	span {
 		.text-overflow( @visible: false );

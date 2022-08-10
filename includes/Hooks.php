@@ -290,7 +290,8 @@ class Hooks implements
 		if ( isset( $content_navigation['user-page']['userpage'] ) ) {
 			$content_navigation[$overflow]['userpage'] = array_merge(
 				$content_navigation['user-page']['userpage'], [
-				'button' => true,
+				// T312157: Style the userpage link as a blue link rather than a quiet button.
+				'button' => false,
 				'collapsible' => true,
 				// Remove icon
 				'icon' => '',
@@ -320,7 +321,8 @@ class Hooks implements
 			$content_navigation[$overflow]['createaccount'] = array_merge(
 				$content_navigation['user-menu']['createaccount'], [
 				'id' => 'pt-createaccount-2',
-				'button' => true,
+				// T312157: Style the userpage link as a blue link rather than a quiet button.
+				'button' => false,
 				'collapsible' => true,
 				// Remove icon
 				'icon' => '',
