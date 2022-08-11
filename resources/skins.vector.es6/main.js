@@ -9,6 +9,7 @@ const
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
+	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'mw-panel-toc',
 	TOC_ID_LEGACY = 'toc',
 	BODY_CONTENT_ID = 'bodyContent',
@@ -16,9 +17,12 @@ const
 	TOC_SECTION_ID_PREFIX = 'toc-',
 	TOC_LEGACY_PLACEHOLDER_TAG = 'mw:tocplace',
 	TOC_SCROLL_HOOK = 'table_of_contents',
+	TOC_COLLAPSED_CLASS = 'vector-toc-collapsed',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title',
 	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
+
+const belowDesktopMedia = window.matchMedia( '(max-width: 999px)' );
 
 /**
  * @callback OnIntersection
@@ -106,6 +110,24 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
 	};
 }
 
+/*
+ * Updates TOC's location in the DOM (in sidebar or sticky header)
+ * depending on if the TOC is collapsed and if the sticky header is visible
+ *
+ * @return {void}
+ */
+const updateTocLocation = () => {
+	const isTocCollapsed = document.body.classList.contains( TOC_COLLAPSED_CLASS );
+	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
+	const isBelowDesktop = belowDesktopMedia.matches;
+	if ( isTocCollapsed ) {
+		const tocLocation = isStickyHeaderVisible && !isBelowDesktop ? 'stickyheader' : 'sidebar';
+		stickyHeader.moveToc( tocLocation );
+	} else {
+		stickyHeader.moveToc( 'sidebar' );
+	}
+};
+
 /**
  * @return {void}
  */
@@ -117,7 +139,9 @@ const main = () => {
 		searchToggle( searchToggleElement );
 	}
 
+	//
 	// Sticky header
+	//
 	const
 		header = document.getElementById( stickyHeader.STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById( stickyHeader.FIRST_HEADING_ID ),
@@ -141,21 +165,31 @@ const main = () => {
 		)
 	);
 
-	// Set up intersection observer for page title, used by sticky header
+	// Set up intersection observer for page title
+	// Used to show/hide sticky header and add class used by collapsible TOC (T307900)
 	const observer = scrollObserver.initScrollObserver(
 		() => {
 			if ( isStickyHeaderAllowed && showStickyHeader ) {
 				stickyHeader.show();
+				updateTocLocation();
 			}
+			document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
 		},
 		() => {
 			if ( isStickyHeaderAllowed && showStickyHeader ) {
 				stickyHeader.hide();
+				updateTocLocation();
 			}
+			document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 		}
 	);
+
+	// Handle toc location when sticky header is hidden on lower viewports
+	belowDesktopMedia.onchange = () => {
+		updateTocLocation();
+	};
 
 	if ( !showStickyHeader ) {
 		stickyHeader.hide();
@@ -224,18 +258,6 @@ const main = () => {
 		return;
 	}
 
-	// T307900 Setup observer for collapsible TOC
-	if ( stickyIntersection ) {
-		scrollObserver.initScrollObserver(
-			() => {
-				document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
-			},
-			() => {
-				document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
-			}
-		).observe( stickyIntersection );
-	}
-
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
 		onHeadingClick: ( id ) => {
@@ -271,7 +293,8 @@ const main = () => {
 		},
 		onToggleClick: ( id ) => {
 			tableOfContents.toggleExpandSection( id );
-		}
+		},
+		onToggleCollapse: updateTocLocation
 	} );
 	const headingSelector = [
 		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'

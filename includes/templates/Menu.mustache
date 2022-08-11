@@ -16,11 +16,13 @@
 		data-event-name="ui.dropdown-{{id}}"
 		class="vector-menu-checkbox{{#checkbox-class}} {{.}}{{/checkbox-class}}"
 		{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
+		{{{html-vector-menu-checkbox-attributes}}}
 	/>
 	<label
 		id="{{id}}-label"
 		for="{{id}}-checkbox"
 		class="vector-menu-heading{{#heading-class}} {{.}}{{/heading-class}}"
+		{{{html-vector-menu-heading-attributes}}}
 	>
 		{{{html-vector-heading-icon}}}<span class="vector-menu-heading-label">{{label}}</span>
 	</label>

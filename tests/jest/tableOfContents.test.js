@@ -11,6 +11,7 @@ let /** @type {HTMLElement} */ fooSection,
 	/** @type {HTMLElement} */ quuxSection;
 const onHeadingClick = jest.fn();
 const onToggleClick = jest.fn();
+const onToggleCollapse = jest.fn();
 
 /**
  * @param {Object} templateProps
@@ -80,7 +81,8 @@ function mount( templateProps = {} ) {
 	const toc = initTableOfContents( {
 		container: /** @type {HTMLElement} */ ( document.getElementById( 'mw-panel-toc' ) ),
 		onHeadingClick,
-		onToggleClick
+		onToggleClick,
+		onToggleCollapse
 	} );
 
 	fooSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-foo' ) );

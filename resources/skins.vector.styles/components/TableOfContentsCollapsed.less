@@ -1,6 +1,8 @@
 @import '../../common/variables.less';
 
-@selector-collapsed-toc-closed: ~'#vector-toc-collapsed-checkbox:not( :checked )';
+@height-collapsed-toc-button: 36px;
+@padding-top-content-px: unit( @padding-top-content * @font-size-browser, px );
+@selector-collapsed-toc-open: ~'#vector-toc-collapsed-checkbox:checked';
 
 #vector-toc-collapsed-button {
 	display: none;
@@ -22,42 +24,6 @@
 #vector-toc-collapsed-button,
 .sidebar-toc {
 	z-index: @z-index-menu;
-}
-
-.mixin-collapse-toc-page-title {
-	#vector-toc-collapsed-button {
-		display: block;
-	}
-
-	.mw-table-of-contents-container {
-		position: relative;
-
-		.vector-layout-legacy & {
-			// !important needed to override rules in screen.less
-			top: 0 !important; /* stylelint-disable-line declaration-no-important */
-		}
-	}
-
-	.sidebar-toc {
-		position: absolute;
-		top: 44px;
-		left: -2px;
-		// !important needed to override rules in Sidebar.less
-		margin: 0 !important; /* stylelint-disable-line declaration-no-important */
-
-		// Dropdown styles
-		border: @border-width-base @border-style-base @border-color-base;
-
-		// Remove TOC fade
-		&:after {
-			display: none;
-		}
-	}
-
-	@{selector-collapsed-toc-closed} ~ .mw-table-of-contents-container .sidebar-toc {
-		// Hide the TOC when the button is not checked
-		display: none;
-	}
 }
 
 // Override button styles for the "move to sidebar/hide" links. Default hide.
@@ -85,41 +51,89 @@
 	}
 }
 
+// Applies when TOC is collapsed in it's original DOM location
+// Doesn't apply to the collapsed TOC in the sticky header
+.mixin-toc-collapsed-unmoved() {
+	#vector-toc-collapsed-button {
+		display: block;
+	}
+
+	.mw-table-of-contents-container {
+		position: relative;
+
+		.vector-layout-legacy & {
+			// !important needed to override rules in screen.less
+			top: 0 !important; /* stylelint-disable-line declaration-no-important */
+		}
+	}
+
+	@{sidebar-toc-selector} {
+		display: none;
+		position: absolute;
+		margin: 0;
+		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
+		border: @border-width-base @border-style-base @border-color-base;
+	}
+
+	@{selector-collapsed-toc-open} ~ @{sidebar-toc-selector} {
+		// Hide the TOC when the button is not checked
+		display: block;
+	}
+}
+
+.mixin-toc-collapsed-floating() {
+	#vector-toc-collapsed-button,
+	.sidebar-toc {
+		position: fixed;
+	}
+
+	#vector-toc-collapsed-button {
+		top: 0;
+		left: 0;
+		margin: 0;
+	}
+
+	.sidebar-toc {
+		top: @height-collapsed-toc-button; // TOC button height
+		left: 6px;
+	}
+}
+
 @media ( max-width: @max-width-tablet ) {
-	.mixin-collapse-toc-page-title();
+	// Collapsed to page title on narrow screens
+	.mixin-toc-collapsed-unmoved();
 
+	@{sidebar-toc-selector} {
+		top: ~'calc(@{height-collapsed-toc-button} + @{padding-top-content-px})'; // 44px
+		left: -4px;
+	}
+
+	// Collapsed to floating icon on narrow screens when below page
 	.vector-below-page-title {
-		#vector-toc-collapsed-button,
-		.sidebar-toc {
-			position: fixed;
-		}
-
-		#vector-toc-collapsed-button {
-			top: 0;
-			left: 0;
-			margin: 0;
-		}
-
-		.sidebar-toc {
-			// TOC button height
-			top: 36px;
-			left: 6px;
-		}
+		.mixin-toc-collapsed-floating();
 	}
 }
 
 @media ( min-width: @min-width-desktop ) {
 	@supports ( display: grid ) {
 		.client-js {
+			// Collapsed to page title
 			.vector-toc-collapsed .vector-layout-grid {
-				.mixin-collapse-toc-page-title();
+				.mixin-toc-collapsed-unmoved();
 
 				.mw-table-of-contents-container {
 					grid-area: content;
 				}
 
-				.sidebar-toc {
+				@{sidebar-toc-selector} {
+					top: ~'calc(@{height-collapsed-toc-button} + @{padding-top-content-px})'; // 44px
 					left: -@icon-padding-md;
+				}
+
+				// Collapsed to floating icon
+				// when sticky header not visible and below page title
+				body:not( .vector-sticky-header-visible ).vector-below-page-title& {
+					.mixin-toc-collapsed-floating();
 				}
 			}
 

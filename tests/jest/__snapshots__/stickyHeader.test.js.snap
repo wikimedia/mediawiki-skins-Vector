@@ -11,6 +11,16 @@ exports[`Sticky header renders 1`] = `
 </button>
 		</div>
 <div> </div>		<div class=\\"vector-sticky-header-context-bar\\">
+			<div class=\\"vector-sticky-header-toc-container\\">
+
+<div id=\\"p-sticky-header-toc\\" class=\\"vector-menu mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc\\">
+	<div class=\\"vector-menu-content\\">
+		
+		<ul class=\\"vector-menu-content-list\\"></ul>
+		
+	</div>
+</div>
+			</div>
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>
 		</div>
 	</div>

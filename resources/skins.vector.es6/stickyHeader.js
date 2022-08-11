@@ -8,6 +8,7 @@ const
 	STICKY_HEADER_APPENDED_PARAM = [ 'wvprov', 'sticky-header' ],
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
+	TOC_ID = 'mw-panel-toc',
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_MENU_ID = 'p-personal',
 	ULS_STICKY_CLASS = 'uls-dialog-sticky',
@@ -45,6 +46,32 @@ function show() {
 function hide() {
 	document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 	document.body.classList.add( ULS_HIDE_CLASS );
+}
+
+/**
+ * Moves the TOC element to a new parent container.
+ *
+ * @param {string} position The position to move the TOC into: sidebar or stickyheader
+ */
+function moveToc( position ) {
+	const toc = document.getElementById( TOC_ID );
+	const currTocContainer = toc && toc.parentElement;
+	if ( !toc || !currTocContainer ) {
+		return;
+	}
+
+	let newTocContainer;
+	const sidebarTocContainerClass = 'mw-table-of-contents-container';
+	const stickyHeaderTocContainerClass = 'vector-menu-content';
+	// Avoid moving TOC if unnecessary
+	if ( !currTocContainer.classList.contains( sidebarTocContainerClass ) && position === 'sidebar' ) {
+		newTocContainer = document.querySelector( `.${sidebarTocContainerClass}` );
+	} else if ( !currTocContainer.classList.contains( stickyHeaderTocContainerClass ) && position === 'stickyheader' ) {
+		newTocContainer = document.querySelector( `.vector-sticky-header-toc .${stickyHeaderTocContainerClass}` );
+	}
+	if ( newTocContainer ) {
+		newTocContainer.insertAdjacentElement( 'beforeend', toc );
+	}
 }
 
 /**
@@ -574,6 +601,7 @@ function initStickyHeader( props ) {
 module.exports = {
 	show,
 	hide,
+	moveToc,
 	prepareUserMenu,
 	isAllowedNamespace,
 	isAllowedAction,
