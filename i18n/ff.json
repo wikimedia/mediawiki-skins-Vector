@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ibrahima",
-			"Ibrahima Malal Sarr"
+			"Ibrahima Malal Sarr",
+			"Musaddam Idriss"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1| Ɗemngal|$1 Ɗemngal}}",
 	"vector-action-addsection": "Ɓeydi toɓɓere",
 	"vector-action-delete": "Momtu",
 	"vector-action-move": "Dirtin",
@@ -14,5 +16,6 @@
 	"vector-view-history": "Yiyto aslol",
 	"vector-view-view": "Tar",
 	"vector-view-viewsource": "Yiyto ɗaɗol",
-	"vector-more-actions": "Ɓeydu"
+	"vector-more-actions": "Ɓeydu",
+	"vector-searchsuggest-containing": "Tefude ɗerewol hoosaji $1<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
