@@ -66,25 +66,15 @@
 }
 
 .mw-sidebar-action {
-	// Align with the portal heading/links
-	// `.portal` + `.portal .body`
-	margin: 8px @margin-end-portal 8px @margin-start-portal + @margin-start-portal-body;
-
 	// Styles for SidebarAction template.
 	.mw-sidebar-action-item {
-		h3.mw-sidebar-action-heading {
-			display: block;
-			background-image: linear-gradient( to right, @border-color-portal-heading-transparent 0, @border-color-portal-heading 33%, @border-color-portal-heading 66%, @border-color-portal-heading-transparent 100% ); // Standard (Firefox 16+, IE 10+, Safari 6.1+, Chrome 26+)
-			background-position: center bottom;
-			background-repeat: no-repeat;
-			background-size: 100% @border-width-base;
-			color: @color-base--subtle;
-			margin: 0.75em 0;
-			border: 0;
-			padding: 0.3em 0;
-			font-size: @font-size-nav-main-heading;
-			font-weight: normal;
-			cursor: default;
+		// Align with the portal heading/links
+		// `.portal` + `.portal .body`
+		margin-top: 4px;
+		margin-bottom: 4px;
+
+		.mw-sidebar-action-heading {
+			margin-bottom: 0.75em;
 		}
 
 		.mw-sidebar-action-content {
