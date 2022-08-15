@@ -14,6 +14,7 @@
 	// Needed for minimal content e.g. one word articles.
 	width: 100%;
 	box-sizing: border-box;
+	max-width: @max-width-content-container;
 }
 
 // aligns left side of column with hamburger icon.
@@ -23,7 +24,6 @@
 }
 
 .mw-content-container {
-	max-width: @max-width-content-container;
 	// For container logic specific to special pages and history pages.
 	.skin-vector-disable-max-width & {
 		// Allow the max-width of content on history/special pages to be wider than
@@ -87,6 +87,8 @@
 		grid-area: content;
 	}
 
+	// FIXME: Remove padding in favor of updating the header icons itself and making mw-body spacing consistent
+	// This padding complicates the collapsed TOC menu styles and contributes to inconsistent spacing
 	// with sidebar closed, when no table of contents, align with hamburger menu
 	@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
 		.mixin-column-align-width-hamburger-icon();
@@ -108,6 +110,13 @@
 
 @{selector-sidebar-no-toc-sidebar-closed} {
 	& ~ .mw-content-container {
+		.mixin-column-full-width();
+	}
+}
+
+.vector-toc-collapsed {
+	#mw-sidebar-checkbox:not( :checked ) ~ .mw-content-container,
+	#mw-sidebar-checkbox:not( :checked ) ~ .mw-table-of-contents-container {
 		.mixin-column-full-width();
 	}
 }
