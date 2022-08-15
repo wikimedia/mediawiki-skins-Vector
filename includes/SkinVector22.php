@@ -75,6 +75,9 @@ class SkinVector22 extends SkinVector {
 	/**
 	 * Annotates table of contents data with Vector-specific information.
 	 *
+	 * In tableOfContents.js we have tableOfContents::getTableOfContentsSectionsData(),
+	 * that yields the same result as this function, please make sure to keep them in sync.
+	 *
 	 * @param array $tocData
 	 * @return array
 	 */

@@ -331,6 +331,23 @@
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
+				},
+				{
+					"name": "resources/skins.vector.es6/tableOfContentsConfig.json",
+					"config": [
+						"VectorTableOfContentsCollapseAtCount",
+						"VectorTableOfContentsBeginning"
+					]
+				},
+				{
+					"name": "resources/skins.vector.es6/templates/TableOfContents.mustache",
+					"file": "includes/templates/TableOfContents.mustache",
+					"type": "text"
+				},
+				{
+					"name": "resources/skins.vector.es6/templates/TableOfContents__line.mustache",
+					"file": "includes/templates/TableOfContents__line.mustache",
+					"type": "text"
 				}
 			],
 			"dependencies": [
@@ -340,6 +357,12 @@
 				"mediawiki.page.watch.ajax",
 				"mediawiki.util",
 				"mediawiki.experiments"
+			],
+			"messages": [
+				"vector-toc-beginning",
+				"vector-toc-heading",
+				"vector-toc-toggle-position-sidebar",
+				"vector-toc-toggle-position-title"
 			]
 		},
 		"skins.vector.js": {

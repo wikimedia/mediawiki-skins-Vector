@@ -199,7 +199,7 @@ describe( 'Table of contents', () => {
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
-			expect( mw.hook ).toBeCalledWith( 've.activationStart' );
+			expect( mw.hook ).toBeCalledWith( 'wikipage.tableOfContents' );
 		} );
 
 		test( 'when expanding sections', () => {

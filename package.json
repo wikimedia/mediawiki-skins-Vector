@@ -47,6 +47,7 @@
 		"less": "3.8.1",
 		"less-loader": "4.1.0",
 		"mustache": "3.0.1",
+		"mustache-jest": "1.1.1",
 		"node-fetch": "2.6.7",
 		"pa11y": "6.1.1",
 		"postcss-less": "6.0.0",
