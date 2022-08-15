@@ -30,7 +30,7 @@
 	object data-portlets-sidebar. See Sidebar.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
-<div class="mw-page-container vector-layout-grid">
+<div class="mw-page-container">
 	<span id="top-page"></span>
 	<a class="mw-jump-link" href="#content">{{msg-vector-jumptocontent}}</a>
 	<div class="mw-page-container-inner">
@@ -40,7 +40,7 @@
 			class="mw-checkbox-hack-checkbox"
 			{{#sidebar-visible}}checked{{/sidebar-visible}}>
 		{{>Header}}
-		<div class="mw-workspace-container vector-sidebar-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
+		<div class="vector-sidebar-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 			<div id="mw-navigation">
 				{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
 			</div>
@@ -68,7 +68,7 @@
 			</main>
 			{{{html-after-content}}}
 		</div>
-		<div class="mw-workspace-container mw-footer-container">
+		<div class="mw-footer-container">
 			{{#data-footer}}{{>Footer}}{{/data-footer}}
 		</div>
 	</div> {{! END mw-page-container-inner }}
