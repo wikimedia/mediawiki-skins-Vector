@@ -7,6 +7,16 @@ const PARENT_SECTION_CLASS = 'sidebar-toc-level-1';
 const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
 const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
+const TOC_ID = 'mw-panel-toc';
+/**
+ * TableOfContents Mustache templates
+ */
+const templateBody = require( /** @type {string} */ ( './templates/TableOfContents.mustache' ) );
+const templateTocLine = require( /** @type {string} */ ( './templates/TableOfContents__line.mustache' ) );
+/**
+ * TableOfContents Config object for filling mustache templates
+ */
+const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContentsConfig.json' ) );
 
 /**
  * @callback onHeadingClick
@@ -28,6 +38,39 @@ const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
  * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
  * @property {onToggleClick} onToggleClick Called when a list item is clicked.
  * @property {onToggleCollapse} onToggleCollapse Called when collapse toggle buttons are clicked.
+ */
+
+/**
+ * @typedef {Object} Section
+ * @property {number} toclevel
+ * @property {string} anchor
+ * @property {string} line
+ * @property {string} number
+ * @property {string} index
+ * @property {number} byteoffset
+ * @property {string} fromtitle
+ * @property {boolean} is-parent-section
+ * @property {boolean} is-top-level-section
+ * @property {Section[]} array-sections
+ * @property {string} level
+ */
+
+/**
+ * @typedef {Object} SectionsListData
+ * @property {boolean} is-vector-toc-beginning-enabled
+ * @property {Section[]} array-sections
+ * @property {boolean} vector-is-collapse-sections-enabled
+ * @property {string} msg-vector-toc-heading
+ * @property {number} number-section-count
+ * @property {string} msg-vector-toc-beginning
+ * @property {string} msg-vector-toc-toggle-position-title
+ * @property {string} msg-vector-toc-toggle-position-sidebar
+ */
+
+/**
+ * @typedef {Object} ArraySectionsData
+ * @property {number} number-section-count
+ * @property {Section[]} array-sections
  */
 
 /**
@@ -344,13 +387,148 @@ module.exports = function tableOfContents( props ) {
 		bindSubsectionToggleListeners();
 		bindCollapseToggleListeners();
 
-		// Hide TOC button on VE activation
-		mw.hook( 've.activationStart' ).add( () => {
-			const tocButton = document.getElementById( 'vector-toc-collapsed-button' );
-			if ( tocButton ) {
-				tocButton.style.display = 'none';
-			}
+		mw.hook( 'wikipage.tableOfContents' ).add( reloadTableOfContents );
+	}
+
+	/**
+	 * Reexpands all sections that were expanded before the table of contents was reloaded.
+	 * Edited Sections are not reexpanded, as the ID of the edited section is changed after reload.
+	 */
+	function reExpandSections() {
+		initializeExpandedStatus();
+		const expandedSectionIds = getExpandedSectionIds();
+		for ( const id of expandedSectionIds ) {
+			expandSection( id );
+		}
+	}
+
+	/**
+	 * Reloads the table of contents from saved data
+	 *
+	 * @param {Section[]} sections
+	 */
+	function reloadTableOfContents( sections ) {
+		mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
+			reloadPartialHTML( getTableOfContentsHTML( sections ), TOC_ID );
+			// Rebind event listeners.
+			bindSubsectionToggleListeners();
+			// Reexpand sections that were expanded before the table of contents was reloaded.
+			reExpandSections();
+			// Initialize Collapse toggle buttons
+			bindCollapseToggleListeners();
 		} );
+	}
+
+	/**
+	 * Replaces the contents of the given element with the given HTML
+	 *
+	 * @param {string} html
+	 * @param {string} elementId
+	 * @param {boolean} setInnerHTML
+	 */
+	function reloadPartialHTML( html, elementId, setInnerHTML = true ) {
+		const htmlElement = document.getElementById( elementId );
+		if ( htmlElement ) {
+			if ( setInnerHTML ) {
+				htmlElement.innerHTML = html;
+			} else if ( htmlElement.outerHTML ) {
+				htmlElement.outerHTML = html;
+			} else { // IF outerHTML property access is not supported
+				const tmpContainer = document.createElement( 'div' );
+				tmpContainer.innerHTML = html.trim();
+				const childNode = tmpContainer.firstChild;
+				if ( childNode ) {
+					const tmpElement = document.createElement( 'div' );
+					tmpElement.setAttribute( 'id', `div-tmp-${elementId}` );
+					const parentNode = htmlElement.parentNode;
+					if ( parentNode ) {
+						parentNode.replaceChild( tmpElement, htmlElement );
+						parentNode.replaceChild( childNode, tmpElement );
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Generates the HTML for the table of contents.
+	 *
+	 * @param {Section[]} sections
+	 * @return {string}
+	 */
+	function getTableOfContentsHTML( sections ) {
+		return getTableOfContentsListHtml( getTableOfContentsData( sections ) );
+	}
+
+	/**
+	 * Generates the table of contents List HTML from the templates
+	 *
+	 * @param {Object} data
+	 * @return {string}
+	 */
+	function getTableOfContentsListHtml( data ) {
+		// @ts-ignore
+		const mustacheCompiler = mw.template.getCompiler( 'mustache' );
+		const compiledTemplateBody = mustacheCompiler.compile( templateBody );
+		const compiledTemplateTocLine = mustacheCompiler.compile( templateTocLine );
+
+		// Identifier 'TableOfContents__line' is not in camel case
+		// (template name is 'TableOfContents__line')
+		const partials = {
+			TableOfContents__line: compiledTemplateTocLine // eslint-disable-line camelcase
+		};
+
+		return compiledTemplateBody.render( data, partials ).html();
+	}
+
+	/**
+	 * @param {Section[]} sections
+	 * @return {SectionsListData}
+	 */
+	function getTableOfContentsData( sections ) {
+		return {
+			'number-section-count': sections.length,
+			'msg-vector-toc-heading': mw.message( 'vector-toc-heading' ).text(),
+			'msg-vector-toc-toggle-position-sidebar': mw.message( 'vector-toc-toggle-position-sidebar' ).text(),
+			'msg-vector-toc-toggle-position-title': mw.message( 'vector-toc-toggle-position-title' ).text(),
+			'msg-vector-toc-beginning': mw.message( 'vector-toc-beginning' ).text(),
+			'array-sections': getTableOfContentsSectionsData( sections, 1 ),
+			'vector-is-collapse-sections-enabled': sections.length >= tableOfContentsConfig.VectorTableOfContentsCollapseAtCount,
+			'is-vector-toc-beginning-enabled': tableOfContentsConfig.VectorTableOfContentsBeginning
+		};
+	}
+
+	/**
+	 * Prepares the data for rendering the table of contents,
+	 * nesting child sections within their parent sections.
+	 * This shoul yield the same result as the php function SkinVector22::getTocData(),
+	 * please make sure to keep them in sync.
+	 *
+	 * @param {Section[]} sections
+	 * @param {number} toclevel
+	 * @return {Section[]}
+	 */
+	function getTableOfContentsSectionsData( sections, toclevel = 1 ) {
+		const data = [];
+		for ( let i = 0; i < sections.length; i++ ) {
+			const section = sections[ i ];
+			if ( section.toclevel === toclevel ) {
+				const childSections = getTableOfContentsSectionsData(
+					sections.slice( i + 1 ),
+					toclevel + 1
+				);
+				section[ 'array-sections' ] = childSections;
+				section[ 'is-top-level-section' ] = toclevel === 1;
+				section[ 'is-parent-section' ] = Object.keys( childSections ).length > 0;
+				data.push( section );
+			}
+			// Child section belongs to a higher parent.
+			if ( section.toclevel < toclevel ) {
+				return data;
+			}
+		}
+
+		return data;
 	}
 
 	initialize();

@@ -3,6 +3,7 @@
 
 module.exports = {
 	moduleNameMapper: {
+		'^./templates/(.*).mustache': '<rootDir>/includes/templates/$1.mustache'
 	},
 
 	// Automatically clear mock calls and instances between every test
@@ -51,6 +52,7 @@ module.exports = {
 	testEnvironment: 'jsdom',
 
 	transform: {
+		'^.+\\.mustache?$': 'mustache-jest',
 		'.*\\.(vue)$': '<rootDir>/node_modules/@vue/vue3-jest'
 	}
 };
