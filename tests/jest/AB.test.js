@@ -45,11 +45,10 @@ describe( 'AB.js', () => {
 	} );
 
 	describe( 'initialization when body tag does not contain bucket', () => {
-		let /** @type {jest.Mock} */ hookMock;
+		let /** @type {jest.SpyInstance} */ hookMock;
 
 		beforeEach( () => {
-			hookMock = jest.fn().mockReturnValue( { fire: () => {} } );
-			mw.hook = hookMock;
+			hookMock = jest.spyOn( mw, 'hook' );
 		} );
 
 		it( 'sends data to WikimediaEvents when the bucket is part of sample (e.g. control)', () => {
@@ -70,11 +69,10 @@ describe( 'AB.js', () => {
 	} );
 
 	describe( 'initialization when body tag contains bucket', () => {
-		let /** @type {jest.Mock} */ hookMock;
+		let /** @type {jest.SpyInstance} */ hookMock;
 
 		beforeEach( () => {
-			hookMock = jest.fn().mockReturnValue( { fire: () => {} } );
-			mw.hook = hookMock;
+			hookMock = jest.spyOn( mw, 'hook' );
 		} );
 
 		it( 'sends data to WikimediaEvents when the bucket is part of sample (e.g. control)', () => {

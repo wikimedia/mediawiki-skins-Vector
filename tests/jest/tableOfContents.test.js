@@ -97,13 +97,6 @@ describe( 'Table of contents', () => {
 	beforeEach( () => {
 		// @ts-ignore
 		global.window.matchMedia = jest.fn( () => ( {} ) );
-
-		// @ts-ignore
-		global.mw = {
-			hook: jest.fn( () => ( {
-				add: () => {}
-			} ) )
-		};
 	} );
 
 	describe( 'renders', () => {
@@ -195,11 +188,12 @@ describe( 'Table of contents', () => {
 
 	describe( 'applies the correct aria attributes', () => {
 		test( 'when initialized', () => {
+			const spy = jest.spyOn( mw, 'hook' );
 			const toc = mount();
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
-			expect( mw.hook ).toBeCalledWith( 'wikipage.tableOfContents' );
+			expect( spy ).toBeCalledWith( 'wikipage.tableOfContents' );
 		} );
 
 		test( 'when expanding sections', () => {

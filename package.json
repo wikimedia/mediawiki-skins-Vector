@@ -34,7 +34,7 @@
 		"@wikimedia/codex": "0.1.0-alpha.8",
 		"@wikimedia/codex-icons": "0.1.0-alpha.8",
 		"@wikimedia/codex-search": "0.1.0-alpha.8",
-		"@wikimedia/mw-node-qunit": "6.3.0",
+		"@wikimedia/mw-node-qunit": "6.4.0",
 		"@wikimedia/types-wikimedia": "0.3.3",
 		"babel-loader": "8.0.6",
 		"commander": "9.1.0",
