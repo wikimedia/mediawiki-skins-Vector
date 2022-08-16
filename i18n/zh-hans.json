@@ -20,7 +20,18 @@
 			"Xzonn",
 			"落花有意12138",
 			"Lakejason0",
-			"Stang"
+			"Stang",
+			"Amire80",
+			"Bo77le",
+			"Diskdance",
+			"Lantx",
+			"Lanyun1103",
+			"StarrySky",
+			"Tr jason",
+			"Winston Sung",
+			"Wzl19371",
+			"Yining Chen",
+			50829
 		]
 	},
 	"skinname-vector": "Vector",
@@ -31,7 +42,7 @@
 	"vector-opt-out-tooltip": "更改您的设置来使用该皮肤的旧外观（旧版Vector）。",
 	"vector.css": "/* 这里的任何CSS将为使用Vector皮肤的用户加载 */",
 	"vector.js": "/* 这里的任何JavaScript将为使用Vector皮肤的用户加载 */",
-	"vector-action-toggle-sidebar": "折叠侧边栏",
+	"vector-action-toggle-sidebar": "折叠侧栏",
 	"vector-language-button-label": "{{PLURAL:$1|$1种语言}}",
 	"vector-action-addsection": "添加话题",
 	"vector-action-delete": "删除",
