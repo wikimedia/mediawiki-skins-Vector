@@ -29,6 +29,39 @@ function bind() {
 }
 
 /**
+ * Create an icon element to be appended inside the anchor tag.
+ *
+ * @param {HTMLElement|null} menuElement
+ * @param {HTMLElement|null} parentElement
+ * @param {string|null} id
+ *
+ * @return {HTMLElement|undefined}
+ */
+function createIconElement( menuElement, parentElement, id ) {
+	// Dropdowns which do not have the noicon class are icon capable.
+	var isIconCapable = menuElement &&
+		menuElement.classList.contains( 'vector-menu-dropdown' ) &&
+		!menuElement.classList.contains( 'vector-menu-dropdown-noicon' );
+
+	if ( !isIconCapable || !parentElement ) {
+		return;
+	}
+
+	var iconElement = document.createElement( 'span' );
+	iconElement.classList.add( 'mw-ui-icon' );
+
+	if ( id ) {
+		// The following class allows gadgets developers to style or hide an icon.
+		// * mw-ui-icon-vector-gadget-<id>
+		// The class is considered stable and should not be removed without
+		// a #user-notice.
+		iconElement.classList.add( 'mw-ui-icon-vector-gadget-' + id );
+	}
+
+	return iconElement;
+}
+
+/**
  * Adds icon placeholder for gadgets to use.
  *
  * @typedef {Object} PortletLinkData
@@ -42,12 +75,7 @@ function addPortletLinkHandler( item, data ) {
 	var link = item.querySelector( 'a' );
 	var $menu = $( item ).parents( '.vector-menu' );
 	var menuElement = $menu.length && $menu.get( 0 ) || null;
-	// Dropdowns which have not got the noicon class are icon capable.
-	var isIconCapable = menuElement && menuElement.classList.contains(
-		'vector-menu-dropdown'
-	) && !menuElement.classList.contains(
-		'vector-menu-dropdown-noicon'
-	);
+	var iconElement = createIconElement( menuElement, link, data.id );
 
 	// The views menu has limited space so we need to decide whether there is space
 	// to accomodate the new item and if not to redirect to the more dropdown.
@@ -67,23 +95,9 @@ function addPortletLinkHandler( item, data ) {
 			mw.util.showPortlet( 'p-cactions' );
 		}
 	}
-	/* eslint-enable no-jquery/no-global-selector */
 
-	if ( isIconCapable && link ) {
-		// If class was previously added this will be a no-op so it is safe to call even
-		// if we've previously enhanced it.
-		link.classList.add(
-			'mw-ui-icon',
-			'mw-ui-icon-before'
-		);
-
-		if ( data.id ) {
-			// The following class allows gadgets developers to style or hide an icon.
-			// * mw-ui-icon-vector-gadget-<id>
-			// The class is considered stable and should not be removed without
-			// a #user-notice.
-			link.classList.add( 'mw-ui-icon-vector-gadget-' + data.id );
-		}
+	if ( link && iconElement ) {
+		link.prepend( iconElement );
 	}
 }
 
@@ -99,6 +113,7 @@ Array.prototype.forEach.call(
 
 mw.hook( 'util.addPortletLink' ).add( addPortletLinkHandler );
 
-module.exports = function dropdownMenus() {
-	bind();
+module.exports = {
+	dropdownMenus: function dropdownMenus() { bind(); },
+	addPortletLinkHandler: addPortletLinkHandler
 };

@@ -1,6 +1,6 @@
 var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
-	dropdownMenus = require( './dropdownMenus.js' ),
+	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	sidebarPersistence = require( './sidebarPersistence.js' ),
 	checkbox = require( './checkbox.js' );
 
