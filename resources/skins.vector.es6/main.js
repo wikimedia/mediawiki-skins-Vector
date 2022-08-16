@@ -15,7 +15,7 @@ const
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
-	TOC_LEGACY_PLACEHOLDER_TAG = 'mw:tocplace',
+	TOC_LEGACY_PLACEHOLDER_SELECTOR = 'mw:tocplace,meta[property="mw:PageProp/toc"]',
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	TOC_COLLAPSED_CLASS = 'vector-toc-collapsed',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
@@ -214,7 +214,7 @@ const main = () => {
 
 	// Setup intersection observer for TOC scroll event tracking
 	// fire hooks for event logging if AB tests are enabled
-	const tocLegacyPlaceholder = document.getElementsByTagName( TOC_LEGACY_PLACEHOLDER_TAG )[ 0 ];
+	const tocLegacyPlaceholder = document.querySelectorAll( TOC_LEGACY_PLACEHOLDER_SELECTOR )[ 0 ];
 	const tocLegacyTargetIntersection = tocElementLegacy || tocLegacyPlaceholder;
 	// Initiate observer for table of contents in main content.
 	if ( tocLegacyTargetIntersection ) {
