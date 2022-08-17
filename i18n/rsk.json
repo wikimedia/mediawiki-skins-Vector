@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Keresturec"
+			"Keresturec",
+			"Vlad5250"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 язик|$1 язики}}",
@@ -15,5 +16,6 @@
 	"vector-view-history": "Опать историю",
 	"vector-view-view": "Читай",
 	"vector-more-actions": "Вецей",
-	"vector-searchsuggest-containing": "Найдз боки хтори содержа <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Найдз боки хтори содержа <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-toggle-position-title": "скриц"
 }
