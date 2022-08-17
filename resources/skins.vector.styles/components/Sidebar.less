@@ -55,7 +55,7 @@
 	}
 
 	// Hide sidebar entirely when the checkbox is disabled
-	#mw-sidebar-checkbox:not( :checked ) ~ .vector-sidebar-container & {
+	@{selector-main-menu-closed} ~ .vector-sidebar-container & {
 		display: none;
 	}
 
@@ -111,7 +111,7 @@
 		/* @embed */
 		background-image: url( images/chevronHorizontal-ltr.svg );
 
-		#mw-sidebar-checkbox:not( :checked ) ~ .mw-header & {
+		@{selector-main-menu-closed} ~ .mw-header & {
 			/* @embed */
 			background-image: url( images/menu.svg );
 		}

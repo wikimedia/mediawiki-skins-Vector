@@ -114,9 +114,9 @@
 	}
 }
 
-.vector-toc-collapsed {
-	#mw-sidebar-checkbox:not( :checked ) ~ .mw-content-container,
-	#mw-sidebar-checkbox:not( :checked ) ~ .mw-table-of-contents-container {
+.vector-toc-collapsed @{selector-main-menu-closed} {
+	& ~ .mw-content-container,
+	& ~ .mw-table-of-contents-container {
 		.mixin-column-full-width();
 	}
 }

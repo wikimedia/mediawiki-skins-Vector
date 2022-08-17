@@ -130,12 +130,16 @@
 // Menu button
 @margin-horizontal-sidebar-button-icon: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
 
+// Main menu
+@selector-main-menu-open: ~'#mw-sidebar-checkbox:checked';
+@selector-main-menu-closed: ~'#mw-sidebar-checkbox:not( :checked )';
+
 // Sidebar
+@width-sidebar-px: 220px;
+@width-sidebar-px-wide: 244px;
+
+// TOC
 @sidebar-toc-selector: ~'.mw-table-of-contents-container .sidebar-toc';
-@width-sidebar-px: 220;
-@width-sidebar-px-wide: 244;
-@margin-toc-start-content: unit( ( @width-sidebar-px + 24 ) / @font-size-browser, em );
-@margin-toc-start-content-wide: unit( ( @width-sidebar-px-wide + 52 ) / @font-size-browser, em ); // 18.5em;
 
 // Search
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em T270202
