@@ -2,6 +2,11 @@
 @import 'mediawiki.mixins.less';
 @import '../../common/mixins.less';
 
+// Flips the chevron so it points up when the dropdown is open.
+.vector-menu-checkbox:checked + .vector-menu-heading:after {
+	transform: scaleY( -1 );
+}
+
 /**
  * Dropdown menus that only appear in the tab bar in legacy Vector.
  */
