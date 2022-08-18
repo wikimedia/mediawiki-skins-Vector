@@ -11,6 +11,7 @@
 			"Naufal06",
 			"Rachmat04",
 			"Rex",
+			"Veracious",
 			"William Surya Permana"
 		]
 	},
@@ -26,6 +27,8 @@
 	"vector-languages": "Bahasa",
 	"vector-language-button-aria-label": "Pergi ke artikel dalam bahasa lain. Terdapat {{PLURAL:$1|$1 bahasa}}",
 	"vector-language-button-label": "$1 bahasa",
+	"vector-no-language-button-label": "Tambah bahasa",
+	"vector-no-language-button-aria-label": "Artikel ini hanya tersedia dalam bahasa ini. Terjemahkan artikelnya ke dalam bahasa lain",
 	"vector-language-redirect-to-top": "Di {{SITENAME}} ini, pranala bahasa terletak di bagian atas halaman di sebelah judul artikel. [[#p-lang-btn|Pergi ke paling atas]].",
 	"vector-language-variant-switcher-label": "Ubah varian bahasa",
 	"vector-action-addsection": "Bagian baru",
@@ -47,6 +50,7 @@
 	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Bantuan:Pengantar",
 	"vector-toc-heading": "Daftar isi",
+	"vector-toc-toggle-position-title": "sembunyikan",
 	"vector-toc-beginning": "Awal",
 	"vector-anon-user-menu-pages": "Halaman penyunting yang telah keluar log",
 	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut",
