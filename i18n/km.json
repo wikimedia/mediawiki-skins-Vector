@@ -8,6 +8,7 @@
 	},
 	"skinname-vector": "វ៉ិចទ័រ​​",
 	"vector.css": "/* CSS បានដាក់ទីនេះនឹងមានអនុភាពលើអ្នកប្រើប្រាស់នៃសំបក Vector */",
+	"vector-language-button-label": "{{PLURAL:$1|$1ភាសា|$1ភាសា}}",
 	"vector-action-addsection": "បន្ថែម​ប្រធានបទ​",
 	"vector-action-delete": "លុបចោល",
 	"vector-action-move": "ប្តូរទីតាំង",
@@ -20,5 +21,6 @@
 	"vector-view-view": "អាន",
 	"vector-view-viewsource": "មើល​កូដ",
 	"vector-more-actions": "ច្រើនទៀត",
+	"vector-searchsuggest-containing": "ស្វែងរកទំព័រដែលមានពាក្យ<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "មាតិកា"
 }
