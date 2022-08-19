@@ -15,7 +15,7 @@ const
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
-	TOC_LEGACY_PLACEHOLDER_SELECTOR = 'mw:tocplace,meta[property="mw:PageProp/toc"]',
+	TOC_LEGACY_PLACEHOLDER_SELECTOR = 'mw\\3Atocplace,meta[property="mw:PageProp/toc"]',
 	TOC_SCROLL_HOOK = 'table_of_contents',
 	TOC_COLLAPSED_CLASS = 'vector-toc-collapsed',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
