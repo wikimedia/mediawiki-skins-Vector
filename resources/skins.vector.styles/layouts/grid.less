@@ -33,8 +33,12 @@
 		// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
 		// to support easier navigation between tabs.
 		// See T293441 for further information on that.
-		max-width: none;
-		width: 100%;
+		// Both rules are !important as they are final. Max-width on a page should be restored by removing the `skin-vector-disable-max-width`,
+		// preferably by modification to the feature flag VectorMaxWidthOptions. Code should never attempt to override this rule.
+		/* stylelint-disable-next-line declaration-no-important */
+		max-width: none !important;
+		/* stylelint-disable-next-line declaration-no-important */
+		width: 100% !important;
 	}
 }
 
