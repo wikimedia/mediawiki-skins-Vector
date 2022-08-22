@@ -45,7 +45,7 @@
 				{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
 			</div>
 		</div>
-		<div id="siteNotice">{{{html-site-notice}}}</div>
+		{{#html-site-notice}}<div id="siteNotice">{{{.}}}</div>{{/html-site-notice}}
 		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
 		{{>TableOfContentsContainer}}
 		<div class="mw-content-container">
