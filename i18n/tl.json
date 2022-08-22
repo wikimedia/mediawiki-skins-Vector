@@ -9,6 +9,7 @@
 		]
 	},
 	"skinname-vector": "Vector",
+	"prefs-vector-enable-vector-1-label": "Gamitin ang Legacy Vector",
 	"vector.css": "/* Ang lahat ng CSS dito ay ikakarga para sa mga tagagamit ng pabalat na Vector */",
 	"vector.js": "/* Ang lahat ng JavaScript dito ay ikakarga para sa mga tagagamit ng pabalat na Vector */",
 	"vector-action-addsection": "Magdagdag ng paksa",
