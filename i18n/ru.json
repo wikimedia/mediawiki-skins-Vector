@@ -59,7 +59,7 @@
 	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",
 	"vector-toc-heading": "Содержание",
-	"vector-toc-toggle-position-sidebar": "переместить вбок",
+	"vector-toc-toggle-position-sidebar": "переместить в боковую панель",
 	"vector-toc-toggle-position-title": "скрыть",
 	"vector-toc-beginning": "Начало",
 	"vector-toc-toggle-button-label": "Показать/Скрыть подраздел $1",

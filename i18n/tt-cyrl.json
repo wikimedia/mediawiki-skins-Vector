@@ -4,12 +4,14 @@
 			"Derslek",
 			"Don Alessandro",
 			"Rinatus",
+			"Ерней",
 			"Ильнар",
 			"Рашат Якупов"
 		]
 	},
 	"skinname-vector": "Сызымлы",
 	"vector-skin-desc": "Хәзерге заманга туры килгән MonoBook күренеше, яңа бизәлеш һәм яңа мөмкинлекләр",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
 	"vector-action-addsection": "Яңа тема өстәү",
 	"vector-action-delete": "Бетерү",
 	"vector-action-move": "Күчерү",
@@ -23,5 +25,6 @@
 	"vector-view-viewsource": "Чыганагын карау",
 	"vector-jumptonavigation": "Навигациягә күчү",
 	"vector-jumptosearch": "Эзләүгә күчү",
-	"vector-more-actions": "Тагын"
+	"vector-more-actions": "Тагын",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ны үз эченә алган битләрне эзләү"
 }
