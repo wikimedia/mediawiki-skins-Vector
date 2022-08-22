@@ -130,3 +130,8 @@
 .client-js body.rtl .sidebar-toc .sidebar-toc-toggle {
 	transform: rotate( 90deg );
 }
+
+// FIXME: Can be removed when https://github.com/cssjanus/cssjanus/issues/82 is fixed and in production.
+body.rtl .sidebar-toc {
+	padding: @sidebar-toc-vertical-padding @sidebar-toc-left-padding @sidebar-toc-vertical-padding @sidebar-toc-right-padding;
+}
