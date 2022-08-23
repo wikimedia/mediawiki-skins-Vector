@@ -120,9 +120,8 @@ const updateTocLocation = () => {
 	const isTocCollapsed = document.body.classList.contains( TOC_COLLAPSED_CLASS );
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
-	if ( isTocCollapsed ) {
-		const tocLocation = isStickyHeaderVisible && !isBelowDesktop ? 'stickyheader' : 'sidebar';
-		stickyHeader.moveToc( tocLocation );
+	if ( isTocCollapsed && isStickyHeaderVisible && !isBelowDesktop ) {
+		stickyHeader.moveToc( 'stickyheader' );
 	} else {
 		stickyHeader.moveToc( 'sidebar' );
 	}

@@ -19,7 +19,7 @@
 	// Needed to align TOC with bottom of title
 	// 1.5em from .mw-table-of-contents-container + 1.5em from .sidebar-toc = 3em
 	@media ( min-width: @min-width-desktop ) {
-		body:not(.vector-toc-collapsed) @{selector-main-menu-closed} ~ & {
+		.vector-toc-not-collapsed @{selector-main-menu-closed} ~ & {
 			margin-top: 1.5em;
 		}
 	}
@@ -105,9 +105,9 @@
 }
 
 // T302076: Add fade scrollable indicator when TOC is in sidebar
-// Avoid showing indicator when the TOC is collapsed in the page title, sticky header, or floating
+// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
 @media ( min-width: @min-width-desktop ) {
-	@{sidebar-toc-selector}:after {
+	.vector-toc-not-collapsed .sidebar-toc:after {
 		content: '';
 		display: block;
 		position: absolute;
@@ -119,10 +119,6 @@
 		background-repeat: no-repeat;
 		background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
 		pointer-events: none; // Make the link below the fade clickable
-
-		.vector-toc-collapsed & {
-			display: none;
-		}
 	}
 }
 

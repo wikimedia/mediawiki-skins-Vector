@@ -79,17 +79,15 @@
 		min-width: 0;
 	}
 
+	// Hide TOC in sticky header by default
 	&-toc-container {
+		display: none;
+	}
+
+	.vector-toc-collapsed &-toc-container {
+		display: block;
 		position: relative;
 		margin-left: -@icon-padding-md;
-
-		.vector-menu-heading {
-			display: none;
-
-			.vector-toc-collapsed & {
-				display: block;
-			}
-		}
 
 		.sidebar-toc {
 			margin: 0;

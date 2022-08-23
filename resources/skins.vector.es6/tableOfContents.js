@@ -7,6 +7,7 @@ const PARENT_SECTION_CLASS = 'sidebar-toc-level-1';
 const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
 const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
+const TOC_NOT_COLLAPSED_CLASS = 'vector-toc-not-collapsed';
 const TOC_ID = 'mw-panel-toc';
 /**
  * TableOfContents Mustache templates
@@ -332,10 +333,15 @@ module.exports = function tableOfContents( props ) {
 	 * Bind event listener for clicking on show/hide Table of Contents links.
 	 */
 	function bindCollapseToggleListeners() {
+		// Initialize toc collapsed status
+		document.body.classList.add( TOC_NOT_COLLAPSED_CLASS );
+
 		const showHideTocElement = document.querySelectorAll( '#sidebar-toc-label button' );
 		showHideTocElement.forEach( function ( btn ) {
 			btn.addEventListener( 'click', () => {
 				document.body.classList.toggle( TOC_COLLAPSED_CLASS );
+				document.body.classList.toggle( TOC_NOT_COLLAPSED_CLASS );
+
 				props.onToggleCollapse();
 			} );
 		} );
