@@ -66,11 +66,15 @@
 	.sidebar-toc-link {
 		word-break: break-word;
 		color: @color-link;
+		display: block;
 	}
 
 	.sidebar-toc-list-item-active > .sidebar-toc-link {
 		// Highlight active section
 		color: @color-base;
+		font-weight: bold;
+		// increase width to prevent line wrapping due to bold text
+		width: ~'calc( 100% + @{sidebar-toc-right-padding} )';
 	}
 
 	.sidebar-toc-text {
