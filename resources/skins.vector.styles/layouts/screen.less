@@ -80,26 +80,24 @@ body {
 	float: right;
 }
 
-#siteNotice {
-	// Override core styles to ensure sufficient spacing between page content and main menu
-	margin: @grid-row-gap 0 !important; /* stylelint-disable-line declaration-no-important */
-}
-
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
 
 	#siteSub {
+		// By default its hidden as it was hidden in Vector legacy but site styles can reveal.
+		display: none;
 		margin-top: 8px; // T311564
 	}
 
 	#contentSub,
 	#contentSub2 {
-		// T311564: Override core styles to apply margin-top rather than margin-bottom
-		margin-top: 8px;
-		margin-bottom: 0;
-		// T307715: Override core styles to align with page title and #siteSub
-		margin-left: 0;
+		font-size: 84%;
+		line-height: 1.2em;
+		// T311564
+		margin: 8px 0 0;
+		color: #54595d;
+		width: auto;
 	}
 }
 
