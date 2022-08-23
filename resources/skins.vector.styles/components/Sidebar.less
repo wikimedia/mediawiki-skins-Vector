@@ -3,13 +3,6 @@
 @import '../layouts/screen.less';
 @import './checkboxHack.less';
 
-// T305069 Layout adjustments of sidebar elements:
-// Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
-@margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
-// Default spacing separating the sidebar TOC from the main menu or viewport.
-@margin-top-sidebar-toc: 1.5em;
-
-// Update styling to account for TOC.
 .mw-sidebar,
 .sidebar-toc,
 .sidebar-toc:after {
@@ -28,9 +21,6 @@
 .sidebar-toc,
 .sidebar-toc:after {
 	margin-left: -@margin-start-sidebar-content;
-	// Use margin-top to align TOC rather than grid row gap
-	// Applies when the TOC sticky and when the main menu is both open and closed.
-	margin-top: @margin-top-sidebar-toc;
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		margin-left: 0;
@@ -43,11 +33,6 @@
 	padding: 12px 19px 12px 9px;
 	background-image: none;
 	background-color: @background-color-secondary--modern;
-
-	@media ( min-width: @min-width-desktop ) {
-		// Prevent grid row gap from affecting TOC spacing when main menu is open
-		margin-bottom: -@grid-row-gap;
-	}
 
 	@media ( max-width: @max-width-tablet ) {
 		// Makes the sidebar full screen at lower resolutions.

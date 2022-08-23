@@ -9,8 +9,26 @@
 @sidebar-toc-left-padding: ~'calc( 15px + @{margin-start-sidebar-content} )';
 @toc-subsection-toggle-icon-size: 1.834em;
 
+.mw-table-of-contents-container {
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	position: sticky;
+	top: 0;
+	// Needed for Grid-based layout
+	align-self: start;
+
+	// Needed to align TOC with bottom of title
+	// 1.5em from .mw-table-of-contents-container + 1.5em from .sidebar-toc = 3em
+	@media ( min-width: @min-width-desktop ) {
+		body:not(.vector-toc-collapsed) @{selector-main-menu-closed} ~ & {
+			margin-top: 1.5em;
+		}
+	}
+}
+
 .sidebar-toc {
 	max-height: 75vh;
+	// Default spacing separating the sidebar TOC from the main menu or viewport.
+	margin-top: 1.5em;
 	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding @sidebar-toc-left-padding;
 	box-sizing: border-box;
 	overflow: auto;
