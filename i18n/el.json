@@ -10,7 +10,8 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Αντιγόνη"
+			"Αντιγόνη",
+			"Norhorn"
 		]
 	},
 	"vector-skin-desc": "Σύγχρονη έκδοση του MonoBook με φρέσκια ματιά και πολλές βελτιώσεις χρηστικότητας",
@@ -37,5 +38,10 @@
 	"vector-jumptosearch": "Πήδηση στην αναζήτηση",
 	"vector-jumptocontent": "Μετάβαση στο περιεχόμενο",
 	"vector-more-actions": "Περισσότερα",
-	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης"
+	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης",
+	"vector-anon-user-menu-pages": "Σελίδες για αποσυνδεμένους συντάκτες",
+	"vector-anon-user-menu-pages-learn": "μάθετε περισσότερα",
+	"vector-anon-user-menu-pages-label": "Μάθετε περισσότερα σχετικά με την επεξεργασία",
+	"vector-main-menu-tooltip": "Κύριο μενού",
+	"tooltip-vector-anon-user-menu-title": "Περισσότερες επιλογές"
 }

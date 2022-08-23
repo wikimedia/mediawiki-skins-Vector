@@ -4,19 +4,20 @@
 			"Nertiks",
 			"Peteris",
 			"Nērtiks Jōrgesuns",
-			"Tīgelika"
+			"Tīgelika",
+			"Amire80"
 		]
 	},
-	"vector-language-button-label": "$1 {{PLURAL:$1|bilā|billas}}",
+	"vector-language-button-label": "$1 {{PLURAL:$1|billas|bilā|billas}}",
 	"vector-action-addsection": "Preidāis tēman",
 	"vector-action-delete": "Āupausinais",
 	"vector-action-move": "Prapīdais",
 	"vector-action-protect": "Kūnsteis",
-	"vector-action-unprotect": "Etkūnteis",
+	"vector-action-unprotect": "Kitawīdintun pakūnsnan",
 	"vector-view-create": "Teīkeis",
 	"vector-view-edit": "Redigīs",
 	"vector-view-history": "Enwaidinnais istōrijan",
 	"vector-view-view": "Skaitāis",
-	"vector-view-viewsource": "Wīdais kōdan",
+	"vector-view-viewsource": "Wīdais appun",
 	"vector-more-actions": "Tūls"
 }
