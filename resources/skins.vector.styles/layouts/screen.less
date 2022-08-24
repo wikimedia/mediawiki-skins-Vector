@@ -80,11 +80,6 @@ body {
 	float: right;
 }
 
-#siteNotice {
-	// Override core styles to ensure sufficient spacing between page content and main menu
-	margin: @grid-row-gap 0 !important; /* stylelint-disable-line declaration-no-important */
-}
-
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
@@ -115,6 +110,14 @@ body {
 		left: auto;
 		right: -@border-width-base;
 	}
+}
+
+.mw-table-of-contents-container {
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	position: sticky;
+	top: 0;
+	// Needed for Grid-based layout
+	align-self: start;
 }
 
 .parsoid-body {

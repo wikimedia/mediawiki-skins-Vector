@@ -2,7 +2,9 @@
 // Grid layout
 //
 
+@height-header: 66px;
 @width-gutter: 20px;
+@padding-top-footer: 50px;
 
 // Makes a column span entire page
 .mixin-column-full-width() {
@@ -40,16 +42,31 @@
 	}
 }
 
+.mw-footer-container {
+	padding-top: @padding-top-footer;
+	padding-bottom: 82px;
+}
+
+@media ( max-width: @max-width-tablet ) {
+	.mw-header {
+		// Match header styles applied by grid-template-rows and row-gap
+		// when grid is disabled on lower resolutions
+		height: @height-header;
+		margin-bottom: @grid-row-gap;
+	}
+}
+
 @media ( min-width: @min-width-desktop ) {
 	.mw-page-container-inner {
 		display: grid;
 		width: 100%;
-		grid-template: ~'min-content min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
+		grid-template: ~'@{height-header} min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
 		grid-template-areas: 'header header header'
 			'sitebanner sitebanner sitebanner'
 			'sidebar gutter content'
 			'toc gutter content'
 			'footer footer footer';
+		row-gap: @grid-row-gap;
 	}
 
 	.mw-body {
@@ -85,6 +102,7 @@
 
 	.mw-footer-container {
 		grid-area: footer;
+		padding-top: @padding-top-footer - @grid-row-gap;
 	}
 }
 
