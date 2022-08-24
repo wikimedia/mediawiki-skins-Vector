@@ -60,8 +60,11 @@ function moveToc( position ) {
 		return;
 	}
 
+	// FIXME: Remove after Ia263c606dce5a6060b6b29fbaedc49cef3e17a5c has been in prod for 5 days
+	const isCachedHtml = document.querySelector( '.mw-table-of-contents-container.mw-sticky-header-element' );
+
 	let newTocContainer;
-	const sidebarTocContainerClass = 'mw-table-of-contents-container';
+	const sidebarTocContainerClass = isCachedHtml ? 'mw-table-of-contents-container' : 'vector-sticky-toc-container';
 	const stickyHeaderTocContainerClass = 'vector-menu-content';
 	// Avoid moving TOC if unnecessary
 	if ( !currTocContainer.classList.contains( sidebarTocContainerClass ) && position === 'sidebar' ) {
@@ -69,6 +72,7 @@ function moveToc( position ) {
 	} else if ( !currTocContainer.classList.contains( stickyHeaderTocContainerClass ) && position === 'stickyheader' ) {
 		newTocContainer = document.querySelector( `.vector-sticky-header-toc .${stickyHeaderTocContainerClass}` );
 	}
+
 	if ( newTocContainer ) {
 		newTocContainer.insertAdjacentElement( 'beforeend', toc );
 	}

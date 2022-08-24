@@ -1,5 +1,6 @@
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
+const tocContainerTemplate = fs.readFileSync( 'includes/templates/TableOfContentsContainer.mustache', 'utf8' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
 const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
@@ -116,17 +117,19 @@ describe( 'sticky header', () => {
 	} );
 
 	describe( 'moveToc', () => {
-		const sidebarTocContainerClass = 'mw-table-of-contents-container';
-		const stickyHeaderTocContainerClass = 'vector-menu-content';
+		const sidebarTocContainerClass = 'vector-sticky-toc-container';
+		const stickyTocContainerClass = 'vector-menu-content';
 		const tocId = 'mw-panel-toc';
 
 		function setupToc() {
-			const sidebarTocContainer = document.createElement( 'div' );
-			sidebarTocContainer.classList.add( sidebarTocContainerClass );
-			const toc = document.createElement( 'div' );
-			toc.setAttribute( 'id', tocId );
-			sidebarTocContainer.appendChild( toc );
-			document.body.appendChild( sidebarTocContainer );
+			const sidebarTocContainerHTML = mustache.render( tocContainerTemplate, {
+				'data-toc': [ '' ]
+			}, {
+				TableOfContents: '<div id="mw-panel-toc" class="sidebar-toc"></div>'
+			} );
+			var sidebarTocContainerTemplate = document.createElement( 'template' );
+			sidebarTocContainerTemplate.innerHTML = sidebarTocContainerHTML;
+			document.body.appendChild( sidebarTocContainerTemplate.content );
 		}
 
 		test( 'moves toc to stickyheader and sidebar', () => {
@@ -136,7 +139,7 @@ describe( 'sticky header', () => {
 				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();
 			sticky.moveToc( 'stickyheader' );
 			expect( /** @type {Element} */
-				( toc.parentNode ).classList.contains( stickyHeaderTocContainerClass ) ).toBeTruthy();
+				( toc.parentNode ).classList.contains( stickyTocContainerClass ) ).toBeTruthy();
 			sticky.moveToc( 'sidebar' );
 			expect( /** @type {Element} */
 				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();

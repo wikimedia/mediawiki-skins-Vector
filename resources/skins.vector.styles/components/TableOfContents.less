@@ -10,11 +10,19 @@
 @toc-subsection-toggle-icon-size: 1.834em;
 
 .mw-table-of-contents-container {
+	// Needed for Grid-based layout
+	align-self: start;
+	height: 100%;
+}
+
+// FIXME: Remove selector after Ia263c606dce5a6060b6b29fbaedc49cef3e17a5c has been in prod for 5 days
+.mw-table-of-contents-container.mw-sticky-header-element {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
 	top: 0;
 	// Needed for Grid-based layout
 	align-self: start;
+	height: unset;
 
 	// Needed to align TOC with bottom of title
 	// 1.5em from .mw-table-of-contents-container + 1.5em from .sidebar-toc = 3em
@@ -25,10 +33,32 @@
 	}
 }
 
+.vector-sticky-toc-container {
+	// stylelint-disable-next-line plugin/no-unsupported-browser-features
+	position: sticky;
+	top: 0;
+
+	@media ( min-width: @min-width-desktop ) {
+		.vector-toc-not-collapsed & {
+			// Default spacing separating the sidebar TOC from the main menu or viewport.
+			// Need to use padding in order for the spacing to apply when sticky
+			padding-top: 1.5em;
+		}
+
+		.vector-toc-not-collapsed @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
+			// Needed to align TOC with bottom of title, 1.5em padding + 1.5em margin = 3em
+			margin-top: 1.5em;
+		}
+	}
+}
+
+// FIXME: Remove selector after Ia263c606dce5a6060b6b29fbaedc49cef3e17a5c has been in prod for 5 days
+.mw-table-of-contents-container > .sidebar-toc {
+	margin-top: 1.5em;
+}
+
 .sidebar-toc {
 	max-height: 75vh;
-	// Default spacing separating the sidebar TOC from the main menu or viewport.
-	margin-top: 1.5em;
 	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding @sidebar-toc-left-padding;
 	box-sizing: border-box;
 	overflow: auto;
