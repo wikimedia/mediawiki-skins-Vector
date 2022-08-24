@@ -659,16 +659,25 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Returns ULS button label within the context of the translated message taking a placeholder.
+	 * Get the ULS button label, accounting for the number of available
+	 * languages.
 	 *
-	 * @param string $message
-	 * @param int $count
-	 * @return string
+	 * @return array
 	 */
-	private function getULSLabel( string $message, int $count ): string {
-		return $this->msg( $message )
-			->numParams( $count )
-			->escaped();
+	private function getULSLabels(): array {
+		$numLanguages = count( $this->getLanguagesCached() );
+
+		if ( $numLanguages === 0 ) {
+			return [
+				'label' => $this->msg( 'vector-no-language-button-label' )->text(),
+				'aria-label' => $this->msg( 'vector-no-language-button-aria-label' )->text()
+			];
+		} else {
+			return [
+				'label' => $this->msg( 'vector-language-button-label' )->numParams( $numLanguages )->escaped(),
+				'aria-label' => $this->msg( 'vector-language-button-aria-label' )->numParams( $numLanguages )->escaped()
+			];
+		}
 	}
 
 	/**
@@ -702,7 +711,7 @@ abstract class SkinVector extends SkinMustache {
 			'class' => 'mw-interlanguage-selector',
 			'is-quiet' => true,
 			'tabindex' => '-1',
-			'label' => $this->getULSLabel( 'vector-language-button-label', $numLanguages ),
+			'label' => $this->getULSLabels()[ 'label' ],
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
 			'event' => 'ui.dropdown-p-lang-btn-sticky-header'
 		];
@@ -718,14 +727,8 @@ abstract class SkinVector extends SkinMustache {
 
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
-			// No languages present for the article.
-			// But the page can show languages if there were languages.
-			'label' => $numLanguages === 0 ?
-				$this->msg( 'vector-no-language-button-label' )->text() :
-				$this->getULSLabel( 'vector-language-button-label', $numLanguages ),
-			'aria-label' => $numLanguages === 0 ?
-				$this->msg( 'vector-no-language-button-aria-label' )->text() :
-				$this->getULSLabel( 'vector-language-button-aria-label', $numLanguages ),
+			'label' => $this->getULSLabels()['label'],
+			'aria-label' => $this->getULSLabels()['aria-label'],
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'html-vector-heading-icon' => Hooks::makeIcon( 'wikimedia-language-progressive' ),
