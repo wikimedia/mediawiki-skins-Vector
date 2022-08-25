@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Babamamadidiane",
 			"Lancine.kounfantoh.fofana",
 			"Lanciné.kounfantoh.fofana",
@@ -8,7 +9,7 @@
 		]
 	},
 	"vector-languages": "ߞߊ߲ ߠߎ߬",
-	"vector-language-button-label": "{{PLURAL:ߞߊ߲ $1|ߞߊ߲ $1 ߠߎ߬}}",
+	"vector-language-button-label": "{{PLURAL:$1|ߞߊ߲ $1|ߞߊ߲ $1 ߠߎ߬}}",
 	"vector-no-language-button-label": "ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬",
 	"vector-no-language-button-aria-label": "ߞߎߡߘߊ ߢߌ߲߬ ߦߋ߫ ߞߊ߲ ߣߌ߲߬ ߘߐߙߐ߲߫ ߠߋ߬ ߘߐ߫. ߞߎߡߘߊ ߢߌ߲߬ ߠߊߘߏ߲߬ ߞߊ߲ ߜߘߍ ߟߎ߫ ߘߐ߫.",
 	"vector-action-addsection": "ߥߟߊ߬ߘߊ߫ ߝߙߊ߬",
