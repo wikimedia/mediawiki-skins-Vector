@@ -410,8 +410,6 @@ module.exports = function tableOfContents( props ) {
 	function reloadTableOfContents( sections ) {
 		mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
 			reloadPartialHTML( getTableOfContentsHTML( sections ), TOC_ID );
-			// Rebind event listeners.
-			bindSubsectionToggleListeners();
 			// Reexpand sections that were expanded before the table of contents was reloaded.
 			reExpandSections();
 			// Initialize Collapse toggle buttons
