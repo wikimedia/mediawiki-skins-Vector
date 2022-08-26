@@ -408,8 +408,12 @@ module.exports = function tableOfContents( props ) {
 	 * @param {Section[]} sections
 	 */
 	function reloadTableOfContents( sections ) {
+		if ( sections.length < 1 ) {
+			reloadPartialHTML( TOC_ID, '' );
+			return;
+		}
 		mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
-			reloadPartialHTML( getTableOfContentsHTML( sections ), TOC_ID );
+			reloadPartialHTML( TOC_ID, getTableOfContentsHTML( sections ) );
 			// Reexpand sections that were expanded before the table of contents was reloaded.
 			reExpandSections();
 			// Initialize Collapse toggle buttons
@@ -420,11 +424,11 @@ module.exports = function tableOfContents( props ) {
 	/**
 	 * Replaces the contents of the given element with the given HTML
 	 *
-	 * @param {string} html
 	 * @param {string} elementId
+	 * @param {string} html
 	 * @param {boolean} setInnerHTML
 	 */
-	function reloadPartialHTML( html, elementId, setInnerHTML = true ) {
+	function reloadPartialHTML( elementId, html, setInnerHTML = true ) {
 		const htmlElement = document.getElementById( elementId );
 		if ( htmlElement ) {
 			if ( setInnerHTML ) {
