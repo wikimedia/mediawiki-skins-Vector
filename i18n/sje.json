@@ -5,6 +5,7 @@
 			"Olve Utne"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 giella|$1 giela}}",
 	"vector-action-addsection": "Lasedä ábdnasav",
 	"vector-action-delete": "Gádodä",
 	"vector-action-move": "Sirde",
@@ -14,5 +15,6 @@
 	"vector-view-history": "Vuosedä histurjav",
 	"vector-view-view": "Lågå",
 	"vector-view-viewsource": "Vuosedä wikitiekstav",
-	"vector-more-actions": "Ienap"
+	"vector-more-actions": "Ienap",
+	"vector-searchsuggest-containing": "Åtså belijda májdne lä tjállám <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"RFScott"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1 хэсэ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 хэсэ}}",
 	"vector-action-addsection": "Темава аӈгойни",
 	"vector-action-delete": "Нангалаори",
 	"vector-action-move": "Энэвэмбури",
