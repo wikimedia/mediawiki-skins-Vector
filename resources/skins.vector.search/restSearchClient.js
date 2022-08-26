@@ -37,11 +37,11 @@ function adaptApiResponse( config, query, restResponse, showDescription ) {
 	const urlGeneratorInstance = urlGenerator( config );
 	return {
 		query,
-		results: restResponse.pages.map( ( page ) => {
+		results: restResponse.pages.map( ( page, index ) => {
 			const thumbnail = page.thumbnail;
 			return {
 				id: page.id,
-				value: page.id,
+				value: page.id || -( index + 1 ),
 				label: page.title,
 				key: page.key,
 				title: page.title,
