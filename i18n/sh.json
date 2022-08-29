@@ -21,5 +21,6 @@
 	"vector-view-history": "Historija/Историја",
 	"vector-view-view": "Čitaj",
 	"vector-view-viewsource": "Vidi izvor (source)",
-	"vector-more-actions": "Više"
+	"vector-more-actions": "Više",
+	"vector-searchsuggest-containing": "Traži stranice koje sadrže <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

@@ -11,6 +11,7 @@
 	"vector-skin-desc": "Nudi dve preobleki Vector:\n* 2011 – Sodobna različica MonoBook s svežim videzom in mnogimi izboljšavami uporabnosti.\n* 2022 – Preobleka Vector, zgrajena kot del projekta WMF [[mw:Desktop Improvements|Izboljšave namizja]].",
 	"prefs-vector-enable-vector-1-label": "Uporabljaj stari Vector",
 	"prefs-vector-enable-vector-1-help": "V naslednjih nekaj letih bomo postopoma posodabljali preobleko Vector. Stari Vector vam omogoča prikaz stare različice preobleke Vector (iz decembra 2019). Več o posodobitvah lahko izveste na naši [[mw:Reading/Web/Desktop_Improvements|projektni strani]].",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika|$1 jeziki|$1 jezikov}}",
 	"vector-action-addsection": "Dodaj temo",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Prestavi",
@@ -22,5 +23,6 @@
 	"vector-view-history": "Zgodovina",
 	"vector-view-view": "Preberi",
 	"vector-view-viewsource": "Izvorno besedilo",
-	"vector-more-actions": "Več"
+	"vector-more-actions": "Več",
+	"vector-searchsuggest-containing": "Poišči strani, ki vsebujejo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
