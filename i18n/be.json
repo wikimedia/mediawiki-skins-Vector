@@ -8,7 +8,9 @@
 			"Хомелка",
 			"Chadyka",
 			"No Sleep till Krupki",
-			"Tomato Cream"
+			"Tomato Cream",
+			"Amire80",
+			"Kareyac"
 		]
 	},
 	"vector-skin-desc": "Сучасная версія вокладкі Манабук, з абноўленым відам і шматлікімі зручнымі паляпшэннямі",
@@ -17,7 +19,7 @@
 	"vector-opt-out": "Пераключыцца на стары выгляд",
 	"vector-opt-out-tooltip": "Змяніце налады, каб вярнуцца да старога выгляду вокладкі (Стары Vector)",
 	"vector-action-toggle-sidebar": "Пераключыць бакавую панэль",
-	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 моваў}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моваў}}",
 	"vector-action-addsection": "Дадаць тэму",
 	"vector-action-delete": "Выдаліць",
 	"vector-action-move": "Перанесці",

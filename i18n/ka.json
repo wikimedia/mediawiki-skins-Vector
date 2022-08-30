@@ -5,7 +5,8 @@
 			"David1010",
 			"გიორგიმელა",
 			"Გიო ოქრო",
-			"Იო ოქრო"
+			"Იო ოქრო",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "ვექტორული",
@@ -17,7 +18,7 @@
 	"vector.css": "/* აქ მოცემული ყველა CSS ჩაიტვირთება ვექტორული გარეკანის ყველა მომხმარებლისათვის */",
 	"vector.js": "/* აქ მოცემული ყველა JavaScript ჩაიტვირთება ვექტორული გარეკანის ყველა მომხმარებლისათვის */",
 	"vector-action-toggle-sidebar": "გვერდითა პანელის გადართვა",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ენა|$1 ენა}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ენა}}",
 	"vector-action-addsection": "თემის ჩამატება",
 	"vector-action-delete": "წაშლა",
 	"vector-action-move": "გადატანა",
