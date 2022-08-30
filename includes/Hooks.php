@@ -168,9 +168,9 @@ class Hooks implements
 
 		// Promote watch link from actions to views and add an icon
 		if ( $key !== null ) {
-			self::appendClassToListItem(
-				$content_navigation['actions'][$key],
-				'icon'
+			self::appendClassToItem(
+				$content_navigation['actions'][$key]['class'],
+				[ 'icon' ]
 			);
 			$content_navigation['views'][$key] = $content_navigation['actions'][$key];
 			unset( $content_navigation['actions'][$key] );
@@ -178,36 +178,30 @@ class Hooks implements
 	}
 
 	/**
-	 * Updates class list on list item
+	 * Adds class to a property
 	 *
-	 * @param array &$item to update for use in makeListItem
-	 * @param array $classes to add to the item
-	 * @param bool $applyToLink (optional) and defaults to false.
-	 *   If set will modify `link-class` instead of `class`
+	 * @param array &$item to update
+	 * @param array|string $classes to add to the item
 	 */
-	private static function addListItemClass( &$item, $classes, $applyToLink = false ) {
-		$property = $applyToLink ? 'link-class' : 'class';
-		$existingClass = $item[$property] ?? [];
+	private static function appendClassToItem( &$item, $classes ) {
+		$existingClasses = $item;
 
-		if ( is_array( $existingClass ) ) {
-			$item[$property] = array_merge( $existingClass, $classes );
-		} elseif ( is_string( $existingClass ) ) {
-			// treat as string
-			$item[$property] = array_merge( [ $existingClass ], $classes );
+		if ( is_array( $existingClasses ) ) {
+			// Treat as array
+			$newArrayClasses = is_array( $classes ) ? $classes : [ trim( $classes ) ];
+			$item = array_merge( $existingClasses, $newArrayClasses );
+		} elseif ( is_string( $existingClasses ) ) {
+			// Treat as string
+			$newStrClasses = is_string( $classes ) ? trim( $classes ) : implode( ' ', $classes );
+			$item .= ' ' . $newStrClasses;
 		} else {
-			$item[$property] = $classes;
+			// Treat as whatever $classes is
+			$item = $classes;
 		}
-	}
 
-	/**
-	 * Updates the class on an existing item taking into account whether
-	 * a class exists there already.
-	 *
-	 * @param array &$item
-	 * @param string $newClass
-	 */
-	private static function appendClassToListItem( &$item, $newClass ) {
-		self::addListItemClass( $item, [ $newClass ] );
+		if ( is_string( $item ) ) {
+			$item = trim( $item );
+		}
 	}
 
 	/**
@@ -227,12 +221,12 @@ class Hooks implements
 			if ( isset( $content_navigation['user-page']['tmpuserpage'] ) ) {
 				$content_navigation['user-page']['tmpuserpage']['collapsible'] = true;
 				$content_navigation['user-page']['tmpuserpage'] =
-					self::updateMenuItem( $content_navigation['user-page']['tmpuserpage'] );
+					self::updateMenuItemData( $content_navigation['user-page']['tmpuserpage'] );
 			}
 			if ( isset( $content_navigation['user-menu']['tmpuserpage'] ) ) {
 				$content_navigation['user-menu']['tmpuserpage']['collapsible'] = true;
 				$content_navigation['user-menu']['tmpuserpage'] =
-					self::updateMenuItem( $content_navigation['user-menu']['tmpuserpage'] );
+					self::updateMenuItemData( $content_navigation['user-menu']['tmpuserpage'] );
 			}
 		} elseif ( $isRegistered ) {
 			// Remove user page from personal menu dropdown for logged in use
@@ -360,10 +354,7 @@ class Hooks implements
 	 */
 	private static function makeMenuItemCollapsible( array &$item, string $prefix = 'user-links-' ) {
 		$COLLAPSE_MENU_ITEM_CLASS = $prefix . 'collapsible-item';
-		self::appendClassToListItem(
-			$item,
-			$COLLAPSE_MENU_ITEM_CLASS
-		);
+		self::appendClassToItem( $item[ 'class' ], $COLLAPSE_MENU_ITEM_CLASS );
 	}
 
 	/**
@@ -379,14 +370,15 @@ class Hooks implements
 	}
 
 	/**
-	 * Updates template data for Vector menu items.
+	 * Update template data to include classes and html that handle buttons, icons, and collapsible items.
 	 *
-	 * @param array $item Menu data to update
-	 * @param bool $isLinkData false if data is for li element (i.e. makeListItem()),
-	 * true if for link element (i.e. makeLink())
-	 * @return array $item Updated menu data
+	 * @internal for use inside Vector skin.
+	 * @param array $item data to update
+	 * @param string $buttonClassProp property to append button classes
+	 * @param string $iconHtmlProp property to set icon HTML
+	 * @return array $item Updated data
 	 */
-	public static function updateMenuItem( $item, $isLinkData = false ) {
+	private static function updateItemData( $item, $buttonClassProp, $iconHtmlProp ) {
 		$hasButton = $item['button'] ?? false;
 		$hideText = $item['text-hidden'] ?? false;
 		$isCollapsible = $item['collapsible'] ?? false;
@@ -395,11 +387,12 @@ class Hooks implements
 		unset( $item['icon'] );
 		unset( $item['text-hidden'] );
 		unset( $item['collapsible'] );
+
 		if ( $isCollapsible ) {
 			self::makeMenuItemCollapsible( $item );
 		}
 		if ( $hasButton ) {
-			self::addListItemClass( $item, [ 'mw-ui-button', 'mw-ui-quiet' ], !$isLinkData );
+			self::appendClassToItem( $item[ $buttonClassProp ], [ 'mw-ui-button', 'mw-ui-quiet' ] );
 		}
 		if ( $icon ) {
 			if ( $hideText ) {
@@ -410,12 +403,48 @@ class Hooks implements
 					// We should seek to remove all these instances.
 					'mw-ui-icon-wikimedia-' . $icon
 				];
-				self::addListItemClass( $item, $iconElementClasses, !$isLinkData );
+				self::appendClassToItem( $item[ $buttonClassProp ], $iconElementClasses );
 			} else {
-				$item['link-html'] = self::makeIcon( $icon );
+				$item[ $iconHtmlProp ] = self::makeIcon( $icon );
 			}
 		}
 		return $item;
+	}
+
+	/**
+	 * Updates template data for Vector dropdown menus.
+	 *
+	 * @param array $item Menu data to update
+	 * @return array $item Updated menu data
+	 */
+	public static function updateDropdownMenuData( $item ) {
+		$buttonClassProp = 'heading-class';
+		$iconHtmlProp = 'html-vector-heading-icon';
+		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
+	}
+
+	/**
+	 * Updates template data for Vector link items.
+	 *
+	 * @param array $item link data to update
+	 * @return array $item Updated link data
+	 */
+	public static function updateLinkData( $item ) {
+		$buttonClassProp = 'class';
+		$iconHtmlProp = 'link-html';
+		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
+	}
+
+	/**
+	 * Updates template data for Vector menu items.
+	 *
+	 * @param array $item menu item data to update
+	 * @return array $item Updated menu item data
+	 */
+	public static function updateMenuItemData( $item ) {
+		$buttonClassProp = 'link-class';
+		$iconHtmlProp = 'link-html';
+		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
 	}
 
 	/**
@@ -426,7 +455,7 @@ class Hooks implements
 	 */
 	private static function updateMenuItems( &$content_navigation, $menu ) {
 		foreach ( $content_navigation[$menu] as $key => $item ) {
-			$content_navigation[$menu][$key] = self::updateMenuItem( $item );
+			$content_navigation[$menu][$key] = self::updateMenuItemData( $item );
 		}
 	}
 

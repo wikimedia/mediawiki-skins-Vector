@@ -400,12 +400,12 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
 			'actions' => [
-				'watch' => [ 'class' => 'watch' ],
+				'watch' => [ 'class' => [ 'watch' ] ],
 			]
 		];
 		$contentNavUnWatch = [
 			'actions' => [
-				'move' => [ 'class' => 'move' ],
+				'move' => [ 'class' => [ 'move' ] ],
 				'unwatch' => [],
 			],
 		];
@@ -413,16 +413,16 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		Hooks::onSkinTemplateNavigation( $skin, $contentNavUnWatch );
 		Hooks::onSkinTemplateNavigation( $skin, $contentNavWatch );
 
-		$this->assertTrue(
-			in_array( 'icon', $contentNavWatch['views']['watch']['class'] ) !== false,
+		$this->assertContains(
+			'icon', $contentNavWatch['views']['watch']['class'],
 			'Watch list items require an "icon" class'
 		);
-		$this->assertTrue(
-			in_array( 'icon', $contentNavUnWatch['views']['unwatch']['class'] ) !== false,
+		$this->assertContains(
+			'icon', $contentNavUnWatch['views']['unwatch']['class'],
 			'Unwatch list items require an "icon" class'
 		);
-		$this->assertFalse(
-			strpos( $contentNavUnWatch['actions']['move']['class'], 'icon' ) !== false,
+		$this->assertNotContains(
+			'icon', $contentNavUnWatch['actions']['move']['class'],
 			'List item other than watch or unwatch should not have an "icon" class'
 		);
 	}
@@ -585,18 +585,79 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function provideUpdateMenuItem() {
+	public function provideAppendClassToItem() {
+		return [
+			// Add array class to array
+			[
+				[],
+				[ 'array1', 'array2' ],
+				[ 'array1', 'array2' ],
+			],
+			// Add string class to array
+			[
+				[],
+				'array1 array2',
+				[ 'array1 array2' ],
+			],
+			// Add array class to string
+			[
+				'',
+				[ 'array1', 'array2' ],
+				'array1 array2',
+			],
+			// Add string class to string
+			[
+				'',
+				'array1 array2',
+				'array1 array2',
+			],
+			// Add string class to undefined
+			[
+				null,
+				'array1 array2',
+				'array1 array2',
+			],
+			// Add array class to undefined
+			[
+				null,
+				[ 'array1', 'array2' ],
+				[ 'array1', 'array2' ],
+			],
+		];
+	}
+
+	/**
+	 * @covers ::appendClassToItem
+	 * @dataProvider provideAppendClassToItem
+	 */
+	public function testAppendClassToItem(
+		$item,
+		$classes,
+		$expected
+	) {
+		$appendClassToItem = new ReflectionMethod(
+			Hooks::class,
+			'appendClassToItem'
+		);
+		$appendClassToItem->setAccessible( true );
+		$appendClassToItem->invokeArgs( null, [ &$item, $classes ] );
+		$this->assertEquals( $expected, $item );
+	}
+
+	public function provideUpdateItemData() {
 		return [
 			// Removes extra attributes
 			[
 				[ 'class' => [], 'icon' => '', 'button' => false, 'text-hidden' => false, 'collapsible' => false ],
-				false,
+				'link-class',
+				'link-html',
 				[ 'class' => [] ],
 			],
-			// Adds link-html
+			// Adds icon html
 			[
 				[ 'class' => [], 'icon' => 'userpage' ],
-				false,
+				'link-class',
+				'link-html',
 				[
 					'class' => [],
 					'link-html' =>
@@ -606,19 +667,22 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			// Adds collapsible class
 			[
 				[ 'class' => [], 'collapsible' => true ],
-				false,
+				'link-class',
+				'link-html',
 				[ 'class' => [ 'user-links-collapsible-item' ] ],
 			],
 			// Adds button classes
 			[
 				[ 'class' => [], 'button' => true ],
-				false,
+				'link-class',
+				'link-html',
 				[ 'class' => [], 'link-class' => [ 'mw-ui-button', 'mw-ui-quiet' ] ],
 			],
 			// Adds text hidden classes
 			[
 				[ 'class' => [], 'text-hidden' => true, 'icon' => 'userpage' ],
-				false,
+				'link-class',
+				'link-html',
 				[ 'class' => [], 'link-class' => [
 					'mw-ui-icon',
 					'mw-ui-icon-element',
@@ -626,37 +690,37 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 					'mw-ui-icon-wikimedia-userpage'
 				] ],
 			],
-			// Adds classes for link data
+			// Adds button and icon classes
 			[
-				[ 'class' => [], 'button' => true, 'text-hidden' => true, 'icon' => 'userpage' ],
-				true,
+				[ 'class' => [], 'button' => true, 'icon' => 'userpage' ],
+				'class',
+				'link-html',
 				[ 'class' => [
 					'mw-ui-button',
-					'mw-ui-quiet',
-					'mw-ui-icon',
-					'mw-ui-icon-element',
-					'mw-ui-icon-userpage',
-					'mw-ui-icon-wikimedia-userpage'
-				] ],
+					'mw-ui-quiet'
+				], 'link-html' =>
+					'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+				],
 			]
 		];
 	}
 
 	/**
-	 * @covers ::updateMenuItem
-	 * @dataProvider provideUpdateMenuItem
+	 * @covers ::updateItemData
+	 * @dataProvider provideUpdateItemData
 	 */
-	public function testUpdateMenuItem(
-		array $menuItem,
-		bool $isLinkData,
+	public function testUpdateItemData(
+		array $item,
+		string $buttonClassProp,
+		string $iconHtmlProp,
 		array $expected
 	) {
-		$updateMenuItem = new ReflectionMethod(
+		$updateItemData = new ReflectionMethod(
 			Hooks::class,
-			'updateMenuItem'
+			'updateItemData'
 		);
-		$updateMenuItem->setAccessible( true );
-		$data = $updateMenuItem->invokeArgs( null, [ $menuItem, $isLinkData ] );
+		$updateItemData->setAccessible( true );
+		$data = $updateItemData->invokeArgs( null, [ $item, $buttonClassProp, $iconHtmlProp ] );
 		$this->assertEquals( $expected, $data );
 	}
 }
