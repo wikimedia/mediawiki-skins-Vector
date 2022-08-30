@@ -6,6 +6,7 @@ use CentralIdLookup;
 use Config;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
+use RuntimeException;
 use User;
 
 /**
@@ -62,8 +63,17 @@ final class TableOfContentsTreatmentRequirement implements Requirement {
 	 */
 	public function isMet(): bool {
 		$currentAbTest = $this->config->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
-		if ( $currentAbTest['enabled'] && $this->user->isRegistered() ) {
+		$isTOCExperiment = $currentAbTest['name'] === 'skin-vector-toc-experiment';
+		if ( $isTOCExperiment && $currentAbTest['enabled'] && $this->user->isRegistered() ) {
 			$id = null;
+			$buckets = $currentAbTest['buckets'] ?? [];
+			$control = $buckets['control']['samplingRate'] ?? -1;
+			$unsampled = $buckets['unsampled']['samplingRate'] ?? -1;
+			$numBuckets = count( array_keys( $buckets ) );
+			if ( $unsampled !== 0 || $control !== 0.5 || $numBuckets !== 3 ) {
+				throw new RuntimeException( 'TableOfContents A/B test only supports 3 buckets with 0 unsampled.' );
+			}
+
 			if ( $this->centralIdLookup ) {
 				$id = $this->centralIdLookup->centralIdFromLocalUser( $this->user );
 			}

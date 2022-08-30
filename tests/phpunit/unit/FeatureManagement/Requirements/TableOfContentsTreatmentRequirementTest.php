@@ -77,6 +77,9 @@ class TableOfContentsTreatmentRequirementTest extends \MediaWikiUnitTestCase {
 				'name' => 'skin-vector-toc-experiment',
 				'enabled' => $abValue,
 				'buckets' => [
+					'unsampled' => [
+						'samplingRate' => 0,
+					],
 					'control' => [
 						'samplingRate' => 0.5,
 					],
