@@ -19,7 +19,7 @@
 	"vector-action-toggle-sidebar": "Faka'asi te pou hema",
 	"vector-languages": "Lea",
 	"vector-language-button-aria-label": "'Alu ki he fakamatala i he tahi lea. E ma'u i te {{PLURAL:$1|lea e $1|lea e$1}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 lea| lea e $1}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 lea|lea e $1}}",
 	"vector-language-redirect-to-top": "I te {{SITENAME}} e fai te fili o tau lea i te fuga pāsina i te faha'i mata'u o te higoa o te fakamatala. [[#p-lang-btn|'Alu ki 'oluga]].",
 	"vector-language-variant-switcher-label": "Fetogi te maga lea",
 	"vector-action-addsection": "Tohi he kupu",

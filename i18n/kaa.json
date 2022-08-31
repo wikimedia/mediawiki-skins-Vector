@@ -5,6 +5,7 @@
 			"Nurlan"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 til}}",
 	"vector-action-addsection": "Tema qosıw",
 	"vector-action-delete": "Óshiriw",
 	"vector-action-move": "Kóshiriw",
