@@ -9,6 +9,11 @@
 .vector-menu-tabs {
 	float: left;
 
+	// T316574 Override visited link styles
+	.mw-list-item a {
+		color: @color-link;
+	}
+
 	/* focus and hover have outlines. Text underline interferes with bottom border */
 	.mw-list-item a:focus,
 	.mw-list-item a:hover {
