@@ -127,6 +127,21 @@ final class FeatureManager {
 	}
 
 	/**
+	 * Return a list of classes that should be added to the body tag
+	 *
+	 * @return array
+	 */
+	public function getFeatureBodyClass() {
+		$featureManager = $this;
+		return array_map( static function ( $featureName ) use ( $featureManager ) {
+			// switch to lower case and switch from camel case to hyphens
+			$featureClass = ltrim( strtolower( preg_replace( '/[A-Z]([A-Z](?![a-z]))*/', '-$0', $featureName ) ), '-' );
+			$prefix = 'vector-feature-' . $featureClass . '-';
+			return $featureManager->isFeatureEnabled( $featureName ) ? $prefix . 'enabled' : $prefix . 'disabled';
+		}, array_keys( $this->features ) );
+	}
+
+	/**
 	 * Gets whether the feature's requirements are met.
 	 *
 	 * @param string $feature
