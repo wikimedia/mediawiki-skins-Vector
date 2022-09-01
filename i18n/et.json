@@ -21,6 +21,7 @@
 	"vector-languages": "Keeled",
 	"vector-language-button-aria-label": "Mine teises keeles artiklisse. Saadaval {{PLURAL:$1|$1 keeles}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 keel|$1 keelt}}",
+	"vector-no-language-button-label": "Lisa keeled",
 	"vector-language-redirect-to-top": "Selles {{GRAMMAR:genitive|{{SITENAME}}}} artiklis on keelelingid artikli kohal pealkirja vastas. [[#p-lang-btn|Mine üles]].",
 	"vector-action-addsection": "Lisa teema",
 	"vector-action-delete": "Kustuta",
@@ -41,11 +42,14 @@
 	"vector-searchsuggest-containing": "Otsi lehekülgi, kus sisaldub <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Sissejuhatus",
 	"vector-toc-heading": "Sisukord",
+	"vector-toc-toggle-position-sidebar": "vii külgpaanile",
+	"vector-toc-toggle-position-title": "peida",
 	"vector-toc-beginning": "Algus",
 	"vector-anon-user-menu-pages": "Sisse logimata kasutaja leheküljed",
 	"vector-anon-user-menu-pages-learn": "lisateave",
 	"vector-anon-user-menu-pages-label": "Loe veel muutmise kohta",
 	"vector-main-menu-tooltip": "Peamenüü",
+	"vector-toc-menu-tooltip": "Sisukord",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|arutelu]]",
 	"tooltip-vector-anon-user-menu-title": "Veel valikuid"
 }
