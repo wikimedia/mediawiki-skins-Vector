@@ -2,8 +2,6 @@
 // Grid layout
 //
 
-@width-gutter: 20px;
-
 // Makes a column span entire page
 .mixin-column-full-width() {
 	grid-column: sidebar / content;
@@ -13,12 +11,6 @@
 	width: 100%;
 	box-sizing: border-box;
 	max-width: @max-width-content-container;
-}
-
-// aligns left side of column with hamburger icon.
-.mixin-column-align-width-hamburger-icon() {
-	// Align the content with the hamburger icon
-	padding-left: 8px;
 }
 
 .mw-content-container {
@@ -44,16 +36,13 @@
 	.mw-page-container-inner {
 		display: grid;
 		width: 100%;
-		grid-template: ~'min-content min-content min-content 1fr min-content / 232px @{width-gutter} minmax(0, 1fr)';
-		grid-template-areas: 'header header header'
-			'sitenotice sitenotice sitenotice'
-			'sidebar gutter content'
-			'toc gutter content'
-			'footer footer footer';
-	}
-
-	.mw-body {
-		padding-left: 0;
+		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
+		grid-template: ~'min-content min-content min-content 1fr min-content / 232px minmax(0, 1fr)';
+		grid-template-areas: 'header header'
+			'sitenotice sitenotice'
+			'sidebar content'
+			'toc content'
+			'footer footer';
 	}
 
 	// FIXME: Remove selector after I39959f43f20880e83bef945a7535d58cfe0b6412 has been in prod for a week
@@ -78,13 +67,6 @@
 		grid-area: content;
 	}
 
-	// FIXME: Remove padding in favor of updating the header icons itself and making mw-body spacing consistent
-	// This padding complicates the collapsed TOC menu styles and contributes to inconsistent spacing
-	// with sidebar closed, when no table of contents, align with hamburger menu
-	@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
-		.mixin-column-align-width-hamburger-icon();
-	}
-
 	.mw-footer-container {
 		grid-area: footer;
 	}
@@ -94,7 +76,7 @@
 	.mw-page-container-inner {
 		/* Use of minmax is important to restrict the maximum grid column width
 		more information: T314756 */
-		grid-template-columns: ~'284px @{width-gutter} minmax(0, 1fr)';
+		grid-template-columns: ~'284px minmax(0, 1fr)';
 	}
 }
 
