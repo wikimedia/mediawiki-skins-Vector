@@ -15,24 +15,6 @@
 	height: 100%;
 }
 
-// FIXME: Remove selector after Ia263c606dce5a6060b6b29fbaedc49cef3e17a5c has been in prod for 5 days
-.mw-table-of-contents-container.mw-sticky-header-element {
-	// stylelint-disable-next-line plugin/no-unsupported-browser-features
-	position: sticky;
-	top: 0;
-	// Needed for Grid-based layout
-	align-self: start;
-	height: unset;
-
-	// Needed to align TOC with bottom of title
-	// 1.5em from .mw-table-of-contents-container + 1.5em from .sidebar-toc = 3em
-	@media ( min-width: @min-width-desktop ) {
-		.vector-toc-not-collapsed @{selector-main-menu-closed} ~ & {
-			margin-top: 1.5em;
-		}
-	}
-}
-
 .vector-sticky-toc-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
@@ -50,11 +32,6 @@
 			margin-top: 1.5em;
 		}
 	}
-}
-
-// FIXME: Remove selector after Ia263c606dce5a6060b6b29fbaedc49cef3e17a5c has been in prod for 5 days
-.mw-table-of-contents-container > .sidebar-toc {
-	margin-top: 1.5em;
 }
 
 .sidebar-toc {
