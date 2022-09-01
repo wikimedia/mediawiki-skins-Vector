@@ -37,6 +37,32 @@ function enableCssAnimations( document ) {
 }
 
 /**
+ * In https://phabricator.wikimedia.org/T313409 #p-namespaces was renamed to #p-associatedPages
+ * This code maps items added by gadgets to the new menu.
+ * This code can be removed in MediaWiki 1.40.
+ */
+function addNamespacesGadgetSupport() {
+	// Set up hidden dummy portlet.
+	var dummyPortlet = document.createElement( 'div' );
+	dummyPortlet.setAttribute( 'id', 'p-namespaces' );
+	dummyPortlet.setAttribute( 'style', 'display: none;' );
+	dummyPortlet.appendChild( document.createElement( 'ul' ) );
+	document.body.appendChild( dummyPortlet );
+	mw.hook( 'util.addPortletLink' ).add( function ( /** @type {Element} */ node ) {
+		// If it was added to p-namespaces, show warning and move.
+		// eslint-disable-next-line no-jquery/no-global-selector
+		if ( $( '#p-namespaces' ).find( node ).length ) {
+			// eslint-disable-next-line no-jquery/no-global-selector
+			$( '#p-associated-pages ul' ).append( node );
+			// @ts-ignore
+			mw.log.warn( 'Please update call to mw.util.addPortletLink with ID p-namespaces. Use p-associatedPages instead.' );
+			// in case it was empty before:
+			mw.util.showPortlet( 'p-associated-pages' );
+		}
+	} );
+}
+
+/**
  * @param {Window} window
  * @return {void}
  */
@@ -47,6 +73,7 @@ function main( window ) {
 	initSearchLoader( document );
 	languageButton();
 	dropdownMenus();
+	addNamespacesGadgetSupport();
 }
 
 /**
