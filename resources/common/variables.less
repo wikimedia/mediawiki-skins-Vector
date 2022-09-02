@@ -64,8 +64,8 @@
 
 @size-icon: unit( 20 / @font-size-browser, em );
 @size-indicator: unit( 12 / @font-size-browser, em );
-// Copied from mediawiki.ui.icons
-@icon-padding-md: unit( 12 / @font-size-browser, em );
+// Copied from mediawiki.ui.icons, but converted to px to match `mw-ui-button`
+@icon-padding-md: 12px;
 
 @background-position-nav-personal-icon: left unit( 4 / @font-size-browser / @font-size-nav-personal, em );
 @background-size-nav-personal-icon: unit( 14 / @font-size-browser / @font-size-nav-personal, em );
@@ -138,9 +138,6 @@
 // Sidebar
 @width-sidebar-px: 220px;
 @width-sidebar-px-wide: 244px;
-// T305069 Layout adjustments of sidebar elements:
-// Vertically align the left edge of sidebar elements with the visible edge of the sidebar toggle hamburger menu.
-@margin-start-sidebar-content: unit( 12px / @font-size-browser, em ); // 0.75em @ 16
 
 // TOC
 @sidebar-toc-selector: ~'.mw-table-of-contents-container .sidebar-toc';

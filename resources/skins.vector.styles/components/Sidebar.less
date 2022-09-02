@@ -3,26 +3,32 @@
 @import '../layouts/screen.less';
 @import './checkboxHack.less';
 
+// Match styles between TOC and fade element to ensure the fade covers the correct area
+// This is expressed in pixels to support different font sizes since our layout is currently
+// expressed in pixels. See T313817.
+.sidebar-toc:after,
 .mw-sidebar,
-.sidebar-toc,
-.sidebar-toc:after {
-	// Match styles between TOC and fade element to ensure the fade covers the correct area
-	// This is expressed in pixels to support different font sizes since our layout is currently
-	// expressed in pixels. See T313817.
+.sidebar-toc {
+	// T305069 Layout adjustments of sidebar elements
+	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
 	margin-left: 0;
 
+	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
-		margin-left: @margin-start-sidebar-content;
+		margin-left: @icon-padding-md;
 	}
 }
 
 .sidebar-toc,
 .sidebar-toc:after {
-	margin-left: -@margin-start-sidebar-content;
+	// T312156 Update TOC spacing after removing background color
+	// Align the left edge of the TOC text with the main menu button icon.
+	margin-left: -@icon-padding-md;
 
 	@media ( min-width: @min-width-desktop-wide ) {
+		// Align the TOC subsection toggle button icon with the main menu button icon.
 		margin-left: 0;
 	}
 }
