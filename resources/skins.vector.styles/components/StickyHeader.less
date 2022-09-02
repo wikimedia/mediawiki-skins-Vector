@@ -18,18 +18,13 @@
 	background: @background-color-base;
 	background-color: #fffffff7;
 	border-bottom: @border-width-base @border-style-base @colorGray14;
-	// FIXME: Should this adapt to different thresholds? Ask Alex!
-	padding: 6px 8px 6px 10px;
 	justify-content: space-between;
 	box-sizing: border-box;
-
-	@media ( min-width: @min-width-desktop ) {
-		padding: 6px 25px;
-		max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop * 2 );
-	}
+	padding: 6px @padding-horizontal-page-container-desktop;
+	max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop * 2 );
 
 	@media ( min-width: @min-width-desktop-wide ) {
-		padding: 6px 25px;
+		padding: 6px @padding-horizontal-page-container-desktop-wide;
 		max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop-wide * 2 );
 	}
 
