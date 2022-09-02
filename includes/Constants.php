@@ -222,6 +222,21 @@ final class Constants {
 	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**
+	 * @var string
+	 */
+	public const FEATURE_VISUAL_ENHANCEMENTS = 'VisualEnhancementNext';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_VISUAL_ENHANCEMENTS = 'VisualEnhancementNext';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_VISUAL_ENHANCEMENTS = 'VectorVisualEnhancementNext';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

@@ -458,6 +458,10 @@
 		}
 	},
 	"config": {
+		"VectorVisualEnhancementNext": {
+			"value": false,
+			"description": "Temporary configuration flag for enabling in development enhancements."
+		},
 		"Vector2022PreviewPages": {
 			"value": [],
 			"description": "Temporary configuration flag for allowing users to preview the new Vector skin."
