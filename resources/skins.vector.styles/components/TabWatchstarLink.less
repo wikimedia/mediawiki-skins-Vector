@@ -5,7 +5,8 @@
 /* Watch/Unwatch Icon Styling */
 /* Only use icon if the menu item is not collapsed into the "More" dropdown
  * (in which case it is inside `.vector-menu-dropdown` instead of `.vector-menu-tabs`). */
-.vector-menu-tabs {
+// Note: there's no watchstar for anon users so no need to worry about cached HTML when changing this class
+.vector-feature-visual-enhancement-next-disabled .vector-menu-tabs {
 	@size-watchlink-icon: unit( 16 / @font-size-tabs / @font-size-browser, em );
 
 	.mw-watchlink.icon a {
@@ -52,6 +53,18 @@
 	#ca-unwatch.icon .loading:before,
 	#ca-watch.icon .loading:before {
 		.rotation( 700ms );
+		/* Suppress the hilarious rotating focus outline on Firefox */
+		outline: 0;
+		cursor: default;
+		pointer-events: none;
+		transform-origin: 50% 50%;
+	}
+}
+
+// Loading watchstar link class.
+.vector-feature-visual-enhancement-next-enabled {
+	.mw-watchlink .loading:before {
+		.rotation( 500ms );
 		/* Suppress the hilarious rotating focus outline on Firefox */
 		outline: 0;
 		cursor: default;

@@ -153,7 +153,7 @@ class Hooks implements
 	}
 
 	/**
-	 * Transforms watch item inside the action navigation menu
+	 * Moves watch item from actions to views menu.
 	 *
 	 * @param array &$content_navigation
 	 */
@@ -168,12 +168,57 @@ class Hooks implements
 
 		// Promote watch link from actions to views and add an icon
 		if ( $key !== null ) {
-			self::appendClassToItem(
-				$content_navigation['actions'][$key]['class'],
-				[ 'icon' ]
-			);
 			$content_navigation['views'][$key] = $content_navigation['actions'][$key];
 			unset( $content_navigation['actions'][$key] );
+		}
+	}
+
+	/**
+	 * Adds icons to items in the "views" menu.
+	 *
+	 * @param array &$content_navigation
+	 * @param bool $isLegacy is this the legacy Vector skin?
+	 */
+	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
+		$featureManager = VectorServices::getFeatureManager();
+		$visualEnhancements = $featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS );
+
+		foreach ( $content_navigation['views'] as $key => $item ) {
+			$icon = $item['icon'] ?? null;
+			if ( $icon ) {
+				if ( $isLegacy || !$featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS ) ) {
+					self::appendClassToItem(
+						$item['class'],
+						[ 'icon' ]
+					);
+				} else {
+					// Force the item as a button with hidden text.
+					$item['button'] = true;
+					$item['text-hidden'] = true;
+					$item = self::updateMenuItemData( $item, true );
+				}
+			} else {
+				self::appendClassToItem(
+					$item['class'],
+					[ 'vector-tab-noicon' ]
+				);
+			}
+			$content_navigation['views'][$key] = $item;
+		}
+	}
+
+	/**
+	 * All associated pages menu items do not have icons so are given the vector-tab-noicon class.
+	 *
+	 * @param array &$content_navigation
+	 */
+	private static function updateAssociatedPagesMenuIcons( &$content_navigation ) {
+		foreach ( $content_navigation['associated-pages'] as $key => $item ) {
+			self::appendClassToItem(
+				$item['class'],
+				[ 'vector-tab-noicon' ]
+			);
+			$content_navigation['associated-pages'][$key] = $item;
 		}
 	}
 
@@ -376,9 +421,10 @@ class Hooks implements
 	 * @param array $item data to update
 	 * @param string $buttonClassProp property to append button classes
 	 * @param string $iconHtmlProp property to set icon HTML
+	 * @param bool $isSmallIcon when set a small icon will be applied rather than the standard icon size
 	 * @return array $item Updated data
 	 */
-	private static function updateItemData( $item, $buttonClassProp, $iconHtmlProp ) {
+	private static function updateItemData( $item, $buttonClassProp, $iconHtmlProp, $isSmallIcon = false ) {
 		$hasButton = $item['button'] ?? false;
 		$hideText = $item['text-hidden'] ?? false;
 		$isCollapsible = $item['collapsible'] ?? false;
@@ -403,6 +449,9 @@ class Hooks implements
 					// We should seek to remove all these instances.
 					'mw-ui-icon-wikimedia-' . $icon
 				];
+				if ( $isSmallIcon ) {
+					$iconElementClasses[] = 'mw-ui-icon-small';
+				}
 				self::appendClassToItem( $item[ $buttonClassProp ], $iconElementClasses );
 			} else {
 				$item[ $iconHtmlProp ] = self::makeIcon( $icon );
@@ -439,12 +488,13 @@ class Hooks implements
 	 * Updates template data for Vector menu items.
 	 *
 	 * @param array $item menu item data to update
+	 * @param bool $isSmallIcon when set a small icon will be applied rather than the standard icon size
 	 * @return array $item Updated menu item data
 	 */
-	public static function updateMenuItemData( $item ) {
+	public static function updateMenuItemData( $item, $isSmallIcon = false ) {
 		$buttonClassProp = 'link-class';
 		$iconHtmlProp = 'link-html';
-		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
+		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp, $isSmallIcon );
 	}
 
 	/**
@@ -500,19 +550,27 @@ class Hooks implements
 		$title = $sk->getRelevantTitle();
 
 		$skinName = $sk->getSkinName();
-		if ( self::isVectorSkin( $skinName ) ) {
-			if (
-				$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
-				$title && $title->canExist()
-			) {
-				self::updateActionsMenu( $content_navigation );
-			}
-
-			self::updateUserLinksItems( $sk, $content_navigation );
+		// These changes should only happen in Vector.
+		if ( !$skinName || !self::isVectorSkin( $skinName ) ) {
+			return;
 		}
+
+		if (
+			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
+			$title && $title->canExist()
+		) {
+			self::updateActionsMenu( $content_navigation );
+		}
+
+		self::updateUserLinksItems( $sk, $content_navigation );
 		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
 			self::createMoreOverflowMenu( $content_navigation );
 		}
+
+		// The updating of the views menu happens /after/ the overflow menu has been created
+		// this avoids icons showing in the more overflow menu.
+		self::updateViewsMenuIcons( $content_navigation, self::isSkinVersionLegacy( $skinName ) );
+		self::updateAssociatedPagesMenuIcons( $content_navigation );
 	}
 
 	/**

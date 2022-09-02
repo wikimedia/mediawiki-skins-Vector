@@ -311,6 +311,7 @@
 				}
 			},
 			"icons": [
+				"heart",
 				"language",
 				"ellipsis",
 				"userAvatar",
@@ -387,6 +388,7 @@
 					"name": "resources/skins.vector.js/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
 				},
+				"resources/skins.vector.js/watchstar.js",
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/checkbox.js",
 				"resources/skins.vector.js/sidebarPersistence.js",

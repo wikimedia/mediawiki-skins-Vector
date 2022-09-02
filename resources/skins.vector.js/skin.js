@@ -2,6 +2,7 @@ var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	sidebarPersistence = require( './sidebarPersistence.js' ),
+	watchstar = require( './watchstar.js' ),
 	checkbox = require( './checkbox.js' );
 
 /**
@@ -74,6 +75,9 @@ function main( window ) {
 	languageButton();
 	dropdownMenus();
 	addNamespacesGadgetSupport();
+	if ( document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
+		watchstar();
+	}
 }
 
 /**

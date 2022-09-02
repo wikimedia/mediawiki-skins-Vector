@@ -394,19 +394,24 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testOnSkinTemplateNavigation() {
 		$this->setMwGlobals( [
-			'wgVectorUseIconWatch' => true
+			'wgVectorUseIconWatch' => true,
+			'wgVectorVisualEnhancementNext' => false,
 		] );
 		$skin = new SkinVector22( [ 'name' => 'vector' ] );
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
+			'associated-pages' => [],
+			'views' => [],
 			'actions' => [
-				'watch' => [ 'class' => [ 'watch' ] ],
+				'watch' => [ 'class' => [ 'watch' ], 'icon' => 'star' ],
 			]
 		];
 		$contentNavUnWatch = [
+			'associated-pages' => [],
+			'views' => [],
 			'actions' => [
 				'move' => [ 'class' => [ 'move' ] ],
-				'unwatch' => [],
+				'unwatch' => [ 'icon' => 'unStar' ],
 			],
 		];
 
@@ -433,6 +438,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testUpdateUserLinksItems() {
 		$vector2022Skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
 		$contentNav = [
+			'associated-pages' => [],
+			'views' => [],
 			'user-page' => [
 				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
 			],
@@ -442,6 +449,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 		$vectorLegacySkin = new SkinVectorLegacy( [ 'name' => 'vector' ] );
 		$contentNavLegacy = [
+			'associated-pages' => [],
+			'views' => [],
 			'user-page' => [
 				'userpage' => [ 'class' => [], 'icon' => 'userpage' ],
 			]
