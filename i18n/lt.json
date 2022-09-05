@@ -7,6 +7,7 @@
 			"Homo",
 			"Hugo.arg",
 			"Matasg",
+			"Pavel1513",
 			"Perkunas",
 			"Tomasdd"
 		]
@@ -14,6 +15,7 @@
 	"skinname-vector": "Vektorinė",
 	"vector-skin-desc": "Moderni MonoBook versija su šviežiausia išvaizda ir daugybe panaudojamumo patobulinimų",
 	"prefs-vector-enable-vector-1-label": "Naudoti senąją vektorinę išvaizdą",
+	"vector-language-button-label": "{{PLURAL:$1|$1 kalba|$1 kalbų}}",
 	"vector-action-addsection": "Pridėti temą",
 	"vector-action-delete": "Ištrinti",
 	"vector-action-move": "Pervardyti",
@@ -27,5 +29,6 @@
 	"vector-view-viewsource": "Žiūrėti kodą",
 	"vector-jumptocontent": "Pereiti prie turinio",
 	"vector-more-actions": "Daugiau",
-	"vector-search-loader": "Įkeliami paieškos pasiūlymai"
+	"vector-search-loader": "Įkeliami paieškos pasiūlymai",
+	"vector-searchsuggest-containing": "Ieškoti puslapių, turinčių <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

@@ -6,6 +6,7 @@
 			"Dj",
 			"Hanna Tardos",
 			"Misibacsi",
+			"Mmarci72",
 			"Máté",
 			"Tacsipacsi",
 			"Tgr"
@@ -38,6 +39,7 @@
 	"vector-jumptocontent": "Ugrás a tartalomhoz",
 	"vector-more-actions": "Több",
 	"vector-search-loader": "Keresési javaslatok betöltése…",
+	"vector-searchsuggest-containing": "Olyan oldalak keresése, amik tartalmazzák a következőt: <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Tartalomjegyzék",
 	"vector-toc-beginning": "Bevezető",
 	"vector-anon-user-menu-pages": "Lapok kijelentkezett szerkesztőknek",
