@@ -202,13 +202,6 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$vectorTemplate->setContext( $context );
-		$this->setTemporaryHook( 'PersonalUrls', [
-			static function ( &$personal_urls, &$title, $skin ) {
-				$personal_urls = [
-					'pt-1' => [ 'text' => 'pt1' ],
-				];
-			}
-		] );
 		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal', [
 			static function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation['actions'] = [
@@ -227,6 +220,9 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 					]
 				];
 				$content_navigation['views'] = [];
+				$content_navigation['user-menu'] = [
+					'pt-1' => [ 'text' => 'pt1' ],
+				];
 			}
 		] );
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
