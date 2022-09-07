@@ -2,6 +2,7 @@
 	<cdx-typeahead-search
 		:id="id"
 		ref="searchForm"
+		class="vector-typeahead-search"
 		:class="rootClasses"
 		:search-results-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
@@ -19,6 +20,8 @@
 		@input="onInput"
 		@search-result-click="instrumentation.onSuggestionClick"
 		@submit="onSubmit"
+		@focus="onFocus"
+		@blur="onBlur"
 	>
 		<template #default>
 			<input
@@ -132,13 +135,16 @@ module.exports = exports = defineComponent( {
 			// Whether to apply a CSS class that disables the CSS transitions on the text input
 			disableTransitions: this.autofocusInput,
 
-			instrumentation: instrumentation.listeners
+			instrumentation: instrumentation.listeners,
+
+			isFocused: false
 		};
 	},
 	computed: {
 		rootClasses() {
 			return {
-				'vector-search-box-disable-transitions': this.disableTransitions
+				'vector-search-box-disable-transitions': this.disableTransitions,
+				'vector-typeahead-search--active': this.isFocused
 			};
 		}
 	},
@@ -183,6 +189,14 @@ module.exports = exports = defineComponent( {
 			this.wprov = instrumentation.getWprovFromResultIndex( event.index );
 
 			instrumentation.listeners.onSubmit( event );
+		},
+
+		onFocus() {
+			this.isFocused = true;
+		},
+
+		onBlur() {
+			this.isFocused = false;
 		}
 	},
 	mounted() {
