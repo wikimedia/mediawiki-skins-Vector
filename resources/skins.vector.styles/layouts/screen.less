@@ -22,7 +22,7 @@
 // smaller and will start horizontal scrolling instead.
 @min-width-supported:
 	unit( 500px / @font-size-browser, em ) -
-	( 2 * @padding-horizontal-page-container-wide );
+	( 2 * @padding-horizontal-page-container-desktop-wide );
 // 31.25em - 3.75em = 27.5em @ 16
 
 body {
@@ -38,10 +38,13 @@ body {
 }
 
 .mw-body {
-	border-top: @border-width-base @border-style-base transparent;
-	/* Merge the border with tabs' one (in their background image) */
-	margin-top: -@border-width-base;
 	padding: @padding-content;
+
+	@media ( max-width: @max-width-tablet ) {
+		// T315261 Remove horizontal padding, rely on .mw-page-container padding instead
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	.firstHeading {
 		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
@@ -145,7 +148,7 @@ body {
 	margin-right: auto;
 	// Use non-zero padding to disable margin collapse.
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
-	padding: 0.05px ( @padding-horizontal-page-container / 2 );
+	padding: 0.05px @padding-horizontal-page-container;
 	background-color: @background-color-page-container;
 	// Set a min-width to make explicit we do not support anything below this threshold.
 	// For devices too small, they should be more useable with horizontal scrolling.
@@ -153,13 +156,13 @@ body {
 	min-width: @min-width-supported;
 
 	@media ( min-width: @min-width-desktop ) {
-		padding-left: @padding-horizontal-page-container;
-		padding-right: @padding-horizontal-page-container;
+		padding-left: @padding-horizontal-page-container-desktop;
+		padding-right: @padding-horizontal-page-container-desktop;
 	}
 
 	@media ( min-width: @min-width-desktop-wide ) {
-		padding-left: @padding-horizontal-page-container-wide;
-		padding-right: @padding-horizontal-page-container-wide;
+		padding-left: @padding-horizontal-page-container-desktop-wide;
+		padding-right: @padding-horizontal-page-container-desktop-wide;
 	}
 }
 

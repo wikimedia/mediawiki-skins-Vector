@@ -19,11 +19,6 @@
 	// https://caniuse.com/#search=align-items
 	align-items: center;
 
-	.vector-layout-legacy & {
-		margin: @margin-top-header 0 @margin-bottom-header 0;
-		padding: 0;
-	}
-
 	#mw-sidebar-button {
 		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 	}
@@ -56,10 +51,13 @@
 		}
 	}
 
-	/**
-	 * Toggles the visibility of the search box at lower resolutions.
-	 */
 	@media ( max-width: @max-width-tablet ) {
+		// T315261 Align header icon buttons with main content
+		margin: 0 -@icon-padding-md 0 -@icon-padding-md;
+
+		/**
+	 	 * Toggles the visibility of the search box at lower resolutions.
+		 */
 		&.vector-header-search-toggled {
 			#mw-sidebar-button,
 			.mw-logo,
