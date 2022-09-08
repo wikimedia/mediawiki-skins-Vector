@@ -707,6 +707,9 @@ class Hooks implements
 			$bodyAttrs['class'] .= ' skin-vector-disable-max-width';
 		}
 
+		// TOC is not collapsed by default
+		$bodyAttrs['class'] .= ' vector-toc-not-collapsed';
+
 		$featureManager = VectorServices::getFeatureManager();
 		$bodyAttrs['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 		$bodyAttrs['class'] = trim( $bodyAttrs['class'] );

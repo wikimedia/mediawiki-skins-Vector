@@ -334,6 +334,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function bindCollapseToggleListeners() {
 		// Initialize toc collapsed status
+		// FIXME: Remove after I17f2699fec113d92b3f0f223c357654f52eb7eb3 has been in prod for a week
 		document.body.classList.add( TOC_NOT_COLLAPSED_CLASS );
 
 		const showHideTocElement = document.querySelectorAll( '#sidebar-toc-label button' );
