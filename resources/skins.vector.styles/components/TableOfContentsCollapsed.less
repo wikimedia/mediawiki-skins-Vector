@@ -3,6 +3,8 @@
 @height-collapsed-toc-button: 36px;
 @padding-top-content-px: unit( @padding-top-content * @font-size-browser, px );
 @selector-collapsed-toc-open: ~'#vector-toc-collapsed-checkbox:checked';
+// Use calc so that the same max width can apply even when the TOC is in different containers
+@max-width-collapsed-toc: 0.85 * @max-width-content-container; // 51em
 
 #vector-toc-collapsed-button {
 	display: none;
@@ -57,6 +59,15 @@
 	}
 }
 
+// Shared collapsed TOC styles, applies across all collapsed cases (page title, floating, sticky header)
+.mixin-toc-collapsed() {
+	margin: 0;
+	// T316056 Remove TOC menu fixed width and apply max-width
+	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
+	width: auto;
+	max-width: ~'min( @{max-width-collapsed-toc}, 75vw )'; // 51em
+}
+
 // Applies when TOC is collapsed in it's original DOM location
 // Doesn't apply to the collapsed TOC in the sticky header
 .mixin-toc-collapsed-unmoved() {
@@ -69,10 +80,11 @@
 	}
 
 	@{sidebar-toc-selector} {
+		.mixin-toc-collapsed();
 		display: none;
 		position: absolute;
 		top: @height-collapsed-toc-button; // TOC button height
-		margin: @padding-top-content-px 0 0 0; // Account for padding-top from .mw-body
+		margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
 		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 		border: @border-width-base @border-style-base @border-color-base;
 	}
@@ -84,19 +96,16 @@
 }
 
 .mixin-toc-collapsed-floating() {
-	#vector-toc-collapsed-button,
-	.sidebar-toc {
-		position: fixed;
-	}
-
 	#vector-toc-collapsed-button {
+		position: fixed;
 		top: 0;
 		left: 0;
 		margin: 0;
 	}
 
 	.sidebar-toc {
-		margin: 0;
+		.mixin-toc-collapsed();
+		position: fixed;
 		left: 6px;
 	}
 }
@@ -144,4 +153,20 @@
 			}
 		}
 	}
+}
+
+//
+// Collapsed to sticky header
+//
+.vector-toc-collapsed .vector-sticky-header-toc-container .sidebar-toc {
+	.mixin-toc-collapsed();
+	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
+	// max-content doesn't account for padding even when we use box-sizing, so use content-box instead
+	// and manually account for horizontal padding in the max width
+	box-sizing: content-box;
+	width: max-content;
+	@sidebar-toc-left-padding-em: unit( @sidebar-toc-left-padding / @font-size-browser, em );
+	@sidebar-toc-right-padding-em: unit( @sidebar-toc-right-padding / @font-size-browser, em );
+	@max-width-sticky-header-collapsed-toc: @max-width-collapsed-toc - @sidebar-toc-left-padding-em - @sidebar-toc-right-padding-em;
+	max-width: ~'min( @{max-width-sticky-header-collapsed-toc}, 75vw )'; // min( 48.5625em, 75vw )
 }

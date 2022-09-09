@@ -63,6 +63,14 @@
 		min-width: 0;
 	}
 
+	// Apply nowrap to title and buttons
+	// Must apply to &-ccontext-bar-primary rather than &-context-bar or &-start
+	// to avoid applying nowrap to the collapsed TOC menu
+	&-context-bar-primary,
+	&-end {
+		white-space: nowrap;
+	}
+
 	//
 	// Components
 	//
@@ -70,7 +78,6 @@
 		border-left: @border-width-base @border-style-base #c8c8c8;
 		margin: 0 15px;
 		padding-left: 30px;
-		white-space: nowrap;
 		min-width: 0;
 	}
 
@@ -83,10 +90,6 @@
 		display: block;
 		position: relative;
 		margin-left: -@icon-padding-md;
-
-		.sidebar-toc {
-			margin: 0;
-		}
 	}
 
 	&-context-bar-primary {
