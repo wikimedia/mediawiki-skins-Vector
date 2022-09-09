@@ -2,17 +2,7 @@
     Content Header - Main <H1> title for all pages, with either the indicators or language selector.
     When language button is visible, indicators are placed in the ContentSubheader.mustache template instead.
 }}
-<header class="mw-body-header">
-    {{#is-language-in-content-top}}
-        {{#data-portlets.data-languages}}
-            {{>Menu}}
-        {{/data-portlets.data-languages}}
-    {{/is-language-in-content-top}}
-
-    {{^is-language-in-content-top}}
-        {{>Indicators}}
-    {{/is-language-in-content-top}}
-
+<header class="mw-body-header vector-page-titlebar">
 	{{#data-toc}}
 	<label
 		id="vector-toc-collapsed-button"
@@ -26,5 +16,16 @@
 		{{msg-vector-toc-collapsible-button-label}}
 	</label>
 	{{/data-toc}}
+
     {{{html-title-heading}}}
+
+	{{#is-language-in-content-top}}
+        {{#data-portlets.data-languages}}
+            {{>Menu}}
+        {{/data-portlets.data-languages}}
+    {{/is-language-in-content-top}}
+
+    {{^is-language-in-content-top}}
+        {{>Indicators}}
+    {{/is-language-in-content-top}}
 </header>
