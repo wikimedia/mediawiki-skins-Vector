@@ -433,29 +433,11 @@ module.exports = function tableOfContents( props ) {
 	 *
 	 * @param {string} elementId
 	 * @param {string} html
-	 * @param {boolean} setInnerHTML
 	 */
-	function reloadPartialHTML( elementId, html, setInnerHTML = true ) {
+	function reloadPartialHTML( elementId, html ) {
 		const htmlElement = document.getElementById( elementId );
 		if ( htmlElement ) {
-			if ( setInnerHTML ) {
-				htmlElement.innerHTML = html;
-			} else if ( htmlElement.outerHTML ) {
-				htmlElement.outerHTML = html;
-			} else { // IF outerHTML property access is not supported
-				const tmpContainer = document.createElement( 'div' );
-				tmpContainer.innerHTML = html.trim();
-				const childNode = tmpContainer.firstChild;
-				if ( childNode ) {
-					const tmpElement = document.createElement( 'div' );
-					tmpElement.setAttribute( 'id', `div-tmp-${elementId}` );
-					const parentNode = htmlElement.parentNode;
-					if ( parentNode ) {
-						parentNode.replaceChild( tmpElement, htmlElement );
-						parentNode.replaceChild( childNode, tmpElement );
-					}
-				}
-			}
+			htmlElement.innerHTML = html;
 		}
 	}
 
