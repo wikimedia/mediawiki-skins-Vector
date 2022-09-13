@@ -8,7 +8,7 @@
 	},
 	"skinname-vector": "វ៉ិចទ័រ​​",
 	"vector.css": "/* CSS បានដាក់ទីនេះនឹងមានអនុភាពលើអ្នកប្រើប្រាស់នៃសំបក Vector */",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ភាសា|$1 ភាសា}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ភាសា}}",
 	"vector-action-addsection": "បន្ថែម​ប្រធានបទ​",
 	"vector-action-delete": "លុបចោល",
 	"vector-action-move": "ប្តូរទីតាំង",
