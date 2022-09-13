@@ -163,26 +163,5 @@
 			margin-left: @size-search-expand;
 			width: ~'calc( 100% - @{size-search-expand} )';
 		}
-
-		// Recreate Codex expanding input.
-		&:not( .vector-search-box-auto-expand-width ) .vector-search-box-input,
-		&.vector-search-box-auto-expand-width .vector-search-box-input:focus {
-			margin-left: 0;
-			// Use ~ and fixed values to disable the LESS transformation in ResourceLoader LESS implementation.
-			padding-left: ~'calc( @{padding-left-start-icon} + @{size-search-expand} )';
-			width: 100%;
-		}
-
-		// Reposition search icon for expanded input.
-		&:not( .vector-search-box-auto-expand-width ) .vector-search-box-input ~ .searchButton,
-		&.vector-search-box-auto-expand-width .vector-search-box-input:focus ~ .searchButton {
-			// Derived from @spacing-start-typeahead-icon in Codex
-			// https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/typeahead-search/TypeaheadSearch.vue#708
-			@spacing-start-typeahead-icon: 22px;
-			// Codex uses left: @spacing-start-typeahead-icon, but we have to account for the fact
-			// that we made the search button wider and centered the icon in it
-			@size-icon-px: 20px;
-			left: @spacing-start-typeahead-icon - ( @padding-left-start-icon - @size-icon-px ) / 2;
-		}
 	}
 }
