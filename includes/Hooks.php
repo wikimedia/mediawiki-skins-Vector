@@ -316,6 +316,8 @@ class Hooks implements
 	private static function updateUserLinksOverflowItems( $sk, &$content_navigation ) {
 		$overflow = 'vector-user-menu-overflow';
 		$content_navigation[$overflow] = [];
+		$featureManager = VectorServices::getFeatureManager();
+		$visualEnhancements = $featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS );
 
 		// Logged in and logged out overflow items
 		if ( isset( $content_navigation['user-interface-preferences']['uls'] ) ) {
@@ -339,6 +341,16 @@ class Hooks implements
 		if ( isset( $content_navigation['notifications'] ) ) {
 			foreach ( $content_navigation['notifications'] as $key => $data ) {
 				$content_navigation[$overflow][$key] = $data;
+				if ( $visualEnhancements ) {
+					$content_navigation[$overflow][$key]['link-class'] = [
+						// Allows Echo to react to clicks
+						'mw-echo-notification-badge-nojs'
+					];
+				} else {
+					unset( $content_navigation[$overflow][$key]['icon'] );
+					unset( $content_navigation[$overflow][$key]['button'] );
+					unset( $content_navigation[$overflow][$key]['text-hidden'] );
+				}
 			}
 		}
 		if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
