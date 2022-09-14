@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahmedadeljaff"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 لغـة|$1 لغـات}}",
+	"vector-view-edit": "تعديل",
+	"vector-view-history": "شوف التاريخ",
+	"vector-view-view": "اقرأ",
+	"vector-more-actions": "بعد"
+}

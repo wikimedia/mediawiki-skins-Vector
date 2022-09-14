@@ -12,8 +12,11 @@
 		]
 	},
 	"skinname-vector": "भेक्टर",
-	"vector-opt-out": "पुरानो रूप मा स्विच गर्ने",
+	"prefs-vector-enable-vector-1-label": "पुरानो संस्करण प्रयोग गर्नुहोस्",
+	"vector-opt-out": "पुरानो रूपमा परिवर्तन गर्नुहोस्",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
+	"vector-languages": "भाषाहरू",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषाहरू}}",
 	"vector-action-addsection": "विषय थप्नुहोस्",
 	"vector-action-delete": "हटाउने",
 	"vector-action-move": "सार्ने",
@@ -25,5 +28,8 @@
 	"vector-view-history": "इतिहास हेर्नुहोस्",
 	"vector-view-view": "पढ्नुहोस्",
 	"vector-view-viewsource": "स्रोत हेर्ने",
-	"vector-more-actions": "थप"
+	"vector-more-actions": "थप",
+	"vector-anon-user-menu-pages-learn": "थप जान्नुहोस्",
+	"vector-main-menu-tooltip": "मुख्य सूचीपत्र",
+	"tooltip-vector-anon-user-menu-title": "थप विकल्पहरू"
 }
