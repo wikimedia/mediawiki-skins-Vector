@@ -13,6 +13,51 @@ const onHeadingClick = jest.fn();
 const onToggleClick = jest.fn();
 const onToggleCollapse = jest.fn();
 
+const SECTIONS = [
+	{
+		toclevel: 1,
+		number: '1',
+		line: 'foo',
+		anchor: 'foo',
+		'is-top-level-section': true,
+		'is-parent-section': false,
+		'array-sections': null
+	}, {
+		toclevel: 1,
+		number: '2',
+		line: 'bar',
+		anchor: 'bar',
+		'is-top-level-section': true,
+		'is-parent-section': true,
+		'vector-button-label': 'Toggle bar subsection',
+		'array-sections': [ {
+			toclevel: 2,
+			number: '2.1',
+			line: 'baz',
+			anchor: 'baz',
+			'is-top-level-section': false,
+			'is-parent-section': true,
+			'array-sections': [ {
+				toclevel: 3,
+				number: '2.1.1',
+				line: 'qux',
+				anchor: 'qux',
+				'is-top-level-section': false,
+				'is-parent-section': false,
+				'array-sections': null
+			} ]
+		} ]
+	}, {
+		toclevel: 1,
+		number: '3',
+		line: 'quux',
+		anchor: 'quux',
+		'is-top-level-section': true,
+		'is-parent-section': false,
+		'array-sections': null
+	}
+];
+
 /**
  * @param {Object} templateProps
  * @return {string}
@@ -23,48 +68,7 @@ function render( templateProps = {} ) {
 		'msg-vector-toc-beginning': 'Beginning',
 		'msg-vector-toc-heading': 'Contents',
 		'vector-is-collapse-sections-enabled': false,
-		'array-sections': [ {
-			toclevel: 1,
-			number: '1',
-			line: 'foo',
-			anchor: 'foo',
-			'is-top-level-section': true,
-			'is-parent-section': false,
-			'array-sections': null
-		}, {
-			toclevel: 1,
-			number: '2',
-			line: 'bar',
-			anchor: 'bar',
-			'is-top-level-section': true,
-			'is-parent-section': true,
-			'vector-button-label': 'Toggle bar subsection',
-			'array-sections': [ {
-				toclevel: 2,
-				number: '2.1',
-				line: 'baz',
-				anchor: 'baz',
-				'is-top-level-section': false,
-				'is-parent-section': true,
-				'array-sections': [ {
-					toclevel: 3,
-					number: '2.1.1',
-					line: 'qux',
-					anchor: 'qux',
-					'is-top-level-section': false,
-					'is-parent-section': false,
-					'array-sections': null
-				} ]
-			} ]
-		}, {
-			toclevel: 1,
-			number: '3',
-			line: 'quux',
-			anchor: 'quux',
-			'is-top-level-section': true,
-			'is-parent-section': false,
-			'array-sections': null
-		} ]
+		'array-sections': SECTIONS
 	}, templateProps );
 
 	return mustache.render( tableOfContentsTemplate, templateData, {
@@ -213,6 +217,144 @@ describe( 'Table of contents', () => {
 
 			toc.toggleExpandSection( 'toc-bar' );
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
+		} );
+	} );
+
+	describe( 're-rendering', () => {
+		const mockMwHook = () => {
+			/** @type {Function} */
+			let callback;
+			// @ts-ignore
+			jest.spyOn( mw, 'hook' ).mockImplementation( () => {
+
+				return {
+					add: function ( fn ) {
+						callback = fn;
+
+						return this;
+					},
+					fire: ( data ) => {
+						if ( callback ) {
+							callback( data );
+						}
+					}
+				};
+			} );
+		};
+
+		afterEach( () => {
+			jest.restoreAllMocks();
+		} );
+
+		test( 'listens to wikipage.tableOfContents hook when mounted', () => {
+			const spy = jest.spyOn( mw, 'hook' );
+			mount();
+			expect( spy ).toHaveBeenCalledWith( 'wikipage.tableOfContents' );
+		} );
+
+		test( 're-renders toc when wikipage.tableOfContents hook is fired with empty sections', () => {
+			mockMwHook();
+			mount();
+
+			mw.hook( 'wikipage.tableOfContents' ).fire( [] );
+
+			expect( document.body.innerHTML ).toMatchSnapshot();
+		} );
+
+		test( 're-renders toc when wikipage.tableOfContents hook is fired with sections', async () => {
+			mockMwHook();
+			// @ts-ignore
+			// eslint-disable-next-line compat/compat
+			jest.spyOn( mw.loader, 'using' ).mockImplementation( () => Promise.resolve() );
+			// @ts-ignore
+			mw.template.getCompiler = () => {};
+			jest.spyOn( mw, 'message' ).mockImplementation( ( msg ) => {
+				const msgFactory = ( /** @type {string} */ text ) => {
+					return {
+						parse: () => '',
+						plain: () => '',
+						escaped: () => '',
+						exists: () => true,
+						text: () => text
+					};
+				};
+				switch ( msg ) {
+					case 'vector-toc-heading':
+						return msgFactory( 'Contents' );
+					case 'vector-toc-toggle-position-sidebar':
+						return msgFactory( 'move to sidebar' );
+					case 'vector-toc-toggle-position-title':
+						return msgFactory( 'hide' );
+					case 'vector-toc-beginning':
+						return msgFactory( 'Beginning' );
+					default:
+						return msgFactory( '' );
+				}
+
+			} );
+			// @ts-ignore
+			jest.spyOn( mw.template, 'getCompiler' ).mockImplementation( () => {
+				return {
+					compile: () => {
+						return {
+							render: ( /** @type {Object} */ data ) => {
+								return {
+									html: () => {
+										return render( data );
+									}
+								};
+							}
+						};
+					}
+				};
+			} );
+
+			const toc = mount();
+
+			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
+			// Collapse section.
+			toc.toggleExpandSection( 'toc-bar' );
+			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'false' );
+
+			// wikipage.tableOfContents includes the nested sections in the top level
+			// of the array.
+			mw.hook( 'wikipage.tableOfContents' ).fire( [
+				// foo
+				SECTIONS[ 0 ],
+				// bar
+				SECTIONS[ 1 ],
+				// baz
+				// @ts-ignore
+				SECTIONS[ 1 ][ 'array-sections' ][ 0 ],
+				// qux
+				// @ts-ignore
+				SECTIONS[ 1 ][ 'array-sections' ][ 0 ][ 'array-sections' ][ 0 ],
+				// quux
+				SECTIONS[ 2 ],
+				// Add new section to see how the re-render performs.
+				{
+					toclevel: 1,
+					number: '4',
+					line: 'bat',
+					anchor: 'bat',
+					'is-top-level-section': true,
+					'is-parent-section': false,
+					'array-sections': null
+				}
+			] );
+
+			// Wait until the mw.loader.using promise has resolved so that we can
+			// check the DOM after it has been updated.
+			// eslint-disable-next-line compat/compat
+			await Promise.resolve();
+
+			const newToggleButton = /** @type {HTMLElement} */ ( document.querySelector( `#toc-bar .${toc.TOGGLE_CLASS}` ) );
+			expect( newToggleButton ).not.toBeNull();
+			// Check that the sections render in their expanded form.
+			expect( newToggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
+
+			// Verify newly rendered TOC html matches the expected html.
+			expect( document.body.innerHTML ).toMatchSnapshot();
 		} );
 	} );
 } );
