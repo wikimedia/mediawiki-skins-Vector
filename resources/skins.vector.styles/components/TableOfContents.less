@@ -35,6 +35,27 @@
 	}
 }
 
+.sidebar-toc,
+.sidebar-toc:after {
+	// T312156 Update TOC spacing after removing background color
+	// Align the left edge of the TOC text with the main menu button icon.
+	margin-left: -@sidebar-toc-left-padding;
+
+	@media ( min-width: @min-width-desktop-wide ) {
+		// Align the TOC subsection toggle button icon with the main menu button icon.
+		margin-left: -@icon-padding-md;
+	}
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		margin-left: -@sidebar-toc-left-padding-next;
+
+		@media ( min-width: @min-width-desktop-wide ) {
+			// Align the TOC subsection toggle button icon with the main menu button icon.
+			margin-left: -@icon-padding-md-next;
+		}
+	}
+}
+
 .sidebar-toc {
 	max-height: 75vh;
 	padding: @sidebar-toc-vertical-padding @sidebar-toc-right-padding @sidebar-toc-vertical-padding @sidebar-toc-left-padding;
