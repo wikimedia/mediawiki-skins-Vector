@@ -62,9 +62,10 @@
 // Shared collapsed TOC styles, applies across all collapsed cases (page title, floating, sticky header)
 .mixin-toc-collapsed() {
 	margin: 0;
-	// T316056 Remove TOC menu fixed width and apply max-width
+	// T316056 Remove TOC menu fixed width and apply min/max-width
 	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
 	width: auto;
+	min-width: 200px;
 	max-width: ~'min( @{max-width-collapsed-toc}, 75vw )'; // 51em
 }
 
