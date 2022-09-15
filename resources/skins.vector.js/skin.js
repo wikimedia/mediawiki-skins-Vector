@@ -1,4 +1,5 @@
 var languageButton = require( './languageButton.js' ),
+	echo = require( './echo.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	sidebarPersistence = require( './sidebarPersistence.js' ),
@@ -73,6 +74,7 @@ function main( window ) {
 	checkbox.init( window.document );
 	initSearchLoader( document );
 	languageButton();
+	echo();
 	dropdownMenus();
 	addNamespacesGadgetSupport();
 	if ( document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
