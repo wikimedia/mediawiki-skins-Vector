@@ -12,7 +12,6 @@
 	right: 0;
 	z-index: @z-index-header;
 	transition: @transition-sticky-header;
-	display: none;
 	align-items: center;
 	margin: 0 auto;
 	background: @background-color-base;
@@ -28,24 +27,10 @@
 		max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop-wide * 2 );
 	}
 
-	// Hide sticky header and it's children until visible class is applied to the body
-	.client-js.vector-sticky-header-enabled :not( .vector-sticky-header-visible ) & {
-		transform: translateY( -100% );
-
-		> div {
-			display: none;
-		}
-	}
-
-	// Hide sticky header for no-js users
-	.client-nojs & {
-		display: none;
-	}
-
-	// T298836 Only show sticky header at higher resolutions.
-	@media ( min-width: @min-width-desktop ) {
-		display: flex;
-	}
+	// Hide sticky header until visible class is applied to the body
+	display: none;
+	transform: translateY( -100% );
+	opacity: 0;
 
 	//
 	// Layout
@@ -81,15 +66,15 @@
 		min-width: 0;
 	}
 
-	// Hide TOC in sticky header by default
 	&-toc-container {
 		display: none;
-	}
-
-	.vector-toc-collapsed &-toc-container {
-		display: block;
 		position: relative;
 		margin-left: -@icon-padding-md;
+
+		// Only show TOC in sticky header when collapsed class is present
+		.vector-toc-collapsed & {
+			display: block;
+		}
 	}
 
 	&-context-bar-primary {
@@ -146,7 +131,8 @@
 	}
 }
 
-@media ( min-width: @min-width-tablet ) {
+// T298836 Sticky header is only shown at higher resolutions
+@media ( min-width: @min-width-desktop ) {
 	.client-js.vector-sticky-header-enabled {
 		// T290518: When the sticky header is enabled (feature flag is on, js is
 		// enabled, and viewport is at higher resolutions), add scroll padding to the
@@ -159,21 +145,29 @@
 		// sticky header isn't visible yet but we still need scroll padding applied
 		// (e.g. when the user navigates to a page with a hash fragment in the URI).
 		scroll-padding-top: @height-sticky-header;
-	}
-}
 
-// T298836 Sticky header is only shown at higher resolutions
-@media ( min-width: @min-width-desktop ) {
-	.client-js .vector-sticky-header-visible {
-		// T289817 Override other sticky element offsets to ensure that other
-		// sticky elements (i.e. table headers) appear below the sticky header.
-		//
-		// @stable See the Integration notes for developers section at
-		// https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
-		.mw-sticky-header-element,
-		.charts-stickyhead th {
-			/* stylelint-disable-next-line declaration-no-important */
-			top: @height-sticky-header !important;
+		.vector-sticky-header {
+			// Sticky header is only enabled for js users and when feature flag is enabled
+			display: flex;
+		}
+
+		.vector-sticky-header-visible {
+			.vector-sticky-header {
+				// Show sticky header with transition when visible class is applied to the body
+				opacity: 1;
+				transform: translateY( 0 );
+			}
+
+			// T289817 Override other sticky element offsets to ensure that other
+			// sticky elements (i.e. table headers) appear below the sticky header.
+			//
+			// @stable See the Integration notes for developers section at
+			// https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
+			.mw-sticky-header-element,
+			.charts-stickyhead th {
+				/* stylelint-disable-next-line declaration-no-important */
+				top: @height-sticky-header !important;
+			}
 		}
 	}
 }

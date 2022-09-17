@@ -34,7 +34,7 @@
 	}
 }
 
-// Override button styles for the "move to sidebar/hide" links. Default hide.
+// Styles for the "move to sidebar/hide" buttons, hidden by default.
 .vector-toc-collapse-button,
 .vector-toc-uncollapse-button {
 	display: none;
@@ -59,7 +59,7 @@
 	}
 }
 
-// Shared collapsed TOC styles, applies across all collapsed cases (page title, floating, sticky header)
+// Shared collapsed TOC styles, applies across all collapsed cases (header, floating, sticky header)
 .mixin-toc-collapsed() {
 	margin: 0;
 	// T316056 Remove TOC menu fixed width and apply max-width
@@ -68,18 +68,18 @@
 	max-width: ~'min( @{max-width-collapsed-toc}, 75vw )'; // 51em
 }
 
-// Applies when TOC is collapsed in it's original DOM location
-// Doesn't apply to the collapsed TOC in the sticky header
-.mixin-toc-collapsed-unmoved() {
+// TOC styles when collapsed to header
+.mixin-toc-collapsed-header() {
 	#vector-toc-collapsed-button {
 		display: block;
 	}
 
 	.vector-sticky-toc-container {
+		// Override TOC container's sticky positioning
 		position: relative;
 	}
 
-	@{sidebar-toc-selector} {
+	.sidebar-toc {
 		.mixin-toc-collapsed();
 		display: none;
 		position: absolute;
@@ -89,12 +89,13 @@
 		border: @border-width-base @border-style-base @border-color-base;
 	}
 
-	@{selector-collapsed-toc-open} ~ @{sidebar-toc-selector} {
+	@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc {
 		// Hide the TOC when the button is not checked
 		display: block;
 	}
 }
 
+// TOC styles when collapsed to floating button
 .mixin-toc-collapsed-floating() {
 	#vector-toc-collapsed-button {
 		position: fixed;
@@ -111,14 +112,18 @@
 }
 
 @media ( max-width: @max-width-tablet ) {
-	// Collapsed to page title on narrow screens
-	.mixin-toc-collapsed-unmoved();
+	//
+	// Collapsed to header on narrow screens
+	//
+	.mixin-toc-collapsed-header();
 
-	@{sidebar-toc-selector} {
+	.sidebar-toc {
 		left: -@icon-padding-md;
 	}
 
-	// Collapsed to floating icon on narrow screens when below page
+	//
+	// Collapsed to floating button on narrow screens when below page title
+	//
 	.vector-below-page-title {
 		.mixin-toc-collapsed-floating();
 	}
@@ -127,29 +132,28 @@
 @media ( min-width: @min-width-desktop ) {
 	@supports ( display: grid ) {
 		.client-js {
-			// Collapsed to page title
-			.vector-toc-collapsed {
-				.mixin-toc-collapsed-unmoved();
+			.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
+				//
+				// Collapsed to header
+				//
+				.mixin-toc-collapsed-header();
 
 				.mw-table-of-contents-container {
 					grid-area: content;
 				}
 
-				// Collapsed to floating icon
-				// when sticky header not visible and below page title
-				body:not( .vector-sticky-header-visible ).vector-below-page-title& {
+				//
+				// Collapsed to floating icon when below page title
+				//
+				.vector-below-page-title& {
 					.mixin-toc-collapsed-floating();
-				}
-
-				.vector-toc-uncollapse-button {
-					display: inline-block;
 				}
 			}
 
-			.vector-toc-not-collapsed {
-				.vector-toc-collapse-button {
-					display: inline-block;
-				}
+			// Show the "move to sidebar/hide" buttons
+			.vector-toc-collapsed .vector-toc-uncollapse-button,
+			.vector-toc-not-collapsed .vector-toc-collapse-button {
+				display: inline-block;
 			}
 		}
 	}
