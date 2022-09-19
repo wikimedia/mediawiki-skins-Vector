@@ -7,15 +7,17 @@
 			"Kaztrans",
 			"Hedeyohu22",
 			"U.ayaao.p",
-			"СеніңШешең"
+			"СеніңШешең",
+			"Darzz"
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Ескі Vector қолдану",
-	"prefs-vector-enable-vector-1-help": "Алдағы бірнеше жылда біз Vector мұқабасын біртіндеп жаңартамыз. Legacy Vector сізге Vector-дың бұрынғы нұсқасын көруге мүмкіндік береді (2019 жылғы желтоқсандағы жағдай бойынша). Жаңартулар туралы көбірек білу үшін біздің [[mw:Reading/Web/Desktop_Improvements|жоба бетімізге]] өтіңіз.",
+	"prefs-vector-enable-vector-1-help": "Алдағы бірнеше жылда біз Vector мұқабасын біртіндеп жаңартамыз. Ескі Vector сізге Vector-дың бұрынғы нұсқасын көруге мүмкіндік береді (2019 жылғы желтоқсандағы жағдай бойынша). Жаңартулар туралы көбірек білу үшін біздің [[mw:Reading/Web/Desktop_Improvements|жоба бетімізге]] өтіңіз.",
 	"vector-opt-out": "Ескі көрініске ауысу",
-	"vector-opt-out-tooltip": "Мұқабаның ескі көрінісіне (ескі Vector) ауысу үшін баптауларыңызды өзгертіңіз",
+	"vector-opt-out-tooltip": "Мұқабаның ескі көрінісіне (ескі Vector-ға) ауысу үшін баптауларыңызды өзгертіңіз",
 	"vector.css": "/* Мұндағы барлық CSS Vector мұқабасы бар қатысушыларға жүктеледі */",
 	"vector.js": "/* Мұндағы барлық JavaScript Vector мұқабасы бар қатысушыларға жүктеледі */",
+	"vector-action-toggle-sidebar": "Бүйірлік тақтаны қосу/өшіру",
 	"vector-action-addsection": "Тақырып қосу",
 	"vector-action-delete": "Жою",
 	"vector-action-move": "Жылжыту",
