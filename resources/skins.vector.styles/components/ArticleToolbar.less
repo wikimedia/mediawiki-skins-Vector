@@ -5,7 +5,8 @@
 .mw-article-toolbar-container {
 	// clearfix for #left-navigation and #right-navigation
 	display: flow-root;
-	border-bottom: @border-bottom-tabs;
+	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
+	box-shadow: 0 1px @border-color-base;
 
 	/* Targets #left-navigation and #right-navigation */
 	& > div {
