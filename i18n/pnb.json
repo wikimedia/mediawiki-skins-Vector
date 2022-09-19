@@ -3,6 +3,7 @@
 		"authors": [
 			"Abbas dhothar",
 			"Arslan",
+			"Bgo eiu",
 			"Khalid Mahmood"
 		]
 	},
@@ -18,5 +19,6 @@
 	"vector-view-history": "تریخ دیکھو",
 	"vector-view-view": "پڑھو",
 	"vector-view-viewsource": "سورس ویکھو",
-	"vector-more-actions": "ہور"
+	"vector-more-actions": "ہور",
+	"vector-searchsuggest-containing": "اس ٹرم نوں صفحےآں وچ کھوجو <strong class=\"cdx-$1typeahead-search__search-footer__query\"></strong>"
 }
