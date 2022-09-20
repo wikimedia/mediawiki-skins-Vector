@@ -68,6 +68,7 @@
 		height: @toc-subsection-toggle-icon-size;
 		font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
 		transition: @transition-duration-base;
+		color: transparent;
 		cursor: pointer;
 	}
 
@@ -77,12 +78,27 @@
 		display: block;
 	}
 
-	.sidebar-toc-list-item-active > .sidebar-toc-link {
-		// Highlight active section
+	// Highlight and bold active sections, active top sections that are unexpanded
+	// and active top sections that are the only active element.
+	.sidebar-toc-list-item-active,
+	.sidebar-toc-level-1-active:not( .sidebar-toc-list-item-expanded ),
+	.sidebar-toc-list-item-active.sidebar-toc-level-1-active {
+		> .sidebar-toc-link {
+			// Highlight active section
+			color: @color-base;
+			font-weight: bold;
+
+			.sidebar-toc-text {
+				// Increase width to prevent line wrapping due to bold text
+				// Avoid applying on link element to avoid focus indicator changing size
+				width: ~'calc( 100% + @{sidebar-toc-right-padding} )';
+			}
+		}
+	}
+
+	// Highlight active top sections that contain an active section
+	.sidebar-toc-level-1-active:not( .sidebar-toc-list-item-active ) > .sidebar-toc-link {
 		color: @color-base;
-		font-weight: bold;
-		// increase width to prevent line wrapping due to bold text
-		width: ~'calc( 100% + @{sidebar-toc-right-padding} )';
 	}
 
 	.sidebar-toc-text {
@@ -142,7 +158,6 @@
 
 	.sidebar-toc-toggle {
 		display: block;
-		color: transparent;
 	}
 
 	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle {
