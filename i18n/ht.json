@@ -20,5 +20,10 @@
 	"vector-view-history": "Gade istorik",
 	"vector-view-view": "Li",
 	"vector-view-viewsource": "Wè kòd paj la",
-	"vector-more-actions": "Plis"
+	"vector-more-actions": "Plis",
+	"vector-anon-user-menu-pages": "Paj yo pou editè ki dekonekte yo",
+	"vector-anon-user-menu-pages-learn": "aprann plis",
+	"vector-anon-user-menu-pages-label": "Aprann plis sou modifikasyon",
+	"vector-main-menu-tooltip": "Meni prensipal la",
+	"tooltip-vector-anon-user-menu-title": "Plis opsyon"
 }

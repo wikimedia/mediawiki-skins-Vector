@@ -21,8 +21,8 @@
 	"prefs-vector-enable-vector-1-help": "Durante os próximos anos iremos atualizar gradualmente o tema Vector. O Vetor antigo permitirá ver a versão antiga do tema Vector (a partir de dezembro de 2019). Para saber mais sobre as atualizações, consulte a  [[mw:Reading/Web/Desktop_Improvements|página do projeto]].",
 	"vector-opt-out": "Mudar para aparência antiga",
 	"vector-opt-out-tooltip": "Alterar as suas configurações para voltar ao aspeto anterior do tema (Vector anterior)",
-	"vector.css": "/* Código CSS colocado aqui afectará os utilizadores do tema Vector */",
-	"vector.js": "/* Código Javascript colocado aqui será carregado para utilizadores do tema Vector */",
+	"vector.css": "/* Todo o código CSS colocado aqui será carregado para os utilizadores do tema Vector */",
+	"vector.js": "/* Todo o código Javascript colocado aqui será carregado para os utilizadores do tema Vector */",
 	"vector-action-toggle-sidebar": "Alternar barra lateral",
 	"vector-language-button-label": "{{PLURAL:$1|$1 língua|$1 línguas}}",
 	"vector-action-addsection": "Adicionar tópico",
@@ -41,5 +41,9 @@
 	"vector-jumptocontent": "Saltar para o conteúdo",
 	"vector-more-actions": "Mais",
 	"vector-search-loader": "A carregar sugestões de pesquisa",
-	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição"
+	"vector-anon-user-menu-pages": "Páginas para editores sem sessão iniciada",
+	"vector-anon-user-menu-pages-learn": "saber mais",
+	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição",
+	"vector-main-menu-tooltip": "Menu principal",
+	"tooltip-vector-anon-user-menu-title": "Mais opções"
 }
