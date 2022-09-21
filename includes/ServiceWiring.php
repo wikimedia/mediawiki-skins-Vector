@@ -53,8 +53,7 @@ return [
 				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
-				null,
-				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST
+				null
 			)
 		);
 
@@ -63,13 +62,9 @@ return [
 		// Temporary T286932 - remove after languages A/B test is finished.
 		$requirementName = 'T286932';
 
-		// MultiConfig checks each config in turn, allowing us to override the main config for specific keys. In this
-		// case, override the "VectorLanguageInHeaderABTest" configuration value so that the following requirement
-		// always buckets the user as if the language treatment A/B test were running.
+		// MultiConfig checks each config in turn, allowing us to override the main config for specific keys.
 		$config = new MultiConfig( [
-			new HashConfig( [
-				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST => true,
-			] ),
+			new HashConfig( [] ),
 			$services->getMainConfig(),
 		] );
 
@@ -81,8 +76,7 @@ return [
 				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				$requirementName,
-				/* $overrideName = */ '',
-				Constants::CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST
+				/* $overrideName = */ ''
 			)
 		);
 

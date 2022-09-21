@@ -99,17 +99,6 @@ final class Constants {
 	public const REQUIREMENT_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	/**
-	 * Defines whether or not the Language in header A/B test is running. See
-	 * https://phabricator.wikimedia.org/T280825 for additional detail about the test.
-	 *
-	 * Note well that if the associated config value is falsy, then we fall back to choosing the
-	 * language treatment based on the `VectorLanguageInHeader` config variable.
-	 *
-	 * @var string
-	 */
-	public const CONFIG_LANGUAGE_IN_HEADER_TREATMENT_AB_TEST = 'VectorLanguageInHeaderTreatmentABTest';
-
-	/**
 	 * @var string
 	 */
 	public const CONFIG_STICKY_HEADER = 'VectorStickyHeader';
