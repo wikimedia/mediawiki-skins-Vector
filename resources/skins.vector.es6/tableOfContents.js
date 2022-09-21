@@ -3,7 +3,8 @@
 const SECTION_CLASS = 'sidebar-toc-list-item';
 const ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
 const EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
-const PARENT_SECTION_CLASS = 'sidebar-toc-level-1';
+const TOP_SECTION_CLASS = 'sidebar-toc-level-1';
+const ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
 const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
 const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
@@ -114,9 +115,9 @@ module.exports = function tableOfContents( props ) {
 
 	/**
 	 * Sets an `ACTIVE_SECTION_CLASS` on the element with an id that matches `id`.
-	 * If the element is not a top level heading (e.g. element with the
-	 * `PARENT_SECTION_CLASS`), the top level heading will also have the
-	 * `ACTIVE_SECTION_CLASS`;
+	 * Sets an `ACTIVE_TOP_SECTION_CLASS` on the top level heading (e.g. element with the
+	 * `TOP_SECTION_CLASS`).
+	 * If the element is a top level heading, the element will also have both classes.
 	 *
 	 * @param {string} id The id of the element to be activated in the Table of Contents.
 	 */
@@ -135,17 +136,13 @@ module.exports = function tableOfContents( props ) {
 			return;
 		}
 
-		const topSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
+		const topSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${TOP_SECTION_CLASS}` ) );
 
-		if ( selectedTocSection === topSection ) {
-			activeTopSection = topSection;
-			activeTopSection.classList.add( ACTIVE_SECTION_CLASS );
-		} else {
-			activeTopSection = topSection;
-			activeSubSection = selectedTocSection;
-			activeTopSection.classList.add( ACTIVE_SECTION_CLASS );
-			activeSubSection.classList.add( ACTIVE_SECTION_CLASS );
-		}
+		// Assign the active top and sub sections, apply classes
+		activeTopSection = topSection;
+		activeSubSection = ( selectedTocSection === topSection ) ? topSection : selectedTocSection;
+		activeTopSection.classList.add( ACTIVE_TOP_SECTION_CLASS );
+		activeSubSection.classList.add( ACTIVE_SECTION_CLASS );
 	}
 
 	/**
@@ -158,7 +155,7 @@ module.exports = function tableOfContents( props ) {
 			activeSubSection = undefined;
 		}
 		if ( activeTopSection ) {
-			activeTopSection.classList.remove( ACTIVE_SECTION_CLASS );
+			activeTopSection.classList.remove( ACTIVE_TOP_SECTION_CLASS );
 			activeTopSection = undefined;
 		}
 	}
@@ -235,7 +232,7 @@ module.exports = function tableOfContents( props ) {
 			return;
 		}
 
-		const parentSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${PARENT_SECTION_CLASS}` ) );
+		const parentSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${TOP_SECTION_CLASS}` ) );
 		const toggle = tocSection.querySelector( `.${TOGGLE_CLASS}` );
 
 		if ( parentSection && toggle && expandedSections.indexOf( parentSection ) < 0 ) {
@@ -277,7 +274,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function isTopLevelSection( id ) {
 		const section = document.getElementById( id );
-		return !!section && section.classList.contains( PARENT_SECTION_CLASS );
+		return !!section && section.classList.contains( TOP_SECTION_CLASS );
 	}
 
 	/**
@@ -319,7 +316,7 @@ module.exports = function tableOfContents( props ) {
 	 * Set aria-expanded attribute for all toggle buttons.
 	 */
 	function initializeExpandedStatus() {
-		const parentSections = props.container.querySelectorAll( `.${PARENT_SECTION_CLASS}` );
+		const parentSections = props.container.querySelectorAll( `.${TOP_SECTION_CLASS}` );
 		parentSections.forEach( ( section ) => {
 			const expanded = section.classList.contains( EXPANDED_SECTION_CLASS );
 			const toggle = section.querySelector( `.${TOGGLE_CLASS}` );
@@ -530,6 +527,7 @@ module.exports = function tableOfContents( props ) {
 	 * @property {expandSection} expandSection
 	 * @property {toggleExpandSection} toggleExpandSection
 	 * @property {string} ACTIVE_SECTION_CLASS
+	 * @property {string} ACTIVE_TOP_SECTION_CLASS
 	 * @property {string} EXPANDED_SECTION_CLASS
 	 * @property {string} LINK_CLASS
 	 * @property {string} TOGGLE_CLASS
@@ -539,6 +537,7 @@ module.exports = function tableOfContents( props ) {
 		changeActiveSection,
 		toggleExpandSection,
 		ACTIVE_SECTION_CLASS,
+		ACTIVE_TOP_SECTION_CLASS,
 		EXPANDED_SECTION_CLASS,
 		LINK_CLASS,
 		TOGGLE_CLASS

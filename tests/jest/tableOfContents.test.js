@@ -4,7 +4,8 @@ const tableOfContentsTemplate = fs.readFileSync( 'includes/templates/TableOfCont
 const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOfContents__line.mustache', 'utf8' );
 const initTableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
 
-let /** @type {HTMLElement} */ fooSection,
+let /** @type {HTMLElement} */ container,
+	/** @type {HTMLElement} */ fooSection,
 	/** @type {HTMLElement} */ barSection,
 	/** @type {HTMLElement} */ bazSection,
 	/** @type {HTMLElement} */ quxSection,
@@ -82,19 +83,20 @@ function render( templateProps = {} ) {
  */
 function mount( templateProps = {} ) {
 	document.body.innerHTML = render( templateProps );
-	const toc = initTableOfContents( {
-		container: /** @type {HTMLElement} */ ( document.getElementById( 'mw-panel-toc' ) ),
-		onHeadingClick,
-		onToggleClick,
-		onToggleCollapse
-	} );
 
+	container = /** @type {HTMLElement} */ ( document.getElementById( 'mw-panel-toc' ) );
 	fooSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-foo' ) );
 	barSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-bar' ) );
 	bazSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-baz' ) );
 	quxSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-qux' ) );
 	quuxSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-quux' ) );
-	return toc;
+
+	return initTableOfContents( {
+		container,
+		onHeadingClick,
+		onToggleClick,
+		onToggleCollapse
+	} );
 }
 
 describe( 'Table of contents', () => {
@@ -146,33 +148,29 @@ describe( 'Table of contents', () => {
 	describe( 'applies correct classes', () => {
 		test( 'when changing active sections', () => {
 			const toc = mount( { 'vector-is-collapse-sections-enabled': true } );
-			toc.changeActiveSection( 'toc-foo' );
-			expect( fooSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( barSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( bazSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quuxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
+			let activeSections;
+			let activeTopSections;
 
-			toc.changeActiveSection( 'toc-bar' );
-			expect( fooSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( barSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( bazSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quuxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
+			/**
+			 * @param {string} id
+			 * @param {HTMLElement} activeSection
+			 * @param {HTMLElement} activeTopSection
+			 */
+			function testActiveClasses( id, activeSection, activeTopSection ) {
+				toc.changeActiveSection( id );
+				activeSections = container.querySelectorAll( `.${toc.ACTIVE_SECTION_CLASS}` );
+				activeTopSections = container.querySelectorAll( `.${toc.ACTIVE_TOP_SECTION_CLASS}` );
+				expect( activeSections.length ).toEqual( 1 );
+				expect( activeTopSections.length ).toEqual( 1 );
+				expect( activeSections[ 0 ] ).toEqual( activeSection );
+				expect( activeTopSections[ 0 ] ).toEqual( activeTopSection );
+			}
 
-			toc.changeActiveSection( 'toc-baz' );
-			expect( fooSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( barSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( bazSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quuxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-
-			toc.changeActiveSection( 'toc-qux' );
-			expect( fooSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( barSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( bazSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
-			expect( quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( true );
-			expect( quuxSection.classList.contains( toc.ACTIVE_SECTION_CLASS ) ).toEqual( false );
+			testActiveClasses( 'toc-foo', fooSection, fooSection );
+			testActiveClasses( 'toc-bar', barSection, barSection );
+			testActiveClasses( 'toc-baz', bazSection, barSection );
+			testActiveClasses( 'toc-qux', quxSection, barSection );
+			testActiveClasses( 'toc-quux', quuxSection, quuxSection );
 		} );
 
 		test( 'when expanding sections', () => {
