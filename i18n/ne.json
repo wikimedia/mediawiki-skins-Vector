@@ -12,6 +12,7 @@
 		]
 	},
 	"skinname-vector": "भेक्टर",
+	"skinname-vector-2022": "भेक्टर (२०२२)",
 	"prefs-vector-enable-vector-1-label": "पुरानो संस्करण प्रयोग गर्नुहोस्",
 	"vector-opt-out": "पुरानो रूपमा परिवर्तन गर्नुहोस्",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
@@ -19,7 +20,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषाहरू}}",
 	"vector-action-addsection": "विषय थप्नुहोस्",
 	"vector-action-delete": "हटाउने",
-	"vector-action-move": "सार्ने",
+	"vector-action-move": "सार्नुहोस्",
 	"vector-action-protect": "सुरक्षित गर्ने",
 	"vector-action-undelete": "हटाएको रद्द गर्ने",
 	"vector-action-unprotect": "सुरक्षा परिवर्तन गर्ने",
