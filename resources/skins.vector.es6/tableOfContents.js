@@ -117,7 +117,7 @@ module.exports = function tableOfContents( props ) {
 	 * Sets an `ACTIVE_SECTION_CLASS` on the element with an id that matches `id`.
 	 * Sets an `ACTIVE_TOP_SECTION_CLASS` on the top level heading (e.g. element with the
 	 * `TOP_SECTION_CLASS`).
-	 * If the element is a top level heading, the element will also have both classes.
+	 * If the element is a top level heading, the element will have both classes.
 	 *
 	 * @param {string} id The id of the element to be activated in the Table of Contents.
 	 */
@@ -136,11 +136,9 @@ module.exports = function tableOfContents( props ) {
 			return;
 		}
 
-		const topSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${TOP_SECTION_CLASS}` ) );
-
 		// Assign the active top and sub sections, apply classes
-		activeTopSection = topSection;
-		activeSubSection = ( selectedTocSection === topSection ) ? topSection : selectedTocSection;
+		activeTopSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${TOP_SECTION_CLASS}` ) );
+		activeSubSection = selectedTocSection;
 		activeTopSection.classList.add( ACTIVE_TOP_SECTION_CLASS );
 		activeSubSection.classList.add( ACTIVE_SECTION_CLASS );
 	}
@@ -232,13 +230,13 @@ module.exports = function tableOfContents( props ) {
 			return;
 		}
 
-		const parentSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${TOP_SECTION_CLASS}` ) );
+		const topSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${TOP_SECTION_CLASS}` ) );
 		const toggle = tocSection.querySelector( `.${TOGGLE_CLASS}` );
 
-		if ( parentSection && toggle && expandedSections.indexOf( parentSection ) < 0 ) {
+		if ( topSection && toggle && expandedSections.indexOf( topSection ) < 0 ) {
 			toggle.setAttribute( 'aria-expanded', 'true' );
-			parentSection.classList.add( EXPANDED_SECTION_CLASS );
-			expandedSections.push( parentSection );
+			topSection.classList.add( EXPANDED_SECTION_CLASS );
+			expandedSections.push( topSection );
 		}
 	}
 
