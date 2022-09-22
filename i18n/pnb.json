@@ -7,14 +7,14 @@
 			"Khalid Mahmood"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 بولی|$1 بولیاں}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 بھاشا|$1 بھاشاواں}}",
 	"vector-action-addsection": "مضمون پاؤ",
-	"vector-action-delete": "مکاؤ",
+	"vector-action-delete": "مٹاؤ",
 	"vector-action-move": "لے چلو",
 	"vector-action-protect": "بچاؤ",
 	"vector-action-undelete": "واپس لیاؤ",
 	"vector-action-unprotect": "تبدیلی بچاؤ",
-	"vector-view-create": "بناؤ",
+	"vector-view-create": "بݨاؤ",
 	"vector-view-edit": "لِکھو",
 	"vector-view-history": "تریخ دیکھو",
 	"vector-view-view": "پڑھو",
