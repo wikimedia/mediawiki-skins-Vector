@@ -49,6 +49,20 @@
 	}
 }
 
+// T317789: We expect the user menu to always contain at least a login or logout
+// link which are added to the menu in SkinVector::getUserLinksTemplateData.
+// Therefore, override the .emptyPortlet class (set by
+// SkinTemplate::getPortletData) to display the menu instead of hiding it and
+// hide the .user-menu-anon-editor element (if present) as the presence of
+// .emptyPortlet suggests that anon users don't have edit permissions.
+.vector-user-menu.emptyPortlet {
+	display: block;
+
+	.vector-user-menu-anon-editor {
+		display: none;
+	}
+}
+
 /**
  * Horizontal links menu - logged in and logged out.
  */
