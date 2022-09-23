@@ -84,28 +84,27 @@ body {
 	float: right;
 }
 
-#siteSub {
-	// By default its hidden as it was hidden in Vector legacy but site styles can reveal.
-	display: none;
-}
-
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
+}
 
-	#siteSub {
-		margin-top: 8px; // T311564
-	}
+#siteSub {
+	// By default its hidden as it was hidden in Vector legacy but site styles can reveal.
+	display: none;
+	margin-top: 8px; // T311564
+}
 
-	#contentSub,
-	#contentSub2 {
-		font-size: 84%;
-		line-height: 1.2em;
-		// T311564
-		margin: 8px 0 0;
-		color: #54595d;
-		width: auto;
-	}
+// Styles only applied to non-empty #contentSub to avoid extra margins when both #contentSub and #contentSub2
+// are rendered.
+#contentSub:not( :empty ),
+#contentSub2 {
+	font-size: 84%;
+	line-height: 1.2em;
+	color: @color-base--subtle;
+	width: auto;
+	// Visually separate #contentSub and #contentSub2 (T315639)
+	margin: 8px 0 0;
 }
 
 #left-navigation {

@@ -58,7 +58,9 @@
 				{{>ArticleToolbar}}
 				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
 					{{>ContentSubheader}}
-					{{#html-subtitle}}<div id="contentSub"{{{html-user-language-attributes}}}>{{{.}}}</div>{{/html-subtitle}}
+					{{! the #contentSub element is currently used by editors, do not hide or remove it
+					  until https://phabricator.wikimedia.org/T316830 has been addressed}}
+					<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 					{{#html-undelete-link}}<div id="contentSub2">{{{.}}}</div>{{/html-undelete-link}}
 					{{{html-user-message}}}
 					{{{html-body-content}}}
