@@ -1,0 +1,45 @@
+.vector-feature-visual-enhancement-next-disabled,
+.skin-vector-legacy {
+	#pt-notifications-notice .mw-echo-notifications-badge,
+	#pt-notifications-alert .mw-echo-notifications-badge {
+		top: -5px;
+	}
+}
+
+.vector-feature-visual-enhancement-next-disabled .vector-user-links {
+	#pt-notifications-alert,
+	#pt-notifications-notice {
+		margin: 0;
+
+		// Override OOUI icon styles to match core icons
+		.mw-echo-notifications-badge {
+			top: 0;
+			margin: 0;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 44px;
+			height: 44px;
+			opacity: 1;
+
+			&:hover {
+				background-color: rgba( 0, 0, 0, 0.03 );
+				border-radius: 2px;
+			}
+
+			// Adjust counter styles when counter is present
+			&:not( .mw-echo-notifications-badge-all-read ) {
+				&:after {
+					left: 24px;
+					top: 19px;
+				}
+			}
+		}
+	}
+}
+
+.vector-feature-visual-enhancement-next-disabled {
+	#p-personal #pt-notifications-alert,
+	#p-personal #pt-notifications-notice {
+		margin-right: 0.4em;
+	}
+}

@@ -420,6 +420,7 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"vector-2022": {
+			"ext.echo.styles.badge": "skinStyles/ext.echo.styles.badge.less",
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"+mediawiki.action.edit": "skinStyles/mediawiki.action.edit.less",
 			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
@@ -432,6 +433,7 @@
 			"+ext.visualEditor.base": "skinStyles/ext.visualEditor.less"
 		},
 		"vector": {
+			"ext.echo.styles.badge": "skinStyles/ext.echo.styles.badge.less",
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
 			"jquery.ui": [
