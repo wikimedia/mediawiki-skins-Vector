@@ -46,10 +46,16 @@
 // Warning: the following token is deprecated (Legacy opacity for icon states in non-Codex products. Has only been used for icons despite the name.)
 @opacity-base--disabled: 0.51; // = `#7d7d7d` on `background-color: #fff`, closest to `#72777d`.
 
+// == Box Model properties ==
+// Border Styles
+@border-style-base: solid;
+// Border Widths
+@border-width-base: 1px;
+// Border Radius. Match WikimediaUI Base and Codex.
+@border-radius-base: 2px;
+
+// == Typography ==
 // Body content uses the user setting in browser / the system default sans-serif font:
 // Arial on Windows, Roboto on Android.
 // FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
 @font-family-sans: sans-serif;
-
-// Matches WikimediaUI Base and Codex, OOUI/wikimedia
-@border-radius-base: 2px;
