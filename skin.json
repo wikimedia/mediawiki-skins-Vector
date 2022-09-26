@@ -536,8 +536,8 @@
 		},
 		"VectorLanguageAlertInSidebar": {
 			"value": {
-				"logged_in": false,
-				"logged_out": false
+				"logged_in": true,
+				"logged_out": true
 			},
 			"description": "@var When `VectorLanguageAlertInSidebar` is enabled, the language switch alert box is shown in the sidebar."
 		},
