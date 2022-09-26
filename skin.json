@@ -541,10 +541,6 @@
 			},
 			"description": "@var When `VectorLanguageAlertInSidebar` is enabled, the language switch alert box is shown in the sidebar."
 		},
-		"VectorLanguageInHeaderTreatmentABTest": {
-			"value": false,
-			"description": "@var boolean Enables or disables the language in header treatment A/B test. See https://phabricator.wikimedia.org/T280825 and associated tasks for additional detail."
-		},
 		"VectorStickyHeader": {
 			"value": {
 				"logged_in": true,
