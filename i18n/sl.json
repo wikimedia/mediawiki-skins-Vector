@@ -11,6 +11,9 @@
 	"vector-skin-desc": "Sodobna različica MonoBook s svežim videzom in mnogimi izboljšavami uporabnosti",
 	"prefs-vector-enable-vector-1-label": "Uporabljaj stari Vector",
 	"prefs-vector-enable-vector-1-help": "V naslednjih nekaj letih bomo postopoma posodabljali preobleko Vector. Stari Vector vam omogoča prikaz stare različice preobleke Vector (iz decembra 2019). Več o posodobitvah lahko izveste na naši [[mw:Reading/Web/Desktop_Improvements|projektni strani]].",
+	"vector-opt-out": "Preklopi na stari videz",
+	"vector-opt-out-tooltip": "Spremenite nastavitve, da se vrnete na stari videz preobleke (stari Vector)",
+	"vector-action-toggle-sidebar": "Vklopi stransko vrstico",
 	"vector-action-addsection": "Dodaj temo",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Prestavi",
@@ -22,5 +25,7 @@
 	"vector-view-history": "Zgodovina",
 	"vector-view-view": "Preberi",
 	"vector-view-viewsource": "Izvorno besedilo",
+	"vector-jumptonavigation": "Pojdi na navigacijo",
+	"vector-jumptosearch": "Pojdi na iskanje",
 	"vector-more-actions": "Več"
 }
