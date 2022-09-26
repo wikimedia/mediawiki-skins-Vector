@@ -31,8 +31,7 @@
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
 <div class="mw-page-container">
-	<span id="top-page"></span>
-	<a class="mw-jump-link" href="#content">{{msg-vector-jumptocontent}}</a>
+	<a class="mw-jump-link" href="#bodyContent">{{msg-vector-jumptocontent}}</a>
 	<div class="mw-page-container-inner">
 		<input
 			type="checkbox"
@@ -53,10 +52,9 @@
 		<div class="mw-content-container">
 			{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 			<main id="content" class="mw-body" role="main">
-				<a id="top"></a>
 				{{>ContentHeader}}
 				{{>ArticleToolbar}}
-				<div id="bodyContent" class="vector-body" data-mw-ve-target-container>
+				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
 					{{>ContentSubheader}}
 					{{#html-subtitle}}<div id="contentSub"{{{html-user-language-attributes}}}>{{{.}}}</div>{{/html-subtitle}}
 					{{#html-undelete-link}}<div id="contentSub2">{{{.}}}</div>{{/html-undelete-link}}
