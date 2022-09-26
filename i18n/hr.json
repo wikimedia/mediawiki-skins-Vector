@@ -41,6 +41,7 @@
 	"vector-jumptocontent": "Prijeđi na sadržaj",
 	"vector-more-actions": "Više",
 	"vector-search-loader": "Učitavanje prijedloga pretrage",
+	"vector-searchsuggest-containing": "Traži stranice koje sadrže <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Sadržaj",
 	"vector-toc-beginning": "Početak",
 	"vector-anon-user-menu-pages": "Stranice za odjavljene uređivače",

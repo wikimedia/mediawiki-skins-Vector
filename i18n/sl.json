@@ -20,7 +20,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika|$1 jeziki|$1 jezikov}}",
 	"vector-no-language-button-label": "Dodaj jezike",
 	"vector-no-language-button-aria-label": "Ta članek obstaja samo v tem jeziku. Dodajte članke v drugih jezikih.",
-	"vector-language-redirect-to-top": "V projektu {{SITENAME}} so jezikovne povezave na vrhu strani ob naslovu članka. [[#p-lang-btn|Pojdi na vrh]].",
+	"vector-language-redirect-to-top": "V {{GRAMMAR:dative|{{SITENAME}}}} so jezikovne povezave na vrhu strani ob naslovu članka. [[#p-lang-btn|Pojdi na vrh]].",
 	"vector-language-variant-switcher-label": "Spremeni različico jezika",
 	"vector-action-addsection": "Dodaj temo",
 	"vector-action-delete": "Izbriši",
