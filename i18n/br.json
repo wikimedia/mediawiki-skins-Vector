@@ -4,7 +4,8 @@
 			"Adriendelucca",
 			"Fulup",
 			"Y-M D",
-			"Huñvreüs"
+			"Huñvreüs",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -16,7 +17,7 @@
 	"vector.css": "/* Talvezout a raio ar CSS lakaet amañ evit implijerien ar gwiskadur Vektor */",
 	"vector.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur Vektor */",
 	"vector-action-toggle-sidebar": "Diskwel/kuzhat ar varrenn gostez",
-	"vector-language-button-label": "{{PLURAL:$1|$1 yezh|$1 yezhoù}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 yezh}}",
 	"vector-action-addsection": "Rannbennad nevez",
 	"vector-action-delete": "Diverkañ",
 	"vector-action-move": "Adenvel",

@@ -11,6 +11,9 @@
 	"vector-skin-desc": "Sodobna različica MonoBook s svežim videzom in mnogimi izboljšavami uporabnosti",
 	"prefs-vector-enable-vector-1-label": "Uporabljaj stari Vector",
 	"prefs-vector-enable-vector-1-help": "V naslednjih nekaj letih bomo postopoma posodabljali preobleko Vector. Stari Vector vam omogoča prikaz stare različice preobleke Vector (iz decembra 2019). Več o posodobitvah lahko izveste na naši [[mw:Reading/Web/Desktop_Improvements|projektni strani]].",
+	"vector-opt-out": "Preklopi na stari videz",
+	"vector-opt-out-tooltip": "Spremenite nastavitve, da se vrnete na stari videz preobleke (stari Vector)",
+	"vector-action-toggle-sidebar": "Vklopi stransko vrstico",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika|$1 jeziki|$1 jezikov}}",
 	"vector-action-addsection": "Dodaj temo",
 	"vector-action-delete": "Izbriši",
@@ -23,5 +26,14 @@
 	"vector-view-history": "Zgodovina",
 	"vector-view-view": "Preberi",
 	"vector-view-viewsource": "Izvorno besedilo",
-	"vector-more-actions": "Več"
+	"vector-jumptonavigation": "Pojdi na navigacijo",
+	"vector-jumptosearch": "Pojdi na iskanje",
+	"vector-jumptocontent": "Pojdi na vsebino",
+	"vector-more-actions": "Več",
+	"vector-search-loader": "Nalagam predloge za iskanje",
+	"vector-anon-user-menu-pages": "Strani za odjavljene urejevalce",
+	"vector-anon-user-menu-pages-learn": "več o tem",
+	"vector-anon-user-menu-pages-label": "Več o urejanju",
+	"vector-main-menu-tooltip": "Glavni meni",
+	"tooltip-vector-anon-user-menu-title": "Več možnosti"
 }
