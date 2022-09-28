@@ -8,13 +8,15 @@
 			"Y-M D"
 		]
 	},
-	"skinname-vector": "Vektor",
+	"skinname-vector": "Vektor mod kozh (2010)",
+	"skinname-vector-2022": "Vektor (2022)",
+	"vector-specialversion-name": "Vektor",
 	"vector-skin-desc": "Pourchas a ra 2 wiskadur Vektor:\n* 2011 - Stumm modern MonoBook freskaet e dres hag enni meur a wellaenn implijout\n* 2022 - Vektor aozet evel perzh eus raktres [[mw:Desktop Improvements|Gwellaat ar burev]] ar WMF.",
 	"prefs-vector-enable-vector-1-label": "Ober gant stumm kozh Vektor",
 	"prefs-vector-enable-vector-1-help": "E-pad ar bloavezhioù a zeu e vo nevesaet ar gwiskadur Vektor tamm-ha-tamm. Gant stumm kozh Vektor e c’helloc’h gwelout stumm Vektor eus miz Du 2019. Evit gouzout hiroc’h diwar-benn an nevesaat, kit da [[mw:Reading/Web/Desktop_Improvements|bajenn ar raktres]].",
 	"vector-opt-out": "Distreiñ d'an tres kozh",
 	"vector-opt-out-tooltip": "Kemmañ hoc'h arventennoù evit distreiñ da dres kozh ar gwiskadur (Vector istorel)",
-	"vector.css": "/* Talvezout a raio ar CSS lakaet amañ evit implijerien ar gwiskadur Vektor */",
+	"vector.css": "/* Karget a vo kement CSS amañ evit implijerien ar gwiskadur Vektor */",
 	"vector.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur Vektor */",
 	"vector-action-toggle-sidebar": "Diskwel/kuzhat ar varrenn gostez",
 	"vector-languages": "Yezhoù",
