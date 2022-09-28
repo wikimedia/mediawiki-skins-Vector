@@ -226,6 +226,21 @@ final class Constants {
 	public const CONFIG_KEY_VISUAL_ENHANCEMENTS = 'VectorVisualEnhancementNext';
 
 	/**
+	 * @var string
+	 */
+	public const CONFIG_ARTICLE_TOOLS = 'VectorArticleTools';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_ARTICLE_TOOLS = 'ArticleTools';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_ARTICLE_TOOLS = 'ArticleTools';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
