@@ -36,17 +36,17 @@ exports[`addPortletLinkHandler JS portlet should be moved to more menu (#p-cacti
 
 			<div id=\\"p-cactions\\">
 				<ul>
+				</ul>
+			</div>
+
+			<ul id=\\"p-views\\" class=\\"vector-menu vector-menu-dropdown\\">
 				<li class=\\"mw-list-item mw-list-item-js\\" id=\\"test-id\\">
-					<a href=\\"#test-href\\"><span class=\\"mw-ui-icon mw-ui-icon-vector-gadget-test-id\\"></span>
+					<a href=\\"#test-href\\">
 						<span>
 							test link content
 						</span>
 					</a>
-				</li></ul>
-			</div>
-
-			<ul id=\\"p-views\\" class=\\"vector-menu vector-menu-dropdown\\">
-				
+				</li>
 			</ul>
 		</div>"
 `;

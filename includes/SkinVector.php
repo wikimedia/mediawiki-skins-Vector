@@ -835,8 +835,12 @@ abstract class SkinVector extends SkinMustache {
 		string $key,
 		array $portletData
 	): array {
+		$isIconDropdown = false;
 		switch ( $key ) {
 			case 'data-user-menu':
+				$type = self::MENU_TYPE_DROPDOWN;
+				$isIconDropdown = true;
+				break;
 			case 'data-actions':
 			case 'data-variants':
 			case 'data-sticky-header-toc':
@@ -874,6 +878,11 @@ abstract class SkinVector extends SkinMustache {
 			$portletData['class'] .= ' vector-user-menu-overflow';
 		}
 
+		$isDropdown = $type === self::MENU_TYPE_DROPDOWN;
+		if ( $isDropdown && !$isIconDropdown ) {
+			$portletData['class'] .= ' vector-menu-dropdown-noicon';
+		}
+
 		if ( $key === 'data-personal' && $this->isLegacy() ) {
 			// Set tooltip to empty string for the personal menu for both logged-in and logged-out users
 			// to avoid showing the tooltip for legacy version.
@@ -900,7 +909,7 @@ abstract class SkinVector extends SkinMustache {
 		);
 
 		return $portletData + [
-			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
+			'is-dropdown' => $isDropdown,
 			'is-portal' => $type === self::MENU_TYPE_PORTAL,
 		];
 	}

@@ -61,6 +61,8 @@ function createIconElement( menuElement, parentElement, id ) {
 	return iconElement;
 }
 
+var /** @type {Object} */handledLinks = {};
+
 /**
  * Adds icon placeholder for gadgets to use.
  *
@@ -76,6 +78,10 @@ function addPortletLinkHandler( item, data ) {
 	var $menu = $( item ).parents( '.vector-menu' );
 	var menuElement = $menu.length && $menu.get( 0 ) || null;
 	var iconElement = createIconElement( menuElement, link, data.id );
+	// @ts-ignore see gerrit:836861
+	if ( data.id && handledLinks[ data.id ] ) {
+		return;
+	}
 
 	// The views menu has limited space so we need to decide whether there is space
 	// to accomodate the new item and if not to redirect to the more dropdown.
@@ -98,6 +104,12 @@ function addPortletLinkHandler( item, data ) {
 
 	if ( link && iconElement ) {
 		link.prepend( iconElement );
+	}
+
+	// Mark the link as handled.
+	if ( data.id ) {
+		// @ts-ignore see gerrit:836861
+		handledLinks[ data.id ] = true;
 	}
 }
 
