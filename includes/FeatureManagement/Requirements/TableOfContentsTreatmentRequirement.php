@@ -52,7 +52,7 @@ final class TableOfContentsTreatmentRequirement implements Requirement {
 	 * @inheritDoc
 	 */
 	public function getName(): string {
-		return Constants::REQUIREMENT_TABLE_OF_CONTENTS;
+		return Constants::REQUIREMENT_TABLE_OF_CONTENTS_AB_TEST;
 	}
 
 	/**

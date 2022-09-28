@@ -45,7 +45,7 @@ class SkinVector22 extends SkinVector {
 	 */
 	public function isUserInTocTreatmentBucket(): bool {
 		$featureManager = VectorServices::getFeatureManager();
-		return $featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS );
+		return !$featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS_AB_TEST );
 	}
 
 	/**

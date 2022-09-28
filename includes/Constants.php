@@ -198,12 +198,12 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_TABLE_OF_CONTENTS = 'TableOfContents';
+	public const FEATURE_TABLE_OF_CONTENTS_AB_TEST = 'TableOfContentsLegacyTOC';
 
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_TABLE_OF_CONTENTS = 'TableOfContents';
+	public const REQUIREMENT_TABLE_OF_CONTENTS_AB_TEST = 'TableOfContentsLegacy';
 
 	/**
 	 * @var string
