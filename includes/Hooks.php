@@ -341,15 +341,21 @@ class Hooks implements
 		if ( isset( $content_navigation['notifications'] ) ) {
 			foreach ( $content_navigation['notifications'] as $key => $data ) {
 				$content_navigation[$overflow][$key] = $data;
-				if ( $visualEnhancements ) {
-					$content_navigation[$overflow][$key]['link-class'] = [
+				$icon = $data['icon'] ?? null;
+				if ( $visualEnhancements && $icon ) {
+					$linkClass = $content_navigation[$overflow][$key]['link-class'];
+					$item = $content_navigation[$overflow][$key];
+					$newLinkClass = [
 						// Allows Echo to react to clicks
 						'mw-echo-notification-badge-nojs'
 					];
-				} else {
-					unset( $content_navigation[$overflow][$key]['icon'] );
-					unset( $content_navigation[$overflow][$key]['button'] );
-					unset( $content_navigation[$overflow][$key]['text-hidden'] );
+					if ( in_array( 'mw-echo-unseen-notifications', $linkClass ) ) {
+						$newLinkClass[] = 'mw-echo-unseen-notifications';
+					}
+					$item['button'] = true;
+					$item['text-hidden'] = true;
+					$item['link-class'] = $newLinkClass;
+					$content_navigation[$overflow][$key] = $item;
 				}
 			}
 		}
