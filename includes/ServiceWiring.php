@@ -193,10 +193,10 @@ return [
 		);
 
 		$featureManager->registerFeature(
-			Constants::FEATURE_TABLE_OF_CONTENTS,
+			Constants::FEATURE_TABLE_OF_CONTENTS_AB_TEST,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TABLE_OF_CONTENTS,
+				Constants::REQUIREMENT_TABLE_OF_CONTENTS_AB_TEST,
 			]
 		);
 
