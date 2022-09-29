@@ -7,7 +7,7 @@
 			"Bgo eiu"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 بھاشا|$1 بھاشاواں}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 بولی|$1 بولیاں}}",
 	"vector-action-addsection": "مضمون پاؤ",
 	"vector-action-delete": "مٹاؤ",
 	"vector-action-move": "لے چلو",
@@ -15,7 +15,7 @@
 	"vector-action-undelete": "واپس لیاؤ",
 	"vector-action-unprotect": "تبدیلی بچاؤ",
 	"vector-view-create": "بݨاؤ",
-	"vector-view-edit": "لِکھو",
+	"vector-view-edit": "سودھو",
 	"vector-view-history": "تریخ دیکھو",
 	"vector-view-view": "پڑھو",
 	"vector-view-viewsource": "سورس ویکھو",
