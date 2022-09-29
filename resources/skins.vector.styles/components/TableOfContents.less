@@ -7,6 +7,7 @@
 // a 15px spacing without clipping the chevron icon
 // https://phabricator.wikimedia.org/T312156#8095894
 @sidebar-toc-left-padding: 15px + @icon-padding-md;
+@sidebar-toc-left-padding-next: 15px + @icon-padding-md-next;
 @toc-subsection-toggle-icon-size: 1.834em;
 
 .mw-table-of-contents-container {
@@ -41,6 +42,10 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		padding-left: @sidebar-toc-left-padding-next;
+	}
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;

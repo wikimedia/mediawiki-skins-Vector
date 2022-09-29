@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 @import '../layouts/screen.less';
 @import './checkboxHack.less';
@@ -17,7 +18,7 @@
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
-		margin-left: @icon-padding-md;
+		.mixin-vector-flush-right-margin-left();
 	}
 }
 
@@ -25,7 +26,7 @@
 .sidebar-toc:after {
 	// T312156 Update TOC spacing after removing background color
 	// Align the left edge of the TOC text with the main menu button icon.
-	margin-left: -@icon-padding-md;
+	.mixin-vector-flush-left-margin-left();
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		// Align the TOC subsection toggle button icon with the main menu button icon.

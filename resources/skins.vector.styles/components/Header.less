@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 
 // Header sizes defined in the description of T246170 and comment T246170#5957100
@@ -53,7 +54,9 @@
 
 	@media ( max-width: @max-width-tablet ) {
 		// T315261 Align header icon buttons with main content
-		margin: 0 -@icon-padding-md 0 -@icon-padding-md;
+		margin: 0;
+		.mixin-vector-flush-left-margin-left();
+		.mixin-vector-flush-right-margin-right();
 
 		/**
 	 	 * Toggles the visibility of the search box at lower resolutions.

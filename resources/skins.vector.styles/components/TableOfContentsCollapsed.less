@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import '../../common/mixins.less';
 
 @height-collapsed-toc-button: 36px;
 @padding-top-content-px: unit( @padding-top-content * @font-size-browser, px );
@@ -10,9 +11,9 @@
 	display: none;
 	float: left;
 	margin-right: 4px;
-	margin-left: -@icon-padding-md;
+	.mixin-vector-flush-left-margin-left();
 	// Reduce vertical padding to fit with page title
-	padding: 7px @icon-padding-md;
+	padding: 7px @icon-padding-md-next;
 	// Override background color for when the TOC is overlaps content
 	// as a sticky element when the page is scrolled down.
 	background-color: @background-color-base;
@@ -20,6 +21,12 @@
 	&:hover,
 	&:active {
 		background-color: @colorGray15;
+	}
+
+	.vector-feature-visual-enhancement-next-disabled & {
+		// Reduce vertical padding to fit with page title
+		padding-left: @icon-padding-md;
+		padding-right: @icon-padding-md;
 	}
 }
 
@@ -119,7 +126,7 @@
 	.mixin-toc-collapsed-header();
 
 	.sidebar-toc {
-		left: -@icon-padding-md;
+		.mixin-vector-flush-left-left();
 	}
 
 	//
@@ -170,8 +177,15 @@
 	// and manually account for horizontal padding in the max width
 	box-sizing: content-box;
 	width: max-content;
+	@sidebar-toc-left-padding-next-em: unit( @sidebar-toc-left-padding-next / @font-size-browser, em );
 	@sidebar-toc-left-padding-em: unit( @sidebar-toc-left-padding / @font-size-browser, em );
 	@sidebar-toc-right-padding-em: unit( @sidebar-toc-right-padding / @font-size-browser, em );
+
 	@max-width-sticky-header-collapsed-toc: @max-width-collapsed-toc - @sidebar-toc-left-padding-em - @sidebar-toc-right-padding-em;
+	@max-width-sticky-header-collapsed-toc-next: @max-width-collapsed-toc - @sidebar-toc-left-padding-next-em - @sidebar-toc-right-padding-em;
 	max-width: ~'min( @{max-width-sticky-header-collapsed-toc}, 75vw )'; // min( 48.5625em, 75vw )
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		max-width: ~'min( @{max-width-sticky-header-collapsed-toc-next}, 75vw )';
+	}
 }

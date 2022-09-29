@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 
 @font-size-sticky-header-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
@@ -69,7 +70,7 @@
 	&-toc-container {
 		display: none;
 		position: relative;
-		margin-left: -@icon-padding-md;
+		.mixin-vector-flush-left-margin-left();
 
 		// Only show TOC in sticky header when collapsed class is present
 		.vector-toc-collapsed & {
