@@ -77,7 +77,6 @@
 						"vector-toc-toggle-position-title",
 						"vector-toc-menu-tooltip",
 						"vector-toc-collapsible-button-label",
-						"vector-article-tools-nav-label",
 						"vector-site-nav-label",
 						"search",
 						"searchbutton",
@@ -86,7 +85,10 @@
 						"sitesubtitle",
 						"sitetitle",
 						"tagline",
-						"personaltools"
+						"personaltools",
+						"namespaces",
+						"views",
+						"tooltip-p-cactions"
 					]
 				}
 			]

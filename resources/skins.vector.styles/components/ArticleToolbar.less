@@ -3,17 +3,12 @@
 @border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
 
 .mw-article-toolbar-container {
-	// clearfix for #left-navigation and #right-navigation
-	display: flow-root;
+	display: flex;
+	font-size: @font-size-tabs;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
 	box-shadow: 0 1px @border-color-portal-heading;
 	// Add bottom margin to account for box-shadow
 	margin-bottom: 1px;
-
-	/* Targets #left-navigation and #right-navigation */
-	& > div {
-		font-size: @font-size-tabs;
-	}
 
 	.mw-portlet-views {
 		display: none;
@@ -38,5 +33,26 @@
 		@media ( max-width: @max-width-mobile ) {
 			display: block;
 		}
+	}
+}
+
+// ID Selectors outside of .mw-article-toolbar-container to avoid over-specificity.
+#left-navigation {
+	// flex ensures all child elements align on one line.
+	display: flex;
+	margin-left: -@padding-horizontal-tabs;
+	// pushes #right-navigation to the end of the line.
+	flex-grow: 1;
+}
+
+#right-navigation {
+	// flex ensures all child elements align on one line.
+	display: flex;
+	margin-right: -@padding-horizontal-tabs;
+	// Any dropdowns inside the right navigation in modern Vector (e.g. "more" menu).
+	// should be right-aligned to prevent horizontal scrolling.
+	.vector-menu-content {
+		left: auto;
+		right: -@border-width-base;
 	}
 }

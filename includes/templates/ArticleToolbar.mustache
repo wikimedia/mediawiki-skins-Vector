@@ -1,15 +1,25 @@
-<nav class="vector-article-toolbar" aria-label="{{msg-vector-article-tools-nav-label}}"
-	role="navigation">
+<div class="vector-article-toolbar">
 	<div class="mw-article-toolbar-container">
 		{{#data-portlets}}
 		<div id="left-navigation">
-			{{#data-associated-pages}}{{>Menu}}{{/data-associated-pages}}
-			{{#data-variants}}{{>Menu}}{{/data-variants}}
+			<nav aria-label="{{msg-namespaces}}">
+				{{#data-associated-pages}}{{>Menu}}{{/data-associated-pages}}
+				{{#data-variants}}{{>Menu}}{{/data-variants}}
+			</nav>
 		</div>
 		<div id="right-navigation" class="vector-collapsible">
-			{{#data-views}}{{>Menu}}{{/data-views}}
-			{{#data-actions}}{{>Menu}}{{/data-actions}}
+			{{#data-views}}
+			<nav aria-label="{{msg-views}}">
+				{{>Menu}}
+			</nav>
+			{{/data-views}}
+
+			{{#data-actions}}
+			<nav aria-label="{{msg-tooltip-p-cactions}}">
+				{{>Menu}}
+			</nav>
+			{{/data-actions}}
 		</div>
 		{{/data-portlets}}
 	</div>
-</nav>
+</div>
