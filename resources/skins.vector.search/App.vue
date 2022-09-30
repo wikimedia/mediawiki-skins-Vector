@@ -170,7 +170,7 @@ module.exports = exports = defineComponent( {
 
 			restClient.fetchByTitle( query, searchApiUrl, 10, this.showDescription ).fetch
 				.then( ( data ) => {
-					this.suggestions = data.results;
+					this.suggestions = instrumentation.addWprovToSearchResultUrls( data.results );
 					this.searchFooterUrl = urlGenerator.generateUrl( query );
 
 					const event = {
