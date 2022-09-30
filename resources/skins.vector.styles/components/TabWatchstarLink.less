@@ -63,12 +63,20 @@
 
 // Loading watchstar link class.
 .vector-feature-visual-enhancement-next-enabled {
+	.mw-watchlink a:before {
+		transition: transform 500ms;
+	}
+
 	.mw-watchlink .loading:before {
-		.rotation( 500ms );
 		/* Suppress the hilarious rotating focus outline on Firefox */
 		outline: 0;
 		cursor: default;
 		pointer-events: none;
 		transform-origin: 50% 50%;
+	}
+
+	.mw-ui-icon-wikimedia-unStar:before,
+	.mw-ui-icon-wikimedia-star.loading:before {
+		transform: rotate( 72deg );
 	}
 }
