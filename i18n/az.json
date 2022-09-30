@@ -6,6 +6,7 @@
 			"Gulmammad",
 			"NMW03",
 			"Sortilegus",
+			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
 			"Wertuose"
@@ -18,6 +19,8 @@
 	"vector.css": "/* Burada yerləşən CSS Vector istifadəçilərinə tətbiq olunur */",
 	"vector.js": "/* Burada Vector skin istifadəçiləri üçün istənilən JavaScript yüklənəcək */",
 	"vector-language-button-label": "{{PLURAL:$1|$1 dildə|$1 dildə}}",
+	"vector-no-language-button-label": "Dil əlavə et",
+	"vector-language-redirect-to-top": "Bu {{SITENAME}} layihəsində dil keçidləri məqalənin başlıq hissəsində verilmişdir. [[#p-lang-btn|Yuxarı get]].",
 	"vector-action-addsection": "Mövzu əlavə et",
 	"vector-action-delete": "Sil",
 	"vector-action-move": "Adını dəyiş",
@@ -30,5 +33,10 @@
 	"vector-view-view": "Oxu",
 	"vector-view-viewsource": "Mənbəyə bax",
 	"vector-more-actions": "Daha çox",
-	"vector-search-loader": "Axtarış təklifləri yüklənir"
+	"vector-search-loader": "Axtarış təklifləri yüklənir",
+	"vector-toc-heading": "Mündəricat",
+	"vector-toc-toggle-position-sidebar": "yan panelə keçir",
+	"vector-toc-toggle-position-title": "gizlə",
+	"vector-toc-beginning": "Giriş",
+	"vector-toc-toggle-button-label": "$1 alt bölməsini göstər/gizlə"
 }
