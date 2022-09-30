@@ -64,8 +64,8 @@ function onFetchEnd( event ) {
 		// execute before the rendering steps happen (e.g. layout and paint). A
 		// nested rAF will execute after these rendering steps have completed
 		// and ensure the search results are visible to the user.
-		requestAnimationFrame( function () {
-			requestAnimationFrame( function () {
+		requestAnimationFrame( () => {
+			requestAnimationFrame( () => {
 				if ( !performance.getEntriesByName( queryMark ).length ) {
 					return;
 				}
