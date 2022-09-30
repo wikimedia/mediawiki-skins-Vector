@@ -6,7 +6,9 @@
 	// clearfix for #left-navigation and #right-navigation
 	display: flow-root;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
-	box-shadow: 0 1px @border-color-base;
+	box-shadow: 0 1px @border-color-portal-heading;
+	// Add bottom margin to account for box-shadow
+	margin-bottom: 1px;
 
 	/* Targets #left-navigation and #right-navigation */
 	& > div {
