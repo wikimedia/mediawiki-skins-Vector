@@ -5,6 +5,11 @@
 			"Papuass"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Izmantot Legacy Vector",
+	"prefs-vector-enable-vector-1-help": "Dažu nākamo gadu laikā mēs pakāpeniski atjaunināsim Vector apdari. Legacy Vector ļaus skatīt veco Vector versiju (kāda tā bija 2019. gada decembrī). Lai uzzinātu vairāk par jauninājumiem, dodies uz mūsu [[mw:Reading/Web/Desktop_Improvements|projekta lapu]].",
+	"vector-opt-out": "Pārslēgties uz veco izskatu",
+	"vector-opt-out-tooltip": "Nomaini savus iestatījumus, lai atgrieztos pie vecā apdares izskata (Legacy Vector)",
+	"vector-action-toggle-sidebar": "Pārslēgt sānjoslu",
 	"vector-action-addsection": "Jauna sadaļa",
 	"vector-action-delete": "Dzēst",
 	"vector-action-move": "Pārvietot",
@@ -16,5 +21,7 @@
 	"vector-view-history": "Hronoloģija",
 	"vector-view-view": "Skatīt",
 	"vector-view-viewsource": "Aplūkot kodu",
+	"vector-jumptonavigation": "Pāriet uz navigāciju",
+	"vector-jumptosearch": "Pāriet uz meklēšanu",
 	"vector-more-actions": "Vairāk"
 }

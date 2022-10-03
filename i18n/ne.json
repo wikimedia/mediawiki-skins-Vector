@@ -15,6 +15,7 @@
 	"prefs-vector-enable-vector-1-label": "पुरानो संस्करण प्रयोग गर्नुहोस्",
 	"vector-opt-out": "पुरानो रूपमा परिवर्तन गर्नुहोस्",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
+	"vector-action-toggle-sidebar": "बाँया खण्ड सक्षम गर्नुहोस्",
 	"vector-action-addsection": "विषय थप्नुहोस्",
 	"vector-action-delete": "हटाउने",
 	"vector-action-move": "सार्नुहोस्",
@@ -26,5 +27,7 @@
 	"vector-view-history": "इतिहास हेर्नुहोस्",
 	"vector-view-view": "पढ्नुहोस्",
 	"vector-view-viewsource": "स्रोत हेर्ने",
+	"vector-jumptonavigation": "अन्वेषणमा जानुहाेस्",
+	"vector-jumptosearch": "खाेजमा जानुहाेस्",
 	"vector-more-actions": "थप"
 }

@@ -4,7 +4,8 @@
 			"Fulup",
 			"Y-M D",
 			"Adriendelucca",
-			"Huñvreüs"
+			"Huñvreüs",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -13,15 +14,15 @@
 	"prefs-vector-enable-vector-1-help": "E-pad ar bloavezhioù a zeu e vo nevesaet ar gwiskadur Vektor tamm-ha-tamm. Gant stumm kozh Vektor e c’helloc’h gwelout stumm Vektor eus miz Du 2019. Evit gouzout hiroc’h diwar-benn an nevesaat, kit da [[mw:Reading/Web/Desktop_Improvements|bajenn ar raktres]].",
 	"vector-opt-out": "Distreiñ d'an tres kozh",
 	"vector-opt-out-tooltip": "Kemmañ hoc'h arventennoù evit distreiñ da dres kozh ar gwiskadur (Vector istorel)",
-	"vector.css": "/* Talvezout a raio ar CSS lakaet amañ evit implijerien ar gwiskadur Vektor */",
-	"vector.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur Vektor */",
+	"vector.css": "/* Kement CSS a zo amañ a vo karget evit implijerien ar gwiskadur Vektor */",
+	"vector.js": "/* Kement JavaScript a zo amañ a vo karget evit implijerien ar gwiskadur Vektor */",
 	"vector-action-toggle-sidebar": "Diskwel/kuzhat ar varrenn gostez",
 	"vector-action-addsection": "Rannbennad nevez",
 	"vector-action-delete": "Diverkañ",
 	"vector-action-move": "Adenvel",
 	"vector-action-protect": "Gwareziñ",
 	"vector-action-undelete": "Diziverkañ",
-	"vector-action-unprotect": "Cheñch gwarez",
+	"vector-action-unprotect": "Kemmañ ar gwarez",
 	"vector-view-create": "Krouiñ",
 	"vector-view-edit": "Kemmañ",
 	"vector-view-history": "Gwelet an istor",

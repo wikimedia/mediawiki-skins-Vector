@@ -7,6 +7,10 @@
 			"Wisdom"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Хуучны Vector ашиглах",
+	"vector-opt-out": "Хуучин хувилбарт шилжих",
+	"vector-opt-out-tooltip": "Сайтын скинийг хуучин хувилбарт шилжүүлэх (legacy Vector)",
+	"vector-action-toggle-sidebar": "Хажуугийн цэсийг нээж хаах",
 	"vector-action-addsection": "Сэдэв нэмэх",
 	"vector-action-delete": "Устгах",
 	"vector-action-move": "Зөөх",
@@ -14,7 +18,7 @@
 	"vector-action-undelete": "Үл устгах",
 	"vector-action-unprotect": "Хамгаалалтаа солих",
 	"vector-view-create": "Үүсгэх",
-	"vector-view-edit": "Засах",
+	"vector-view-edit": "Засварлах",
 	"vector-view-history": "Түүх",
 	"vector-view-view": "Унших",
 	"vector-view-viewsource": "Кодыг харах",
