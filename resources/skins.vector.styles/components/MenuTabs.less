@@ -15,9 +15,6 @@
 	}
 
 	/* focus and hover have outlines. Text underline interferes with bottom border */
-	/* FIXME: Remove 2 not selectors when cache has cleared for Ie2ffa5c3ecf270c1bb1f315937023ae7ace5ed30 */
-	.mw-list-item a:not( .mw-ui-icon ):focus,
-	.mw-list-item a:not( .mw-ui-icon ):hover,
 	.mw-list-item.vector-tab-noicon a:focus,
 	.mw-list-item.vector-tab-noicon a:hover {
 		text-decoration: none;
@@ -40,8 +37,6 @@
  * Tab list item appearance. Applies to both <li>'s inside .vector-menu-tabs
  * and dropdown menus inside the article toolbar
  */
-// FIXME: Remove the body selector once Ie2ffa5c3ecf270c1bb1f315937023ae7ace5ed30 is in production
-/* for cached HTML */ body:not( .vector-feature-visual-enhancement-next-enabled ) .vector-menu-tabs .mw-list-item,
 .vector-menu-tabs .mw-list-item.vector-tab-noicon,
 .mw-article-toolbar-container .vector-menu-dropdown {
 	margin: 0 @padding-horizontal-tabs;
@@ -75,10 +70,7 @@
 		font-size: inherit;
 	}
 
-	/* FIXME: Remove cached HTML selector (> a:not( .mw-ui-icon ))
-	when Ie2ffa5c3ecf270c1bb1f315937023ae7ace5ed30 is in production */
 	&.vector-tab-noicon > a,
-	& > a:not( .mw-ui-icon ),
 	.vector-menu-heading {
 		// Top & bottom padding to increase clickable area.
 		padding: 18px 0 7px 0;
