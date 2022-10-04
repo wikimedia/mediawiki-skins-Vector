@@ -81,8 +81,7 @@ function adaptApiResponse( config, query, restResponse, showDescription ) {
  * @return {SearchClient}
  */
 function restSearchClient( config ) {
-	const customClient = config.get( 'wgVectorSearchClient' );
-	return customClient || {
+	return config.get( 'wgVectorSearchClient', {
 		/**
 		 * @type {fetchByTitle}
 		 */
@@ -103,7 +102,7 @@ function restSearchClient( config ) {
 				fetch: searchResponsePromise
 			};
 		}
-	};
+	} );
 }
 
 module.exports = restSearchClient;

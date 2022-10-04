@@ -4,14 +4,14 @@ const jestFetchMock = require( 'jest-fetch-mock' );
 
 const mockedRequests = !process.env.TEST_LIVE_REQUESTS;
 const configMock = {
-	get: jest.fn().mockImplementation( key => {
+	get: jest.fn().mockImplementation( ( key, fallback = null ) => {
 		if ( key === 'wgScriptPath' ) {
 			return '/w';
 		}
 		if ( key === 'wgScript' ) {
 			return '/w/index.php';
 		}
-		return null;
+		return fallback;
 	} ),
 	set: jest.fn()
 };
