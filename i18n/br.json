@@ -14,8 +14,8 @@
 	"prefs-vector-enable-vector-1-help": "E-pad ar bloavezhioù a zeu e vo nevesaet ar gwiskadur Vektor tamm-ha-tamm. Gant stumm kozh Vektor e c’helloc’h gwelout stumm Vektor eus miz Du 2019. Evit gouzout hiroc’h diwar-benn an nevesaat, kit da [[mw:Reading/Web/Desktop_Improvements|bajenn ar raktres]].",
 	"vector-opt-out": "Distreiñ d'an tres kozh",
 	"vector-opt-out-tooltip": "Kemmañ hoc'h arventennoù evit distreiñ da dres kozh ar gwiskadur (Vector istorel)",
-	"vector.css": "/* Talvezout a raio ar CSS lakaet amañ evit implijerien ar gwiskadur Vektor */",
-	"vector.js": "/* Kement JavaScript amañ a vo karget evit an implijerien a ra gant ar gwiskadur Vektor */",
+	"vector.css": "/* Kement CSS a zo amañ a vo karget evit implijerien ar gwiskadur Vektor */",
+	"vector.js": "/* Kement JavaScript a zo amañ a vo karget evit implijerien ar gwiskadur Vektor */",
 	"vector-action-toggle-sidebar": "Diskwel/kuzhat ar varrenn gostez",
 	"vector-language-button-label": "{{PLURAL:$1|$1 yezh}}",
 	"vector-action-addsection": "Rannbennad nevez",
@@ -23,7 +23,7 @@
 	"vector-action-move": "Adenvel",
 	"vector-action-protect": "Gwareziñ",
 	"vector-action-undelete": "Diziverkañ",
-	"vector-action-unprotect": "Cheñch gwarez",
+	"vector-action-unprotect": "Kemmañ ar gwarez",
 	"vector-view-create": "Krouiñ",
 	"vector-view-edit": "Kemmañ",
 	"vector-view-history": "Gwelet an istor",
@@ -35,8 +35,8 @@
 	"vector-more-actions": "Muioc'h",
 	"vector-search-loader": "O kargañ alioù klask",
 	"vector-anon-user-menu-pages": "Pajennoù evit implijerien digevreet",
-	"vector-anon-user-menu-pages-learn": "Gouzout hiroc'h",
+	"vector-anon-user-menu-pages-learn": "gouzout hiroc'h",
 	"vector-anon-user-menu-pages-label": "Gouzout hiroc’h a-zivout degas kemmoù",
 	"vector-main-menu-tooltip": "Lañser pennañ",
-	"tooltip-vector-anon-user-menu-title": "Muioc'h a zibarzhioù"
+	"tooltip-vector-anon-user-menu-title": "Muioc'h a zibaboù"
 }
