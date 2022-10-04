@@ -222,19 +222,17 @@ abstract class SkinVector extends SkinMustache {
 	/**
 	 * Returns HTML for the create account link inside the anon user links
 	 * @param string[] $returnto array of query strings used to build the login link
-	 * @param bool $isDropdownItem Set true for create account link inside the user menu dropdown
-	 *  which includes icon classes and is not styled like a button
 	 * @return string
 	 */
-	private function getCreateAccountHTML( $returnto, $isDropdownItem ) {
+	private function getCreateAccountHTML( $returnto ) {
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$createAccountData = array_merge( $createAccountData, [
-			'class' => $isDropdownItem ? [
+			'class' => [
 				'vector-menu-content-item',
-			] : '',
+			],
 			'collapsible' => true,
-			'icon' => $isDropdownItem ? $createAccountData['icon'] : null,
-			'button' => !$isDropdownItem,
+			'icon' => $createAccountData['icon'],
+			'button' => false
 		] );
 		$createAccountData = Hooks::updateLinkData( $createAccountData );
 		return $this->makeLink( 'create-account', $createAccountData );
@@ -254,7 +252,7 @@ abstract class SkinVector extends SkinMustache {
 		] );
 		$loginLinkData = Hooks::updateLinkData( $loginLinkData );
 		$templateData = [
-			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto, true ),
+			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto ),
 			'htmlLogin' => $this->makeLink( 'login', $loginLinkData ),
 		];
 
