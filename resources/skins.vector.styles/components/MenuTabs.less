@@ -38,6 +38,8 @@
  * and dropdown menus inside the article toolbar
  */
 .vector-menu-tabs .mw-list-item.vector-tab-noicon,
+/* FIXME: legacy Vector icons - can be removed when VisualEnhancementNext is enabled */
+.vector-menu-tabs .mw-list-item.icon > a,
 .mw-article-toolbar-container .vector-menu-dropdown {
 	margin: 0 @padding-horizontal-tabs;
 }
@@ -70,6 +72,8 @@
 		font-size: inherit;
 	}
 
+	/* FIXME: legacy Vector .icon selector can be removed when VisualEnhancementNext is enabled */
+	&.icon > a,
 	&.vector-tab-noicon > a,
 	.vector-menu-heading {
 		// Top & bottom padding to increase clickable area.
