@@ -8,8 +8,14 @@
 	background: url( ../common/images/arrow-down.svg ) 100% 50% no-repeat;
 	width: unit( 16 / @font-size-tabs / @font-size-browser, em );
 	height: unit( 16 / @font-size-tabs / @font-size-browser, em );
-	// https://phabricator.wikimedia.org/T319070#8284272
-	margin-left: -1px;
+
+	// FIXME: This can be folded into the main mixin as soon as wgVectorVisualEnhancementNext
+	// is default. This rule should not apply to the current master as is part of a larger
+	// set of changes that must go out together.
+	.vector-feature-visual-enhancement-next-enabled & {
+		// https://phabricator.wikimedia.org/T319070#8284272
+		margin-left: -1px;
+	}
 }
 
 .mixin-vector-dropdown-menu-item() {
