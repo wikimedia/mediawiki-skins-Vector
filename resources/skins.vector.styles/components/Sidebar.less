@@ -13,23 +13,11 @@
 	// T305069 Layout adjustments of sidebar elements
 	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
-	margin-left: 0;
+	.mixin-vector-flush-left-margin-left();
 
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
-		.mixin-vector-flush-right-margin-left();
-	}
-}
-
-.sidebar-toc,
-.sidebar-toc:after {
-	// T312156 Update TOC spacing after removing background color
-	// Align the left edge of the TOC text with the main menu button icon.
-	.mixin-vector-flush-left-margin-left();
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		// Align the TOC subsection toggle button icon with the main menu button icon.
 		margin-left: 0;
 	}
 }

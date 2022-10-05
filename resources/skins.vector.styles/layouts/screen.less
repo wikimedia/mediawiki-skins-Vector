@@ -14,16 +14,13 @@
 
 // Note this uses variables defined in mediawiki.skin.variables so that VisualEditor can read them
 // see T259331.
-@padding-content: @padding-top-content @padding-horizontal-content 1.5em;
+@padding-content: @padding-top-content 0 1.5em;
 
 // Breakpoints
 
 // Defines the minimum viewport width, at which point the layout will not get any
 // smaller and will start horizontal scrolling instead.
-@min-width-supported:
-	unit( 500px / @font-size-browser, em ) -
-	( 2 * @padding-horizontal-page-container-desktop-wide );
-// 31.25em - 3.75em = 27.5em @ 16
+@min-width-supported: unit( 500px / @font-size-browser, em );
 
 body {
 	background-color: @background-color-secondary--modern;
@@ -38,13 +35,8 @@ body {
 }
 
 .mw-body {
+	// T315261 Remove horizontal padding, rely on .mw-page-container padding instead
 	padding: @padding-content;
-
-	@media ( max-width: @max-width-tablet ) {
-		// T315261 Remove horizontal padding, rely on .mw-page-container padding instead
-		padding-left: 0;
-		padding-right: 0;
-	}
 
 	.firstHeading {
 		/* Change the default from mediawiki.skinning CSS to let indicators float into heading area */
@@ -111,11 +103,6 @@ body {
 	padding: @padding-content;
 }
 
-.mw-footer {
-	border-top: @border-base;
-	padding: 0.75em;
-}
-
 // Container logic.
 .mw-page-container {
 	// Setting position and z-index is important as it allows overlays appended to the body tag
@@ -124,6 +111,10 @@ body {
 	position: relative;
 	z-index: 0;
 	max-width: @max-width-page-container;
+	// Set a min-width to make explicit we do not support anything below this threshold.
+	// For devices too small, they should be more useable with horizontal scrolling.
+	// e.g. Portrait on an iPad
+	min-width: @min-width-supported;
 	// Fill the viewport even if the content height is small. This also helps
 	// mitigate a long sidebar overflowing the page container (T257518).
 	min-height: 100%;
@@ -133,10 +124,7 @@ body {
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
 	padding: 0.05px @padding-horizontal-page-container;
 	background-color: @background-color-page-container;
-	// Set a min-width to make explicit we do not support anything below this threshold.
-	// For devices too small, they should be more useable with horizontal scrolling.
-	// e.g. Portrait on an iPad
-	min-width: @min-width-supported;
+	box-sizing: border-box;
 
 	@media ( min-width: @min-width-desktop ) {
 		padding-left: @padding-horizontal-page-container-desktop;

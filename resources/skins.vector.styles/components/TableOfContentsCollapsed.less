@@ -92,6 +92,7 @@
 		display: none;
 		position: absolute;
 		top: @height-collapsed-toc-button; // TOC button height
+		.mixin-vector-flush-left-left();
 		margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
 		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 		border: @border-width-base @border-style-base @border-color-base;
@@ -124,10 +125,6 @@
 	// Collapsed to header on narrow screens
 	//
 	.mixin-toc-collapsed-header();
-
-	.sidebar-toc {
-		.mixin-vector-flush-left-left();
-	}
 
 	//
 	// Collapsed to floating button on narrow screens when below page title

@@ -6,6 +6,7 @@
 
 .vector-sticky-header {
 	width: 100%;
+	max-width: @max-width-page-container;
 	height: @height-sticky-header;
 	position: fixed;
 	top: 0;
@@ -20,12 +21,20 @@
 	border-bottom: @border-width-base @border-style-base @colorGray14;
 	justify-content: space-between;
 	box-sizing: border-box;
-	padding: 6px @padding-horizontal-page-container-desktop;
-	max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop * 2 );
+
+	// T317573 Account for icon padding, align with header icons
+	padding: 6px (@padding-horizontal-page-container-desktop - @icon-padding-md-em);
 
 	@media ( min-width: @min-width-desktop-wide ) {
-		padding: 6px @padding-horizontal-page-container-desktop-wide;
-		max-width: @max-width-page-container + ( @padding-horizontal-page-container-desktop-wide * 2 );
+		padding: 6px (@padding-horizontal-page-container-desktop-wide - @icon-padding-md-em);
+	}
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		padding: 6px (@padding-horizontal-page-container-desktop - @icon-padding-md-next-em);
+
+		@media ( min-width: @min-width-desktop-wide ) {
+			padding: 6px (@padding-horizontal-page-container-desktop-wide - @icon-padding-md-next-em);
+		}
 	}
 
 	// Hide sticky header until visible class is applied to the body
