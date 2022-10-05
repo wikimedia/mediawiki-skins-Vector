@@ -6,6 +6,7 @@
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1语言}}",
+	"vector-action-addsection": "添加话题",
 	"vector-action-delete": "刪",
 	"vector-action-move": "移动",
 	"vector-action-protect": "保护",
