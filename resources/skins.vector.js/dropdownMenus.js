@@ -102,7 +102,8 @@ function addPortletLinkHandler( item, data ) {
 		}
 	}
 
-	if ( link && iconElement ) {
+	// Check link.prepend exists for older browser since this is ES5 code
+	if ( link && iconElement && link.prepend ) {
 		link.prepend( iconElement );
 	}
 
