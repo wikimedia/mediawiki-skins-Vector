@@ -473,9 +473,9 @@
 			"value": [],
 			"description": "Temporary configuration flag for allowing users to preview the new Vector skin."
 		},
-		"VectorSearchHost": {
+		"VectorSearchApiUrl": {
 			"value": "",
-			"description": "Override default search API. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."
+			"description": "To override the default search API, set this to the URL to rest.php on another wiki. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."
 		},
 		"VectorUseIconWatch": {
 			"value": true

@@ -98,7 +98,7 @@ class Hooks implements
 		Config $config
 	) {
 		return [
-			'wgVectorSearchHost' => $config->get( 'VectorSearchHost' ),
+			'wgVectorSearchApiUrl' => $config->get( 'VectorSearchApiUrl' ),
 			'wgVectorWebABTestEnrollment' => self::getActiveABTest( $config ),
 		];
 	}

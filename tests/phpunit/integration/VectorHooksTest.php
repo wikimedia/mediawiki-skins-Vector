@@ -56,10 +56,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			[
 				[
 					'VectorWebABTestEnrollment' => [],
-					'VectorSearchHost' => 'en.wikipedia.org'
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php'
 				],
 				[
-					'wgVectorSearchHost' => 'en.wikipedia.org',
+					'wgVectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'wgVectorWebABTestEnrollment' => [],
 				]
 			],
@@ -83,10 +83,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 								],
 						],
 					],
-					'VectorSearchHost' => 'en.wikipedia.org'
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php'
 				],
 				[
-					'wgVectorSearchHost' => 'en.wikipedia.org',
+					'wgVectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'wgVectorWebABTestEnrollment' => [
 						'name' => 'vector.sticky_header',
 						'enabled' => true,
@@ -115,7 +115,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			# Bad experiment (no buckets)
 			[
 				[
-					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'VectorWebABTestEnrollment' => [
 						'name' => 'vector.sticky_header',
 						'enabled' => true,
@@ -125,7 +125,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			# Bad experiment (no unsampled bucket)
 			[
 				[
-					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'VectorWebABTestEnrollment' => [
 						'name' => 'vector.sticky_header',
 						'enabled' => true,
@@ -140,7 +140,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			# Bad experiment (wrong format)
 			[
 				[
-					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'VectorWebABTestEnrollment' => [
 						'name' => 'vector.sticky_header',
 						'enabled' => true,
@@ -153,7 +153,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			# Bad experiment (samplingRate defined as string)
 			[
 				[
-					'VectorSearchHost' => 'en.wikipedia.org',
+					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
 					'VectorWebABTestEnrollment' => [
 						'name' => 'vector.sticky_header',
 						'enabled' => true,

@@ -141,9 +141,9 @@ function initSearchLoader( document ) {
 	var searchBoxes = document.querySelectorAll( '.vector-search-box' ),
 		isWikidata = mw.config.get( 'wgWikiID' ) === 'wikidatawiki';
 
-	// Allow developers to defined $wgVectorSearchHost in LocalSettings to target different APIs
-	if ( config.wgVectorSearchHost ) {
-		mw.config.set( 'wgVectorSearchHost', config.wgVectorSearchHost );
+	// Allow developers to defined $wgVectorSearchApiUrl in LocalSettings to target different APIs
+	if ( config.wgVectorSearchApiUrl ) {
+		mw.config.set( 'wgVectorSearchApiUrl', config.wgVectorSearchApiUrl );
 	}
 
 	if ( !searchBoxes.length ) {

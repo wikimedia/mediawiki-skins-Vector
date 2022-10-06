@@ -155,7 +155,9 @@ module.exports = exports = defineComponent( {
 		 * @param {string} value
 		 */
 		onInput: function ( value ) {
-			const domain = mw.config.get( 'wgVectorSearchHost', location.host ),
+			const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
+					mw.config.get( 'wgScriptPath' ) + '/rest.php'
+				),
 				query = value.trim();
 
 			if ( query === '' ) {
@@ -166,7 +168,7 @@ module.exports = exports = defineComponent( {
 
 			instrumentation.listeners.onFetchStart();
 
-			restClient.fetchByTitle( query, domain, 10, this.showDescription ).fetch
+			restClient.fetchByTitle( query, searchApiUrl, 10, this.showDescription ).fetch
 				.then( ( data ) => {
 					this.suggestions = data.results;
 					this.searchFooterUrl = urlGenerator.generateUrl( query );

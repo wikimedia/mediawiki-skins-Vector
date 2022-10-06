@@ -66,7 +66,7 @@ describe( 'restApiSearchClient', () => {
 
 		const searchResult = await restSearchClient( configMock ).fetchByTitle(
 			'media',
-			'en.wikipedia.org',
+			'https://en.wikipedia.org/w/rest.php',
 			2
 		).fetch;
 
@@ -87,7 +87,7 @@ describe( 'restApiSearchClient', () => {
 		if ( mockedRequests ) {
 			expect( fetchMock ).toHaveBeenCalledTimes( 1 );
 			expect( fetchMock ).toHaveBeenCalledWith(
-				'//en.wikipedia.org/w/rest.php/v1/search/title?q=media&limit=2',
+				'https://en.wikipedia.org/w/rest.php/v1/search/title?q=media&limit=2',
 				{ headers: { accept: 'application/json' }, signal: controller.signal }
 			);
 		}
@@ -99,7 +99,7 @@ describe( 'restApiSearchClient', () => {
 
 		const searchResult = await restSearchClient( configMock ).fetchByTitle(
 			'thereIsNothingLikeThis',
-			'en.wikipedia.org'
+			'https://en.wikipedia.org/w/rest.php'
 		).fetch;
 
 		/* eslint-disable-next-line compat/compat */
@@ -111,7 +111,7 @@ describe( 'restApiSearchClient', () => {
 		if ( mockedRequests ) {
 			expect( fetchMock ).toHaveBeenCalledTimes( 1 );
 			expect( fetchMock ).toHaveBeenCalledWith(
-				'//en.wikipedia.org/w/rest.php/v1/search/title?q=thereIsNothingLikeThis&limit=10',
+				'https://en.wikipedia.org/w/rest.php/v1/search/title?q=thereIsNothingLikeThis&limit=10',
 				{ headers: { accept: 'application/json' }, signal: controller.signal }
 			);
 		}
@@ -123,7 +123,7 @@ describe( 'restApiSearchClient', () => {
 
 			await expect( restSearchClient( configMock ).fetchByTitle(
 				'anything',
-				'en.wikipedia.org'
+				'https://en.wikipedia.org/w/rest.php'
 			).fetch ).rejects.toThrow( 'failed' );
 		} );
 	}
