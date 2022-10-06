@@ -16,6 +16,7 @@
 	"vector-opt-out": "పాత రూపానికి మార్చు",
 	"vector-opt-out-tooltip": "పాత వెక్టర్ రూపానికి వెళ్లడానికి  మీ అమరికలు మార్చు",
 	"vector-language-button-label": "{{PLURAL:$1|$1 భాష|$1 భాషలు}}",
+	"vector-language-redirect-to-top": "ఈ {{SITENAME}} లో భాషా లింకులు పేజీకి పైన, వ్యాస శీర్షిక ఉండే వరుసలో కుడి చివర ఉంటాయి. [[#p-lang-btn|పైకి వెళ్ళు]].",
 	"vector-action-addsection": "అంశాన్ని చేర్చు",
 	"vector-action-delete": "తొలగించు",
 	"vector-action-move": "తరలించు",
