@@ -167,7 +167,8 @@ class Hooks implements
 		}
 
 		// Promote watch link from actions to views and add an icon
-		if ( $key !== null ) {
+		// The second check to isset is pointless but shuts up phan.
+		if ( $key !== null && isset( $content_navigation['actions'][ $key ] ) ) {
 			$content_navigation['views'][$key] = $content_navigation['actions'][$key];
 			unset( $content_navigation['actions'][$key] );
 		}
