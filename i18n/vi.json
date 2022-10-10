@@ -32,6 +32,7 @@
 	"vector-language-button-aria-label": "Xem bài viết trong ngôn ngữ khác. Bài có sẵn trong {{PLURAL:$1}}$1 ngôn ngữ",
 	"vector-language-button-label": "$1 ngôn ngữ",
 	"vector-no-language-button-label": "Thêm ngôn ngữ",
+	"vector-no-language-button-aria-label": "Bài viết này chỉ tồn tại bằng ngôn ngữ này. Thêm bài viết cho các ngôn ngữ khác",
 	"vector-language-redirect-to-top": "Ở {{SITENAME}} này, các liên kết giữa ngôn ngữ nằm ở đầu trang, đối diện với tiêu đề bài viết. [[#p-lang-btn|Đi tới đầu trang]].",
 	"vector-language-variant-switcher-label": "Thay đổi biến thể ngôn ngữ",
 	"vector-action-addsection": "Thêm đề tài",
