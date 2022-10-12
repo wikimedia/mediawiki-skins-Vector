@@ -7,7 +7,8 @@
 			"OmniBus",
 			"Roy17",
 			"Waihorace",
-			"Yueman"
+			"Yueman",
+			"Deryck Chan"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -20,6 +21,7 @@
 	"vector.js": "/* 響每一次個頁面載入時，用域達畫面嘅用戶都會載入呢度任何嘅JavaScript */",
 	"vector-action-toggle-sidebar": "邊欄開閂",
 	"vector-languages": "語言",
+	"vector-language-button-aria-label": "去睇另一種語文嘅文章。有$1種語言版本。",
 	"vector-language-button-label": "{{PLURAL:$1|$1種語言}}",
 	"vector-language-redirect-to-top": "喺呢個{{SITENAME}}度，其他語言嘅連結喺頁頂文章標題側邊。[[#p-lang-btn|去頁頂]]。",
 	"vector-action-addsection": "加主題",
@@ -37,5 +39,7 @@
 	"vector-jumptosearch": "跳去搵嘢",
 	"vector-jumptocontent": "跳去內容",
 	"vector-more-actions": "多啲",
-	"vector-search-loader": "載入緊搜索提議"
+	"vector-search-loader": "載入緊搜索提議",
+	"vector-anon-user-menu-pages-learn": "知多啲",
+	"vector-main-menu-tooltip": "主目錄"
 }
