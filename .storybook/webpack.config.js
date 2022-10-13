@@ -11,13 +11,13 @@ module.exports = {
 			'../resources/skins.vector.styles/Menu.less': '../resources/common/components/Menu.less',
 			'../.storybook/common.less': '../resources/common/common.less',
 			'../resources/skins.vector.styles/MenuDropdown.less': '../resources/common/components/MenuDropdown.less',
-			'../resources/skins.vector.styles/MenuPortal.less': '../resources/common/components/MenuPortal.less',
+			'../resources/skins.vector.styles/MenuPortal.less': '../resources/skins.vector.styles/components/MenuPortal.less',
 			'../resources/skins.vector.styles/MenuTabs.less': '../resources/common/components/MenuTabs.less',
 			'../resources/skins.vector.styles/TabWatchstarLink.less': '../resources/common/components/TabWatchstarLink.less',
 			'../resources/skins.vector.styles/SearchBox.less': '../resources/common/components/SearchBox.less',
 			'../resources/skins.vector.styles/Sidebar.less': '../resources/skins.vector.styles/components/Sidebar.less',
 			'../resources/skins.vector.styles/SidebarLogo.less': '../resources/common/components/SidebarLogo.less',
-			'../resources/skins.vector.styles/MenuPortal.less': '../resources/common/components/MenuPortal.less'
+			'../resources/skins.vector.styles/MenuPortal.less': '../resources/skins.vector.styles/components/MenuPortal.less'
 		}
 	},
 	module: {
