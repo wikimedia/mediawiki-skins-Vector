@@ -2,10 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Cakkaparla",
-			"ReyLon Mrat"
+			"ReyLon Mrat",
+			"YaThaWinTha"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
+	"vector-action-addsection": "ခေါင်းစီးတိထည့်ပါ",
+	"vector-view-create": "စပြီးကေရေးရန်",
+	"vector-view-edit": "တီးဖြတ်တေ",
 	"vector-view-history": "သမိုင်းတိကိုကြည့်ပါ",
 	"vector-view-view": "ဖတ်ကြေ့ပါ",
-	"vector-more-actions": "ထပ်လို့"
+	"vector-more-actions": "ထပ်လို့",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>ပါဝင်ရေ စာမျက်နှာတိ ယှာဖွီရန်"
 }
