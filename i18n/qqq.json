@@ -66,5 +66,7 @@
 	"vector-toc-collapsible-button-label": "Used as the label for the table of contents collapsible toggle button",
 	"vector-site-nav-label": "Accessible label for site (main menu) nav landmark",
 	"vector-2022-prefs-talkpage": "Link to the desktop improvements project talk page which is shown before the preview link in skin preferences. See T307113 for more information.",
-	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users."
+	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users.",
+	"prefs-skin-limited-width": "Used in [[Special:Preferences]]",
+	"prefs-help-skin-limited-width": "Help message used on [[Special:Preferences]].\n\nSee also:\n* {{msg-mw|Mypreferences}}"
 }

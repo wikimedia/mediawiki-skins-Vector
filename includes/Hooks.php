@@ -14,6 +14,7 @@ use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
+use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use OutputPage;
 use RuntimeException;
 use Skin;
@@ -37,7 +38,8 @@ class Hooks implements
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
 	RequestContextCreateSkinHook,
-	SkinPageReadyConfigHook
+	SkinPageReadyConfigHook,
+	UserGetDefaultOptionsHook
 {
 	/**
 	 * Checks if the current skin is a variant of Vector
@@ -631,6 +633,13 @@ class Hooks implements
 					Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
 				),
 			],
+			Constants::PREF_KEY_LIMITED_WIDTH => [
+				'type' => 'toggle',
+				'label-message' => 'prefs-skin-limited-width',
+				'section' => 'rendering/skin/skin-prefs',
+				'help-message' => 'prefs-help-skin-limited-width',
+				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME_MODERN ],
+			]
 		];
 		$prefs += $vectorPrefs;
 	}
@@ -708,26 +717,23 @@ class Hooks implements
 		//
 		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-legacy for an up-to-date
 		// list.
-		if ( self::isSkinVersionLegacy( $skinName ) ) {
-			$bodyAttrs['class'] .= ' skin-vector-legacy';
-		}
 
 		$tocClasses = self::getTocClasses( $sk, $config );
 		if ( $tocClasses ) {
 			$bodyAttrs['class'] .= ' ' . implode( ' ', $tocClasses );
 		}
 
+		$shouldDisableMaxWidth = !self::isSkinVersionLegacy( $skinName ) &&
+			$sk->getTitle() &&
+			self::shouldDisableMaxWidth(
+				$config->get( 'VectorMaxWidthOptions' ),
+				$sk->getTitle(),
+				$out->getRequest()->getValues()
+			);
 		// Should we disable the max-width styling?
-		if ( !self::isSkinVersionLegacy( $skinName ) && $sk->getTitle() && self::shouldDisableMaxWidth(
-			$config->get( 'VectorMaxWidthOptions' ),
-			$sk->getTitle(),
-			$out->getRequest()->getValues()
-		) ) {
+		if ( $sk instanceof SkinVector22 && ( !$sk->hasUserLimitedWidthEnabled() || $shouldDisableMaxWidth ) ) {
 			$bodyAttrs['class'] .= ' skin-vector-disable-max-width';
 		}
-
-		// TOC is not collapsed by default
-		$bodyAttrs['class'] .= ' vector-toc-not-collapsed';
 
 		$featureManager = VectorServices::getFeatureManager();
 		$bodyAttrs['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
@@ -868,5 +874,12 @@ class Hooks implements
 	 */
 	private static function isSkinVersionLegacy( $skinName ): bool {
 		return $skinName === Constants::SKIN_NAME_LEGACY;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function onUserGetDefaultOptions( &$defaultOptions ) {
+		$defaultOptions[ Constants::PREF_KEY_LIMITED_WIDTH ] = Constants::CONFIG_DEFAULT_LIMITED_WIDTH;
 	}
 }

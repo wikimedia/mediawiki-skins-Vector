@@ -39,7 +39,8 @@
 					},
 					"bodyClasses": [
 						"skin-vector",
-						"skin-vector-search-vue"
+						"skin-vector-search-vue",
+						"vector-toc-not-collapsed"
 					],
 					"menus": [
 						"user-interface-preferences",
@@ -107,6 +108,9 @@
 							"tag": "span"
 						}
 					},
+					"bodyClasses": [
+						"skin-vector-legacy"
+					],
 					"scripts": [
 						"skins.vector.legacy.js"
 					],
@@ -166,7 +170,8 @@
 		"OutputPageBodyAttributes": "VectorHooks",
 		"ResourceLoaderSiteModulePages": "VectorHooks",
 		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
-		"SkinPageReadyConfig": "VectorHooks"
+		"SkinPageReadyConfig": "VectorHooks",
+		"UserGetDefaultOptions": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
