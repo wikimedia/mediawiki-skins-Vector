@@ -3,11 +3,15 @@
 		"authors": [
 			"Cakkaparla",
 			"ReyLon Mrat",
+			"Tejoebāsa",
 			"YaThaWinTha"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
 	"vector-action-addsection": "ခေါင်းစီးတိထည့်ပါ",
+	"vector-action-delete": "ဖျက်​ပါ​",
+	"vector-action-move": "ရွိလျား",
+	"vector-action-protect": "ကာကွယ်ရေ",
 	"vector-view-create": "စပြီးကေရေးရန်",
 	"vector-view-edit": "တီးဖြတ်တေ",
 	"vector-view-history": "သမိုင်းတိကိုကြည့်ပါ",

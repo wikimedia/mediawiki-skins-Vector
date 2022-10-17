@@ -25,6 +25,8 @@
 	"vector-action-toggle-sidebar": "Прикажи/сакриј бочну траку",
 	"vector-languages": "Језици",
 	"vector-language-button-label": "{{PLURAL:$1|$1 језик|$1 језика}}",
+	"vector-no-language-button-label": "Додај језике",
+	"vector-no-language-button-aria-label": "Овај чланак постоји само на овом језику. Додајте друге језике.",
 	"vector-language-redirect-to-top": "Језичке везе се налазе на врху странице поред наслова чланка. [[#p-lang-btn|Идите на врх]].",
 	"vector-language-variant-switcher-label": "Промени варијанту језика",
 	"vector-action-addsection": "Додај тему",
@@ -45,11 +47,14 @@
 	"vector-search-loader": "Учитавам предлоге претраге",
 	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "Садржај",
+	"vector-toc-toggle-position-sidebar": "помери на страну",
+	"vector-toc-toggle-position-title": "сакриј",
 	"vector-toc-beginning": "Почетак",
 	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",
 	"vector-anon-user-menu-pages-learn": "детаљније",
 	"vector-anon-user-menu-pages-label": "Детаљније о уређивању",
 	"vector-main-menu-tooltip": "Главни мени",
+	"vector-toc-menu-tooltip": "Садржај",
 	"vector-site-nav-label": "Сајт",
 	"tooltip-vector-anon-user-menu-title": "Више опција"
 }
