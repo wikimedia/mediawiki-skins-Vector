@@ -88,7 +88,7 @@ function addPortletLinkHandler( item, data ) {
 	/* eslint-disable no-jquery/no-global-selector */
 	if ( $menu.prop( 'id' ) === 'p-views' ) {
 		// @ts-ignore if undefined as NaN will be ignored
-		var availableWidth = $( '.mw-article-toolbar-container' ).width() -
+		var availableWidth = $( '.vector-page-toolbar-container' ).width() -
 			// @ts-ignore
 			$( '#p-namespaces' ).width() - $( '#p-variants' ).width() -
 			// @ts-ignore
