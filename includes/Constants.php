@@ -241,6 +241,16 @@ final class Constants {
 	public const FEATURE_ARTICLE_TOOLS = 'ArticleTools';
 
 	/**
+	 * @var string
+	 */
+	public const PREF_KEY_LIMITED_WIDTH = 'skin-limited-width';
+
+	/**
+	 * @var bool
+	 */
+	public const CONFIG_DEFAULT_LIMITED_WIDTH = 1;
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

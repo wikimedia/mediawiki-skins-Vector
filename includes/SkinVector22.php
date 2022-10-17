@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Skins\Vector;
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @ingroup Skins
  * @package Vector
@@ -193,5 +195,26 @@ class SkinVector22 extends SkinVector {
 				)
 			) : false,
 		] );
+	}
+
+	/**
+	 * Indicates if this skin should be shown with max-width.
+	 * @internal
+	 * @since 1.40
+	 *
+	 * @return bool
+	 */
+	public function hasUserLimitedWidthEnabled() {
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		$isSkinModern = $this->getSkin()->getSkinName() === Constants::SKIN_NAME_MODERN;
+		$isLimitedWidth = $userOptionsLookup->getOption(
+			$this->getSkin()->getUser(),
+			Constants::PREF_KEY_LIMITED_WIDTH
+		);
+		$isLimitedWidth = $isLimitedWidth === null ? true : $userOptionsLookup->getBoolOption(
+			$this->getUser(),
+			Constants::PREF_KEY_LIMITED_WIDTH
+		);
+		return $isSkinModern && $this->getSkin()->getTitle() && $isLimitedWidth;
 	}
 }
