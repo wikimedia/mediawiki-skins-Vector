@@ -2,7 +2,9 @@
 
 @border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
 
-.mw-article-toolbar-container {
+/* FIXME: Remove mw prefixed selectors after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+.mw-article-toolbar-container,
+.vector-page-toolbar-container {
 	display: flex;
 	font-size: @font-size-tabs;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
@@ -36,7 +38,7 @@
 	}
 }
 
-// ID Selectors outside of .mw-article-toolbar-container to avoid over-specificity.
+// ID Selectors outside of .vector-page-toolbar-container to avoid over-specificity.
 #left-navigation {
 	// flex ensures all child elements align on one line.
 	display: flex;

@@ -1,5 +1,5 @@
 import mustache from 'mustache';
-import '../resources/skins.vector.styles/Sidebar.less';
+import '../resources/skins.vector.styles/MainMenu.less';
 import '../resources/skins.vector.styles/SidebarLogo.less';
 import '../resources/skins.vector.styles/MenuPortal.less';
 

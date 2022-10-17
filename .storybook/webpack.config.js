@@ -15,7 +15,7 @@ module.exports = {
 			'../resources/skins.vector.styles/MenuTabs.less': '../resources/common/components/MenuTabs.less',
 			'../resources/skins.vector.styles/TabWatchstarLink.less': '../resources/common/components/TabWatchstarLink.less',
 			'../resources/skins.vector.styles/SearchBox.less': '../resources/common/components/SearchBox.less',
-			'../resources/skins.vector.styles/Sidebar.less': '../resources/skins.vector.styles/components/Sidebar.less',
+			'../resources/skins.vector.styles/MainMenu.less': '../resources/skins.vector.styles/components/MainMenu.less',
 			'../resources/skins.vector.styles/SidebarLogo.less': '../resources/common/components/SidebarLogo.less',
 			'../resources/skins.vector.styles/MenuPortal.less': '../resources/skins.vector.styles/components/MenuPortal.less'
 		}

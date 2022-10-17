@@ -90,7 +90,7 @@ function bindToggleOnSpaceEnter( button ) {
 }
 
 /**
- * Improve the interactivity of the sidebar panel by binding checkbox hack enhancements.
+ * Improve the interactivity of the main menu by binding checkbox hack enhancements.
  *
  * @param {HTMLElement|null} checkbox
  * @param {HTMLElement|null} button

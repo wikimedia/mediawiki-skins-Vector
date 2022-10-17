@@ -28,17 +28,24 @@
 		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.
 	}
 
+	/* FIXME: Remove selectors after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
 	&-content,
-	&-aside {
+	&-aside,
+	.vector-header-start,
+	.vector-header-end {
 		display: flex;
 		align-items: center;
 	}
 
-	&-aside {
+	/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+	&-aside,
+	.vector-header-start {
 		float: left;
 	}
 
-	&-content {
+	/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+	&-content,
+	.vector-header-end {
 		flex-grow: 1;
 	}
 

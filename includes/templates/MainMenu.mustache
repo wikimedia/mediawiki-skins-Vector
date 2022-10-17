@@ -1,0 +1,27 @@
+{{!
+	@typedef object main-menu-action
+	@prop string href
+	@prop string text
+
+	string html-logo-attributes for site logo. Must be used inside tag e.g. `class="logo" lang="en-gb"`
+	MenuDefinition data-portlets-first
+	MenuDefinition[] array-portlets-rest
+	main-menu-action data-main-menu-action For displaying an emphasized action in the main menu.
+}}
+<div class="vector-sidebar-container vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
+	<div id="mw-navigation">
+		{{#data-portlets-main-menu}}
+		<nav id="mw-panel" class="mw-sidebar vector-main-menu" aria-label="{{msg-vector-site-nav-label}}" role="navigation">
+			{{#data-portlets-first}}{{>Menu}}{{/data-portlets-first}}
+			{{#data-main-menu-action}}{{>MainMenuAction}}{{/data-main-menu-action}}
+			{{#array-portlets-rest}}{{>Menu}}{{/array-portlets-rest}}
+			{{^is-language-in-content}}
+			{{#data-portlets.data-languages}}{{>Menu}}{{/data-portlets.data-languages}}
+			{{/is-language-in-content}}
+			{{! T295555 Add language switch alert message temporarily (to be removed). }}
+			{{#data-vector-language-switch-alert}}{{>MainMenuAction}}{{/data-vector-language-switch-alert}}
+		</nav>
+		{{/data-portlets-main-menu}}
+	</div>
+</div>
+

@@ -23,11 +23,11 @@
 	MenuDefinition data-portlets.data-views
 	MenuDefinition data-portlets.data-actions
 	object data-search-box. See SearchBox.mustache for documentation.
-	boolean sidebar-visible For users that want to see the sidebar on initial render, this should be
+	boolean main-menu-visible For users that want to see the sidebar on initial render, this should be
 	  true.
 	string msg-vector-action-toggle-sidebar The label used by the sidebar button.
 	string msg-vector-main-menu-tooltip The title attribute for the main menu icon.
-	object data-portlets-sidebar. See Sidebar.mustache for documentation.
+	object data-portlets-main-menu. See MainMenu.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
 <div class="mw-page-container">
@@ -37,11 +37,11 @@
 			type="checkbox"
 			id="mw-sidebar-checkbox"
 			class="mw-checkbox-hack-checkbox"
-			{{#sidebar-visible}}checked{{/sidebar-visible}}>
+			{{#main-menu-visible}}checked{{/main-menu-visible}}>
 		{{>Header}}
-		<div class="vector-sidebar-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
+		<div class="vector-sidebar-container vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 			<div id="mw-navigation">
-				{{#data-portlets-sidebar}}{{>Sidebar}}{{/data-portlets-sidebar}}
+				{{#data-portlets-main-menu}}{{>MainMenu}}{{/data-portlets-main-menu}}
 			</div>
 		</div>
 		<div class="vector-sitenotice-container">
@@ -52,10 +52,10 @@
 		<div class="mw-content-container">
 			{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 			<main id="content" class="mw-body" role="main">
-				{{>ContentHeader}}
-				{{>ArticleToolbar}}
+				{{>PageTitlebar}}
+				{{>PageToolbar}}
 				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
-					{{>ContentSubheader}}
+					{{>BeforeContent}}
 					{{! the #contentSub element is currently used by editors, do not hide or remove it
 					  until https://phabricator.wikimedia.org/T316830 has been addressed}}
 					<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
