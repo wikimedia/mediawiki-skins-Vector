@@ -15,11 +15,6 @@
 		"sourceType": "module"
 	},
 	"settings": {
-		"jsdoc": {
-			"preferredTypes": {
-				"VectorHeaderObserver": "VectorHeaderObserver"
-			}
-		}
 	},
 	"rules": {
 		"compat/compat": "off",
