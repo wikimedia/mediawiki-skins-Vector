@@ -243,7 +243,7 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const PREF_KEY_LIMITED_WIDTH = 'skin-limited-width';
+	public const PREF_KEY_LIMITED_WIDTH = 'vector-limited-width';
 
 	/**
 	 * @var bool

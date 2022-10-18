@@ -14,7 +14,6 @@ use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
-use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use OutputPage;
 use RuntimeException;
 use Skin;
@@ -38,8 +37,7 @@ class Hooks implements
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
 	RequestContextCreateSkinHook,
-	SkinPageReadyConfigHook,
-	UserGetDefaultOptionsHook
+	SkinPageReadyConfigHook
 {
 	/**
 	 * Checks if the current skin is a variant of Vector
@@ -638,7 +636,7 @@ class Hooks implements
 				'label-message' => 'prefs-skin-limited-width',
 				'section' => 'rendering/skin/skin-prefs',
 				'help-message' => 'prefs-help-skin-limited-width',
-				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME_MODERN ],
+				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			]
 		];
 		$prefs += $vectorPrefs;
@@ -874,12 +872,5 @@ class Hooks implements
 	 */
 	private static function isSkinVersionLegacy( $skinName ): bool {
 		return $skinName === Constants::SKIN_NAME_LEGACY;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function onUserGetDefaultOptions( &$defaultOptions ) {
-		$defaultOptions[ Constants::PREF_KEY_LIMITED_WIDTH ] = Constants::CONFIG_DEFAULT_LIMITED_WIDTH;
 	}
 }

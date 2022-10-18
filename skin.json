@@ -157,6 +157,9 @@
 	"ConfigRegistry": {
 		"vector": "GlobalVarConfig::newInstance"
 	},
+	"DefaultUserOptions": {
+		"vector-limited-width": 1
+	},
 	"HookHandlers": {
 		"VectorHooks": {
 			"class": "MediaWiki\\Skins\\Vector\\Hooks"
@@ -170,8 +173,7 @@
 		"OutputPageBodyAttributes": "VectorHooks",
 		"ResourceLoaderSiteModulePages": "VectorHooks",
 		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
-		"SkinPageReadyConfig": "VectorHooks",
-		"UserGetDefaultOptions": "VectorHooks"
+		"SkinPageReadyConfig": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
