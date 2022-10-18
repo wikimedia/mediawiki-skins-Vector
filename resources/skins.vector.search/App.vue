@@ -136,6 +136,9 @@ module.exports = exports = defineComponent( {
 			// Link to the search page for the current search query.
 			searchFooterUrl: '',
 
+			// The current search query. Used to detect whether a fetch response is stale.
+			currentSearchQuery: '',
+
 			// Whether to apply a CSS class that disables the CSS transitions on the text input
 			disableTransitions: this.autofocusInput,
 
@@ -164,6 +167,8 @@ module.exports = exports = defineComponent( {
 				),
 				query = value.trim();
 
+			this.currentSearchQuery = query;
+
 			if ( query === '' ) {
 				this.suggestions = [];
 				this.searchFooterUrl = '';
@@ -174,8 +179,13 @@ module.exports = exports = defineComponent( {
 
 			restClient.fetchByTitle( query, searchApiUrl, 10, this.showDescription ).fetch
 				.then( ( data ) => {
-					this.suggestions = instrumentation.addWprovToSearchResultUrls( data.results );
-					this.searchFooterUrl = urlGenerator.generateUrl( query );
+					// Only use these results if they're still relevant
+					// If currentSearchQuery !== query, these results are for a previous search
+					// and we shouldn't show them.
+					if ( this.currentSearchQuery === query ) {
+						this.suggestions = instrumentation.addWprovToSearchResultUrls( data.results );
+						this.searchFooterUrl = urlGenerator.generateUrl( query );
+					}
 
 					const event = {
 						numberOfResults: data.results.length,
