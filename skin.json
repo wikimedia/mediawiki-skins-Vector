@@ -485,7 +485,7 @@
 				"exclude": {
 					"mainpage": false,
 					"querystring": {
-						"action": "(history|edit)",
+						"action": "(history|edit|submit)",
 						"diff": ".+"
 					},
 					"namespaces": [

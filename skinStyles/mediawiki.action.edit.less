@@ -1,7 +1,18 @@
 @import '../resources/common/variables.less';
 
+// Reset the font-size for the whole body, but then re-override this below
+// to ensure the preview width (which is based on font-size) is correct.
+.vector-body {
+	font-size: @font-size-reset;
+}
+
 // Even if the editing form is max-width, the preview should be constrained.
 .skin-vector-disable-max-width #wikiPreview {
 	max-width: @max-width-content-container;
 	margin: auto;
+
+	// Change font-size for the actual preview content.
+	.mw-parser-output {
+		font-size: @font-size-base;
+	}
 }
