@@ -25,6 +25,7 @@ const SECTIONS = [
 		number: '1',
 		line: 'foo',
 		anchor: 'foo',
+		linkAnchor: 'foo',
 		'is-top-level-section': true,
 		'is-parent-section': false,
 		'array-sections': null
@@ -33,6 +34,7 @@ const SECTIONS = [
 		number: '2',
 		line: 'bar',
 		anchor: 'bar',
+		linkAnchor: 'bar',
 		'is-top-level-section': true,
 		'is-parent-section': true,
 		'vector-button-label': 'Toggle bar subsection',
@@ -41,6 +43,7 @@ const SECTIONS = [
 			number: '2.1',
 			line: 'baz',
 			anchor: 'baz',
+			linkAnchor: 'baz',
 			'is-top-level-section': false,
 			'is-parent-section': true,
 			'array-sections': [ {
@@ -48,6 +51,7 @@ const SECTIONS = [
 				number: '2.1.1',
 				line: 'qux',
 				anchor: 'qux',
+				linkAnchor: 'qux',
 				'is-top-level-section': false,
 				'is-parent-section': false,
 				'array-sections': null
@@ -58,6 +62,7 @@ const SECTIONS = [
 		number: '3',
 		line: 'quux',
 		anchor: 'quux',
+		linkAnchor: 'quux',
 		'is-top-level-section': true,
 		'is-parent-section': false,
 		'array-sections': null
@@ -371,6 +376,7 @@ describe( 'Table of contents', () => {
 					number: '4',
 					line: 'bat',
 					anchor: 'bat',
+					linkAnchor: 'bat',
 					'is-top-level-section': true,
 					'is-parent-section': false,
 					'array-sections': null

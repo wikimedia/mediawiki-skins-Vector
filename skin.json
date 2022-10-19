@@ -162,9 +162,6 @@
 		"MediaWiki\\Skins\\Vector\\": "includes/",
 		"MediaWiki\\Skins\\Vector\\Tests\\": "tests/phpunit/"
 	},
-	"ConfigRegistry": {
-		"vector": "GlobalVarConfig::newInstance"
-	},
 	"DefaultUserOptions": {
 		"vector-limited-width": 1,
 		"vector-page-tools-pinned": 1,
