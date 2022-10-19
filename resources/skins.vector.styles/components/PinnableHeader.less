@@ -1,0 +1,56 @@
+.client-nojs,
+.vector-feature-article-tools-disabled {
+	& .vector-pinnable-header {
+		display: none;
+	}
+}
+
+.vector-pinnable-header {
+	padding: @padding-vertical-tabs;
+	border-bottom: @border-width-base @border-style-base @colorGray14;
+}
+
+.vector-menu-dropdown .vector-pinnable-header {
+	// Match dropdown item styles
+	// Line height needed for vertically centering pinnable header
+	line-height: @height-dropdown-menu-item;
+	padding: @padding-dropdown-menu-item;
+}
+
+.vector-pinnable-header-label {
+	display: inline-block;
+	color: @color-base--subtle;
+	font-size: unit( 14 / @font-size-browser, rem );
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+// Styles for the "move to sidebar/hide" buttons, hidden by default.
+.vector-pinnable-header-toggle-button {
+	display: none;
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+	color: @color-primary;
+	cursor: pointer;
+
+	&:hover {
+		color: @color-primary--hover;
+	}
+
+	&:before {
+		content: '@{msg-brackets-start}';
+		color: @color-base--subtle;
+	}
+
+	&:after {
+		content: '@{msg-brackets-end}';
+		color: @color-base--subtle;
+	}
+}
+
+.vector-pinnable-header-unpinned .vector-pinnable-header-pin-button,
+.vector-pinnable-header-pinned .vector-pinnable-header-unpin-button {
+	display: inline-block;
+}

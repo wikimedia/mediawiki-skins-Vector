@@ -353,6 +353,7 @@
 				"resources/skins.vector.es6/tableOfContents.js",
 				"resources/skins.vector.es6/sectionObserver.js",
 				"resources/skins.vector.es6/deferUntilFrame.js",
+				"resources/skins.vector.es6/pinnableHeader.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"

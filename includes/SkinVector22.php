@@ -238,6 +238,7 @@ class SkinVector22 extends SkinVector {
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
+			'is-page-tools-enabled' => $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS )
 		] );
 	}
 }

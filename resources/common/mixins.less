@@ -19,12 +19,10 @@
 }
 
 .mixin-vector-dropdown-menu-item() {
-	//NOTE: using px instead of em's due to difference in font-size
-	// across dropdowns (i.e tabs 13px vs. personal menu 14px).
-	min-height: 32px;
+	min-height: @height-dropdown-menu-item;
 	display: flex;
 	align-items: center;
-	padding: 0 12px;
+	padding: @padding-dropdown-menu-item;
 
 	&:visited {
 		color: @color-link;
