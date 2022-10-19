@@ -198,7 +198,8 @@ class Hooks implements
 					$item['text-hidden'] = true;
 					$item = self::updateMenuItemData( $item, true );
 				}
-			} else {
+			} elseif ( !$isLegacy ) {
+				// The vector-tab-noicon class is only used in Vector-22.
 				self::appendClassToItem(
 					$item['class'],
 					[ 'vector-tab-noicon' ]

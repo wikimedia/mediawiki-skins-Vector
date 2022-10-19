@@ -4,6 +4,8 @@ var languageButton = require( './languageButton.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	sidebarPersistence = require( './sidebarPersistence.js' ),
 	watchstar = require( './watchstar.js' ),
+	// @ts-ignore
+	menuTabs = require( './menuTabs.js' ),
 	checkbox = require( './checkbox.js' );
 
 /**
@@ -76,6 +78,9 @@ function main( window ) {
 	languageButton();
 	echo();
 	dropdownMenus();
+	// menuTabs should follow `dropdownMenus` as that can move menu items from a
+	// tab menu to a dropdown.
+	menuTabs();
 	addNamespacesGadgetSupport();
 	if ( document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
 		watchstar();
