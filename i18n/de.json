@@ -58,5 +58,6 @@
 	"vector-site-nav-label": "Website",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Weitere Optionen",
-	"prefs-skin-limited-width": "Modus für begrenzte Breite aktivieren"
+	"prefs-skin-limited-width": "Modus für begrenzte Breite aktivieren",
+	"prefs-help-skin-limited-width": "Aktiviere den Modus mit begrenzter Breite für eine verbesserte Leseansicht"
 }

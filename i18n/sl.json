@@ -53,5 +53,7 @@
 	"vector-toc-collapsible-button-label": "Vklopi kazalo vsebine",
 	"vector-site-nav-label": "Projekt",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Pogovor]]",
-	"tooltip-vector-anon-user-menu-title": "Več možnosti"
+	"tooltip-vector-anon-user-menu-title": "Več možnosti",
+	"prefs-skin-limited-width": "Omogoči način omejene širine",
+	"prefs-help-skin-limited-width": "Omogoči način omejene širine za boljšo izkušnjo branja in gledanja."
 }

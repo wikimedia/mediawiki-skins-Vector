@@ -58,5 +58,7 @@
 	"vector-toc-collapsible-button-label": "Växla innehållsförteckningen",
 	"vector-site-nav-label": "Webbplats",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
-	"tooltip-vector-anon-user-menu-title": "Fler alternativ"
+	"tooltip-vector-anon-user-menu-title": "Fler alternativ",
+	"prefs-skin-limited-width": "Aktivera läget med begränsad bredd",
+	"prefs-help-skin-limited-width": "Aktivera läget med begränsad bredd för förbättrad läsupplevelse."
 }

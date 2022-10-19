@@ -53,5 +53,7 @@
 	"vector-toc-collapsible-button-label": "מצב תוכן העניינים",
 	"vector-site-nav-label": "אתר",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|דיון]]",
-	"tooltip-vector-anon-user-menu-title": "אפשרויות נוספות"
+	"tooltip-vector-anon-user-menu-title": "אפשרויות נוספות",
+	"prefs-skin-limited-width": "להפעיל מצב רוחב מוגבל",
+	"prefs-help-skin-limited-width": "הפעלת מצב רוחב מוגבל, לחוויית קריאה משופרת."
 }

@@ -72,5 +72,7 @@
 	"vector-toc-collapsible-button-label": "Basculer la table des matières",
 	"vector-site-nav-label": "Site",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussion]]",
-	"tooltip-vector-anon-user-menu-title": "Plus d’options"
+	"tooltip-vector-anon-user-menu-title": "Plus d’options",
+	"prefs-skin-limited-width": "Activer le mode de largeur limitée",
+	"prefs-help-skin-limited-width": "Activer le mode de largeur limitée, pour améliorer l’expérience de lecture."
 }
