@@ -633,9 +633,9 @@ class Hooks implements
 			],
 			Constants::PREF_KEY_LIMITED_WIDTH => [
 				'type' => 'toggle',
-				'label-message' => 'prefs-skin-limited-width',
+				'label-message' => 'vector-prefs-limited-width',
 				'section' => 'rendering/skin/skin-prefs',
-				'help-message' => 'prefs-help-skin-limited-width',
+				'help-message' => 'vector-prefs-limited-width-help',
 				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			]
 		];
