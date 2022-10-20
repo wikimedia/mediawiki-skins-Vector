@@ -56,6 +56,6 @@
 	"vector-site-nav-label": "Мрежно место",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Разговор]]",
 	"tooltip-vector-anon-user-menu-title": "Повеќе можности",
-	"prefs-skin-limited-width": "Овозможи режим со ограничена ширина",
-	"prefs-help-skin-limited-width": "Овозможи режим со ограничена ширина за посредоточено читање и гледање"
+	"vector-prefs-limited-width": "Овозможи режим со ограничена ширина",
+	"vector-prefs-limited-width-help": "Овозможи режим со ограничена ширина за подобрено читање."
 }

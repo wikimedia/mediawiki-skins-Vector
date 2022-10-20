@@ -59,6 +59,6 @@
 	"vector-site-nav-label": "Webbplats",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Fler alternativ",
-	"prefs-skin-limited-width": "Aktivera läget med begränsad bredd",
-	"prefs-help-skin-limited-width": "Aktivera läget med begränsad bredd för förbättrad läsupplevelse."
+	"vector-prefs-limited-width": "Aktivera läget med begränsad bredd",
+	"vector-prefs-limited-width-help": "Aktivera läget med begränsad bredd för förbättrad läsupplevelse."
 }

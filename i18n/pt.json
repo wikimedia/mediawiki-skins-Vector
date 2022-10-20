@@ -63,6 +63,6 @@
 	"vector-site-nav-label": "''Site''",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussão]]",
 	"tooltip-vector-anon-user-menu-title": "Mais opções",
-	"prefs-skin-limited-width": "Ativar o modo de largura limitada",
-	"prefs-help-skin-limited-width": "Ativar o modo de largura limitada, para uma experiência de leitura e visualização mais centrada"
+	"vector-prefs-limited-width": "Ativar o modo de largura limitada",
+	"vector-prefs-limited-width-help": "Ativar o modo de largura limitada, para uma melhor experiência de leitura."
 }
