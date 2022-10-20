@@ -8,17 +8,14 @@
 			</nav>
 		</div>
 		<div id="right-navigation" class="vector-collapsible">
-			{{#data-views}}
 			<nav aria-label="{{msg-views}}">
-				{{>Tabs}}
+				{{#data-views}}{{>Tabs}}{{/data-views}}
 			</nav>
-			{{/data-views}}
 
-			{{#data-actions}}
-			<nav aria-label="{{msg-tooltip-p-cactions}}">
-				{{>Dropdown}}
+			<nav class="vector-page-tools-landmark" aria-label="{{msg-tooltip-p-cactions}}">
+				{{#is-page-tools-enabled}}{{#data-page-tools}}{{>PinnableDropdown}}{{/data-page-tools}}{{/is-page-tools-enabled}}
+				{{^is-page-tools-enabled}}{{#data-actions}}{{>Dropdown}}{{/data-actions}}{{/is-page-tools-enabled}}
 			</nav>
-			{{/data-actions}}
 		</div>
 		{{/data-portlets}}
 	</div>
