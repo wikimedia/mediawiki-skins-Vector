@@ -12,16 +12,15 @@ exports[`Sticky header renders 1`] = `
 		</div>
 <div> </div>		<div class=\\"vector-sticky-header-context-bar\\">
 			<div class=\\"vector-sticky-header-toc-container mw-ui-icon-flush-left\\">
-<div id=\\"p-sticky-header-toc\\" class=\\"vector-menu vector-menu-dropdown mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc\\">
-	<input type=\\"checkbox\\" id=\\"p-sticky-header-toc-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-p-sticky-header-toc\\" class=\\"vector-menu-checkbox\\" tabindex=\\"-1\\">
-	<label id=\\"p-sticky-header-toc-label\\" for=\\"p-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" tabindex=\\"-1\\">
+<div id=\\"vector-sticky-header-toc\\" class=\\"vector-menu vector-menu-dropdown mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc\\">
+	<input type=\\"checkbox\\" id=\\"vector-sticky-header-toc-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-sticky-header-toc\\" class=\\"vector-menu-checkbox\\" tabindex=\\"-1\\">
+	<label id=\\"vector-sticky-header-toc-label\\" for=\\"vector-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" tabindex=\\"-1\\">
 		<span class=\\"vector-menu-heading-label\\"></span>
 	</label>
-	<div id=\\"p-sticky-header-toc-content-container\\" class=\\"vector-menu-content\\">
+	<div id=\\"vector-sticky-header-toc-content-container\\" class=\\"vector-menu-content\\">
 
-	
-	<ul class=\\"vector-menu-content-list\\"></ul>
-	
+<div id=\\"vector-sticky-header-toc-content\\" class=\\"vector-dropdown-content\\">
+</div>
 	</div>
 </div>			</div>
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>

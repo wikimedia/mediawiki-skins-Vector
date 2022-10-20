@@ -7,8 +7,9 @@ const TOP_SECTION_CLASS = 'sidebar-toc-level-1';
 const ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
 const LINK_CLASS = 'sidebar-toc-link';
 const TOGGLE_CLASS = 'sidebar-toc-toggle';
-const TOC_COLLAPSED_CLASS = 'vector-toc-collapsed';
-const TOC_NOT_COLLAPSED_CLASS = 'vector-toc-not-collapsed';
+const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-page-tools-enabled' );
+const TOC_PINNED_CLASS = isPageToolsEnabled ? 'vector-toc-pinned' : 'vector-toc-not-collapsed';
+const TOC_UNPINNED_CLASS = isPageToolsEnabled ? 'vector-toc-unpinned' : 'vector-toc-collapsed';
 const TOC_ID = 'mw-panel-toc';
 /**
  * TableOfContents Mustache templates
@@ -31,7 +32,7 @@ const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContent
  */
 
 /**
- * @callback onToggleCollapse
+ * @callback onTogglePinned
  */
 
 /**
@@ -39,7 +40,7 @@ const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContent
  * @property {HTMLElement} container The container element for the table of contents.
  * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
  * @property {onToggleClick} onToggleClick Called when a list item is clicked.
- * @property {onToggleCollapse} onToggleCollapse Called when collapse toggle buttons are clicked.
+ * @property {onTogglePinned} onTogglePinned Called when pinned toggle buttons are clicked.
  */
 
 /**
@@ -327,15 +328,18 @@ module.exports = function tableOfContents( props ) {
 	/**
 	 * Bind event listener for clicking on show/hide Table of Contents links.
 	 */
-	function bindCollapseToggleListeners() {
+	function bindPinnedToggleListeners() {
 		// Initialize toc collapsed status
-		const showHideTocElement = document.querySelectorAll( '#sidebar-toc-label button' );
+		const toggleButtonQuery = isPageToolsEnabled ? '.vector-toc-pinnable-header button' : '#sidebar-toc-label button';
+		const showHideTocElement = document.querySelectorAll( toggleButtonQuery );
 		showHideTocElement.forEach( function ( btn ) {
 			btn.addEventListener( 'click', () => {
-				document.body.classList.toggle( TOC_COLLAPSED_CLASS );
-				document.body.classList.toggle( TOC_NOT_COLLAPSED_CLASS );
+				if ( !isPageToolsEnabled ) {
+					document.body.classList.toggle( TOC_PINNED_CLASS );
+					document.body.classList.toggle( TOC_UNPINNED_CLASS );
+				}
 
-				props.onToggleCollapse();
+				props.onTogglePinned();
 			} );
 		} );
 	}
@@ -384,7 +388,7 @@ module.exports = function tableOfContents( props ) {
 
 		// Bind event listeners.
 		bindSubsectionToggleListeners();
-		bindCollapseToggleListeners();
+		bindPinnedToggleListeners();
 
 		mw.hook( 'wikipage.tableOfContents' ).add( reloadTableOfContents );
 	}
@@ -416,7 +420,7 @@ module.exports = function tableOfContents( props ) {
 			// Reexpand sections that were expanded before the table of contents was reloaded.
 			reExpandSections();
 			// Initialize Collapse toggle buttons
-			bindCollapseToggleListeners();
+			bindPinnedToggleListeners();
 		} );
 	}
 

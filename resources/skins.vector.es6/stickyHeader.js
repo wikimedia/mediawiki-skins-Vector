@@ -49,6 +49,9 @@ function hide() {
 }
 
 /**
+ * FIXME: Delete this function after VectorPageTools is enabled everywhere
+ * which replaces this function with the PinnableHeader JS
+ *
  * Moves the TOC element to a new parent container.
  *
  * @param {string} position The position to move the TOC into: sidebar or stickyheader

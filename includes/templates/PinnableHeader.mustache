@@ -1,10 +1,9 @@
 <div
-	{{#id}}id="{{.}}"{{/id}}
-	class="vector-pinnable-header vector-pinnable-header-{{#is-pinned}}pinned{{/is-pinned}}{{^is-pinned}}unpinned{{/is-pinned}}{{#class}} {{.}}{{/class}}"
-	{{#data-name}}data-name={{.}}{{/data-name}}
-	{{#data-pinnable-element-id}}data-pinnable-element-id={{.}}{{/data-pinnable-element-id}}
-	{{#data-pinned-container-id}}data-pinned-container-id={{.}}{{/data-pinned-container-id}}
-	{{#data-unpinned-container-id}}data-unpinned-container-id={{.}}{{/data-unpinned-container-id}}
+	class="vector-pinnable-header {{data-name}}-pinnable-header vector-pinnable-header-{{#is-pinned}}pinned{{/is-pinned}}{{^is-pinned}}unpinned{{/is-pinned}}{{#class}} {{.}}{{/class}}"
+	data-name="{{data-name}}"
+	{{#data-pinnable-element-id}}data-pinnable-element-id="{{.}}"{{/data-pinnable-element-id}}
+	{{#data-pinned-container-id}}data-pinned-container-id="{{.}}"{{/data-pinned-container-id}}
+	{{#data-unpinned-container-id}}data-unpinned-container-id="{{.}}"{{/data-unpinned-container-id}}
 >
 	<div class="vector-pinnable-header-label">{{label}}</div>
 	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button">{{pin-label}}</button>

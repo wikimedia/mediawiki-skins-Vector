@@ -98,6 +98,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 					'byteoffset' => 231,
 					'anchor' => 'A',
 					'linkAnchor' => 'A',
+					'vector-button-label' => '(vector-toc-toggle-button-label: A)',
 					'array-sections' => [
 						'toclevel' => 2,
 						'level' => '4',
@@ -121,13 +122,16 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$expectedConfigData = [
 			'is-vector-toc-beginning-enabled' => $config[ 'VectorTableOfContentsBeginning' ],
 			'vector-is-collapse-sections-enabled' =>
-				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ]
+				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ],
+			'data-pinnable-header' => [
+				'is-pinned' => true,
+				'data-name' => 'vector-toc',
+				'label' => '(vector-toc-label)',
+				'unpin-label' => '(vector-unpin-element-label)',
+				'pin-label' => '(vector-pin-element-label)'
+			]
 		];
 		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );
-
-		// qqx output
-		$buttonLabel = '(vector-toc-toggle-button-label: A)';
-		$expectedNestedTocData[ 'array-sections' ][ 0 ][ 'vector-button-label' ] = $buttonLabel;
 
 		return [
 			// When zero sections

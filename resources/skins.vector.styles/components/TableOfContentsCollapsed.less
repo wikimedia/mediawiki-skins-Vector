@@ -44,8 +44,8 @@
 }
 
 // Styles for the "move to sidebar/hide" buttons, hidden by default.
-.vector-toc-collapse-button,
-.vector-toc-uncollapse-button {
+.vector-feature-page-tools-disabled .vector-toc-collapse-button,
+.vector-feature-page-tools-disabled .vector-toc-uncollapse-button {
 	display: none;
 	border: 0;
 	padding: 0;
@@ -65,6 +65,13 @@
 	&:after {
 		content: '@{msg-brackets-end}';
 		color: @color-base--subtle;
+	}
+}
+
+// Hide pin ToC toggles on smaller resolutions
+@media ( max-width: @max-width-tablet ) {
+	.vector-feature-page-tools-enabled .sidebar-toc .vector-pinnable-header-toggle-button {
+		display: none;
 	}
 }
 
@@ -140,7 +147,8 @@
 @media ( min-width: @min-width-desktop ) {
 	@supports ( display: grid ) {
 		.client-js {
-			.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
+			.vector-feature-page-tools-enabled.vector-toc-unpinned:not( .vector-sticky-header-visible ),
+			.vector-feature-page-tools-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
 				//
 				// Collapsed to header
 				//
@@ -171,8 +179,8 @@
 			}
 
 			// Show the "move to sidebar/hide" buttons
-			.vector-toc-collapsed .vector-toc-uncollapse-button,
-			.vector-toc-not-collapsed .vector-toc-collapse-button {
+			.vector-feature-page-tools-disabled.vector-toc-collapsed .vector-toc-uncollapse-button,
+			.vector-feature-page-tools-disabled.vector-toc-not-collapsed .vector-toc-collapse-button {
 				display: inline-block;
 			}
 		}
@@ -182,7 +190,8 @@
 //
 // Collapsed to sticky header
 //
-.vector-toc-collapsed .vector-sticky-header-toc-container .sidebar-toc {
+.vector-feature-page-tools-enabled.vector-toc-unpinned .vector-sticky-header-toc-container .sidebar-toc,
+.vector-feature-page-tools-disabled.vector-toc-collapsed .vector-sticky-header-toc-container .sidebar-toc {
 	.mixin-toc-collapsed();
 	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
 	// max-content doesn't account for padding even when we use box-sizing, so use content-box instead

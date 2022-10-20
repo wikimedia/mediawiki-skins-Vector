@@ -365,11 +365,11 @@ abstract class SkinVector extends SkinMustache {
 		$btns[] = $this->getAddSectionButtonData();
 
 		$tocPortletData = Hooks::updateDropdownMenuData( [
-			'id' => 'p-sticky-header-toc',
+			'id' => 'vector-sticky-header-toc',
 			'class' => 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
-			'html-items' => '',
 			'html-vector-menu-checkbox-attributes' => 'tabindex="-1"',
 			'html-vector-menu-heading-attributes' => 'tabindex="-1"',
+			'is-pinned' => true,
 			'button' => true,
 			'text-hidden' => true,
 			'icon' => 'listBullet'

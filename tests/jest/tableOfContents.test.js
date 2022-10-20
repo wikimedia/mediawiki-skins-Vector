@@ -12,7 +12,7 @@ let /** @type {HTMLElement} */ container,
 	/** @type {HTMLElement} */ quuxSection;
 const onHeadingClick = jest.fn();
 const onToggleClick = jest.fn();
-const onToggleCollapse = jest.fn();
+const onTogglePinned = jest.fn();
 
 const SECTIONS = [
 	{
@@ -95,7 +95,7 @@ function mount( templateProps = {} ) {
 		container,
 		onHeadingClick,
 		onToggleClick,
-		onToggleCollapse
+		onTogglePinned
 	} );
 }
 

@@ -5,7 +5,6 @@ const pinnableHeader = require( '../../resources/skins.vector.es6/pinnableHeader
 
 const simpleData = {
 	'is-pinned': false,
-	id: 'simple',
 	'data-name': 'simple',
 	'data-pinnable-element-id': 'pinnable-element',
 	label: 'simple pinnable element',
@@ -15,7 +14,6 @@ const simpleData = {
 
 const movableData = {
 	'is-pinned': false,
-	id: 'moveable-header',
 	'data-name': 'movable',
 	'data-pinnable-element-id': 'pinnable-element',
 	'data-pinned-container-id': 'pinned-container',
@@ -57,7 +55,7 @@ describe( 'Pinnable header', () => {
 		pinnableHeader.initPinnableHeader();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
-		const header = /** @type {HTMLElement} */ ( document.getElementById( simpleData.id ) );
+		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-name' ]}-pinnable-header` ) );
 
 		expect( header.classList.contains( pinnableHeader.PINNED_HEADER_CLASS ) ).toBe( false );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( false );
