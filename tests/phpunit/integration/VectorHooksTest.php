@@ -6,6 +6,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
+use FauxRequest;
 use HashConfig;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\Hooks;
@@ -248,6 +249,22 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				true
 			],
 			[
+				'Can be disabled with a regex match, also for falsy 0.',
+				self::makeMaxWidthConfig(
+					false,
+					[
+						/* no namespaces excluded */
+					],
+					[
+						/* no includes */
+					],
+					[ 'foo' => '[0-9]+' ]
+				),
+				Title::makeTitle( NS_MAIN, 'Test' ),
+				[ 'foo' => '0' ],
+				true
+			],
+			[
 				'Can be disabled with a non-regex wildcard (for backwards compatibility).',
 				self::makeMaxWidthConfig(
 					false,
@@ -312,7 +329,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	) {
 		$this->assertSame(
 			$shouldDisableMaxWidth,
-			Hooks::shouldDisableMaxWidth( $options, $title, $requestValues ),
+			Hooks::shouldDisableMaxWidth( $options, $title, new FauxRequest( $requestValues ) ),
 			$msg
 		);
 	}

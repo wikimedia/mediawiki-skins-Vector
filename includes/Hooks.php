@@ -20,6 +20,7 @@ use Skin;
 use SkinTemplate;
 use Title;
 use User;
+use WebRequest;
 
 /**
  * Presentation hook handlers for Vector skin.
@@ -726,7 +727,7 @@ class Hooks implements
 			self::shouldDisableMaxWidth(
 				$config->get( 'VectorMaxWidthOptions' ),
 				$sk->getTitle(),
-				$out->getRequest()->getValues()
+				$out->getRequest()
 			);
 		// Should we disable the max-width styling?
 		if ( $sk instanceof SkinVector22 && ( !$sk->hasUserLimitedWidthEnabled() || $shouldDisableMaxWidth ) ) {
@@ -779,10 +780,10 @@ class Hooks implements
 	 * @internal only for use inside tests.
 	 * @param array $options
 	 * @param Title $title
-	 * @param array $requestValues
+	 * @param WebRequest $request
 	 * @return bool
 	 */
-	public static function shouldDisableMaxWidth( array $options, Title $title, array $requestValues ) {
+	public static function shouldDisableMaxWidth( array $options, Title $title, WebRequest $request ) {
 		$canonicalTitle = $title->getRootTitle();
 
 		$inclusions = $options['include'] ?? [];
@@ -820,8 +821,8 @@ class Hooks implements
 		$excludeQueryString = $exclusions['querystring'] ?? [];
 
 		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
-			$paramValue = $requestValues[$param] ?? false;
-			if ( $paramValue ) {
+			$paramValue = $request->getRawVal( $param );
+			if ( $paramValue !== null ) {
 				if ( $excludedParamPattern === '*' ) {
 					// Backwards compatibility for the '*' wildcard.
 					$excludedParamPattern = '.+';
