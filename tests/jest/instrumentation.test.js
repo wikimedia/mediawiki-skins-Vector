@@ -2,9 +2,9 @@ const instrumentation = require( '../../resources/skins.vector.search/instrument
 
 describe( 'instrumentation', () => {
 	test.each( [
-		[ 0, 'acrw10' ],
-		[ 1, 'acrw11' ],
-		[ -1, 'acrw1' ]
+		[ 0, 'acrw1_0' ],
+		[ 1, 'acrw1_1' ],
+		[ -1, 'acrw1_-1' ]
 	] )( 'getWprovFromResultIndex( %d ) = %s', ( index, expected ) => {
 		expect( instrumentation.getWprovFromResultIndex( index ) )
 			.toBe( expected );
@@ -17,7 +17,7 @@ describe( 'instrumentation', () => {
 		] )( 'should generate URL from %s', ( _name, suggestion ) => {
 			const meta = { index: 1 };
 			expect( instrumentation.generateUrl( suggestion, meta ) )
-				.toBe( 'https://host/?title=Special%3ASearch&suggestion=title&wprov=acrw11' );
+				.toBe( 'https://host/?title=Special%3ASearch&suggestion=title&wprov=acrw1_1' );
 		} );
 	} );
 
@@ -47,15 +47,15 @@ describe( 'instrumentation', () => {
 			.toStrictEqual( [
 				{
 					title: 'Aa',
-					url: `${url1}&wprov=acrw10`
+					url: `${url1}&wprov=acrw1_0`
 				},
 				{
 					title: 'Ab',
-					url: `${url2Base}&wprov=acrw11`
+					url: `${url2Base}&wprov=acrw1_1`
 				},
 				{
 					title: 'Ac',
-					url: `${url3}?wprov=acrw12`
+					url: `${url3}?wprov=acrw1_2`
 				},
 				{
 					title: 'Ad'

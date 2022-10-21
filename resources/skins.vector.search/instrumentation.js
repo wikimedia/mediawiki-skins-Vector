@@ -111,13 +111,9 @@ function onSuggestionClick( event ) {
  * @return {string}
  */
 function getWprovFromResultIndex( index ) {
-
-	// If the user hasn't highlighted an autocomplete result.
-	if ( index === -1 ) {
-		return 'acrw1';
-	}
-
-	return 'acrw1' + index;
+	// result looks like: acrw1_0, acrw1_1, acrw1_2, etc.;
+	// or acrw1_-1 for index -1 (user did not highlight an autocomplete result)
+	return 'acrw1_' + index;
 }
 
 /**
