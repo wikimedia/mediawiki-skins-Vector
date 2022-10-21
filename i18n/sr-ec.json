@@ -56,5 +56,7 @@
 	"vector-main-menu-tooltip": "Главни мени",
 	"vector-toc-menu-tooltip": "Садржај",
 	"vector-site-nav-label": "Сајт",
-	"tooltip-vector-anon-user-menu-title": "Више опција"
+	"tooltip-vector-anon-user-menu-title": "Више опција",
+	"vector-prefs-limited-width": "Режим ограничене ширине",
+	"vector-prefs-limited-width-help": "Омогућава режим ограничене ширине за побољшано читачко искуство"
 }
