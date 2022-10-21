@@ -11,12 +11,19 @@
 	width: 100%;
 	box-sizing: border-box;
 	max-width: @max-width-content-container;
+
+	.vector-feature-limited-width-disabled & {
+		max-width: none;
+	}
 }
 
 .mw-content-container {
 	max-width: @max-width-content-container;
 
 	// For container logic specific to special pages and history pages.
+	// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
+	.vector-feature-limited-width-disabled &,
+	.vector-feature-limited-width-content-disabled &,
 	.skin-vector-disable-max-width & {
 		// Allow the max-width of content on history/special pages to be wider than
 		// the max-width of content on article pages.

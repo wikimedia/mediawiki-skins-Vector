@@ -243,7 +243,27 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_LIMITED_WIDTH = 'LimitedWidth';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LIMITED_WIDTH = 'LimitedWidth';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_LIMITED_WIDTH = 'vector-limited-width';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_LIMITED_WIDTH_CONTENT = 'LimitedWidthContent';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LIMITED_WIDTH_CONTENT = 'LimitedWidthContent';
 
 	/**
 	 * @var bool

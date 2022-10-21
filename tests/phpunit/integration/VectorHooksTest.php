@@ -9,6 +9,7 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 use FauxRequest;
 use HashConfig;
 use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
 use MediaWiki\Skins\Vector\Hooks;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
@@ -317,7 +318,9 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::shouldDisableMaxWidth
+	 * @todo move into MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement
+	 *  test in future.
+	 * @covers MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement::isMet
 	 * @dataProvider providerShouldDisableMaxWidth
 	 */
 	public function testShouldDisableMaxWidth(
@@ -327,9 +330,14 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$requestValues,
 		$shouldDisableMaxWidth
 	) {
+		$requirement = new LimitedWidthContentRequirement(
+			new HashConfig( [ 'VectorMaxWidthOptions' => $options ] ),
+			new FauxRequest( $requestValues ),
+			$title
+		);
 		$this->assertSame(
-			$shouldDisableMaxWidth,
-			Hooks::shouldDisableMaxWidth( $options, $title, new FauxRequest( $requestValues ) ),
+			!$shouldDisableMaxWidth,
+			$requirement->isMet(),
 			$msg
 		);
 	}

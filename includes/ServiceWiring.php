@@ -26,6 +26,8 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\TableOfContentsTreatmentRequirement;
 
@@ -238,6 +240,40 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_ARTICLE_TOOLS,
+			]
+		);
+
+		// Feature: Max Width (skin)
+		// ================================
+		$featureManager->registerRequirement(
+			new LimitedWidthRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				$context->getTitle()
+			)
+		);
+		$featureManager->registerFeature(
+			Constants::FEATURE_LIMITED_WIDTH,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LIMITED_WIDTH,
+			]
+		);
+
+		// Feature: Max Width (content)
+		// ================================
+		$featureManager->registerRequirement(
+			new LimitedWidthContentRequirement(
+				$services->getMainConfig(),
+				$context->getRequest(),
+				$context->getTitle()
+			)
+		);
+		$featureManager->registerFeature(
+			Constants::FEATURE_LIMITED_WIDTH_CONTENT,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LIMITED_WIDTH_CONTENT,
 			]
 		);
 

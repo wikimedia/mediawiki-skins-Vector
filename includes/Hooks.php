@@ -18,9 +18,7 @@ use OutputPage;
 use RuntimeException;
 use Skin;
 use SkinTemplate;
-use Title;
 use User;
-use WebRequest;
 
 /**
  * Presentation hook handlers for Vector skin.
@@ -723,18 +721,6 @@ class Hooks implements
 			$bodyAttrs['class'] .= ' ' . implode( ' ', $tocClasses );
 		}
 
-		$shouldDisableMaxWidth = !self::isSkinVersionLegacy( $skinName ) &&
-			$sk->getTitle() &&
-			self::shouldDisableMaxWidth(
-				$config->get( 'VectorMaxWidthOptions' ),
-				$sk->getTitle(),
-				$out->getRequest()
-			);
-		// Should we disable the max-width styling?
-		if ( $sk instanceof SkinVector22 && ( !$sk->hasUserLimitedWidthEnabled() || $shouldDisableMaxWidth ) ) {
-			$bodyAttrs['class'] .= ' skin-vector-disable-max-width';
-		}
-
 		$featureManager = VectorServices::getFeatureManager();
 		$bodyAttrs['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 		$bodyAttrs['class'] = trim( $bodyAttrs['class'] );
@@ -763,76 +749,6 @@ class Hooks implements
 				$skin = 'vector-2022';
 			}
 		}
-	}
-
-	/**
-	 * Per the $options configuration (for use with $wgVectorMaxWidthOptions)
-	 * determine whether max-width should be disabled on the page.
-	 * For the main page: Check the value of $options['exclude']['mainpage']
-	 * For all other pages, the following will happen:
-	 * - the array $options['include'] of canonical page names will be checked
-	 *   against the current page. If a page has been listed there, function will return false
-	 *   (max-width will not be  disabled)
-	 * Max width is disabled if:
-	 *  1) The current namespace is listed in array $options['exclude']['namespaces']
-	 *  OR
-	 *  2) A query string parameter matches one of the regex patterns in $exclusions['querystring'].
-	 *
-	 * @internal only for use inside tests.
-	 * @param array $options
-	 * @param Title $title
-	 * @param WebRequest $request
-	 * @return bool
-	 */
-	public static function shouldDisableMaxWidth( array $options, Title $title, WebRequest $request ) {
-		$canonicalTitle = $title->getRootTitle();
-
-		$inclusions = $options['include'] ?? [];
-		$exclusions = $options['exclude'] ?? [];
-
-		if ( $title->isMainPage() ) {
-			// only one check to make
-			return $exclusions['mainpage'] ?? false;
-		} elseif ( $canonicalTitle->isSpecialPage() ) {
-			$canonicalTitle->fixSpecialName();
-		}
-
-		//
-		// Check the inclusions based on the canonical title
-		// The inclusions are checked first as these trump any exclusions.
-		//
-		// Now we have the canonical title and the inclusions link we look for any matches.
-		foreach ( $inclusions as $titleText ) {
-			$includedTitle = Title::newFromText( $titleText );
-
-			if ( $canonicalTitle->equals( $includedTitle ) ) {
-				return false;
-			}
-		}
-
-		//
-		// Check the exclusions
-		// If nothing matches the exclusions to determine what should happen
-		//
-		$excludeNamespaces = $exclusions['namespaces'] ?? [];
-		// Max width is disabled on certain namespaces
-		if ( $title->inNamespaces( $excludeNamespaces ) ) {
-			return true;
-		}
-		$excludeQueryString = $exclusions['querystring'] ?? [];
-
-		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
-			$paramValue = $request->getRawVal( $param );
-			if ( $paramValue !== null ) {
-				if ( $excludedParamPattern === '*' ) {
-					// Backwards compatibility for the '*' wildcard.
-					$excludedParamPattern = '.+';
-				}
-				return (bool)preg_match( "/$excludedParamPattern/", $paramValue );
-			}
-		}
-
-		return false;
 	}
 
 	/**

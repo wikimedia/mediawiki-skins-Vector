@@ -22,6 +22,10 @@
 	justify-content: space-between;
 	box-sizing: border-box;
 
+	.vector-feature-limited-width-disabled & {
+		max-width: none;
+	}
+
 	// T317573 Account for icon padding, align with header icons
 	padding: 6px (@padding-horizontal-page-container-desktop - @icon-padding-md-em);
 
