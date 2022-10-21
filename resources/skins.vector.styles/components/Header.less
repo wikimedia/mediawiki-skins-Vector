@@ -32,11 +32,15 @@
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		// Ensure search box is aligned with content when search thumbnails or JS is off
+		// FIXME: Remove html:not( .client-js ) when cache has cleared.
 		.vector-feature-page-tools-disabled & .vector-search-box:not( .vector-search-box-auto-expand-width ),
+		.vector-feature-page-tools-disabled:not( .client-js ) & .vector-search-box,
 		html:not( .client-js ) .vector-feature-page-tools-disabled & .vector-search-box {
 			padding-left: @size-search-expand;
 		}
 
+		// FIXME: Remove .client-js .vector-feature-page-tools-enabled when cache has cleared.
+		.client-js.vector-feature-page-tools-enabled & .vector-search-box.vector-search-box-auto-expand-width,
 		.client-js .vector-feature-page-tools-enabled & .vector-search-box.vector-search-box-auto-expand-width {
 			// Ensure search box is aligned with content when it autoexpands (i.e. search thumbnails)
 			margin-left: -@size-search-expand;

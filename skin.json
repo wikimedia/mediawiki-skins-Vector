@@ -175,7 +175,6 @@
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
 		"MakeGlobalVariablesScript": "VectorHooks",
-		"OutputPageBodyAttributes": "VectorHooks",
 		"ResourceLoaderSiteModulePages": "VectorHooks",
 		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
 		"SkinPageReadyConfig": "VectorHooks"

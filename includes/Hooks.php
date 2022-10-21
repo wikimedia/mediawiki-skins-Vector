@@ -6,7 +6,6 @@ use Config;
 use IContextSource;
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
-use MediaWiki\Hook\OutputPageBodyAttributesHook;
 use MediaWiki\Hook\RequestContextCreateSkinHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
@@ -32,7 +31,6 @@ class Hooks implements
 	GetPreferencesHook,
 	LocalUserCreatedHook,
 	MakeGlobalVariablesScriptHook,
-	OutputPageBodyAttributesHook,
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
 	RequestContextCreateSkinHook,
@@ -648,26 +646,6 @@ class Hooks implements
 					Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
 			);
 		}
-	}
-
-	/**
-	 * Called when OutputPage::headElement is creating the body tag to allow skins
-	 * and extensions to add attributes they might need to the body of the page.
-	 *
-	 * @param OutputPage $out
-	 * @param Skin $sk
-	 * @param string[] &$bodyAttrs
-	 */
-	public function onOutputPageBodyAttributes( $out, $sk, &$bodyAttrs ): void {
-		$skinName = $out->getSkin()->getSkinName();
-		if ( !self::isVectorSkin( $skinName ) ) {
-			return;
-		}
-		$config = $sk->getConfig();
-
-		$featureManager = VectorServices::getFeatureManager();
-		$bodyAttrs['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
-		$bodyAttrs['class'] = trim( $bodyAttrs['class'] );
 	}
 
 	/**
