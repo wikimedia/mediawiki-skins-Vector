@@ -3,10 +3,14 @@
 		"authors": [
 			"Cakkaparla",
 			"ReyLon Mrat",
-			"YaThaWinTha"
+			"YaThaWinTha",
+			"Tejoebāsa"
 		]
 	},
 	"vector-action-addsection": "ခေါင်းစီးတိထည့်ပါ",
+	"vector-action-delete": "ဖျက်​ပါ​",
+	"vector-action-move": "ရွိလျား",
+	"vector-action-protect": "ကာကွယ်ပါ",
 	"vector-view-create": "စပြီးကေရေးရန်",
 	"vector-view-edit": "တီးဖြတ်တေ",
 	"vector-view-history": "သမိုင်းတိကိုကြည့်ပါ",

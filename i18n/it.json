@@ -25,7 +25,7 @@
 	"vector-opt-out-tooltip": "Cambia le tue impostazioni per ritornare alla visualizzazione della skin precedente (legacy Vector)",
 	"vector.css": "/* Gli stili CSS inseriti qui si applicano agli utenti che usano il tema Vector */",
 	"vector.js": "/* Il codice JavaScript inserito qui viene caricato dagli utenti che usano il tema Vector */",
-	"vector-action-addsection": "Aggiungi argomento",
+	"vector-action-addsection": "Aggiungi discussione",
 	"vector-action-delete": "Cancella",
 	"vector-action-move": "Sposta",
 	"vector-action-protect": "Proteggi",
