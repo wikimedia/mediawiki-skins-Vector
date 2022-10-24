@@ -17,10 +17,10 @@
 	"vector-action-undelete": "Arrepiglia",
 	"vector-action-unprotect": "Càgna prutezzione",
 	"vector-view-create": "Crèa",
-	"vector-view-edit": "Cagna",
+	"vector-view-edit": "Càgna",
 	"vector-view-history": "Vide 'a cronologgia",
 	"vector-view-view": "Liegge",
 	"vector-view-viewsource": "Vire sorgente",
-	"vector-more-actions": "Cchiù",
+	"vector-more-actions": "'E 'cchiù",
 	"vector-searchsuggest-containing": "Truova 'e paggene ca teneno <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
