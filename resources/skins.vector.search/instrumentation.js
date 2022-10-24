@@ -123,6 +123,7 @@ function getWprovFromResultIndex( index ) {
 /**
  * @typedef {Object} SearchResultPartial
  * @property {string} title
+ * @property {string} [url]
  */
 
 /**
@@ -153,11 +154,31 @@ function generateUrl( suggestion, meta ) {
 
 	return result.toString();
 }
+
+/**
+ * Return a new list of search results,
+ * with the `wprov` parameter added to each result's url (if any).
+ *
+ * @param {SearchResultPartial[]} results Not modified.
+ * @return {SearchResultPartial[]}
+ */
+function addWprovToSearchResultUrls( results ) {
+	return results.map( ( result, index ) => {
+		if ( result.url ) {
+			const uri = new mw.Uri( result.url );
+			uri.query.wprov = getWprovFromResultIndex( index );
+			result = Object.assign( {}, result, { url: uri.toString() } );
+		}
+		return result;
+	} );
+}
+
 /**
  * @typedef {Object} Instrumentation
  * @property {Object} listeners
  * @property {Function} getWprovFromResultIndex
  * @property {Function} generateUrl
+ * @property {Function} addWprovToSearchResultUrls
  */
 
 /**
@@ -185,5 +206,6 @@ module.exports = {
 		onSubmit: onSuggestionClick
 	},
 	getWprovFromResultIndex,
-	generateUrl
+	generateUrl,
+	addWprovToSearchResultUrls
 };
