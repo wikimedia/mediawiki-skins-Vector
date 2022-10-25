@@ -4,6 +4,7 @@
 			"Demmy"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|ojúewé $1|àwọn ojúewé $1}}",
 	"vector-action-addsection": "Àfikún orí-ọ̀rọ̀",
 	"vector-action-delete": "Ìparẹ́",
 	"vector-action-move": "Ìyípòdà",

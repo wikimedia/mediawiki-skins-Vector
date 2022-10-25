@@ -11,6 +11,7 @@
 	"vector-opt-out": "Хуучин хувилбарт шилжих",
 	"vector-opt-out-tooltip": "Сайтын скинийг хуучин хувилбарт шилжүүлэх (legacy Vector)",
 	"vector-action-toggle-sidebar": "Хажуугийн цэсийг нээж хаах",
+	"vector-language-button-label": "{{PLURAL:$1|$1 хэлээр}}",
 	"vector-action-addsection": "Сэдэв нэмэх",
 	"vector-action-delete": "Устгах",
 	"vector-action-move": "Зөөх",
