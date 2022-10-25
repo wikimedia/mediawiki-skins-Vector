@@ -223,7 +223,7 @@ return [
 			]
 		);
 
-		// Feature: Article tools menu
+		// Feature: Page tools menu
 		// ================================
 		$featureManager->registerRequirement(
 			new OverridableConfigRequirement(
@@ -231,15 +231,15 @@ return [
 				$context->getUser(),
 				$context->getRequest(),
 				null,
-				Constants::CONFIG_ARTICLE_TOOLS,
-				Constants::REQUIREMENT_ARTICLE_TOOLS
+				Constants::CONFIG_PAGE_TOOLS,
+				Constants::REQUIREMENT_PAGE_TOOLS
 			)
 		);
 		$featureManager->registerFeature(
-			Constants::FEATURE_ARTICLE_TOOLS,
+			Constants::FEATURE_PAGE_TOOLS,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_ARTICLE_TOOLS,
+				Constants::REQUIREMENT_PAGE_TOOLS,
 			]
 		);
 
