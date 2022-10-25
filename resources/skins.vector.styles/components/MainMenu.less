@@ -8,8 +8,10 @@
 // This is expressed in pixels to support different font sizes since our layout is currently
 // expressed in pixels. See T313817.
 .sidebar-toc:after,
-.mw-sidebar,
-.sidebar-toc {
+.sidebar-toc,
+.vector-main-menu,
+/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+.mw-sidebar {
 	// T305069 Layout adjustments of sidebar elements
 	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
@@ -22,6 +24,8 @@
 	}
 }
 
+.vector-main-menu,
+/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
 .mw-sidebar {
 	box-sizing: border-box;
 	// Temporary magic number, will be calculated after TOC specs are finalized
@@ -35,7 +39,9 @@
 	}
 
 	// Hide sidebar entirely when the checkbox is disabled
-	@{selector-main-menu-closed} ~ .vector-sidebar-container & {
+	/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+	@{selector-main-menu-closed} ~ .vector-sidebar-container &,
+	@{selector-main-menu-closed} ~ .vector-main-menu-container & {
 		display: none;
 	}
 
@@ -45,19 +51,24 @@
 	}
 }
 
-.mw-sidebar-action {
-	// Styles for SidebarAction template.
-	.mw-sidebar-action-item {
+/* FIXME: Remove mw prefixed selectors after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
+.mw-sidebar-action,
+.vector-main-menu-action {
+	// Styles for MainMenuAction template.
+	.mw-sidebar-action-item,
+	.vector-main-menu-action-item {
 		// Align with the portal heading/links
 		// `.portal` + `.portal .body`
 		margin-top: 4px;
 		margin-bottom: 4px;
 
-		.mw-sidebar-action-heading {
+		.mw-sidebar-action-heading,
+		.vector-main-menu-action-heading {
 			margin-bottom: 0.75em;
 		}
 
-		.mw-sidebar-action-content {
+		.mw-sidebar-action-content,
+		.vector-main-menu-action-content {
 			> * {
 				font-size: @font-size-portal-list-item;
 			}

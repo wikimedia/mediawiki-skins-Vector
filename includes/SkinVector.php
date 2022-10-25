@@ -405,14 +405,14 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Generate data needed to create SidebarAction item.
+	 * Generate data needed to create MainMenuAction item.
 	 * @param array $htmlData data to make a link or raw html
 	 * @param array $headingOptions optional heading for the html
-	 * @return array keyed data for the SidebarAction template
+	 * @return array keyed data for the MainMenuAction template
 	 */
-	private function makeSidebarActionData( array $htmlData = [], array $headingOptions = [] ): array {
+	private function makeMainMenuActionData( array $htmlData = [], array $headingOptions = [] ): array {
 		$htmlContent = '';
-		// Populates the sidebar as a standalone link or custom html.
+		// Populates the main menu as a standalone link or custom html.
 		if ( array_key_exists( 'link', $htmlData ) ) {
 			$htmlContent = $this->makeLink( 'link', $htmlData['link'] );
 		} elseif ( array_key_exists( 'html-content', $htmlData ) ) {
@@ -474,7 +474,7 @@ abstract class SkinVector extends SkinMustache {
 		$commonSkinData = array_merge( $parentData, [
 			'is-legacy' => $this->isLegacy(),
 			'input-location' => $this->getSearchBoxInputLocation(),
-			'sidebar-visible' => $this->isSidebarVisible(),
+			'main-menu-visible' => $this->isSidebarVisible(),
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
@@ -504,7 +504,7 @@ abstract class SkinVector extends SkinMustache {
 			$htmlData = [
 				'link' => $optOutUrl,
 			];
-			$commonSkinData['data-emphasized-sidebar-action'][] = $this->makeSidebarActionData(
+			$commonSkinData['data-main-menu-action'][] = $this->makeMainMenuActionData(
 				$htmlData,
 				[]
 			);
@@ -527,7 +527,7 @@ abstract class SkinVector extends SkinMustache {
 				$headingOptions = [
 					'heading' => $this->msg( 'vector-languages' )->plain(),
 				];
-				$commonSkinData['data-vector-language-switch-alert'][] = $this->makeSidebarActionData(
+				$commonSkinData['data-vector-language-switch-alert'][] = $this->makeMainMenuActionData(
 					$languageSwitchAlert,
 					$headingOptions
 				);
@@ -831,18 +831,18 @@ abstract class SkinVector extends SkinMustache {
 				$pData
 			);
 		}
-		$sidebar = $data['data-portlets-sidebar'];
-		$sidebar['data-portlets-first'] = $this->decoratePortletData(
-			'navigation', $sidebar['data-portlets-first']
+		$mainMenuData = $data['data-portlets-sidebar'];
+		$mainMenuData['data-portlets-first'] = $this->decoratePortletData(
+			'navigation', $mainMenuData['data-portlets-first']
 		);
-		$rest = $sidebar['array-portlets-rest'];
+		$rest = $mainMenuData['array-portlets-rest'];
 		foreach ( $rest as $key => $pData ) {
 			$rest[$key] = $this->decoratePortletData(
 				$pData['id'], $pData
 			);
 		}
-		$sidebar['array-portlets-rest'] = $rest;
-		$data['data-portlets-sidebar'] = $sidebar;
+		$mainMenuData['array-portlets-rest'] = $rest;
+		$data['data-portlets-main-menu'] = $mainMenuData;
 		return $data;
 	}
 
