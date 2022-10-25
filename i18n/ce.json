@@ -17,6 +17,7 @@
 	"vector-action-toggle-sidebar": "АгӀорара панель хийца",
 	"vector-languages": "Меттанаш",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мотт}}",
+	"vector-no-language-button-label": "ТӀетоха меттанаш",
 	"vector-language-redirect-to-top": "ХӀокху сайтехь меттанийн хьажоргаш йу агӀонан йуьхьегехь, йаззаман цӀеран дуьхьала. [[#p-lang-btn|Йуьхье гӀо]].",
 	"vector-action-addsection": "Тема тӀетоха",
 	"vector-action-delete": "ДӀайаккхар",

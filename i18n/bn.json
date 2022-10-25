@@ -64,5 +64,7 @@
 	"vector-toc-collapsible-button-label": "সূচিপত্র টগল করুন",
 	"vector-site-nav-label": "সাইট",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|আলোচনা]]",
-	"tooltip-vector-anon-user-menu-title": "আরও বিকল্প"
+	"tooltip-vector-anon-user-menu-title": "আরও বিকল্প",
+	"vector-prefs-limited-width": "সীমিত প্রস্থ মোড সক্রিয় করুন",
+	"vector-prefs-limited-width-help": "উন্নত পঠন অভিজ্ঞতার জন্য সীমিত প্রস্থ মোড সক্রিয় করে।"
 }
