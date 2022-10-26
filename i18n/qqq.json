@@ -13,7 +13,8 @@
 			"Shirayuki",
 			"Tacsipacsi",
 			"Thibaut120094",
-			"Umherirrender"
+			"Umherirrender",
+			"Verdy p"
 		]
 	},
 	"skinname-vector": "{{name}}",
@@ -39,7 +40,7 @@
 	"vector-action-protect": "Tab at top of page, in vector skin\n\n{{Identical|Protect}}",
 	"vector-action-undelete": "Tab at top of page, in vector skin.\n{{Identical|Undelete}}",
 	"vector-action-unprotect": "Tab at top of page, in vector skin.\n{{Identical|Change protection}}",
-	"vector-view-create": "Tab label in the Vector skin. See for example {{canonicalurl:Foo|useskin=vector}}\n{{Identical|Create}}",
+	"vector-view-create": "Tab label in the Vector skin. See for example {{canonicalurl:Foo|useskin=vector}}\n\nWhen Visual Editor is enabled, it appears next to {{msg-mw|Visualeditor-ca-createsource}}.\n\n{{Identical|Create}}",
 	"vector-view-edit": "Tab label in the Vector skin. See for example {{canonicalurl:Translating:MediaWiki|useskin=vector}}\n{{Identical|Edit}}",
 	"vector-view-history": "Tab label in the Vector skin. See for example {{canonicalurl:Translating:MediaWiki|useskin=vector}}\n{{Identical|View history}}",
 	"vector-view-view": "Tab label in the Vector skin (verb). See for example {{canonicalurl:Translating:MediaWiki|useskin=vector}}.\n{{Identical|Read}}",

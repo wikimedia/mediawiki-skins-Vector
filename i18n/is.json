@@ -6,16 +6,24 @@
 			"Snævar",
 			"Sveinn í Felli",
 			"Ævar Arnfjörð Bjarmason",
-			"Sveinki"
+			"Sveinki",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "Vektor",
-	"vector-skin-desc": "Nútímaútgáfa af MonoBook með fersku útliti og mörgum endurbótum á notagildi",
+	"vector-skin-desc": "Veitir 2 Vector þemu:\n* 2011 - Nútímaútgáfan af MonoBook með fersku útliti og einfaldara í notkun.\n* 2022 - Vector útgáfan sem var gerð sem hluti af WMF [[mw:Desktop Improvements]] verkefninu.",
 	"prefs-vector-enable-vector-1-label": "Nota eldra Vector-skinn",
 	"prefs-vector-enable-vector-1-help": "Á næstu árum munum við smátt og smátt uppfæra Vector-skinnið. Eldra Vector-skinn mun gera þér kleift að sjá eldri útgáfu Vector (eins og hún var í desember 2019). Til að sjá meira um þessar uppfærslur, geturðu farið á [[mw:Reading/Web/Desktop_Improvements|verkefnissíðuna]].",
+	"vector-opt-out": "Skiptu yfir í gamla útlitið",
+	"vector-opt-out-tooltip": "Breyta stillingunum mínum til að fara aftur í gamla útlit þemunar (gamla Vektor)",
 	"vector.css": "/* Allt CSS sem sett er hér mun  hafa áhrif á alla notendur Vektor-skinnsins. */",
 	"vector.js": "/* Allt JavaScript sem sett er hér mun hafa áhrif á notendur Vektor-skinnsins. */",
+	"vector-action-toggle-sidebar": "Sýna/fela hliðarstiku",
+	"vector-languages": "Tungumál",
+	"vector-language-button-aria-label": "Fara á grein á öðru tungumáli. Til staðar á {{PLURAL:$1|$1 tungumáli|$1 tungumálum}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 tungumál}}",
+	"vector-language-redirect-to-top": "Á þessari {{SITENAME}} eru tungumálatenglarnir efst á síðunni hinum megin við greinartitilinn. [[#p-lang-btn|Go to top]].",
+	"vector-language-variant-switcher-label": "Breyta tungumálaafbrigði",
 	"vector-action-addsection": "Bæta við umræðu",
 	"vector-action-delete": "Eyða",
 	"vector-action-move": "Færa",
@@ -27,6 +35,15 @@
 	"vector-view-history": "Breytingaskrá",
 	"vector-view-view": "Lesa",
 	"vector-view-viewsource": "Sýna frumkóða",
+	"vector-jumptonavigation": "Fara í flakk",
+	"vector-jumptosearch": "Fara í leit",
+	"vector-jumptocontent": "Fara í innihald",
 	"vector-more-actions": "Meira",
-	"vector-searchsuggest-containing": "Leita að síðum sem innihalda <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-search-loader": "Hleð inn leitar uppástungum",
+	"vector-searchsuggest-containing": "Leita að síðum sem innihalda <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-anon-user-menu-pages": "Síður fyrir útskráða notendur",
+	"vector-anon-user-menu-pages-learn": "Læra meira",
+	"vector-anon-user-menu-pages-label": "Læra meira um breytingar",
+	"vector-main-menu-tooltip": "Aðalvalmynd",
+	"tooltip-vector-anon-user-menu-title": "Frekari valkostir"
 }
