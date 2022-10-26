@@ -15,12 +15,18 @@
 	// T305069 Layout adjustments of sidebar elements
 	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
-	.mixin-vector-flush-left-margin-left();
+
+	.vector-feature-visual-enhancement-next-disabled & {
+		.mixin-vector-flush-left-margin-left();
+	}
 
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
-		margin-left: 0;
+
+		.vector-feature-visual-enhancement-next-disabled & {
+			margin-left: 0;
+		}
 	}
 }
 

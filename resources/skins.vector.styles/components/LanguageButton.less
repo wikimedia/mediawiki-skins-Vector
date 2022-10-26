@@ -12,10 +12,14 @@
 .vector-page-titlebar .mw-portlet-lang {
 	// FIXME [review whether margin-top is needed] center vertically in heading.
 	margin-top: 2px;
-	.mixin-vector-flush-right-margin-right();
 	box-sizing: border-box;
 	height: @height-button-lang;
 	flex-shrink: 0;
+
+	// FIXME: Remove mixin when this block is removed.
+	.vector-feature-visual-enhancement-next-disabled & {
+		.mixin-vector-flush-right-margin-right();
+	}
 
 	// If there are no languages and JavaScript is not enabled there is no fallback so we hide
 	// the button altogether.
