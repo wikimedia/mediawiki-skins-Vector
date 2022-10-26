@@ -25,6 +25,7 @@ function initApp( searchBox ) {
 	Vue.createMwApp(
 		App, $.extend( {
 			id: searchForm.id,
+			autocapitalizeValue: search.getAttribute( 'autocapitalize' ),
 			autofocusInput: search === document.activeElement,
 			action: searchForm.getAttribute( 'action' ),
 			searchAccessKey: search.getAttribute( 'accessKey' ),

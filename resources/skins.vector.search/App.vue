@@ -6,6 +6,7 @@
 		:class="rootClasses"
 		:search-results-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
+		:autocapitalize="autocapitalizeValue"
 		:title="searchTitle"
 		:placeholder="searchPlaceholder"
 		:aria-label="searchPlaceholder"
@@ -65,6 +66,9 @@ module.exports = exports = defineComponent( {
 		id: {
 			type: String,
 			required: true
+		},
+		autocapitalizeValue: {
+			type: String
 		},
 		searchPageTitle: {
 			type: String,
