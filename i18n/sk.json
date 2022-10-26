@@ -9,6 +9,7 @@
 			"Robert Važan",
 			"Rudko",
 			"Sudo77(new)",
+			"Teslaton",
 			"Yardom78"
 		]
 	},
@@ -33,5 +34,6 @@
 	"vector-view-view": "Čítať",
 	"vector-view-viewsource": "Zobraziť kód",
 	"vector-more-actions": "Viac",
-	"vector-searchsuggest-containing": "Hľadať stránky obsahujúce <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Hľadať stránky obsahujúce <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Začiatok"
 }
