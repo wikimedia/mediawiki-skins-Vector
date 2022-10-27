@@ -30,6 +30,17 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Show the ULS button if it's modern Vector, languages in header is enabled,
+	 * and the ULS extension is enabled. Hide it otherwise.
+	 * There is no point in showing the language button if ULS extension is unavailable
+	 * as there is no ways to add languages without it.
+	 * @return bool
+	 */
+	protected function shouldHideLanguages(): bool {
+		return !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled();
+	}
+
+	/**
 	 * @internal
 	 * @return bool
 	 */
@@ -206,6 +217,9 @@ class SkinVector22 extends SkinVector {
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
 		return array_merge( $parentData, [
+			'is-language-in-content' => $this->isLanguagesInContent(),
+			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
+			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
