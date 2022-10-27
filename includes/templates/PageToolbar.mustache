@@ -3,20 +3,20 @@
 		{{#data-portlets}}
 		<div id="left-navigation">
 			<nav aria-label="{{msg-namespaces}}">
-				{{#data-associated-pages}}{{>Menu}}{{/data-associated-pages}}
-				{{#data-variants}}{{>Menu}}{{/data-variants}}
+				{{#data-associated-pages}}{{>Tabs}}{{/data-associated-pages}}
+				{{#data-variants}}{{>Dropdown}}{{/data-variants}}
 			</nav>
 		</div>
 		<div id="right-navigation" class="vector-collapsible">
 			{{#data-views}}
 			<nav aria-label="{{msg-views}}">
-				{{>Menu}}
+				{{>Tabs}}
 			</nav>
 			{{/data-views}}
 
 			{{#data-actions}}
 			<nav aria-label="{{msg-tooltip-p-cactions}}">
-				{{>Menu}}
+				{{>Dropdown}}
 			</nav>
 			{{/data-actions}}
 		</div>

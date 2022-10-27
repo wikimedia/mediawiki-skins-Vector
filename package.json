@@ -13,7 +13,7 @@
 		"lint:js": "eslint --cache .",
 		"lint:styles": "stylelint \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
-		"doc": "jsdoc -c jsdoc.json && npm run build-storybook -s resources/skins.vector.styles",
+		"doc": "jsdoc -c jsdoc.json",
 		"build-storybook": "bash dev-scripts/setup-storybook.sh && build-storybook --quiet --loglevel warn -o docs/ui",
 		"minify-svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
 		"pre-commit": "[ \"${PRE_COMMIT:-1}\" -eq 0 ] || npm -s t"

@@ -3,7 +3,7 @@ const fs = require( 'fs' );
 const tocContainerTemplate = fs.readFileSync( 'includes/templates/TableOfContentsContainer.mustache', 'utf8' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
-const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
+const dropdownTemplate = fs.readFileSync( 'includes/templates/Dropdown.mustache', 'utf8' );
 const sticky = require( '../../resources/skins.vector.es6/stickyHeader.js' );
 const { userLinksHTML } = require( './userLinksData.js' );
 
@@ -91,7 +91,7 @@ const templateData = {
 
 const renderedHTML = mustache.render( stickyHeaderTemplate, templateData, {
 	Button: buttonTemplate,
-	Menu: menuTemplate,
+	Dropdown: dropdownTemplate,
 	SearchBox: '<div> </div>' // ignore SearchBox for this test
 } );
 

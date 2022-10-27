@@ -1,7 +1,7 @@
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const userLinksTemplate = fs.readFileSync( 'includes/templates/UserLinks.mustache', 'utf8' );
-const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
+const dropdownTemplate = fs.readFileSync( 'includes/templates/Dropdown.mustache', 'utf8' );
 
 const templateData = {
 	'is-wide': false,
@@ -36,7 +36,7 @@ const templateData = {
 };
 
 const renderedHTML = mustache.render( userLinksTemplate, templateData, {
-	Menu: menuTemplate
+	Dropdown: dropdownTemplate
 } );
 
 module.exports = {

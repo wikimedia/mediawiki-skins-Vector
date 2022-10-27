@@ -3,8 +3,7 @@
 namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Vector\Components\VectorComponentMainMenuActionLanguageSwitchAlert;
-use MediaWiki\Skins\Vector\Components\VectorComponentMainMenuActionOptOut;
+use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 
 /**
  * @ingroup Skins
@@ -239,6 +238,9 @@ class SkinVector22 extends SkinVector {
 			$parentData['data-portlets'][ 'data-vector-user-menu-overflow' ],
 			$this->getUser()
 		);
+		$parentData['data-portlets']['data-variants'] = $this->updateVariantsMenuLabel(
+			$parentData['data-portlets']['data-variants']
+		);
 
 		$langData = $parentData['data-portlets']['data-languages'] ?? null;
 		if ( $langData ) {
@@ -251,11 +253,11 @@ class SkinVector22 extends SkinVector {
 
 		$user = $this->getUser();
 		$components = [
-			// T295555 Add language switch alert message temporarily (to be removed).
-			'data-vector-language-switch-alert' => $this->shouldLanguageAlertBeInSidebar() ?
-				new VectorComponentMainMenuActionLanguageSwitchAlert( $this ) : null,
-			'data-main-menu-action' => $user->isRegistered() ?
-				new VectorComponentMainMenuActionOptOut( $this ) : null,
+			'data-portlets-main-menu' => new VectorComponentMainMenu(
+				$parentData['data-portlets-sidebar'],
+				$this,
+				$this->shouldLanguageAlertBeInSidebar()
+			),
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.

@@ -41,7 +41,7 @@ function createIconElement( menuElement, parentElement, id ) {
 	// Dropdowns which do not have the noicon class are icon capable.
 	var isIconCapable = menuElement &&
 		menuElement.classList.contains( 'vector-menu-dropdown' ) &&
-		!menuElement.classList.contains( 'vector-menu-dropdown-noicon' );
+		[ 'p-personal' ].indexOf( menuElement.getAttribute( 'id' ) || 'p-unknown' ) > -1;
 
 	if ( !isIconCapable || !parentElement ) {
 		return;
