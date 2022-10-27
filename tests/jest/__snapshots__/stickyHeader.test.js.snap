@@ -3,7 +3,7 @@
 exports[`Sticky header renders 1`] = `
 "<header id=\\"vector-sticky-header\\" aria-hidden=\\"true\\" class=\\"vector-sticky-header\\">
 	<div class=\\"vector-sticky-header-start\\">
-		<div class=\\"vector-sticky-header-icon-start\\">
+		<div class=\\"vector-sticky-header-icon-start mw-ui-icon-flush-left\\">
 
 <button tabindex=\\"-1\\" data-event-name=\\"ui.vector-sticky-search-form.icon\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search vector-sticky-header-search-toggle\\">
 	<span>search</span>
@@ -11,7 +11,7 @@ exports[`Sticky header renders 1`] = `
 </button>
 		</div>
 <div> </div>		<div class=\\"vector-sticky-header-context-bar\\">
-			<div class=\\"vector-sticky-header-toc-container\\">
+			<div class=\\"vector-sticky-header-toc-container mw-ui-icon-flush-left\\">
 
 <div id=\\"p-sticky-header-toc\\" class=\\"vector-menu mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc\\">
 	<div class=\\"vector-menu-content\\">
@@ -24,7 +24,7 @@ exports[`Sticky header renders 1`] = `
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>
 		</div>
 	</div>
-	<div class=\\"vector-sticky-header-end\\">
+	<div class=\\"vector-sticky-header-end mw-ui-icon-flush-right\\">
 		<div class=\\"vector-sticky-header-icons\\">
 <a href=\\"#\\" id=\\"ca-talk-sticky-header\\" data-event-name=\\"talk-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-speechBubbles sticky-header-icon\\">
 	<span></span>

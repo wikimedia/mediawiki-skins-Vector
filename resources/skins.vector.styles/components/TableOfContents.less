@@ -7,19 +7,26 @@
 // a 15px spacing without clipping the chevron icon
 // https://phabricator.wikimedia.org/T312156#8095894
 @sidebar-toc-left-padding: 15px + @icon-padding-md;
-@sidebar-toc-left-padding-next: 15px + @icon-padding-md-next;
 @toc-subsection-toggle-icon-size: 1.834em;
 
 .mw-table-of-contents-container {
 	// Needed for Grid-based layout
 	align-self: start;
 	height: 100%;
+
+	.vector-feature-visual-enhancement-next-disabled & {
+		margin-left: 0;
+	}
 }
 
 .vector-sticky-toc-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
 	top: 0;
+
+	.vector-feature-visual-enhancement-next-disabled & {
+		margin-left: 0;
+	}
 
 	@media ( min-width: @min-width-desktop ) {
 		.vector-toc-not-collapsed & {
@@ -35,23 +42,16 @@
 	}
 }
 
-.sidebar-toc,
-.sidebar-toc:after {
-	// T312156 Update TOC spacing after removing background color
-	// Align the left edge of the TOC text with the main menu button icon.
-	margin-left: -@sidebar-toc-left-padding;
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		// Align the TOC subsection toggle button icon with the main menu button icon.
-		margin-left: -@icon-padding-md;
-	}
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		margin-left: -@sidebar-toc-left-padding-next;
+.vector-feature-visual-enhancement-next-disabled {
+	.sidebar-toc,
+	.sidebar-toc:after {
+		// T312156 Update TOC spacing after removing background color
+		// Align the left edge of the TOC text with the main menu button icon.
+		margin-left: -@sidebar-toc-left-padding;
 
 		@media ( min-width: @min-width-desktop-wide ) {
 			// Align the TOC subsection toggle button icon with the main menu button icon.
-			margin-left: -@icon-padding-md-next;
+			margin-left: -@icon-padding-md;
 		}
 	}
 }
@@ -63,10 +63,6 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		padding-left: @sidebar-toc-left-padding-next;
-	}
 
 	.sidebar-toc-header {
 		padding-bottom: 12px;

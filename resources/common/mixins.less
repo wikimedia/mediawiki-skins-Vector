@@ -45,34 +45,12 @@
 // but converted to px to match `mw-ui-button`
 @icon-padding-md-next: 5px;
 
-.mixin-vector-flush-right-margin-left() {
-	margin-left: @icon-padding-md;
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		margin-left: @icon-padding-md-next;
-	}
-}
-
+// FIXME: Deprecated. Remove when VectorVisualEnhancementNext is everywhere
 .mixin-vector-flush-left-margin-left() {
 	margin-left: -@icon-padding-md;
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		margin-left: -@icon-padding-md-next;
-	}
 }
 
+// FIXME: Deprecated. Remove when VectorVisualEnhancementNext is everywhere
 .mixin-vector-flush-right-margin-right() {
 	margin-right: -@icon-padding-md;
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		margin-right: -@icon-padding-md-next;
-	}
-}
-
-.mixin-vector-flush-left-left() {
-	left: -@icon-padding-md;
-
-	.vector-feature-visual-enhancement-next-enabled & {
-		left: -@icon-padding-md-next;
-	}
 }

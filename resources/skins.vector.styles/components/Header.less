@@ -14,15 +14,17 @@
 	// A min-height is set to account for projects where no icon is set.
 	min-height: @height-logo-icon;
 	padding: 8px 0;
-	// T315261 Align header icon buttons with main content
-	margin: 0;
-	.mixin-vector-flush-left-margin-left();
-	.mixin-vector-flush-right-margin-right();
 	// Vertical centering of header elements (IE>=11), requires Flexbox.
 	.flex-display();
 	flex-wrap: nowrap;
 	// https://caniuse.com/#search=align-items
 	align-items: center;
+
+	// FIXME: Remove mixin when this block is removed.
+	.vector-feature-visual-enhancement-next-disabled & {
+		.mixin-vector-flush-left-margin-left();
+		.mixin-vector-flush-right-margin-right();
+	}
 
 	#mw-sidebar-button {
 		margin-right: @margin-horizontal-sidebar-button-icon; // Accidentally the same.

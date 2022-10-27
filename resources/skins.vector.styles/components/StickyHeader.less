@@ -26,18 +26,18 @@
 		max-width: none;
 	}
 
-	// T317573 Account for icon padding, align with header icons
-	padding: 6px (@padding-horizontal-page-container-desktop - @icon-padding-md-em);
+	// T317573 Account for page container.
+	padding: 6px @padding-horizontal-page-container-desktop;
 
 	@media ( min-width: @min-width-desktop-wide ) {
-		padding: 6px (@padding-horizontal-page-container-desktop-wide - @icon-padding-md-em);
+		padding: 6px @padding-horizontal-page-container-desktop-wide;
 	}
 
 	.vector-feature-visual-enhancement-next-enabled & {
-		padding: 6px (@padding-horizontal-page-container-desktop - @icon-padding-md-next-em);
+		padding: 6px @padding-horizontal-page-container-desktop;
 
 		@media ( min-width: @min-width-desktop-wide ) {
-			padding: 6px (@padding-horizontal-page-container-desktop-wide - @icon-padding-md-next-em);
+			padding: 6px @padding-horizontal-page-container-desktop-wide;
 		}
 	}
 
@@ -87,7 +87,10 @@
 	&-toc-container {
 		display: none;
 		position: relative;
-		.mixin-vector-flush-left-margin-left();
+
+		.vector-feature-visual-enhancement-next-disabled & {
+			.mixin-vector-flush-left-margin-left();
+		}
 
 		// Only show TOC in sticky header when collapsed class is present
 		.vector-toc-collapsed & {

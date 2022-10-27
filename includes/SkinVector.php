@@ -719,9 +719,11 @@ abstract class SkinVector extends SkinMustache {
 	/**
 	 * Creates portlet data for the ULS button in the header
 	 *
+	 * @param string $className
+	 * @param bool $atTop
 	 * @return array
 	 */
-	private function getULSPortletData() {
+	private function getULSPortletData( string $className, bool $atTop ) {
 		$numLanguages = count( $this->getLanguagesCached() );
 
 		$languageButtonData = [
@@ -731,6 +733,7 @@ abstract class SkinVector extends SkinMustache {
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'icon' => 'language-progressive',
+			'class' => $atTop ? $className . ' mw-ui-icon-flush-right' : $className,
 			'button' => true,
 			'heading-class' => self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $numLanguages ),
 		];
@@ -738,7 +741,7 @@ abstract class SkinVector extends SkinMustache {
 		// Adds class to hide language button
 		// Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
 		if ( $this->shouldHideLanguages() ) {
-			$languageButtonData['class'] = ' mw-portlet-empty';
+			$languageButtonData['class'] .= ' mw-portlet-empty';
 		}
 
 		return $languageButtonData;
@@ -891,7 +894,12 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		if ( $key === 'data-languages' && $this->isLanguagesInContent() ) {
-			$portletData = array_merge( $portletData, $this->getULSPortletData() );
+			$portletData = array_merge( $portletData,
+				$this->getULSPortletData(
+					$portletData[ 'class' ] ?? '',
+					$this->isLanguagesInContentAt( 'top' )
+				)
+			);
 		}
 
 		if ( $key === 'data-user-menu' && !$this->isLegacy() ) {
