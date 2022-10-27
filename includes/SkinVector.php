@@ -447,13 +447,6 @@ abstract class SkinVector extends SkinMustache {
 
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 
-		// SkinVector sometimes serves new Vector as part of removing the
-		// skin version user preference. TCho avoid T302461 we need to unset it here.
-		// This shouldn't be run on SkinVector22.
-		if ( $this->getSkinName() === 'vector' ) {
-			unset( $parentData['data-toc'] );
-		}
-
 		//
 		// Naming conventions for Mustache parameters.
 		//
