@@ -8,7 +8,9 @@
 			"Jan Friberg",
 			"Peter Alberti",
 			"Saederup92",
-			"Weblars"
+			"Weblars",
+			"Sarrus",
+			"Steenth"
 		]
 	},
 	"vector-skin-desc": "Der findes 2 Vector skins:\n\n* 2011 - Den moderne version af MonoBook med frisk udseende og mange forbedringer af brugervenligheden.\n* 2022 - Den version som er udviklet som en del af WMFs [[mw:Desktop Improvements]] project.",
@@ -20,6 +22,8 @@
 	"vector-languages": "Sprog",
 	"vector-language-button-aria-label": "Gå til en artikel på et andet sprog. Tilgængelig på {{PLURAL:$1|$1 sprog}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 sprog}}",
+	"vector-no-language-button-label": "Tilføj sprog",
+	"vector-no-language-button-aria-label": "Denne artikel findes kun på dette sprog. Tilføj artiklen til andre sprog",
 	"vector-language-redirect-to-top": "På denne {{SITENAME}} er sproglinkene i toppen af siden overfor artiklens titel.\n[[#p-lang-btn|Gå til toppen]].",
 	"vector-language-variant-switcher-label": "Ændr sprogvariant",
 	"vector-action-addsection": "Tilføj emne",
@@ -40,9 +44,18 @@
 	"vector-search-loader": "Henter søgeforslag",
 	"vector-searchsuggest-containing": "Søgning for sider der indeholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
+	"vector-toc-heading": "Indhold",
+	"vector-toc-toggle-position-sidebar": "flyt til sidebjælken",
+	"vector-toc-toggle-position-title": "skjul",
+	"vector-toc-beginning": "Starten",
+	"vector-toc-toggle-button-label": "Vis/skjul underafsnit $1",
 	"vector-anon-user-menu-pages": "Sider for redaktører som er logget ud",
 	"vector-anon-user-menu-pages-learn": "lær mere",
 	"vector-anon-user-menu-pages-label": "Læs mere om redigering",
 	"vector-main-menu-tooltip": "Hovedmenu",
+	"vector-toc-menu-tooltip": "Indholdsfortegnelse",
+	"vector-toc-collapsible-button-label": "Vis/skjul indholdsfortegnelsen",
+	"vector-site-nav-label": "Websted",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Flere mugligheder"
 }
