@@ -25,13 +25,11 @@
 namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
-use Html;
 use Linker;
 use MediaWiki\MediaWikiServices;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
-use SpecialPage;
 use Title;
 use User;
 
@@ -127,18 +125,6 @@ abstract class SkinVector extends SkinMustache {
 	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
-
-	/**
-	 * T243281: Code used to track clicks to opt-out link.
-	 *
-	 * The "vct" substring is used to describe the newest "Vector" (non-legacy)
-	 * feature. The "w" describes the web platform. The "1" describes the version
-	 * of the feature.
-	 *
-	 * @see https://wikitech.wikimedia.org/wiki/Provenance
-	 * @var string
-	 */
-	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
 	abstract protected function isLegacy(): bool;
 
@@ -409,41 +395,6 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Generate data needed to create MainMenuAction item.
-	 * @param array $htmlData data to make a link or raw html
-	 * @param array $headingOptions optional heading for the html
-	 * @return array keyed data for the MainMenuAction template
-	 */
-	private function makeMainMenuActionData( array $htmlData = [], array $headingOptions = [] ): array {
-		$htmlContent = '';
-		// Populates the main menu as a standalone link or custom html.
-		if ( array_key_exists( 'link', $htmlData ) ) {
-			$htmlContent = $this->makeLink( 'link', $htmlData['link'] );
-		} elseif ( array_key_exists( 'html-content', $htmlData ) ) {
-			$htmlContent = $htmlData['html-content'];
-		}
-
-		return $headingOptions + [
-			'html-content' => $htmlContent,
-		];
-	}
-
-	/**
-	 * Determines if the language switching alert box should be in the sidebar.
-	 *
-	 * @return bool
-	 */
-	private function shouldLanguageAlertBeInSidebar(): bool {
-		$featureManager = VectorServices::getFeatureManager();
-		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
-		$shouldShowOnMainPage = $isMainPage && !empty( $this->getLanguagesCached() ) &&
-			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
-		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
-			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
-			$shouldShowOnMainPage;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -480,47 +431,6 @@ abstract class SkinVector extends SkinMustache {
 				true
 			)
 		] );
-
-		$user = $skin->getUser();
-		if ( $user->isRegistered() ) {
-			// Note: This data is also passed to legacy template where it is unused.
-			$optOutUrl = [
-				'text' => $this->msg( 'vector-opt-out' )->text(),
-				'href' => SpecialPage::getTitleFor(
-					'Preferences',
-					false,
-					'mw-prefsection-rendering-skin'
-				)->getLinkURL( 'useskin=vector&wprov=' . self::OPT_OUT_LINK_TRACKING_CODE ),
-				'title' => $this->msg( 'vector-opt-out-tooltip' )->text(),
-				'active' => false,
-			];
-			$htmlData = [
-				'link' => $optOutUrl,
-			];
-			$commonSkinData['data-main-menu-action'][] = $this->makeMainMenuActionData(
-				$htmlData,
-				[]
-			);
-		}
-
-		if ( !$this->isLegacy() ) {
-			// T295555 Add language switch alert message temporarily (to be removed).
-			if ( $this->shouldLanguageAlertBeInSidebar() ) {
-				$languageSwitchAlert = [
-					'html-content' => Html::noticeBox(
-						$this->msg( 'vector-language-redirect-to-top' )->parse(),
-						'vector-language-sidebar-alert'
-					),
-				];
-				$headingOptions = [
-					'heading' => $this->msg( 'vector-languages' )->plain(),
-				];
-				$commonSkinData['data-vector-language-switch-alert'][] = $this->makeMainMenuActionData(
-					$languageSwitchAlert,
-					$headingOptions
-				);
-			}
-		}
 
 		return $commonSkinData;
 	}

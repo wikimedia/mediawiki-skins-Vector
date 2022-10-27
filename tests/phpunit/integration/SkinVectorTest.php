@@ -419,7 +419,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider providerLanguageAlertRequirements
-	 * @covers \MediaWiki\Skins\Vector\SkinVector::shouldLanguageAlertBeInSidebar
+	 * @covers \MediaWiki\Skins\Vector\SkinVector22::shouldLanguageAlertBeInSidebar
 	 * @param array $requirements
 	 * @param Title $title
 	 * @param array $getLanguagesCached

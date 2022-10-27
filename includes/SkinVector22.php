@@ -3,6 +3,8 @@
 namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponentMainMenuActionLanguageSwitchAlert;
+use MediaWiki\Skins\Vector\Components\VectorComponentMainMenuActionOptOut;
 
 /**
  * @ingroup Skins
@@ -38,6 +40,21 @@ class SkinVector22 extends SkinVector {
 	 */
 	protected function shouldHideLanguages(): bool {
 		return !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled();
+	}
+
+	/**
+	 * Determines if the language switching alert box should be in the sidebar.
+	 *
+	 * @return bool
+	 */
+	private function shouldLanguageAlertBeInSidebar(): bool {
+		$featureManager = VectorServices::getFeatureManager();
+		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
+		$shouldShowOnMainPage = $isMainPage && !empty( $this->getLanguagesCached() ) &&
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
+		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
+			$shouldShowOnMainPage;
 	}
 
 	/**
@@ -230,6 +247,21 @@ class SkinVector22 extends SkinVector {
 				count( $this->getLanguagesCached() ),
 				$this->isLanguagesInContentAt( 'top' )
 			);
+		}
+
+		$user = $this->getUser();
+		$components = [
+			// T295555 Add language switch alert message temporarily (to be removed).
+			'data-vector-language-switch-alert' => $this->shouldLanguageAlertBeInSidebar() ?
+				new VectorComponentMainMenuActionLanguageSwitchAlert( $this ) : null,
+			'data-main-menu-action' => $user->isRegistered() ?
+				new VectorComponentMainMenuActionOptOut( $this ) : null,
+		];
+		foreach ( $components as $key => $component ) {
+			// Array of components or null values.
+			if ( $component ) {
+				$parentData[$key] = $component->getTemplateData();
+			}
 		}
 
 		return array_merge( $parentData, [
