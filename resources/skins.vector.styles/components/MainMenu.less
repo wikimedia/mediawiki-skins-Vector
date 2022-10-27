@@ -16,17 +16,15 @@
 	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
 
-	.vector-feature-visual-enhancement-next-disabled & {
-		.mixin-vector-flush-left-margin-left();
+	//FIXME: This media query will be replaced with the pinned menu class in T317897
+	@media ( min-width: @min-width-desktop ) {
+		// Magic number from the edge of the main menu to the start of the main menu text.
+		margin-left: -28px;
 	}
 
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
-
-		.vector-feature-visual-enhancement-next-disabled & {
-			margin-left: 0;
-		}
 	}
 }
 

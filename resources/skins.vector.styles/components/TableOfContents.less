@@ -6,7 +6,7 @@
 // Sidebar TOC uses increased left padding and a negative left margin to achieve
 // a 15px spacing without clipping the chevron icon
 // https://phabricator.wikimedia.org/T312156#8095894
-@sidebar-toc-left-padding: 15px + @icon-padding-md;
+@sidebar-toc-left-padding: 15px + @sidebar-toc-right-padding;
 @toc-subsection-toggle-icon-size: 1.834em;
 
 .mw-table-of-contents-container {
@@ -24,10 +24,6 @@
 	position: sticky;
 	top: 0;
 
-	.vector-feature-visual-enhancement-next-disabled & {
-		margin-left: 0;
-	}
-
 	@media ( min-width: @min-width-desktop ) {
 		.vector-toc-not-collapsed & {
 			// Default spacing separating the sidebar TOC from the main menu or viewport.
@@ -42,18 +38,11 @@
 	}
 }
 
-.vector-feature-visual-enhancement-next-disabled {
-	.sidebar-toc,
-	.sidebar-toc:after {
-		// T312156 Update TOC spacing after removing background color
-		// Align the left edge of the TOC text with the main menu button icon.
-		margin-left: -@sidebar-toc-left-padding;
-
-		@media ( min-width: @min-width-desktop-wide ) {
-			// Align the TOC subsection toggle button icon with the main menu button icon.
-			margin-left: -@icon-padding-md;
-		}
-	}
+.sidebar-toc,
+.sidebar-toc:after {
+	// T312156 Update TOC spacing after removing background color
+	// Align the left edge of the TOC text with the main menu button icon.
+	margin-left: -@sidebar-toc-left-padding;
 }
 
 .sidebar-toc {
