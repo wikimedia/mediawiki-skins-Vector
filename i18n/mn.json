@@ -26,6 +26,7 @@
 	"vector-view-view": "Унших",
 	"vector-view-viewsource": "Кодыг харах",
 	"vector-more-actions": "Дэлгэрэнгүй",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бичвэрийг агуулсан хуудсыг хайх",
 	"vector-toc-heading": "Гарчиг",
 	"vector-toc-toggle-position-sidebar": "хажуугийн цэсэнд шилжүүлэх",
 	"vector-toc-toggle-position-title": "хумих",
