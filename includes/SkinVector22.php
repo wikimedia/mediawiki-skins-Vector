@@ -216,6 +216,22 @@ class SkinVector22 extends SkinVector {
 		}
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
+		// FIXME: Move to component (T322089)
+		$parentData['data-vector-user-links'] = $this->getUserLinksTemplateData(
+			$parentData['data-portlets']['data-user-menu'],
+			$parentData['data-portlets'][ 'data-vector-user-menu-overflow' ],
+			$this->getUser()
+		);
+
+		$langData = $parentData['data-portlets']['data-languages'] ?? null;
+		if ( $langData ) {
+			$parentData['data-lang-btn'] = $this->getULSPortletData(
+				$langData,
+				count( $this->getLanguagesCached() ),
+				$this->isLanguagesInContentAt( 'top' )
+			);
+		}
+
 		return array_merge( $parentData, [
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
