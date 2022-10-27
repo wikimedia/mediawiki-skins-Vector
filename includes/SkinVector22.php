@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
+use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 
 /**
  * @ingroup Skins
@@ -242,8 +243,19 @@ class SkinVector22 extends SkinVector {
 			);
 		}
 
-		$user = $this->getUser();
+		$config = $this->getConfig();
 		$components = [
+			'data-search-box' => new VectorComponentSearchBox(
+				$parentData['data-search-box'],
+				true,
+				// is primary mode of search
+				true,
+				'searchform',
+				true,
+				$config,
+				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
+				$this->getContext()
+			),
 			'data-portlets-main-menu' => new VectorComponentMainMenu(
 				$parentData['data-portlets-sidebar'],
 				$this,
@@ -257,17 +269,19 @@ class SkinVector22 extends SkinVector {
 			}
 		}
 
+		$searchStickyHeader = new VectorComponentSearchBox(
+			$parentData['data-search-box'],
+			// Collapse inside search box is disabled.
+			false,
+			false,
+			'vector-sticky-search-form',
+			false,
+			$config,
+			Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
+			$this->getContext()
+		);
+
 		return array_merge( $parentData, [
-			'data-search-box' => $this->getSearchData(
-				$parentData['data-search-box'],
-				true,
-				// is primary mode of search
-				true,
-				'searchform',
-				true,
-				false,
-				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-			),
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
@@ -277,16 +291,7 @@ class SkinVector22 extends SkinVector {
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $this->getStickyHeaderData(
-				$this->getSearchData(
-					$parentData['data-search-box'],
-					// Collapse inside search box is disabled.
-					false,
-					false,
-					'vector-sticky-search-form',
-					false,
-					false,
-					Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
-				),
+				$searchStickyHeader->getTemplateData(),
 				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)

@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Skins\Vector;
 
+use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
+
 /**
  * @ingroup Skins
  * @package Vector
@@ -172,21 +174,27 @@ class SkinVectorLegacy extends SkinVector {
 	public function getTemplateData(): array {
 		$parentData = $this->decoratePortletsData( parent::getTemplateData() );
 
-		// SkinVector sometimes serves new Vector as part of removing the
-		// skin version user preference. To avoid T302461 we need to unset it here.
-		// This shouldn't be run on SkinVector22.
-		unset( $parentData['data-toc'] );
-		return array_merge( $parentData, [
-			'data-search-box' => $this->getSearchData(
+		$components = [
+			'data-search-box' => new VectorComponentSearchBox(
 				$parentData['data-search-box'],
 				false,
 				// is primary mode of search
 				true,
 				'searchform',
 				true,
-				true,
-				Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT
-			)
-		] );
+				$this->getConfig(),
+				Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT,
+				$this->getContext()
+			),
+		];
+		foreach ( $components as $key => $component ) {
+			$parentData[$key] = $component->getTemplateData();
+		}
+
+		// SkinVector sometimes serves new Vector as part of removing the
+		// skin version user preference. To avoid T302461 we need to unset it here.
+		// This shouldn't be run on SkinVector22.
+		unset( $parentData['data-toc'] );
+		return $parentData;
 	}
 }

@@ -115,8 +115,6 @@ abstract class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
-	private const SEARCH_SHOW_THUMBNAIL_CLASS = 'vector-search-box-show-thumbnail';
-	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 
 	/**
@@ -397,63 +395,6 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Annotates search box with Vector-specific information
-	 *
-	 * @param array $searchBoxData
-	 * @param bool $isCollapsible
-	 * @param bool $isPrimary
-	 * @param string $formId
-	 * @param bool $autoExpandWidth
-	 * @param bool $hasLabel whether search should have a label
-	 * @param string $location Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
-	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
-	 * @return array modified version of $searchBoxData
-	 */
-	final protected function getSearchData(
-		array $searchBoxData,
-		bool $isCollapsible,
-		bool $isPrimary,
-		string $formId,
-		bool $autoExpandWidth,
-		bool $hasLabel,
-		string $location
-	) {
-		$searchClass = 'vector-search-box-vue ';
-
-		if ( $isCollapsible ) {
-			$searchClass .= ' vector-search-box-collapses ';
-		}
-
-		if ( $this->doesSearchHaveThumbnails() ) {
-			$searchClass .= ' ' . self::SEARCH_SHOW_THUMBNAIL_CLASS .
-				( $autoExpandWidth ? ' ' . self::SEARCH_AUTO_EXPAND_WIDTH_CLASS : '' );
-		}
-
-		// Annotate search box with a component class.
-		$searchBoxData['class'] = trim( $searchClass );
-		$searchBoxData['is-collapsible'] = $isCollapsible;
-		$searchBoxData['is-primary'] = $isPrimary;
-		$searchBoxData['form-id'] = $formId;
-
-		// At lower resolutions the search input is hidden search and only the submit button is shown.
-		// It should behave like a form submit link (e.g. submit the form with no input value).
-		// We'll wire this up in a later task T284242.
-		$collapseIconAttrs = Linker::tooltipAndAccesskeyAttribs( 'search' );
-		$searchBoxData['data-collapse-icon'] = array_merge( [
-			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl(),
-			'label' => $this->msg( 'search' ),
-			'icon' => 'wikimedia-search',
-			'is-quiet' => true,
-			'class' => 'search-toggle',
-		], $collapseIconAttrs );
-
-		return $searchBoxData + [
-			'has-label' => $hasLabel,
-			'input-location' => $location,
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function isResponsive() {
@@ -469,16 +410,6 @@ abstract class SkinVector extends SkinMustache {
 			}
 		}
 		return $responsive;
-	}
-
-	/**
-	 * Returns `true` if Vue search is enabled to show thumbnails and `false` otherwise.
-	 * Note this is only relevant for Vue search experience (not legacy search).
-	 *
-	 * @return bool
-	 */
-	private function doesSearchHaveThumbnails(): bool {
-		return $this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
 	}
 
 	/**

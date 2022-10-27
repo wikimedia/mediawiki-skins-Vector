@@ -152,6 +152,7 @@
 		"MediaWiki\\Skins\\Vector\\": "includes/"
 	},
 	"TestAutoloadNamespaces": {
+		"MediaWiki\\Skins\\Vector\\": "includes/",
 		"MediaWiki\\Skins\\Vector\\Tests\\": "tests/phpunit/"
 	},
 	"ConfigRegistry": {
