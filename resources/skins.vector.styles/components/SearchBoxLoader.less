@@ -71,6 +71,11 @@
 		/* delay */ 500ms
 		/* iteration count */ infinite
 		/* fill direction */ alternate;
+
+	.vector-search-box-show-thumbnail.vector-search-box-auto-expand-width & {
+		margin-left: @size-search-expand;
+		width: ~'calc( 100% - @{size-search-expand} )';
+	}
 }
 
 @keyframes search-loader-progress-bar {
