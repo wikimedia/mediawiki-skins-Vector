@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Skins\Vector;
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @ingroup Skins
  * @package Vector
@@ -161,6 +163,35 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Determines wheather the initial state of sidebar is visible on not
+	 *
+	 * @return bool
+	 */
+	private function isMainMenuVisible() {
+		$skin = $this->getSkin();
+		if ( $skin->getUser()->isRegistered() ) {
+			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+			$userPrefSidebarState = $userOptionsLookup->getOption(
+				$skin->getUser(),
+				Constants::PREF_KEY_SIDEBAR_VISIBLE
+			);
+
+			$defaultLoggedinSidebarState = $this->getConfig()->get(
+				Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
+			);
+
+			// If the sidebar user preference has been set, return that value,
+			// if not, then the default sidebar state for logged-in users.
+			return ( $userPrefSidebarState !== null )
+				? (bool)$userPrefSidebarState
+				: $defaultLoggedinSidebarState;
+		}
+		return $this->getConfig()->get(
+			Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER
+		);
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getTemplateData(): array {
@@ -175,6 +206,7 @@ class SkinVector22 extends SkinVector {
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
 		return array_merge( $parentData, [
+			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(

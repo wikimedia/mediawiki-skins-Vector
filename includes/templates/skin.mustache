@@ -23,7 +23,7 @@
 	MenuDefinition data-portlets.data-views
 	MenuDefinition data-portlets.data-actions
 	object data-search-box. See SearchBox.mustache for documentation.
-	boolean main-menu-visible For users that want to see the sidebar on initial render, this should be
+	boolean is-main-menu-visible For users that want to see the sidebar on initial render, this should be
 	  true.
 	string msg-vector-action-toggle-sidebar The label used by the sidebar button.
 	string msg-vector-main-menu-tooltip The title attribute for the main menu icon.
@@ -37,7 +37,7 @@
 			type="checkbox"
 			id="mw-sidebar-checkbox"
 			class="mw-checkbox-hack-checkbox"
-			{{#main-menu-visible}}checked{{/main-menu-visible}}>
+			{{#is-main-menu-visible}}checked{{/is-main-menu-visible}}>
 		{{>Header}}
 		<div class="vector-sidebar-container vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 			<div id="mw-navigation">
