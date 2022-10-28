@@ -598,6 +598,7 @@ abstract class SkinVector extends SkinMustache {
 	 */
 	final protected function getULSPortletData( array $langData, int $numLanguages, bool $atTop ) {
 		$className = $langData['class'] ?? '';
+		$classNameSuffix = $atTop ? ' mw-ui-icon-flush-right' : '';
 
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
@@ -606,9 +607,9 @@ abstract class SkinVector extends SkinMustache {
 			// ext.uls.interface attaches click handler to this selector.
 			'checkbox-class' => ' mw-interlanguage-selector ',
 			'icon' => 'language-progressive',
-			'class' => $atTop ? $className . ' mw-ui-icon-flush-right' : $className,
+			'class' => $className . $classNameSuffix,
 			'button' => true,
-			'heading-class' => self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $numLanguages ),
+			'heading-class' => self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $numLanguages )
 		];
 
 		// Adds class to hide language button
@@ -643,7 +644,8 @@ abstract class SkinVector extends SkinMustache {
 		// completion of T319356.
 		//
 		// Also, add target class to apply different icon to personal menu dropdown for logged in users.
-		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown';
+		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown' .
+			' mw-ui-icon-flush-right';
 		$portletData['class'] .= $this->loggedin ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';

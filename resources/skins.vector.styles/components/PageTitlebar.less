@@ -1,5 +1,6 @@
 .vector-page-titlebar {
 	display: flex;
+
 	// Ensure language button or indicators are positioned to the right even when the title is hidden
 	justify-content: flex-end;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
@@ -12,5 +13,9 @@
 	.firstHeading {
 		flex-grow: 1;
 		border: 0;
+	}
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		align-items: center;
 	}
 }

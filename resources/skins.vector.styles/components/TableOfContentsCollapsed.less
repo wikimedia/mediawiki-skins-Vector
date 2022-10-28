@@ -11,8 +11,6 @@
 	display: none;
 	float: left;
 	margin-right: 4px;
-	// Reduce vertical padding to fit with page title
-	padding: 7px @icon-padding-md-next;
 	// Override background color for when the TOC is overlaps content
 	// as a sticky element when the page is scrolled down.
 	background-color: @background-color-base;
@@ -23,10 +21,7 @@
 	}
 
 	.vector-feature-visual-enhancement-next-disabled & {
-		.mixin-vector-flush-left-margin-left();
-		// Reduce vertical padding to fit with page title
-		padding-left: @icon-padding-md;
-		padding-right: @icon-padding-md;
+		padding: 7px 12px;
 	}
 }
 
@@ -91,17 +86,9 @@
 		display: none;
 		position: absolute;
 		top: @height-collapsed-toc-button; // TOC button height
-		left: -@icon-padding-md;
 		margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
 		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 		border: @border-width-base @border-style-base @border-color-base;
-	}
-
-	.vector-feature-visual-enhancement-next-disabled {
-		.sidebar-toc {
-			margin-left: 0;
-			margin-right: 0;
-		}
 	}
 
 	@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc {
@@ -132,6 +119,13 @@
 	//
 	.mixin-toc-collapsed-header();
 
+	.vector-feature-visual-enhancement-next-disabled {
+		.sidebar-toc {
+			margin-left: 0;
+			margin-right: 0;
+			left: -@icon-padding-md;
+		}
+	}
 	//
 	// Collapsed to floating button on narrow screens when below page title
 	//
@@ -164,6 +158,14 @@
 				.sidebar-toc {
 					margin-left: 0;
 					margin-right: 0;
+				}
+			}
+
+			.vector-feature-visual-enhancement-next-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
+				.sidebar-toc {
+					margin-left: 0;
+					margin-right: 0;
+					left: -@icon-padding-md;
 				}
 			}
 

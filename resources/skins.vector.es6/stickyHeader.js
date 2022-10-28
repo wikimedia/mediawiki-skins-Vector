@@ -432,6 +432,8 @@ function prepareUserMenu( userMenu ) {
 	if ( userMenuCheckbox ) {
 		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
 	}
+	// Sticky header is already flushed.
+	userMenuClone.classList.remove( 'mw-ui-icon-flush-right' );
 	return userMenuClone;
 }
 
