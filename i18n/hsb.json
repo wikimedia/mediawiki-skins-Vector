@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"J budissin"
 		]
 	},
+	"vector-opt-out": "Wróćo k staremu napohladej",
+	"vector-action-toggle-sidebar": "Bóčnicu přešaltować",
 	"vector-action-addsection": "Temu přidać",
 	"vector-action-delete": "wušmórnyć",
 	"vector-action-move": "přesunyć",
@@ -15,5 +18,7 @@
 	"vector-view-history": "Stawizny",
 	"vector-view-view": "Čitać",
 	"vector-view-viewsource": "Žórło sej wobhladać",
+	"vector-jumptonavigation": "K nawigaciji skočić",
+	"vector-jumptosearch": "K pytanju skočić",
 	"vector-more-actions": "Wjace"
 }

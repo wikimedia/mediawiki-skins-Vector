@@ -4,19 +4,22 @@
 			"Arman musikyan",
 			"Teak",
 			"Vadgt",
-			"Xelgen"
+			"Xelgen",
+			"Kareyac",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"skinname-vector": "Սովորական",
+	"vector-opt-out": "Անցնել հին տեսքին",
 	"vector-action-addsection": "Ավելացնել քննարկում",
 	"vector-action-delete": "Ջնջել",
-	"vector-action-move": "Տեղափոխել այս էջը",
+	"vector-action-move": "Վերանվանել",
 	"vector-action-protect": "Պաշտպանել",
 	"vector-action-undelete": "Վերականգնել",
 	"vector-action-unprotect": "Փոխել պաշտպանումը",
 	"vector-view-create": "Ստեղծել",
 	"vector-view-edit": "Խմբագրել",
-	"vector-view-history": "Դիտել պատմությունը",
+	"vector-view-history": "Պատմություն",
 	"vector-view-view": "Կարդալ",
 	"vector-view-viewsource": "Դիտել ելատեքստը",
 	"vector-more-actions": "Ավելին"
