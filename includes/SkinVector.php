@@ -204,20 +204,17 @@ abstract class SkinVector extends SkinMustache {
 	 * the top or the bottom.
 	 * @return bool
 	 */
-	private function isLanguagesInContent() {
+	final protected function isLanguagesInContent() {
 		return $this->isLanguagesInContentAt( 'top' ) || $this->isLanguagesInContentAt( 'bottom' );
 	}
 
 	/**
-	 * Show the ULS button if it's modern Vector, languages in header is enabled,
-	 * and the ULS extension is enabled. Hide it otherwise.
-	 * There is no point in showing the language button if ULS extension is unavailable
-	 * as there is no ways to add languages without it.
+	 * Whether languages should be hidden.
+	 * FIXME: Function should be removed as part of T319355
+	 *
 	 * @return bool
 	 */
-	protected function shouldHideLanguages() {
-		return $this->isLegacy() || !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled();
-	}
+	abstract protected function shouldHideLanguages(): bool;
 
 	/**
 	 * Returns HTML for the create account link inside the anon user links
@@ -350,7 +347,7 @@ abstract class SkinVector extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function isULSExtensionEnabled(): bool {
+	final protected function isULSExtensionEnabled(): bool {
 		return ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' );
 	}
 
@@ -467,9 +464,6 @@ abstract class SkinVector extends SkinMustache {
 		$commonSkinData = array_merge( $parentData, [
 			'is-legacy' => $this->isLegacy(),
 			'input-location' => $this->getSearchBoxInputLocation(),
-			'is-language-in-content' => $this->isLanguagesInContent(),
-			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
-			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			'data-search-box' => $this->getSearchData(
 				$parentData['data-search-box'],
 				!$this->isLegacy(),

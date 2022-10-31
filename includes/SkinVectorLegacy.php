@@ -18,6 +18,17 @@ class SkinVectorLegacy extends SkinVector {
 	}
 
 	/**
+	 * Show the ULS button if it's modern Vector, languages in header is enabled,
+	 * and the ULS extension is enabled. Hide it otherwise.
+	 * There is no point in showing the language button if ULS extension is unavailable
+	 * as there is no ways to add languages without it.
+	 * @return bool
+	 */
+	protected function shouldHideLanguages(): bool {
+		return true;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	protected function isLanguagesInContentAt( $location ) {
