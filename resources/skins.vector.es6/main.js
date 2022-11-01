@@ -6,6 +6,7 @@ const
 	initExperiment = require( './AB.js' ),
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
+	pinnableHeader = require( './pinnableHeader.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
@@ -136,6 +137,12 @@ const main = () => {
 	const searchToggleElement = document.querySelector( '.mw-header .search-toggle' );
 	if ( searchToggleElement ) {
 		searchToggle( searchToggleElement );
+	}
+
+	// Initialize pinnable headers
+	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-article-tools-enabled' );
+	if ( isPageToolsEnabled ) {
+		pinnableHeader.initPinnableHeader();
 	}
 
 	//
