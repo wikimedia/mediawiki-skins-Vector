@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Larske",
 			"Lokal Profil",
 			"Martinwiss",
 			"Najami",
@@ -25,7 +26,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 språk}}",
 	"vector-no-language-button-label": "Lägg till språk",
 	"vector-no-language-button-aria-label": "Den här artikeln finns bara på det här språket. Lägg till artikeln på andra språk",
-	"vector-language-redirect-to-top": "På denna {{SITENAME}} finns språklänkar längst upp på sidan längst artikeltiteln. [[#p-lang-btn|Gå längst upp]].",
+	"vector-language-redirect-to-top": "På denna {{SITENAME}} finns språklänkar längst upp på sidan mittemot artikeltiteln. [[#p-lang-btn|Gå längst upp]].",
 	"vector-language-variant-switcher-label": "Ändra språkvariant",
 	"vector-action-addsection": "Nytt ämne",
 	"vector-action-delete": "Radera",

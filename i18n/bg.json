@@ -36,8 +36,8 @@
 	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-toggle-position-title": "скриване",
 	"vector-toc-beginning": "Начало",
-	"vector-anon-user-menu-pages-learn": "Научете повече",
+	"vector-anon-user-menu-pages-learn": "научете повече",
 	"vector-anon-user-menu-pages-label": "Научете повече за редактирането",
-	"vector-main-menu-tooltip": "Основно меню",
+	"vector-main-menu-tooltip": "Главно меню",
 	"vector-toc-menu-tooltip": "Съдържание"
 }
