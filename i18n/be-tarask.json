@@ -16,6 +16,7 @@
 	"vector-opt-out-tooltip": "Зьмяніце налады, каб вярнуцца да старой тэмы (старога Вэктару)",
 	"vector.css": "/* Усе зьмешчаныя тут CSS будуць загружаныя для ўдзельнікаў, якія выкарыстоўваюць тэму афармленьня Вэктар */",
 	"vector.js": "/* Увесь зьмешчаны тут JavaScript будзе загружаны для ўдзельнікаў, якія выкарыстоўваюць тэму афармленьня Вэктар */",
+	"vector-action-toggle-sidebar": "Пераключыць бакавую панэль",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моваў}}",
 	"vector-action-addsection": "Дадаць тэму",
 	"vector-action-delete": "Выдаліць",
@@ -30,5 +31,12 @@
 	"vector-view-viewsource": "Паказаць крыніцу",
 	"vector-jumptonavigation": "Перайсьці да навігацыі",
 	"vector-jumptosearch": "Перайсьці да пошуку",
-	"vector-more-actions": "Болей"
+	"vector-jumptocontent": "Перайсьці да зьместу",
+	"vector-more-actions": "Болей",
+	"vector-search-loader": "Загрузка прапановаў пошуку",
+	"vector-anon-user-menu-pages": "Старонкі для неаўтарызаваных рэдактараў",
+	"vector-anon-user-menu-pages-learn": "даведацца болей",
+	"vector-anon-user-menu-pages-label": "Даведайцеся пра рэдагаваньне болей",
+	"vector-main-menu-tooltip": "Галоўнае мэню",
+	"tooltip-vector-anon-user-menu-title": "Болей парамэтраў"
 }

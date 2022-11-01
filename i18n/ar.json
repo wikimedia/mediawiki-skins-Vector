@@ -18,7 +18,9 @@
 			"Wahrani",
 			"Dyolf77 (WMF)",
 			"Bachounda",
-			"Beginneruser"
+			"Beginneruser",
+			"Amire80",
+			"FShbib"
 		]
 	},
 	"skinname-vector": "فكتور",
@@ -30,7 +32,7 @@
 	"vector.css": "/* ستؤثِّر الأنماط المتراصة CSS المعروضة هنا على مستخدمي واجهة فكتور */",
 	"vector.js": "/* سيُحمَّل أي نص برمجي مكتوب بلغة جافا للمستخدمين الذين يستعملون واجهة فكتور */",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
-	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
+	"vector-language-button-label": "{{PLURAL:$1|لا لغات|لغة واحدة|لغتان|$1 لغات|$1 لغة}}",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",
 	"vector-action-move": "انقُل",

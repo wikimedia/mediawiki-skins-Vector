@@ -3,7 +3,8 @@
 		"authors": [
 			"Joao Xavier",
 			"Lakaoso",
-			"Malafaya"
+			"Malafaya",
+			"Amire80"
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Uzez 'Legacy Vector'",
@@ -23,7 +24,10 @@
 	"vector-view-viewsource": "Vidar fonto",
 	"vector-jumptonavigation": "Irez a navigado",
 	"vector-jumptosearch": "Irez a serchilo",
+	"vector-jumptocontent": "Irez a kontenajo",
 	"vector-more-actions": "Pluse",
+	"vector-anon-user-menu-pages-learn": "lernez pluse",
+	"vector-anon-user-menu-pages-label": "Savez pluse pri quale redaktar",
 	"vector-main-menu-tooltip": "Chef-menuo",
 	"tooltip-vector-anon-user-menu-title": "Plusa selekti"
 }

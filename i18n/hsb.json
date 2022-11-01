@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Michawiki"
+			"Michawiki",
+			"J budissin"
 		]
 	},
+	"vector-opt-out": "Wróćo k staremu napohladej",
+	"vector-action-toggle-sidebar": "Bóčnicu přešaltować",
+	"vector-language-button-label": "{{PLURAL:$1|$ rěč|$ rěči|$ rěče|$ rěčow}}",
 	"vector-action-addsection": "Temu přidać",
 	"vector-action-delete": "wušmórnyć",
 	"vector-action-move": "přesunyć",
@@ -15,5 +19,14 @@
 	"vector-view-history": "Stawizny",
 	"vector-view-view": "Čitać",
 	"vector-view-viewsource": "Žórło sej wobhladać",
-	"vector-more-actions": "Wjace"
+	"vector-jumptonavigation": "K nawigaciji skočić",
+	"vector-jumptosearch": "K pytanju skočić",
+	"vector-jumptocontent": "K wobsahej skočić",
+	"vector-more-actions": "Wjace",
+	"vector-search-loader": "Pytanske namjety začitać",
+	"vector-anon-user-menu-pages": "Strony za wotzjewjenych wužiwarjow",
+	"vector-anon-user-menu-pages-learn": "Dalše informacije",
+	"vector-anon-user-menu-pages-label": "Wjace wo wobdźěłanju zhonić",
+	"vector-main-menu-tooltip": "Hłowny meni",
+	"tooltip-vector-anon-user-menu-title": "Wjace opcijow"
 }
