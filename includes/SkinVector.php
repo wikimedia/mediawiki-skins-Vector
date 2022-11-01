@@ -298,17 +298,24 @@ abstract class SkinVector extends SkinMustache {
 
 	/**
 	 * Returns template data for UserLinks.mustache
-	 * @param array $menuData existing menu template data to be transformed and copied for UserLinks
+	 * FIXME: Move to component (T322089)
+	 *
+	 * @param array $userMenuData existing menu template data to be transformed and copied for UserLinks
+	 * @param array $overflowMenuData existing menu template data to be transformed and copied for UserLinks
 	 * @param User $user the context user
 	 * @return array
 	 */
-	private function getUserLinksTemplateData( $menuData, $user ): array {
+	final protected function getUserLinksTemplateData(
+		array $userMenuData, array $overflowMenuData, User $user
+	): array {
 		$isAnon = !$user->isRegistered();
 		$isTempUser = $user->isTemp();
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
-		$userMenuOverflowData = $menuData[ 'data-vector-user-menu-overflow' ];
-		$userMenuData = $menuData[ 'data-user-menu' ];
+		$userMenuOverflowData = Hooks::updateDropdownMenuData( $overflowMenuData );
+		$userMenuData = Hooks::updateDropdownMenuData( $this->getUserMenuPortletData( $userMenuData ) );
+		unset( $userMenuOverflowData[ 'label' ] );
+
 		if ( $isAnon || $isTempUser ) {
 			$userMenuData[ 'html-before-portal' ] .= $this->getAnonMenuBeforePortletHTML(
 				$returnto,
@@ -329,7 +336,7 @@ abstract class SkinVector extends SkinMustache {
 		$moreItems = substr_count( $userMenuOverflowData['html-items'], '<li' );
 		return [
 			'is-wide' => $moreItems > 3,
-			'data-user-menu-overflow' => $menuData[ 'data-vector-user-menu-overflow' ],
+			'data-user-menu-overflow' => $userMenuOverflowData,
 			'data-user-menu' => $userMenuData
 		];
 	}
@@ -497,11 +504,6 @@ abstract class SkinVector extends SkinMustache {
 		}
 
 		if ( !$this->isLegacy() ) {
-			$commonSkinData['data-vector-user-links'] = $this->getUserLinksTemplateData(
-				$commonSkinData['data-portlets'],
-				$user
-			);
-
 			// T295555 Add language switch alert message temporarily (to be removed).
 			if ( $this->shouldLanguageAlertBeInSidebar() ) {
 				$languageSwitchAlert = [
@@ -676,12 +678,13 @@ abstract class SkinVector extends SkinMustache {
 	/**
 	 * Creates portlet data for the ULS button in the header
 	 *
-	 * @param string $className
+	 * @param array $langData
+	 * @param int $numLanguages
 	 * @param bool $atTop
 	 * @return array
 	 */
-	private function getULSPortletData( string $className, bool $atTop ) {
-		$numLanguages = count( $this->getLanguagesCached() );
+	final protected function getULSPortletData( array $langData, int $numLanguages, bool $atTop ) {
+		$className = $langData['class'] ?? '';
 
 		$languageButtonData = [
 			'id' => 'p-lang-btn',
@@ -701,11 +704,16 @@ abstract class SkinVector extends SkinMustache {
 			$languageButtonData['class'] .= ' mw-portlet-empty';
 		}
 
-		return $languageButtonData;
+		return Hooks::updateDropdownMenuData(
+			array_merge(
+				$langData, $languageButtonData
+			)
+		);
 	}
 
 	/**
 	 * Creates portlet data for the user menu dropdown
+	 * FIXME: Move to SkinVector22
 	 *
 	 * @param array $portletData
 	 * @return array
@@ -722,7 +730,7 @@ abstract class SkinVector extends SkinMustache {
 		// completion of T319356.
 		//
 		// Also, add target class to apply different icon to personal menu dropdown for logged in users.
-		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu';
+		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown';
 		$portletData['class'] .= $this->loggedin ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';
@@ -848,23 +856,6 @@ abstract class SkinVector extends SkinMustache {
 			default:
 				$type = self::MENU_TYPE_PORTAL;
 				break;
-		}
-
-		if ( $key === 'data-languages' && $this->isLanguagesInContent() ) {
-			$portletData = array_merge( $portletData,
-				$this->getULSPortletData(
-					$portletData[ 'class' ] ?? '',
-					$this->isLanguagesInContentAt( 'top' )
-				)
-			);
-		}
-
-		if ( $key === 'data-user-menu' && !$this->isLegacy() ) {
-			$portletData = $this->getUserMenuPortletData( $portletData );
-		}
-
-		if ( $key === 'data-vector-user-menu-overflow' ) {
-			$portletData['class'] .= ' vector-user-menu-overflow';
 		}
 
 		$isDropdown = $type === self::MENU_TYPE_DROPDOWN;
