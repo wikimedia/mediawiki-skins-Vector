@@ -382,6 +382,7 @@
 				"mediawiki.page.ready",
 				"mediawiki.page.watch.ajax",
 				"mediawiki.util",
+				"mediawiki.storage",
 				"mediawiki.experiments"
 			],
 			"messages": [
@@ -392,6 +393,9 @@
 			]
 		},
 		"skins.vector.js": {
+			"styles": [
+				"resources/skins.vector.js/limitedWidthToggle.less"
+			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
 				{
@@ -404,6 +408,8 @@
 				"resources/skins.vector.js/sidebarPersistence.js",
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/echo.js",
+				"resources/skins.vector.js/limitedWidthToggle.js",
+				"resources/skins.vector.js/features.js",
 				"resources/skins.vector.js/searchLoader.js",
 				"resources/skins.vector.js/menuTabs.js"
 			],

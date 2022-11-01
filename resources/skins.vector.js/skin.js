@@ -3,6 +3,7 @@ var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	sidebarPersistence = require( './sidebarPersistence.js' ),
+	limitedWidthToggle = require( './limitedWidthToggle.js' ),
 	watchstar = require( './watchstar.js' ),
 	// @ts-ignore
 	menuTabs = require( './menuTabs.js' ),
@@ -81,6 +82,7 @@ function main( window ) {
 	// menuTabs should follow `dropdownMenus` as that can move menu items from a
 	// tab menu to a dropdown.
 	menuTabs();
+	limitedWidthToggle();
 	addNamespacesGadgetSupport();
 	if ( document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
 		watchstar();
