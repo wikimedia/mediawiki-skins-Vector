@@ -597,7 +597,7 @@
 			"value": 20,
 			"description": "@var The minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
-		"VectorArticleTools": {
+		"VectorPageTools": {
 			"value": {
 				"logged_in": false,
 				"logged_out": false

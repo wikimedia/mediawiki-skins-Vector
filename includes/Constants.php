@@ -228,17 +228,17 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_PAGE_TOOLS = 'VectorArticleTools';
+	public const CONFIG_PAGE_TOOLS = 'VectorPageTools';
 
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_PAGE_TOOLS = 'ArticleTools';
+	public const REQUIREMENT_PAGE_TOOLS = 'PageTools';
 
 	/**
 	 * @var string
 	 */
-	public const FEATURE_PAGE_TOOLS = 'ArticleTools';
+	public const FEATURE_PAGE_TOOLS = 'PageTools';
 
 	/**
 	 * @var string
