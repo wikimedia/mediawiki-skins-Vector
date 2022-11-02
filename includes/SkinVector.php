@@ -221,14 +221,14 @@ abstract class SkinVector extends SkinMustache {
 	 * @param bool $isTempUser
 	 * @param bool $includeLearnMoreLink Pass `true` to include the learn more
 	 * link in the menu for anon users. This param will be inert for temp users.
-	 * @return string
+	 * @return array
 	 */
-	private function getAnonMenuBeforePortletHTML(
+	private function getAnonMenuBeforePortletData(
 		$returnto,
 		$useCombinedLoginLink,
 		$isTempUser,
 		$includeLearnMoreLink
-	) {
+	): array {
 		$templateParser = $this->getTemplateParser();
 		$loginLinkData = array_merge( $this->buildLoginData( $returnto, $useCombinedLoginLink ), [
 			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-login' ],
@@ -239,8 +239,6 @@ abstract class SkinVector extends SkinMustache {
 			'htmlLogin' => $this->makeLink( 'login', $loginLinkData ),
 			'data-anon-editor' => []
 		];
-
-		$templateName = $isTempUser ? 'UserLinks__templogin' : 'UserLinks__login';
 
 		if ( !$isTempUser && $includeLearnMoreLink ) {
 			$learnMoreLinkData = [
@@ -255,7 +253,7 @@ abstract class SkinVector extends SkinMustache {
 			];
 		}
 
-		return $templateParser->processTemplate( $templateName, $templateData );
+		return $templateData;
 	}
 
 	/**
@@ -263,16 +261,11 @@ abstract class SkinVector extends SkinMustache {
 	 * after the menu itself.
 	 * @return string
 	 */
-	private function getLogoutHTML() {
+	private function getLogoutHTML(): string {
 		$logoutLinkData = array_merge( $this->buildLogoutLinkData(), [
 			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-logout' ],
 		] );
-		$logoutLinkData = Hooks::updateLinkData( $logoutLinkData );
-
-		$templateParser = $this->getTemplateParser();
-		return $templateParser->processTemplate( 'UserLinks__logout', [
-			'htmlLogout' => $this->makeLink( 'logout', $logoutLinkData )
-		] );
+		return $this->makeLink( 'logout', Hooks::updateLinkData( $logoutLinkData ) );
 	}
 
 	/**
@@ -296,7 +289,7 @@ abstract class SkinVector extends SkinMustache {
 		unset( $userMenuOverflowData[ 'label' ] );
 
 		if ( $isAnon || $isTempUser ) {
-			$userMenuData[ 'html-before-portal' ] .= $this->getAnonMenuBeforePortletHTML(
+			$additionalData = $this->getAnonMenuBeforePortletData(
 				$returnto,
 				$useCombinedLoginLink,
 				$isTempUser,
@@ -308,12 +301,13 @@ abstract class SkinVector extends SkinMustache {
 				!$userMenuData['is-empty']
 			);
 		} else {
-			// Appending as to not override data potentially set by the onSkinAfterPortlet hook.
-			$userMenuData[ 'html-after-portal' ] .= $this->getLogoutHTML();
+			$additionalData = [];
 		}
 
 		$moreItems = substr_count( $userMenuOverflowData['html-items'], '<li' );
-		return [
+		return $additionalData + [
+			'html-logout-link' => $this->getLogoutHTML(),
+			'is-temp-user' => $isTempUser,
 			'is-wide' => $moreItems > 3,
 			'data-user-menu-overflow' => $userMenuOverflowData,
 			'data-user-menu' => $userMenuData

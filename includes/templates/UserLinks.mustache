@@ -1,4 +1,23 @@
 <nav class="vector-user-links{{#is-wide}} vector-user-links-wide{{/is-wide}}" aria-label="{{msg-personaltools}}" role="navigation" >
 	{{#data-user-menu-overflow}}{{>Menu}}{{/data-user-menu-overflow}}
-	{{#data-user-menu}}{{>Dropdown}}{{/data-user-menu}}
+	{{#data-user-menu}}
+
+	{{>Dropdown/Open}}
+		{{#is-anon}}
+		{{#is-temp-user}}
+		{{>UserLinks__templogin}}
+		{{/is-temp-user}}
+		{{^is-temp-user}}
+		{{>UserLinks__login}}
+		{{/is-temp-user}}
+		{{/is-anon}}
+		<ul class="vector-menu-content-list">{{{html-items}}}</ul>
+		{{^is-anon}}
+		{{!-- The #pt-logout ID is required for the AJAX enabled logout in mediawiki.page.ready to work.}}
+		<div id="pt-logout" class="vector-user-menu-logout">
+			{{{html-logout-link}}}
+		</div>
+		{{/is-anon}}
+	{{>Dropdown/Close}}
+	{{/data-user-menu}}
 </nav>

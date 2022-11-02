@@ -2,6 +2,8 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const userLinksTemplate = fs.readFileSync( 'includes/templates/UserLinks.mustache', 'utf8' );
 const dropdownTemplate = fs.readFileSync( 'includes/templates/Dropdown.mustache', 'utf8' );
+const dropdownOpenTemplate = fs.readFileSync( 'includes/templates/Dropdown/Open.mustache', 'utf8' );
+const dropdownCloseTemplate = fs.readFileSync( 'includes/templates/Dropdown/Close.mustache', 'utf8' );
 
 const templateData = {
 	'is-wide': false,
@@ -35,10 +37,15 @@ const templateData = {
 	}
 };
 
-const renderedHTML = mustache.render( userLinksTemplate, templateData, {
+const dropdownPartials = {
+	'Dropdown/Open': dropdownOpenTemplate,
+	'Dropdown/Close': dropdownCloseTemplate,
 	Dropdown: dropdownTemplate
-} );
+};
+
+const renderedHTML = mustache.render( userLinksTemplate, templateData, dropdownPartials );
 
 module.exports = {
+	dropdownPartials,
 	userLinksHTML: renderedHTML
 };
