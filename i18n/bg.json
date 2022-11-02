@@ -5,7 +5,9 @@
 			"DCLXVI",
 			"ShockD",
 			"Spiritia",
-			"StanProg"
+			"StanProg",
+			"Amire80",
+			"Termininja"
 		]
 	},
 	"vector-skin-desc": "Модерна версия на MonoBook с обновен дизайн и много подобрения на ползваемостта",
@@ -13,6 +15,7 @@
 	"vector-opt-out": "Превключване към стария изглед",
 	"vector-action-toggle-sidebar": "Превключване на страничната лента",
 	"vector-language-button-label": "{{PLURAL:$1|$1 език|$1 езика}}",
+	"vector-language-redirect-to-top": "В тази {{SITENAME}} езиковите връзки са в горната част на страницата срещу заглавието на статията. [[#p-lang-btn|Отидете горе]].",
 	"vector-action-addsection": "Добавяне на тема",
 	"vector-action-delete": "Изтриване",
 	"vector-action-move": "Преместване",
@@ -28,5 +31,8 @@
 	"vector-jumptosearch": "Направо към търсенето",
 	"vector-jumptocontent": "Направо към съдържанието",
 	"vector-more-actions": "Още",
-	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-anon-user-menu-pages-learn": "научете повече",
+	"vector-anon-user-menu-pages-label": "Научете повече за редактирането",
+	"vector-main-menu-tooltip": "Главно меню"
 }

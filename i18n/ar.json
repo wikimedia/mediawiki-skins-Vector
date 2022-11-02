@@ -18,7 +18,9 @@
 			"Dyolf77 (WMF)",
 			"Wahrani",
 			"Bachounda",
-			"Beginneruser"
+			"Beginneruser",
+			"Amire80",
+			"FShbib"
 		]
 	},
 	"skinname-vector": "فكتور القديم (2010)",
@@ -34,7 +36,7 @@
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
 	"vector-languages": "لغات",
 	"vector-language-button-aria-label": "{{GENDER:|اذهب|اذهبي}} إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|لا لغة|لغة واحدة|لغتين|$1 لغات|$1 لغة}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
+	"vector-language-button-label": "{{PLURAL:$1|لا لغات|لغة واحدة|لغتان|$1 لغات|$1 لغة}}",
 	"vector-language-redirect-to-top": "في نسخة {{SITENAME}} هذه، وصلات اللغات موجودة في الزاوية العليا اليسرى بجانب العنوان. [[#p-lang-btn|انتقل إلى الأعلى]].",
 	"vector-language-variant-switcher-label": "غيّر لهجة اللغة",
 	"vector-action-addsection": "أضف موضوعًا",
@@ -54,7 +56,7 @@
 	"vector-more-actions": "المزيد",
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
-	"vector-intro-page": "ويكيبيديا:مقدمة",
+	"vector-intro-page": "Help:مقدمة",
 	"vector-anon-user-menu-pages": "صفحات للمحررين الذين سجَّلوا خروجهم",
 	"vector-anon-user-menu-pages-learn": "تعلَّم المزيد",
 	"vector-anon-user-menu-pages-label": "تعلَّم المزيد بخصوص التحرير",

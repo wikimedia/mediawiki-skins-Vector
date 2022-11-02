@@ -18,6 +18,7 @@
 	"vector-opt-out": "Əvvəlki dizayna keç",
 	"vector.css": "/* Burada yerləşən CSS Vector istifadəçilərinə tətbiq olunur */",
 	"vector.js": "/* Burada Vector skin istifadəçiləri üçün istənilən JavaScript yüklənəcək */",
+	"vector-languages": "Dillər",
 	"vector-language-button-label": "{{PLURAL:$1|$1 dildə|$1 dildə}}",
 	"vector-language-redirect-to-top": "Bu {{SITENAME}} layihəsində dil keçidləri məqalənin başlıq hissəsində verilmişdir. [[#p-lang-btn|Yuxarı get]].",
 	"vector-action-addsection": "Mövzu əlavə et",

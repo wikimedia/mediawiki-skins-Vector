@@ -4,7 +4,8 @@
 			"Cakkaparla",
 			"ReyLon Mrat",
 			"Tejoebāsa",
-			"YaThaWinTha"
+			"YaThaWinTha",
+			"Aggasena"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
@@ -12,8 +13,8 @@
 	"vector-action-delete": "ဖျက်​ပါ​",
 	"vector-action-move": "ရွိလျားရေ",
 	"vector-action-protect": "ကာကွယ်ရေ",
-	"vector-view-create": "စပြီးကေရေးရန်",
-	"vector-view-edit": "တီးဖြတ်တေ",
+	"vector-view-create": "ဖန်တီးပါ",
+	"vector-view-edit": "တီးဖြတ်ပါ",
 	"vector-view-history": "သမိုင်းတိကိုကြည့်ပါ",
 	"vector-view-view": "ဖတ်ကြေ့ပါ",
 	"vector-more-actions": "ထပ်လို့"
