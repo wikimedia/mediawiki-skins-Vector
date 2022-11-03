@@ -137,15 +137,6 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
-	 * Temporary function while we deprecate SkinVector class.
-	 *
-	 * @return bool
-	 */
-	protected function isLegacy(): bool {
-		return false;
-	}
-
-	/**
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
@@ -267,6 +258,16 @@ class SkinVector22 extends SkinVector {
 		}
 
 		return array_merge( $parentData, [
+			'data-search-box' => $this->getSearchData(
+				$parentData['data-search-box'],
+				true,
+				// is primary mode of search
+				true,
+				'searchform',
+				true,
+				false,
+				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
+			),
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
@@ -282,7 +283,9 @@ class SkinVector22 extends SkinVector {
 					false,
 					false,
 					'vector-sticky-search-form',
-					false
+					false,
+					false,
+					Constants::SEARCH_BOX_INPUT_LOCATION_MOVED
 				),
 				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_STICKY_HEADER_EDIT

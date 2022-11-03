@@ -783,7 +783,6 @@ class Hooks implements
 
 	/**
 	 * Gets whether the current skin version is the legacy version.
-	 * Should mirror SkinVector::isLegacy
 	 *
 	 * @param string $skinName hint that can be used to detect modern vector.
 	 * @return bool

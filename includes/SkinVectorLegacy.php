@@ -17,15 +17,6 @@ class SkinVectorLegacy extends SkinVector {
 	private const MENU_TYPE_PORTAL = 3;
 
 	/**
-	 * Whether or not the legacy version of the skin is being used.
-	 *
-	 * @return bool
-	 */
-	protected function isLegacy(): bool {
-		return true;
-	}
-
-	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
 	 * and the ULS extension is enabled. Hide it otherwise.
 	 * There is no point in showing the language button if ULS extension is unavailable
@@ -120,7 +111,7 @@ class SkinVectorLegacy extends SkinVector {
 			$portletData['class'] .= ' vector-menu-dropdown-noicon';
 		}
 
-		if ( $key === 'data-personal' && $this->isLegacy() ) {
+		if ( $key === 'data-personal' ) {
 			// Set tooltip to empty string for the personal menu for both logged-in and logged-out users
 			// to avoid showing the tooltip for legacy version.
 			$portletData['html-tooltip'] = '';
@@ -157,13 +148,10 @@ class SkinVectorLegacy extends SkinVector {
 	) {
 		$extraClasses = [
 			self::MENU_TYPE_DROPDOWN => 'vector-menu-dropdown',
-			self::MENU_TYPE_TABS => 'vector-menu-tabs',
+			self::MENU_TYPE_TABS => 'vector-menu-tabs vector-menu-tabs-legacy',
 			self::MENU_TYPE_PORTAL => 'vector-menu-portal portal',
 			self::MENU_TYPE_DEFAULT => '',
 		];
-		if ( $this->isLegacy() ) {
-			$extraClasses[self::MENU_TYPE_TABS] .= ' vector-menu-tabs-legacy';
-		}
 		$portletData['class'] .= ' ' . $extraClasses[$type];
 
 		if ( !isset( $portletData['heading-class'] ) ) {
@@ -188,6 +176,17 @@ class SkinVectorLegacy extends SkinVector {
 		// skin version user preference. To avoid T302461 we need to unset it here.
 		// This shouldn't be run on SkinVector22.
 		unset( $parentData['data-toc'] );
-		return $parentData;
+		return array_merge( $parentData, [
+			'data-search-box' => $this->getSearchData(
+				$parentData['data-search-box'],
+				false,
+				// is primary mode of search
+				true,
+				'searchform',
+				true,
+				true,
+				Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT
+			)
+		] );
 	}
 }
