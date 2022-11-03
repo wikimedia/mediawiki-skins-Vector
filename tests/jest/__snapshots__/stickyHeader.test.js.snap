@@ -18,12 +18,12 @@ exports[`Sticky header renders 1`] = `
 		<span class=\\"vector-menu-heading-label\\"></span>
 	</label>
 	<div class=\\"vector-menu-content\\">
+
 		
 		<ul class=\\"vector-menu-content-list\\"></ul>
 		
 	</div>
-</div>
-			</div>
+</div>			</div>
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>
 		</div>
 	</div>

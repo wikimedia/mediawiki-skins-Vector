@@ -3,9 +3,8 @@ const fs = require( 'fs' );
 const tocContainerTemplate = fs.readFileSync( 'includes/templates/TableOfContentsContainer.mustache', 'utf8' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
-const dropdownTemplate = fs.readFileSync( 'includes/templates/Dropdown.mustache', 'utf8' );
 const sticky = require( '../../resources/skins.vector.es6/stickyHeader.js' );
-const { userLinksHTML } = require( './userLinksData.js' );
+const { userLinksHTML, dropdownPartials } = require( './userLinksData.js' );
 
 const defaultButtonsTemplateData = [ {
 	href: '#',
@@ -89,11 +88,10 @@ const templateData = {
 	'data-buttons': defaultButtonsTemplateData.concat( editButtonsTemplateData )
 };
 
-const renderedHTML = mustache.render( stickyHeaderTemplate, templateData, {
+const renderedHTML = mustache.render( stickyHeaderTemplate, templateData, Object.assign( {}, dropdownPartials, {
 	Button: buttonTemplate,
-	Dropdown: dropdownTemplate,
 	SearchBox: '<div> </div>' // ignore SearchBox for this test
-} );
+} ) );
 
 beforeEach( () => {
 	document.body.innerHTML = renderedHTML;

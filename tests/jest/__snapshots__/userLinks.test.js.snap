@@ -2,13 +2,14 @@
 
 exports[`UserLinks renders 1`] = `
 "<nav class=\\"vector-user-links\\" aria-label=\\"\\" role=\\"navigation\\">
+
 <div id=\\"p-personal\\" class=\\"vector-menu vector-menu-dropdown mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown\\">
 	<input type=\\"checkbox\\" id=\\"p-personal-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-p-personal\\" class=\\"vector-menu-checkbox\\">
 	<label id=\\"p-personal-label\\" for=\\"p-personal-checkbox\\" class=\\"vector-menu-heading\\">
 		<span class=\\"vector-menu-heading-label\\">Personal tools</span>
 	</label>
 	<div class=\\"vector-menu-content\\">
-		
+
 		<ul class=\\"vector-menu-content-list\\">
 			<li id=\\"pt-userpage\\" class=\\"user-links-collapsible-item mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar\\" href=\\"/wiki/User:Admin\\" title=\\"Your user page [.]\\" accesskey=\\".\\"><span>Admin</span></a></li>
 			<li id=\\"pt-mytalk\\" class=\\"mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk\\" href=\\"/wiki/User_talk:Admin\\" title=\\"Your talk page [n]\\" accesskey=\\"n\\"><span>Talk</span></a></li>
@@ -20,9 +21,10 @@ exports[`UserLinks renders 1`] = `
 			<li id=\\"pt-mycontris\\" class=\\"mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userContributions mw-ui-icon-wikimedia-userContributions\\" href=\\"/wiki/Special:Contributions/Admin\\" title=\\"A list of your contributions [y]\\" accesskey=\\"y\\"><span>Contributions</span></a></li>
 			<li id=\\"pt-custom\\" class=\\"mw-list-item mw-list-item-js\\">Gadget added item</li>
 		</ul>
-		
+		<div id=\\"pt-logout\\" class=\\"vector-user-menu-logout\\">
+			
+		</div>
 	</div>
-</div>
-</nav>
+</div></nav>
 "
 `;
