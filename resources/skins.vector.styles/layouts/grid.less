@@ -27,7 +27,7 @@
 	.skin-vector-disable-max-width & {
 		// Allow the max-width of content on history/special pages to be wider than
 		// the max-width of content on article pages.
-		// Note, we don't disable the max-width on .mw-article-toolbar-container intentionally
+		// Note, we don't disable the max-width on .vector-page-toolbar-container intentionally
 		// to support easier navigation between tabs.
 		// See T293441 for further information on that.
 		// Both rules are !important as they are final. Max-width on a page should be restored by removing the `skin-vector-disable-max-width`,
@@ -64,8 +64,6 @@
 		grid-area: header;
 	}
 
-	/* FIXME: Remove selector after Ib4050768f20b1734d356104f18aa539f657099d8 in prod for a week */
-	.vector-sidebar-container,
 	.vector-main-menu-container {
 		grid-area: sidebar;
 	}

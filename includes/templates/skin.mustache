@@ -39,11 +39,7 @@
 			class="mw-checkbox-hack-checkbox"
 			{{#is-main-menu-visible}}checked{{/is-main-menu-visible}}>
 		{{>Header}}
-		<div class="vector-sidebar-container vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
-			<div id="mw-navigation">
-				{{#data-portlets-main-menu}}{{>MainMenu}}{{/data-portlets-main-menu}}
-			</div>
-		</div>
+		{{>MainMenu}}
 		<div class="vector-sitenotice-container">
 			<div id="siteNotice">{{{html-site-notice}}}</div>
 		</div>
