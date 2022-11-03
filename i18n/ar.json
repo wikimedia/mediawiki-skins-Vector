@@ -19,7 +19,8 @@
 			"ديفيد",
 			"زكريا",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"FShbib"
 		]
 	},
 	"skinname-vector": "فكتور القديم (2010)",
@@ -34,7 +35,7 @@
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
 	"vector-languages": "لغات",
 	"vector-language-button-aria-label": "{{GENDER:|اذهب|اذهبي}} إلى المقالة في لغةٍ أخرى. مُتاحة في {{PLURAL:$1|لا لغة|لغة واحدة|لغتين|$1 لغات|$1 لغة}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
+	"vector-language-button-label": "{{PLURAL:$1|لا لغات|لغة واحدة|لغتان|$1 لغات|$1 لغة}}",
 	"vector-no-language-button-label": "أضف لغات",
 	"vector-no-language-button-aria-label": "هذه المقالة تتواجد فقط في هذه اللغة. أضفها إلى اللغات الأخرى.",
 	"vector-language-redirect-to-top": "في نسخة {{SITENAME}} هذه، وصلات اللغات موجودة في الزاوية العليا اليسرى بجانب العنوان. [[#p-lang-btn|انتقل إلى الأعلى]].",
@@ -56,7 +57,7 @@
 	"vector-more-actions": "المزيد",
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-intro-page": "ويكيبيديا:مقدمة",
+	"vector-intro-page": "Help:مقدمة",
 	"vector-toc-heading": "المحتويات",
 	"vector-toc-toggle-position-sidebar": "انقل للشريط الجانبي",
 	"vector-toc-toggle-position-title": "أخف",

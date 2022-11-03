@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aefgh39622"
+			"Aefgh39622",
+			"Lookruk"
 		]
 	},
-	"vector-view-edit": "ແກ້ໄຂ",
+	"vector-action-delete": "ລຶບ",
+	"vector-view-edit": "ດັດແກ້",
 	"vector-view-history": "ເບິ່ງປະຫວັດ",
 	"vector-view-view": "ອ່ານ",
 	"vector-more-actions": "ເພີ່ມເຕີມ"

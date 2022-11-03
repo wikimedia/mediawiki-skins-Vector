@@ -12,6 +12,7 @@
 	"skinname-vector": "Սովորական",
 	"vector-opt-out": "Անցնել հին տեսքին",
 	"vector-languages": "Լեզուներ",
+	"vector-language-button-label": "{{PLURAL:$1|լեզու}}",
 	"vector-no-language-button-label": "Ավելացնել լեզուներ",
 	"vector-action-addsection": "Ավելացնել քննարկում",
 	"vector-action-delete": "Ջնջել",
@@ -25,7 +26,9 @@
 	"vector-view-view": "Կարդալ",
 	"vector-view-viewsource": "Դիտել ելատեքստը",
 	"vector-more-actions": "Ավելին",
+	"vector-toc-heading": "Բովանդակություն",
 	"vector-toc-toggle-position-title": "թաքցնել",
+	"vector-toc-beginning": "Ներածություն",
 	"vector-anon-user-menu-pages-learn": "իմանալ ավելին",
 	"vector-toc-menu-tooltip": "Բովանդակություն"
 }
