@@ -50,5 +50,8 @@
 	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
 	"vector-anon-user-menu-pages-learn": "ulteriori informazioni",
 	"vector-main-menu-tooltip": "Menu principale",
-	"vector-site-nav-label": "Sito"
+	"vector-site-nav-label": "Sito",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussione]]",
+	"vector-prefs-limited-width": "Abilita la modalità con larghezza limitata",
+	"vector-prefs-limited-width-help": "Abilita la modalità con larghezza limitata per migliorare l'esperienza di lettura."
 }
