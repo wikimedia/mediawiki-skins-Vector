@@ -1,0 +1,11 @@
+<div id="{{id}}-content" class="vector-dropdown-content">
+	{{#data-pinnable-header}}{{>PinnableHeader}}{{/data-pinnable-header}}
+	{{^has-multiple-menus}}
+		{{#data-menus}}{{>Menu}}{{/data-menus}}
+	{{/has-multiple-menus}}
+	{{#has-multiple-menus}}
+		<ul>
+			{{#data-menus}}<li>{{>Menu}}</li>{{/data-menus}}
+		</ul>
+	{{/has-multiple-menus}}
+</div>

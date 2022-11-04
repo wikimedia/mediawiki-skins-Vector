@@ -17,11 +17,11 @@ exports[`Sticky header renders 1`] = `
 	<label id=\\"p-sticky-header-toc-label\\" for=\\"p-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" tabindex=\\"-1\\">
 		<span class=\\"vector-menu-heading-label\\"></span>
 	</label>
-	<div class=\\"vector-menu-content\\">
+	<div id=\\"p-sticky-header-toc-content-container\\" class=\\"vector-menu-content\\">
 
-		
-		<ul class=\\"vector-menu-content-list\\"></ul>
-		
+	
+	<ul class=\\"vector-menu-content-list\\"></ul>
+	
 	</div>
 </div>			</div>
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>
