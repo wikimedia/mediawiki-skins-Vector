@@ -4,12 +4,14 @@
 			"Abdeaitali",
 			"Amire80",
 			"Enzoreg",
+			"Ideophagous",
 			"Reda Benkhadra",
 			"SADI9I",
 			"SADIQUI",
 			"Zanatos"
 		]
 	},
+	"vector-opt-out": "رجع ل الشكل لقديم",
 	"vector-language-button-label": "{{PLURAL:$1|$1 لوغة|$1 لوغات}}",
 	"vector-language-redirect-to-top": "ف هاد لويكيپيديا ليانات د لوغات كاينين ف لفوق د صفحة حدا لعنوان. [[#p-lang-btn|سير لفوق]].",
 	"vector-action-addsection": "زيد شي موضوع",
