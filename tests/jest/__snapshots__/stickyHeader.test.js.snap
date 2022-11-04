@@ -3,7 +3,7 @@
 exports[`Sticky header renders 1`] = `
 "<header id=\\"vector-sticky-header\\" aria-hidden=\\"true\\" class=\\"vector-sticky-header\\">
 	<div class=\\"vector-sticky-header-start\\">
-		<div class=\\"vector-sticky-header-icon-start mw-ui-icon-flush-left\\">
+		<div class=\\"vector-sticky-header-icon-start mw-ui-icon-flush-left mw-ui-icon-flush-right\\">
 
 <button tabindex=\\"-1\\" data-event-name=\\"ui.vector-sticky-search-form.icon\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search vector-sticky-header-search-toggle\\">
 	<span>search</span>

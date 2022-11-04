@@ -2,6 +2,7 @@
 @import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 
+@spacing-search-title-divider: 30px;
 @font-size-sticky-header-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 
 .vector-sticky-header {
@@ -47,15 +48,18 @@
 	&-context-bar {
 		display: flex;
 		align-items: center;
-
-		.vector-feature-visual-enhancement-next-enabled & {
-			column-gap: 8px;
-		}
 	}
 
 	&-start {
 		flex-grow: 1;
 		min-width: 0;
+	}
+
+	&-icon-start {
+		.vector-feature-visual-enhancement-next-disabled & {
+			// Override mw-ui-icon-flush-right temporarily when the flag is disabled
+			margin-right: 0 !important; /* stylelint-disable-line declaration-no-important */
+		}
 	}
 
 	// Apply nowrap to title and buttons
@@ -71,9 +75,16 @@
 	//
 	&-context-bar {
 		border-left: @border-width-base @border-style-base #c8c8c8;
-		margin: 0 15px;
-		padding-left: 30px;
+		padding-left: @spacing-search-title-divider;
 		min-width: 0;
+
+		.vector-feature-visual-enhancement-next-disabled & {
+			margin: 0 15px;
+		}
+
+		.vector-feature-visual-enhancement-next-enabled & {
+			margin-left: @spacing-search-title-divider;
+		}
 	}
 
 	&-toc-container {
