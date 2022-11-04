@@ -30,27 +30,12 @@
 	.mw-list-item {
 		margin: 0;
 	}
-
-	// By default all dropdowns introduce a arrow.
-	// In anonymous mode we use an ellipsis so the arrow is unnecessary.
-	// Reset it so that it doesn't displace other elements.
-	.mw-ui-icon-wikimedia-ellipsis:after {
-		.vector-feature-visual-enhancement-next-enabled & {
-			content: none;
-		}
-	}
 }
 
 /**
  * Both logged-in and logged-out dropdown menus.
  */
 .vector-user-menu {
-	&.mw-ui-icon-flush-right {
-		.vector-feature-visual-enhancement-next-disabled & {
-			margin-right: 0;
-		}
-	}
-
 	.vector-menu-content {
 		left: auto;
 		right: 0;

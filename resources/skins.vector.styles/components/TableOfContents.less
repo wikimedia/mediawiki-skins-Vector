@@ -13,25 +13,12 @@
 	// Needed for Grid-based layout
 	align-self: start;
 	height: 100%;
-
-	.vector-feature-visual-enhancement-next-disabled & {
-		margin-left: 0;
-	}
-
-	// Only the sticky TOC should be flushed.
-	.vector-sticky-toc-container.mw-ui-icon-flush-left {
-		margin-left: 0;
-	}
 }
 
 .vector-sticky-toc-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
 	top: 0;
-
-	.vector-feature-visual-enhancement-next-disabled & {
-		margin-left: 0;
-	}
 
 	@media ( min-width: @min-width-desktop ) {
 		.vector-toc-not-collapsed & {

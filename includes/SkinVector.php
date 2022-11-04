@@ -527,8 +527,7 @@ abstract class SkinVector extends SkinMustache {
 		// completion of T319356.
 		//
 		// Also, add target class to apply different icon to personal menu dropdown for logged in users.
-		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown' .
-			' mw-ui-icon-flush-right';
+		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown';
 		$portletData['class'] .= $this->loggedin ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';

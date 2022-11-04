@@ -23,6 +23,13 @@
 	.vector-feature-visual-enhancement-next-disabled & {
 		padding: 7px 12px;
 	}
+
+	.vector-feature-visual-enhancement-next-enabled & {
+		// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
+		@media ( max-width: @max-width-tablet ) {
+			padding: 7px 12px;
+		}
+	}
 }
 
 #vector-toc-collapsed-button,
@@ -66,6 +73,8 @@
 	// T316056 Remove TOC menu fixed width and apply min/max-width
 	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
 	width: auto;
+	margin-left: 0;
+	margin-right: 0;
 	min-width: 200px;
 	max-width: ~'min( @{max-width-collapsed-toc}, 75vw )'; // 51em
 }
@@ -86,6 +95,7 @@
 		display: none;
 		position: absolute;
 		top: @height-collapsed-toc-button; // TOC button height
+		left: -@icon-padding-md;
 		margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
 		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 		border: @border-width-base @border-style-base @border-color-base;
@@ -119,13 +129,6 @@
 	//
 	.mixin-toc-collapsed-header();
 
-	.vector-feature-visual-enhancement-next-disabled {
-		.sidebar-toc {
-			margin-left: 0;
-			margin-right: 0;
-			left: -@icon-padding-md;
-		}
-	}
 	//
 	// Collapsed to floating button on narrow screens when below page title
 	//
@@ -153,19 +156,17 @@
 				.vector-below-page-title& {
 					.mixin-toc-collapsed-floating();
 				}
-
-				// Disable left and right margin
-				.sidebar-toc {
-					margin-left: 0;
-					margin-right: 0;
-				}
 			}
 
-			.vector-feature-visual-enhancement-next-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
-				.sidebar-toc {
-					margin-left: 0;
-					margin-right: 0;
-					left: -@icon-padding-md;
+			// Align with vector-toc-collapsed-button which uses core flush classes
+			// using temporary hardcoded value.
+			// FIXME: Remove this entire selector as part of T318013
+			.vector-feature-visual-enhancement-next-enabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) .sidebar-toc {
+				@media ( min-width: @width-breakpoint-desktop ) {
+					// Copied from mediawiki.ui.icons,
+					// (Ifccaadabd72a12814d3d4d01200931f7254c6cd5)
+					// but converted to px to match `mw-ui-button`
+					left: -5px;
 				}
 			}
 
@@ -175,13 +176,6 @@
 				display: inline-block;
 			}
 		}
-
-		.vector-toc-collapsed.vector-feature-visual-enhancement-next-disabled:not( .vector-sticky-header-visible ) {
-			.sidebar-toc {
-				margin-left: 0;
-				margin-right: 0;
-			}
-		}
 	}
 }
 
@@ -189,8 +183,6 @@
 // Collapsed to sticky header
 //
 .vector-toc-collapsed .vector-sticky-header-toc-container .sidebar-toc {
-	margin-left: 0;
-	margin-right: 0;
 	.mixin-toc-collapsed();
 	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
 	// max-content doesn't account for padding even when we use box-sizing, so use content-box instead

@@ -14,12 +14,6 @@
 	// Align the left edge of main menu with the main menu button.
 	width: @width-sidebar-px;
 
-	//FIXME: This media query will be replaced with the pinned menu class in T317897
-	@media ( min-width: @min-width-desktop ) {
-		// Magic number from the edge of the main menu to the start of the main menu text.
-		margin-left: -28px;
-	}
-
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
 		width: @width-sidebar-px-wide;
@@ -36,6 +30,12 @@
 	@media ( max-width: @max-width-tablet ) {
 		// Makes the sidebar full screen at lower resolutions.
 		width: 100%;
+	}
+
+	//FIXME: This media query will be replaced with the pinned menu class in T317897
+	@media ( min-width: @min-width-desktop ) {
+		// Magic number from the edge of the main menu to the start of the main menu text.
+		margin-left: -28px;
 	}
 
 	// Hide sidebar entirely when the checkbox is disabled
