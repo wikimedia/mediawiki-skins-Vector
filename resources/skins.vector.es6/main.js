@@ -140,7 +140,7 @@ const main = () => {
 	}
 
 	// Initialize pinnable headers
-	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-article-tools-enabled' );
+	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-page-tools-enabled' );
 	if ( isPageToolsEnabled ) {
 		pinnableHeader.initPinnableHeader();
 	}
