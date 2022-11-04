@@ -119,8 +119,6 @@ abstract class SkinVector extends SkinMustache {
 	private const SEARCH_AUTO_EXPAND_WIDTH_CLASS = 'vector-search-box-auto-expand-width';
 	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 
-	abstract protected function isLegacy(): bool;
-
 	/**
 	 * Calls getLanguages with caching.
 	 * @return array
@@ -399,46 +397,6 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * @inheritDoc
-	 */
-	public function getTemplateData(): array {
-		$skin = $this;
-		$parentData = parent::getTemplateData();
-
-		//
-		// Naming conventions for Mustache parameters.
-		//
-		// Value type (first segment):
-		// - Prefix "is" or "has" for boolean values.
-		// - Prefix "msg-" for interface message text.
-		// - Prefix "html-" for raw HTML.
-		// - Prefix "data-" for an array of template parameters that should be passed directly
-		//   to a template partial.
-		// - Prefix "array-" for lists of any values.
-		//
-		// Source of value (first or second segment)
-		// - Segment "page-" for data relating to the current page (e.g. Title, WikiPage, or OutputPage).
-		// - Segment "hook-" for any thing generated from a hook.
-		//   It should be followed by the name of the hook in hyphenated lowercase.
-		//
-		// Conditionally used values must use null to indicate absence (not false or '').
-		$commonSkinData = array_merge( $parentData, [
-			'is-legacy' => $this->isLegacy(),
-			'input-location' => $this->getSearchBoxInputLocation(),
-			'data-search-box' => $this->getSearchData(
-				$parentData['data-search-box'],
-				!$this->isLegacy(),
-				// is primary mode of search
-				true,
-				'searchform',
-				true
-			)
-		] );
-
-		return $commonSkinData;
-	}
-
-	/**
 	 * Annotates search box with Vector-specific information
 	 *
 	 * @param array $searchBoxData
@@ -446,6 +404,9 @@ abstract class SkinVector extends SkinMustache {
 	 * @param bool $isPrimary
 	 * @param string $formId
 	 * @param bool $autoExpandWidth
+	 * @param bool $hasLabel whether search should have a label
+	 * @param string $location Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
+	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
 	 * @return array modified version of $searchBoxData
 	 */
 	final protected function getSearchData(
@@ -453,7 +414,9 @@ abstract class SkinVector extends SkinMustache {
 		bool $isCollapsible,
 		bool $isPrimary,
 		string $formId,
-		bool $autoExpandWidth
+		bool $autoExpandWidth,
+		bool $hasLabel,
+		string $location
 	) {
 		$searchClass = 'vector-search-box-vue ';
 
@@ -484,21 +447,10 @@ abstract class SkinVector extends SkinMustache {
 			'class' => 'search-toggle',
 		], $collapseIconAttrs );
 
-		return $searchBoxData;
-	}
-
-	/**
-	 * Gets the value of the "input-location" parameter for the SearchBox Mustache template.
-	 *
-	 * @return string Either `Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT` or
-	 *  `Constants::SEARCH_BOX_INPUT_LOCATION_MOVED`
-	 */
-	private function getSearchBoxInputLocation(): string {
-		if ( $this->isLegacy() ) {
-			return Constants::SEARCH_BOX_INPUT_LOCATION_DEFAULT;
-		}
-
-		return Constants::SEARCH_BOX_INPUT_LOCATION_MOVED;
+		return $searchBoxData + [
+			'has-label' => $hasLabel,
+			'input-location' => $location,
+		];
 	}
 
 	/**
