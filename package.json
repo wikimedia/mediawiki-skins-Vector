@@ -26,7 +26,7 @@
 		"@types/node-fetch": "2.5.7",
 		"@wikimedia/types-wikimedia": "0.2.0",
 		"@wikimedia/wvui": "0.3.0",
-		"babel-loader": "8.0.6",
+		"babel-loader": "8.3.0",
 		"bundlesize": "0.18.1",
 		"eslint-config-wikimedia": "0.20.0",
 		"grunt-banana-checker": "0.9.0",
