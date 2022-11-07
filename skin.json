@@ -482,7 +482,7 @@
 	},
 	"config": {
 		"VectorVisualEnhancementNext": {
-			"value": false,
+			"value": true,
 			"description": "Temporary configuration flag for enabling in development enhancements."
 		},
 		"Vector2022PreviewPages": {

@@ -344,7 +344,7 @@ class Hooks implements
 				$content_navigation[$overflow][$key] = $data;
 				$icon = $data['icon'] ?? null;
 				if ( $visualEnhancements && $icon ) {
-					$linkClass = $content_navigation[$overflow][$key]['link-class'];
+					$linkClass = $content_navigation[$overflow][$key]['link-class'] ?? [];
 					$item = $content_navigation[$overflow][$key];
 					$newLinkClass = [
 						// Allows Echo to react to clicks
