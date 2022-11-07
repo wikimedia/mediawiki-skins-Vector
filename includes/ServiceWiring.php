@@ -202,27 +202,6 @@ return [
 			]
 		);
 
-		// Temporary feature: Visual enhancements
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
-				Constants::CONFIG_KEY_VISUAL_ENHANCEMENTS,
-				Constants::REQUIREMENT_VISUAL_ENHANCEMENTS
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_VISUAL_ENHANCEMENTS,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_VISUAL_ENHANCEMENTS,
-			]
-		);
-
 		// Feature: Page tools menu
 		// ================================
 		$featureManager->registerRequirement(

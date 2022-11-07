@@ -9,6 +9,16 @@
 .vector-menu-tabs {
 	float: left;
 
+	// With mw-ui-icons, expand watchstar and wikilove links it to cover full touch area
+	.mw-list-item {
+		.mw-ui-icon {
+			// Align small icons with the bottom of the tabs.
+			// Height of tab is 38px, and small icon is 32px,
+			// With 2px border, 38 - 32 + 2
+			margin: 8px 0 0 0;
+		}
+	}
+
 	// T316574 Override visited link styles
 	.mw-list-item a {
 		color: @color-link;
@@ -38,8 +48,6 @@
  * and dropdown menus inside the article toolbar
  */
 .vector-menu-tabs .mw-list-item.vector-tab-noicon,
-/* FIXME: legacy Vector icons - can be removed when VisualEnhancementNext is enabled */
-.vector-menu-tabs .mw-list-item.icon > a,
 .vector-page-toolbar-container .vector-menu-dropdown {
 	margin: 0 @padding-horizontal-tabs;
 }
@@ -72,27 +80,11 @@
 		font-size: inherit;
 	}
 
-	/* FIXME: legacy Vector .icon selector can be removed when VisualEnhancementNext is enabled */
-	&.icon > a,
 	&.vector-tab-noicon > a,
 	> .vector-menu-heading {
 		// Top & bottom padding to increase clickable area.
 		padding: @padding-vertical-tabs;
 		// bottom margin to overlap border with toolbar border.
 		margin-bottom: -1px;
-	}
-}
-
-// With mw-ui-icons, expand watchstar and wikilove links it to cover full touch area
-.vector-feature-visual-enhancement-next-enabled {
-	.vector-menu-tabs {
-		.mw-list-item {
-			.mw-ui-icon {
-				// Align small icons with the bottom of the tabs.
-				// Height of tab is 38px, and small icon is 32px,
-				// With 2px border, 38 - 32 + 2
-				margin: 8px 0 0 0;
-			}
-		}
 	}
 }

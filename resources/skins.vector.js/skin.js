@@ -84,9 +84,7 @@ function main( window ) {
 	menuTabs();
 	limitedWidthToggle();
 	addNamespacesGadgetSupport();
-	if ( document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
-		watchstar();
-	}
+	watchstar();
 }
 
 /**

@@ -213,21 +213,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_VISUAL_ENHANCEMENTS = 'VisualEnhancementNext';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_VISUAL_ENHANCEMENTS = 'VisualEnhancementNext';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_VISUAL_ENHANCEMENTS = 'VectorVisualEnhancementNext';
-
-	/**
-	 * @var string
-	 */
 	public const CONFIG_PAGE_TOOLS = 'VectorPageTools';
 
 	/**

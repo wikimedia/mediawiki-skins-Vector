@@ -3,9 +3,6 @@
  * Undos work inside Echo to replace our button.
  */
 function init() {
-	if ( !document.body.classList.contains( 'vector-feature-visual-enhancement-next-enabled' ) ) {
-		return;
-	}
 	if ( document.querySelectorAll( '#pt-notifications-alert a, #pt-notifications-notice a' ).length !== 2 ) {
 		return;
 	}

@@ -1,52 +1,11 @@
 @import '../resources/common/variables.less';
 
-.vector-feature-visual-enhancement-next-disabled .vector-user-links {
-	#pt-notifications-alert,
-	#pt-notifications-notice {
-		margin: 0;
-
-		// Override OOUI icon styles to match core icons
-		.mw-echo-notifications-badge {
-			top: 0;
-			margin: 0;
-			background-repeat: no-repeat;
-			background-position: center;
-			width: 44px;
-			height: 44px;
-			opacity: 1;
-
-			&:hover {
-				background-color: rgba( 0, 0, 0, 0.03 );
-				border-radius: 2px;
-			}
-
-			// Adjust counter styles when counter is present
-			&:not( .mw-echo-notifications-badge-all-read ) {
-				&:after {
-					left: 24px;
-					top: 19px;
-				}
-			}
-		}
-	}
-}
-
-.skin-vector-legacy,
-.vector-feature-visual-enhancement-next-disabled {
-	#pt-notifications-notice .mw-echo-notifications-badge,
-	#pt-notifications-alert .mw-echo-notifications-badge {
-		top: -5px;
-	}
-
-	#p-personal #pt-notifications-alert,
-	#p-personal #pt-notifications-notice {
-		margin-right: 0.4em;
-	}
-}
-
 .mixin-notification-badge() {
 	// When 99+ allow counter so spill outside icon
-	overflow: visible;
+	// Overrides mw-ui-icon default.
+	&.mw-ui-icon {
+		overflow: visible;
+	}
 
 	&:after {
 		position: absolute;
@@ -67,31 +26,29 @@
 	}
 }
 
-.vector-feature-visual-enhancement-next-enabled.skin-vector-2022 {
-	.mw-echo-notification-badge-nojs {
-		.mixin-notification-badge();
-	}
+.mw-echo-notification-badge-nojs {
+	.mixin-notification-badge();
+}
 
-	// Special colors for unseen notifications
-	#pt-notifications-alert .mw-echo-unseen-notifications:after {
-		background-color: @color-destructive;
-	}
+// Special colors for unseen notifications
+#pt-notifications-alert .mw-echo-unseen-notifications:after {
+	background-color: @color-destructive;
+}
 
-	#pt-notifications-notice .mw-echo-unseen-notifications:after {
-		background-color: @color-primary;
-	}
+#pt-notifications-notice .mw-echo-unseen-notifications:after {
+	background-color: @color-primary;
+}
 
-	// Override ULS enhanced buttons
-	#pt-notifications-notice .mw-echo-notifications-badge,
-	#pt-notifications-alert .mw-echo-notifications-badge {
-		.mixin-notification-badge();
-		margin: 0;
-		line-height: 0;
-		opacity: 1;
+// Override ULS enhanced buttons
+#pt-notifications-notice .mw-echo-notifications-badge,
+#pt-notifications-alert .mw-echo-notifications-badge {
+	.mixin-notification-badge();
+	margin: 0;
+	line-height: 0;
+	opacity: 1;
 
-		&:focus {
-			// Copied from mixins.buttons.less, match button focus styles
-			box-shadow: @box-shadow-primary--focus;
-		}
+	&:focus {
+		// Copied from mixins.buttons.less, match button focus styles
+		box-shadow: @box-shadow-primary--focus;
 	}
 }

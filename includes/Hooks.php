@@ -181,12 +181,11 @@ class Hooks implements
 	 */
 	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
 		$featureManager = VectorServices::getFeatureManager();
-		$visualEnhancements = $featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS );
 
 		foreach ( $content_navigation['views'] as $key => $item ) {
 			$icon = $item['icon'] ?? null;
 			if ( $icon ) {
-				if ( $isLegacy || !$featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS ) ) {
+				if ( $isLegacy ) {
 					self::appendClassToItem(
 						$item['class'],
 						[ 'icon' ]
@@ -318,7 +317,6 @@ class Hooks implements
 		$overflow = 'vector-user-menu-overflow';
 		$content_navigation[$overflow] = [];
 		$featureManager = VectorServices::getFeatureManager();
-		$visualEnhancements = $featureManager->isFeatureEnabled( Constants::FEATURE_VISUAL_ENHANCEMENTS );
 
 		// Logged in and logged out overflow items
 		if ( isset( $content_navigation['user-interface-preferences']['uls'] ) ) {
@@ -343,7 +341,7 @@ class Hooks implements
 			foreach ( $content_navigation['notifications'] as $key => $data ) {
 				$content_navigation[$overflow][$key] = $data;
 				$icon = $data['icon'] ?? null;
-				if ( $visualEnhancements && $icon ) {
+				if ( $icon ) {
 					$linkClass = $content_navigation[$overflow][$key]['link-class'] ?? [];
 					$item = $content_navigation[$overflow][$key];
 					$newLinkClass = [

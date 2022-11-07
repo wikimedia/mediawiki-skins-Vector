@@ -420,7 +420,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testOnSkinTemplateNavigation() {
 		$this->setMwGlobals( [
 			'wgVectorUseIconWatch' => true,
-			'wgVectorVisualEnhancementNext' => false,
 		] );
 		$skin = new SkinVector22( [ 'name' => 'vector' ] );
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );

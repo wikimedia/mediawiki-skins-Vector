@@ -455,7 +455,7 @@
 			"+ext.visualEditor.base": "skinStyles/ext.visualEditor.less"
 		},
 		"vector": {
-			"ext.echo.styles.badge": "skinStyles/ext.echo.styles.badge.less",
+			"ext.echo.styles.badge": "skinStyles/vector/ext.echo.styles.badge.less",
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"jquery.tipsy": "skinStyles/jquery.tipsy.less",
 			"jquery.ui": [
@@ -484,10 +484,6 @@
 		}
 	},
 	"config": {
-		"VectorVisualEnhancementNext": {
-			"value": true,
-			"description": "Temporary configuration flag for enabling in development enhancements."
-		},
 		"Vector2022PreviewPages": {
 			"value": [],
 			"description": "Temporary configuration flag for allowing users to preview the new Vector skin."
