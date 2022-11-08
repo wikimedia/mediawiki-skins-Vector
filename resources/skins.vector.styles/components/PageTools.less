@@ -1,0 +1,25 @@
+// Ensure there is only 1 page tools landmark at anytime
+.vector-page-tools-landmark {
+	.vector-page-tools-pinned #right-navigation &,
+	.vector-page-tools-unpinned .vector-column-end & {
+		display: none;
+	}
+}
+
+// Update page tools styles when pinned
+.vector-column-end {
+	.vector-dropdown-content {
+		padding-left: 45px;
+		width: 140px;
+	}
+
+	.vector-menu-content-list {
+		margin: 12px 0;
+		list-style: none;
+
+		li {
+			padding: 5px 0;
+			margin: 0;
+		}
+	}
+}
