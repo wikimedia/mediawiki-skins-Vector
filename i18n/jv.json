@@ -34,5 +34,8 @@
 	"vector-more-actions": "Liyané",
 	"vector-search-loader": "Ngemot pamrayoganing panggolèk",
 	"vector-anon-user-menu-pages": "Kaca pambesut kang metu log",
-	"vector-anon-user-menu-pages-learn": "sinaoni candhaké"
+	"vector-anon-user-menu-pages-learn": "sinaoni candhaké",
+	"vector-anon-user-menu-pages-label": "Sinaoni luwih jangkep babagan pambesutan",
+	"vector-main-menu-tooltip": "Menu pokok",
+	"tooltip-vector-anon-user-menu-title": "Pilihan liya"
 }

@@ -5,13 +5,18 @@
 			"Mirin",
 			"Objectivesea",
 			"Yekrats",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Stefangrotz"
 		]
 	},
 	"skinname-vector": "Vektoro",
 	"vector-skin-desc": "Moderna versio de MonoBook kun freŝa aspekto kaj plibonigo de uzebleco",
-	"vector.css": "/* La jena CSS influos la paĝaspekton por uzantoj de la Vektora temo. */",
-	"vector.js": "/* La jena Ĝavaskripto ŝargiĝos por uzantoj de la Vektora temo. */",
+	"prefs-vector-enable-vector-1-label": "Uzu Malnova Vector",
+	"vector-opt-out": "Reveni al la malnova aspekto",
+	"vector-opt-out-tooltip": "Ŝanĝu viajn agordojn por reveni al la malnova aspekto de la etoso (malnova Vector)",
+	"vector.css": "/* Ĉiu CSS ĉi tie estos ŝarĝitaj por uzantoj de la Vector etoso */",
+	"vector.js": "/* Ĉiuj JavaScript ĉi tie estos ŝarĝita por uzantoj de la Vector etsoso /",
+	"vector-action-toggle-sidebar": "Baskuligi la flankpanelon",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingvo|$1 lingvoj}}",
 	"vector-action-addsection": "Aldoni temon",
 	"vector-action-delete": "Forigi",
@@ -26,5 +31,12 @@
 	"vector-view-viewsource": "Vidi fonton",
 	"vector-jumptonavigation": "Salti al navigilo",
 	"vector-jumptosearch": "Salti al serĉilo",
-	"vector-more-actions": "Pli"
+	"vector-jumptocontent": "Saltu al enhavo",
+	"vector-more-actions": "Pli",
+	"vector-search-loader": "Ŝarĝante serĉsugestojn",
+	"vector-anon-user-menu-pages": "Paĝoj por elsalutitaj redaktistoj",
+	"vector-anon-user-menu-pages-learn": "Lernu pli",
+	"vector-anon-user-menu-pages-label": "Lernu pli pri redaktado",
+	"vector-main-menu-tooltip": "Ĉefa menuo",
+	"tooltip-vector-anon-user-menu-title": "Pliaj agordoj"
 }
