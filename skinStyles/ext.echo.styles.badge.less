@@ -62,6 +62,11 @@
 		content: attr( data-counter-text );
 		color: #fff;
 	}
+
+	// The number of notifications shouldn't show if there are none.
+	&[ data-counter-num='0' ]:after {
+		content: none;
+	}
 }
 
 .vector-feature-visual-enhancement-next-enabled {
