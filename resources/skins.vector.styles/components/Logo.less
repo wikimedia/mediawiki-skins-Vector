@@ -2,6 +2,11 @@
 @import 'mediawiki.mixins.less';
 
 .mw-logo {
+	.vector-feature-visual-enhancement-next-enabled & {
+		// The logo is 24px from the main menu button icon
+		margin-left: 24px;
+	}
+
 	.flex-display();
 	// If icon is not configured, ensure that the logo still takes up available
 	// space allocated by layout.
