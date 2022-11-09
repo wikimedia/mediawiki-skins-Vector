@@ -2,24 +2,67 @@
 // Grid layout
 //
 
-// Makes a column span entire page
-.mixin-column-full-width() {
-	grid-column: sidebar / content;
+@width-sidebar-end: unit( 185px / @font-size-browser, em );
+
+@media ( min-width: @min-width-desktop ) {
+	.mw-page-container-inner {
+		display: grid;
+		width: 100%;
+		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
+		grid-template: ~'min-content min-content min-content 1fr min-content / 232px minmax(0, 1fr)';
+		grid-template-areas: 'header header'
+			'siteNotice siteNotice'
+			'mainMenu pageContent'
+			'toc pageContent'
+			'footer footer';
+	}
+
+	.vector-sitenotice-container {
+		grid-area: siteNotice;
+	}
+
+	.mw-table-of-contents-container {
+		grid-area: toc;
+	}
+
+	.mw-header {
+		grid-area: header;
+	}
+
+	.vector-main-menu-container {
+		grid-area: mainMenu;
+	}
+
+	.mw-content-container {
+		grid-area: pageContent;
+	}
+
+	.mw-footer-container {
+		grid-area: footer;
+	}
+}
+
+@media ( min-width: @min-width-desktop-wide ) {
+	.mw-page-container-inner {
+		/* Use of minmax is important to restrict the maximum grid column width
+		more information: T314756 */
+		grid-template-columns: ~'284px minmax(0, 1fr)';
+	}
+}
+
+.mixin-horizontally-centered() {
+	grid-column: mainMenu / pageContent;
 	margin-left: auto;
 	margin-right: auto;
-	// Needed for minimal content e.g. one word articles.
 	width: 100%;
 	box-sizing: border-box;
-	max-width: @max-width-content-container;
-
-	.vector-feature-limited-width-disabled & {
-		max-width: none;
-	}
 }
 
 .mw-content-container,
 .mw-table-of-contents-container {
-	max-width: @max-width-content-container;
+	.vector-feature-page-tools-disabled & {
+		max-width: @max-width-content-container;
+	}
 
 	// For container logic specific to special pages and history pages.
 	// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
@@ -40,61 +83,61 @@
 	}
 }
 
-@media ( min-width: @min-width-desktop ) {
-	.mw-page-container-inner {
-		display: grid;
-		width: 100%;
-		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
-		grid-template: ~'min-content min-content min-content 1fr min-content / 232px minmax(0, 1fr)';
-		grid-template-areas: 'header header'
-			'sitenotice sitenotice'
-			'sidebar content'
-			'toc content'
-			'footer footer';
-	}
+// Our usage of grid to position the ToC when it is collapsed in the page title
+// requires us to manually define the max width depending on the number of columns.
+// This also requires us to define a set width for the sidebar end column
+// FIXME: Remove this max-width mess with T318013
+@{selector-sidebar-no-toc-sidebar-closed} ~ .mw-content-container {
+	.mixin-horizontally-centered();
+	max-width: @max-width-content-container;
 
-	.vector-sitenotice-container {
-		grid-area: sitenotice;
-	}
-
-	.mw-table-of-contents-container {
-		grid-area: toc;
-	}
-
-	.mw-header {
-		grid-area: header;
-	}
-
-	.vector-main-menu-container {
-		grid-area: sidebar;
-	}
-
-	.mw-content-container {
-		grid-area: content;
-	}
-
-	.mw-footer-container {
-		grid-area: footer;
-	}
-}
-
-@media ( min-width: @min-width-desktop-wide ) {
-	.mw-page-container-inner {
-		/* Use of minmax is important to restrict the maximum grid column width
-		more information: T314756 */
-		grid-template-columns: ~'284px minmax(0, 1fr)';
-	}
-}
-
-@{selector-sidebar-no-toc-sidebar-closed} {
-	& ~ .mw-content-container {
-		.mixin-column-full-width();
+	.vector-feature-page-tools-enabled.vector-page-tools-pinned & {
+		max-width: @max-width-content-container + @width-sidebar-end;
 	}
 }
 
 .vector-toc-collapsed @{selector-main-menu-closed} {
 	& ~ .mw-content-container,
 	& ~ .mw-table-of-contents-container {
-		.mixin-column-full-width();
+		.mixin-horizontally-centered();
+		max-width: @max-width-content-container;
+
+		.vector-feature-page-tools-enabled.vector-page-tools-pinned& {
+			max-width: @max-width-content-container + @width-sidebar-end;
+		}
+	}
+}
+
+@media ( min-width: @min-width-desktop ) {
+	.vector-feature-page-tools-enabled .mw-body {
+		display: grid;
+		grid-auto-rows: auto;
+		grid-template-columns: ~'minmax(0, @{max-width-content-container}) min-content';
+		grid-template-areas: 'titlebar .'
+			'toolbar columnEnd'
+			'content columnEnd';
+
+		// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
+		.vector-feature-limited-width-disabled&,
+		.vector-feature-limited-width-content-disabled&,
+		.skin-vector-disable-max-width& {
+			grid-template-columns: ~'1fr min-content';
+		}
+
+		.vector-page-titlebar {
+			grid-area: titlebar;
+		}
+
+		.vector-page-toolbar {
+			grid-area: toolbar;
+		}
+
+		#bodyContent {
+			grid-area: content;
+		}
+
+		.vector-column-end {
+			grid-area: columnEnd;
+		}
 	}
 }

@@ -50,6 +50,7 @@
 			<main id="content" class="mw-body" role="main">
 				{{>PageTitlebar}}
 				{{>PageToolbar}}
+				{{>ColumnEnd}}
 				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
 					{{>BeforeContent}}
 					{{! the #contentSub element is currently used by editors, do not hide or remove it
@@ -59,10 +60,13 @@
 					{{{html-user-message}}}
 					{{{html-body-content}}}
 					{{{html-categories}}}
+					{{#is-page-tools-enabled}}{{#is-language-in-content-bottom}}
+						{{#data-lang-btn}}{{>Dropdown}}{{/data-lang-btn}}
+					{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
 				</div>
-				{{#is-language-in-content-bottom}}
-				{{#data-lang-btn}}{{>Dropdown}}{{/data-lang-btn}}
-				{{/is-language-in-content-bottom}}
+				{{^is-page-tools-enabled}}{{#is-language-in-content-bottom}}
+					{{#data-lang-btn}}{{>Dropdown}}{{/data-lang-btn}}
+				{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
 			</main>
 			{{{html-after-content}}}
 		</div>
