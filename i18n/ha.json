@@ -6,11 +6,14 @@
 			"Em-em",
 			"Gwanki",
 			"Salihu aliyu",
-			"Edith Nwobu"
+			"Edith Nwobu",
+			"Amire80",
+			"Bello Na'im",
+			"Moyogo"
 		]
 	},
 	"vector-language-button-aria-label": "Je zuwa maƙala domin wani harshen. Akwai a {{PLURAL:$1|$1 language|$1 languages}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ|$1 asụsụga}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 harshe|$1 harsuna}}",
 	"vector-language-variant-switcher-label": "Sauya bambancin harshe",
 	"vector-action-addsection": "Sabon sashe",
 	"vector-action-delete": "Soke",
