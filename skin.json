@@ -439,6 +439,7 @@
 	},
 	"ResourceModuleSkinStyles": {
 		"vector-2022": {
+			"+ext.growthExperiments.StructuredTask.PreEdit": "skinStyles/ext.growthExperiments.StructuredTask.PreEdit.less",
 			"ext.echo.styles.badge": "skinStyles/ext.echo.styles.badge.less",
 			"+ext.echo.styles.alert": "skinStyles/ext.echo.styles.alert.less",
 			"+mediawiki.action.edit": "skinStyles/mediawiki.action.edit.less",
