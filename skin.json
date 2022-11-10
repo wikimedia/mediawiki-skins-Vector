@@ -40,7 +40,8 @@
 					"bodyClasses": [
 						"skin-vector",
 						"skin-vector-search-vue",
-						"vector-toc-not-collapsed"
+						"vector-toc-not-collapsed",
+						"vector-page-tools-unpinned"
 					],
 					"menus": [
 						"user-interface-preferences",

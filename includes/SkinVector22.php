@@ -138,6 +138,48 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Returns pinnable header template data for page tools
+	 *
+	 * @param bool $isPinned
+	 * @return array
+	 */
+	private function getPageToolsPinnableHeaderData( bool $isPinned ): array {
+		return [
+			'is-pinned' => $isPinned,
+			'label' => $this->msg( 'vector-page-tools-label' ),
+			'unpin-label' => $this->msg( 'vector-toc-toggle-position-title' ),
+			'pin-label' => $this->msg( 'vector-toc-toggle-position-sidebar' ),
+			'data-name' => 'vector-page-tools',
+			'data-pinnable-element-id' => 'vector-page-tools-content',
+			'data-unpinned-container-id' => 'vector-page-tools-content-container',
+			'data-pinned-container-id' => 'vector-page-tools-pinned-container'
+		];
+	}
+
+	/**
+	 * @param array $portletData
+	 * @return array
+	 */
+	private function getPageToolsData( array $portletData ): array {
+		$actionsMenu = $portletData[ 'data-actions' ];
+		$menusData = [ $actionsMenu ];
+		// Page Tools is unpinned by default, hardcoded for now
+		$isPageToolsPinned = false;
+
+		$pinnableDropdownData = [
+			'id' => 'vector-page-tools',
+			'class' => 'vector-page-tools',
+			'label' => $this->msg( 'toolbox' ),
+			'is-pinned' => $isPageToolsPinned,
+			// @phan-suppress-next-line PhanSuspiciousValueComparison
+			'has-multiple-menus' => count( $menusData ) > 1,
+			'data-pinnable-header' => $this->getPageToolsPinnableHeaderData( $isPageToolsPinned ),
+			'data-menus' => $menusData
+		];
+		return $pinnableDropdownData;
+	}
+
+	/**
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
@@ -243,6 +285,12 @@ class SkinVector22 extends SkinVector {
 			);
 		}
 
+		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
+		if ( $isPageToolsEnabled ) {
+			$pageToolsData = $this->getPageToolsData( $parentData['data-portlets'] );
+			$parentData['data-portlets']['data-page-tools'] = $pageToolsData;
+		}
+
 		$config = $this->getConfig();
 		$components = [
 			'data-search-box' => new VectorComponentSearchBox(
@@ -296,7 +344,7 @@ class SkinVector22 extends SkinVector {
 					Constants::FEATURE_STICKY_HEADER_EDIT
 				)
 			) : false,
-			'is-page-tools-enabled' => $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS )
+			'is-page-tools-enabled' => $isPageToolsEnabled
 		] );
 	}
 }

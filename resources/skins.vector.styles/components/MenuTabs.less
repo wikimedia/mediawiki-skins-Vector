@@ -55,7 +55,7 @@
 	// NOTE: Consider adding a single selector to define both items,
 	// since they both appear beside each other in the article toolbar.
 	& > a,
-	.vector-menu-heading {
+	> .vector-menu-heading {
 		display: inline-flex;
 		position: relative;
 		cursor: pointer;
@@ -66,7 +66,7 @@
 		font-weight: normal;
 	}
 
-	.vector-menu-heading {
+	> .vector-menu-heading {
 		// For better compatibility with gadgets (like Twinkle) that append
 		// <H3> elements as dropdown headings (which was the convention in legacy Vector).
 		font-size: inherit;
@@ -75,7 +75,7 @@
 	/* FIXME: legacy Vector .icon selector can be removed when VisualEnhancementNext is enabled */
 	&.icon > a,
 	&.vector-tab-noicon > a,
-	.vector-menu-heading {
+	> .vector-menu-heading {
 		// Top & bottom padding to increase clickable area.
 		padding: @padding-vertical-tabs;
 		// bottom margin to overlap border with toolbar border.
