@@ -74,11 +74,11 @@
 						"vector-jumptosearch",
 						"vector-jumptocontent",
 						"vector-toc-beginning",
-						"vector-toc-heading",
-						"vector-toc-toggle-position-sidebar",
-						"vector-toc-toggle-position-title",
+						"vector-toc-label",
 						"vector-toc-menu-tooltip",
 						"vector-toc-collapsible-button-label",
+						"vector-pin-element-label",
+						"vector-unpin-element-label",
 						"vector-site-nav-label",
 						"search",
 						"searchbutton",
@@ -389,9 +389,9 @@
 			],
 			"messages": [
 				"vector-toc-beginning",
-				"vector-toc-heading",
-				"vector-toc-toggle-position-sidebar",
-				"vector-toc-toggle-position-title"
+				"vector-toc-label",
+				"vector-pin-element-label",
+				"vector-unpin-element-label"
 			]
 		},
 		"skins.vector.js": {
