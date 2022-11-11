@@ -1,25 +1,34 @@
-.vector-limited-width-toggle {
-	display: none;
-}
+/**
+ * Limited width toggle - a button which lets users change the layout from
+ * a fixed-width content column to a layout where the content takes up the
+ * full window width.
+ */
 
-// Note on certain pages the control will have no effect e.g. Special:RecentChanges
-// Defining this at 1600px was a product decision so do not change it
-// (more context at https://phabricator.wikimedia.org/T319449#8346630)
-@media ( min-width: 1600px ) {
-	.vector-feature-visual-enhancement-next-enabled .vector-limited-width-toggle {
-		display: block;
-		position: fixed;
-		bottom: 8px;
-		right: 8px;
-
-		&:before {
-			background-image: url( images/fullscreen.svg );
-		}
+//NOTE: Currently, the limited width toggle is feature flagged.
+.vector-feature-visual-enhancement-next-enabled {
+	// By default, toggle should be hidden unless the breakpoint below is reached.
+	.vector-limited-width-toggle {
+		display: none;
 	}
 
-	.vector-feature-visual-enhancement-next-enabled.vector-feature-limited-width-content-disable {
-		.vector-limited-width-toggle:before {
+	// Note on certain pages the control will have no effect e.g. Special:RecentChanges
+	// Defining this at 1600px was a product decision so do not change it
+	// (more context at https://phabricator.wikimedia.org/T319449#8346630)
+	@media ( min-width: 1600px ) {
+		.vector-limited-width-toggle {
+			display: block;
+			position: fixed;
+			bottom: 8px;
+			right: 8px;
+		}
+
+		//NOTE: enabled/disabled class on body.
+		&.vector-feature-limited-width-disabled .vector-limited-width-toggle:before {
 			background-image: url( images/fullscreen-close.svg );
+		}
+
+		&.vector-feature-limited-width-enabled .vector-limited-width-toggle:before {
+			background-image: url( images/fullscreen.svg );
 		}
 	}
 }
