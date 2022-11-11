@@ -150,34 +150,20 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
-	 * Returns pinnable header template data for page tools
-	 *
-	 * @param bool $isPinned
-	 * @return array
-	 */
-	private function getPageToolsPinnableHeaderData( bool $isPinned ): array {
-		return [
-			'is-pinned' => $isPinned,
-			'label-tag-name' => 'div',
-			'label' => $this->msg( 'vector-page-tools-label' ),
-			'unpin-label' => $this->msg( 'vector-unpin-element-label' ),
-			'pin-label' => $this->msg( 'vector-pin-element-label' ),
-			'data-name' => 'vector-page-tools',
-			'data-pinnable-element-id' => 'vector-page-tools-content',
-			'data-unpinned-container-id' => 'vector-page-tools-content-container',
-			'data-pinned-container-id' => 'vector-page-tools-pinned-container'
-		];
-	}
-
-	/**
 	 * @param array $portletData
 	 * @return array
 	 */
 	private function getPageToolsData( array $portletData ): array {
 		$actionsMenu = $portletData[ 'data-actions' ];
 		$menusData = [ $actionsMenu ];
+
 		// Page Tools is unpinned by default, hardcoded for now
 		$isPageToolsPinned = false;
+		$pinnableHeader = new VectorComponentPinnableHeader(
+			$this->getContext(),
+			$isPageToolsPinned,
+			'vector-page-tools'
+		);
 
 		$pinnableDropdownData = [
 			'id' => 'vector-page-tools',
@@ -186,7 +172,7 @@ class SkinVector22 extends SkinVector {
 			'is-pinned' => $isPageToolsPinned,
 			// @phan-suppress-next-line PhanSuspiciousValueComparison
 			'has-multiple-menus' => count( $menusData ) > 1,
-			'data-pinnable-header' => $this->getPageToolsPinnableHeaderData( $isPageToolsPinned ),
+			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
 			'data-menus' => $menusData
 		];
 		return $pinnableDropdownData;
