@@ -13,25 +13,36 @@ class VectorComponentPinnableHeader implements VectorComponent {
 	private $pinned;
 	/** @var string */
 	private $name;
-	/** @var bool */
+	/**
+	 * @var bool
+	 * Flag controlling if the pinnable element should be automatically moved in the DOM when pinned/unpinned
+	 */
 	private $moveElement;
+	/**
+	 * @var string
+	 */
+	private $labelTagName;
 
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param bool $pinned
 	 * @param string $name
 	 * @param bool|null $moveElement
+	 * @param string|null $labelTagName Element type of the label. Either a 'div' or a 'h2'
+	 *   in the case of the pinnable ToC.
 	 */
 	public function __construct(
 		MessageLocalizer $localizer,
 		bool $pinned,
 		string $name,
-		?bool $moveElement = true
+		?bool $moveElement = true,
+		?string $labelTagName = 'div'
 	) {
 		$this->localizer = $localizer;
 		$this->pinned = $pinned;
 		$this->name = $name;
 		$this->moveElement = $moveElement;
+		$this->labelTagName = $labelTagName;
 	}
 
 	/**
@@ -42,6 +53,7 @@ class VectorComponentPinnableHeader implements VectorComponent {
 		$data = [
 			'is-pinned' => $this->pinned,
 			'label' => $messageLocalizer->msg( $this->name . '-label' ),
+			'label-tag-name' => $this->labelTagName,
 			'pin-label' => $messageLocalizer->msg( 'vector-pin-element-label' ),
 			'unpin-label' => $messageLocalizer->msg( 'vector-unpin-element-label' ),
 			'data-name' => $this->name
