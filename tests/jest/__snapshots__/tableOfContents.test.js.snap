@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table of contents re-rendering re-renders toc when wikipage.tableOfContents hook is fired with empty sections 1`] = `
-"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\"></nav>
+"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-label=\\"Contents\\" data-event-name=\\"ui.sidebar-toc\\"></nav>
 "
 `;
 
 exports[`Table of contents re-rendering re-renders toc when wikipage.tableOfContents hook is fired with sections 1`] = `
-"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\"><nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\">
+"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-label=\\"Contents\\" data-event-name=\\"ui.sidebar-toc\\"><nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-label=\\"Contents\\" data-event-name=\\"ui.sidebar-toc\\">
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
 		<p class=\\"sidebar-toc-title\\">
 		Contents
@@ -78,7 +78,7 @@ exports[`Table of contents re-rendering re-renders toc when wikipage.tableOfCont
 `;
 
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is false 1`] = `
-"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\">
+"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-label=\\"Contents\\" data-event-name=\\"ui.sidebar-toc\\">
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
 		<p class=\\"sidebar-toc-title\\">
 		Contents
@@ -141,7 +141,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 `;
 
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is true 1`] = `
-"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-labelledby=\\"sidebar-toc-label\\" data-event-name=\\"ui.sidebar-toc\\">
+"<nav id=\\"mw-panel-toc\\" class=\\"sidebar-toc\\" role=\\"navigation\\" aria-label=\\"Contents\\" data-event-name=\\"ui.sidebar-toc\\">
 	<div id=\\"sidebar-toc-label\\" class=\\"sidebar-toc-header\\">
 		<p class=\\"sidebar-toc-title\\">
 		Contents
