@@ -23,5 +23,6 @@
 	"vector-view-viewsource": "Vidi izvor (source)",
 	"vector-more-actions": "Više",
 	"vector-searchsuggest-containing": "Traži stranice koje sadrže <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-page-tools-label": "Alati",
 	"vector-prefs-limited-width-help": "Omogući režim ograničene širine za poboljšano čitanje."
 }

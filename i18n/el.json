@@ -59,6 +59,9 @@
 	"vector-toc-menu-tooltip": "Πίνακας Περιεχομένων",
 	"vector-toc-collapsible-button-label": "Εναλλαγή του πίνακα περιεχομένων",
 	"vector-site-nav-label": "Ιστότοπος",
+	"vector-page-tools-label": "Εργαλεία",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Συζήτηση]]",
-	"tooltip-vector-anon-user-menu-title": "Περισσότερες επιλογές"
+	"tooltip-vector-anon-user-menu-title": "Περισσότερες επιλογές",
+	"vector-prefs-limited-width": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους",
+	"vector-prefs-limited-width-help": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους για βελτιωμένη εμπειρία ανάγνωσης."
 }
