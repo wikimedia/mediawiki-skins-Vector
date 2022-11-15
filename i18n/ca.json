@@ -46,7 +46,7 @@
 	"vector-search-loader": "Carregant els suggeriments de cerca",
 	"vector-searchsuggest-containing": "Cerca les pàgines que continguin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducció",
-	"vector-toc-heading": "Contingut",
+	"vector-toc-label": "Contingut",
 	"vector-toc-beginning": "Inici",
 	"vector-toc-toggle-button-label": "Commuta la subsecció $1",
 	"vector-anon-user-menu-pages": "Pàgines per a editors no registrats",

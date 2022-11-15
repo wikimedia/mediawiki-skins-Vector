@@ -47,9 +47,7 @@
 	"vector-search-loader": "Іздеу ұсыныстары жүктелуде",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">«$1»</strong> бар беттерді іздеу",
 	"vector-intro-page": "Уикипедия:Таныстыру",
-	"vector-toc-heading": "Мазмұны",
-	"vector-toc-toggle-position-sidebar": "бүйірлік тақтаға жылжыту",
-	"vector-toc-toggle-position-title": "жасыру",
+	"vector-toc-label": "Мазмұны",
 	"vector-toc-beginning": "Кіріспе",
 	"vector-toc-toggle-button-label": "$1 суббөлімін көрсету/жасыру",
 	"vector-anon-user-menu-pages": "Шыққан өңдеушілерге арналған беттер",
@@ -59,6 +57,8 @@
 	"vector-toc-menu-tooltip": "Мазмұны",
 	"vector-toc-collapsible-button-label": "Мазмұнды көрсету/жасыру",
 	"vector-site-nav-label": "Сайт",
+	"vector-pin-element-label": "бүйірлік тақтаға жылжыту",
+	"vector-unpin-element-label": "жасыру",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Талқылау]]",
 	"tooltip-vector-anon-user-menu-title": "Басқа баптаулар"
 }

@@ -43,11 +43,11 @@
 	"vector-more-actions": "เพิ่มเติม",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-heading": "เนื้อหา",
-	"vector-toc-toggle-position-title": "ซ่อน",
+	"vector-toc-label": "เนื้อหา",
 	"vector-toc-beginning": "บทนำ",
 	"vector-anon-user-menu-pages": "หน้าสำหรับผู้แก้ไขที่ออกจากระบบ",
 	"vector-anon-user-menu-pages-learn": "เรียนรู้เพิ่มเติม",
 	"vector-main-menu-tooltip": "เมนูหลัก",
+	"vector-unpin-element-label": "ซ่อน",
 	"tooltip-vector-anon-user-menu-title": "ตัวเลือกเพิ่มเติม"
 }

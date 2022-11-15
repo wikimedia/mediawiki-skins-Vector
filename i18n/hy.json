@@ -28,10 +28,10 @@
 	"vector-view-view": "Կարդալ",
 	"vector-view-viewsource": "Դիտել ելատեքստը",
 	"vector-more-actions": "Ավելին",
-	"vector-toc-heading": "Բովանդակություն",
-	"vector-toc-toggle-position-title": "թաքցնել",
+	"vector-toc-label": "Բովանդակություն",
 	"vector-toc-beginning": "Ներածություն",
 	"vector-anon-user-menu-pages-learn": "իմանալ ավելին",
 	"vector-toc-menu-tooltip": "Բովանդակություն",
-	"vector-page-tools-label": "Գործիքներ"
+	"vector-page-tools-label": "Գործիքներ",
+	"vector-unpin-element-label": "թաքցնել"
 }

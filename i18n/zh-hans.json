@@ -69,9 +69,7 @@
 	"vector-search-loader": "正在加载搜索建议",
 	"vector-searchsuggest-containing": "搜索包含<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>的页面",
 	"vector-intro-page": "Help:新手入门",
-	"vector-toc-heading": "目录",
-	"vector-toc-toggle-position-sidebar": "移至侧栏",
-	"vector-toc-toggle-position-title": "隐藏",
+	"vector-toc-label": "目录",
 	"vector-toc-beginning": "序言",
 	"vector-toc-toggle-button-label": "切换 $1 小节",
 	"vector-anon-user-menu-pages": "未登录编辑者的页面",
@@ -81,6 +79,8 @@
 	"vector-toc-menu-tooltip": "目录",
 	"vector-toc-collapsible-button-label": "切换目录",
 	"vector-site-nav-label": "站点",
+	"vector-pin-element-label": "移至侧栏",
+	"vector-unpin-element-label": "隐藏",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|讨论]]",
 	"tooltip-vector-anon-user-menu-title": "更多选项"
 }

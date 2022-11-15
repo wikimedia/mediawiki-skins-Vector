@@ -43,7 +43,7 @@
 	"vector-search-loader": "ڳولا صلاحون لاھيندي",
 	"vector-searchsuggest-containing": "اھي صفحا ڳوليو جن ۾ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> آھي",
 	"vector-intro-page": "Help:تعارف",
-	"vector-toc-heading": "فھرست",
+	"vector-toc-label": "فھرست",
 	"vector-toc-beginning": "شروعات",
 	"vector-toc-toggle-button-label": "سبسيڪشن $1 کي ٽوگل ڪريو",
 	"vector-anon-user-menu-pages": "ٻاھر نڪتل سنواريندڙن لاءِ صفحا",

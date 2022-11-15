@@ -48,7 +48,7 @@
 	"vector-more-actions": "Muut",
 	"vector-search-loader": "Ladataan hakuehdotuksia",
 	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-heading": "Sisällysluettelo",
+	"vector-toc-label": "Sisällysluettelo",
 	"vector-toc-beginning": "Johdanto",
 	"vector-anon-user-menu-pages": "Sivut kirjautumattomille muokkaajille",
 	"vector-anon-user-menu-pages-learn": "lue lisää",

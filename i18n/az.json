@@ -36,9 +36,9 @@
 	"vector-more-actions": "Daha çox",
 	"vector-search-loader": "Axtarış təklifləri yüklənir",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ehtiva edən səhifələri axtar",
-	"vector-toc-heading": "Mündəricat",
-	"vector-toc-toggle-position-sidebar": "yan panelə keçir",
-	"vector-toc-toggle-position-title": "gizlə",
+	"vector-toc-label": "Mündəricat",
 	"vector-toc-beginning": "Giriş",
-	"vector-toc-toggle-button-label": "$1 alt bölməsini göstər/gizlə"
+	"vector-toc-toggle-button-label": "$1 alt bölməsini göstər/gizlə",
+	"vector-pin-element-label": "yan panelə keçir",
+	"vector-unpin-element-label": "gizlə"
 }

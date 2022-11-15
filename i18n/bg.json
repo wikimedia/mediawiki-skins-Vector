@@ -34,12 +34,12 @@
 	"vector-jumptocontent": "Направо към съдържанието",
 	"vector-more-actions": "Още",
 	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-toggle-position-title": "скриване",
 	"vector-toc-beginning": "Начало",
 	"vector-anon-user-menu-pages-learn": "научете повече",
 	"vector-anon-user-menu-pages-label": "Научете повече за редактирането",
 	"vector-main-menu-tooltip": "Главно меню",
 	"vector-toc-menu-tooltip": "Съдържание",
+	"vector-unpin-element-label": "скриване",
 	"vector-prefs-limited-width": "Включване на режим с ограничена ширина",
 	"vector-prefs-limited-width-help": "Включете режима с ограничена ширина за подобрено четене."
 }

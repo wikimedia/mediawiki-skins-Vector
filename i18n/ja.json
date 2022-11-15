@@ -62,9 +62,7 @@
 	"vector-search-loader": "検索候補を読み込んでいます",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>を含むページを検索する",
 	"vector-intro-page": "Help:はじめに",
-	"vector-toc-heading": "目次",
-	"vector-toc-toggle-position-sidebar": "サイドバーに移動",
-	"vector-toc-toggle-position-title": "非表示",
+	"vector-toc-label": "目次",
 	"vector-toc-beginning": "ページ先頭",
 	"vector-toc-toggle-button-label": "$1サブセクションを切り替えます",
 	"vector-anon-user-menu-pages": "ログアウトした編集者のページ",
@@ -75,6 +73,8 @@
 	"vector-toc-collapsible-button-label": "目次の表示・非表示を切り替え",
 	"vector-site-nav-label": "サイト",
 	"vector-page-tools-label": "ツール",
+	"vector-pin-element-label": "サイドバーに移動",
+	"vector-unpin-element-label": "非表示",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|議論]]",
 	"tooltip-vector-anon-user-menu-title": "その他の操作"
 }

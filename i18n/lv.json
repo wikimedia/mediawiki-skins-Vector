@@ -34,9 +34,7 @@
 	"vector-search-loader": "Ielādē meklēšanas ieteikumus",
 	"vector-searchsuggest-containing": "Meklēt lapas, kas satur <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Vikipēdija:Ievads",
-	"vector-toc-heading": "Saturs",
-	"vector-toc-toggle-position-sidebar": "pārvietot uz sānjoslu",
-	"vector-toc-toggle-position-title": "paslēpt",
+	"vector-toc-label": "Saturs",
 	"vector-toc-beginning": "Sākums",
 	"vector-toc-toggle-button-label": "Pārslēgt $1 apakšsadaļu",
 	"vector-anon-user-menu-pages-learn": "uzzināt vairāk",
@@ -45,6 +43,8 @@
 	"vector-toc-menu-tooltip": "Satura rādītājs",
 	"vector-toc-collapsible-button-label": "Pārslēgt satura rādītāju",
 	"vector-site-nav-label": "Vietne",
+	"vector-pin-element-label": "pārvietot uz sānjoslu",
+	"vector-unpin-element-label": "paslēpt",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskusija]]",
 	"tooltip-vector-anon-user-menu-title": "Vairāk iespēju"
 }

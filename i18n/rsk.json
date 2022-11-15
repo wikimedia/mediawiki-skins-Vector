@@ -21,7 +21,7 @@
 	"vector-view-viewsource": "Опатриц жридлови код",
 	"vector-more-actions": "Вецей",
 	"vector-searchsuggest-containing": "Найдз боки хтори содержа <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-heading": "Змист",
-	"vector-toc-toggle-position-title": "скриц",
-	"vector-anon-user-menu-pages-learn": "дознайце вецей"
+	"vector-toc-label": "Змист",
+	"vector-anon-user-menu-pages-learn": "дознайце вецей",
+	"vector-unpin-element-label": "скриц"
 }
