@@ -1,4 +1,5 @@
 <nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-label="{{ msg-vector-toc-label }}" data-event-name="ui.sidebar-toc">
+	{{^is-page-tools-enabled}}
 	<div id="sidebar-toc-label" class="sidebar-toc-header">
 		<p class="sidebar-toc-title">
 		{{ msg-vector-toc-label }}
@@ -6,6 +7,10 @@
 		<button class="vector-toc-collapse-button">{{msg-vector-unpin-element-label}}</button>
 		</p>
 	</div>
+	{{/is-page-tools-enabled}}
+	{{#is-page-tools-enabled}}
+	{{#data-pinnable-header}}{{>PinnableHeader}}{{/data-pinnable-header}}
+	{{/is-page-tools-enabled}}
 	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
 		{{#is-vector-toc-beginning-enabled}}
 		<li id="toc-mw-content-text"

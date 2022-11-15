@@ -18,7 +18,6 @@ const
 	TOC_SECTION_ID_PREFIX = 'toc-',
 	TOC_LEGACY_PLACEHOLDER_SELECTOR = 'mw\\3Atocplace,meta[property="mw:PageProp/toc"]',
 	TOC_SCROLL_HOOK = 'table_of_contents',
-	TOC_COLLAPSED_CLASS = 'vector-toc-collapsed',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title',
 	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
@@ -118,13 +117,21 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
  * @return {void}
  */
 const updateTocLocation = () => {
-	const isTocCollapsed = document.body.classList.contains( TOC_COLLAPSED_CLASS );
+	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-page-tools-enabled' );
+	const TOC_PINNED_CLASS = isPageToolsEnabled ? 'vector-toc-pinned' : 'vector-toc-not-collapsed';
+	const isPinned = document.body.classList.contains( TOC_PINNED_CLASS );
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
-	if ( isTocCollapsed && isStickyHeaderVisible && !isBelowDesktop ) {
-		stickyHeader.moveToc( 'stickyheader' );
+	const moveTocToPinned = ( isPinned || !isStickyHeaderVisible || isBelowDesktop );
+
+	if ( isPageToolsEnabled ) {
+		pinnableHeader.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
 	} else {
-		stickyHeader.moveToc( 'sidebar' );
+		if ( moveTocToPinned ) {
+			stickyHeader.moveToc( 'sidebar' );
+		} else {
+			stickyHeader.moveToc( 'stickyheader' );
+		}
 	}
 };
 
@@ -300,7 +307,7 @@ const main = () => {
 		onToggleClick: ( id ) => {
 			tableOfContents.toggleExpandSection( id );
 		},
-		onToggleCollapse: updateTocLocation
+		onTogglePinned: updateTocLocation
 	} );
 	const headingSelector = [
 		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'

@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
+use MediaWiki\Skins\Vector\Components\VectorComponentPinnableHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 
 /**
@@ -126,6 +127,15 @@ class SkinVector22 extends SkinVector {
 			}
 		}
 
+		// ToC is pinned by default, hardcoded for now
+		$isTocPinned = true;
+		$pinnableHeader = new VectorComponentPinnableHeader(
+			$this->getContext(),
+			$isTocPinned,
+			'vector-toc',
+			false
+		);
+
 		return array_merge( $tocData, [
 			'is-vector-toc-beginning-enabled' => $this->getConfig()->get(
 				'VectorTableOfContentsBeginning'
@@ -133,7 +143,8 @@ class SkinVector22 extends SkinVector {
 			'vector-is-collapse-sections-enabled' =>
 				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
 					'VectorTableOfContentsCollapseAtCount'
-				)
+				),
+			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
 		] );
 	}
 
@@ -147,8 +158,8 @@ class SkinVector22 extends SkinVector {
 		return [
 			'is-pinned' => $isPinned,
 			'label' => $this->msg( 'vector-page-tools-label' ),
-			'unpin-label' => $this->msg( 'vector-toc-toggle-position-title' ),
-			'pin-label' => $this->msg( 'vector-toc-toggle-position-sidebar' ),
+			'unpin-label' => $this->msg( 'vector-unpin-element-label' ),
+			'pin-label' => $this->msg( 'vector-pin-element-label' ),
 			'data-name' => 'vector-page-tools',
 			'data-pinnable-element-id' => 'vector-page-tools-content',
 			'data-unpinned-container-id' => 'vector-page-tools-content-container',

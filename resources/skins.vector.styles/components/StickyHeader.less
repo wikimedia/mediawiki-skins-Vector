@@ -96,7 +96,8 @@
 		}
 
 		// Only show TOC in sticky header when collapsed class is present
-		.vector-toc-collapsed & {
+		.vector-feature-page-tools-enabled.vector-toc-unpinned &,
+		.vector-feature-page-tools-disabled.vector-toc-collapsed & {
 			display: block;
 		}
 	}
@@ -190,7 +191,8 @@
 		//   @stable See the Integration notes for developers section at
 		//   https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
 		// - `.charts-stickyhead th` makes chart and table headers appear below the sticky header.
-		.vector-toc-not-collapsed .vector-sticky-toc-container,
+		.vector-feature-page-tools-enabled.vector-toc-pinned .vector-sticky-toc-container,
+		.vector-feature-page-tools-disabled.vector-toc-not-collapsed .vector-sticky-toc-container,
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */

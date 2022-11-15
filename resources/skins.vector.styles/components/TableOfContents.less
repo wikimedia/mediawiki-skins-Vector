@@ -21,13 +21,15 @@
 	top: 0;
 
 	@media ( min-width: @min-width-desktop ) {
-		.vector-toc-not-collapsed & {
+		.vector-feature-page-tools-enabled.vector-toc-pinned &,
+		.vector-feature-page-tools-disabled.vector-toc-not-collapsed & {
 			// Default spacing separating the sidebar TOC from the main menu or viewport.
 			// Need to use padding in order for the spacing to apply when sticky
 			padding-top: 1.5em;
 		}
 
-		.vector-toc-not-collapsed @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
+		.vector-feature-page-tools-enabled.vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container &,
+		.vector-feature-page-tools-disabled.vector-toc-not-collapsed @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
 			// Needed to align TOC with bottom of title, 1.5em padding + 1.5em margin = 3em
 			margin-top: 1.5em;
 		}
@@ -49,8 +51,13 @@
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
 
-	.sidebar-toc-header {
-		padding-bottom: 12px;
+	// FIXME: Remove .sidebar-toc-header selector when the VectorPageTools feature flag is enabled everywhere
+	.sidebar-toc-header,
+	.vector-toc-pinnable-header {
+		// Override default pinnable header styles
+		padding: 0 0 12px 0;
+		border: 0;
+		line-height: initial;
 	}
 
 	.sidebar-toc-title {
@@ -58,7 +65,6 @@
 		font-size: @font-size-base;
 		margin: 0;
 		padding: 0;
-		border: 0;
 	}
 
 	.sidebar-toc-numb {
@@ -138,7 +144,8 @@
 // T302076: Add fade scrollable indicator when TOC is in sidebar
 // Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
 @media ( min-width: @min-width-desktop ) {
-	.vector-toc-not-collapsed .sidebar-toc:after {
+	.vector-feature-page-tools-enabled.vector-toc-pinned .sidebar-toc:after,
+	.vector-feature-page-tools-disabled.vector-toc-not-collapsed .sidebar-toc:after {
 		content: '';
 		display: block;
 		position: absolute;

@@ -60,7 +60,7 @@ const editButtonsTemplateData = [ {
 
 const templateData = {
 	'data-sticky-header-toc': {
-		id: 'p-sticky-header-toc',
+		id: 'vector-sticky-header-toc',
 		class: 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
 		'html-items': '',
 		'html-vector-menu-checkbox-attributes': 'tabindex="-1"',
@@ -88,10 +88,11 @@ const templateData = {
 	'data-buttons': defaultButtonsTemplateData.concat( editButtonsTemplateData )
 };
 
-const renderedHTML = mustache.render( stickyHeaderTemplate, templateData, Object.assign( {}, dropdownPartials, {
-	Button: buttonTemplate,
-	SearchBox: '<div> </div>' // ignore SearchBox for this test
-} ) );
+const renderedHTML = mustache.render(
+	stickyHeaderTemplate, templateData, Object.assign( {}, dropdownPartials, {
+		Button: buttonTemplate,
+		SearchBox: '<div> </div>' // ignore SearchBox for this test
+	} ) );
 
 beforeEach( () => {
 	document.body.innerHTML = renderedHTML;
