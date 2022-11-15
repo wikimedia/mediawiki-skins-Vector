@@ -67,7 +67,7 @@ function render( templateProps = {} ) {
 	const templateData = Object.assign( {
 		'is-vector-toc-beginning-enabled': true,
 		'msg-vector-toc-beginning': 'Beginning',
-		'msg-vector-toc-heading': 'Contents',
+		'msg-vector-toc-label': 'Contents',
 		'vector-is-collapse-sections-enabled': false,
 		'array-sections': SECTIONS
 	}, templateProps );
@@ -277,11 +277,11 @@ describe( 'Table of contents', () => {
 					};
 				};
 				switch ( msg ) {
-					case 'vector-toc-heading':
+					case 'vector-toc-label':
 						return msgFactory( 'Contents' );
-					case 'vector-toc-toggle-position-sidebar':
+					case 'vector-pin-element-label':
 						return msgFactory( 'move to sidebar' );
-					case 'vector-toc-toggle-position-title':
+					case 'vector-unpin-element-label':
 						return msgFactory( 'hide' );
 					case 'vector-toc-beginning':
 						return msgFactory( 'Beginning' );

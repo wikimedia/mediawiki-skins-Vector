@@ -62,11 +62,11 @@ const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContent
  * @property {boolean} is-vector-toc-beginning-enabled
  * @property {Section[]} array-sections
  * @property {boolean} vector-is-collapse-sections-enabled
- * @property {string} msg-vector-toc-heading
+ * @property {string} msg-vector-toc-label
  * @property {number} number-section-count
  * @property {string} msg-vector-toc-beginning
- * @property {string} msg-vector-toc-toggle-position-title
- * @property {string} msg-vector-toc-toggle-position-sidebar
+ * @property {string} msg-vector-unpin-element-label
+ * @property {string} msg-vector-pin-element-label
  */
 
 /**
@@ -471,9 +471,9 @@ module.exports = function tableOfContents( props ) {
 	function getTableOfContentsData( sections ) {
 		return {
 			'number-section-count': sections.length,
-			'msg-vector-toc-heading': mw.message( 'vector-toc-heading' ).text(),
-			'msg-vector-toc-toggle-position-sidebar': mw.message( 'vector-toc-toggle-position-sidebar' ).text(),
-			'msg-vector-toc-toggle-position-title': mw.message( 'vector-toc-toggle-position-title' ).text(),
+			'msg-vector-toc-label': mw.message( 'vector-toc-label' ).text(),
+			'msg-vector-pin-element-label': mw.message( 'vector-pin-element-label' ).text(),
+			'msg-vector-unpin-element-label': mw.message( 'vector-unpin-element-label' ).text(),
 			'msg-vector-toc-beginning': mw.message( 'vector-toc-beginning' ).text(),
 			'array-sections': getTableOfContentsSectionsData( sections, 1 ),
 			'vector-is-collapse-sections-enabled': sections.length >= tableOfContentsConfig.VectorTableOfContentsCollapseAtCount,
