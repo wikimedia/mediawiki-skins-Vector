@@ -126,9 +126,7 @@ body {
 	background-color: @background-color-page-container;
 	box-sizing: border-box;
 
-	// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
-	.vector-feature-limited-width-disabled &,
-	.skin-vector-disable-max-width & {
+	.vector-feature-limited-width-disabled & {
 		max-width: none;
 	}
 
