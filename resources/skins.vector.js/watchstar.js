@@ -6,6 +6,10 @@ module.exports = function () {
 				return;
 			}
 			watchElement.classList.remove(
+				// Vector attaches two icon classes to the element.
+				// Remove the mw-ui-icon one rather than managing both.
+				'mw-ui-icon-star',
+				'mw-ui-icon-unStar',
 				'mw-ui-icon-wikimedia-unStar',
 				'mw-ui-icon-wikimedia-star',
 				'mw-ui-icon-wikimedia-halfStar'
