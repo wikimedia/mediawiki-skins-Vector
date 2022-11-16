@@ -10,7 +10,8 @@
 			"Tomato Cream",
 			"No Sleep till Krupki",
 			"Amire80",
-			"Kareyac"
+			"Kareyac",
+			"Maksim L."
 		]
 	},
 	"tooltip-pt-watchlist-2": "Спіс старонак, на якіх вы сочыце за зменамі",
@@ -40,7 +41,7 @@
 	"vector-jumptosearch": "Перайсці да пошуку",
 	"vector-jumptocontent": "Перайсці да зместу",
 	"vector-more-actions": "Яшчэ",
-	"vector-search-loader": "Загрузка прапановаў пошуку",
+	"vector-search-loader": "Загрузка прапаноў пошуку",
 	"vector-searchsuggest-containing": "Шукаць старонкі, якія змяшчаюць <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
 	"vector-intro-page": "Help:Даведка",
 	"vector-anon-user-menu-pages": "Старонкі для ананімных рэдактараў",
