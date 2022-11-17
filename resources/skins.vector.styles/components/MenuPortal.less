@@ -7,15 +7,11 @@
 	direction: ltr;
 
 	.vector-menu-heading {
-		display: block;
-		color: @color-base--subtle;
-		margin: 0.5em 0 0 ( @margin-start-nav-main-body / @font-size-nav-main-heading );
-		border: 0;
-		padding: 0.25em 0;
+		.mixin-vector-menu-heading();
 		font-size: @font-size-nav-main-heading;
-		font-weight: normal;
-		cursor: default;
-		border-bottom: 1px solid @border-color-portal-heading;
+		margin: 0.5em 0 0 ( @margin-start-nav-main-body / @font-size-nav-main-heading );
+		padding: 0.25em 0;
+		border-bottom-style: @border-style-base;
 	}
 
 	.vector-menu-content {

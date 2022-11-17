@@ -2,6 +2,19 @@
  * Less mixins shared between both legacy and Vector 2022.
  */
 
+@import '../common/variables.less';
+
+.mixin-vector-menu-heading() {
+	align-self: center;
+	color: @color-base--subtle;
+	font-weight: normal;
+	cursor: default;
+	// NOTE: Setting these values does not produce a visible border.
+	// That's handled elsewhere with either border-top-style or border-bottom-style.
+	border-color: @border-color-portal-heading;
+	border-width: @border-width-base;
+}
+
 // Defines the arrow beside dropdown headings.
 .mixin-vector-menu-heading-arrow() {
 	content: '';
@@ -23,6 +36,7 @@
 	display: flex;
 	align-items: center;
 	padding: @padding-dropdown-menu-item;
+	font-size: @font-size-dropdown;
 
 	&:visited {
 		color: @color-link;

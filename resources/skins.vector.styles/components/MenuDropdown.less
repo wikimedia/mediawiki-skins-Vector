@@ -30,11 +30,15 @@
 	}
 }
 
-//non-standard dropdown menu item.
-.vector-user-menu-logout,
-.vector-user-menu-create-account,
-.vector-user-menu-login,
-.vector-menu-dropdown .mw-list-item {
+/**
+ * Dropdown menu items.
+ * TODO: Can any of these unique classes be converted to use .mw-list-item instead?
+ */
+.vector-dropdown-content .mw-list-item, /* Standard dropdown menu item selector. */
+.vector-user-menu-logout, /* Logout link in user menu dropdown. */
+.vector-user-menu-create-account, /* Create account link in user menu dropdown. */
+.vector-user-menu-login, /* Login link in user dropdown menu. */
+.vector-menu-dropdown .mw-list-item { /* Language variants. */
 	a {
 		.mixin-vector-dropdown-menu-item();
 		white-space: nowrap;
@@ -42,15 +46,27 @@
 	}
 }
 
-.vector-menu-content .vector-dropdown-content {
-	.mw-list-item a,
-	.vector-menu-heading {
-		.mixin-vector-dropdown-menu-item();
-		white-space: nowrap;
-		color: @color-link;
+/**
+ * Dropdown headings.
+ */
+.vector-dropdown-content .vector-menu-heading {
+	.mixin-vector-dropdown-menu-item();
+	.mixin-vector-menu-heading();
+}
+
+/**
+ * Menus inside dropdowns (when a dropdown has multiple menus).
+ */
+.vector-dropdown-content {
+	.vector-menu {
+		border-top: @border-width-base @border-style-base @colorGray14;
 	}
 
-	.vector-menu-heading {
-		color: @color-base--subtle;
+	// Remove the border for the first .vector-menu since
+	// it already exists on the pinnable header, or, when there's no
+	// pinnable header, a border exists on the dropdown container.
+	.vector-menu:first-child,
+	.vector-pinnable-header + .vector-menu {
+		border: 0;
 	}
 }
