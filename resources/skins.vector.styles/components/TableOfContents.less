@@ -60,11 +60,18 @@
 		line-height: initial;
 	}
 
+	.vector-pinnable-header-label {
+		// Override heading element styles in elements.less
+		overflow: unset;
+	}
+
+	// FIXME: Remove .sidebar-toc-title selector when the VectorPageTools feature flag is enabled everywhere
 	.sidebar-toc-title {
 		color: @color-base--subtle;
 		font-size: @font-size-base;
 		margin: 0;
 		padding: 0;
+		border: 0;
 	}
 
 	.sidebar-toc-numb {

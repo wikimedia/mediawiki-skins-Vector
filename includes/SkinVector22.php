@@ -133,7 +133,8 @@ class SkinVector22 extends SkinVector {
 			$this->getContext(),
 			$isTocPinned,
 			'vector-toc',
-			false
+			false,
+			'h2'
 		);
 
 		return array_merge( $tocData, [
@@ -157,6 +158,7 @@ class SkinVector22 extends SkinVector {
 	private function getPageToolsPinnableHeaderData( bool $isPinned ): array {
 		return [
 			'is-pinned' => $isPinned,
+			'label-tag-name' => 'div',
 			'label' => $this->msg( 'vector-page-tools-label' ),
 			'unpin-label' => $this->msg( 'vector-unpin-element-label' ),
 			'pin-label' => $this->msg( 'vector-pin-element-label' ),

@@ -8,6 +8,7 @@ const simpleData = {
 	'data-name': 'simple',
 	'data-pinnable-element-id': 'pinnable-element',
 	label: 'simple pinnable element',
+	'label-tag-name': 'div',
 	'pin-label': 'pin',
 	'unpin-label': 'unpin'
 };
@@ -19,6 +20,7 @@ const movableData = {
 	'data-pinned-container-id': 'pinned-container',
 	'data-unpinned-container-id': 'unpinned-container',
 	label: 'moveable pinnable element',
+	'label-tag-name': 'div',
 	'pin-label': 'pin',
 	'unpin-label': 'unpin'
 };
