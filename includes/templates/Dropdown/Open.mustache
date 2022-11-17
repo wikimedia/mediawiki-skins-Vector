@@ -2,7 +2,7 @@
 	See @typedef MenuDefinition
 }}
 {{! this template must be used with Dropdown/Close to avoid unclosed HTML tags }}
-<div id="{{id}}" class="vector-menu vector-menu-dropdown{{#class}} {{.}}{{/class}}" {{{html-tooltip}}} {{{html-user-language-attributes}}}>
+<div id="{{id}}" class="vector-menu vector-dropdown vector-menu-dropdown{{#class}} {{.}}{{/class}}" {{{html-tooltip}}} {{{html-user-language-attributes}}}>
 	{{!
 		Dropdown menus use the checkbox hack and require `input` and `label` elements.
 		`aria-label` is applied to the `input` which is semantically a button.

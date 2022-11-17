@@ -7,9 +7,10 @@
  * - language variants, Actions menus
  * - more menu, user menu
  * - ULS button in sticky header
+ * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  */
-.vector-menu-dropdown > .vector-menu-heading,
-.mw-interlanguage-selector {
+.vector-dropdown > .vector-menu-heading,
+.vector-menu-dropdown > .vector-menu-heading {
 	display: flex;
 
 	&:after {
@@ -19,7 +20,9 @@
 
 /**
  * Dropdown container
+ * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  */
+.vector-dropdown,
 .vector-menu-dropdown {
 	> .vector-menu-content {
 		background-color: @background-color-base;
@@ -32,13 +35,15 @@
 
 /**
  * Dropdown menu items.
+ * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  * TODO: Can any of these unique classes be converted to use .mw-list-item instead?
+ * FIXME: `vector-dropdown-content` does not belong to the Dropdown component.
+ * At time of writing it is associated with the PinnableDropdownContent component. Revisit
+ * as part of I85aec387f87126a17e760fd9fd10e10572ff3152.
  */
-.vector-dropdown-content .mw-list-item, /* Standard dropdown menu item selector. */
-.vector-user-menu-logout, /* Logout link in user menu dropdown. */
-.vector-user-menu-create-account, /* Create account link in user menu dropdown. */
-.vector-user-menu-login, /* Login link in user dropdown menu. */
-.vector-menu-dropdown .mw-list-item { /* Language variants. */
+.vector-dropdown-content .mw-list-item,
+.vector-dropdown .mw-list-item,
+.vector-menu-dropdown > .vector-menu-content .mw-list-item {
 	a {
 		.mixin-vector-dropdown-menu-item();
 		white-space: nowrap;

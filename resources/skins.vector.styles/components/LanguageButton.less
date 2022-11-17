@@ -78,7 +78,7 @@
 		max-height: 65vh;
 		overflow: auto;
 
-		// Adds to the show/hide technique in MenuDropdown.less with
+		// Adds to the show/hide technique in Dropdown.less with
 		// display to prevent rendering and long scrolling on Main page
 		display: none;
 
@@ -101,4 +101,12 @@
 // Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
 #p-lang-btn.mw-portlet-empty {
 	display: none;
+}
+
+.mw-interlanguage-selector {
+	display: flex;
+
+	&:after {
+		.mixin-vector-menu-heading-arrow();
+	}
 }
