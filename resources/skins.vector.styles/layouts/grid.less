@@ -64,11 +64,8 @@
 		max-width: @max-width-content-container;
 	}
 
-	// For container logic specific to special pages and history pages.
-	// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
 	.vector-feature-limited-width-disabled &,
-	.vector-feature-limited-width-content-disabled &,
-	.skin-vector-disable-max-width & {
+	.vector-feature-limited-width-content-disabled & {
 		// Allow the max-width of content on history/special pages to be wider than
 		// the max-width of content on article pages.
 		// Note, we don't disable the max-width on .vector-page-toolbar-container intentionally
@@ -118,10 +115,8 @@
 			'toolbar columnEnd'
 			'content columnEnd';
 
-		// FIXME: Remove `.skin-vector-disable-max-width` when caching no longer an issue.
 		.vector-feature-limited-width-disabled&,
-		.vector-feature-limited-width-content-disabled&,
-		.skin-vector-disable-max-width& {
+		.vector-feature-limited-width-content-disabled& {
 			grid-template-columns: ~'1fr min-content';
 		}
 
