@@ -53,6 +53,19 @@ function toggle( name ) {
 	}
 }
 
+/**
+ * Checks if the feature is enabled.
+ *
+ * @param {string} name
+ * @return {boolean}
+ */
+function isEnabled( name ) {
+	return document.body.classList.contains(
+		'vector-feature-' + name + '-enabled'
+	);
+}
+
 module.exports = {
+	isEnabled: isEnabled,
 	toggle: toggle
 };
