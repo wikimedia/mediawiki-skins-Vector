@@ -10,7 +10,8 @@
 			"Tomato Cream",
 			"Yury Tarasievich",
 			"Дзяніс Тутэйшы",
-			"Хомелка"
+			"Хомелка",
+			"Maksim L."
 		]
 	},
 	"vector-skin-desc": "Забяспечвае 2 вокладкі Вектар:\n* 2011 — Сучасная версія вокладкі Манабук, з абноўленым відам і шматлікімі зручнымі паляпшэннямі.\n* 2022 — Вектар, створаны ў рамках праекта WMF [[mw:Desktop Improvements]].",
@@ -41,7 +42,7 @@
 	"vector-jumptosearch": "Перайсці да пошуку",
 	"vector-jumptocontent": "Перайсці да зместу",
 	"vector-more-actions": "Яшчэ",
-	"vector-search-loader": "Загрузка прапановаў пошуку",
+	"vector-search-loader": "Загрузка прапаноў пошуку",
 	"vector-searchsuggest-containing": "Шукаць старонкі, якія змяшчаюць <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Даведка",
 	"vector-toc-heading": "Змест",
