@@ -169,12 +169,15 @@
 			// Align with vector-toc-collapsed-button which uses core flush classes
 			// using temporary hardcoded value.
 			// FIXME: Remove this entire selector as part of T318013
-			.vector-feature-visual-enhancement-next-enabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) .sidebar-toc {
-				@media ( min-width: @width-breakpoint-desktop ) {
-					// Copied from mediawiki.ui.icons,
-					// (Ifccaadabd72a12814d3d4d01200931f7254c6cd5)
-					// but converted to px to match `mw-ui-button`
-					left: -5px;
+			.vector-feature-visual-enhancement-next-enabled {
+				&.vector-feature-page-tools-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) .sidebar-toc,
+				&.vector-feature-page-tools-enabled.vector-toc-unpinned:not( .vector-sticky-header-visible ) .sidebar-toc {
+					@media ( min-width: @width-breakpoint-desktop ) {
+						// Copied from mediawiki.ui.icons,
+						// (Ifccaadabd72a12814d3d4d01200931f7254c6cd5)
+						// but converted to px to match `mw-ui-button`
+						left: -5px;
+					}
 				}
 			}
 
