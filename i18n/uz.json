@@ -22,6 +22,7 @@
 	"vector-languages": "Tillar",
 	"vector-language-button-aria-label": "Boshqa tildagi maqolaga oʻting. {{PLURAL:$1|$1 ta tilda}} mavjud",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ta til}}",
+	"vector-no-language-button-label": "Til qoʻshish",
 	"vector-language-redirect-to-top": "Bu {{SITENAME}}da til havolalari sahifaning eng yuqori qismida, maqola sarlavhasining oʻng tarafida joylashgan. [[#p-lang-btn|Yuqoriga oʻtish]].",
 	"vector-language-variant-switcher-label": "Til variantini oʻzgartirish",
 	"vector-action-addsection": "Mavzu qoʻshish",
@@ -48,5 +49,9 @@
 	"vector-anon-user-menu-pages-learn": "batafsil maʼlumot",
 	"vector-anon-user-menu-pages-label": "Tahrirlash haqida batafsil maʼlumot",
 	"vector-main-menu-tooltip": "Asosiy menyu",
+	"vector-toc-menu-tooltip": "Mundarija",
+	"vector-page-tools-label": "Asboblar",
+	"vector-unpin-element-label": "yashirish",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Munozara]]",
 	"tooltip-vector-anon-user-menu-title": "Koʻproq opsiyalar"
 }
