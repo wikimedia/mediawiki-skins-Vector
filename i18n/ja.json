@@ -76,5 +76,7 @@
 	"vector-pin-element-label": "サイドバーに移動",
 	"vector-unpin-element-label": "非表示",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|議論]]",
-	"tooltip-vector-anon-user-menu-title": "その他の操作"
+	"tooltip-vector-anon-user-menu-title": "その他の操作",
+	"vector-prefs-limited-width": "横幅制限モードを有効にする",
+	"vector-prefs-limited-width-help": "横幅制限モードを有効にすることで文章の可読性が向上します。"
 }

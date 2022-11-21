@@ -17,6 +17,7 @@
 	"vector-skin-desc": "२ भेक्टर स्किनहरू प्रदान गर्दछ:\n* २०११ - ताजा लुक र धेरै उपयोगिता सुधारहरू सहित मोनोबुक को आधुनिक संस्करण।\n* २०२२ - डब्ल्यूएमएफ [[mw:Desktop Improvements]] परियोजनाको भागको रूपमा निर्मित भेक्टर।",
 	"prefs-vector-enable-vector-1-label": "पुरानो संस्करण प्रयोग गर्नुहोस्",
 	"vector-opt-out": "पुरानो रूपमा परिवर्तन गर्नुहोस्",
+	"vector-opt-out-tooltip": "छालाको पुरानो लुकमा फर्कन आफ्नो सेटिङहरू परिवर्तन गर्नुहोस् (लेगेसी भेक्टर)",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
 	"vector-action-toggle-sidebar": "बाँया खण्ड सक्षम गर्नुहोस्",
 	"vector-languages": "भाषाहरू",
@@ -54,8 +55,11 @@
 	"vector-toc-menu-tooltip": "विषयसूची",
 	"vector-toc-collapsible-button-label": "सामग्रीको तालिका सक्षम गर्नुहोस्",
 	"vector-site-nav-label": "साइट",
+	"vector-page-tools-label": "उपकरणहरू",
 	"vector-pin-element-label": "बाँया खण्डमा सार्नुहोस्",
 	"vector-unpin-element-label": "लुकाउनुहोस्",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|चर्चा]]",
-	"tooltip-vector-anon-user-menu-title": "थप विकल्पहरू"
+	"tooltip-vector-anon-user-menu-title": "थप विकल्पहरू",
+	"vector-prefs-limited-width": "सीमित चौडाइ मोड सक्षम गर्नुहोस्",
+	"vector-prefs-limited-width-help": "सुधारिएको पठन अनुभवको लागि सीमित चौडाइ मोड सक्षम गर्नुहोस्।"
 }
