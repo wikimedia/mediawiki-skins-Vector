@@ -7,197 +7,199 @@
 // Use calc so that the same max width can apply even when the TOC is in different containers
 @max-width-collapsed-toc: 0.85 * @max-width-content-container; // 51em
 
-#vector-toc-collapsed-button {
+.mixin-toc-dropdown-button() {
 	display: none;
-	float: left;
 	margin-right: 4px;
-	// Override background color for when the TOC is overlaps content
-	// as a sticky element when the page is scrolled down.
-	background-color: @background-color-base;
-
-	&:hover,
-	&:active {
-		background-color: @colorGray15;
-	}
-
-	// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
-	@media ( max-width: @max-width-tablet ) {
-		padding: 7px 12px;
-	}
-}
-
-#vector-toc-collapsed-button,
-.sidebar-toc {
 	z-index: @z-index-menu;
+	// Override background color for when the TOC button overlaps content
+	// as a fixed element when the page is scrolled down.
+	background-color: @background-color-base;
 }
 
-.ve-active {
-	#vector-toc-collapsed-button {
+#vector-toc-collapsed-button {
+	.mixin-toc-dropdown-button();
+}
+
+// FIXME: Remove selector after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
+@media ( min-width: @min-width-desktop ) {
+	// Disable collapsible TOC behavior for cached HTML on non mobile viewports
+	.vector-toc-cached .sidebar-toc .vector-pinnable-header-toggle-button {
 		display: none !important; /* stylelint-disable-line declaration-no-important */
+	}
+}
+
+@media ( max-width: @max-width-tablet ) {
+	// FIXME: Remove .vector-toc-cached after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
+	// Maintain collapsible TOC behavior for cached HTML on mobile by using no-js approach
+	.vector-toc-cached,
+	.client-nojs {
+		#vector-toc-collapsed-button {
+			display: block;
+			// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
+			padding: 7px 12px;
+
+			&:hover,
+			&:active {
+				background-color: @colorGray15;
+			}
+		}
+
+		// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
+		.vector-sticky-toc-container,
+		#vector-toc-pinned-container {
+			// Override TOC container's sticky positioning
+			position: relative;
+		}
+
+		.sidebar-toc {
+			display: none;
+			position: absolute;
+			width: auto;
+			min-width: 200px;
+			// using min() so that the TOC menu doesn't fully cover the text even on small viewports
+			max-width: ~'min( @{max-width-collapsed-toc}, 75vw )';
+			top: @height-collapsed-toc-button; // TOC button height
+			// FIXME: Don't use a magic number. This used to be tied to the private variable in core
+			// @icon-padding-md so perhaps this needs to make use of the flush classes?
+			left: -12px;
+			margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
+			// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
+			border: @border-width-base @border-style-base @border-color-base;
+			z-index: @z-index-menu;
+		}
+
+		@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc {
+			// Hide the TOC when the button is not checked
+			display: block;
+		}
+	}
+}
+
+.vector-page-titlebar-toc {
+	.mixin-toc-dropdown-button();
+
+	&.ve-active {
+		display: none !important; /* stylelint-disable-line declaration-no-important */
+	}
+
+	.vector-menu-heading {
+		// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
+		@media ( max-width: @max-width-tablet ) {
+			padding: 7px 12px;
+		}
 	}
 }
 
 // Styles for the "move to sidebar/hide" buttons, hidden by default.
 // FIXME: Remove entire selector when I82f23e69b0249c844af9e45fec342217a0755893 has been in prod for a week
-.vector-toc-collapse-button,
-.vector-toc-uncollapse-button {
-	display: none;
-	border: 0;
-	padding: 0;
-	background-color: transparent;
-	color: @color-primary;
-	cursor: pointer;
-
-	&:hover {
-		color: @color-primary--hover;
+.client-js {
+	@media ( min-width: @min-width-desktop ) {
+		.vector-toc-unpinned .vector-toc-uncollapse-button,
+		.vector-toc-pinned .vector-toc-collapse-button {
+			display: inline-block;
+		}
 	}
 
-	&:before {
-		content: '@{msg-brackets-start}';
-		color: @color-base--subtle;
-	}
-
-	&:after {
-		content: '@{msg-brackets-end}';
-		color: @color-base--subtle;
-	}
-}
-
-// Hide pin ToC toggles on smaller resolutions
-@media ( max-width: @max-width-tablet ) {
-	.sidebar-toc .vector-pinnable-header-toggle-button {
+	.vector-toc-collapse-button,
+	.vector-toc-uncollapse-button {
 		display: none;
-	}
-}
+		border: 0;
+		padding: 0;
+		background-color: transparent;
+		color: @color-primary;
+		cursor: pointer;
 
-// Shared collapsed TOC styles, applies across all collapsed cases (header, floating, sticky header)
-.mixin-toc-collapsed() {
-	// T316056 Remove TOC menu fixed width and apply min/max-width
-	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
-	width: auto;
-	margin-left: 0;
-	margin-right: 0;
-	min-width: 200px;
-	max-width: ~'min( @{max-width-collapsed-toc}, 75vw )'; // 51em
-}
+		&:hover {
+			color: @color-primary--hover;
+		}
 
-// TOC styles when collapsed to header
-.mixin-toc-collapsed-header() {
-	#vector-toc-collapsed-button {
-		display: block;
-	}
+		&:before {
+			content: '@{msg-brackets-start}';
+			color: @color-base--subtle;
+		}
 
-	// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
-	.vector-sticky-toc-container,
-	#vector-toc-pinned-container {
-		// Override TOC container's sticky positioning
-		position: relative;
-	}
-
-	.sidebar-toc {
-		.mixin-toc-collapsed();
-		display: none;
-		position: absolute;
-		top: @height-collapsed-toc-button; // TOC button height
-		// FIXME: Don't use a magic number. This used to be tied to the private variable in core
-		// @icon-padding-md so perhaps this needs to make use of the flush classes?
-		left: -12px;
-		margin-top: @padding-top-content-px; // Account for padding-top from .mw-body
-		// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
-		border: @border-width-base @border-style-base @border-color-base;
-	}
-
-	@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc {
-		// Hide the TOC when the button is not checked
-		display: block;
-	}
-}
-
-// TOC styles when collapsed to floating button
-.mixin-toc-collapsed-floating() {
-	#vector-toc-collapsed-button {
-		position: fixed;
-		top: 0;
-		left: 0;
-		margin: 0;
-	}
-
-	.sidebar-toc {
-		.mixin-toc-collapsed();
-		position: fixed;
-		left: 6px;
-	}
-}
-
-@media ( max-width: @max-width-tablet ) {
-	//
-	// Collapsed to header on narrow screens
-	//
-	.mixin-toc-collapsed-header();
-
-	//
-	// Collapsed to floating button on narrow screens when below page title
-	//
-	.vector-below-page-title {
-		.mixin-toc-collapsed-floating();
-	}
-}
-
-@media ( min-width: @min-width-desktop ) {
-	@supports ( display: grid ) {
-		.client-js {
-			.vector-toc-unpinned:not( .vector-sticky-header-visible ) {
-				//
-				// Collapsed to header
-				//
-				.mixin-toc-collapsed-header();
-
-				.mw-table-of-contents-container {
-					grid-area: pageContent;
-				}
-
-				//
-				// Collapsed to floating icon when below page title
-				//
-				.vector-below-page-title& {
-					.mixin-toc-collapsed-floating();
-				}
-			}
-
-			// Align with vector-toc-collapsed-button which uses core flush classes
-			// using temporary hardcoded value.
-			// FIXME: Remove this entire selector as part of T318013
-			.vector-toc-unpinned:not( .vector-sticky-header-visible ) .sidebar-toc {
-				@media ( min-width: @width-breakpoint-desktop ) {
-					// Copied from mediawiki.ui.icons,
-					// (Ifccaadabd72a12814d3d4d01200931f7254c6cd5)
-					// but converted to px to match `mw-ui-button`
-					left: -5px;
-				}
-			}
-
-			// Show the "move to sidebar/hide" buttons
-			.vector-toc-unpinned .vector-toc-uncollapse-button,
-			.vector-toc-pinned .vector-toc-collapse-button {
-				display: inline-block;
-			}
+		&:after {
+			content: '@{msg-brackets-end}';
+			color: @color-base--subtle;
 		}
 	}
 }
 
-//
-// Collapsed to sticky header
-//
-.vector-toc-unpinned .vector-sticky-header-toc-container .sidebar-toc {
-	.mixin-toc-collapsed();
+// Shared collapsed TOC styles, applies across all cases (page titlebar, sticky header, floating)
+.mixin-toc-collapsed() {
 	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
 	// max-content doesn't account for padding even when we use box-sizing, so use content-box instead
 	// and manually account for horizontal padding in the max width
-	box-sizing: content-box;
 	width: max-content;
+	box-sizing: content-box;
+
+	// T316056 Remove TOC menu fixed width and apply min/max-width
+	// Account for padding so that the TOC has an effective max width of @max-width-collapsed-toc, or 51em
 	@sidebar-toc-left-padding-em: unit( @sidebar-toc-left-padding / @font-size-browser, em );
 	@sidebar-toc-right-padding-em: unit( @sidebar-toc-right-padding / @font-size-browser, em );
+	@max-width-collapsed-toc-content-box: @max-width-collapsed-toc - @sidebar-toc-right-padding-em - @sidebar-toc-left-padding-em;
+	min-width: 200px - @sidebar-toc-right-padding - @sidebar-toc-left-padding;
+	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
+	max-width: ~'min( @{max-width-collapsed-toc-content-box}, 75vw )';
+}
 
-	@max-width-sticky-header-collapsed-toc: @max-width-collapsed-toc - @sidebar-toc-right-padding-em;
-	max-width: ~'min( @{max-width-sticky-header-collapsed-toc}, 75vw )';
+// TOC styles when in page titlebar
+.mixin-toc-collapsed-page-titlebar() {
+	.vector-page-titlebar-toc {
+		display: block;
+
+		.sidebar-toc {
+			.mixin-toc-collapsed();
+		}
+	}
+}
+
+.client-js {
+	@media ( max-width: @max-width-tablet ) {
+		// Prevent layout shift from the TOC being in the sidebar before JS loads and
+		// moves the TOC into the page titlebar on small screens
+		// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
+		.vector-sticky-toc-container .sidebar-toc,
+		#vector-toc-pinned-container .sidebar-toc {
+			display: none;
+		}
+
+		// Hide pin ToC toggles on smaller resolution
+		.sidebar-toc .vector-pinnable-header-toggle-button {
+			display: none;
+		}
+
+		//
+		// TOC in page titlebar on narrow screens
+		//
+		.mixin-toc-collapsed-page-titlebar();
+
+		//
+		// TOC floating on narrow screens when below page title
+		//
+		.vector-below-page-title {
+			.vector-page-titlebar-toc {
+				position: fixed;
+				top: 0;
+				left: 0;
+				margin: 0;
+			}
+		}
+	}
+
+	@media ( min-width: @min-width-desktop ) {
+		//
+		// TOC in page titlebar
+		//
+		.vector-toc-unpinned:not( .vector-sticky-header-visible ) {
+			.mixin-toc-collapsed-page-titlebar();
+		}
+
+		//
+		// TOC in sticky header
+		//
+		.vector-toc-unpinned.vector-sticky-header-visible .sidebar-toc {
+			.mixin-toc-collapsed();
+		}
+	}
 }

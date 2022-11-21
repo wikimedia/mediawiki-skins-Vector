@@ -7,8 +7,11 @@
 // Match styles between TOC and fade element to ensure the fade covers the correct area
 // This is expressed in pixels to support different font sizes since our layout is currently
 // expressed in pixels. See T313817.
-.sidebar-toc:after,
-.sidebar-toc,
+// FIXME: Remove .vector-sticky-toc-container selectors after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
+.vector-sticky-toc-container .sidebar-toc:after,
+.vector-sticky-toc-container .sidebar-toc,
+#vector-toc-pinned-container .sidebar-toc:after,
+#vector-toc-pinned-container .sidebar-toc,
 .vector-main-menu {
 	// T305069 Layout adjustments of sidebar elements
 	// Align the left edge of main menu with the main menu button.

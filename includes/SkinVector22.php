@@ -155,6 +155,20 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * @return array
+	 */
+	private function getTocPageTitleData(): array {
+		return Hooks::updateDropdownMenuData( [
+			'id' => 'vector-page-titlebar-toc',
+			'class' => 'vector-page-titlebar-toc mw-ui-icon-flush-left',
+			'is-pinned' => true,
+			'button' => true,
+			'text-hidden' => true,
+			'icon' => 'listBullet'
+		] );
+	}
+
+	/*
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
@@ -334,6 +348,7 @@ class SkinVector22 extends SkinVector {
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
+			'data-page-titlebar-toc' => $this->getTocPageTitleData(),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $this->getStickyHeaderData(

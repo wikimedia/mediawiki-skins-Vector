@@ -15,6 +15,7 @@
 	height: 100%;
 }
 
+// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
 .vector-sticky-toc-container,
 #vector-toc-pinned-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
@@ -32,14 +33,29 @@
 			// Needed to align TOC with bottom of title, 1.5em padding + 1.5em margin = 3em
 			margin-top: 1.5em;
 		}
-	}
-}
 
-.sidebar-toc,
-.sidebar-toc:after {
-	// T312156 Update TOC spacing after removing background color
-	// Align the left edge of the TOC text with the main menu button icon.
-	margin-left: -@sidebar-toc-left-padding;
+		.sidebar-toc,
+		.sidebar-toc:after {
+			// Align the left edge of the TOC text with the main menu button icon.
+			margin-left: -@sidebar-toc-left-padding;
+		}
+
+		// T302076: Add fade scrollable indicator when TOC is in sidebar
+		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
+		.vector-toc-pinned .sidebar-toc:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: @sidebar-toc-fade-height;
+			background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
+			background-repeat: no-repeat;
+			background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
+			pointer-events: none; // Make the link below the fade clickable
+		}
+	}
 }
 
 .sidebar-toc {
@@ -144,24 +160,6 @@
 		a {
 			font-size: @font-size-base;
 		}
-	}
-}
-
-// T302076: Add fade scrollable indicator when TOC is in sidebar
-// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
-@media ( min-width: @min-width-desktop ) {
-	.vector-toc-pinned .sidebar-toc:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: @sidebar-toc-fade-height;
-		background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
-		background-repeat: no-repeat;
-		background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
-		pointer-events: none; // Make the link below the fade clickable
 	}
 }
 
