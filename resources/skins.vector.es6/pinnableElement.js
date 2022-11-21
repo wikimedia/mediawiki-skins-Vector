@@ -17,8 +17,6 @@ function bindPinnableToggleButtons( header ) {
 
 	toggleButtons.forEach( function ( button ) {
 		button.addEventListener( 'click', () => {
-			const pinned = document.body.classList.contains( `${name}-pinned` );
-
 			// Toggle body classes, assumes default pinned classes are initialized serverside
 			document.body.classList.toggle( `${name}-pinned` );
 			document.body.classList.toggle( `${name}-unpinned` );
@@ -30,12 +28,9 @@ function bindPinnableToggleButtons( header ) {
 			// Optional functionality of moving the pinnable element in the DOM
 			// to different containers based on it's pinned status
 			if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
-				movePinnableElement(
-					pinnableElementId,
-					pinnedContainerId,
-					unpinnedContainerId,
-					!pinned
-				);
+				const pinned = document.body.classList.contains( `${name}-pinned` );
+				const newContainerId = pinned ? pinnedContainerId : unpinnedContainerId;
+				movePinnableElement( pinnableElementId, newContainerId );
 			}
 		} );
 	} );
@@ -43,29 +38,19 @@ function bindPinnableToggleButtons( header ) {
 
 /**
  * @param {string} pinnableElementId
- * @param {string} pinnedContainerId
- * @param {string} unpinnedContainerId
- * @param {boolean} pinned
+ * @param {string} newContainerId
  */
-function movePinnableElement( pinnableElementId, pinnedContainerId, unpinnedContainerId, pinned ) {
+function movePinnableElement( pinnableElementId, newContainerId ) {
 	const pinnableElem = document.getElementById( pinnableElementId );
-	const pinnedContainer = document.getElementById( pinnedContainerId );
-	const unpinnedContainer = document.getElementById( unpinnedContainerId );
+	const newContainer = document.getElementById( newContainerId );
 	const currContainer = /** @type {HTMLElement} */ ( pinnableElem && pinnableElem.parentElement );
 
-	if ( !pinnableElem || !pinnedContainer || !unpinnedContainer || !currContainer ) {
+	if ( !pinnableElem || !newContainer || !currContainer ) {
 		return;
 	}
 
-	let newContainer;
 	// Avoid moving element if unnecessary
-	if ( currContainer.id === unpinnedContainerId && pinned ) {
-		newContainer = document.getElementById( pinnedContainerId );
-	} else if ( currContainer.id === pinnedContainerId && !pinned ) {
-		newContainer = document.getElementById( unpinnedContainerId );
-	}
-
-	if ( newContainer ) {
+	if ( currContainer.id !== newContainerId ) {
 		newContainer.insertAdjacentElement( 'beforeend', pinnableElem );
 	}
 }

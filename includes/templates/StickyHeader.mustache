@@ -20,11 +20,10 @@
 		{{/data-search}}
 		<div class="vector-sticky-header-context-bar">
 			<div class="vector-sticky-header-toc-container mw-ui-icon-flush-left">
-				{{! TOC is cloned into this menu from the sidebar in stickyHeader.js. }}
+				{{! TOC is moved into this dropdown from the sidebar in stickyHeader.js. }}
 				{{#data-sticky-header-toc}}
 				{{>Dropdown/Open}}
 					{{>UnpinnedContainer/Open}}
-						{{^is-pinned}}{{>PageTools}}{{/is-pinned}}
 					{{>UnpinnedContainer/Close}}
 				{{>Dropdown/Close}}
 				{{/data-sticky-header-toc}}

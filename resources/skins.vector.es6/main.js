@@ -121,11 +121,38 @@ const updateTocLocation = () => {
 	const isPinned = document.body.classList.contains( TOC_PINNED_CLASS );
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
-	const moveTocToPinned = ( isPinned || !isStickyHeaderVisible || isBelowDesktop );
 
-	pinnableElement.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-unpinned-container', moveTocToPinned );
-	// FIXME: Delete the following line after has been in prod for 5 days
-	pinnableElement.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
+	const pinnedContainerId = 'vector-toc-pinned-container';
+	// FIXME: Delete the conditional after has been in prod for 5 days
+	const stickyHeaderUnpinnedContainerId = document.getElementById( 'vector-sticky-header-toc-content-container' ) ?
+		'vector-sticky-header-toc-content-container' :
+		'vector-sticky-header-toc-unpinned-container';
+	const pageTitlebarUnpinnedContainerId = 'vector-page-titlebar-toc-unpinned-container';
+
+	// FIXME: Remove isCachedHTML after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
+	const isCachedHTML = !document.getElementById( 'vector-page-titlebar-toc' );
+	if ( isCachedHTML ) {
+		// Add temporary body class for cached HTML
+		document.body.classList.add( 'vector-toc-cached' );
+	}
+
+	let newContainerId = '';
+	if ( isPinned ) {
+		if ( isBelowDesktop && !isCachedHTML ) {
+			// Automatically move the ToC into the page titlebar when pinned on smaller resolutions
+			newContainerId = pageTitlebarUnpinnedContainerId;
+		} else {
+			newContainerId = pinnedContainerId;
+		}
+	} else {
+		if ( isStickyHeaderVisible && !isBelowDesktop ) {
+			newContainerId = stickyHeaderUnpinnedContainerId;
+		} else {
+			newContainerId = pageTitlebarUnpinnedContainerId;
+		}
+	}
+
+	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
 };
 
 /**
@@ -211,6 +238,7 @@ const main = () => {
 	}
 
 	// Table of contents
+	updateTocLocation();
 	const tocElement = document.getElementById( TOC_ID );
 	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
