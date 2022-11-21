@@ -38,8 +38,9 @@
 }
 
 // Styles for the "move to sidebar/hide" buttons, hidden by default.
-.vector-feature-page-tools-disabled .vector-toc-collapse-button,
-.vector-feature-page-tools-disabled .vector-toc-uncollapse-button {
+// FIXME: Remove entire selector when I82f23e69b0249c844af9e45fec342217a0755893 has been in prod for a week
+.vector-toc-collapse-button,
+.vector-toc-uncollapse-button {
 	display: none;
 	border: 0;
 	padding: 0;
@@ -64,7 +65,7 @@
 
 // Hide pin ToC toggles on smaller resolutions
 @media ( max-width: @max-width-tablet ) {
-	.vector-feature-page-tools-enabled .sidebar-toc .vector-pinnable-header-toggle-button {
+	.sidebar-toc .vector-pinnable-header-toggle-button {
 		display: none;
 	}
 }
@@ -143,8 +144,7 @@
 @media ( min-width: @min-width-desktop ) {
 	@supports ( display: grid ) {
 		.client-js {
-			.vector-feature-page-tools-enabled.vector-toc-unpinned:not( .vector-sticky-header-visible ),
-			.vector-feature-page-tools-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) {
+			.vector-toc-unpinned:not( .vector-sticky-header-visible ) {
 				//
 				// Collapsed to header
 				//
@@ -165,8 +165,7 @@
 			// Align with vector-toc-collapsed-button which uses core flush classes
 			// using temporary hardcoded value.
 			// FIXME: Remove this entire selector as part of T318013
-			.vector-feature-page-tools-disabled.vector-toc-collapsed:not( .vector-sticky-header-visible ) .sidebar-toc,
-			.vector-feature-page-tools-enabled.vector-toc-unpinned:not( .vector-sticky-header-visible ) .sidebar-toc {
+			.vector-toc-unpinned:not( .vector-sticky-header-visible ) .sidebar-toc {
 				@media ( min-width: @width-breakpoint-desktop ) {
 					// Copied from mediawiki.ui.icons,
 					// (Ifccaadabd72a12814d3d4d01200931f7254c6cd5)
@@ -176,8 +175,8 @@
 			}
 
 			// Show the "move to sidebar/hide" buttons
-			.vector-feature-page-tools-disabled.vector-toc-collapsed .vector-toc-uncollapse-button,
-			.vector-feature-page-tools-disabled.vector-toc-not-collapsed .vector-toc-collapse-button {
+			.vector-toc-unpinned .vector-toc-uncollapse-button,
+			.vector-toc-pinned .vector-toc-collapse-button {
 				display: inline-block;
 			}
 		}
@@ -187,8 +186,7 @@
 //
 // Collapsed to sticky header
 //
-.vector-feature-page-tools-enabled.vector-toc-unpinned .vector-sticky-header-toc-container .sidebar-toc,
-.vector-feature-page-tools-disabled.vector-toc-collapsed .vector-sticky-header-toc-container .sidebar-toc {
+.vector-toc-unpinned .vector-sticky-header-toc-container .sidebar-toc {
 	.mixin-toc-collapsed();
 	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
 	// max-content doesn't account for padding even when we use box-sizing, so use content-box instead

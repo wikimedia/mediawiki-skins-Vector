@@ -117,22 +117,13 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
  * @return {void}
  */
 const updateTocLocation = () => {
-	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-page-tools-enabled' );
-	const TOC_PINNED_CLASS = isPageToolsEnabled ? 'vector-toc-pinned' : 'vector-toc-not-collapsed';
+	const TOC_PINNED_CLASS = 'vector-toc-pinned';
 	const isPinned = document.body.classList.contains( TOC_PINNED_CLASS );
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
 	const moveTocToPinned = ( isPinned || !isStickyHeaderVisible || isBelowDesktop );
 
-	if ( isPageToolsEnabled ) {
-		pinnableHeader.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
-	} else {
-		if ( moveTocToPinned ) {
-			stickyHeader.moveToc( 'sidebar' );
-		} else {
-			stickyHeader.moveToc( 'stickyheader' );
-		}
-	}
+	pinnableHeader.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
 };
 
 /**
@@ -147,10 +138,7 @@ const main = () => {
 	}
 
 	// Initialize pinnable headers
-	const isPageToolsEnabled = document.body.classList.contains( 'vector-feature-page-tools-enabled' );
-	if ( isPageToolsEnabled ) {
-		pinnableHeader.initPinnableHeader();
-	}
+	pinnableHeader.initPinnableHeader();
 
 	//
 	// Sticky header

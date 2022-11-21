@@ -1,16 +1,7 @@
 <nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-label="{{ msg-vector-toc-label }}" data-event-name="ui.sidebar-toc">
-	{{^is-page-tools-enabled}}
-	<div id="sidebar-toc-label" class="sidebar-toc-header">
-		<h2 class="sidebar-toc-title">
-		{{ msg-vector-toc-label }}
-		<button class="vector-toc-uncollapse-button">{{msg-vector-pin-element-label}}</button>
-		<button class="vector-toc-collapse-button">{{msg-vector-unpin-element-label}}</button>
-		</h2>
-	</div>
-	{{/is-page-tools-enabled}}
-	{{#is-page-tools-enabled}}
-	{{#data-pinnable-header}}{{>PinnableHeader}}{{/data-pinnable-header}}
-	{{/is-page-tools-enabled}}
+	{{#data-pinnable-header}}
+	{{>PinnableHeader}}
+	{{/data-pinnable-header}}
 	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
 		{{#is-vector-toc-beginning-enabled}}
 		<li id="toc-mw-content-text"

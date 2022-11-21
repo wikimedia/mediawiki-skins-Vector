@@ -40,7 +40,6 @@
 					"bodyClasses": [
 						"skin-vector",
 						"skin-vector-search-vue",
-						"vector-toc-not-collapsed",
 						"vector-toc-pinned",
 						"vector-page-tools-unpinned"
 					],

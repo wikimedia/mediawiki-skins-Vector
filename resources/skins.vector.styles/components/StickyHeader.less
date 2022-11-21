@@ -78,8 +78,7 @@
 		position: relative;
 
 		// Only show TOC in sticky header when collapsed class is present
-		.vector-feature-page-tools-enabled.vector-toc-unpinned &,
-		.vector-feature-page-tools-disabled.vector-toc-collapsed & {
+		.vector-toc-unpinned & {
 			display: block;
 		}
 	}
@@ -168,15 +167,14 @@
 			}
 		}
 
-		// - T314330 `.vector-toc-not-collapsed .vector-sticky-toc-container`
+		// - T314330 `.vector-toc-pinned .vector-sticky-toc-container`
 		//   Prevent ToC from jumping when sticky header is enabled.
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
 		//   to make their templates compatible with the Vector 2022 sticky header.
 		//   @stable See the Integration notes for developers section at
 		//   https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
 		// - `.charts-stickyhead th` makes chart and table headers appear below the sticky header.
-		.vector-feature-page-tools-enabled.vector-toc-pinned .vector-sticky-toc-container,
-		.vector-feature-page-tools-disabled.vector-toc-not-collapsed .vector-sticky-toc-container,
+		.vector-toc-pinned .vector-sticky-toc-container,
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */

@@ -2,6 +2,7 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const tableOfContentsTemplate = fs.readFileSync( 'includes/templates/TableOfContents.mustache', 'utf8' );
 const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOfContents__line.mustache', 'utf8' );
+const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
 const initTableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
 
 let /** @type {HTMLElement} */ container,
@@ -67,12 +68,20 @@ function render( templateProps = {} ) {
 	const templateData = Object.assign( {
 		'is-vector-toc-beginning-enabled': true,
 		'msg-vector-toc-beginning': 'Beginning',
-		'msg-vector-toc-label': 'Contents',
 		'vector-is-collapse-sections-enabled': false,
-		'array-sections': SECTIONS
+		'array-sections': SECTIONS,
+		'data-pinnable-header': {
+			'is-pinned': true,
+			label: 'Contents',
+			'label-tag-name': 'h2',
+			'pin-label': 'move to sidebar',
+			'unpin-label': 'hide',
+			'data-name': 'vector-toc'
+		}
 	}, templateProps );
 
 	return mustache.render( tableOfContentsTemplate, templateData, {
+		PinnableHeader: pinnableHeaderTemplate, // eslint-disable-line camelcase
 		TableOfContents__line: tableOfContentsLineTemplate // eslint-disable-line camelcase
 	} );
 }

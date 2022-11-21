@@ -1,10 +1,3 @@
-.client-nojs,
-.vector-feature-page-tools-disabled {
-	& .vector-pinnable-header {
-		display: none;
-	}
-}
-
 .vector-pinnable-header {
 	border-bottom: @border-width-base @border-style-base @colorGray14;
 }
@@ -49,7 +42,10 @@
 	}
 }
 
-.vector-pinnable-header-unpinned .vector-pinnable-header-pin-button,
-.vector-pinnable-header-pinned .vector-pinnable-header-unpin-button {
-	display: inline-block;
+.client-js {
+	// Pinnable behavior is only enabled when JS is on
+	.vector-pinnable-header-unpinned .vector-pinnable-header-pin-button,
+	.vector-pinnable-header-pinned .vector-pinnable-header-unpin-button {
+		display: inline-block;
+	}
 }

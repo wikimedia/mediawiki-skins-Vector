@@ -1,6 +1,5 @@
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
-const tocContainerTemplate = fs.readFileSync( 'includes/templates/TableOfContentsContainer.mustache', 'utf8' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
 const sticky = require( '../../resources/skins.vector.es6/stickyHeader.js' );
@@ -113,35 +112,5 @@ describe( 'sticky header', () => {
 		expect( userMenu.querySelectorAll( '.mw-list-item-js' ).length > 0 ).toBeTruthy();
 		expect( newMenu.querySelectorAll( '.user-links-collapsible-item' ).length ).toBe( 0 );
 		expect( newMenu.querySelectorAll( '.mw-list-item-js' ).length ).toBe( 0 );
-	} );
-
-	describe( 'moveToc', () => {
-		const sidebarTocContainerClass = 'vector-sticky-toc-container';
-		const stickyTocContainerClass = 'vector-menu-content';
-		const tocId = 'mw-panel-toc';
-
-		function setupToc() {
-			const sidebarTocContainerHTML = mustache.render( tocContainerTemplate, {
-				'data-toc': [ '' ]
-			}, {
-				TableOfContents: '<div id="mw-panel-toc" class="sidebar-toc"></div>'
-			} );
-			var sidebarTocContainerTemplate = document.createElement( 'template' );
-			sidebarTocContainerTemplate.innerHTML = sidebarTocContainerHTML;
-			document.body.appendChild( sidebarTocContainerTemplate.content );
-		}
-
-		test( 'moves toc to stickyheader and sidebar', () => {
-			setupToc();
-			const toc = /** @type {Element} */ ( document.getElementById( tocId ) );
-			expect( /** @type {Element} */
-				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();
-			sticky.moveToc( 'stickyheader' );
-			expect( /** @type {Element} */
-				( toc.parentNode ).classList.contains( stickyTocContainerClass ) ).toBeTruthy();
-			sticky.moveToc( 'sidebar' );
-			expect( /** @type {Element} */
-				( toc.parentNode ).classList.contains( sidebarTocContainerClass ) ).toBeTruthy();
-		} );
 	} );
 } );
