@@ -4,9 +4,12 @@
 			"Bikarhêner",
 			"Ferhengvan",
 			"George Animal",
-			"Gomada"
+			"Gomada",
+			"Balyozxane"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Legacy Vector Bi Kar Bîne",
+	"vector-opt-out": "Rûya kevn bi kar bîne",
 	"vector-action-addsection": "Mijarekê lê zêde bike",
 	"vector-action-delete": "Jê bibe",
 	"vector-action-move": "Nav biguherîne",

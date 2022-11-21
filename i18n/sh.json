@@ -4,7 +4,9 @@
 			"BadDog",
 			"Conquistador",
 			"OC Ripper",
-			"Srdjan m"
+			"Srdjan m",
+			"Srđan",
+			"Vlad5250"
 		]
 	},
 	"vector-action-addsection": "Dodaj temu",
@@ -15,8 +17,8 @@
 	"vector-action-unprotect": "Promijeni zaštitu",
 	"vector-view-create": "Napravi",
 	"vector-view-edit": "Uredi",
-	"vector-view-history": "Historija/Историја",
-	"vector-view-view": "Čitaj",
+	"vector-view-history": "Historija",
+	"vector-view-view": "Prikaži",
 	"vector-view-viewsource": "Vidi izvor (source)",
 	"vector-more-actions": "Više"
 }

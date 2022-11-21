@@ -5,10 +5,13 @@
 			"Babanwalia",
 			"Raj Singh",
 			"TariButtar",
-			"Tow"
+			"Tow",
+			"Bgo eiu"
 		]
 	},
 	"vector-skin-desc": "ਮੋਨੋਬੁੱਕ ਦੀ ਆਧੁਨਿਕ ਵਰਜਨ ਜਿਸ ਵਿਚ ਤਾਜ਼ਾ ਦਿੱਖ ਅਤੇ ਬਹੁਤ ਸਾਰੇ ਉਪਯੋਗਤਾ ਸੁਧਾਰ ਹਨ",
+	"prefs-vector-enable-vector-1-label": "ਪੁਰਾਣੀ ਦਿੱਖ ਵਰਤੋ",
+	"vector-opt-out": "ਪੁਰਾਣੀ ਦਿੱਖ ’ਤੇ ਉਲਟਾਓ",
 	"vector-action-addsection": "ਵਿਸ਼ਾ ਜੋੜੋ",
 	"vector-action-delete": "ਹਟਾਓ",
 	"vector-action-move": "ਭੇਜੋ",
