@@ -8,12 +8,14 @@
 			"सरोज कुमार ढकाल",
 			"Bada Kaji",
 			"पर्वत सुबेदी",
-			"बडा काजी"
+			"बडा काजी",
+			"CAPTAIN MEDUSA"
 		]
 	},
 	"skinname-vector": "भेक्टर",
 	"prefs-vector-enable-vector-1-label": "पुरानो संस्करण प्रयोग गर्नुहोस्",
 	"vector-opt-out": "पुरानो रूपमा परिवर्तन गर्नुहोस्",
+	"vector-opt-out-tooltip": "छालाको पुरानो लुकमा फर्कन आफ्नो सेटिङहरू परिवर्तन गर्नुहोस् (लेगेसी भेक्टर)",
 	"vector.css": "/* यहाँ राखिएको CSS ले भेक्टर स्किनको प्रयोगकर्ताहरूलाई प्रभावित गर्ने छ  */",
 	"vector-action-toggle-sidebar": "बाँया खण्ड सक्षम गर्नुहोस्",
 	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषाहरू}}",

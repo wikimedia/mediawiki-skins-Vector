@@ -9,7 +9,14 @@
 			"Withoutaname",
 			"Thienhau2003",
 			"Keo010122",
-			"Nghiemtrongdai VN"
+			"Nghiemtrongdai VN",
+			"Amire80",
+			"Bluetpp",
+			"CactiStaccingCrane",
+			"Ngoxuannguyenchuong",
+			"NguoiDungKhongDinhDanh",
+			"NguyenHung",
+			"Thingofme"
 		]
 	},
 	"skinname-vector": "Vectơ",
@@ -21,8 +28,8 @@
 	"vector.css": "/* Tất cả mã CSS tại đây sẽ được tải khi người dùng sử dụng giao diện Vectơ */",
 	"vector.js": "/* Tất cả mã JavaScript tại đây sẽ được tải khi người dùng sử dụng giao diện Vectơ */",
 	"vector-action-toggle-sidebar": "Bật/tắt thanh bên",
-	"vector-language-button-label": "$1 ngôn ngữ",
-	"vector-action-addsection": "Thêm đề tài",
+	"vector-language-button-label": "{{PLURAL:$1}}$1 ngôn ngữ",
+	"vector-action-addsection": "Tạo chủ đề",
 	"vector-action-delete": "Xóa",
 	"vector-action-move": "Di chuyển",
 	"vector-action-protect": "Khóa",

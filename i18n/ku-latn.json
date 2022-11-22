@@ -4,9 +4,17 @@
 			"Bikarhêner",
 			"Ferhengvan",
 			"George Animal",
-			"Gomada"
+			"Gomada",
+			"Balyozxane"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Legacy Vector Bi Kar Bîne",
+	"prefs-vector-enable-vector-1-help": "Di nav çend salên pêşî de, em ê hêdî hêdî rûyê Vectorê nû bikin. Legacy Vector dê bihêle ku hûn guhartoya kevn a Vectorê (ji kanûna pêşîn 2019an ve) bibînin. Ji bo bêtir agahdarî li ser nûkirinan, herin [[mw:Reading/Web/Desktop_Improvements|rûpela projeyê]].",
+	"vector-opt-out": "Rûya kevn bi kar bîne",
+	"vector-opt-out-tooltip": "Mîhengên xwe biguhêre ji bo vegerîna rûyê kevn (legacy Vector)",
+	"vector.css": "/* Hemû CSS-a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
+	"vector.js": "/* Hemû JavaScript -a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
+	"vector-action-toggle-sidebar": "Menuya kêlekê bigire/veke",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ziman}}",
 	"vector-action-addsection": "Mijarekê lê zêde bike",
 	"vector-action-delete": "Jê bibe",
@@ -19,5 +27,14 @@
 	"vector-view-history": "Dîrokê bibîne",
 	"vector-view-view": "Bixwîne",
 	"vector-view-viewsource": "Çavkaniyan bibîne",
-	"vector-more-actions": "Bêhtir"
+	"vector-jumptonavigation": "Here nagîvasyonê",
+	"vector-jumptosearch": "Here lêgerînê",
+	"vector-jumptocontent": "Here naverokê",
+	"vector-more-actions": "Bêhtir",
+	"vector-search-loader": "Pêşniyazên lêgerînê tê barkirin",
+	"vector-anon-user-menu-pages": "Rûpelên ji bo edîtorên derketî",
+	"vector-anon-user-menu-pages-learn": "Zêdetir hîn bibe",
+	"vector-anon-user-menu-pages-label": "Di derbarê guhartinê de zêdetir hîn bibe",
+	"vector-main-menu-tooltip": "Menuya esasî",
+	"tooltip-vector-anon-user-menu-title": "Zêdetir opsiyon"
 }
