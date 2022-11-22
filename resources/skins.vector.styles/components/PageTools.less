@@ -4,22 +4,26 @@
 	.vector-page-tools-unpinned .vector-column-end & {
 		display: none;
 	}
+
+	.vector-pinnable-header {
+		padding: @padding-vertical-tabs;
+	}
 }
 
-// Update page tools styles when pinned
+/**
+ * Styles applying to all items in the pinned column.
+ */
 .vector-column-end {
 	.vector-dropdown-content {
 		padding-left: 45px;
 		width: 140px;
 	}
 
-	.vector-menu-content-list {
-		margin: 12px 0;
-		list-style: none;
-
-		li {
-			padding: 5px 0;
-			margin: 0;
-		}
+	// Make the heading border line up with the edge of the text
+	// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).
+	.vector-menu-heading,
+	.mw-list-item a {
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
