@@ -1,0 +1,10 @@
+<div class="vector-main-menu-contents">
+    {{#data-portlets-first}}{{>MainMenuGroup}}{{/data-portlets-first}}
+    {{#data-main-menu-action}}{{>MainMenuAction}}{{/data-main-menu-action}}
+    {{#array-portlets-rest}}{{>MainMenuGroup}}{{/array-portlets-rest}}
+    {{^is-language-in-content}}
+    {{#data-portlets.data-languages}}{{>MainMenuGroup}}{{/data-portlets.data-languages}}
+    {{/is-language-in-content}}
+    {{! T295555 Add language switch alert message. }}
+    {{#data-vector-language-switch-alert}}{{>MainMenuAction}}{{/data-vector-language-switch-alert}}
+</div>

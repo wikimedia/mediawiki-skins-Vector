@@ -10,17 +10,10 @@
 }}
 <div class="vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 	<div id="mw-navigation">
-		{{#data-portlets-main-menu}}
 		<nav id="mw-panel" class="vector-main-menu" aria-label="{{msg-vector-site-nav-label}}" role="navigation">
-			{{#data-portlets-first}}{{>Portal}}{{/data-portlets-first}}
-			{{#data-main-menu-action}}{{>MainMenuAction}}{{/data-main-menu-action}}
-			{{#array-portlets-rest}}{{>Portal}}{{/array-portlets-rest}}
-			{{^is-language-in-content}}
-			{{#data-portlets.data-languages}}{{>Portal}}{{/data-portlets.data-languages}}
-			{{/is-language-in-content}}
-			{{! T295555 Add language switch alert message temporarily (to be removed). }}
-			{{#data-vector-language-switch-alert}}{{>MainMenuAction}}{{/data-vector-language-switch-alert}}
+			{{#data-portlets-main-menu}}
+			{{>MainMenuContents}}
+			{{/data-portlets-main-menu}}
 		</nav>
-		{{/data-portlets-main-menu}}
 	</div>
 </div>
