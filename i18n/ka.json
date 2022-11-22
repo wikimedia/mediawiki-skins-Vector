@@ -55,8 +55,11 @@
 	"vector-toc-menu-tooltip": "სარჩევი",
 	"vector-toc-collapsible-button-label": "სარჩევის დამალვა/ჩვენება",
 	"vector-site-nav-label": "საიტი",
+	"vector-page-tools-label": "ხელსაწყოები",
 	"vector-pin-element-label": "გადატანა გვერდით ზოლზე",
 	"vector-unpin-element-label": "დამალვა",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|დისკუსია]]",
-	"tooltip-vector-anon-user-menu-title": "მეტი შესაძლებლობა"
+	"tooltip-vector-anon-user-menu-title": "მეტი შესაძლებლობა",
+	"vector-prefs-limited-width": "შეზღუდული სიგანის რეჟიმის ჩართვა",
+	"vector-prefs-limited-width-help": "ჩართეთ შეზღუდული სიგანის რეჟიმი გაუმჯობესებული კითხვის ხედის ცდისთვის."
 }

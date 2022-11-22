@@ -50,5 +50,8 @@
 	"vector-main-menu-tooltip": "Meniul principal",
 	"vector-pin-element-label": "mută în bara laterală",
 	"vector-unpin-element-label": "ascunde",
-	"tooltip-vector-anon-user-menu-title": "Mai multe opțiuni"
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discuție]]",
+	"tooltip-vector-anon-user-menu-title": "Mai multe opțiuni",
+	"vector-prefs-limited-width": "Activează modul de lățime limitată",
+	"vector-prefs-limited-width-help": "Activează modul de lățime limitată pentru experiență de lectură îmbunătățită."
 }
