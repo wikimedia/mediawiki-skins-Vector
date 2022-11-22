@@ -115,7 +115,7 @@ function init() {
 	// When this happens the user must expand it again manually, to avoid conflicts with multiple
 	// open windows (for example when an editor is viewing 2 articles side by side).
 	if ( checkbox ) {
-		var mediaQuery = window.matchMedia( '(max-width: 1000px)' );
+		var mediaQuery = window.matchMedia( '(max-width: 999px)' );
 		var onMediaQueryChangeCollapse = function ( /** @type {MediaQueryListEvent} */ event ) {
 			if ( event.matches ) {
 				// @ts-ignore we checked it already.
