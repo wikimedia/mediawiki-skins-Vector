@@ -49,7 +49,7 @@ class VectorComponentMainMenuActionOptOut implements VectorComponent {
 		$htmlData = [
 			'link' => $optOutUrl,
 		];
-		$component = new VectorComponentMainMenuAction( $skin, $htmlData, [] );
+		$component = new VectorComponentMainMenuAction( 'opt-out', $skin, $htmlData, [] );
 		return $component->getTemplateData();
 	}
 }

@@ -34,7 +34,7 @@ class VectorComponentMainMenuActionLanguageSwitchAlert implements VectorComponen
 		];
 
 		$component = new VectorComponentMainMenuAction(
-			$skin, $languageSwitchAlert, $headingOptions
+			'lang-alert', $skin, $languageSwitchAlert, $headingOptions
 		);
 		return $component->getTemplateData();
 	}
