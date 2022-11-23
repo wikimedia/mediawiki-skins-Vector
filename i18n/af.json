@@ -3,10 +3,17 @@
 		"authors": [
 			"Byeboer",
 			"Naudefj",
-			"Rooiratel"
+			"Rooiratel",
+			"Amire80"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Gebruik ou Vector-vel",
+	"vector-opt-out": "Skakel oor na ou voorkoms",
+	"vector-action-toggle-sidebar": "Wissel kantbalk",
+	"vector-languages": "Tale",
+	"vector-language-button-aria-label": "Gaan na 'n artikel in 'n ander taal. Beskikbaar in {{PLURAL:$1|$1 taal|$1 tale}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 taal|$1 tale}}",
+	"vector-language-variant-switcher-label": "Verander taalvariant",
 	"vector-action-addsection": "Nuwe onderwerp",
 	"vector-action-delete": "Skrap",
 	"vector-action-move": "Skuif",
@@ -18,5 +25,15 @@
 	"vector-view-history": "Wys geskiedenis",
 	"vector-view-view": "Lees",
 	"vector-view-viewsource": "Wys bronteks",
-	"vector-more-actions": "Meer"
+	"vector-jumptonavigation": "Gaan na navigasie",
+	"vector-jumptosearch": "Gaan na soektog",
+	"vector-jumptocontent": "Gaan na inhoud",
+	"vector-more-actions": "Meer",
+	"vector-search-loader": "Laai tans soekvoorstelle",
+	"vector-intro-page": "Help:Inleiding",
+	"vector-anon-user-menu-pages": "Bladsye vir uitgemelde redakteurs",
+	"vector-anon-user-menu-pages-learn": "leer meer",
+	"vector-anon-user-menu-pages-label": "Leer meer oor redigering",
+	"vector-main-menu-tooltip": "Hoofkieslys",
+	"tooltip-vector-anon-user-menu-title": "Meer opsies"
 }
