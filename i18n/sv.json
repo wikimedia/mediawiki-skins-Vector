@@ -47,7 +47,7 @@
 	"vector-searchsuggest-containing": "Sök efter sidor som innehåller <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
 	"vector-toc-label": "Innehåll",
-	"vector-toc-beginning": "Början",
+	"vector-toc-beginning": "Inledning",
 	"vector-toc-toggle-button-label": "Växla underavsnittet $1",
 	"vector-anon-user-menu-pages": "Sidor för utloggade redigerade",
 	"vector-anon-user-menu-pages-learn": "läs mer",
