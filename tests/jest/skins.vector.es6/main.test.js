@@ -11,21 +11,31 @@ const {
 } = require( '../../../resources/skins.vector.js/stickyHeader.js' );
 describe( 'main.js', () => {
 	it( 'getHeadingIntersectionHandler', () => {
-		const section = document.createElement( 'div' );
-		section.setAttribute( 'class', 'mw-body-content' );
-		section.setAttribute( 'id', 'mw-content-text' );
-		const heading = document.createElement( 'h2' );
-		const headline = document.createElement( 'span' );
-		headline.classList.add( 'mw-headline' );
-		headline.setAttribute( 'id', 'headline' );
-		heading.appendChild( headline );
-		section.appendChild(
-			heading
-		);
+		const content = document.createElement( 'div' );
+		content.setAttribute( 'class', 'mw-body-content' );
+		content.setAttribute( 'id', 'mw-content-text' );
+		const parserOutput = document.createElement( 'div' );
+		parserOutput.setAttribute( 'class', 'mw-parser-output' );
+		content.appendChild( parserOutput );
+
+		const headingOld = document.createElement( 'h2' );
+		const headlineOld = document.createElement( 'span' );
+		headlineOld.classList.add( 'mw-headline' );
+		headlineOld.setAttribute( 'id', 'headline-old' );
+		headingOld.appendChild( headlineOld );
+		parserOutput.appendChild( headingOld );
+
+		const headingNew = document.createElement( 'div' );
+		headingNew.classList.add( 'mw-heading' );
+		const headlineNew = document.createElement( 'h2' );
+		headlineNew.setAttribute( 'id', 'headline-new' );
+		headingNew.appendChild( headlineNew );
+		parserOutput.appendChild( headingNew );
 
 		[
-			[ section, 'toc-mw-content-text' ],
-			[ heading, 'toc-headline' ]
+			[ content, 'toc-mw-content-text' ],
+			[ headingOld, 'toc-headline-old' ],
+			[ headingNew, 'toc-headline-new' ]
 		].forEach( ( testCase ) => {
 			const node = /** @type {HTMLElement} */ ( testCase[ 0 ] );
 			const fn = jest.fn();

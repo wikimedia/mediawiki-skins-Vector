@@ -13,7 +13,15 @@ const
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
-	HEADLINE_SELECTOR = '.mw-headline',
+	// Support two variants of heading markup: (see T13555, T358452)
+	// (old) <h2> <span class="mw-headline" id="...">...</span> ... </h2>
+	// (new) <div class="mw-heading"> <h2 id="...">...</h2> ... </div>
+	// [more information: https://www.mediawiki.org/wiki/Heading_HTML_changes]
+	HEADING_TAGS = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+	HEADING_SELECTOR = [ '.mw-heading', ...HEADING_TAGS.map( ( tag ) => `${ tag }:not([id])` ) ]
+		.map( ( sel ) => `.mw-parser-output ${ sel }` ).join( ', ' ),
+	HEADLINE_SELECTOR = [ '.mw-headline', ...HEADING_TAGS.map( ( tag ) => `${ tag }[id]` ) ]
+		.map( ( sel ) => `.mw-parser-output ${ sel }` ).join( ', ' ),
 	TOC_SECTION_ID_PREFIX = 'toc-',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
 
@@ -204,10 +212,7 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 
 		}
 	} );
-	const headingSelector = [
-		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
-	].map( ( tag ) => `.mw-parser-output ${ tag }` ).join( ',' );
-	const elements = () => bodyContent.querySelectorAll( `${ headingSelector }, .mw-body-content` );
+	const elements = () => bodyContent.querySelectorAll( `${ HEADING_SELECTOR }, .mw-body-content` );
 
 	const sectionObserver = initSectionObserverFn( {
 		elements: elements(),
