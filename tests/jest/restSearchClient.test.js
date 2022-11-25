@@ -11,6 +11,9 @@ const configMock = {
 		if ( key === 'wgScript' ) {
 			return '/w/index.php';
 		}
+		if ( key === 'wgVectorSearchApiUrl' ) {
+			return 'https://en.wikipedia.org/w/rest.php';
+		}
 		return fallback;
 	} ),
 	set: jest.fn()
@@ -66,7 +69,6 @@ describe( 'restApiSearchClient', () => {
 
 		const searchResult = await restSearchClient( configMock ).fetchByTitle(
 			'media',
-			'https://en.wikipedia.org/w/rest.php',
 			2
 		).fetch;
 
@@ -98,8 +100,7 @@ describe( 'restApiSearchClient', () => {
 		fetchMock.mockOnce( JSON.stringify( restResponse ) );
 
 		const searchResult = await restSearchClient( configMock ).fetchByTitle(
-			'thereIsNothingLikeThis',
-			'https://en.wikipedia.org/w/rest.php'
+			'thereIsNothingLikeThis'
 		).fetch;
 
 		/* eslint-disable-next-line compat/compat */
@@ -122,8 +123,7 @@ describe( 'restApiSearchClient', () => {
 			fetchMock.mockRejectOnce( new Error( 'failed' ) );
 
 			await expect( restSearchClient( configMock ).fetchByTitle(
-				'anything',
-				'https://en.wikipedia.org/w/rest.php'
+				'anything'
 			).fetch ).rejects.toThrow( 'failed' );
 		} );
 	}
