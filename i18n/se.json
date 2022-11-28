@@ -22,5 +22,6 @@
 	"vector-more-actions": "Eanet",
 	"vector-searchsuggest-containing": "Oza siidduid main lea <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-anon-user-menu-pages-learn": "lassedieđut",
-	"vector-anon-user-menu-pages-label": "Lassedieđut rievdadeami birra"
+	"vector-anon-user-menu-pages-label": "Lassedieđut rievdadeami birra",
+	"vector-unpin-element-label": "čiega"
 }

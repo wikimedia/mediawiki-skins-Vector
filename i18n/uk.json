@@ -63,8 +63,11 @@
 	"vector-toc-menu-tooltip": "Зміст",
 	"vector-toc-collapsible-button-label": "Сховати/показати зміст",
 	"vector-site-nav-label": "Сайт",
+	"vector-page-tools-label": "Інструменти",
 	"vector-pin-element-label": "перемістити на бічну панель",
 	"vector-unpin-element-label": "сховати",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обговорення]]",
-	"tooltip-vector-anon-user-menu-title": "Більше опцій"
+	"tooltip-vector-anon-user-menu-title": "Більше опцій",
+	"vector-prefs-limited-width": "Увімкнути режим обмеженої ширини",
+	"vector-prefs-limited-width-help": "Увімкнути режим обмеженої ширини для кращого читання."
 }
