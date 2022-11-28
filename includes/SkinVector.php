@@ -364,6 +364,7 @@ abstract class SkinVector extends SkinMustache {
 		}
 		$btns[] = $this->getAddSectionButtonData();
 
+		// FIXME: Sync with SkinVector22:getTocData
 		$tocPortletData = Hooks::updateDropdownMenuData( [
 			'id' => 'vector-sticky-header-toc',
 			'class' => 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',

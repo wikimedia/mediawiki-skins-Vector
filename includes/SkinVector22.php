@@ -129,6 +129,7 @@ class SkinVector22 extends SkinVector {
 
 		// ToC is pinned by default, hardcoded for now
 		$isTocPinned = true;
+		$pinnableElementName = 'vector-toc';
 		$pinnableHeader = new VectorComponentPinnableHeader(
 			$this->getContext(),
 			$isTocPinned,
@@ -145,6 +146,9 @@ class SkinVector22 extends SkinVector {
 				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
 					'VectorTableOfContentsCollapseAtCount'
 				),
+			// Needed for PinnedContainer
+			'id' => $pinnableElementName,
+			'is-pinned' => $isTocPinned,
 			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
 		] );
 	}

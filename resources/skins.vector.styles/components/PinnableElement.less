@@ -1,0 +1,27 @@
+.vector-pinnable-element {
+	.vector-menu-heading {
+		.mixin-vector-dropdown-menu-item();
+		.mixin-vector-menu-heading();
+	}
+
+	// Match dropdown menu item styles in Dropdown.less
+	.mw-list-item {
+		a {
+			.mixin-vector-dropdown-menu-item();
+			white-space: nowrap;
+			color: @color-link;
+		}
+	}
+
+	.vector-menu {
+		border-top: @border-width-base @border-style-base @colorGray14;
+	}
+
+	// Remove the border for the first .vector-menu since
+	// it already exists on the pinnable header, or, when there's no
+	// pinnable header, a border exists on the dropdown container.
+	.vector-menu:first-child,
+	.vector-pinnable-header + .vector-menu {
+		border: 0;
+	}
+}

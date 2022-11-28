@@ -25,7 +25,7 @@ exports[`UserLinks renders 1`] = `
 	<label id=\\"p-personal-label\\" for=\\"p-personal-checkbox\\" class=\\"vector-menu-heading\\">
 		<span class=\\"vector-menu-heading-label\\">Personal tools</span>
 	</label>
-	<div id=\\"p-personal-content-container\\" class=\\"vector-menu-content\\">
+	<div class=\\"vector-menu-content\\">
 
 		<ul class=\\"vector-menu-content-list\\">
 			<li id=\\"pt-userpage\\" class=\\"user-links-collapsible-item mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar\\" href=\\"/wiki/User:Admin\\" title=\\"Your user page [.]\\" accesskey=\\".\\"><span>Admin</span></a></li>

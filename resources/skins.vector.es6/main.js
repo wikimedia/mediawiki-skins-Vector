@@ -6,7 +6,7 @@ const
 	initExperiment = require( './AB.js' ),
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
-	pinnableHeader = require( './pinnableHeader.js' ),
+	pinnableElement = require( './pinnableElement.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
@@ -123,7 +123,9 @@ const updateTocLocation = () => {
 	const isBelowDesktop = belowDesktopMedia.matches;
 	const moveTocToPinned = ( isPinned || !isStickyHeaderVisible || isBelowDesktop );
 
-	pinnableHeader.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
+	pinnableElement.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-unpinned-container', moveTocToPinned );
+	// FIXME: Delete the following line after has been in prod for 5 days
+	pinnableElement.movePinnableElement( TOC_ID, 'vector-toc-pinned-container', 'vector-sticky-header-toc-content-container', moveTocToPinned );
 };
 
 /**
@@ -138,7 +140,7 @@ const main = () => {
 	}
 
 	// Initialize pinnable headers
-	pinnableHeader.initPinnableHeader();
+	pinnableElement.initPinnableElement();
 
 	//
 	// Sticky header

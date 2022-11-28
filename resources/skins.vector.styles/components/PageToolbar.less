@@ -21,25 +21,6 @@
 	}
 }
 
-.vector-page-toolbar-container,
-.vector-dropdown-content {
-	// Ensure collapsible items are visible on lower resolutions
-	.vector-more-collapsible-item {
-		display: block;
-
-		@media ( min-width: @min-width-tablet ) {
-			display: none;
-		}
-	}
-
-	// Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
-	.vector-has-collapsible-items {
-		@media ( max-width: @max-width-mobile ) {
-			display: block;
-		}
-	}
-}
-
 // ID Selectors outside of .vector-page-toolbar-container to avoid over-specificity.
 #left-navigation {
 	// flex ensures all child elements align on one line.

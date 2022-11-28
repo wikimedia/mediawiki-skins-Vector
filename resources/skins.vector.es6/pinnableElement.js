@@ -70,13 +70,13 @@ function movePinnableElement( pinnableElementId, pinnedContainerId, unpinnedCont
 	}
 }
 
-function initPinnableHeader() {
+function initPinnableElement() {
 	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
 	pinnableHeader.forEach( bindPinnableToggleButtons );
 }
 
 module.exports = {
-	initPinnableHeader,
+	initPinnableElement,
 	movePinnableElement,
 	PINNED_HEADER_CLASS,
 	UNPINNED_HEADER_CLASS

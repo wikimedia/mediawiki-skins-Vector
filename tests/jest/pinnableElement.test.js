@@ -1,7 +1,7 @@
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
-const pinnableHeader = require( '../../resources/skins.vector.es6/pinnableHeader.js' );
+const pinnableElement = require( '../../resources/skins.vector.es6/pinnableElement.js' );
 
 const simpleData = {
 	'is-pinned': false,
@@ -54,30 +54,30 @@ describe( 'Pinnable header', () => {
 
 	test( 'updates pinnable classes when toggle is pressed', () => {
 		initializeHTML( simpleData );
-		pinnableHeader.initPinnableHeader();
+		pinnableElement.initPinnableElement();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-name' ]}-pinnable-header` ) );
 
-		expect( header.classList.contains( pinnableHeader.PINNED_HEADER_CLASS ) ).toBe( false );
+		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( false );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( false );
-		expect( header.classList.contains( pinnableHeader.UNPINNED_HEADER_CLASS ) ).toBe( true );
+		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( true );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( true );
 		pinButton.click();
-		expect( header.classList.contains( pinnableHeader.PINNED_HEADER_CLASS ) ).toBe( true );
+		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( true );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( true );
-		expect( header.classList.contains( pinnableHeader.UNPINNED_HEADER_CLASS ) ).toBe( false );
+		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( false );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( false );
 		unpinButton.click();
-		expect( header.classList.contains( pinnableHeader.PINNED_HEADER_CLASS ) ).toBe( false );
+		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( false );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( false );
-		expect( header.classList.contains( pinnableHeader.UNPINNED_HEADER_CLASS ) ).toBe( true );
+		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( true );
 		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( true );
 	} );
 
 	test( 'doesnt move pinnable element when data attributes arent defined', () => {
 		initializeHTML( simpleData );
-		pinnableHeader.initPinnableHeader();
+		pinnableElement.initPinnableElement();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		const pinnableElem = /** @type {HTMLElement} */ ( document.getElementById( simpleData[ 'data-pinnable-element-id' ] ) );
@@ -93,7 +93,7 @@ describe( 'Pinnable header', () => {
 
 	test( 'moves pinnable element when data attributes are defined', () => {
 		initializeHTML( movableData );
-		pinnableHeader.initPinnableHeader();
+		pinnableElement.initPinnableElement();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		const pinnableElem = /** @type {HTMLElement} */ ( document.getElementById( movableData[ 'data-pinnable-element-id' ] ) );

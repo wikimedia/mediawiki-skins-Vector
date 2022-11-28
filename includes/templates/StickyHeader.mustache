@@ -22,7 +22,11 @@
 			<div class="vector-sticky-header-toc-container mw-ui-icon-flush-left">
 				{{! TOC is cloned into this menu from the sidebar in stickyHeader.js. }}
 				{{#data-sticky-header-toc}}
-				{{>PinnableDropdown}}
+				{{>Dropdown/Open}}
+					{{>UnpinnedContainer/Open}}
+						{{^is-pinned}}{{>PageTools}}{{/is-pinned}}
+					{{>UnpinnedContainer/Close}}
+				{{>Dropdown/Close}}
 				{{/data-sticky-header-toc}}
 			</div>
 			<div class="vector-sticky-header-context-bar-primary" {{{html-user-language-attributes}}}>{{{html-title}}}</div>

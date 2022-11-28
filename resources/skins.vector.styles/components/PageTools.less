@@ -1,8 +1,26 @@
 // Ensure there is only 1 page tools landmark at anytime
 .vector-page-tools-landmark {
-	.vector-page-tools-pinned #right-navigation &,
-	.vector-page-tools-unpinned .vector-column-end & {
+	.vector-page-tools-pinned #vector-page-tools-unpinned-container &,
+	.vector-page-tools-unpinned #vector-page-tools-pinned-container & {
 		display: none;
+	}
+}
+
+.vector-page-tools-pinnable-element {
+	/**
+ 	* Styles applying to all items in the pinned column.
+ 	*/
+	#vector-page-tools-pinned-container & {
+		padding-left: 45px;
+		width: 140px;
+
+		// Make the heading border line up with the edge of the text
+		// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).
+		.vector-menu-heading,
+		.mw-list-item a {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 
 	.vector-pinnable-header {
@@ -10,20 +28,22 @@
 	}
 }
 
-/**
- * Styles applying to all items in the pinned column.
- */
-.vector-column-end {
-	.vector-dropdown-content {
-		padding-left: 45px;
-		width: 140px;
+// FIXME: Remove the following selector when page tools feature is on by default, needed for LegacyMoreDropdown
+.vector-feature-page-tools-disabled .vector-page-tools-landmark,
+.vector-page-tools-pinnable-element {
+	// Ensure collapsible items are visible on lower resolutions
+	.vector-more-collapsible-item {
+		display: block;
+
+		@media ( min-width: @min-width-tablet ) {
+			display: none;
+		}
 	}
 
-	// Make the heading border line up with the edge of the text
-	// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).
-	.vector-menu-heading,
-	.mw-list-item a {
-		padding-left: 0;
-		padding-right: 0;
+	// Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
+	.vector-has-collapsible-items {
+		@media ( max-width: @max-width-mobile ) {
+			display: block;
+		}
 	}
 }

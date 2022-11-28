@@ -37,41 +37,12 @@
  * Dropdown menu items.
  * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  * TODO: Can any of these unique classes be converted to use .mw-list-item instead?
- * FIXME: `vector-dropdown-content` does not belong to the Dropdown component.
- * At time of writing it is associated with the PinnableDropdownContent component. Revisit
- * as part of I85aec387f87126a17e760fd9fd10e10572ff3152.
  */
-.vector-dropdown-content .mw-list-item,
 .vector-dropdown .mw-list-item,
 .vector-menu-dropdown > .vector-menu-content .mw-list-item {
 	a {
 		.mixin-vector-dropdown-menu-item();
 		white-space: nowrap;
 		color: @color-link;
-	}
-}
-
-/**
- * Dropdown headings.
- */
-.vector-dropdown-content .vector-menu-heading {
-	.mixin-vector-dropdown-menu-item();
-	.mixin-vector-menu-heading();
-}
-
-/**
- * Menus inside dropdowns (when a dropdown has multiple menus).
- */
-.vector-dropdown-content {
-	.vector-menu {
-		border-top: @border-width-base @border-style-base @colorGray14;
-	}
-
-	// Remove the border for the first .vector-menu since
-	// it already exists on the pinnable header, or, when there's no
-	// pinnable header, a border exists on the dropdown container.
-	.vector-menu:first-child,
-	.vector-pinnable-header + .vector-menu {
-		border: 0;
 	}
 }

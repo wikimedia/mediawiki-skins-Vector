@@ -87,7 +87,9 @@
 		display: block;
 	}
 
-	.vector-sticky-toc-container {
+	// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
+	.vector-sticky-toc-container,
+	#vector-toc-pinned-container {
 		// Override TOC container's sticky positioning
 		position: relative;
 	}

@@ -61,8 +61,8 @@ class VectorComponentPinnableHeader implements VectorComponent {
 		if ( $this->moveElement ) {
 			// Assumes consistent naming standard for pinnable elements and their containers
 			$data = array_merge( $data, [
-				'data-pinnable-element-id' => $this->name . '-content',
-				'data-unpinned-container-id' => $this->name . '-content-container',
+				'data-pinnable-element-id' => $this->name . '-pinnable-element',
+				'data-unpinned-container-id' => $this->name . '-unpinned-container',
 				'data-pinned-container-id' => $this->name . '-pinned-container',
 			] );
 		}
