@@ -66,8 +66,8 @@ function adaptApiResponse( config, query, restResponse, showDescription ) {
 /**
  * @callback fetchByTitle
  * @param {string} query The search term.
- * @param {string} searchApiUrl The URL to rest.php
  * @param {number} [limit] Maximum number of results.
+ * @param {boolean} [showDescription] Whether descriptions should be added to the results.
  * @return {AbortableSearchFetch}
  */
 
@@ -85,7 +85,10 @@ function restSearchClient( config ) {
 		/**
 		 * @type {fetchByTitle}
 		 */
-		fetchByTitle: ( q, searchApiUrl, limit = 10, showDescription = true ) => {
+		fetchByTitle: ( q, limit = 10, showDescription = true ) => {
+			const searchApiUrl = config.get( 'wgVectorSearchApiUrl',
+				config.get( 'wgScriptPath' ) + '/rest.php'
+			);
 			const params = { q, limit };
 			const url = searchApiUrl + '/v1/search/title?' + $.param( params );
 			const result = fetchJson( url, {

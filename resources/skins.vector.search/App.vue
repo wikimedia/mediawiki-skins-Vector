@@ -162,10 +162,7 @@ module.exports = exports = defineComponent( {
 		 * @param {string} value
 		 */
 		onInput: function ( value ) {
-			const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
-					mw.config.get( 'wgScriptPath' ) + '/rest.php'
-				),
-				query = value.trim();
+			const query = value.trim();
 
 			this.currentSearchQuery = query;
 
@@ -177,7 +174,7 @@ module.exports = exports = defineComponent( {
 
 			instrumentation.listeners.onFetchStart();
 
-			restClient.fetchByTitle( query, searchApiUrl, 10, this.showDescription ).fetch
+			restClient.fetchByTitle( query, 10, this.showDescription ).fetch
 				.then( ( data ) => {
 					// Only use these results if they're still relevant
 					// If currentSearchQuery !== query, these results are for a previous search
