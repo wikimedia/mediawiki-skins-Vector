@@ -326,16 +326,9 @@ module.exports = function tableOfContents( props ) {
 	 * Bind event listener for clicking on show/hide Table of Contents links.
 	 */
 	function bindPinnedToggleListeners() {
-		// FIXME: Remove cached HTML code after I82f23e69b0249c844af9e45fec342217a0755893 has been in prod a week
-		const isCachedTocHTML = document.getElementById( 'sidebar-toc-label' );
-		const toggleButtonQuery = isCachedTocHTML ? '#sidebar-toc-label button' : '.vector-toc-pinnable-header button';
-		const toggleButtons = document.querySelectorAll( toggleButtonQuery );
+		const toggleButtons = document.querySelectorAll( '.vector-toc-pinnable-header button' );
 		toggleButtons.forEach( function ( btn ) {
 			btn.addEventListener( 'click', () => {
-				if ( isCachedTocHTML ) {
-					document.body.classList.toggle( 'vector-toc-pinned' );
-					document.body.classList.toggle( 'vector-toc-unpinned' );
-				}
 				props.onTogglePinned();
 			} );
 		} );

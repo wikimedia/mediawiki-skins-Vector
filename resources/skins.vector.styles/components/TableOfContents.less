@@ -15,8 +15,6 @@
 	height: 100%;
 }
 
-// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
-.vector-sticky-toc-container,
 #vector-toc-pinned-container {
 	// stylelint-disable-next-line plugin/no-unsupported-browser-features
 	position: sticky;
@@ -66,8 +64,6 @@
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
 
-	// FIXME: Remove .sidebar-toc-header selector when I82f23e69b0249c844af9e45fec342217a0755893 has been in prod for a week
-	.sidebar-toc-header,
 	.vector-toc-pinnable-header {
 		// Override default pinnable header styles
 		padding: 0 0 12px 0;
@@ -78,15 +74,6 @@
 	.vector-pinnable-header-label {
 		// Override heading element styles in elements.less
 		overflow: unset;
-	}
-
-	// FIXME: Remove .sidebar-toc-title selector when I82f23e69b0249c844af9e45fec342217a0755893 has been in prod for a week
-	.sidebar-toc-title {
-		color: @color-base--subtle;
-		font-size: @font-size-base;
-		margin: 0;
-		padding: 0;
-		border: 0;
 	}
 
 	.sidebar-toc-numb {

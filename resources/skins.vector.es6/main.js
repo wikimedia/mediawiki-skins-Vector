@@ -130,16 +130,9 @@ const updateTocLocation = () => {
 		'vector-sticky-header-toc-unpinned-container';
 	const pageTitlebarUnpinnedContainerId = 'vector-page-titlebar-toc-unpinned-container';
 
-	// FIXME: Remove isCachedHTML after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
-	const isCachedHTML = !document.getElementById( 'vector-page-titlebar-toc' );
-	if ( isCachedHTML ) {
-		// Add temporary body class for cached HTML
-		document.body.classList.add( 'vector-toc-cached' );
-	}
-
 	let newContainerId = '';
 	if ( isPinned ) {
-		if ( isBelowDesktop && !isCachedHTML ) {
+		if ( isBelowDesktop ) {
 			// Automatically move the ToC into the page titlebar when pinned on smaller resolutions
 			newContainerId = pageTitlebarUnpinnedContainerId;
 		} else {

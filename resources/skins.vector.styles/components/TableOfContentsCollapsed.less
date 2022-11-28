@@ -20,18 +20,7 @@
 	.mixin-toc-dropdown-button();
 }
 
-// FIXME: Remove selector after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
-@media ( min-width: @min-width-desktop ) {
-	// Disable collapsible TOC behavior for cached HTML on non mobile viewports
-	.vector-toc-cached .sidebar-toc .vector-pinnable-header-toggle-button {
-		display: none !important; /* stylelint-disable-line declaration-no-important */
-	}
-}
-
 @media ( max-width: @max-width-tablet ) {
-	// FIXME: Remove .vector-toc-cached after Iea0d73005b91589c58ae38a3a640fa90c18a860d has been in prod for 5 days
-	// Maintain collapsible TOC behavior for cached HTML on mobile by using no-js approach
-	.vector-toc-cached,
 	.client-nojs {
 		#vector-toc-collapsed-button {
 			display: block;
@@ -44,8 +33,6 @@
 			}
 		}
 
-		// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
-		.vector-sticky-toc-container,
 		#vector-toc-pinned-container {
 			// Override TOC container's sticky positioning
 			position: relative;
@@ -90,41 +77,6 @@
 	}
 }
 
-// Styles for the "move to sidebar/hide" buttons, hidden by default.
-// FIXME: Remove entire selector when I82f23e69b0249c844af9e45fec342217a0755893 has been in prod for a week
-.client-js {
-	@media ( min-width: @min-width-desktop ) {
-		.vector-toc-unpinned .vector-toc-uncollapse-button,
-		.vector-toc-pinned .vector-toc-collapse-button {
-			display: inline-block;
-		}
-	}
-
-	.vector-toc-collapse-button,
-	.vector-toc-uncollapse-button {
-		display: none;
-		border: 0;
-		padding: 0;
-		background-color: transparent;
-		color: @color-primary;
-		cursor: pointer;
-
-		&:hover {
-			color: @color-primary--hover;
-		}
-
-		&:before {
-			content: '@{msg-brackets-start}';
-			color: @color-base--subtle;
-		}
-
-		&:after {
-			content: '@{msg-brackets-end}';
-			color: @color-base--subtle;
-		}
-	}
-}
-
 // Shared collapsed TOC styles, applies across all cases (page titlebar, sticky header, floating)
 .mixin-toc-collapsed() {
 	// T316056 Use max-content because collapsed TOC is absolutely positioned, width is relative to the collapsed TOC button
@@ -158,8 +110,6 @@
 	@media ( max-width: @max-width-tablet ) {
 		// Prevent layout shift from the TOC being in the sidebar before JS loads and
 		// moves the TOC into the page titlebar on small screens
-		// FIXME: Remove .vector-sticky-toc-container selector after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
-		.vector-sticky-toc-container .sidebar-toc,
 		#vector-toc-pinned-container .sidebar-toc {
 			display: none;
 		}
