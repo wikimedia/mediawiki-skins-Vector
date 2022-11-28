@@ -7,7 +7,11 @@
 			"Robert Važan",
 			"Rudko",
 			"Sudo77(new)",
-			"Luky001"
+			"Luky001",
+			"Amire80",
+			"Teslaton",
+			"Vegetator",
+			"Yardom78"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -29,5 +33,7 @@
 	"vector-view-history": "Zobraziť históriu",
 	"vector-view-view": "Čítať",
 	"vector-view-viewsource": "Zobraziť kód",
+	"vector-jumptonavigation": "Prejsť na navigáciu",
+	"vector-jumptosearch": "Prejsť na vyhľadávanie",
 	"vector-more-actions": "Viac"
 }
