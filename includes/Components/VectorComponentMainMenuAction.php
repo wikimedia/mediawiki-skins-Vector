@@ -13,16 +13,20 @@ class VectorComponentMainMenuAction implements VectorComponent {
 	private $htmlData;
 	/** @var array */
 	private $headingOptions;
+	/** @var string */
+	private $actionName;
 
 	/**
+	 * @param string $actionName identifier for the action. Used to add class
 	 * @param Skin $skin
 	 * @param array $htmlData data to make a link or raw html
 	 * @param array $headingOptions optional heading for the html
 	 */
-	public function __construct( Skin $skin, array $htmlData, array $headingOptions ) {
+	public function __construct( string $actionName, Skin $skin, array $htmlData, array $headingOptions ) {
 		$this->skin = $skin;
 		$this->htmlData = $htmlData;
 		$this->headingOptions = $headingOptions;
+		$this->actionName = $actionName;
 	}
 
 	/**
@@ -42,6 +46,7 @@ class VectorComponentMainMenuAction implements VectorComponent {
 		}
 
 		return $headingOptions + [
+			'action' => $this->actionName,
 			'html-content' => $htmlContent,
 		];
 	}
