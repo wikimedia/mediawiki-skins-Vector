@@ -10,17 +10,6 @@ describe( 'instrumentation', () => {
 			.toBe( expected );
 	} );
 
-	describe( 'generateUrl', () => {
-		test.each( [
-			[ 'string', 'title' ],
-			[ 'object', { title: 'title' } ]
-		] )( 'should generate URL from %s', ( _name, suggestion ) => {
-			const meta = { index: 1 };
-			expect( instrumentation.generateUrl( suggestion, meta ) )
-				.toBe( 'https://host/?title=Special%3ASearch&suggestion=title&wprov=acrw1_1' );
-		} );
-	} );
-
 	test( 'addWprovToSearchResultUrls without offset', () => {
 		const url1 = 'https://host/?title=Special%3ASearch&search=Aa',
 			url2Base = 'https://host/?title=Special%3ASearch&search=Ab',
