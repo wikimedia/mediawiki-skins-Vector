@@ -55,5 +55,7 @@
 	"vector-toc-menu-tooltip": "Inhoudsopgave",
 	"vector-site-nav-label": "Site",
 	"vector-unpin-element-label": "verbergen",
-	"tooltip-vector-anon-user-menu-title": "Meer opties"
+	"tooltip-vector-anon-user-menu-title": "Meer opties",
+	"vector-prefs-limited-width": "Inschakelen modus beperkte breedte",
+	"vector-prefs-limited-width-help": "Inschakelen modus beperkte breedte voor een verbeterde leeservaring."
 }
