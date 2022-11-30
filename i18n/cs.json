@@ -7,7 +7,10 @@
 			"Matěj Suchánek",
 			"Mormegil",
 			"Patriccck",
-			"Patrik L."
+			"Patrik L.",
+			"Amire80",
+			"Kareyac",
+			"Martin Urbanec (WMF)"
 		]
 	},
 	"skinname-vector": "Starý Vektor (2010)",
@@ -43,7 +46,7 @@
 	"vector-more-actions": "Další",
 	"vector-search-loader": "Načítají se návrhy pro hledání",
 	"vector-searchsuggest-containing": "Vyhledat stránky obsahující „<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>“",
-	"vector-intro-page": "Nápověda:Úvod",
+	"vector-intro-page": "Help:Úvod",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
 	"vector-anon-user-menu-pages-label": "Více informací o editování",

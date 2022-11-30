@@ -11,7 +11,8 @@
 			"No Sleep till Krupki",
 			"Amire80",
 			"Kareyac",
-			"Maksim L."
+			"Maksim L.",
+			"Plaga med"
 		]
 	},
 	"tooltip-pt-watchlist-2": "Спіс старонак, на якіх вы сочыце за зменамі",
@@ -23,7 +24,7 @@
 	"vector-action-toggle-sidebar": "Пераключыць бакавую панэль",
 	"vector-languages": "Мовы",
 	"vector-language-button-aria-label": "Перайсці да артыкула на іншай мове. Даступны на $1 {{PLURAL:$1|мове|мовах}}.",
-	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моваў}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моў}}",
 	"vector-language-redirect-to-top": "У гэтай пляцоўцы {{SITENAME}} моўныя спасылкі знаходзяцца ўверсе старонкі насупраць загалоўка артыкула. [[#p-lang-btn|Перайсці ўверх]].",
 	"vector-language-variant-switcher-label": "Зменіць моўны варыянт",
 	"vector-action-addsection": "Дадаць тэму",
