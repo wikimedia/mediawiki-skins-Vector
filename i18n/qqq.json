@@ -64,6 +64,7 @@
 	"vector-toc-menu-tooltip": "Used as title attribute for table of contents icon on hover.",
 	"vector-toc-collapsible-button-label": "Used as the label for the table of contents collapsible toggle button",
 	"vector-site-nav-label": "Accessible label for site (main menu) nav landmark",
+	"vector-main-menu-label": "Main menu label",
 	"vector-page-tools-label": "Label for the page tools pinnable dropdown\n{{identical|Tools}}",
 	"vector-pin-element-label": "Label for toggle button in PinnableHeader to pin an element",
 	"vector-unpin-element-label": "Label for toggle button in PinnableHeader to unpin an element",

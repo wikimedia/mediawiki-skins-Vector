@@ -4,6 +4,26 @@
 
 @width-sidebar-end: unit( 185px / @font-size-browser, em );
 
+// Match styles between TOC and fade element to ensure the fade covers the correct area
+// This is expressed in pixels to support different font sizes since our layout is currently
+// expressed in pixels. See T313817.
+// FIXME: Remove .vector-sticky-toc-container selectors after I85aec387f87126a17e760fd9fd10e10572ff3152 has been in prod for 5 days
+.vector-sticky-toc-container .sidebar-toc:after,
+.vector-sticky-toc-container .sidebar-toc,
+#vector-toc-pinned-container .sidebar-toc:after,
+#vector-toc-pinned-container .sidebar-toc,
+.vector-feature-page-tools-disabled .vector-main-menu,
+.vector-main-menu-container .vector-main-menu {
+	// T305069 Layout adjustments of sidebar elements
+	// Align the left edge of main menu with the main menu button.
+	width: @width-sidebar-px;
+
+	// Align the left edge of main menu with the main menu button icon.
+	@media ( min-width: @min-width-desktop-wide ) {
+		width: @width-sidebar-px-wide;
+	}
+}
+
 @media ( min-width: @min-width-desktop ) {
 	.mw-page-container-inner {
 		display: grid;

@@ -41,6 +41,7 @@
 						"skin-vector",
 						"skin-vector-search-vue",
 						"vector-toc-pinned",
+						"vector-main-menu-unpinned",
 						"vector-page-tools-unpinned"
 					],
 					"menus": [
@@ -322,6 +323,7 @@
 				}
 			},
 			"icons": [
+				"menu",
 				"heart",
 				"language",
 				"ellipsis",

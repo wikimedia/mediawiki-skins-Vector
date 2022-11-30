@@ -310,7 +310,8 @@ class SkinVector22 extends SkinVector {
 			'data-portlets-main-menu' => new VectorComponentMainMenu(
 				$sidebar,
 				$this,
-				$this->shouldLanguageAlertBeInSidebar()
+				$this->shouldLanguageAlertBeInSidebar(),
+				$parentData['data-portlets']['data-languages'] ?? [],
 			),
 			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
 				$toolbox,
