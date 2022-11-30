@@ -13,8 +13,8 @@
 			</nav>
 
 			<nav class="vector-page-tools-landmark" aria-label="{{msg-tooltip-p-cactions}}">
-				{{#is-page-tools-enabled}}{{#data-page-tools}}{{>PinnableDropdown}}{{/data-page-tools}}{{/is-page-tools-enabled}}
-				{{^is-page-tools-enabled}}{{#data-actions}}{{>PageTools}}{{/data-actions}}{{/is-page-tools-enabled}}
+				{{#is-page-tools-enabled}}{{#data-page-tools}}{{>PageTools}}{{/data-page-tools}}{{/is-page-tools-enabled}}
+				{{^is-page-tools-enabled}}{{#data-actions}}{{>LegacyMoreMenu}}{{/data-actions}}{{/is-page-tools-enabled}}
 			</nav>
 		</div>
 		{{/data-portlets}}
