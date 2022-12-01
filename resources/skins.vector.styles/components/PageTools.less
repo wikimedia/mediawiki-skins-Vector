@@ -7,6 +7,19 @@
 }
 
 .vector-page-tools-pinnable-element {
+	.vector-menu-heading {
+		.mixin-vector-dropdown-menu-item();
+		.mixin-vector-menu-heading();
+	}
+
+	.mw-list-item {
+		a {
+			.mixin-vector-dropdown-menu-item();
+			white-space: nowrap;
+			color: @color-link;
+		}
+	}
+
 	/**
  	* Styles applying to all items in the pinned column.
  	*/
