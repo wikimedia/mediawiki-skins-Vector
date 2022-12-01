@@ -51,5 +51,7 @@
 	"vector-pin-element-label": "vii külgpaanile",
 	"vector-unpin-element-label": "peida",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|arutelu]]",
-	"tooltip-vector-anon-user-menu-title": "Veel valikuid"
+	"tooltip-vector-anon-user-menu-title": "Veel valikuid",
+	"vector-prefs-limited-width": "Luba piiratud laiuse režiim",
+	"vector-prefs-limited-width-help": "Luba piiratud laiuse režiim parema lugemiskogemuse jaoks."
 }
