@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Atabek",
-			"Nurlan"
+			"Nurlan",
+			"Ajiniyaz Nurniyazov"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 til}}",
+	"vector-no-language-button-label": "Tillerdi qosıw",
 	"vector-action-addsection": "Tema qosıw",
 	"vector-action-delete": "Óshiriw",
 	"vector-action-move": "Kóshiriw",

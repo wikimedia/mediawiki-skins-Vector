@@ -3,7 +3,8 @@
 		"authors": [
 			"Seipinne",
 			"Trondtr",
-			"Yupik"
+			"Yupik",
+			"Kimberli Mäkäräinen (WMNO)"
 		]
 	},
 	"vector-languages": "Kielah",
@@ -12,6 +13,7 @@
 	"vector-action-delete": "Siho",
 	"vector-action-move": "Sirde",
 	"vector-action-protect": "Suoijii",
+	"vector-action-undelete": "Maaccât",
 	"vector-view-create": "Räähti",
 	"vector-view-edit": "Mute",
 	"vector-view-history": "Čääiti historjá",
