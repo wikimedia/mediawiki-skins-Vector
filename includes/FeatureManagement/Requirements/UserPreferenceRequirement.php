@@ -21,17 +21,15 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\User\UserOptionsLookup;
 use Title;
 use User;
 
 /**
- * The `MaxWidthRequirement` for skin
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
  */
-final class LimitedWidthRequirement implements Requirement {
+final class UserPreferenceRequirement implements Requirement {
 	/**
 	 * @var Title
 	 */
@@ -48,20 +46,36 @@ final class LimitedWidthRequirement implements Requirement {
 	 private $userOptionsLookup;
 
 	/**
+	 * @var string
+	 */
+	private $optionName;
+
+	/**
+	 * @var string
+	 */
+	private $requirementName;
+
+	/**
 	 * This constructor accepts all dependencies needed to determine whether
 	 * the overridable config is enabled for the current user and request.
 	 *
 	 * @param User $user
 	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param string $optionName The name of the user preference.
+	 * @param string $requirementName The name of the requirement presented to FeatureManager.
 	 * @param Title|null $title
 	 */
 	public function __construct(
 		User $user,
 		UserOptionsLookup $userOptionsLookup,
+		string $optionName,
+		string $requirementName,
 		$title = null
 	) {
 		$this->user = $user;
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->optionName = $optionName;
+		$this->requirementName = $requirementName;
 		$this->title = $title;
 	}
 
@@ -69,37 +83,32 @@ final class LimitedWidthRequirement implements Requirement {
 	 * @inheritDoc
 	 */
 	public function getName(): string {
-		return Constants::REQUIREMENT_LIMITED_WIDTH;
+		return $this->requirementName;
 	}
 
 	/**
-	 * Indicates if this skin should be shown with max-width.
+	 * Checks whether the user preference is enabled or not. Returns true if
+	 * enabled AND title is not null.
+	 *
 	 * @internal
 	 *
 	 * @return bool
 	 */
-	public function hasUserLimitedWidthEnabled() {
+	public function isPreferenceEnabled() {
 		$user = $this->user;
 		$userOptionsLookup = $this->userOptionsLookup;
-		$isLimitedWidth = $userOptionsLookup->getOption(
+		$isEnabled = $userOptionsLookup->getBoolOption(
 			$user,
-			Constants::PREF_KEY_LIMITED_WIDTH
+			$this->optionName
 		);
-		$isLimitedWidth = $isLimitedWidth === null ? true : $userOptionsLookup->getBoolOption(
-			$user,
-			Constants::PREF_KEY_LIMITED_WIDTH
-		);
-		return $this->title && $isLimitedWidth;
+
+		return $this->title && $isEnabled;
 	}
 
 	/**
-	 * Check query parameter to override config or not.
-	 * Then check for AB test value.
-	 * Fallback to config value.
-	 *
 	 * @inheritDoc
 	 */
 	public function isMet(): bool {
-		return $this->hasUserLimitedWidthEnabled();
+		return $this->isPreferenceEnabled();
 	}
 }

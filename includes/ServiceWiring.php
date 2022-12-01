@@ -27,9 +27,9 @@ use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\TableOfContentsTreatmentRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 
 return [
 	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
@@ -225,9 +225,11 @@ return [
 		// Feature: Max Width (skin)
 		// ================================
 		$featureManager->registerRequirement(
-			new LimitedWidthRequirement(
+			new UserPreferenceRequirement(
 				$context->getUser(),
 				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_LIMITED_WIDTH,
+				Constants::REQUIREMENT_LIMITED_WIDTH,
 				$context->getTitle()
 			)
 		);
@@ -235,7 +237,7 @@ return [
 			Constants::FEATURE_LIMITED_WIDTH,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LIMITED_WIDTH,
+				Constants::REQUIREMENT_LIMITED_WIDTH
 			]
 		);
 
