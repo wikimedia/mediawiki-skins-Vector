@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
+use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 
@@ -154,35 +155,6 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
-	 * @param array $portletData
-	 * @return array
-	 */
-	private function getPageToolsData( array $portletData ): array {
-		$actionsMenu = $portletData[ 'data-actions' ];
-		$menusData = [ $actionsMenu ];
-
-		// Page Tools is unpinned by default, hardcoded for now
-		$isPageToolsPinned = false;
-		$pinnableHeader = new VectorComponentPinnableHeader(
-			$this->getContext(),
-			$isPageToolsPinned,
-			'vector-page-tools'
-		);
-
-		$pinnableDropdownData = [
-			'id' => 'vector-page-tools',
-			'class' => 'vector-page-tools',
-			'label' => $this->msg( 'toolbox' ),
-			'is-pinned' => $isPageToolsPinned,
-			// @phan-suppress-next-line PhanSuspiciousValueComparison
-			'has-multiple-menus' => count( $menusData ) > 1,
-			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
-			'data-menus' => $menusData
-		];
-		return $pinnableDropdownData;
-	}
-
-	/**
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
@@ -289,11 +261,23 @@ class SkinVector22 extends SkinVector {
 		}
 
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
+		$sidebar = $parentData[ 'data-portlets-sidebar' ];
+		$toolbox = [];
 		if ( $isPageToolsEnabled ) {
-			$pageToolsData = $this->getPageToolsData( $parentData['data-portlets'] );
-			$parentData['data-portlets']['data-page-tools'] = $pageToolsData;
-		}
+			$toolboxMenuIndex = array_search(
+				VectorComponentPageTools::TOOLBOX_ID,
+				array_column(
+					$parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ],
+					'id'
+				)
+			);
 
+			if ( $toolboxMenuIndex !== false ) {
+				$toolbox = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ][ $toolboxMenuIndex ];
+				unset( $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ][ $toolboxMenuIndex ] );
+				$sidebar = $parentData[ 'data-portlets-sidebar' ];
+			}
+		}
 		$config = $this->getConfig();
 		$components = [
 			'data-search-box' => new VectorComponentSearchBox(
@@ -308,10 +292,21 @@ class SkinVector22 extends SkinVector {
 				$this->getContext()
 			),
 			'data-portlets-main-menu' => new VectorComponentMainMenu(
-				$parentData['data-portlets-sidebar'],
+				$sidebar,
 				$this,
 				$this->shouldLanguageAlertBeInSidebar()
 			),
+			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
+				$toolbox,
+				$parentData['data-portlets']['data-actions'] ?? [],
+				new VectorComponentPinnableHeader(
+					$this->getContext(),
+					// Page Tools is unpinned by default, hardcoded for now
+					false,
+					'vector-page-tools'
+				),
+				$this
+			) : null,
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.
