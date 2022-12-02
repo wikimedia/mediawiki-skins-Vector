@@ -139,7 +139,8 @@ function markLoadEnd( startMarker, endMarker, measureMarker ) {
  */
 function initSearchLoader( document ) {
 	var searchBoxes = document.querySelectorAll( '.vector-search-box' ),
-		isWikidata = mw.config.get( 'wgWikiID' ) === 'wikidatawiki';
+		wikibaseNeedsLegacySearch = [ 'loading', 'loaded', 'executing', 'ready' ]
+			.indexOf( mw.loader.getState( 'wikibase.ui.entitysearch' ) ) !== -1;
 
 	// Allow developers to defined $wgVectorSearchApiUrl in LocalSettings to target different APIs
 	if ( config.wgVectorSearchApiUrl ) {
@@ -154,7 +155,7 @@ function initSearchLoader( document ) {
 	 * 1. If we are in a browser that doesn't support ES6 fall back to non-JS version.
 	 * 2. Disable on Wikidata per T281318 until the REST API is ready.
 	 */
-	if ( isWikidata || mw.loader.getState( 'skins.vector.search' ) === null ) {
+	if ( wikibaseNeedsLegacySearch || mw.loader.getState( 'skins.vector.search' ) === null ) {
 		document.body.classList.remove(
 			'skin-vector-search-vue'
 		);
