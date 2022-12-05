@@ -96,7 +96,7 @@ class VectorComponentSearchBox implements VectorComponent {
 		// We'll wire this up in a later task T284242.
 		$collapseIconAttrs = Linker::tooltipAndAccesskeyAttribs( 'search' );
 		$searchBoxData['data-collapse-icon'] = array_merge( [
-			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalUrl(),
+			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalURL(),
 			'label' => $this->localizer->msg( 'search' ),
 			'icon' => 'wikimedia-search',
 			'is-quiet' => true,
