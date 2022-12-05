@@ -64,12 +64,20 @@
  * Horizontal links menu - logged in and logged out.
  */
 .vector-user-links .mw-portlet-vector-user-menu-overflow {
-	margin-right: 8px;
-
 	.vector-menu-content-list {
 		display: flex;
 		align-items: center;
-		column-gap: 8px;
+	}
+
+	// TODO: Simplify button, icon button and link styling with T323244
+	@media ( min-width: @min-width-desktop ) {
+		// Right margin to separate overflow menu from dropdown
+		margin-right: 8px;
+
+		// Separate icon buttons inside the overflow menu
+		.vector-menu-content-list {
+			column-gap: 8px;
+		}
 	}
 
 	// Add margin to links that don't have the .mw-ui-button or related icon classes.
