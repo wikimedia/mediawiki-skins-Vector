@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableHeader;
@@ -71,7 +72,6 @@ class SkinVector22 extends SkinVector {
 
 		// ToC is pinned by default, hardcoded for now
 		$isTocPinned = true;
-		$pinnableElementName = 'vector-toc';
 		$pinnableHeader = new VectorComponentPinnableHeader(
 			$this->getContext(),
 			$isTocPinned,
@@ -89,8 +89,6 @@ class SkinVector22 extends SkinVector {
 				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
 					'VectorTableOfContentsCollapseAtCount'
 				),
-			// Needed for PinnedContainer
-			'id' => $pinnableElementName,
 			'is-pinned' => $isTocPinned,
 			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
 		] );
@@ -237,6 +235,15 @@ class SkinVector22 extends SkinVector {
 			}
 		}
 		$config = $this->getConfig();
+		$mainMenuDropdownClass = $this->getUser()->isAnon() ? 'vector-main-menu-btn-dropdown-anon ' : '';
+		$mainMenuDropdownClass .= 'vector-main-menu-dropdown';
+		$mainMenuDropdown = new VectorComponentDropdown(
+			'vector-main-menu-dropdown',
+			$this->msg( 'vector-main-menu-label' )->text(),
+			$mainMenuDropdownClass,
+			'menu'
+		);
+
 		$components = [
 			'data-search-box' => new VectorComponentSearchBox(
 				$parentData['data-search-box'],
@@ -249,6 +256,7 @@ class SkinVector22 extends SkinVector {
 				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
 				$this->getContext()
 			),
+			'data-main-menu-dropdown' => $mainMenuDropdown,
 			'data-portlets-main-menu' => new VectorComponentMainMenu(
 				$sidebar,
 				$this,
@@ -261,6 +269,8 @@ class SkinVector22 extends SkinVector {
 				$isPageToolsPinned,
 				$this
 			) : null,
+			'data-page-tools-dropdown' => $isPageToolsEnabled ?
+				new VectorComponentDropdown( 'vector-page-tools', $this->msg( 'toolbox' )->text() ) : null,
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.

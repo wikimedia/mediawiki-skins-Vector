@@ -1,4 +1,4 @@
 {{! Use `.vector-main-menu.vector-dropdown` to target styles at this element}}
-{{>Dropdown/Open}}
+{{#data-main-menu-dropdown}}{{>Dropdown/Open}}{{/data-main-menu-dropdown}}
 	{{#data-portlets-main-menu}}{{>MainMenuContents}}{{/data-portlets-main-menu}}
-{{>Dropdown/Close}}
+{{#data-main-menu-dropdown}}{{>Dropdown/Close}}{{/data-main-menu-dropdown}}

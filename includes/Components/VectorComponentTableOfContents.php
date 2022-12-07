@@ -10,6 +10,9 @@ class VectorComponentTableOfContents implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		return [];
+		$pinnableElementName = 'vector-toc';
+		$pinnedContainer = new VectorComponentPinnedContainer( $pinnableElementName );
+		$pinnableElement = new VectorComponentPinnableElement( $pinnableElementName );
+		return $pinnableElement->getTemplateData() + $pinnedContainer->getTemplateData();
 	}
 }

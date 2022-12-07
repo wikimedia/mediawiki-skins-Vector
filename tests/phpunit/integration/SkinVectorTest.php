@@ -132,7 +132,6 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				'pin-label' => '(vector-pin-element-label)',
 				'label-tag-name' => 'h2'
 			],
-			'id' => 'vector-toc',
 			'is-pinned' => true,
 		];
 		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );

@@ -92,22 +92,15 @@ class VectorComponentMainMenu implements VectorComponent {
 		$action = $this->optOut;
 		$alert = $this->alert;
 
+		$id = 'vector-main-menu';
 		$pinnableHeader = new VectorComponentPinnableHeader(
 			$this->localizer,
 			false,
-			'vector-main-menu',
+			$id,
 			null
 		);
 
-		$class = $this->getUser()->isAnon() ? 'vector-main-menu-btn-dropdown-anon ' : '';
-		$class .= 'vector-main-menu';
 		return $this->fillMissingData( $this->sidebarData ) + [
-			'id' => 'vector-main-menu',
-			'class' => $class,
-			'label' => $this->localizer->msg( 'vector-main-menu-label' )->text(),
-			// @todo: Helper method for making icon classes would be useful.
-			'heading-class' => 'mw-checkbox-hack-button mw-ui-icon mw-ui-button '
-				. 'mw-ui-quiet mw-ui-icon-wikimedia-menu mw-ui-icon-element',
 			'data-main-menu-action' => $action ? $action->getTemplateData() : null,
 			// T295555 Add language switch alert message temporarily (to be removed).
 			'data-vector-language-switch-alert' => $alert ? $alert->getTemplateData() : null,
