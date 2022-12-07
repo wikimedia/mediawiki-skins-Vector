@@ -27,6 +27,8 @@ namespace MediaWiki\Skins\Vector;
 use ExtensionRegistry;
 use Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
+use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
@@ -266,7 +268,7 @@ abstract class SkinVector extends SkinMustache {
 
 	/**
 	 * Returns template data for UserLinks.mustache
-	 * FIXME: Move to component (T322089)
+	 * FIXME: Move to VectorComponentUserLinks (T322089)
 	 *
 	 * @param array $userMenuData existing menu template data to be transformed and copied for UserLinks
 	 * @param array $overflowMenuData existing menu template data to be transformed and copied for UserLinks
@@ -300,8 +302,9 @@ abstract class SkinVector extends SkinMustache {
 			$additionalData = [];
 		}
 
+		$userLinks = new VectorComponentUserLinks();
 		$moreItems = substr_count( $userMenuOverflowData['html-items'], '<li' );
-		return $additionalData + [
+		return $userLinks->getTemplateData() + $additionalData + [
 			'html-logout-link' => $this->getLogoutHTML(),
 			'is-temp-user' => $isTempUser,
 			'is-wide' => $moreItems > 3,
@@ -461,15 +464,10 @@ abstract class SkinVector extends SkinMustache {
 	 */
 	private function getULSButtonData() {
 		$numLanguages = count( $this->getLanguagesCached() );
+		$langButton = new VectorComponentLanguageButton();
 
-		return [
-			'id' => 'p-lang-btn-sticky-header',
-			'class' => 'mw-interlanguage-selector',
-			'is-quiet' => true,
-			'tabindex' => '-1',
+		return $langButton->getTemplateData() + [
 			'label' => $this->getULSLabels()[ 'label' ],
-			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
-			'event' => 'ui.dropdown-p-lang-btn-sticky-header'
 		];
 	}
 
@@ -512,7 +510,7 @@ abstract class SkinVector extends SkinMustache {
 
 	/**
 	 * Creates portlet data for the user menu dropdown
-	 * FIXME: Move to SkinVector22
+	 * FIXME: Move to VectorComponentUserMenu
 	 *
 	 * @param array $portletData
 	 * @return array
