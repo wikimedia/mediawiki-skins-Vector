@@ -348,6 +348,9 @@
 		},
 		"skins.vector.es6": {
 			"es6": true,
+			"styles": [
+				"resources/skins.vector.es6/limitedWidthToggle.less"
+			],
 			"packageFiles": [
 				"resources/skins.vector.es6/main.js",
 				"resources/skins.vector.es6/searchToggle.js",
@@ -358,6 +361,8 @@
 				"resources/skins.vector.es6/sectionObserver.js",
 				"resources/skins.vector.es6/deferUntilFrame.js",
 				"resources/skins.vector.es6/pinnableElement.js",
+				"resources/skins.vector.es6/features.js",
+				"resources/skins.vector.es6/limitedWidthToggle.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
@@ -397,9 +402,6 @@
 			]
 		},
 		"skins.vector.js": {
-			"styles": [
-				"resources/skins.vector.js/limitedWidthToggle.less"
-			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
 				{
@@ -412,8 +414,6 @@
 				"resources/skins.vector.js/sidebarPersistence.js",
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/echo.js",
-				"resources/skins.vector.js/limitedWidthToggle.js",
-				"resources/skins.vector.js/features.js",
 				"resources/skins.vector.js/searchLoader.js",
 				"resources/skins.vector.js/menuTabs.js"
 			],

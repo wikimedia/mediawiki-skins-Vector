@@ -1,7 +1,7 @@
 /** @interface MwApi */
 
-var /** @type {MwApi} */api,
-	debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
+let /** @type {MwApi} */ api;
+const debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
 
 /**
  * Saves preference to user preferences and/or localStorage.
@@ -10,9 +10,9 @@ var /** @type {MwApi} */api,
  * @param {boolean} enabled
  */
 function save( feature, enabled ) {
-	var featuresJSON,
-		// @ts-ignore
-		features = mw.storage.get( 'VectorFeatures' ) || '{}';
+	let featuresJSON;
+	// @ts-ignore
+	const features = mw.storage.get( 'VectorFeatures' ) || '{}';
 
 	try {
 		featuresJSON = JSON.parse( features );
@@ -36,7 +36,7 @@ function save( feature, enabled ) {
  * @throws {Error} if unknown feature toggled.
  */
 function toggle( name ) {
-	var featureClassEnabled = 'vector-feature-' + name + '-enabled',
+	const featureClassEnabled = 'vector-feature-' + name + '-enabled',
 		classList = document.body.classList,
 		featureClassDisabled = 'vector-feature-' + name + '-disabled';
 
