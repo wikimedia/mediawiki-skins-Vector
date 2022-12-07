@@ -156,13 +156,14 @@ function generateUrl( suggestion, meta ) {
  * with the `wprov` parameter added to each result's url (if any).
  *
  * @param {SearchResultPartial[]} results Not modified.
+ * @param {number} offset Offset to add to the index of each result.
  * @return {SearchResultPartial[]}
  */
-function addWprovToSearchResultUrls( results ) {
+function addWprovToSearchResultUrls( results, offset ) {
 	return results.map( ( result, index ) => {
 		if ( result.url ) {
 			const uri = new mw.Uri( result.url );
-			uri.query.wprov = getWprovFromResultIndex( index );
+			uri.query.wprov = getWprovFromResultIndex( index + offset );
 			result = Object.assign( {}, result, { url: uri.toString() } );
 		}
 		return result;

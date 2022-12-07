@@ -18,6 +18,8 @@
 		:auto-expand-width="autoExpandWidth"
 		:search-results="suggestions"
 		:search-footer-url="searchFooterUrl"
+		:visible-item-limit="visibleItemLimit"
+		@load-more="onLoadMore"
 		@input="onInput"
 		@search-result-click="instrumentation.onSuggestionClick"
 		@submit="onSubmit"
@@ -44,7 +46,7 @@
 </template>
 
 <script>
-/* global SearchSubmitEvent */
+/* global AbortableSearchFetch, SearchSubmitEvent */
 const { CdxTypeaheadSearch } = require( '@wikimedia/codex-search' ),
 	{ defineComponent, nextTick } = require( 'vue' ),
 	client = require( './restSearchClient.js' ),
@@ -153,6 +155,12 @@ module.exports = exports = defineComponent( {
 				'vector-search-box-disable-transitions': this.disableTransitions,
 				'vector-typeahead-search--active': this.isFocused
 			};
+		},
+		visibleItemLimit() {
+			// if the search client supports loading more results,
+			// show 7 out of 10 results at first (arbitrary number),
+			// so that scroll events are fired and trigger onLoadMore()
+			return restClient.loadMore ? 7 : null;
 		}
 	},
 	methods: {
@@ -172,15 +180,55 @@ module.exports = exports = defineComponent( {
 				return;
 			}
 
+			this.updateUIWithSearchClientResult(
+				restClient.fetchByTitle( query, 10, this.showDescription ),
+				true
+			);
+		},
+
+		/**
+		 * Fetch additional suggestions.
+		 *
+		 * This should only be called if visibleItemLimit is non-null,
+		 * i.e. if the search client supports loading more results.
+		 */
+		onLoadMore() {
+			if ( !restClient.loadMore ) {
+				mw.log.warn( 'onLoadMore() should not have been called for this search client' );
+				return;
+			}
+
+			this.updateUIWithSearchClientResult(
+				restClient.loadMore(
+					this.currentSearchQuery,
+					this.suggestions.length,
+					10,
+					this.showDescription
+				),
+				false
+			);
+		},
+
+		/**
+		 * @param {AbortableSearchFetch} search
+		 * @param {boolean} replaceResults
+		 */
+		updateUIWithSearchClientResult( search, replaceResults ) {
+			const query = this.currentSearchQuery;
 			instrumentation.listeners.onFetchStart();
 
-			restClient.fetchByTitle( query, 10, this.showDescription ).fetch
+			search.fetch
 				.then( ( data ) => {
 					// Only use these results if they're still relevant
 					// If currentSearchQuery !== query, these results are for a previous search
 					// and we shouldn't show them.
 					if ( this.currentSearchQuery === query ) {
-						this.suggestions = instrumentation.addWprovToSearchResultUrls( data.results );
+						if ( replaceResults ) {
+							this.suggestions = [];
+						}
+						this.suggestions.push(
+							...instrumentation.addWprovToSearchResultUrls( data.results, this.suggestions.length )
+						);
 						this.searchFooterUrl = urlGenerator.generateUrl( query );
 					}
 

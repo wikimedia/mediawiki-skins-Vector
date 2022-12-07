@@ -72,8 +72,18 @@ function adaptApiResponse( config, query, restResponse, showDescription ) {
  */
 
 /**
+ * @callback loadMore
+ * @param {string} query The search term.
+ * @param {number} offset The number of search results that were already loaded.
+ * @param {number} [limit] How many further search results to load (at most).
+ * @param {boolean} [showDescription] Whether descriptions should be added to the results.
+ * @return {AbortableSearchFetch}
+ */
+
+/**
  * @typedef {Object} SearchClient
  * @property {fetchByTitle} fetchByTitle
+ * @property {loadMore} [loadMore]
  */
 
 /**
