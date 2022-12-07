@@ -9,7 +9,15 @@
 			"Vlad5250"
 		]
 	},
+	"vector-skin-desc": "Postoje dvije varijante Vectora:\n\n* 2011. — Moderna varijanta MonoBooka s osvježenim izgledom i mnogim poboljšanjima.\n* 2022. — Vector izrađen kao dio projekta [[mw:Desktop Improvements]] WMF-a.",
+	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
+	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite postavke da biste vratili stari izgled teme (stari Vector)",
+	"vector-languages": "Jezici",
+	"vector-language-button-aria-label": "Prijedi na druge jezične varijante članka. Dostupno je na {{PLURAL:$1|$1 jeziku|$1 jezika}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
+	"vector-language-redirect-to-top": "Linkovi na druge jezike nalaze se u gornjem desnom uglu stranice, pored naslova članka. [[#p-lang-btn|Idi na vrh]].",
+	"vector-language-variant-switcher-label": "Promijeni jezičnu varijantu",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Brisanje",
 	"vector-action-move": "Premjesti",
@@ -21,5 +29,14 @@
 	"vector-view-history": "Historija",
 	"vector-view-view": "Prikaži",
 	"vector-view-viewsource": "Vidi izvor (source)",
-	"vector-more-actions": "Više"
+	"vector-jumptonavigation": "Idi na navigaciju",
+	"vector-jumptosearch": "Idi na pretragu",
+	"vector-jumptocontent": "Idi na sadržaj",
+	"vector-more-actions": "Više",
+	"vector-search-loader": "Učitavanje prijedloga pretrage",
+	"vector-anon-user-menu-pages": "Stranice za neprijavljene suradnike",
+	"vector-anon-user-menu-pages-learn": "saznajte više",
+	"vector-anon-user-menu-pages-label": "Saznajte više o uređivanju",
+	"vector-main-menu-tooltip": "Glavni meni",
+	"tooltip-vector-anon-user-menu-title": "Više mogućnosti"
 }

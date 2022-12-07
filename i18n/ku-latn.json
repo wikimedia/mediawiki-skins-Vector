@@ -21,7 +21,7 @@
 	"vector-action-toggle-sidebar": "Menuya kêlekê bigire/veke",
 	"vector-languages": "Bi zimanên din",
 	"vector-language-button-aria-label": "Here gotareke bi zimanekî din. Bi {{PLURAL:$1|$1 zimanekî|$1 zimanan}} heye.",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ziman}}",
+	"vector-language-button-label": "Bi {{PLURAL:$1|zimanekî din|$1 zimanên din}}",
 	"vector-language-redirect-to-top": "Di vê {{SITENAME}}yê de lînkên zimanî li serê rûpelê li hemberî sernavê gotarê ne. [[#p-lang-btn|Here herî jor]].",
 	"vector-language-variant-switcher-label": "Varyanta zimanî biguhêre",
 	"vector-action-addsection": "Mijarekê lê zêde bike",
