@@ -1,3 +1,6 @@
+jest.mock( '../../resources/skins.vector.es6/features.js' );
+
+const features = require( '../../resources/skins.vector.es6/features.js' );
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
@@ -37,6 +40,13 @@ const initializeHTML = ( headerData ) => {
 			${ !headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
 		</div>
 	`;
+
+	if ( headerData[ 'data-feature-name' ] ) {
+		// Return early if the persistent option is enabled as features.js will
+		// manage the body classes instead of pinnableElement.
+		return;
+	}
+
 	if ( headerData[ 'is-pinned' ] ) {
 		document.body.classList.add( `${headerData[ 'data-name' ]}-pinned` );
 		document.body.classList.remove( `${headerData[ 'data-name' ]}-unpinned` );
@@ -105,5 +115,44 @@ describe( 'Pinnable header', () => {
 		unpinButton.click();
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
 		/* eslint-enable no-restricted-properties */
+	} );
+
+	test( 'calls features.js when data-feature-name is set', () => {
+		initializeHTML( {
+			...simpleData,
+			'data-name': 'vector-page-tools',
+			'data-feature-name': 'page-tools-pinned'
+		} );
+		pinnableElement.initPinnableElement();
+		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
+		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
+
+		pinButton.click();
+
+		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
+		expect( features.toggle ).toHaveBeenCalledWith( 'page-tools-pinned' );
+
+		// @ts-ignore
+		features.toggle.mockClear();
+		unpinButton.click();
+
+		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
+		expect( features.toggle ).toHaveBeenCalledWith( 'page-tools-pinned' );
+	} );
+
+	test( 'isPinned() returns whether the element is pinned or not', () => {
+		initializeHTML( simpleData );
+		pinnableElement.initPinnableElement();
+		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
+		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
+		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-name' ]}-pinnable-header` ) );
+
+		pinButton.click();
+
+		expect( pinnableElement.isPinned( header ) ).toBe( true );
+
+		unpinButton.click();
+
+		expect( pinnableElement.isPinned( header ) ).toBe( false );
 	} );
 } );

@@ -138,6 +138,7 @@ class SkinVector22 extends SkinVector {
 			$this->getContext(),
 			$isTocPinned,
 			'vector-toc',
+			null,
 			false,
 			'h2'
 		);
@@ -277,6 +278,7 @@ class SkinVector22 extends SkinVector {
 		}
 
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
+		$isPageToolsPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 		$toolbox = [];
 		$restPortlets = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ];
@@ -319,12 +321,7 @@ class SkinVector22 extends SkinVector {
 			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
 				$toolbox,
 				$parentData['data-portlets']['data-actions'] ?? [],
-				new VectorComponentPinnableHeader(
-					$this->getContext(),
-					// Page Tools is unpinned by default, hardcoded for now
-					false,
-					'vector-page-tools'
-				),
+				$isPageToolsPinned,
 				$this
 			) : null,
 		];

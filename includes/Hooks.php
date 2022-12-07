@@ -629,6 +629,9 @@ class Hooks implements
 					Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
 				),
 			],
+			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
+				'type' => 'api'
+			],
 			Constants::PREF_KEY_LIMITED_WIDTH => [
 				'type' => 'toggle',
 				'label-message' => 'vector-prefs-limited-width',

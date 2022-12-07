@@ -81,6 +81,11 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const REQUIREMENT_LOGGED_IN = 'LoggedIn';
+
+	/**
+	 * @var string
+	 */
 	public const FEATURE_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	/**
@@ -224,6 +229,21 @@ final class Constants {
 	 * @var string
 	 */
 	public const FEATURE_PAGE_TOOLS = 'PageTools';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_PAGE_TOOLS_PINNED = 'PageToolsPinned';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_PAGE_TOOLS_PINNED = 'PageToolsPinned';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_PAGE_TOOLS_PINNED = 'vector-page-tools-pinned';
 
 	/**
 	 * @var string

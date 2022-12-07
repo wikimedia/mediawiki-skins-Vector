@@ -1,6 +1,7 @@
 <div
 	class="vector-pinnable-header {{data-name}}-pinnable-header vector-pinnable-header-{{#is-pinned}}pinned{{/is-pinned}}{{^is-pinned}}unpinned{{/is-pinned}}"
 	data-name="{{data-name}}"
+	{{#data-feature-name}}data-feature-name="{{.}}"{{/data-feature-name}}
 	{{#data-pinnable-element-id}}data-pinnable-element-id="{{.}}"{{/data-pinnable-element-id}}
 	{{#data-pinned-container-id}}data-pinned-container-id="{{.}}"{{/data-pinned-container-id}}
 	{{#data-unpinned-container-id}}data-unpinned-container-id="{{.}}"{{/data-unpinned-container-id}}

@@ -4,7 +4,7 @@
 		"../.eslintrc.json"
 	],
 	"parserOptions": {
-		"ecmaVersion": 2017
+		"ecmaVersion": 2018
 	},
 	"rules": {
 		"es/no-object-assign": "off"

@@ -41,8 +41,7 @@
 						"skin-vector",
 						"skin-vector-search-vue",
 						"vector-toc-pinned",
-						"vector-main-menu-unpinned",
-						"vector-page-tools-unpinned"
+						"vector-main-menu-unpinned"
 					],
 					"menus": [
 						"user-interface-preferences",
@@ -161,7 +160,8 @@
 		"vector": "GlobalVarConfig::newInstance"
 	},
 	"DefaultUserOptions": {
-		"vector-limited-width": 1
+		"vector-limited-width": 1,
+		"vector-page-tools-pinned": 1
 	},
 	"HookHandlers": {
 		"VectorHooks": {

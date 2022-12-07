@@ -27,6 +27,7 @@ use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\TableOfContentsTreatmentRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
@@ -219,6 +220,35 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_PAGE_TOOLS,
+			]
+		);
+
+		// Feature: Page tools pinned
+		// ================================
+		$featureManager->registerRequirement(
+			new LoggedInRequirement(
+				$context->getUser(),
+				Constants::REQUIREMENT_LOGGED_IN
+			)
+		);
+
+		$featureManager->registerRequirement(
+			new UserPreferenceRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_PAGE_TOOLS_PINNED,
+				Constants::REQUIREMENT_PAGE_TOOLS_PINNED,
+				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_PAGE_TOOLS_PINNED,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LOGGED_IN,
+				Constants::REQUIREMENT_PAGE_TOOLS,
+				Constants::REQUIREMENT_PAGE_TOOLS_PINNED
 			]
 		);
 

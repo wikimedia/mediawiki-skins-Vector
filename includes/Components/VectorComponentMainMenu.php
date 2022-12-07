@@ -96,7 +96,7 @@ class VectorComponentMainMenu implements VectorComponent {
 			$this->localizer,
 			false,
 			'vector-main-menu',
-			true
+			null
 		);
 
 		$class = $this->getUser()->isAnon() ? 'vector-main-menu-btn-dropdown-anon ' : '';

@@ -14,10 +14,13 @@ class VectorComponentPageTools implements VectorComponent {
 	/** @var array */
 	private $actionsMenu;
 
+	/** @var bool */
+	private $isPinned;
+
 	/** @var Skin */
 	private $skin;
 
-	/** @var VectorComponentPinnableHeader */
+	/** @var VectorComponentPinnableHeader|null */
 	private $pinnableHeader;
 
 	/** @var string */
@@ -26,18 +29,27 @@ class VectorComponentPageTools implements VectorComponent {
 	/**
 	 * @param array $toolbox
 	 * @param array $actionsMenu
-	 * @param VectorComponentPinnableHeader $pinnableHeader
+	 * @param bool $isPinned
 	 * @param Skin $skin
 	 */
 	public function __construct(
 		array $toolbox,
 		array $actionsMenu,
-		VectorComponentPinnableHeader $pinnableHeader,
+		bool $isPinned,
 		Skin $skin
 	) {
+		$user = $skin->getUser();
 		$this->toolbox = $toolbox;
 		$this->actionsMenu = $actionsMenu;
-		$this->pinnableHeader = $pinnableHeader;
+		$this->isPinned = $isPinned;
+		$this->pinnableHeader = $user->isRegistered() ? new VectorComponentPinnableHeader(
+			$skin->getContext(),
+			$isPinned,
+			// Name
+			'vector-page-tools',
+			// Feature name
+			'page-tools-pinned'
+		) : null;
 		$this->skin = $skin;
 	}
 
@@ -51,8 +63,9 @@ class VectorComponentPageTools implements VectorComponent {
 			'id' => 'vector-page-tools',
 			'class' => 'vector-page-tools',
 			'label' => $this->skin->msg( 'toolbox' ),
+			'is-pinned' => $this->isPinned,
 			'has-multiple-menus' => true,
-			'data-pinnable-header' => $this->pinnableHeader->getTemplateData(),
+			'data-pinnable-header' => $this->pinnableHeader ? $this->pinnableHeader->getTemplateData() : null,
 			'data-menus' => $menusData
 		];
 		return $pinnableDropdownData;

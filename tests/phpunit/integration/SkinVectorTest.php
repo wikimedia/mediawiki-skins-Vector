@@ -126,6 +126,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 			'data-pinnable-header' => [
 				'is-pinned' => true,
 				'data-name' => 'vector-toc',
+				'data-feature-name' => null,
 				'label' => '(vector-toc-label)',
 				'unpin-label' => '(vector-unpin-element-label)',
 				'pin-label' => '(vector-pin-element-label)',
