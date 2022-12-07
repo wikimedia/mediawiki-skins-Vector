@@ -346,6 +346,7 @@ abstract class SkinVector extends SkinMustache {
 
 	/**
 	 * Generate data needed to generate the sticky header.
+	 * FIXME: Move to VectorComponentStickyHeader
 	 * @param array $searchBoxData
 	 * @param bool $includeEditIcons
 	 * @return array

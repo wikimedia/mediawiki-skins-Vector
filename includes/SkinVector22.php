@@ -7,6 +7,8 @@ use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
+use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
+use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
 
 /**
  * @ingroup Skins
@@ -109,6 +111,7 @@ class SkinVector22 extends SkinVector {
 	 *
 	 * In tableOfContents.js we have tableOfContents::getTableOfContentsSectionsData(),
 	 * that yields the same result as this function, please make sure to keep them in sync.
+	 * FIXME: This code should be moved to VectorComponentTableOfContents.
 	 *
 	 * @param array $tocData
 	 * @return array
@@ -247,12 +250,11 @@ class SkinVector22 extends SkinVector {
 	public function getTemplateData(): array {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
+		$stickyHeader = new VectorComponentStickyHeader();
+		$toc = new VectorComponentTableOfContents();
+		$parentData['data-toc'] = $this->isTableOfContentsVisibleInSidebar() ?
+			$toc->getTemplateData() + $this->getTocData( $parentData['data-toc'] ?? [] ) : null;
 
-		$parentData['data-toc'] = $this->getTocData( $parentData['data-toc'] ?? [] );
-
-		if ( !$this->isTableOfContentsVisibleInSidebar() ) {
-			unset( $parentData['data-toc'] );
-		}
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
 		// FIXME: Move to component (T322089)
@@ -351,7 +353,7 @@ class SkinVector22 extends SkinVector {
 			'data-page-titlebar-toc' => $this->getTocPageTitleData(),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
-			) ? $this->getStickyHeaderData(
+			) ? $stickyHeader->getTemplateData() + $this->getStickyHeaderData(
 				$searchStickyHeader->getTemplateData(),
 				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_STICKY_HEADER_EDIT
