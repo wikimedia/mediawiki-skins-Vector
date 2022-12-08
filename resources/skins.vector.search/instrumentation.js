@@ -6,7 +6,6 @@
  * @see https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/skins/Vector/+/refs/heads/master/includes/Constants.php
  */
 const INPUT_LOCATION_MOVED = 'header-moved',
-	wgScript = mw.config.get( 'wgScript' ),
 	// T251544: Collect search performance metrics to compare Vue search with
 	// mediawiki.searchSuggest performance. Marks and Measures will only be
 	// recorded on the Vector skin and only if browser supported.
@@ -123,35 +122,6 @@ function getWprovFromResultIndex( index ) {
  */
 
 /**
- * @typedef {Object} GenerateUrlMeta
- * @property {number} index
- */
-
-/**
- * Used by the Vue-enhanced search component to generate URLs for the search results. Adds a
- * `wprov` paramater to the URL to satisfy the SearchSatisfaction instrumentation.
- *
- * @see getWprovFromResultIndex
- *
- * @param {SearchResultPartial|string} suggestion
- * @param {GenerateUrlMeta} meta
- * @return {string}
- */
-function generateUrl( suggestion, meta ) {
-	const result = new mw.Uri( wgScript );
-
-	if ( typeof suggestion !== 'string' ) {
-		suggestion = suggestion.title;
-	}
-
-	result.query.title = 'Special:Search';
-	result.query.suggestion = suggestion;
-	result.query.wprov = getWprovFromResultIndex( meta.index );
-
-	return result.toString();
-}
-
-/**
  * Return a new list of search results,
  * with the `wprov` parameter added to each result's url (if any).
  *
@@ -174,7 +144,6 @@ function addWprovToSearchResultUrls( results, offset ) {
  * @typedef {Object} Instrumentation
  * @property {Object} listeners
  * @property {Function} getWprovFromResultIndex
- * @property {Function} generateUrl
  * @property {Function} addWprovToSearchResultUrls
  */
 
@@ -203,6 +172,5 @@ module.exports = {
 		onSubmit: onSuggestionClick
 	},
 	getWprovFromResultIndex,
-	generateUrl,
 	addWprovToSearchResultUrls
 };
