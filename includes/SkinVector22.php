@@ -279,18 +279,21 @@ class SkinVector22 extends SkinVector {
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 		$toolbox = [];
+		$restPortlets = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ];
 		if ( $isPageToolsEnabled ) {
 			$toolboxMenuIndex = array_search(
 				VectorComponentPageTools::TOOLBOX_ID,
 				array_column(
-					$parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ],
+					$restPortlets,
 					'id'
 				)
 			);
 
 			if ( $toolboxMenuIndex !== false ) {
-				$toolbox = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ][ $toolboxMenuIndex ];
-				unset( $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ][ $toolboxMenuIndex ] );
+				// Do not use unset as it will leave indexes untouched
+				// splice has side effects so restPortlets now no longer has toolbox.
+				$toolbox = array_splice( $restPortlets, $toolboxMenuIndex, 1 );
+				$parentData[ 'data-portlets-sidebar' ]['array-portlets-rest'] = $restPortlets;
 				$sidebar = $parentData[ 'data-portlets-sidebar' ];
 			}
 		}
