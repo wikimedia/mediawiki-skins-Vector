@@ -1,5 +1,5 @@
-var features = require( './features.js' );
-var LIMITED_WIDTH_FEATURE_NAME = 'limited-width';
+const features = require( './features.js' );
+const LIMITED_WIDTH_FEATURE_NAME = 'limited-width';
 
 /**
  * Sets data attribute for click tracking purposes.
@@ -14,7 +14,7 @@ function setDataAttribute( toggleBtn ) {
  * adds a toggle button
  */
 function init() {
-	var toggle = document.createElement( 'button' );
+	const toggle = document.createElement( 'button' );
 	toggle.classList.add( 'mw-ui-icon', 'mw-ui-icon-element', 'mw-ui-button', 'vector-limited-width-toggle' );
 	setDataAttribute( toggle );
 	document.body.appendChild( toggle );
