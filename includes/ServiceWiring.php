@@ -29,7 +29,6 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequireme
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
-use MediaWiki\Skins\Vector\FeatureManagement\Requirements\TableOfContentsTreatmentRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 
 return [
@@ -181,25 +180,6 @@ return [
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER_EDIT,
-			]
-		);
-
-		// T313435 Feature: Table of Contents
-		// Temporary - remove after TOC A/B test is finished.
-		// ================================
-		$featureManager->registerRequirement(
-			new TableOfContentsTreatmentRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$services->getCentralIdLookupFactory()->getNonLocalLookup()
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_TABLE_OF_CONTENTS_AB_TEST,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TABLE_OF_CONTENTS_AB_TEST,
 			]
 		);
 

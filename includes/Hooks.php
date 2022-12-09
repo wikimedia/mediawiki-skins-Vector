@@ -664,36 +664,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Returns the necessary TOC classes.
-	 *
-	 * @param Skin $sk
-	 * @param Config $config
-	 * @return string[]
-	 */
-	private static function getTocClasses( Skin $sk, $config ): array {
-		if ( !( $sk instanceof SkinVector22 ) ) {
-			return [];
-		}
-
-		$classes = [];
-		if (
-			$sk->isTOCABTestEnabled() &&
-			$sk->isTableOfContentsVisibleInSidebar() &&
-			!$sk->getUser()->isAnon()
-		) {
-			$userBucket = !$sk->isUserInTocTreatmentBucket()
-				? 'control'
-				: 'treatment';
-			$experimentConfig = $config->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
-			$experimentName = $experimentConfig[ 'name' ];
-			$classes[] = $experimentName;
-			$classes[] = "$experimentName-$userBucket";
-		}
-
-		return $classes;
-	}
-
-	/**
 	 * Called when OutputPage::headElement is creating the body tag to allow skins
 	 * and extensions to add attributes they might need to the body of the page.
 	 *
@@ -707,20 +677,6 @@ class Hooks implements
 			return;
 		}
 		$config = $sk->getConfig();
-
-		// As of 2020/08/13, this CSS class is referred to by the following deployed extensions:
-		//
-		// - VisualEditor
-		// - CodeMirror
-		// - WikimediaEvents
-		//
-		// See https://codesearch.wmcloud.org/deployed/?q=skin-vector-legacy for an up-to-date
-		// list.
-
-		$tocClasses = self::getTocClasses( $sk, $config );
-		if ( $tocClasses ) {
-			$bodyAttrs['class'] .= ' ' . implode( ' ', $tocClasses );
-		}
 
 		$featureManager = VectorServices::getFeatureManager();
 		$bodyAttrs['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );

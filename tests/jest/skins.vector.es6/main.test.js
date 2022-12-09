@@ -50,11 +50,6 @@ describe( 'main.js', () => {
 			name: STICKY_HEADER_EDIT_EXPERIMENT_NAME,
 			enabled: false
 		};
-		const TABLE_OF_CONTENTS_AB = {
-			name: 'skin-vector-toc-experiment',
-			enabled: true,
-			buckets: {}
-		};
 		[
 			{
 				abConfig: STICKY_HEADER_AB_EDIT,
@@ -117,15 +112,6 @@ describe( 'main.js', () => {
 				expectedResult: {
 					showStickyHeader: true,
 					disableEditIcons: true
-				}
-			},
-			{
-				abConfig: TABLE_OF_CONTENTS_AB,
-				isEnabled: true,
-				isUserInTreatmentBucket: false,
-				expectedResult: {
-					showStickyHeader: true,
-					disableEditIcons: false
 				}
 			},
 			{

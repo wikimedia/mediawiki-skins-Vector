@@ -13,15 +13,11 @@ const
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'mw-panel-toc',
-	TOC_ID_LEGACY = 'toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
-	TOC_LEGACY_PLACEHOLDER_SELECTOR = 'mw\\3Atocplace,meta[property="mw:PageProp/toc"]',
-	TOC_SCROLL_HOOK = 'table_of_contents',
 	PAGE_TITLE_SCROLL_HOOK = 'page_title',
-	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title',
-	TOC_EXPERIMENT_NAME = 'skin-vector-toc-experiment';
+	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
 
 const belowDesktopMedia = window.matchMedia( '(max-width: 999px)' );
 
@@ -168,7 +164,9 @@ const main = () => {
 		searchToggle( searchToggleElement );
 	}
 
-	// Initialize pinnable headers
+	//
+	// Pinnable elements
+	//
 	pinnableElement.initPinnableElement();
 
 	//
@@ -223,6 +221,8 @@ const main = () => {
 		updateTocLocation();
 	};
 
+	updateTocLocation();
+
 	if ( !showStickyHeader ) {
 		stickyHeader.hide();
 	}
@@ -239,33 +239,11 @@ const main = () => {
 		observer.observe( stickyIntersection );
 	}
 
-	// Table of contents
-	updateTocLocation();
+	//
+	//  Table of contents
+	//
 	const tocElement = document.getElementById( TOC_ID );
-	const tocElementLegacy = document.getElementById( TOC_ID_LEGACY );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-
-	// Setup intersection observer for TOC scroll event tracking
-	// fire hooks for event logging if AB tests are enabled
-	const tocLegacyPlaceholder = document.querySelectorAll( TOC_LEGACY_PLACEHOLDER_SELECTOR )[ 0 ];
-	const tocLegacyTargetIntersection = tocElementLegacy || tocLegacyPlaceholder;
-	// Initiate observer for table of contents in main content.
-	if ( tocLegacyTargetIntersection ) {
-		const tocObserver = scrollObserver.initScrollObserver(
-			() => {
-				scrollObserver.fireScrollHook( 'down', TOC_SCROLL_HOOK );
-			},
-			() => {
-				scrollObserver.fireScrollHook( 'up', TOC_SCROLL_HOOK );
-			}
-		);
-		tocObserver.observe( tocLegacyTargetIntersection );
-	}
-
-	// Add event data attributes to legacy TOC
-	if ( tocElementLegacy ) {
-		tocElementLegacy.setAttribute( 'data-event-name', 'ui.toc' );
-	}
 
 	if ( !(
 		tocElement &&
@@ -273,21 +251,6 @@ const main = () => {
 		window.IntersectionObserver &&
 		window.requestAnimationFrame
 	) ) {
-		return;
-	}
-
-	const experiment =
-		!!ABTestConfig.enabled &&
-		ABTestConfig.name === TOC_EXPERIMENT_NAME &&
-		document.body.classList.contains( ABTestConfig.name ) &&
-		// eslint-disable-next-line compat/compat
-		window.URLSearchParams &&
-		!mw.user.isAnon() &&
-		initExperiment( ABTestConfig );
-	const isInTreatmentBucket = !!experiment && experiment.isInTreatmentBucket();
-
-	if ( experiment && !isInTreatmentBucket ) {
-		// Return early if the old TOC is shown.
 		return;
 	}
 

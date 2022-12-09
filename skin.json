@@ -32,6 +32,7 @@
 					"templateDirectory": "includes/templates",
 					"template": "skin",
 					"responsive": true,
+					"toc": false,
 					"link": {
 						"text-wrapper": {
 							"tag": "span"
@@ -235,17 +236,6 @@
 			"styles": [
 				"resources/common/common.less",
 				"resources/skins.vector.styles.legacy/skin-legacy.less"
-			]
-		},
-		"skins.vector.AB.styles": {
-			"class": "ResourceLoaderSkinModule",
-			"features": [ "toc" ],
-			"styles": [
-				"resources/skins.vector.AB.styles.less"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			]
 		},
 		"skins.vector.styles": {

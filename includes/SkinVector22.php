@@ -16,24 +16,7 @@ use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
  * @internal
  */
 class SkinVector22 extends SkinVector {
-	private const TOC_AB_TEST_NAME = 'skin-vector-toc-experiment';
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
-
-	/**
-	 * Updates the constructor to conditionally disable table of contents in article
-	 * body. Note, the constructor can only check feature flags that do not vary on
-	 * whether the user is logged in e.g. features with the 'default' key set.
-	 * @inheritDoc
-	 */
-	public function __construct( array $options ) {
-		if ( !$this->isTOCABTestEnabled() ) {
-			$options['toc'] = !$this->isTableOfContentsVisibleInSidebar();
-		} else {
-			$options['styles'][] = 'skins.vector.AB.styles';
-		}
-
-		parent::__construct( $options );
-	}
 
 	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
@@ -59,51 +42,6 @@ class SkinVector22 extends SkinVector {
 		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
 			$shouldShowOnMainPage;
-	}
-
-	/**
-	 * @internal
-	 * @return bool
-	 */
-	public function isTOCABTestEnabled(): bool {
-		$experimentConfig = $this->getConfig()->get( Constants::CONFIG_WEB_AB_TEST_ENROLLMENT );
-
-		return $experimentConfig['name'] === self::TOC_AB_TEST_NAME &&
-			$experimentConfig['enabled'];
-	}
-
-	/**
-	 * Check whether the user is bucketed in the treatment group for TOC.
-	 *
-	 * @return bool
-	 */
-	public function isUserInTocTreatmentBucket(): bool {
-		$featureManager = VectorServices::getFeatureManager();
-		return !$featureManager->isFeatureEnabled( Constants::FEATURE_TABLE_OF_CONTENTS_AB_TEST );
-	}
-
-	/**
-	 * Determines if the Table of Contents should be visible.
-	 * TOC is visible on main namespaces except for the Main Page.
-	 *
-	 * @internal
-	 * @return bool
-	 */
-	public function isTableOfContentsVisibleInSidebar(): bool {
-		$title = $this->getTitle();
-
-		if (
-			!$title ||
-			$title->isMainPage()
-		) {
-			return false;
-		}
-
-		if ( $this->isTOCABTestEnabled() ) {
-			return $title->getArticleID() !== 0;
-		}
-
-		return true;
 	}
 
 	/**
@@ -253,8 +191,7 @@ class SkinVector22 extends SkinVector {
 		$parentData = parent::getTemplateData();
 		$stickyHeader = new VectorComponentStickyHeader();
 		$toc = new VectorComponentTableOfContents();
-		$parentData['data-toc'] = $this->isTableOfContentsVisibleInSidebar() ?
-			$toc->getTemplateData() + $this->getTocData( $parentData['data-toc'] ?? [] ) : null;
+		$parentData['data-toc'] = $toc->getTemplateData() + $this->getTocData( $parentData['data-toc'] ?? [] );
 
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
