@@ -21,9 +21,7 @@ function bindPinnableToggleButtons( header ) {
 		button.addEventListener( 'click', () => {
 			if ( featureName ) {
 				// Leverage features.js to toggle the body classes and persist the state
-				// for logged-in users. features.js expects the argument passed to
-				// `toggle()` to not contain the conventional `vector-` prefix so
-				// replace it with a blank string.
+				// for logged-in users.
 				features.toggle( featureName );
 			} else {
 				// Toggle body classes, assumes default pinned classes are initialized serverside
