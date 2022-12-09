@@ -292,9 +292,9 @@ class SkinVector22 extends SkinVector {
 			);
 
 			if ( $toolboxMenuIndex !== false ) {
-				// Do not use unset as it will leave indexes untouched
-				// splice has side effects so restPortlets now no longer has toolbox.
-				$toolbox = array_splice( $restPortlets, $toolboxMenuIndex, 1 );
+				// Splice removes the toolbox menu from the $restPortlets array
+				// and current returns the first value of array_splice, i.e. the $toolbox menu data.
+				$toolbox = current( array_splice( $restPortlets, $toolboxMenuIndex, 1 ) );
 				$parentData[ 'data-portlets-sidebar' ]['array-portlets-rest'] = $restPortlets;
 				$sidebar = $parentData[ 'data-portlets-sidebar' ];
 			}
