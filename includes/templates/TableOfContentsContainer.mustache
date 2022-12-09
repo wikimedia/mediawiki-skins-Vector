@@ -1,8 +1,8 @@
 <div class="mw-table-of-contents-container">
 	{{! T313060 Additional container div needed to prevent the sticky element from being siblings with the footer }}
 	{{#data-toc}}
-	{{>PinnedContainer/Open}}
+	{{>PinnableContainer/Pinned/Open}}
 		{{#is-pinned}}{{>TableOfContents}}{{/is-pinned}}
-	{{>PinnedContainer/Close}}
+	{{>PinnableContainer/Close}}
 	{{/data-toc}}
 </div>
