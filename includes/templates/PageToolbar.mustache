@@ -15,9 +15,9 @@
 			<nav class="vector-page-tools-landmark" aria-label="{{msg-tooltip-p-cactions}}">
 				{{#is-page-tools-enabled}}{{#data-page-tools}}
 				{{>Dropdown/Open}}
-					{{>UnpinnedContainer/Open}}
+					{{>PinnableContainer/Unpinned/Open}}
 						{{^is-pinned}}{{>PageTools}}{{/is-pinned}}
-					{{>UnpinnedContainer/Close}}
+					{{>PinnableContainer/Close}}
 				{{>Dropdown/Close}}
 				{{/data-page-tools}}{{/is-page-tools-enabled}}
 				{{^is-page-tools-enabled}}{{#data-actions}}{{>LegacyMoreMenu}}{{/data-actions}}{{/is-page-tools-enabled}}
