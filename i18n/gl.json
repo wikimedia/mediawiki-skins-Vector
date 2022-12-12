@@ -8,9 +8,13 @@
 		]
 	},
 	"vector-skin-desc": "Versión moderna da aparencia MonoBook, cun aspecto actualizado e moitas melloras na usabilidade",
-	"prefs-vector-enable-vector-1-label": "Usar Vector Legacy",
-	"vector.css": "/* O CSS que se coloque aquí afectará a quen use a aparencia Vector */",
-	"vector.js": "/* Calquera JavaScript que haxa aquí será cargado para os usuarios que usen a aparencia Vector */",
+	"prefs-vector-enable-vector-1-label": "Usar a versión antiga de Vector",
+	"prefs-vector-enable-vector-1-help": "Durante os próximos anos actualizaremos gradualmente o aspecto Vector. O aspecto Vector antigo permite ver a versión antiga (ata decembro de 2019). Para obter máis información sobre as actualizacións, visita a nosa [[mw:Reading/Web/Desktop_Improvements|páxina do proxecto]].",
+	"vector-opt-out": "Cambiar ao aspecto antigo",
+	"vector-opt-out-tooltip": "Cambia as súas preferencias para volver ao aspecto anterior da aparencia (o antigo Vector)",
+	"vector.css": "/* Todo o CSS que se coloque aquí afectará a quen use a aparencia Vector */",
+	"vector.js": "/* Todo o JavaScript que se coloque aquí afectará que usen a aparencia Vector */",
+	"vector-action-toggle-sidebar": "Activar ou desactivar a barra lateral",
 	"vector-action-addsection": "Nova sección",
 	"vector-action-delete": "Borrar",
 	"vector-action-move": "Mover",
@@ -22,7 +26,7 @@
 	"vector-view-history": "Ver o historial",
 	"vector-view-view": "Ler",
 	"vector-view-viewsource": "Ver o código fonte",
-	"vector-jumptonavigation": "Saltar ata a navegación",
+	"vector-jumptonavigation": "Saltar á navegación",
 	"vector-jumptosearch": "Saltar á procura",
 	"vector-more-actions": "Máis"
 }

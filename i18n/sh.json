@@ -9,6 +9,9 @@
 			"Vlad5250"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
+	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite postavke da biste vratili stari izgled teme (stari Vector)",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Brisanje",
 	"vector-action-move": "Premjesti",
@@ -20,5 +23,7 @@
 	"vector-view-history": "Historija",
 	"vector-view-view": "Prikaži",
 	"vector-view-viewsource": "Vidi izvor (source)",
+	"vector-jumptonavigation": "Idi na navigaciju",
+	"vector-jumptosearch": "Idi na pretragu",
 	"vector-more-actions": "Više"
 }
