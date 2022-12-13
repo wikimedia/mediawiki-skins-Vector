@@ -35,8 +35,9 @@ use Wikimedia\Assert\Assert;
  *
  * @package MediaWiki\Skins\Vector\FeatureManagement
  * @internal
+ * @final
  */
-final class FeatureManager {
+class FeatureManager {
 
 	/**
 	 * A map of feature name to the array of requirements (referenced by name). A feature is only

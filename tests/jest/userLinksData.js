@@ -26,7 +26,7 @@ const templateData = {
 			<li id="pt-watchlist-2" class="user-links-collapsible-item mw-list-item"><a href="/wiki/Special:Watchlist" class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist" title="A list of pages you are monitoring for changes [⌃⌥l]" accesskey="l"><span>Watchlist</span></a></li>
 		`
 	},
-	'data-user-menu': {
+	'data-user-menu-dropdown': {
 		id: 'p-personal',
 		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
 		label: 'Personal tools',
