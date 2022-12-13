@@ -189,7 +189,9 @@ class SkinVector22 extends SkinVector {
 		$parentData = parent::getTemplateData();
 		$stickyHeader = new VectorComponentStickyHeader();
 		$toc = new VectorComponentTableOfContents();
-		$parentData['data-toc'] = $toc->getTemplateData() + $this->getTocData( $parentData['data-toc'] ?? [] );
+		$tocData = $parentData['data-toc'] ?? [];
+		$parentData['data-toc'] = !empty( $tocData ) ?
+			$toc->getTemplateData() + $this->getTocData( $tocData ) : null;
 
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
