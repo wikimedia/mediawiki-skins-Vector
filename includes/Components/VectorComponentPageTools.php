@@ -57,7 +57,8 @@ class VectorComponentPageTools implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$menusData = [ $this->toolbox, $this->actionsMenu ];
+		$toolbox = new VectorComponentMenu( $this->toolbox );
+		$actions = new VectorComponentMenu( $this->actionsMenu );
 		$id = 'vector-page-tools';
 		$pinnedContainer = new VectorComponentPinnedContainer( $id, $this->isPinned );
 		$pinnableElement = new VectorComponentPinnableElement( $id );
@@ -66,7 +67,10 @@ class VectorComponentPageTools implements VectorComponent {
 			$pinnedContainer->getTemplateData();
 		return $data + [
 			'data-pinnable-header' => $this->pinnableHeader ? $this->pinnableHeader->getTemplateData() : null,
-			'data-menus' => $menusData,
+			'data-menus' => [
+				$toolbox->getTemplateData(),
+				$actions->getTemplateData(),
+			]
 		];
 	}
 }

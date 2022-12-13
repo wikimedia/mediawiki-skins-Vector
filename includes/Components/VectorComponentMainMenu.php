@@ -55,37 +55,6 @@ class VectorComponentMainMenu implements VectorComponent {
 	}
 
 	/**
-	 * Updates side bar data so that it has a label and heading-class defined
-	 * so it doesn't inherit Mustache properties from parent
-	 * @param array $portletData
-	 * @return array
-	 */
-	private function fillMissingDataPortlet( $portletData ) {
-		return $portletData + [
-			'label' => '',
-			'heading-class' => '',
-		];
-	}
-
-	/**
-	 * Updates side bar data so that it has a label and heading-class defined
-	 * so it doesn't inherit Mustache properties from parent
-	 *
-	 * @param array $sidebarData
-	 * @return array
-	 */
-	private function fillMissingData( array $sidebarData ): array {
-		$portletsFirst = $sidebarData['data-portlets-first'];
-		$sidebarData['data-portlets-first'] = $this->fillMissingDataPortlet( $portletsFirst );
-		$portletsRest = $sidebarData['array-portlets-rest'];
-		foreach ( $portletsRest as $key => $childData ) {
-			$portletsRest[$key] = $this->fillMissingDataPortlet( $childData );
-		}
-		$sidebarData['array-portlets-rest'] = $portletsRest;
-		return $sidebarData;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -100,12 +69,20 @@ class VectorComponentMainMenu implements VectorComponent {
 			null
 		);
 
-		return $this->fillMissingData( $this->sidebarData ) + [
+		$portletsRest = [];
+		foreach ( $this->sidebarData[ 'array-portlets-rest' ] as $data ) {
+			$portletsRest[] = ( new VectorComponentMenu( $data ) )->getTemplateData();
+		}
+		$firstPortlet = new VectorComponentMenu( $this->sidebarData['data-portlets-first'] );
+		$languageMenu = new VectorComponentMenu( $this->languageData );
+		return [
+			'data-portlets-first' => $firstPortlet->getTemplateData(),
+			'array-portlets-rest' => $portletsRest,
 			'data-main-menu-action' => $action ? $action->getTemplateData() : null,
 			// T295555 Add language switch alert message temporarily (to be removed).
 			'data-vector-language-switch-alert' => $alert ? $alert->getTemplateData() : null,
 			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
-			'data-languages' => $this->fillMissingDataPortlet( $this->languageData ),
+			'data-languages' => $languageMenu->getTemplateData(),
 		];
 	}
 }
