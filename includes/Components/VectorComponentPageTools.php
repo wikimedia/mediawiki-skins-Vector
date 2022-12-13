@@ -58,16 +58,15 @@ class VectorComponentPageTools implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$menusData = [ $this->toolbox, $this->actionsMenu ];
+		$id = 'vector-page-tools';
+		$pinnedContainer = new VectorComponentPinnedContainer( $id, $this->isPinned );
+		$pinnableElement = new VectorComponentPinnableElement( $id );
 
-		$pinnableDropdownData = [
-			'id' => 'vector-page-tools',
-			'class' => 'vector-page-tools',
-			'label' => $this->skin->msg( 'toolbox' ),
-			'is-pinned' => $this->isPinned,
-			'has-multiple-menus' => true,
+		$data = $pinnableElement->getTemplateData() +
+			$pinnedContainer->getTemplateData();
+		return $data + [
 			'data-pinnable-header' => $this->pinnableHeader ? $this->pinnableHeader->getTemplateData() : null,
-			'data-menus' => $menusData
+			'data-menus' => $menusData,
 		];
-		return $pinnableDropdownData;
 	}
 }

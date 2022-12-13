@@ -27,6 +27,8 @@ namespace MediaWiki\Skins\Vector;
 use ExtensionRegistry;
 use Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponent;
+use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use RuntimeException;
@@ -283,7 +285,7 @@ abstract class SkinVector extends SkinMustache {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$userMenuOverflowData = Hooks::updateDropdownMenuData( $overflowMenuData );
-		$userMenuData = Hooks::updateDropdownMenuData( $this->getUserMenuPortletData( $userMenuData ) );
+		$userMenu = $this->getUserMenuDropdown( $userMenuData );
 		unset( $userMenuOverflowData[ 'label' ] );
 
 		if ( $isAnon || $isTempUser ) {
@@ -309,7 +311,8 @@ abstract class SkinVector extends SkinMustache {
 			'is-temp-user' => $isTempUser,
 			'is-wide' => $moreItems > 3,
 			'data-user-menu-overflow' => $userMenuOverflowData,
-			'data-user-menu' => $userMenuData
+			'data-user-menu' => $userMenu->getTemplateData(),
+			'html-items' => $userMenuData['html-items'],
 		];
 	}
 
@@ -513,9 +516,9 @@ abstract class SkinVector extends SkinMustache {
 	 * FIXME: Move to VectorComponentUserMenu
 	 *
 	 * @param array $portletData
-	 * @return array
+	 * @return VectorComponent
 	 */
-	private function getUserMenuPortletData( $portletData ) {
+	private function getUserMenuDropdown( $portletData ): VectorComponent {
 		// T317789: Core can undesirably add an 'emptyPortlet' class that hides the
 		// user menu. This is a result of us manually removing items from the menu
 		// in Hooks::updateUserLinksDropdownItems which can make
@@ -543,9 +546,8 @@ abstract class SkinVector extends SkinMustache {
 			// This overrides the tooltip for the user links menu icon which is an ellipsis for anonymous users.
 			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
 		}
-		$portletData['icon'] = $icon;
-		$portletData['button'] = true;
-		$portletData['text-hidden'] = true;
-		return $portletData;
+		return new VectorComponentDropdown(
+			$portletData['id'], $portletData['label'], $portletData['class'], $icon, $portletData['html-tooltip'] ?? ''
+		);
 	}
 }
