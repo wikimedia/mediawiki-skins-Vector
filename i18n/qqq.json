@@ -66,6 +66,8 @@
 	"vector-site-nav-label": "Accessible label for site (main menu) nav landmark",
 	"vector-main-menu-label": "Main menu label",
 	"vector-page-tools-label": "Label for the page tools pinnable dropdown\n{{identical|Tools}}",
+	"vector-page-tools-general-label": "Label for the page tools 'General' menu",
+	"vector-page-tools-actions-label": "Label for the page tools 'Actions' menu",
 	"vector-pin-element-label": "Label for toggle button in PinnableHeader to pin an element",
 	"vector-unpin-element-label": "Label for toggle button in PinnableHeader to unpin an element",
 	"vector-2022-prefs-talkpage": "Link to the desktop improvements project talk page which is shown before the preview link in skin preferences. See T307113 for more information.",

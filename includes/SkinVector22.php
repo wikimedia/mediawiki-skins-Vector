@@ -217,7 +217,7 @@ class SkinVector22 extends SkinVector {
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
 		$isPageToolsPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
-		$toolbox = [];
+		$pageToolsMenus = [];
 		$restPortlets = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ];
 		if ( $isPageToolsEnabled ) {
 			$toolboxMenuIndex = array_search(
@@ -231,7 +231,7 @@ class SkinVector22 extends SkinVector {
 			if ( $toolboxMenuIndex !== false ) {
 				// Splice removes the toolbox menu from the $restPortlets array
 				// and current returns the first value of array_splice, i.e. the $toolbox menu data.
-				$toolbox = current( array_splice( $restPortlets, $toolboxMenuIndex, 1 ) );
+				$pageToolsMenus = array_splice( $restPortlets, $toolboxMenuIndex );
 				$parentData[ 'data-portlets-sidebar' ]['array-portlets-rest'] = $restPortlets;
 				$sidebar = $parentData[ 'data-portlets-sidebar' ];
 			}
@@ -266,10 +266,10 @@ class SkinVector22 extends SkinVector {
 				$parentData['data-portlets']['data-languages'] ?? [],
 			),
 			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
-				$toolbox,
-				$parentData['data-portlets']['data-actions'] ?? [],
+				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenus ),
 				$isPageToolsPinned,
-				$this
+				$this->getContext(),
+				$this->getUser()
 			) : null,
 			'data-page-tools-dropdown' => $isPageToolsEnabled ?
 				new VectorComponentDropdown( 'vector-page-tools', $this->msg( 'toolbox' )->text() ) : null,

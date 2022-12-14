@@ -1,7 +1,8 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use Skin;
+use MessageLocalizer;
+use User;
 
 /**
  * VectorComponentMainMenu component
@@ -9,68 +10,84 @@ use Skin;
 class VectorComponentPageTools implements VectorComponent {
 
 	/** @var array */
-	private $toolbox;
-
-	/** @var array */
-	private $actionsMenu;
+	private $menus;
 
 	/** @var bool */
 	private $isPinned;
-
-	/** @var Skin */
-	private $skin;
 
 	/** @var VectorComponentPinnableHeader|null */
 	private $pinnableHeader;
 
 	/** @var string */
+	public const ID = 'vector-page-tools';
+
+	/** @var string */
 	public const TOOLBOX_ID = 'p-tb';
 
+	/** @var string */
+	private const ACTIONS_ID = 'p-cactions';
+
+	/** @var MessageLocalizer */
+	private $localizer;
+
 	/**
-	 * @param array $toolbox
-	 * @param array $actionsMenu
+	 * @param array $menus
 	 * @param bool $isPinned
-	 * @param Skin $skin
+	 * @param MessageLocalizer $localizer
+	 * @param User $user
 	 */
 	public function __construct(
-		array $toolbox,
-		array $actionsMenu,
+		array $menus,
 		bool $isPinned,
-		Skin $skin
+		MessageLocalizer $localizer,
+		User $user
 	) {
-		$user = $skin->getUser();
-		$this->toolbox = $toolbox;
-		$this->actionsMenu = $actionsMenu;
+		$this->menus = $menus;
 		$this->isPinned = $isPinned;
+		$this->localizer = $localizer;
 		$this->pinnableHeader = $user->isRegistered() ? new VectorComponentPinnableHeader(
-			$skin->getContext(),
+			$localizer,
 			$isPinned,
 			// Name
 			'vector-page-tools',
 			// Feature name
 			'page-tools-pinned'
 		) : null;
-		$this->skin = $skin;
+	}
+
+	/**
+	 * Revises the labels of the p-tb and p-cactions menus.
+	 *
+	 * @return array
+	 */
+	private function getMenus(): array {
+		return array_map( function ( $menu ) {
+			switch ( $menu['id'] ?? '' ) {
+				case self::TOOLBOX_ID:
+					$menu['label'] = $this->localizer->msg( 'vector-page-tools-general-label' );
+					break;
+				case self::ACTIONS_ID:
+					$menu['label'] = $this->localizer->msg( 'vector-page-tools-actions-label' );
+					break;
+			}
+
+			return $menu;
+		}, $this->menus );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$toolbox = new VectorComponentMenu( $this->toolbox );
-		$actions = new VectorComponentMenu( $this->actionsMenu );
-		$id = 'vector-page-tools';
-		$pinnedContainer = new VectorComponentPinnedContainer( $id, $this->isPinned );
-		$pinnableElement = new VectorComponentPinnableElement( $id );
+		$pinnedContainer = new VectorComponentPinnedContainer( self::ID, $this->isPinned );
+		$pinnableElement = new VectorComponentPinnableElement( self::ID );
 
 		$data = $pinnableElement->getTemplateData() +
 			$pinnedContainer->getTemplateData();
+
 		return $data + [
 			'data-pinnable-header' => $this->pinnableHeader ? $this->pinnableHeader->getTemplateData() : null,
-			'data-menus' => [
-				$toolbox->getTemplateData(),
-				$actions->getTemplateData(),
-			]
+			'data-menus' => $this->getMenus()
 		];
 	}
 }
