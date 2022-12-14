@@ -16,7 +16,8 @@
 			"Sunny00217",
 			"Tranve",
 			"Winston Sung",
-			"Xiplus"
+			"Xiplus",
+			"捍粵者"
 		]
 	},
 	"skinname-vector": "舊版Vector（2010）",
@@ -64,6 +65,7 @@
 	"vector-toc-menu-tooltip": "目次",
 	"vector-toc-collapsible-button-label": "切換目錄",
 	"vector-site-nav-label": "站台",
+	"vector-main-menu-label": "主選單",
 	"vector-pin-element-label": "移至側邊欄",
 	"vector-unpin-element-label": "隱藏",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|討論]]",
