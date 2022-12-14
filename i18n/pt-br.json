@@ -15,7 +15,8 @@
 			"Opraco",
 			555,
 			"YuriNikolai",
-			"Duke of Wikipädia"
+			"Duke of Wikipädia",
+			"Fúlvio"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -30,6 +31,7 @@
 	"vector-languages": "Idiomas",
 	"vector-language-button-aria-label": "Vá para um artigo em outro idioma. Disponível em {{PLURAL:$1|$1 idioma|$1 idiomas}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
+	"vector-language-redirect-to-top": "Nesta {{SITENAME}}, os links dos idiomas estão no topo da página, em frente ao título do artigo. [[#p-lang-btn|Ir para o topo]].",
 	"vector-language-variant-switcher-label": "Alterar a variante de idioma",
 	"vector-action-addsection": "Adicionar tópico",
 	"vector-action-delete": "Excluir",

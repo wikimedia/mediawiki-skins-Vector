@@ -5,9 +5,12 @@
 			"Lionslayer",
 			"Myanmars",
 			"Ninjastrikers",
-			"Penguinlay"
+			"Penguinlay",
+			"Amire80"
 		]
 	},
+	"vector-opt-out": "ပုံစံဟောင်းသို့ပြောင်းပါ",
+	"vector-languages": "ဘာသာစကားများ",
 	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
 	"vector-action-addsection": "အကြောင်းအရာအသစ် ထပ်ထည့်ရန်",
 	"vector-action-delete": "ဖျက်​ပါ​",
