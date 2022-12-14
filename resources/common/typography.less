@@ -57,6 +57,10 @@ pre,
 			font-family: @font-family-sans--fallback;
 		}
 
+		&:lang( ckb ) { /* See T306317 */
+			font-family: 'Scheherazade', @font-family-serif;
+		}
+
 		/* Burmese (Myanmar) language headlines would be cropped with set `line-height` */
 		/* See T193270 */
 		&:lang( my ) {
