@@ -206,6 +206,7 @@ class SkinVector22 extends SkinVector {
 			$parentData['data-portlets']['data-languages'] ?? [],
 			$this->getContext(),
 			$this->getUser(),
+			VectorServices::getFeatureManager(),
 			$this,
 		);
 		$mainMenuDropdown = new VectorComponentDropdown(
@@ -230,7 +231,7 @@ class SkinVector22 extends SkinVector {
 		$components = [
 			'data-toc' => $toc,
 			'data-search-box' => $searchBox,
-			'data-portlets-main-menu' => $mainMenu,
+			'data-main-menu' => $mainMenu,
 			'data-main-menu-dropdown' => $mainMenuDropdown,
 			'data-page-tools' => $isPageToolsEnabled ? $pageTools : null,
 			'data-page-tools-dropdown' => $isPageToolsEnabled ? $pageToolsDropdown : null,

@@ -10,11 +10,17 @@
 }}
 <div class="vector-main-menu-container {{^data-toc}}vector-sidebar-container-no-toc{{/data-toc}}">
 	<div id="mw-navigation">
-		<nav id="mw-panel" class="vector-main-menu" aria-label="{{msg-vector-site-nav-label}}" role="navigation">
+		<nav id="mw-panel" aria-label="{{msg-vector-site-nav-label}}" role="navigation">
 			{{^is-page-tools-enabled}}
-			{{#data-portlets-main-menu}}
-			{{>MainMenuContents}}
-			{{/data-portlets-main-menu}}
+				{{#data-main-menu}}{{>MainMenu}}{{/data-main-menu}}
+			{{/is-page-tools-enabled}}
+			{{#is-page-tools-enabled}}
+				{{#data-main-menu}}
+					{{>PinnableContainer/Pinned/Open}}
+						{{! Use `.vector-main-menu-pinned-container .vector-main-menu` to target styles at this element}}
+						{{#is-pinned}}{{>MainMenu}}{{/is-pinned}}
+					{{>PinnableContainer/Close}}
+				{{/data-main-menu}}
 			{{/is-page-tools-enabled}}
 		</nav>
 	</div>

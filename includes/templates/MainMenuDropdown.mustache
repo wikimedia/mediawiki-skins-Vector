@@ -1,4 +1,8 @@
-{{! Use `.vector-main-menu.vector-dropdown` to target styles at this element}}
 {{#data-main-menu-dropdown}}{{>Dropdown/Open}}{{/data-main-menu-dropdown}}
-	{{#data-portlets-main-menu}}{{>MainMenuContents}}{{/data-portlets-main-menu}}
+	{{#data-main-menu}}
+	{{>PinnableContainer/Unpinned/Open}}
+		{{! Use `.vector-main-menu-unpinned-container .vector-main-menu` to target styles at this element}}
+		{{^is-pinned}}{{>MainMenu}}{{/is-pinned}}
+	{{>PinnableContainer/Close}}
+	{{/data-main-menu}}
 {{#data-main-menu-dropdown}}{{>Dropdown/Close}}{{/data-main-menu-dropdown}}

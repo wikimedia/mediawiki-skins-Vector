@@ -1,6 +1,8 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
+use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MessageLocalizer;
 use Skin;
 use User;
@@ -19,6 +21,8 @@ class VectorComponentMainMenu implements VectorComponent {
 	private $languageData;
 	/** @var MessageLocalizer */
 	private $localizer;
+	/** @var bool */
+	private $isPinned;
 	/** @var VectorComponentPinnableHeader|null */
 	private $pinnableHeader;
 	/** @var string */
@@ -30,6 +34,7 @@ class VectorComponentMainMenu implements VectorComponent {
 	 * @param array $languageData
 	 * @param MessageLocalizer $localizer
 	 * @param User $user
+	 * @param FeatureManager $featureManager
 	 * @param Skin $skin
 	 */
 	public function __construct(
@@ -38,20 +43,27 @@ class VectorComponentMainMenu implements VectorComponent {
 		array $languageData,
 		MessageLocalizer $localizer,
 		User $user,
+		FeatureManager $featureManager,
 		Skin $skin
 	) {
 		$this->sidebarData = $sidebarData;
 		$this->languageData = $languageData;
 		$this->localizer = $localizer;
+		// TODO: wire up with features
+		$this->isPinned = false;
 
 		if ( $user->isRegistered() ) {
 			$this->optOut = new VectorComponentMainMenuActionOptOut( $skin );
-			$this->pinnableHeader = new VectorComponentPinnableHeader(
-				$this->localizer,
-				false,
-				self::ID,
-				null
-			);
+
+			$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
+			if ( $isPageToolsEnabled ) {
+				$this->pinnableHeader = new VectorComponentPinnableHeader(
+					$this->localizer,
+					false,
+					self::ID,
+					null
+				);
+			}
 		}
 		if ( $shouldLanguageAlertBeInSidebar ) {
 			$this->alert = new VectorComponentMainMenuActionLanguageSwitchAlert( $skin );
@@ -72,7 +84,11 @@ class VectorComponentMainMenu implements VectorComponent {
 		}
 		$firstPortlet = new VectorComponentMenu( $this->sidebarData['data-portlets-first'] );
 		$languageMenu = new VectorComponentMenu( $this->languageData );
-		return [
+
+		$pinnableContainer = new VectorComponentPinnableContainer( self::ID, $this->isPinned );
+		$pinnableElement = new VectorComponentPinnableElement( self::ID );
+
+		return $pinnableElement->getTemplateData() + $pinnableContainer->getTemplateData() + [
 			'data-portlets-first' => $firstPortlet->getTemplateData(),
 			'array-portlets-rest' => $portletsRest,
 			'data-main-menu-action' => $action ? $action->getTemplateData() : null,
