@@ -89,7 +89,7 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 						'unpin-label' => 'vector-unpin-element-label',
 						'data-name' => 'vector-page-tools',
 						'data-feature-name' => 'page-tools-pinned',
-						'data-pinnable-element-id' => 'vector-page-tools-pinnable-element',
+						'data-pinnable-element-id' => 'vector-page-tools',
 						'data-unpinned-container-id' => 'vector-page-tools-unpinned-container',
 						'data-pinned-container-id' => 'vector-page-tools-pinned-container',
 					],
