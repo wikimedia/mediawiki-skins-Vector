@@ -48,6 +48,10 @@ function bindPinnableToggleButtons( header ) {
  * @return {boolean} Returns true if the element is pinned and false otherwise.
  */
 function isPinned( header ) {
+	// In the future, consider delegating to `features.isEnabled()` if and when
+	// TOC (T316060, T325032) and all pinnable elements use the
+	// `vector-feature-{name}-pinned-enabled` naming convention for the body
+	// class.
 	return header.classList.contains( PINNED_HEADER_CLASS );
 }
 
