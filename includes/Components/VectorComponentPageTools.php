@@ -81,7 +81,7 @@ class VectorComponentPageTools implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$pinnedContainer = new VectorComponentPinnedContainer( self::ID, $this->isPinned );
+		$pinnedContainer = new VectorComponentPinnableContainer( self::ID, $this->isPinned );
 		$pinnableElement = new VectorComponentPinnableElement( self::ID );
 
 		$data = $pinnableElement->getTemplateData() +

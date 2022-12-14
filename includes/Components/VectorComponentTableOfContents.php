@@ -72,11 +72,11 @@ class VectorComponentTableOfContents implements VectorComponent {
 			}
 		}
 
-		$pinnedContainer = new VectorComponentPinnedContainer( self::ID );
+		$pinnableContainer = new VectorComponentPinnableContainer( self::ID );
 		$pinnableElement = new VectorComponentPinnableElement( self::ID );
 
 		return $pinnableElement->getTemplateData() +
-			$pinnedContainer->getTemplateData() +
+			$pinnableContainer->getTemplateData() +
 			array_merge( $this->tocData, [
 			'is-vector-toc-beginning-enabled' => $this->config->get(
 				'VectorTableOfContentsBeginning'
