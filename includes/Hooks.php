@@ -632,6 +632,9 @@ class Hooks implements
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
 				'type' => 'api'
 			],
+			Constants::PREF_KEY_MAIN_MENU_PINNED => [
+				'type' => 'api'
+			],
 			Constants::PREF_KEY_LIMITED_WIDTH => [
 				'type' => 'toggle',
 				'label-message' => 'vector-prefs-limited-width',

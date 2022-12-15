@@ -30,10 +30,6 @@ use User;
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
  */
 final class UserPreferenceRequirement implements Requirement {
-	/**
-	 * @var Title
-	 */
-	private $title;
 
 	/**
 	 * @var User
@@ -54,6 +50,11 @@ final class UserPreferenceRequirement implements Requirement {
 	 * @var string
 	 */
 	private $requirementName;
+
+	/**
+	 * @var Title|null
+	 */
+	private $title;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether

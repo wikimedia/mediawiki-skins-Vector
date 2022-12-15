@@ -232,6 +232,28 @@ return [
 			]
 		);
 
+		// Feature: Main menu pinned
+		// ================================
+		$featureManager->registerRequirement(
+			new UserPreferenceRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_MAIN_MENU_PINNED,
+				Constants::REQUIREMENT_MAIN_MENU_PINNED,
+				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_MAIN_MENU_PINNED,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LOGGED_IN,
+				Constants::REQUIREMENT_PAGE_TOOLS,
+				Constants::REQUIREMENT_MAIN_MENU_PINNED
+			]
+		);
+
 		// Feature: Max Width (skin)
 		// ================================
 		$featureManager->registerRequirement(

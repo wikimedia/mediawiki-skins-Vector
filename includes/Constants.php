@@ -238,6 +238,21 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_MAIN_MENU_PINNED = 'MainMenuPinned';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_MAIN_MENU_PINNED = 'MainMenuPinned';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_MAIN_MENU_PINNED = 'vector-main-menu-pinned';
+
+	/**
+	 * @var string
+	 */
 	public const FEATURE_LIMITED_WIDTH = 'LimitedWidth';
 
 	/**

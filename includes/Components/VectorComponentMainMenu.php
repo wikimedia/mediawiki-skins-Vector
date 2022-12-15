@@ -49,8 +49,7 @@ class VectorComponentMainMenu implements VectorComponent {
 		$this->sidebarData = $sidebarData;
 		$this->languageData = $languageData;
 		$this->localizer = $localizer;
-		// TODO: wire up with features
-		$this->isPinned = false;
+		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_MAIN_MENU_PINNED );
 
 		if ( $user->isRegistered() ) {
 			$this->optOut = new VectorComponentMainMenuActionOptOut( $skin );
@@ -59,9 +58,9 @@ class VectorComponentMainMenu implements VectorComponent {
 			if ( $isPageToolsEnabled ) {
 				$this->pinnableHeader = new VectorComponentPinnableHeader(
 					$this->localizer,
-					false,
+					$this->isPinned,
 					self::ID,
-					null
+					'main-menu-pinned'
 				);
 			}
 		}

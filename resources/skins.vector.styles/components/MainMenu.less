@@ -4,6 +4,14 @@
 @import '../layouts/screen.less';
 @import './checkboxHack.less';
 
+// Ensure there is only 1 main menu landmark at anytime
+.vector-main-menu-landmark {
+	.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-enabled .vector-header-start &,
+	.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled .vector-main-menu-container & {
+		display: none;
+	}
+}
+
 .vector-feature-page-tools-disabled {
 	@media ( max-width: @max-width-tablet ) {
 		// FIXME: Remove .vector-main-menu-contents from this selector after I59b3acd3d56cd5761e5978607634dfb9a88f60e3 has been in prod for 5 days
