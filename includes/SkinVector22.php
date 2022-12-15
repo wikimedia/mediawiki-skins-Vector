@@ -200,7 +200,6 @@ class SkinVector22 extends SkinVector {
 			}
 		}
 
-		$isRegistered = $this->getUser()->isRegistered();
 		$mainMenu = new VectorComponentMainMenu(
 			$sidebar,
 			$this->shouldLanguageAlertBeInSidebar(),
@@ -220,7 +219,7 @@ class SkinVector22 extends SkinVector {
 			array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenus ),
 			$this->getContext(),
 			$this->getUser(),
-			VectorServices::getFeatureManager()
+			$featureManager
 		);
 		$pageToolsDropdown = new VectorComponentDropdown(
 			$pageTools::ID . '-dropdown',
