@@ -19,7 +19,6 @@ exports[`UserLinks renders 1`] = `
     
 </div>
 </div>
-
 <div id=\\"p-personal\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown\\">
 	<input type=\\"checkbox\\" id=\\"p-personal-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-p-personal\\" class=\\"vector-menu-checkbox\\">
 	<label id=\\"p-personal-label\\" for=\\"p-personal-checkbox\\" class=\\"vector-menu-heading\\">

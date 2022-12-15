@@ -6,7 +6,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
-use MediaWiki\Skins\Vector\Components\VectorComponentPinnableHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
@@ -43,55 +42,6 @@ class SkinVector22 extends SkinVector {
 		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
 			$shouldShowOnMainPage;
-	}
-
-	/**
-	 * Annotates table of contents data with Vector-specific information.
-	 *
-	 * In tableOfContents.js we have tableOfContents::getTableOfContentsSectionsData(),
-	 * that yields the same result as this function, please make sure to keep them in sync.
-	 * FIXME: This code should be moved to VectorComponentTableOfContents.
-	 *
-	 * @param array $tocData
-	 * @return array
-	 */
-	private function getTocData( array $tocData ): array {
-		// If the table of contents has no items, we won't output it.
-		// empty array is interpreted by Mustache as falsey.
-		if ( empty( $tocData ) || empty( $tocData[ 'array-sections' ] ) ) {
-			return [];
-		}
-
-		// Populate button labels for collapsible TOC sections
-		foreach ( $tocData[ 'array-sections' ] as &$section ) {
-			if ( $section['is-top-level-section'] && $section['is-parent-section'] ) {
-				$section['vector-button-label'] =
-					$this->msg( 'vector-toc-toggle-button-label', $section['line'] )->text();
-			}
-		}
-
-		// ToC is pinned by default, hardcoded for now
-		$isTocPinned = true;
-		$pinnableHeader = new VectorComponentPinnableHeader(
-			$this->getContext(),
-			$isTocPinned,
-			'vector-toc',
-			null,
-			false,
-			'h2'
-		);
-
-		return array_merge( $tocData, [
-			'is-vector-toc-beginning-enabled' => $this->getConfig()->get(
-				'VectorTableOfContentsBeginning'
-			),
-			'vector-is-collapse-sections-enabled' =>
-				$tocData[ 'number-section-count'] >= $this->getConfig()->get(
-					'VectorTableOfContentsCollapseAtCount'
-				),
-			'is-pinned' => $isTocPinned,
-			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
-		] );
 	}
 
 	/**
@@ -188,11 +138,6 @@ class SkinVector22 extends SkinVector {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
 		$stickyHeader = new VectorComponentStickyHeader();
-		$toc = new VectorComponentTableOfContents();
-		$tocData = $parentData['data-toc'] ?? [];
-		$parentData['data-toc'] = !empty( $tocData ) ?
-			$toc->getTemplateData() + $this->getTocData( $tocData ) : null;
-
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 
 		// FIXME: Move to component (T322089)
@@ -214,8 +159,26 @@ class SkinVector22 extends SkinVector {
 			);
 		}
 
+		$toc = new VectorComponentTableOfContents(
+			$parentData['data-toc'],
+			$this->getContext(),
+			$this->getConfig()
+		);
+
+		$config = $this->getConfig();
+		$searchBox = new VectorComponentSearchBox(
+			$parentData['data-search-box'],
+			true,
+			// is primary mode of search
+			true,
+			'searchform',
+			true,
+			$config,
+			Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
+			$this->getContext()
+		);
+
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
-		$isPageToolsPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 		$pageToolsMenus = [];
 		$restPortlets = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ];
@@ -236,43 +199,42 @@ class SkinVector22 extends SkinVector {
 				$sidebar = $parentData[ 'data-portlets-sidebar' ];
 			}
 		}
-		$config = $this->getConfig();
-		$mainMenuDropdownClass = $this->getUser()->isAnon() ? 'vector-main-menu-btn-dropdown-anon ' : '';
-		$mainMenuDropdownClass .= 'vector-main-menu-dropdown';
+
+		$isRegistered = $this->getUser()->isRegistered();
+		$mainMenu = new VectorComponentMainMenu(
+			$sidebar,
+			$this->shouldLanguageAlertBeInSidebar(),
+			$parentData['data-portlets']['data-languages'] ?? [],
+			$this->getContext(),
+			$this->getUser(),
+			$this,
+		);
 		$mainMenuDropdown = new VectorComponentDropdown(
-			'vector-main-menu-dropdown',
-			$this->msg( 'vector-main-menu-label' )->text(),
-			$mainMenuDropdownClass,
+			$mainMenu::ID . '-dropdown',
+			$this->msg( $mainMenu::ID . '-label' )->text(),
+			$mainMenu::ID . '-dropdown',
 			'menu'
 		);
 
+		$pageTools = new VectorComponentPageTools(
+			array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenus ),
+			$this->getContext(),
+			$this->getUser(),
+			VectorServices::getFeatureManager()
+		);
+		$pageToolsDropdown = new VectorComponentDropdown(
+			$pageTools::ID . '-dropdown',
+			$this->msg( 'toolbox' )->text(),
+			$pageTools::ID . '-dropdown',
+		);
+
 		$components = [
-			'data-search-box' => new VectorComponentSearchBox(
-				$parentData['data-search-box'],
-				true,
-				// is primary mode of search
-				true,
-				'searchform',
-				true,
-				$config,
-				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
-				$this->getContext()
-			),
+			'data-toc' => $toc,
+			'data-search-box' => $searchBox,
+			'data-portlets-main-menu' => $mainMenu,
 			'data-main-menu-dropdown' => $mainMenuDropdown,
-			'data-portlets-main-menu' => new VectorComponentMainMenu(
-				$sidebar,
-				$this,
-				$this->shouldLanguageAlertBeInSidebar(),
-				$parentData['data-portlets']['data-languages'] ?? [],
-			),
-			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
-				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenus ),
-				$isPageToolsPinned,
-				$this->getContext(),
-				$this->getUser()
-			) : null,
-			'data-page-tools-dropdown' => $isPageToolsEnabled ?
-				new VectorComponentDropdown( 'vector-page-tools', $this->msg( 'toolbox' )->text() ) : null,
+			'data-page-tools' => $isPageToolsEnabled ? $pageTools : null,
+			'data-page-tools-dropdown' => $isPageToolsEnabled ? $pageToolsDropdown : null,
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.

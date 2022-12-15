@@ -1,7 +1,6 @@
 <nav class="vector-user-links{{#is-wide}} vector-user-links-wide{{/is-wide}}" aria-label="{{msg-personaltools}}" role="navigation" >
 	{{#data-user-menu-overflow}}{{>Menu}}{{/data-user-menu-overflow}}
-	{{#data-user-menu}}
-
+	{{#data-user-menu-dropdown}}
 	{{>Dropdown/Open}}
 		{{#is-anon}}
 		{{#is-temp-user}}
@@ -19,5 +18,5 @@
 		</div>
 		{{/is-anon}}
 	{{>Dropdown/Close}}
-	{{/data-user-menu}}
+	{{/data-user-menu-dropdown}}
 </nav>

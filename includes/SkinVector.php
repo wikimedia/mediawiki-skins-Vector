@@ -285,7 +285,7 @@ abstract class SkinVector extends SkinMustache {
 		$returnto = $this->getReturnToParam();
 		$useCombinedLoginLink = $this->useCombinedLoginLink();
 		$userMenuOverflowData = Hooks::updateDropdownMenuData( $overflowMenuData );
-		$userMenu = $this->getUserMenuDropdown( $userMenuData );
+		$userMenuDropdown = $this->getUserMenuDropdown( $userMenuData );
 		unset( $userMenuOverflowData[ 'label' ] );
 
 		if ( $isAnon || $isTempUser ) {
@@ -311,7 +311,7 @@ abstract class SkinVector extends SkinMustache {
 			'is-temp-user' => $isTempUser,
 			'is-wide' => $moreItems > 3,
 			'data-user-menu-overflow' => $userMenuOverflowData,
-			'data-user-menu' => $userMenu->getTemplateData(),
+			'data-user-menu-dropdown' => $userMenuDropdown->getTemplateData(),
 			'html-items' => $userMenuData['html-items'],
 		];
 	}
@@ -371,7 +371,7 @@ abstract class SkinVector extends SkinMustache {
 		}
 		$btns[] = $this->getAddSectionButtonData();
 
-		// FIXME: Sync with SkinVector22:getTocData
+		// FIXME: Sync with VectorComponentTableOfContents:getTemplateData
 		$tocPortletData = Hooks::updateDropdownMenuData( [
 			'id' => 'vector-sticky-header-toc',
 			'class' => 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
@@ -530,7 +530,7 @@ abstract class SkinVector extends SkinMustache {
 		// completion of T319356.
 		//
 		// Also, add target class to apply different icon to personal menu dropdown for logged in users.
-		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu vector-menu-dropdown';
+		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu';
 		$portletData['class'] .= $this->loggedin ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';

@@ -1,6 +1,8 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
+use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MessageLocalizer;
 use User;
 
@@ -11,6 +13,9 @@ class VectorComponentPageTools implements VectorComponent {
 
 	/** @var array */
 	private $menus;
+
+	/** @var MessageLocalizer */
+	private $localizer;
 
 	/** @var bool */
 	private $isPinned;
@@ -27,29 +32,26 @@ class VectorComponentPageTools implements VectorComponent {
 	/** @var string */
 	private const ACTIONS_ID = 'p-cactions';
 
-	/** @var MessageLocalizer */
-	private $localizer;
-
 	/**
 	 * @param array $menus
-	 * @param bool $isPinned
 	 * @param MessageLocalizer $localizer
 	 * @param User $user
+	 * @param FeatureManager $featureManager
 	 */
 	public function __construct(
 		array $menus,
-		bool $isPinned,
 		MessageLocalizer $localizer,
-		User $user
+		User $user,
+		FeatureManager $featureManager
 	) {
 		$this->menus = $menus;
-		$this->isPinned = $isPinned;
 		$this->localizer = $localizer;
+		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$this->pinnableHeader = $user->isRegistered() ? new VectorComponentPinnableHeader(
 			$localizer,
-			$isPinned,
+			$this->isPinned,
 			// Name
-			'vector-page-tools',
+			self::ID,
 			// Feature name
 			'page-tools-pinned'
 		) : null;
@@ -64,10 +66,10 @@ class VectorComponentPageTools implements VectorComponent {
 		return array_map( function ( $menu ) {
 			switch ( $menu['id'] ?? '' ) {
 				case self::TOOLBOX_ID:
-					$menu['label'] = $this->localizer->msg( 'vector-page-tools-general-label' );
+					$menu['label'] = $this->localizer->msg( 'vector-page-tools-general-label' )->text();
 					break;
 				case self::ACTIONS_ID:
-					$menu['label'] = $this->localizer->msg( 'vector-page-tools-actions-label' );
+					$menu['label'] = $this->localizer->msg( 'vector-page-tools-actions-label' )->text();
 					break;
 			}
 

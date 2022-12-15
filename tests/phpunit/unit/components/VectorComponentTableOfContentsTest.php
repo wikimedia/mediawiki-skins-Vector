@@ -21,7 +21,10 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
+use HashConfig;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
+use Message;
+use MessageLocalizer;
 
 /**
  * @group Vector
@@ -29,17 +32,169 @@ use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
  * @coversDefaultClass \MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents
  */
 class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
+
+	public function provideGetTocData() {
+		$config = [
+			'VectorTableOfContentsBeginning' => true,
+			'VectorTableOfContentsCollapseAtCount' => 1
+		];
+		$tocData = [
+			'number-section-count' => 2,
+			'array-sections' => [
+				[
+					'toclevel' => 1,
+					'level' => '2',
+					'line' => 'A',
+					'number' => '1',
+					'index' => '1',
+					'fromtitle' => 'Test',
+					'byteoffset' => 231,
+					'anchor' => 'A',
+					'linkAnchor' => 'A',
+					'array-sections' =>	[],
+					'is-top-level-section' => true,
+					'is-parent-section' => false,
+				],
+				[
+					'toclevel' => 1,
+					'level' => '4',
+					'line' => 'B',
+					'number' => '2',
+					'index' => '2',
+					'fromtitle' => 'Test',
+					'byteoffset' => 245,
+					'anchor' => 'B',
+					'linkAnchor' => 'B',
+					'array-sections' =>	[],
+					'is-top-level-section' => true,
+					'is-parent-section' => false,
+				]
+			]
+		];
+		$nestedTocData = [
+			'number-section-count' => 2,
+			'array-sections' => [
+				[
+					'toclevel' => 1,
+					'level' => '2',
+					'line' => 'A',
+					'number' => '1',
+					'index' => '1',
+					'fromtitle' => 'Test',
+					'byteoffset' => 231,
+					'anchor' => 'A',
+					'linkAnchor' => 'A',
+					'vector-button-label' => 'vector-toc-toggle-button-label',
+					'array-sections' => [
+						'toclevel' => 2,
+						'level' => '4',
+						'line' => 'A1',
+						'number' => '1.1',
+						'index' => '2',
+						'fromtitle' => 'Test',
+						'byteoffset' => 245,
+						'anchor' => 'A1',
+						'linkAnchor' => 'A1',
+						'array-sections' => [],
+						'is-top-level-section' => false,
+						'is-parent-section' => false,
+					],
+					'is-top-level-section' => true,
+					'is-parent-section' => true,
+				],
+			]
+		];
+
+		$expectedConfigData = [
+			'is-vector-toc-beginning-enabled' => $config[ 'VectorTableOfContentsBeginning' ],
+			'vector-is-collapse-sections-enabled' =>
+				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ],
+			'data-pinnable-header' => [
+				'is-pinned' => true,
+				'data-name' => 'vector-toc',
+				'data-feature-name' => null,
+				'label' => 'vector-toc-label',
+				'unpin-label' => 'vector-unpin-element-label',
+				'pin-label' => 'vector-pin-element-label',
+				'label-tag-name' => 'h2'
+			],
+			'is-pinned' => true,
+			'id' => 'vector-toc'
+		];
+		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );
+
+		return [
+			// When zero sections
+			[
+				[],
+				$config,
+				// TOC data is empty when given an empty array
+				[]
+			],
+			// When number of multiple sections is lower than configured value
+			[
+				$tocData,
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 3 ] ),
+				// 'vector-is-collapse-sections-enabled' value is false
+				array_merge( $tocData, $expectedConfigData, [
+					'vector-is-collapse-sections-enabled' => false
+				] )
+			],
+			// When number of multiple sections is equal to the configured value
+			[
+				$tocData,
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 2 ] ),
+				// 'vector-is-collapse-sections-enabled' value is true
+				array_merge( $tocData, $expectedConfigData )
+			],
+			// When number of multiple sections is higher than configured value
+			[
+				$tocData,
+				array_merge( $config, [ 'VectorTableOfContentsCollapseAtCount' => 1 ] ),
+				// 'vector-is-collapse-sections-enabled' value is true
+				array_merge( $tocData, $expectedConfigData )
+			],
+			// When "Beginning" TOC section is configured to be turned off
+			[
+				$tocData,
+				array_merge( $config, [ 'VectorTableOfContentsBeginning' => false ] ),
+				// 'is-vector-toc-beginning-enabled' value is false
+				array_merge( $tocData, $expectedConfigData, [
+					'is-vector-toc-beginning-enabled' => false
+				] )
+			],
+			// When TOC has sections with top level parent sections
+			[
+				$nestedTocData,
+				$config,
+				// 'vector-button-label' is provided for top level parent sections
+				$expectedNestedTocData
+			],
+		];
+	}
+
 	/**
 	 * @covers ::getTemplateData
+	 * @dataProvider provideGetTOCData
 	 */
-	public function testGetTemplateData() {
-		$toc = new VectorComponentTableOfContents();
-		$this->assertEquals(
-			[
-				'id' => 'vector-toc',
-				'is-pinned' => true,
-			],
-			$toc->getTemplateData()
+	public function testGetTemplateData(
+		array $tocData,
+		array $config,
+		array $expected
+	) {
+		$localizer = $this->createMock( MessageLocalizer::class );
+		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
+			$msg = $this->createMock( Message::class );
+			$msg->method( '__toString' )->willReturn( $key );
+			$msg->method( 'text' )->willReturn( $key );
+			return $msg;
+		} );
+
+		$toc = new VectorComponentTableOfContents(
+			$tocData,
+			$localizer,
+			new HashConfig( $config )
 		);
+		$this->assertEquals( $expected, $toc->getTemplateData() );
 	}
 }

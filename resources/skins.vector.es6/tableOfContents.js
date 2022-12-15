@@ -478,7 +478,8 @@ module.exports = function tableOfContents( props ) {
 	/**
 	 * Prepares the data for rendering the table of contents,
 	 * nesting child sections within their parent sections.
-	 * This shoul yield the same result as the php function SkinVector22::getTocData(),
+	 * This should yield the same result as the php function
+	 * VectorComponentTableOfContents::getTemplateData(),
 	 * please make sure to keep them in sync.
 	 *
 	 * @param {Section[]} sections

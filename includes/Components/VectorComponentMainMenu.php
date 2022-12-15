@@ -19,39 +19,43 @@ class VectorComponentMainMenu implements VectorComponent {
 	private $languageData;
 	/** @var MessageLocalizer */
 	private $localizer;
-	/** @var User */
-	private $user;
+	/** @var VectorComponentPinnableHeader|null */
+	private $pinnableHeader;
+	/** @var string */
+	public const ID = 'vector-main-menu';
 
 	/**
 	 * @param array $sidebarData
-	 * @param Skin $skin
 	 * @param bool $shouldLanguageAlertBeInSidebar
 	 * @param array $languageData
+	 * @param MessageLocalizer $localizer
+	 * @param User $user
+	 * @param Skin $skin
 	 */
 	public function __construct(
 		array $sidebarData,
-		Skin $skin,
 		bool $shouldLanguageAlertBeInSidebar,
-		array $languageData
+		array $languageData,
+		MessageLocalizer $localizer,
+		User $user,
+		Skin $skin
 	) {
 		$this->sidebarData = $sidebarData;
-		$this->localizer = $skin->getContext();
 		$this->languageData = $languageData;
-		$user = $skin->getUser();
-		$this->user = $user;
+		$this->localizer = $localizer;
+
 		if ( $user->isRegistered() ) {
 			$this->optOut = new VectorComponentMainMenuActionOptOut( $skin );
+			$this->pinnableHeader = new VectorComponentPinnableHeader(
+				$this->localizer,
+				false,
+				self::ID,
+				null
+			);
 		}
 		if ( $shouldLanguageAlertBeInSidebar ) {
 			$this->alert = new VectorComponentMainMenuActionLanguageSwitchAlert( $skin );
 		}
-	}
-
-	/**
-	 * @return User
-	 */
-	private function getUser(): User {
-		return $this->user;
 	}
 
 	/**
@@ -60,14 +64,7 @@ class VectorComponentMainMenu implements VectorComponent {
 	public function getTemplateData(): array {
 		$action = $this->optOut;
 		$alert = $this->alert;
-
-		$id = 'vector-main-menu';
-		$pinnableHeader = new VectorComponentPinnableHeader(
-			$this->localizer,
-			false,
-			$id,
-			null
-		);
+		$pinnableHeader = $this->pinnableHeader;
 
 		$portletsRest = [];
 		foreach ( $this->sidebarData[ 'array-portlets-rest' ] as $data ) {
@@ -81,7 +78,7 @@ class VectorComponentMainMenu implements VectorComponent {
 			'data-main-menu-action' => $action ? $action->getTemplateData() : null,
 			// T295555 Add language switch alert message temporarily (to be removed).
 			'data-vector-language-switch-alert' => $alert ? $alert->getTemplateData() : null,
-			'data-pinnable-header' => $pinnableHeader->getTemplateData(),
+			'data-pinnable-header' => $pinnableHeader ? $pinnableHeader->getTemplateData() : null,
 			'data-languages' => $languageMenu->getTemplateData(),
 		];
 	}
