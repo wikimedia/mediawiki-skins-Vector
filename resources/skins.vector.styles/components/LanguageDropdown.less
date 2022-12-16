@@ -69,7 +69,9 @@
 		}
 	}
 
-	.vector-menu-content {
+	// The `vector-menu-content` class is present twice in current implementation of language switcher
+	// (see FIXME in Dropdown/Open.mustache) so it is important we target the direct child.
+	> .vector-menu-content {
 		top: auto;
 		left: -@border-width-base;
 		right: -@border-width-base;

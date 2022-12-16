@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
+use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
@@ -175,14 +176,6 @@ class SkinVector22 extends SkinVector {
 		);
 
 		$langData = $parentData['data-portlets']['data-languages'] ?? null;
-		if ( $langData ) {
-			$parentData['data-lang-btn'] = $this->getULSPortletData(
-				$langData,
-				count( $this->getLanguagesCached() ),
-				$this->isLanguagesInContentAt( 'top' )
-			);
-		}
-
 		$config = $this->getConfig();
 
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
@@ -192,7 +185,19 @@ class SkinVector22 extends SkinVector {
 			self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 		}
 
+		$langButtonClass = $langData['class'] ?? '';
+		$ulsLabels = $this->getULSLabels();
 		$components = [
+			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
+				$ulsLabels['label'],
+				$ulsLabels['aria-label'],
+				$this->isLanguagesInContentAt( 'top' ) ?
+					$langButtonClass . ' mw-ui-icon-flush-right' : $langButtonClass,
+				count( $this->getLanguagesCached() ),
+				$langData['html-items'] ?? '',
+				$langData['html-before-portal'] ?? '',
+				$langData['html-after-portal'] ?? ''
+			) : null,
 			'data-toc' => new VectorComponentTableOfContents(
 				$parentData['data-toc'],
 				$this->getContext(),

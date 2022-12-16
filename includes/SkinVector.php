@@ -119,7 +119,6 @@ abstract class SkinVector extends SkinMustache {
 		'tabindex' => '-1',
 		'class' => 'sticky-header-icon'
 	];
-	private const CLASS_PROGRESSIVE = 'mw-ui-progressive';
 
 	/**
 	 * Calls getLanguages with caching.
@@ -426,7 +425,7 @@ abstract class SkinVector extends SkinMustache {
 	 *
 	 * @return array
 	 */
-	private function getULSLabels(): array {
+	final protected function getULSLabels(): array {
 		$numLanguages = count( $this->getLanguagesCached() );
 
 		if ( $numLanguages === 0 ) {
@@ -472,43 +471,6 @@ abstract class SkinVector extends SkinMustache {
 		return $langButton->getTemplateData() + [
 			'label' => $this->getULSLabels()[ 'label' ],
 		];
-	}
-
-	/**
-	 * Creates portlet data for the ULS button in the header
-	 *
-	 * @param array $langData
-	 * @param int $numLanguages
-	 * @param bool $atTop
-	 * @return array
-	 */
-	final protected function getULSPortletData( array $langData, int $numLanguages, bool $atTop ) {
-		$className = $langData['class'] ?? '';
-		$classNameSuffix = $atTop ? ' mw-ui-icon-flush-right' : '';
-
-		$languageButtonData = [
-			'id' => 'p-lang-btn',
-			'label' => $this->getULSLabels()['label'],
-			'aria-label' => $this->getULSLabels()['aria-label'],
-			// ext.uls.interface attaches click handler to this selector.
-			'checkbox-class' => ' mw-interlanguage-selector ',
-			'icon' => 'language-progressive',
-			'class' => $className . $classNameSuffix,
-			'button' => true,
-			'heading-class' => self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $numLanguages )
-		];
-
-		// Adds class to hide language button
-		// Temporary solution to T287206, can be removed when ULS dialog includes interwiki links
-		if ( $this->shouldHideLanguages() ) {
-			$languageButtonData['class'] .= ' mw-portlet-empty';
-		}
-
-		return Hooks::updateDropdownMenuData(
-			array_merge(
-				$langData, $languageButtonData
-			)
-		);
 	}
 
 	/**

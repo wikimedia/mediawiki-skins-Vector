@@ -61,11 +61,11 @@
 					{{{html-body-content}}}
 					{{{html-categories}}}
 					{{#is-page-tools-enabled}}{{#is-language-in-content-bottom}}
-						{{#data-lang-btn}}{{>LanguageButton}}{{/data-lang-btn}}
+						{{#data-lang-btn}}{{>LanguageDropdown}}{{/data-lang-btn}}
 					{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
 				</div>
 				{{^is-page-tools-enabled}}{{#is-language-in-content-bottom}}
-					{{#data-lang-btn}}{{>LanguageButton}}{{/data-lang-btn}}
+					{{#data-lang-btn}}{{>LanguageDropdown}}{{/data-lang-btn}}
 				{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
 			</main>
 			{{{html-after-content}}}
