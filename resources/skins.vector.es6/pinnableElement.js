@@ -3,43 +3,67 @@ const PINNED_HEADER_CLASS = 'vector-pinnable-header-pinned';
 const UNPINNED_HEADER_CLASS = 'vector-pinnable-header-unpinned';
 
 /**
+ * Toggle classes on the body and pinnable element
+ *
+ * @param {HTMLElement} header pinnable element
+ */
+function togglePinnableClasses( header ) {
+	const { featureName, name } = header.dataset;
+
+	if ( featureName ) {
+		// Leverage features.js to toggle the body classes and persist the state
+		// for logged-in users.
+		features.toggle( featureName );
+	} else {
+		// Toggle body classes, assumes default pinned classes are initialized serverside
+		document.body.classList.toggle( `${name}-pinned` );
+		document.body.classList.toggle( `${name}-unpinned` );
+	}
+
+	// Toggle pinned class
+	header.classList.toggle( PINNED_HEADER_CLASS );
+	header.classList.toggle( UNPINNED_HEADER_CLASS );
+}
+
+/**
+ * Event handler that toggles the pinnable elements pinned state.
+ * Also moves the pinned element when those params are provided
+ * (via data attributes).
+ *
+ * @param {HTMLElement} header PinnableHeader element.
+ */
+function togglePinnableElement( header ) {
+	const {
+		pinnableElementId,
+		pinnedContainerId,
+		unpinnedContainerId
+	} = header.dataset;
+
+	togglePinnableClasses( header );
+
+	// Optional functionality of moving the pinnable element in the DOM
+	// to different containers based on it's pinned status
+	if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
+		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
+		movePinnableElement( pinnableElementId, newContainerId );
+	}
+}
+
+/**
+ * Binds all the toggle buttons in a pinnableElement
+ * to the click handler that enables pinnability.
+ *
  * @param {HTMLElement} header
  */
 function bindPinnableToggleButtons( header ) {
-	const name = header.dataset.name;
-	if ( !name ) {
+	if ( !header.dataset.name ) {
 		return;
 	}
 
 	const toggleButtons = header.querySelectorAll( '.vector-pinnable-header-toggle-button' );
-	const pinnableElementId = header.dataset.pinnableElementId;
-	const pinnedContainerId = header.dataset.pinnedContainerId;
-	const unpinnedContainerId = header.dataset.unpinnedContainerId;
-	const featureName = header.dataset.featureName;
 
 	toggleButtons.forEach( function ( button ) {
-		button.addEventListener( 'click', () => {
-			if ( featureName ) {
-				// Leverage features.js to toggle the body classes and persist the state
-				// for logged-in users.
-				features.toggle( featureName );
-			} else {
-				// Toggle body classes, assumes default pinned classes are initialized serverside
-				document.body.classList.toggle( `${name}-pinned` );
-				document.body.classList.toggle( `${name}-unpinned` );
-			}
-
-			// Toggle pinned class
-			header.classList.toggle( PINNED_HEADER_CLASS );
-			header.classList.toggle( UNPINNED_HEADER_CLASS );
-
-			// Optional functionality of moving the pinnable element in the DOM
-			// to different containers based on it's pinned status
-			if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
-				const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
-				movePinnableElement( pinnableElementId, newContainerId );
-			}
-		} );
+		button.addEventListener( 'click', togglePinnableElement.bind( null, header ) );
 	} );
 }
 
