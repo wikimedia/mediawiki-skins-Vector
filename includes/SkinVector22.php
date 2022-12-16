@@ -212,7 +212,7 @@ class SkinVector22 extends SkinVector {
 		$mainMenuDropdown = new VectorComponentDropdown(
 			$mainMenu::ID . '-dropdown',
 			$this->msg( $mainMenu::ID . '-label' )->text(),
-			$mainMenu::ID . '-dropdown',
+			$mainMenu::ID . '-dropdown' . ' mw-ui-icon-flush-left mw-ui-icon-flush-right',
 			'menu'
 		);
 
