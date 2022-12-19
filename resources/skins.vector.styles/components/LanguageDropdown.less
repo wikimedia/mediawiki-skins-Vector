@@ -97,6 +97,19 @@
 		// ensure there is a visual separation between the language links and additional links.
 		margin-top: 10px;
 	}
+
+	// styles for less prominent Language button (without label) to be used for non-content pages (see T316559)
+	.mw-portlet-lang-heading-empty + .vector-menu-content {
+		left: auto;
+		right: 0;
+		min-width: 300px;
+
+		.mw-portlet-empty-language-selector-body {
+			padding: 20px;
+			border-bottom: @border-style-base @border-width-base @border-color-portal-heading;
+			color: @color-base--subtle;
+		}
+	}
 }
 
 // Hides language button with CSS, ensures language button is in DOM for temporary JS hack for interwiki links
