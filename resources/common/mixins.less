@@ -32,11 +32,16 @@
 	margin-left: -1px;
 }
 
-.mixin-vector-dropdown-menu-item() {
+// Remove this mixin after VectorPageTools is enabled everywhere
+.mixin-vector-dropdown-menu-item-deprecated() {
 	min-height: @height-dropdown-menu-item;
+	padding: @padding-dropdown-menu-item;
+}
+
+.mixin-vector-dropdown-menu-item() {
 	display: flex;
 	align-items: center;
-	padding: @padding-dropdown-menu-item;
+	padding: @padding-vertical-dropdown-menu-item @padding-horizontal-dropdown-menu-item;
 	font-size: @font-size-dropdown;
 
 	&:visited {

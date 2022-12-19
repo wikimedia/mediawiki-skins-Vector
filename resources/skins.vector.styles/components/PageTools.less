@@ -7,37 +7,9 @@
 }
 
 .vector-page-tools {
-	.vector-menu-heading {
-		.mixin-vector-dropdown-menu-item();
-		.mixin-vector-menu-heading();
-	}
-
-	.mw-list-item {
-		a {
-			.mixin-vector-dropdown-menu-item();
-			white-space: nowrap;
-			color: @color-link;
-		}
-	}
-
-	/**
- 	* Styles applying to all items in the pinned column.
- 	*/
 	#vector-page-tools-pinned-container & {
 		padding-left: 45px;
 		width: 140px;
-
-		// Make the heading border line up with the edge of the text
-		// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).
-		.vector-menu-heading,
-		.mw-list-item a {
-			padding-left: 0;
-			padding-right: 0;
-		}
-	}
-
-	.vector-pinnable-header {
-		padding: @padding-vertical-tabs;
 	}
 }
 
