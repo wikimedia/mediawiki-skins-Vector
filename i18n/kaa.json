@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Atabek",
-			"Nurlan"
+			"Nurlan",
+			"Ajiniyaz Nurniyazov"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Eski Vektordan paydalanıw",
+	"vector-opt-out": "Eski kóriniske almastırıw",
 	"vector-action-addsection": "Tema qosıw",
 	"vector-action-delete": "Óshiriw",
 	"vector-action-move": "Kóshiriw",
