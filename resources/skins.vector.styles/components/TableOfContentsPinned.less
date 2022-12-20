@@ -24,25 +24,30 @@
 			margin-top: 1.5em;
 		}
 
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
 		.sidebar-toc,
-		.sidebar-toc:after {
+		.sidebar-toc:after,
+		.vector-toc,
+		.vector-toc:after {
 			// Align the left edge of the TOC text with the main menu button icon.
-			margin-left: -@sidebar-toc-left-padding;
+			margin-left: -@padding-left-toc;
 		}
 
 		// T302076: Add fade scrollable indicator when TOC is in sidebar
 		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
-		.vector-toc-pinned .sidebar-toc:after {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		.vector-toc-pinned & .vector-toc:after,
+		.vector-toc-pinned & .sidebar-toc:after {
 			content: '';
 			display: block;
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			right: 0;
-			height: @sidebar-toc-fade-height;
+			height: @height-toc-scroll-indicator;
 			background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
 			background-repeat: no-repeat;
-			background-position: -@sidebar-toc-right-padding; // T311436 Hacky way to prevent the fade from covering the scrollbar
+			background-position: -@padding-right-toc; // T311436 Hacky way to prevent the fade from covering the scrollbar
 			pointer-events: none; // Make the link below the fade clickable
 		}
 	}

@@ -38,7 +38,9 @@
 			position: relative;
 		}
 
-		.sidebar-toc {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		.sidebar-toc,
+		.vector-toc {
 			display: none;
 			position: absolute;
 			width: auto;
@@ -55,7 +57,9 @@
 			z-index: @z-index-menu;
 		}
 
-		@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc,
+		@{selector-collapsed-toc-open} ~ .mw-table-of-contents-container .vector-toc {
 			// Hide the TOC when the button is not checked
 			display: block;
 		}
@@ -87,10 +91,10 @@
 
 	// T316056 Remove TOC menu fixed width and apply min/max-width
 	// Account for padding so that the TOC has an effective max width of @max-width-collapsed-toc, or 51em
-	@sidebar-toc-left-padding-em: unit( @sidebar-toc-left-padding / @font-size-browser, em );
-	@sidebar-toc-right-padding-em: unit( @sidebar-toc-right-padding / @font-size-browser, em );
-	@max-width-collapsed-toc-content-box: @max-width-collapsed-toc - @sidebar-toc-right-padding-em - @sidebar-toc-left-padding-em;
-	min-width: 200px - @sidebar-toc-right-padding - @sidebar-toc-left-padding;
+	@padding-left-toc-em: unit( @padding-left-toc / @font-size-browser, em );
+	@padding-right-toc-em: unit( @padding-right-toc / @font-size-browser, em );
+	@max-width-collapsed-toc-content-box: @max-width-collapsed-toc - @padding-right-toc-em - @padding-left-toc-em;
+	min-width: 200px - @padding-right-toc - @padding-left-toc;
 	// using min() so that the TOC menu doesn't fully cover the text even on small viewports
 	max-width: ~'min( @{max-width-collapsed-toc-content-box}, 75vw )';
 }
@@ -100,7 +104,9 @@
 	.vector-page-titlebar-toc {
 		display: block;
 
-		.sidebar-toc {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		.sidebar-toc,
+		.vector-toc {
 			.mixin-toc-collapsed();
 		}
 	}
@@ -110,12 +116,16 @@
 	@media ( max-width: @max-width-tablet ) {
 		// Prevent layout shift from the TOC being in the sidebar before JS loads and
 		// moves the TOC into the page titlebar on small screens
-		#vector-toc-pinned-container .sidebar-toc {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		#vector-toc-pinned-container .sidebar-toc,
+		#vector-toc-pinned-container .vector-toc {
 			display: none;
 		}
 
 		// Hide pin ToC toggles on smaller resolution
-		.sidebar-toc .vector-pinnable-header-toggle-button {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		.sidebar-toc .vector-pinnable-header-toggle-button,
+		.vector-toc .vector-pinnable-header-toggle-button {
 			display: none;
 		}
 
@@ -148,7 +158,9 @@
 		//
 		// TOC in sticky header
 		//
-		.vector-toc-unpinned.vector-sticky-header-visible .sidebar-toc {
+		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		.vector-toc-unpinned.vector-sticky-header-visible .sidebar-toc,
+		.vector-toc-unpinned.vector-sticky-header-visible .vector-toc {
 			.mixin-toc-collapsed();
 		}
 	}
