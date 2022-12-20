@@ -7,10 +7,8 @@
  * - language variants, Actions menus
  * - more menu, user menu
  * - ULS button in sticky header
- * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  */
-.vector-dropdown > .vector-menu-heading,
-.vector-menu-dropdown > .vector-menu-heading {
+.vector-dropdown > .vector-menu-heading {
 	display: flex;
 
 	&:after {
@@ -20,10 +18,8 @@
 
 /**
  * Dropdown container
- * FIXME: Drop .vector-menu-dropdown selector when cache clears.
  */
-.vector-dropdown,
-.vector-menu-dropdown {
+.vector-dropdown {
 	> .vector-menu-content {
 		background-color: @background-color-base;
 		border: @border-width-base @border-style-base @border-color-base;
@@ -35,11 +31,8 @@
 
 /**
  * Dropdown menu items.
- * FIXME: Drop .vector-menu-dropdown selector when cache clears.
- * TODO: Can any of these unique classes be converted to use .mw-list-item instead?
  */
-.vector-dropdown .mw-list-item,
-.vector-menu-dropdown > .vector-menu-content .mw-list-item {
+.vector-dropdown .mw-list-item {
 	a {
 		.mixin-vector-dropdown-menu-item();
 		white-space: nowrap;
