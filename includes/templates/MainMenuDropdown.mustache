@@ -1,7 +1,7 @@
 {{#data-main-menu-dropdown}}{{>Dropdown/Open}}{{/data-main-menu-dropdown}}
 	{{#data-main-menu}}
 	{{>PinnableContainer/Unpinned/Open}}
-		{{! Use `.vector-main-menu-unpinned-container .vector-main-menu` to target styles at this element}}
+		{{! Use `#vector-main-menu-unpinned-container .vector-main-menu` to target styles at this element}}
 		{{^is-pinned}}{{>MainMenu}}{{/is-pinned}}
 	{{>PinnableContainer/Close}}
 	{{/data-main-menu}}
