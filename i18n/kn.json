@@ -10,6 +10,7 @@
 	},
 	"vector-languages": "ಭಾಷೆಗಳು",
 	"vector-language-button-aria-label": "ಇನ್ನೊಂದು ಭಾಷೆಯ ಲೇಖನಕ್ಕೆ ಹೋಗಿ. {{PLURAL:$1| $1 ಭಾಷೆಯಲ್ಲಿ| $1 ಭಾಷೆಗಳಲ್ಲಿ}} ಲಭ್ಯವಿದೆ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ಭಾಷೆ|$1 ಭಾಷೆಗಳು}}",
 	"vector-language-variant-switcher-label": "ಭಾಷಾ ರೂಪಾಂತರವನ್ನು ಬದಲಾಯಿಸಿ",
 	"vector-action-addsection": "ವಿಷಯ ಸೇರಿಸಿ",
 	"vector-action-delete": "ಅಳಿಸು",
