@@ -10,10 +10,11 @@
 .vector-page-tools,
 .sidebar-toc,
 .vector-toc {
-	.vector-pinned-container & .vector-pinnable-header {
-		// Align TOC and Page Tools pinnable header border with page toolbar border
-		// 40px (page toolbar height) - 17px (pinnable header height) - 6px (pinnable header bottom padding) = 17px
-		padding-top: 17px;
+	.vector-feature-page-tools-enabled .vector-pinned-container & .vector-pinnable-header {
+		// Match styles with tabs in page toolbar to ensure TOC and Page Tools pinnable headers
+		// align with page toolbar border
+		padding: @padding-vertical-tabs;
+		margin-bottom: -1px;
 	}
 }
 

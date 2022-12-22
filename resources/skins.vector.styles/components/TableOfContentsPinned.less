@@ -18,10 +18,14 @@
 			padding-top: 1.5em;
 		}
 
-		.vector-feature-page-tools-disabled.vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container &,
-		.vector-feature-page-tools-enabled.vector-toc-pinned.vector-feature-main-menu-pinned-disabled & {
+		.vector-feature-page-tools-disabled.vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
 			// Needed to align TOC with bottom of title, 1.5em padding + 1.5em margin = 3em
 			margin-top: 1.5em;
+		}
+
+		.vector-feature-page-tools-enabled.vector-toc-pinned.vector-feature-main-menu-pinned-disabled & {
+			// Needed to align TOC with bottom of title, 1.5em (24px) padding + 22px margin = ~46px (height of page titlebar)
+			margin-top: 22px;
 		}
 
 		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
@@ -29,8 +33,16 @@
 		.sidebar-toc:after,
 		.vector-toc,
 		.vector-toc:after {
-			// Align the left edge of the TOC text with the main menu button icon.
-			margin-left: -@padding-left-toc;
+			.vector-feature-page-tools-disabled & {
+				// Align the left edge of the TOC text with the main menu button icon.
+				margin-left: -@padding-left-toc;
+			}
+
+			.vector-feature-page-tools-enabled & {
+				// Align the left edge of the TOC text with the main menu button icon.
+				margin-left: -@spacing-subsection-toggle;
+				padding-left: @spacing-subsection-toggle;
+			}
 		}
 
 		// T302076: Add fade scrollable indicator when TOC is in sidebar

@@ -4,17 +4,20 @@
 .sidebar-toc,
 .vector-toc {
 	max-height: 75vh;
-	padding: @padding-vertical-toc @padding-right-toc @padding-vertical-toc @padding-left-toc;
 	box-sizing: border-box;
 	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
 
-	.vector-feature-page-tools-disabled & .vector-toc-pinnable-header {
-		// Override default pinnable header styles
-		padding: 0 0 12px 0;
-		border: 0;
-		line-height: initial;
+	.vector-feature-page-tools-disabled & {
+		padding: @padding-vertical-toc @padding-right-toc @padding-vertical-toc @padding-left-toc;
+
+		.vector-toc-pinnable-header {
+			// Override default pinnable header styles
+			padding: 0 0 12px 0;
+			border: 0;
+			line-height: initial;
+		}
 	}
 
 	.vector-pinnable-header-label {
@@ -40,6 +43,11 @@
 		transition: @transition-duration-base;
 		color: transparent;
 		cursor: pointer;
+
+		.vector-feature-page-tools-enabled & {
+			// Vertically center the icon with the text
+			margin-top: 2px;
+		}
 	}
 
 	.sidebar-toc-link,
@@ -81,6 +89,11 @@
 	.sidebar-toc-text,
 	.vector-toc-text {
 		padding: 4px  0;
+
+		.vector-feature-page-tools-enabled & {
+			// Match .mixin-vector-dropdown-menu-item() vertical padding
+			padding: @padding-vertical-dropdown-menu-item 0;
+		}
 	}
 
 	.sidebar-toc-contents,
@@ -98,6 +111,10 @@
 		position: relative;
 		list-style-type: none;
 		padding-left: 8px;
+
+		.vector-feature-page-tools-enabled & {
+			margin: 0;
+		}
 
 		&.sidebar-toc-level-1,
 		&.vector-toc-level-1 {
