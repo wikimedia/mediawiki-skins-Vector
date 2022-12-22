@@ -67,9 +67,14 @@ body {
 	z-index: @z-index-indicators;
 }
 
-.vector-page-titlebar,
-.vector-body-before-content {
+.vector-page-titlebar {
 	.mixin-clearfix();
+}
+
+.vector-body-before-content {
+	// Contain the floating .mw-indicators, but don't use clearfix because of browser inconsistencies
+	// when combining 'clear' and 'margin-top' (T325391)
+	overflow: hidden;
 }
 
 .mw-body .mw-portlet-lang {
