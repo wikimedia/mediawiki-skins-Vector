@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Bogups",
+			"Rhdtranslate",
 			"Тамэ Балъкъэрхэ"
 		]
 	},
+	"vector-language-button-label": "‎{{PLURAL:$1|$1 бзэр|$1 бзэхэр}}",
 	"vector-action-addsection": "Теухугъуэ щӀэуэ щӀэдзэн",
 	"vector-action-delete": "Ихын",
 	"vector-action-move": "ЦӀэр хъуэжын",
@@ -12,8 +14,10 @@
 	"vector-action-undelete": "ЗыфӀэгъэувэжын",
 	"vector-action-unprotect": "Хъумэныр техыжын",
 	"vector-view-create": "ЩӀын",
-	"vector-view-edit": "Гъэтэрэзын",
+	"vector-view-edit": "Зэгъэзэхуэжын",
 	"vector-view-history": "Тхыдэм еплъын",
 	"vector-view-view": "Еджэн",
-	"vector-view-viewsource": "КъызхэкӀам еплъын"
+	"vector-view-viewsource": "КъызхэкӀам еплъын",
+	"vector-more-actions": "Нэхъыбэу",
+	"vector-searchsuggest-containing": " <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> иту напэкӀуэцӀ лъыхъуэн"
 }
