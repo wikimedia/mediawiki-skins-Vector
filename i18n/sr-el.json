@@ -6,13 +6,20 @@
 			"Obsuser",
 			"Rancher",
 			"Zoranzoki21",
-			"Жељко Тодоровић"
+			"Жељко Тодоровић",
+			"Kizule",
+			"Сербијана"
 		]
 	},
 	"skinname-vector": "Vektorsko",
 	"vector-skin-desc": "Moderna verzija Monobuka sa svežim izgledom i mnogo korisnih poboljšanja",
-	"vector.css": "/* CSS postavljen ovde će uticati na sve korisnike vektorske teme */",
-	"vector.js": "/* JavaScript postavljen ovde će se učitati za sve one koji koriste vektorsku temu */",
+	"prefs-vector-enable-vector-1-label": "Koristi stariju vektorsku temu",
+	"prefs-vector-enable-vector-1-help": "U narednom periodu postepeno ćemo ažurirati vektorsku temu. Izaberite opciju iznad kako biste se vratili na stariji izgled teme (decembar 2019). [[mw:Reading/Web/Desktop_Improvements|Detaljnije o ažuriranjima]]",
+	"vector-opt-out": "Stariji izgled",
+	"vector-opt-out-tooltip": "Promenite podešavanja da biste se vratili starom izgledu teme (starija vektorska)",
+	"vector.css": "/* CSS postavljen ovde učitaće se svim korisnicima vektorske teme */",
+	"vector.js": "/* JavaScript postavljen ovde učitaće se svim korisnicima vektorske teme */",
+	"vector-action-toggle-sidebar": "Prikaži/sakrij bočnu traku",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Premesti",
@@ -24,7 +31,7 @@
 	"vector-view-history": "Istorija",
 	"vector-view-view": "Čitaj",
 	"vector-view-viewsource": "Izvor",
-	"vector-jumptonavigation": "Idi na navigaciju",
-	"vector-jumptosearch": "Idi na pretragu",
+	"vector-jumptonavigation": "Pređi na navigaciju",
+	"vector-jumptosearch": "Pređi na pretragu",
 	"vector-more-actions": "Više"
 }

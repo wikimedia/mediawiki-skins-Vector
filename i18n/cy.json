@@ -1,10 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lloffiwr"
+			"Lloffiwr",
+			"Afalau",
+			"JonesT143"
 		]
 	},
-	"vector-action-addsection": "Ychwanegu adran",
+	"prefs-vector-enable-vector-1-label": "Defnyddio Legacy Vector",
+	"prefs-vector-enable-vector-1-help": "Dros y blynyddoedd nesaf, rydym yn mynd i ddiweddaru'r gwedd Vector. Bydd y gwedd Legacy Vector yn eich caniatáu i weld yr hen fersiwn o Vector (yn ôl Rhagfyr 2019). Er mwyn dysgu mwy am y diweddariadau hyn, ewch i'r [[mw:Reading/Web/Desktop_Improvements|dudalen brosiect]].",
+	"vector-opt-out": "Newid i hen wedd",
+	"vector-opt-out-tooltip": "Newid eich gosodiadau i ddefnyddio'r hen wedd (Legacy Vector)",
+	"vector-action-toggle-sidebar": "Toglo bar ochr",
+	"vector-action-addsection": "Ychwanegu pwnc",
 	"vector-action-delete": "Dileu",
 	"vector-action-move": "Symud",
 	"vector-action-protect": "Diogelu",
@@ -14,6 +21,8 @@
 	"vector-view-edit": "Golygu",
 	"vector-view-history": "Gweld yr hanes",
 	"vector-view-view": "Darllen",
-	"vector-view-viewsource": "Dangos côd y dudalen",
+	"vector-view-viewsource": "Gweld cod y dudalen",
+	"vector-jumptonavigation": "Neidio i'r panel llywio",
+	"vector-jumptosearch": "Neidio i'r bar chwilio",
 	"vector-more-actions": "Rhagor"
 }

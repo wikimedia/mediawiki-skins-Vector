@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bogups",
-			"Тамэ Балъкъэрхэ"
+			"Тамэ Балъкъэрхэ",
+			"Rhdtranslate"
 		]
 	},
 	"vector-action-addsection": "Теухугъуэ щӀэуэ щӀэдзэн",
@@ -12,8 +13,9 @@
 	"vector-action-undelete": "ЗыфӀэгъэувэжын",
 	"vector-action-unprotect": "Хъумэныр техыжын",
 	"vector-view-create": "ЩӀын",
-	"vector-view-edit": "Гъэтэрэзын",
+	"vector-view-edit": "Зэгъэзэхуэжын",
 	"vector-view-history": "Тхыдэм еплъын",
 	"vector-view-view": "Еджэн",
-	"vector-view-viewsource": "КъызхэкӀам еплъын"
+	"vector-view-viewsource": "КъызхэкӀам еплъын",
+	"vector-more-actions": "Нэхъыбэу"
 }
