@@ -7,10 +7,12 @@
 			"Vadgt",
 			"Xelgen",
 			"Սերգեյ Սաֆարյան",
-			"Armenoid"
+			"Armenoid",
+			"Դավիթ Սարոյան"
 		]
 	},
 	"skinname-vector": "Սովորական",
+	"skinname-vector-2022": "Վեկտոր (2022)",
 	"vector-opt-out": "Անցնել հին տեսքին",
 	"vector-languages": "Լեզուներ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 լեզու}}",
