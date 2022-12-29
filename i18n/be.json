@@ -56,8 +56,14 @@
 	"vector-toc-menu-tooltip": "Змест",
 	"vector-toc-collapsible-button-label": "Пераключыць змест",
 	"vector-site-nav-label": "Праект",
+	"vector-main-menu-label": "Галоўнае меню",
+	"vector-page-tools-label": "Інструменты",
+	"vector-page-tools-general-label": "Агульныя",
+	"vector-page-tools-actions-label": "Дзеянні",
 	"vector-pin-element-label": "перанесці да бакавой панэлі",
 	"vector-unpin-element-label": "схаваць",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Размова]]",
-	"tooltip-vector-anon-user-menu-title": "Больш магчымасцей"
+	"tooltip-vector-anon-user-menu-title": "Больш магчымасцей",
+	"vector-prefs-limited-width": "Уключыць рэжым абмежаванай шырыні",
+	"vector-prefs-limited-width-help": "Уключыце рэжым абмежаванай шырыні для лепшага чытання."
 }
