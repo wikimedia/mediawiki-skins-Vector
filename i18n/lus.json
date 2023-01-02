@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"RMizo"
+			"RMizo",
+			"Jokomarel"
 		]
 	},
 	"vector-action-addsection": "Thupui belhna",
@@ -14,5 +15,6 @@
 	"vector-view-edit": "Siamţhatna",
 	"vector-view-history": "Hunhlui-chanchin",
 	"vector-view-view": "Chhiarna",
-	"vector-view-viewsource": "A hnar enna"
+	"vector-view-viewsource": "A hnar enna",
+	"vector-more-actions": "Belh"
 }
