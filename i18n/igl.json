@@ -4,7 +4,12 @@
 			"AgnesAbah"
 		]
 	},
+	"vector-action-delete": "Dukwó",
+	"vector-action-move": "Tẹlo",
+	"vector-action-protect": "Àdajuto",
 	"vector-view-create": "Àacha",
-	"vector-view-edit": "Nwọ́che",
-	"vector-view-view": "Gbá"
+	"vector-view-edit": "nwọ́cha",
+	"vector-view-view": "Gbá",
+	"vector-more-actions": "Mànyú",
+	"vector-searchsuggest-containing": "Téné Ogbá kí gwonyu<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
