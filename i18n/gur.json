@@ -9,6 +9,7 @@
 			"Dnshitobu"
 		]
 	},
+	"vector-language-button-label": "{{keko:$1|$1 yetɔgum|$1 yetɔgum zo'e zo'e}}",
 	"vector-language-variant-switcher-label": "Tee tɔgum buuri",
 	"vector-action-addsection": "Pa’asɛ sɔsezure",
 	"vector-action-delete": "Saalum",
@@ -19,5 +20,6 @@
 	"vector-view-history": "Bisɛ nabara la",
 	"vector-view-view": "Kãalɛ",
 	"vector-more-actions": "Zoe, zoe",
+	"vector-searchsuggest-containing": "Ɛ pɛgesi'a n tari <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Pɔsega"
 }
