@@ -2,7 +2,6 @@
 
 exports[`UserLinks renders 1`] = `
 "<nav class=\\"vector-user-links\\" aria-label=\\"\\" role=\\"navigation\\">
-
 <div id=\\"p-personal-more\\" class=\\"vector-menu mw-portlet mw-portlet-vector-user-menu-overflow vector-user-menu-overflow\\">
 	<div class=\\"vector-menu-heading\\">
 		Toggle sidebar
