@@ -12,6 +12,44 @@
 	}
 }
 
+.vector-main-menu {
+	box-sizing: border-box;
+
+	// Hide #p-navigation label
+	#p-navigation .vector-menu-heading {
+		display: none;
+	}
+}
+
+.vector-feature-page-tools-enabled .vector-main-menu {
+	.vector-main-menu-action-opt-out a {
+		font-weight: bold;
+	}
+
+	.vector-language-sidebar-alert {
+		// Override default .mw-message-box styles
+		padding: 8px;
+		margin: 0;
+	}
+}
+
+// Main menu when pinned in the sidebar
+.vector-feature-page-tools-enabled #vector-main-menu-pinned-container .vector-main-menu {
+	padding: @padding-vertical-dropdown-menu-item @padding-horizontal-dropdown-menu-item;
+	background-color: @background-color-secondary--modern;
+	// Align text with page container
+	margin-left: -@padding-horizontal-dropdown-menu-item;
+}
+
+// Main menu when unpinned in the dropdown
+#vector-main-menu-unpinned-container .vector-main-menu {
+	width: 250px;
+
+	.vector-language-sidebar-alert {
+		margin-bottom: 6px;
+	}
+}
+
 .vector-feature-page-tools-disabled {
 	@media ( max-width: @max-width-tablet ) {
 		.vector-main-menu {
@@ -25,18 +63,7 @@
 	}
 }
 
-.vector-main-menu {
-	box-sizing: border-box;
-
-	// Hide #p-navigation label
-	#p-navigation .vector-menu-heading {
-		display: none;
-	}
-}
-
-// Main menu when pinned in the sidebar
-.vector-feature-page-tools-disabled .vector-main-menu,
-#vector-main-menu-pinned-container .vector-main-menu {
+.vector-feature-page-tools-disabled .vector-main-menu {
 	// Temporary magic number, will be calculated after TOC specs are finalized
 	padding: 12px 19px 12px 9px;
 	background-color: @background-color-secondary--modern;
@@ -47,35 +74,7 @@
 	}
 }
 
-// Main menu when unpinned in the dropdown
-#vector-main-menu-unpinned-container .vector-main-menu {
-	width: 250px;
-	display: flex;
-	flex-direction: column;
-
-	.vector-menu-heading,
-	.vector-main-menu-group {
-		margin: 0;
-	}
-
-	// Main menu when unpinned in the dropdown
-	.vector-main-menu-unpinned-container & {
-		width: 250px;
-		display: flex;
-		flex-direction: column;
-
-		.vector-menu-heading,
-		.vector-main-menu-group {
-			margin: 0;
-		}
-
-		.vector-menu-content {
-			margin-left: 0;
-		}
-	}
-}
-
-.vector-main-menu-action {
+.vector-feature-page-tools-disabled .vector-main-menu-action {
 	// Styles for MainMenuAction template.
 	.vector-main-menu-action-item {
 		// Align with the portal heading/links

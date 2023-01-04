@@ -1,12 +1,18 @@
 .vector-pinnable-header {
-	border-bottom: @border-width-base @border-style-base @colorGray14;
+	.vector-feature-page-tools-enabled & {
+		.mixin-vector-dropdown-menu-item();
+		// Override display: flex applied by .mixin-vector-dropdown-menu-item()
+		display: block;
+	}
 }
 
-.vector-menu-dropdown .vector-pinnable-header {
-	// Match dropdown item styles
-	// Line height needed for vertically centering pinnable header
-	line-height: @height-dropdown-menu-item;
-	padding: @padding-dropdown-menu-item;
+.vector-page-tools,
+.sidebar-toc {
+	.vector-pinned-container & .vector-pinnable-header {
+		// Align TOC and Page Tools pinnable header border with page toolbar border
+		// 40px (page toolbar height) - 17px (pinnable header height) - 6px (pinnable header bottom padding) = 17px
+		padding-top: 17px;
+	}
 }
 
 .vector-pinnable-header-label {
