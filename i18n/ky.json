@@ -6,9 +6,13 @@
 			"Growingup",
 			"Janatkg",
 			"Ztimur",
-			"Викиней"
+			"Викиней",
+			"Элдин беги"
 		]
 	},
+	"vector-opt-out": "Эски көрүнүшкө өтүү",
+	"vector-languages": "Тилдер",
+	"vector-language-button-aria-label": "Башка тилдеги макалага өтүү. {{PLURAL:$1|$1 тилде жеткиликтүү}}",
 	"vector-action-addsection": "Тема кошуу",
 	"vector-action-delete": "Өчүрүү",
 	"vector-action-move": "Аталышын өзгөртүү",
@@ -19,6 +23,8 @@
 	"vector-view-edit": "Оңдоо",
 	"vector-view-history": "Тарыхын кароо",
 	"vector-view-view": "Окуу",
-	"vector-view-viewsource": "Кайнарын кароо",
-	"vector-more-actions": "Көбүрөөк"
+	"vector-view-viewsource": "Булагын кароо",
+	"vector-more-actions": "Көбүрөөк",
+	"vector-toc-label": "Мазмуну",
+	"vector-page-tools-label": "Аспаптар"
 }
