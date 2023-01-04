@@ -385,6 +385,7 @@
 				"mediawiki.experiments"
 			],
 			"messages": [
+				"vector-limited-width-toggle",
 				"vector-toc-beginning",
 				"vector-toc-label",
 				"vector-pin-element-label",
