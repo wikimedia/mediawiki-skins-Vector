@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Zakaria Tunsung"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 Kɔkɔre|$1 Kɔkɔɛ}}",
+	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
+	"vector-view-create": "Maale",
+	"vector-view-edit": "Leɛre",
+	"vector-view-history": "kaa yɛlkori/yipɔge",
+	"vector-view-view": "Gane",
+	"vector-more-actions": "yaga"
+}

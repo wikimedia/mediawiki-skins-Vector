@@ -9,6 +9,7 @@
 			"Amire80"
 		]
 	},
+	"vector-language-button-label": "{{keko:$1|$1 yetɔgum|$1 yetɔgum zo'e zo'e}}",
 	"vector-language-variant-switcher-label": "Tee tɔgum buuri",
 	"vector-action-addsection": "Pa’asɛ sɔsezure",
 	"vector-action-delete": "Saalum",
