@@ -7,6 +7,6 @@
 	{{#data-unpinned-container-id}}data-unpinned-container-id="{{.}}"{{/data-unpinned-container-id}}
 >
 	<{{label-tag-name}} class="vector-pinnable-header-label">{{label}}</{{label-tag-name}}>
-	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button">{{pin-label}}</button>
-	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button">{{unpin-label}}</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.{{data-name}}.pin">{{pin-label}}</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.{{data-name}}.unpin">{{unpin-label}}</button>
 </div>

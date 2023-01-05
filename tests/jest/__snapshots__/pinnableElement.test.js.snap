@@ -8,8 +8,8 @@ exports[`Pinnable header renders 1`] = `
 		<div id=\\"unpinned-container\\">
 			<div id=\\"pinnable-element\\"> <div class=\\"vector-pinnable-header simple-pinnable-header vector-pinnable-header-unpinned\\" data-name=\\"simple\\" data-pinnable-element-id=\\"pinnable-element\\">
 	<div class=\\"vector-pinnable-header-label\\">simple pinnable element</div>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\">pin</button>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\">unpin</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.simple.pin\\">pin</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.simple.unpin\\">unpin</button>
 </div>
  </div>
 		</div>
