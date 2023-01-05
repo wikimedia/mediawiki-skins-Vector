@@ -132,6 +132,30 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Pulls the page tools menu out of $sidebar into $pageToolsMenu
+	 *
+	 * @param array &$sidebar
+	 * @param array &$pageToolsMenu
+	 */
+	private static function extractPageToolsFromSidebar( &$sidebar, &$pageToolsMenu ) {
+		$restPortlets = $sidebar[ 'array-portlets-rest' ] ?? [];
+		$toolboxMenuIndex = array_search(
+			VectorComponentPageTools::TOOLBOX_ID,
+			array_column(
+				$restPortlets,
+				'id'
+			)
+		);
+
+		if ( $toolboxMenuIndex !== false ) {
+			// Splice removes the toolbox menu from the $restPortlets array
+			// and current returns the first value of array_splice, i.e. the $toolbox menu data.
+			$pageToolsMenu = array_splice( $restPortlets, $toolboxMenuIndex );
+			$sidebar['array-portlets-rest'] = $restPortlets;
+		}
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getTemplateData(): array {
@@ -159,82 +183,58 @@ class SkinVector22 extends SkinVector {
 			);
 		}
 
-		$toc = new VectorComponentTableOfContents(
-			$parentData['data-toc'],
-			$this->getContext(),
-			$this->getConfig()
-		);
-
 		$config = $this->getConfig();
-		$searchBox = new VectorComponentSearchBox(
-			$parentData['data-search-box'],
-			true,
-			// is primary mode of search
-			true,
-			'searchform',
-			true,
-			$config,
-			Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
-			$this->getContext()
-		);
 
 		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
-		$pageToolsMenus = [];
-		$restPortlets = $parentData[ 'data-portlets-sidebar' ][ 'array-portlets-rest' ];
+		$pageToolsMenu = [];
 		if ( $isPageToolsEnabled ) {
-			$toolboxMenuIndex = array_search(
-				VectorComponentPageTools::TOOLBOX_ID,
-				array_column(
-					$restPortlets,
-					'id'
-				)
-			);
-
-			if ( $toolboxMenuIndex !== false ) {
-				// Splice removes the toolbox menu from the $restPortlets array
-				// and current returns the first value of array_splice, i.e. the $toolbox menu data.
-				$pageToolsMenus = array_splice( $restPortlets, $toolboxMenuIndex );
-				$parentData[ 'data-portlets-sidebar' ]['array-portlets-rest'] = $restPortlets;
-				$sidebar = $parentData[ 'data-portlets-sidebar' ];
-			}
+			self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 		}
 
-		$mainMenu = new VectorComponentMainMenu(
-			$sidebar,
-			$this->shouldLanguageAlertBeInSidebar(),
-			$parentData['data-portlets']['data-languages'] ?? [],
-			$this->getContext(),
-			$this->getUser(),
-			VectorServices::getFeatureManager(),
-			$this,
-		);
-		$mainMenuDropdown = new VectorComponentDropdown(
-			$mainMenu::ID . '-dropdown',
-			$this->msg( $mainMenu::ID . '-label' )->text(),
-			$mainMenu::ID . '-dropdown' . ' mw-ui-icon-flush-left mw-ui-icon-flush-right',
-			'menu'
-		);
-
-		$pageTools = new VectorComponentPageTools(
-			array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenus ),
-			$this->getContext(),
-			$this->getUser(),
-			$featureManager
-		);
-		$pageToolsDropdown = new VectorComponentDropdown(
-			$pageTools::ID . '-dropdown',
-			$this->msg( 'toolbox' )->text(),
-			$pageTools::ID . '-dropdown',
-		);
-
 		$components = [
-			'data-toc' => $toc,
-			'data-search-box' => $searchBox,
-			'data-main-menu' => $mainMenu,
-			'data-main-menu-dropdown' => $mainMenuDropdown,
-			'data-page-tools' => $isPageToolsEnabled ? $pageTools : null,
-			'data-page-tools-dropdown' => $isPageToolsEnabled ? $pageToolsDropdown : null,
+			'data-toc' => new VectorComponentTableOfContents(
+				$parentData['data-toc'],
+				$this->getContext(),
+				$this->getConfig()
+			),
+			'data-search-box' => new VectorComponentSearchBox(
+				$parentData['data-search-box'],
+				true,
+				// is primary mode of search
+				true,
+				'searchform',
+				true,
+				$config,
+				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
+				$this->getContext()
+			),
+			'data-main-menu' => new VectorComponentMainMenu(
+				$sidebar,
+				$this->shouldLanguageAlertBeInSidebar(),
+				$parentData['data-portlets']['data-languages'] ?? [],
+				$this->getContext(),
+				$this->getUser(),
+				VectorServices::getFeatureManager(),
+				$this,
+			),
+			'data-main-menu-dropdown' => new VectorComponentDropdown(
+				VectorComponentMainMenu::ID . '-dropdown',
+				$this->msg( VectorComponentMainMenu::ID . '-label' )->text(),
+				VectorComponentMainMenu::ID . '-dropdown' . ' mw-ui-icon-flush-left mw-ui-icon-flush-right',
+				'menu'
+			),
+			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
+				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenu ),
+				$this->getContext(),
+				$this->getUser(),
+				$featureManager
+			) : null,
+			'data-page-tools-dropdown' => $isPageToolsEnabled ? new VectorComponentDropdown(
+				VectorComponentPageTools::ID . '-dropdown',
+				$this->msg( 'toolbox' )->text(),
+				VectorComponentPageTools::ID . '-dropdown',
+			) : null,
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.
