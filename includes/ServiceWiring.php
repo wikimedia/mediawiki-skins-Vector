@@ -31,6 +31,11 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 
+// PHP unit does not understand code coverage for this file
+// as the @covers annotation cannot cover a specific file
+// This is partly tested in ServiceWiringTest.php
+// @codeCoverageIgnoreStart
+
 return [
 	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
 		$featureManager = new FeatureManager();
@@ -293,3 +298,5 @@ return [
 		return $featureManager;
 	}
 ];
+
+// @codeCoverageIgnoreEnd
