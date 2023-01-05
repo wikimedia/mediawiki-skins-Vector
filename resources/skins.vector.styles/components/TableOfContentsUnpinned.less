@@ -7,6 +7,20 @@
 // Use calc so that the same max width can apply even when the TOC is in different containers
 @max-width-collapsed-toc: 0.85 * @max-width-content-container; // 51em
 
+.vector-feature-page-tools-enabled #vector-page-titlebar-toc-unpinned-container,
+.vector-feature-page-tools-enabled #vector-sticky-header-toc-unpinned-container {
+	.vector-toc {
+		.vector-pinnable-header {
+			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
+		}
+
+		.vector-toc-contents {
+			padding-right: @padding-horizontal-dropdown-menu-item;
+			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
+		}
+	}
+}
+
 .mixin-toc-dropdown-button() {
 	display: none;
 	margin-right: 4px;
