@@ -15,6 +15,9 @@ function setDataAttribute( toggleBtn ) {
  */
 function init() {
 	const toggle = document.createElement( 'button' );
+	toggle.setAttribute( 'title', mw.msg( 'vector-limited-width-toggle' ) );
+	toggle.setAttribute( 'aria-hidden', 'true' );
+	toggle.textContent = mw.msg( 'vector-limited-width-toggle' );
 	toggle.classList.add( 'mw-ui-icon', 'mw-ui-icon-element', 'mw-ui-button', 'vector-limited-width-toggle' );
 	setDataAttribute( toggle );
 	document.body.appendChild( toggle );
