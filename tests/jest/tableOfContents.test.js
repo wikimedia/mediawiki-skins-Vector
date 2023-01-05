@@ -2,6 +2,8 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const tableOfContentsTemplate = fs.readFileSync( 'includes/templates/TableOfContents.mustache', 'utf8' );
 const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOfContents__line.mustache', 'utf8' );
+const pinnableElementOpenTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Open.mustache', 'utf8' );
+const pinnableElementCloseTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Close.mustache', 'utf8' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
 const initTableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
 
@@ -70,6 +72,7 @@ function render( templateProps = {} ) {
 		'msg-vector-toc-beginning': 'Beginning',
 		'vector-is-collapse-sections-enabled': false,
 		'array-sections': SECTIONS,
+		id: 'vector-toc',
 		'data-pinnable-header': {
 			'is-pinned': true,
 			label: 'Contents',
@@ -81,6 +84,8 @@ function render( templateProps = {} ) {
 	}, templateProps );
 
 	return mustache.render( tableOfContentsTemplate, templateData, {
+		'PinnableElement/Open': pinnableElementOpenTemplate, // eslint-disable-line camelcase
+		'PinnableElement/Close': pinnableElementCloseTemplate, // eslint-disable-line camelcase
 		PinnableHeader: pinnableHeaderTemplate, // eslint-disable-line camelcase
 		TableOfContents__line: tableOfContentsLineTemplate // eslint-disable-line camelcase
 	} );
@@ -93,7 +98,7 @@ function render( templateProps = {} ) {
 function mount( templateProps = {} ) {
 	document.body.innerHTML = render( templateProps );
 
-	container = /** @type {HTMLElement} */ ( document.getElementById( 'mw-panel-toc' ) );
+	container = /** @type {HTMLElement} */ ( document.getElementById( 'vector-toc' ) );
 	fooSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-foo' ) );
 	barSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-bar' ) );
 	bazSection = /** @type {HTMLElement} */ ( document.getElementById( 'toc-baz' ) );

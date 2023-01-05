@@ -12,7 +12,8 @@ const
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
-	TOC_ID = 'mw-panel-toc',
+	CACHED_TOC_ID = 'mw-panel-toc',
+	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
@@ -142,7 +143,12 @@ const updateTocLocation = () => {
 		}
 	}
 
-	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
+	// FIXME: Remove conditional after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+	if ( document.getElementById( TOC_ID ) ) {
+		pinnableElement.movePinnableElement( TOC_ID, newContainerId );
+	} else {
+		pinnableElement.movePinnableElement( CACHED_TOC_ID, newContainerId );
+	}
 };
 
 /**
@@ -235,7 +241,13 @@ const main = () => {
 	//
 	//  Table of contents
 	//
-	const tocElement = document.getElementById( TOC_ID );
+	let tocElement;
+	// FIXME: Remove conditional after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+	if ( document.getElementById( TOC_ID ) ) {
+		tocElement = document.getElementById( TOC_ID );
+	} else {
+		tocElement = document.getElementById( CACHED_TOC_ID );
+	}
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
 
 	if ( !(

@@ -1,13 +1,5 @@
 /** @module TableOfContents */
 
-const SECTION_CLASS = 'sidebar-toc-list-item';
-const ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
-const EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
-const TOP_SECTION_CLASS = 'sidebar-toc-level-1';
-const ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
-const LINK_CLASS = 'sidebar-toc-link';
-const TOGGLE_CLASS = 'sidebar-toc-toggle';
-const TOC_ID = 'mw-panel-toc';
 /**
  * TableOfContents Mustache templates
  */
@@ -80,6 +72,17 @@ const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContent
  * @return {TableOfContents}
  */
 module.exports = function tableOfContents( props ) {
+	// FIXME: Replace with const and move to top of file after
+	// I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+	let SECTION_CLASS = 'sidebar-toc-list-item';
+	let ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
+	let EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
+	let TOP_SECTION_CLASS = 'sidebar-toc-level-1';
+	let ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
+	let LINK_CLASS = 'sidebar-toc-link';
+	let TOGGLE_CLASS = 'sidebar-toc-toggle';
+	let TOC_ID = 'mw-panel-toc';
+
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
 	let /** @type {HTMLElement | undefined} */ activeSubSection;
 	let /** @type {Array<HTMLElement>} */ expandedSections;
@@ -368,6 +371,18 @@ module.exports = function tableOfContents( props ) {
 	 * Binds event listeners and sets the default state of the component.
 	 */
 	function initialize() {
+		// FIXME: Remove after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
+		if ( document.querySelector( '.vector-toc' ) ) {
+			SECTION_CLASS = 'vector-toc-list-item';
+			ACTIVE_SECTION_CLASS = 'vector-toc-list-item-active';
+			EXPANDED_SECTION_CLASS = 'vector-toc-list-item-expanded';
+			TOP_SECTION_CLASS = 'vector-toc-level-1';
+			ACTIVE_TOP_SECTION_CLASS = 'vector-toc-level-1-active';
+			LINK_CLASS = 'vector-toc-link';
+			TOGGLE_CLASS = 'vector-toc-toggle';
+			TOC_ID = 'vector-toc';
+		}
+
 		// Sync component state to the default rendered state of the table of contents.
 		expandedSections = Array.from(
 			props.container.querySelectorAll( `.${EXPANDED_SECTION_CLASS}` )

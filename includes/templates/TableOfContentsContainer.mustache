@@ -1,8 +1,8 @@
-<div class="mw-table-of-contents-container">
+{{#data-toc}}
+<nav id="mw-panel-toc" role="navigation" aria-label="{{ msg-vector-toc-label }}" data-event-name="ui.sidebar-toc" class="mw-table-of-contents-container">
 	{{! T313060 Additional container div needed to prevent the sticky element from being siblings with the footer }}
-	{{#data-toc}}
 	{{>PinnableContainer/Pinned/Open}}
 		{{#is-pinned}}{{>TableOfContents}}{{/is-pinned}}
 	{{>PinnableContainer/Close}}
-	{{/data-toc}}
-</div>
+</nav>
+{{/data-toc}}
