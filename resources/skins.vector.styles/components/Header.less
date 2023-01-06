@@ -26,19 +26,20 @@
 		align-items: center;
 	}
 
-	.vector-header-start {
-		float: left;
-	}
-
 	.vector-header-end {
 		flex-grow: 1;
 	}
 
 	@media ( min-width: @min-width-desktop-wide ) {
 		// Ensure search box is aligned with content when search thumbnails or JS is off
-		.vector-search-box:not( .vector-search-box-auto-expand-width ),
-		html:not( .client-js ) & .vector-search-box {
+		.vector-feature-page-tools-disabled & .vector-search-box:not( .vector-search-box-auto-expand-width ),
+		html:not( .client-js ) .vector-feature-page-tools-disabled & .vector-search-box {
 			padding-left: @size-search-expand;
+		}
+
+		.client-js .vector-feature-page-tools-enabled & .vector-search-box.vector-search-box-auto-expand-width {
+			// Ensure search box is aligned with content when it autoexpands (i.e. search thumbnails)
+			margin-left: -@size-search-expand;
 		}
 	}
 
@@ -53,8 +54,7 @@
 	 	 * Toggles the visibility of the search box at lower resolutions.
 		 */
 		&.vector-header-search-toggled {
-			#mw-sidebar-button,
-			.mw-logo,
+			.vector-header-start,
 			.search-toggle {
 				display: none;
 			}
@@ -67,12 +67,15 @@
 				// T284242#7206507: Widen the suggestion results to the edge of the search
 				// button at small resolutions.
 				position: relative;
-				margin-left: @padding-horizontal-tabs;
 				margin-right: @margin-end-search;
 
 				// Override default max width at lower resolutions
 				> div {
 					max-width: none;
+				}
+
+				.vector-feature-page-tools-disabled & {
+					margin-left: @padding-horizontal-tabs;
 				}
 			}
 
