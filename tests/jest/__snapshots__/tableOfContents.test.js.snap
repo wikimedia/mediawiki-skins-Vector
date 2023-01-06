@@ -9,8 +9,8 @@ exports[`Table of contents re-rendering re-renders toc when wikipage.tableOfCont
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\"><div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
 <div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\">move to sidebar</button>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\">hide</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
 </div>
 	<ul class=\\"vector-toc-contents sidebar-toc-contents\\" id=\\"mw-panel-toc-list\\">
 		<li id=\\"toc-mw-content-text\\" class=\\"vector-toc-list-item vector-toc-level-1 sidebar-toc-list-item sidebar-toc-level-1\\">
@@ -79,8 +79,8 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
 <div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\">move to sidebar</button>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\">hide</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
 </div>
 	<ul class=\\"vector-toc-contents sidebar-toc-contents\\" id=\\"mw-panel-toc-list\\">
 		<li id=\\"toc-mw-content-text\\" class=\\"vector-toc-list-item vector-toc-level-1 sidebar-toc-list-item sidebar-toc-level-1\\">
@@ -140,8 +140,8 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
 <div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\">move to sidebar</button>
-	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\">hide</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
+	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
 </div>
 	<ul class=\\"vector-toc-contents sidebar-toc-contents\\" id=\\"mw-panel-toc-list\\">
 		<li id=\\"toc-mw-content-text\\" class=\\"vector-toc-list-item vector-toc-level-1 sidebar-toc-list-item sidebar-toc-level-1\\">
