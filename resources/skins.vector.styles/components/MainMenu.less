@@ -22,8 +22,18 @@
 }
 
 .vector-feature-page-tools-enabled .vector-main-menu {
+	// Match styles of .mw-list-item a in PinnableElement.less
+	.vector-main-menu-action-opt-out a,
+	.vector-main-menu-action-lang-alert .vector-main-menu-action-content {
+		.mixin-vector-dropdown-menu-item();
+	}
+
 	.vector-main-menu-action-opt-out a {
 		font-weight: bold;
+	}
+
+	.vector-main-menu-action-lang-alert .vector-main-menu-action-content {
+		padding-top: 0;
 	}
 
 	.vector-language-sidebar-alert {
@@ -39,10 +49,18 @@
 	background-color: @background-color-secondary--modern;
 	// Align text with page container
 	margin-left: -@padding-horizontal-dropdown-menu-item;
+
+	// Match styles of .mw-list-item a in PinnableElement.less
+	.vector-main-menu-action-opt-out a,
+	.vector-main-menu-action-lang-alert .vector-main-menu-action-content {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 // Main menu when unpinned in the dropdown
 #vector-main-menu-unpinned-container .vector-main-menu {
+	// TODO: Standardize dropdown min and max width
 	width: 250px;
 
 	.vector-language-sidebar-alert {

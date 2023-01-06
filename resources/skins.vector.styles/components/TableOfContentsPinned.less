@@ -24,8 +24,8 @@
 		}
 
 		.vector-feature-page-tools-enabled.vector-toc-pinned.vector-feature-main-menu-pinned-disabled & {
-			// Needed to align TOC with bottom of title, 1.5em (24px) padding + 22px margin = ~46px (height of page titlebar)
-			margin-top: 22px;
+			// Align TOC with bottom of title when main menu is not pinned but the TOC is
+			margin-top: @margin-top-pinned-toc;
 		}
 
 		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
