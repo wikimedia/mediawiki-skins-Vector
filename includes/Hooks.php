@@ -154,6 +154,7 @@ class Hooks implements
 	/**
 	 * Moves watch item from actions to views menu.
 	 *
+	 * @internal used inside Hooks::onSkinTemplateNavigation
 	 * @param array &$content_navigation
 	 */
 	private static function updateActionsMenu( &$content_navigation ) {
@@ -176,6 +177,7 @@ class Hooks implements
 	/**
 	 * Adds icons to items in the "views" menu.
 	 *
+	 * @internal used inside Hooks::onSkinTemplateNavigation
 	 * @param array &$content_navigation
 	 * @param bool $isLegacy is this the legacy Vector skin?
 	 */
@@ -210,6 +212,7 @@ class Hooks implements
 	/**
 	 * All associated pages menu items do not have icons so are given the vector-tab-noicon class.
 	 *
+	 * @internal used inside Hooks::onSkinTemplateNavigation
 	 * @param array &$content_navigation
 	 */
 	private static function updateAssociatedPagesMenuIcons( &$content_navigation ) {
@@ -254,6 +257,7 @@ class Hooks implements
 	 *  - Adds icons
 	 *  - Makes user page and watchlist collapsible
 	 *
+	 * @internal used inside ::updateUserLinksItems
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
@@ -310,6 +314,7 @@ class Hooks implements
 	 * Populates 'vector-user-menu-overflow' bucket for modern Vector with modified personal navigation (user links)
 	 * menu items, including 'notification', 'user-interface-preferences', 'user-page', 'vector-user-menu-overflow'
 	 *
+	 * @internal used inside ::updateUserLinksItems
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
@@ -393,6 +398,7 @@ class Hooks implements
 	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
 	 * removed to preserve existing behavior.
 	 *
+	 * @internal used inside Hooks::onSkinTemplateNavigation
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
@@ -411,6 +417,7 @@ class Hooks implements
 	/**
 	 * Modifies list item to make it collapsible.
 	 *
+	 * @internal used in ::updateItemData and ::createMoreOverflowMenu
 	 * @param array &$item
 	 * @param string $prefix defaults to user-links-
 	 */
@@ -434,7 +441,7 @@ class Hooks implements
 	/**
 	 * Update template data to include classes and html that handle buttons, icons, and collapsible items.
 	 *
-	 * @internal for use inside Vector skin.
+	 * @internal used in ::updateMenuItemData
 	 * @param array $item data to update
 	 * @param string $buttonClassProp property to append button classes
 	 * @param string $iconHtmlProp property to set icon HTML
@@ -478,32 +485,9 @@ class Hooks implements
 	}
 
 	/**
-	 * Updates template data for Vector dropdown menus.
-	 *
-	 * @param array $item Menu data to update
-	 * @return array $item Updated menu data
-	 */
-	public static function updateDropdownMenuData( $item ) {
-		$buttonClassProp = 'heading-class';
-		$iconHtmlProp = 'html-vector-heading-icon';
-		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
-	}
-
-	/**
-	 * Updates template data for Vector link items.
-	 *
-	 * @param array $item link data to update
-	 * @return array $item Updated link data
-	 */
-	public static function updateLinkData( $item ) {
-		$buttonClassProp = 'class';
-		$iconHtmlProp = 'link-html';
-		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp );
-	}
-
-	/**
 	 * Updates template data for Vector menu items.
 	 *
+	 * @internal used inside Hooks::updateMenuItems ::updateViewsMenuIcons and ::updateUserLinksDropdownItems
 	 * @param array $item menu item data to update
 	 * @param bool $isSmallIcon when set a small icon will be applied rather than the standard icon size
 	 * @return array $item Updated menu item data
