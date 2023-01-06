@@ -109,16 +109,6 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 			'is-vector-toc-beginning-enabled' => $config[ 'VectorTableOfContentsBeginning' ],
 			'vector-is-collapse-sections-enabled' =>
 				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ],
-			'data-pinnable-header' => [
-				'is-pinned' => true,
-				'data-name' => 'vector-toc',
-				'data-feature-name' => null,
-				'label' => 'vector-toc-label',
-				'unpin-label' => 'vector-unpin-element-label',
-				'pin-label' => 'vector-pin-element-label',
-				'label-tag-name' => 'h2'
-			],
-			'is-pinned' => true,
 			'id' => 'vector-toc'
 		];
 		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );

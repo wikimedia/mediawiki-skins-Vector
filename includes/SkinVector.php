@@ -226,24 +226,11 @@ abstract class SkinVector extends SkinMustache {
 		}
 		$btns[] = $this->getAddSectionButtonData();
 
-		// FIXME: Sync with VectorComponentTableOfContents:getTemplateData
-		$tocPortletData = Hooks::updateDropdownMenuData( [
-			'id' => 'vector-sticky-header-toc',
-			'class' => 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
-			'html-vector-menu-checkbox-attributes' => 'tabindex="-1"',
-			'html-vector-menu-heading-attributes' => 'tabindex="-1"',
-			'is-pinned' => true,
-			'button' => true,
-			'text-hidden' => true,
-			'icon' => 'listBullet'
-		] );
-
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 		$showStickyULS = $this->isULSExtensionEnabled() && !$this->shouldHideLanguages();
 		$langButton = new VectorComponentLanguageButton( $this->getULSLabels()[ 'label' ] );
 
 		return [
-			'data-sticky-header-toc' => $tocPortletData,
 			'data-primary-action' => $showStickyULS ?
 				$langButton->getTemplateData() : null,
 			'data-button-start' => [

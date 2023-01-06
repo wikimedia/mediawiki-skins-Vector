@@ -11,9 +11,11 @@ use MediaWiki\Skins\Vector\Components\VectorComponentMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuListItem;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
+use MediaWiki\Skins\Vector\Components\VectorComponentPinnableContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
+use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContentsContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 
 /**
@@ -48,20 +50,6 @@ class SkinVector22 extends SkinVector {
 		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
 			$shouldShowOnMainPage;
-	}
-
-	/**
-	 * @return array
-	 */
-	private function getTocPageTitleData(): array {
-		return Hooks::updateDropdownMenuData( [
-			'id' => 'vector-page-titlebar-toc',
-			'class' => 'vector-page-titlebar-toc mw-ui-icon-flush-left',
-			'is-pinned' => true,
-			'button' => true,
-			'text-hidden' => true,
-			'icon' => 'listBullet'
-		] );
 	}
 
 	/**
@@ -167,7 +155,8 @@ class SkinVector22 extends SkinVector {
 	public function getTemplateData(): array {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
-		$stickyHeader = new VectorComponentStickyHeader();
+		$localizer = $this->getContext();
+		$stickyHeader = new VectorComponentStickyHeader( $localizer );
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 		$portlets = $parentData['data-portlets'];
 
@@ -253,9 +242,12 @@ class SkinVector22 extends SkinVector {
 				$langData['html-after-portal'] ?? '',
 				$this->getTitle()
 			) : null,
+			'data-toc-container' => new VectorComponentTableOfContentsContainer(
+				$localizer,
+			),
 			'data-toc' => new VectorComponentTableOfContents(
 				$parentData['data-toc'],
-				$this->getContext(),
+				$localizer,
 				$this->getConfig()
 			),
 			'data-search-box' => new VectorComponentSearchBox(
@@ -295,6 +287,19 @@ class SkinVector22 extends SkinVector {
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
 			) : null,
+			'data-page-titlebar-toc-dropdown' => new VectorComponentDropdown(
+				'vector-page-titlebar-toc',
+				// no label,
+				'',
+				// class
+				'vector-page-titlebar-toc mw-ui-icon-flush-left',
+				// icon
+				'listBullet',
+			),
+			'data-page-titlebar-pinnable-container' => new VectorComponentPinnableContainer(
+				'vector-page-titlebar-toc',
+				true
+			),
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.
@@ -322,7 +327,6 @@ class SkinVector22 extends SkinVector {
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
-			'data-page-titlebar-toc' => $this->getTocPageTitleData(),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? $stickyHeader->getTemplateData() + $this->getStickyHeaderData(
