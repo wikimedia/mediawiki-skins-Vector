@@ -4,12 +4,16 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
+use MediaWiki\Skins\Vector\Components\VectorComponentIconLink;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
+use MediaWiki\Skins\Vector\Components\VectorComponentMenu;
+use MediaWiki\Skins\Vector\Components\VectorComponentMenuListItem;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
+use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 
 /**
  * @ingroup Skins
@@ -164,13 +168,8 @@ class SkinVector22 extends SkinVector {
 		$parentData = parent::getTemplateData();
 		$stickyHeader = new VectorComponentStickyHeader();
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
+		$portlets = $parentData['data-portlets'];
 
-		// FIXME: Move to component (T322089)
-		$parentData['data-vector-user-links'] = $this->getUserLinksTemplateData(
-			$parentData['data-portlets']['data-user-menu'],
-			$parentData['data-portlets'][ 'data-vector-user-menu-overflow' ],
-			$this->getUser()
-		);
 		$parentData['data-portlets']['data-variants'] = $this->updateVariantsMenuLabel(
 			$parentData['data-portlets']['data-variants']
 		);
@@ -187,7 +186,60 @@ class SkinVector22 extends SkinVector {
 
 		$langButtonClass = $langData['class'] ?? '';
 		$ulsLabels = $this->getULSLabels();
+		$returnto = $this->getReturnToParam();
+		$user = $this->getUser();
+		$logoutData = $this->buildLogoutLinkData();
+		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
+		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$components = [
+			'data-vector-user-links' => new VectorComponentUserLinks(
+				$this->getContext(),
+				$user,
+				new VectorComponentMenu(
+					$portlets['data-user-menu']
+				),
+				new VectorComponentMenu( [
+					// this menu should have no label
+					'label' => '',
+				] + $portlets[ 'data-vector-user-menu-overflow' ] ),
+				new VectorComponentMenu(
+					[],
+					$user->isRegistered() ? [
+						new VectorComponentMenuListItem(
+							new VectorComponentIconLink(
+								$logoutData[ 'href'],
+								$logoutData[ 'text' ],
+								$logoutData[ 'icon' ],
+								$this,
+								'pt-logout'
+							),
+							'vector-user-menu-logout',
+							'pt-logout'
+						)
+					] : [
+						new VectorComponentMenuListItem(
+							new VectorComponentIconLink(
+								$createAccountData['href'] ?? null,
+								$createAccountData['text'] ?? null,
+								$createAccountData['icon'] ?? null,
+								$this,
+								'create-account'
+							),
+							'vector-user-menu-create-account user-links-collapsible-item'
+						),
+						new VectorComponentMenuListItem(
+							new VectorComponentIconLink(
+								$loginLinkData['href'] ?? null,
+								$loginLinkData['text'] ?? null,
+								$loginLinkData['icon'] ?? null,
+								$this,
+								'login'
+							),
+							'vector-user-menu-login'
+						)
+					]
+				),
+			),
 			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],
 				$ulsLabels['aria-label'],

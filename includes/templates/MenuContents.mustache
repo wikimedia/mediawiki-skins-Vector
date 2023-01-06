@@ -1,5 +1,7 @@
 <div class="vector-menu-content">
     {{{html-before-portal}}}
-    <ul class="vector-menu-content-list">{{{html-items}}}</ul>
+    <ul class="vector-menu-content-list">{{!
+    }}{{#data-items}}{{>MenuListItem}}{{/data-items}}{{!
+    }}{{{html-items}}}</ul>
     {{{html-after-portal}}}
 </div>

@@ -11,6 +11,8 @@ const pinnableElementOpenTemplate = fs.readFileSync( 'includes/templates/Pinnabl
 const pinnableElementCloseTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Close.mustache', 'utf8' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
 const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
+const IconLink = fs.readFileSync( 'includes/templates/IconLink.mustache', 'utf8' );
+const MenuListItem = fs.readFileSync( 'includes/templates/MenuListItem.mustache', 'utf8' );
 
 const templateData = {
 	'is-wide': false,
@@ -29,7 +31,9 @@ const templateData = {
 	'data-user-menu-dropdown': {
 		id: 'p-personal',
 		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
-		label: 'Personal tools',
+		label: 'Personal tools'
+	},
+	'data-dropdown-menu': {
 		'html-items': `
 			<li id="pt-userpage" class="user-links-collapsible-item mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar" href="/wiki/User:Admin" title="Your user page [.]" accesskey="."><span>Admin</span></a></li>
 			<li id="pt-mytalk" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk" href="/wiki/User_talk:Admin" title="Your talk page [n]" accesskey="n"><span>Talk</span></a></li>
@@ -41,7 +45,19 @@ const templateData = {
 			<li id="pt-mycontris" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userContributions mw-ui-icon-wikimedia-userContributions" href="/wiki/Special:Contributions/Admin" title="A list of your contributions [y]" accesskey="y"><span>Contributions</span></a></li>
 			<li id="pt-custom" class="mw-list-item mw-list-item-js">Gadget added item</li>
 		`
-	}
+	},
+	'data-account-links': [
+		{
+			'data-items': [
+				{
+					'item-id': 'pt-logout',
+					'item-class': 'vector-user-menu-logout',
+					href: '/logout',
+					text: 'Log out'
+				}
+			]
+		}
+	]
 };
 
 const dropdownPartials = {
@@ -54,7 +70,9 @@ const dropdownPartials = {
 	'PinnableElement/Close': pinnableElementCloseTemplate,
 	PinnableHeader: pinnableHeaderTemplate,
 	Menu: menuTemplate,
-	MenuContents: menuContents
+	MenuContents: menuContents,
+	IconLink,
+	MenuListItem
 };
 
 const renderedHTML = mustache.render( userLinksTemplate, templateData, dropdownPartials );

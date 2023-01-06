@@ -25,17 +25,11 @@
 namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
-use Linker;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Vector\Components\VectorComponent;
-use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
-use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
-use Title;
-use User;
 
 /**
  * Skin subclass for Vector that may be the new or old version of Vector.
@@ -195,127 +189,6 @@ abstract class SkinVector extends SkinMustache {
 	abstract protected function shouldHideLanguages(): bool;
 
 	/**
-	 * Returns HTML for the create account link inside the anon user links
-	 * @param string[] $returnto array of query strings used to build the login link
-	 * @return string
-	 */
-	private function getCreateAccountHTML( $returnto ) {
-		$createAccountData = $this->buildCreateAccountData( $returnto );
-		$createAccountData = array_merge( $createAccountData, [
-			'class' => [
-				'vector-menu-content-item',
-			],
-			'collapsible' => true,
-			'icon' => $createAccountData['icon'],
-			'button' => false
-		] );
-		$createAccountData = Hooks::updateLinkData( $createAccountData );
-		return $this->makeLink( 'create-account', $createAccountData );
-	}
-
-	/**
-	 * Returns HTML for the create account button, login button and learn more link inside the anon user menu
-	 * @param string[] $returnto array of query strings used to build the login link
-	 * @param bool $useCombinedLoginLink if a combined login/signup link will be used
-	 * @param bool $isTempUser
-	 * @param bool $includeLearnMoreLink Pass `true` to include the learn more
-	 * link in the menu for anon users. This param will be inert for temp users.
-	 * @return array
-	 */
-	private function getAnonMenuBeforePortletData(
-		$returnto,
-		$useCombinedLoginLink,
-		$isTempUser,
-		$includeLearnMoreLink
-	): array {
-		$templateParser = $this->getTemplateParser();
-		$loginLinkData = array_merge( $this->buildLoginData( $returnto, $useCombinedLoginLink ), [
-			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-login' ],
-		] );
-		$loginLinkData = Hooks::updateLinkData( $loginLinkData );
-		$templateData = [
-			'htmlCreateAccount' => $this->getCreateAccountHTML( $returnto ),
-			'htmlLogin' => $this->makeLink( 'login', $loginLinkData ),
-			'data-anon-editor' => []
-		];
-
-		if ( !$isTempUser && $includeLearnMoreLink ) {
-			$learnMoreLinkData = [
-				'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-				'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
-				'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
-			];
-
-			$templateData['data-anon-editor'] = [
-				'htmlLearnMoreLink' => $this->makeLink( '', $learnMoreLinkData ),
-				'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' )
-			];
-		}
-
-		return $templateData;
-	}
-
-	/**
-	 * Returns HTML for the logout button that should be placed in the user (personal) menu
-	 * after the menu itself.
-	 * @return string
-	 */
-	private function getLogoutHTML(): string {
-		$logoutLinkData = array_merge( $this->buildLogoutLinkData(), [
-			'class' => [ 'vector-menu-content-item', 'vector-menu-content-item-logout' ],
-		] );
-		return $this->makeLink( 'logout', Hooks::updateLinkData( $logoutLinkData ) );
-	}
-
-	/**
-	 * Returns template data for UserLinks.mustache
-	 * FIXME: Move to VectorComponentUserLinks (T322089)
-	 *
-	 * @param array $userMenuData existing menu template data to be transformed and copied for UserLinks
-	 * @param array $overflowMenuData existing menu template data to be transformed and copied for UserLinks
-	 * @param User $user the context user
-	 * @return array
-	 */
-	final protected function getUserLinksTemplateData(
-		array $userMenuData, array $overflowMenuData, User $user
-	): array {
-		$isAnon = !$user->isRegistered();
-		$isTempUser = $user->isTemp();
-		$returnto = $this->getReturnToParam();
-		$useCombinedLoginLink = $this->useCombinedLoginLink();
-		$userMenuOverflowData = Hooks::updateDropdownMenuData( $overflowMenuData );
-		$userMenuDropdown = $this->getUserMenuDropdown( $userMenuData );
-		unset( $userMenuOverflowData[ 'label' ] );
-
-		if ( $isAnon || $isTempUser ) {
-			$additionalData = $this->getAnonMenuBeforePortletData(
-				$returnto,
-				$useCombinedLoginLink,
-				$isTempUser,
-				// T317789: The `anontalk` and `anoncontribs` links will not be added to
-				// the menu if `$wgGroupPermissions['*']['edit']` === false which can
-				// leave the menu empty due to our removal of other user menu items in
-				// `Hooks::updateUserLinksDropdownItems`. In this case, we do not want
-				// to render the anon "learn more" link.
-				!$userMenuData['is-empty']
-			);
-		} else {
-			$additionalData = [];
-		}
-
-		$userLinks = new VectorComponentUserLinks();
-		$moreItems = substr_count( $userMenuOverflowData['html-items'], '<li' );
-		return $userLinks->getTemplateData() + $additionalData + [
-			'html-logout-link' => $this->getLogoutHTML(),
-			'is-temp-user' => $isTempUser,
-			'is-wide' => $moreItems > 3,
-			'data-user-menu-overflow' => $userMenuOverflowData,
-			'data-user-menu-dropdown' => $userMenuDropdown->getTemplateData(),
-			'html-items' => $userMenuData['html-items'],
-		];
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
@@ -459,49 +332,5 @@ abstract class SkinVector extends SkinMustache {
 			'tabindex' => '-1',
 			'class' => 'sticky-header-icon mw-ui-primary mw-ui-progressive'
 		];
-	}
-
-	/**
-	 * Creates portlet data for the user menu dropdown
-	 * FIXME: Move to VectorComponentUserMenu
-	 *
-	 * @param array $portletData
-	 * @return VectorComponent
-	 */
-	private function getUserMenuDropdown( $portletData ): VectorComponent {
-		// T317789: Core can undesirably add an 'emptyPortlet' class that hides the
-		// user menu. This is a result of us manually removing items from the menu
-		// in Hooks::updateUserLinksDropdownItems which can make
-		// SkinTemplate::getPortletData apply the `emptyPortlet` class if there are
-		// no menu items. Since we subsequently add menu items in
-		// SkinVector::getUserLinksTemplateData, the `emptyPortlet` class is
-		// innaccurate. This is why we add the desired classes, `mw-portlet` and
-		// `mw-portlet-personal` here instead. This can potentially be removed upon
-		// completion of T319356.
-		//
-		// Also, add target class to apply different icon to personal menu dropdown for logged in users.
-		$portletData['class'] = 'mw-portlet mw-portlet-personal vector-user-menu';
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS ) ) {
-			$portletData['class'] .= ' mw-ui-icon-flush-right';
-		}
-		$portletData['class'] .= $this->loggedin ?
-			' vector-user-menu-logged-in' :
-			' vector-user-menu-logged-out';
-
-		if ( $this->getUser()->isTemp() ) {
-			$icon = 'userAnonymous';
-		} elseif ( $this->loggedin ) {
-			$icon = 'userAvatar';
-		} else {
-			$icon = 'ellipsis';
-			// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons.
-			// For modern Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for
-			// the user icon (dropdown indicator for user links menu) for logged-in users.
-			// This overrides the tooltip for the user links menu icon which is an ellipsis for anonymous users.
-			$portletData['html-tooltip'] = Linker::tooltip( 'vector-anon-user-menu-title' );
-		}
-		return new VectorComponentDropdown(
-			$portletData['id'], $portletData['label'], $portletData['class'], $icon, $portletData['html-tooltip'] ?? ''
-		);
 	}
 }

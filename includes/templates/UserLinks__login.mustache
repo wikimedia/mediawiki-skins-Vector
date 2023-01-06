@@ -1,9 +1,8 @@
-<div class="vector-user-menu-create-account">{{{htmlCreateAccount}}}</div>
-<div class="vector-user-menu-login">{{{htmlLogin}}}</div>
+{{#data-account-links}}{{>MenuContents}}{{/data-account-links}}
 {{#data-anon-editor}}
 <div class="vector-user-menu-anon-editor">
 	<p>
-		{{{msgLearnMore}}} {{{htmlLearnMoreLink}}}
+		{{{msgLearnMore}}} {{#data-link-learn-more}}{{>IconLink}}{{/data-link-learn-more}}
 	</p>
 </div>
 {{/data-anon-editor}}

@@ -10,12 +10,10 @@
 		{{>UserLinks__login}}
 		{{/is-temp-user}}
 		{{/is-anon}}
-		<ul class="vector-menu-content-list">{{{html-items}}}</ul>
+		{{#data-dropdown-menu}}{{>MenuContents}}{{/data-dropdown-menu}}
 		{{^is-anon}}
 		{{!-- The #pt-logout ID is required for the AJAX enabled logout in mediawiki.page.ready to work.}}
-		<div id="pt-logout" class="vector-user-menu-logout">
-			{{{html-logout-link}}}
-		</div>
+		{{#data-account-links}}{{>MenuContents}}{{/data-account-links}}
 		{{/is-anon}}
 	{{>Dropdown/Close}}
 	{{/data-user-menu-dropdown}}
