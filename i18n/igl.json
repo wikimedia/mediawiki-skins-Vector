@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"AgnesAbah"
+			"AgnesAbah",
+			"Amire80"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 íchi|$1 amí íchi}}",
@@ -9,7 +10,7 @@
 	"vector-action-delete": "Dukwó",
 	"vector-action-move": "Tẹlo",
 	"vector-action-protect": "Dída",
-	"vector-view-create": "Àacha",
+	"vector-view-create": "Nyí",
 	"vector-view-edit": "nwọ́cha",
 	"vector-view-history": "Gọ ọ́là īgbálá",
 	"vector-view-view": "Gbá",

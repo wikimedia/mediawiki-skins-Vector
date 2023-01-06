@@ -14,7 +14,8 @@
 			"Pyscowicz",
 			"Rönttönen",
 			"Stryn",
-			"SuperPete"
+			"SuperPete",
+			"Yupik"
 		]
 	},
 	"skinname-vector": "Vanha Vektori (2010)",
@@ -57,7 +58,7 @@
 	"vector-anon-user-menu-pages-learn": "lue lisää",
 	"vector-anon-user-menu-pages-label": "Lue lisää muokkaamisesta",
 	"vector-main-menu-tooltip": "Päävalikko",
-	"vector-toc-menu-tooltip": "Sisällysluettelot",
+	"vector-toc-menu-tooltip": "Sisällysluettelo",
 	"vector-site-nav-label": "Sivusto",
 	"vector-main-menu-label": "Päävalikko",
 	"vector-page-tools-label": "Työkalut",
