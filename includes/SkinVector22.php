@@ -9,6 +9,7 @@ use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuListItem;
+use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
@@ -170,10 +171,6 @@ class SkinVector22 extends SkinVector {
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 		$portlets = $parentData['data-portlets'];
 
-		$parentData['data-portlets']['data-variants'] = $this->updateVariantsMenuLabel(
-			$parentData['data-portlets']['data-variants']
-		);
-
 		$langData = $parentData['data-portlets']['data-languages'] ?? null;
 		$config = $this->getConfig();
 
@@ -192,6 +189,11 @@ class SkinVector22 extends SkinVector {
 		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$components = [
+			'data-vector-variants' => new VectorComponentMenuVariants(
+				$parentData['data-portlets']['data-variants'],
+				$this->getTitle()->getPageLanguage(),
+				$this->msg( 'vector-language-variant-switcher-label' )
+			),
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$this->getContext(),
 				$user,

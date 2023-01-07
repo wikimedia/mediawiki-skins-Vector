@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Skins\Vector;
 
+use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 
 /**
@@ -118,7 +119,12 @@ class SkinVectorLegacy extends SkinVector {
 		// Special casing for Variant to change label to selected.
 		// Hopefully we can revisit and possibly remove this code when the language switcher is moved.
 		if ( $key === 'data-variants' ) {
-			$portletData = $this->updateVariantsMenuLabel( $portletData );
+			$variantMenu = new VectorComponentMenuVariants(
+				$portletData,
+				$this->getTitle()->getPageLanguage(),
+				$this->msg( 'vector-language-variant-switcher-label' )
+			);
+			$portletData = $variantMenu->getTemplateData();
 		}
 
 		$portletData = $this->updatePortletClasses(

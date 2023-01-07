@@ -206,23 +206,6 @@ abstract class SkinVector extends SkinMustache {
 	}
 
 	/**
-	 * Change the portlets menu so the label is the selected variant
-	 * @param array $portletData
-	 * @return array
-	 */
-	final protected function updateVariantsMenuLabel( array $portletData ): array {
-		$languageConverterFactory = MediaWikiServices::getInstance()->getLanguageConverterFactory();
-		$pageLang = $this->getTitle()->getPageLanguage();
-		$converter = $languageConverterFactory->getLanguageConverter( $pageLang );
-		$portletData['label'] = $pageLang->getVariantname(
-			$converter->getPreferredVariant()
-		);
-		// T289523 Add aria-label data to the language variant switcher.
-		$portletData['aria-label'] = $this->msg( 'vector-language-variant-switcher-label' );
-		return $portletData;
-	}
-
-	/**
 	 * Generate data needed to generate the sticky header.
 	 * FIXME: Move to VectorComponentStickyHeader
 	 * @param array $searchBoxData
