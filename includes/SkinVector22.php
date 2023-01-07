@@ -2,9 +2,11 @@
 
 namespace MediaWiki\Skins\Vector;
 
+use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentIconLink;
+use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenu;
@@ -17,14 +19,120 @@ use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContentsContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
+use RuntimeException;
+use SkinMustache;
+use SkinTemplate;
 
 /**
  * @ingroup Skins
  * @package Vector
  * @internal
  */
-class SkinVector22 extends SkinVector {
+class SkinVector22 extends SkinMustache {
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
+	/** @var null|array for caching purposes */
+	private $languages;
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function isResponsive() {
+		// Check it's enabled by user preference and configuration
+		$responsive = parent::isResponsive() && $this->getConfig()->get( 'VectorResponsive' );
+		// For historic reasons, the viewport is added when Vector is loaded on the mobile
+		// domain. This is only possible for 3rd parties or by useskin parameter as there is
+		// no preference for changing mobile skin. Only need to check if $responsive is falsey.
+		if ( !$responsive && ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			if ( $mobFrontContext->shouldDisplayMobileView() ) {
+				return true;
+			}
+		}
+		return $responsive;
+	}
+
+	/**
+	 * This should be upstreamed to the Skin class in core once the logic is finalized.
+	 * Returns false if the page is a special page without any languages, or if an action
+	 * other than view is being used.
+	 * @return bool
+	 */
+	private function canHaveLanguages(): bool {
+		if ( $this->getContext()->getActionName() !== 'view' ) {
+			return false;
+		}
+		$title = $this->getTitle();
+		// Defensive programming - if a special page has added languages explicitly, best to show it.
+		if ( $title && $title->isSpecialPage() && empty( $this->getLanguagesCached() ) ) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * @param string $location Either 'top' or 'bottom' is accepted.
+	 * @return bool
+	 */
+	protected function isLanguagesInContentAt( $location ) {
+		if ( !$this->canHaveLanguages() ) {
+			return false;
+		}
+		$featureManager = VectorServices::getFeatureManager();
+		$inContent = $featureManager->isFeatureEnabled(
+			Constants::FEATURE_LANGUAGE_IN_HEADER
+		);
+		$isMainPage = $this->getTitle() ? $this->getTitle()->isMainPage() : false;
+
+		switch ( $location ) {
+			case 'top':
+				return $isMainPage ? $inContent && $featureManager->isFeatureEnabled(
+					Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER
+				) : $inContent;
+			case 'bottom':
+				return $inContent && $isMainPage && !$featureManager->isFeatureEnabled(
+					Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER
+				);
+			default:
+				throw new RuntimeException( 'unknown language button location' );
+		}
+	}
+
+	/**
+	 * Whether or not the languages are out of the sidebar and in the content either at
+	 * the top or the bottom.
+	 * @return bool
+	 */
+	final protected function isLanguagesInContent() {
+		return $this->isLanguagesInContentAt( 'top' ) || $this->isLanguagesInContentAt( 'bottom' );
+	}
+
+	/**
+	 * Calls getLanguages with caching.
+	 * @return array
+	 */
+	protected function getLanguagesCached(): array {
+		if ( $this->languages === null ) {
+			$this->languages = $this->getLanguages();
+		}
+		return $this->languages;
+	}
+
+	/**
+	 * Check whether ULS is enabled
+	 *
+	 * @return bool
+	 */
+	final protected function isULSExtensionEnabled(): bool {
+		return ExtensionRegistry::getInstance()->isLoaded( 'UniversalLanguageSelector' );
+	}
 
 	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
@@ -150,13 +258,34 @@ class SkinVector22 extends SkinVector {
 	}
 
 	/**
+	 * Get the ULS button label, accounting for the number of available
+	 * languages.
+	 *
+	 * @return array
+	 */
+	final protected function getULSLabels(): array {
+		$numLanguages = count( $this->getLanguagesCached() );
+
+		if ( $numLanguages === 0 ) {
+			return [
+				'label' => $this->msg( 'vector-no-language-button-label' )->text(),
+				'aria-label' => $this->msg( 'vector-no-language-button-aria-label' )->text()
+			];
+		} else {
+			return [
+				'label' => $this->msg( 'vector-language-button-label' )->numParams( $numLanguages )->escaped(),
+				'aria-label' => $this->msg( 'vector-language-button-aria-label' )->numParams( $numLanguages )->escaped()
+			];
+		}
+	}
+
+	/**
 	 * @return array
 	 */
 	public function getTemplateData(): array {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
 		$localizer = $this->getContext();
-		$stickyHeader = new VectorComponentStickyHeader( $localizer );
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 		$portlets = $parentData['data-portlets'];
 
@@ -177,6 +306,7 @@ class SkinVector22 extends SkinVector {
 		$logoutData = $this->buildLogoutLinkData();
 		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
 		$createAccountData = $this->buildCreateAccountData( $returnto );
+		$localizer = $this->getContext();
 		$components = [
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				$parentData['data-portlets']['data-variants'],
@@ -184,7 +314,7 @@ class SkinVector22 extends SkinVector {
 				$this->msg( 'vector-language-variant-switcher-label' )
 			),
 			'data-vector-user-links' => new VectorComponentUserLinks(
-				$this->getContext(),
+				$localizer,
 				$user,
 				new VectorComponentMenu(
 					$portlets['data-user-menu']
@@ -259,13 +389,13 @@ class SkinVector22 extends SkinVector {
 				true,
 				$config,
 				Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
-				$this->getContext()
+				$localizer
 			),
 			'data-main-menu' => new VectorComponentMainMenu(
 				$sidebar,
 				$this->shouldLanguageAlertBeInSidebar(),
 				$parentData['data-portlets']['data-languages'] ?? [],
-				$this->getContext(),
+				$localizer,
 				$this->getUser(),
 				VectorServices::getFeatureManager(),
 				$this,
@@ -278,7 +408,7 @@ class SkinVector22 extends SkinVector {
 			),
 			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
 				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenu ),
-				$this->getContext(),
+				$localizer,
 				$this->getUser(),
 				$featureManager
 			) : null,
@@ -300,6 +430,28 @@ class SkinVector22 extends SkinVector {
 				'vector-page-titlebar-toc',
 				true
 			),
+			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
+				Constants::FEATURE_STICKY_HEADER
+			) ? new VectorComponentStickyHeader(
+				$localizer,
+				new VectorComponentSearchBox(
+					$parentData['data-search-box'],
+					// Collapse inside search box is disabled.
+					false,
+					false,
+					'vector-sticky-search-form',
+					false,
+					$config,
+					Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
+					$localizer
+				),
+				// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
+				$this->isULSExtensionEnabled() && !$this->shouldHideLanguages() ?
+					new VectorComponentLanguageButton( $ulsLabels[ 'label' ] ) : null,
+				$featureManager->isFeatureEnabled(
+					Constants::FEATURE_STICKY_HEADER_EDIT
+				)
+			) : null
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.
@@ -308,18 +460,6 @@ class SkinVector22 extends SkinVector {
 			}
 		}
 
-		$searchStickyHeader = new VectorComponentSearchBox(
-			$parentData['data-search-box'],
-			// Collapse inside search box is disabled.
-			false,
-			false,
-			'vector-sticky-search-form',
-			false,
-			$config,
-			Constants::SEARCH_BOX_INPUT_LOCATION_MOVED,
-			$this->getContext()
-		);
-
 		return array_merge( $parentData, [
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
@@ -327,14 +467,6 @@ class SkinVector22 extends SkinVector {
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
-			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
-				Constants::FEATURE_STICKY_HEADER
-			) ? $stickyHeader->getTemplateData() + $this->getStickyHeaderData(
-				$searchStickyHeader->getTemplateData(),
-				$featureManager->isFeatureEnabled(
-					Constants::FEATURE_STICKY_HEADER_EDIT
-				)
-			) : false,
 			'is-page-tools-enabled' => $isPageToolsEnabled
 		] );
 	}
