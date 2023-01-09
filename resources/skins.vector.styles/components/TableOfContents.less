@@ -10,7 +10,7 @@
 	background-color: @background-color-page-container;
 
 	.vector-feature-page-tools-disabled & {
-		padding: @padding-vertical-toc @padding-right-toc @padding-vertical-toc @padding-left-toc;
+		padding: 20px 12px 20px 27px;
 
 		.vector-toc-pinnable-header {
 			// Override default pinnable header styles
@@ -75,7 +75,7 @@
 			.vector-toc-text {
 				// Increase width to prevent line wrapping due to bold text
 				// Avoid applying on link element to avoid focus indicator changing size
-				width: ~'calc( 100% + @{padding-right-toc} )';
+				width: ~'calc( 100% + @{padding-horizontal-dropdown-menu-item} )';
 			}
 		}
 	}

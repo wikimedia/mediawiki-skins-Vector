@@ -28,6 +28,12 @@
 			margin-top: @margin-top-pinned-toc;
 		}
 
+		.vector-feature-page-tools-enabled & .vector-toc {
+			padding-right: @padding-horizontal-dropdown-menu-item;
+			// Add extra padding for the fade scrollable indicator, which is 30px tall
+			padding-bottom: 20px;
+		}
+
 		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
 		.sidebar-toc,
 		.sidebar-toc:after,
@@ -35,15 +41,13 @@
 		.vector-toc:after {
 			.vector-feature-page-tools-disabled & {
 				// Align the left edge of the TOC text with the main menu button icon.
-				margin-left: -@padding-left-toc;
+				margin-left: -27px;
 			}
 
 			.vector-feature-page-tools-enabled & {
 				// Align the left edge of the TOC text with the page container
 				margin-left: -@spacing-subsection-toggle;
-				padding: 0 @padding-horizontal-dropdown-menu-item 0 @spacing-subsection-toggle;
-				// Ensure TOC takes up full width of its container factoring in the negative left margin
-				width: ~'calc( 100% + @{spacing-subsection-toggle} )';
+				padding-left: @spacing-subsection-toggle;
 			}
 		}
 
@@ -61,7 +65,7 @@
 			height: @height-toc-scroll-indicator;
 			background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
 			background-repeat: no-repeat;
-			background-position: -@padding-right-toc; // T311436 Hacky way to prevent the fade from covering the scrollbar
+			background-position: -@scrollbar-offset-toc-scroll-indicator; // T311436 Hacky way to prevent the fade from covering the scrollbar
 			pointer-events: none; // Make the link below the fade clickable
 		}
 	}
