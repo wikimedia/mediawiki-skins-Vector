@@ -6,9 +6,15 @@
 			"Janatkg",
 			"Ztimur",
 			"Викиней",
-			"Bosogo"
+			"Bosogo",
+			"Элдин беги"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Эски Векторду колдонуу",
+	"prefs-vector-enable-vector-1-help": "Жакынкы бир нече жыл ичинде биз Вектордун көрүнүшүн акырындык менен жаңыртабыз. \"Эски Вектор\" Вектордун эски версиясын көрүүгө мүмкүндүк берет (2019-жылдын декабрына карата).\nЖаңыртуулар жөнүндө көбүрөөк билүү үчүн [[mw:Reading/Web/Desktop_Improvements|долбоорубуздун бетине]] өтүңүз.",
+	"vector-opt-out": "Эски көрүнүшкө өтүү",
+	"vector-opt-out-tooltip": "Көрүнүштүн эски көрүнүшүнө кайтуу үчүн жөндөөлөрдү өзгөртүү (Эски Вектор)",
+	"vector-action-toggle-sidebar": "Каптал тилкесин которуштуруу",
 	"vector-action-addsection": "Тема кошуу",
 	"vector-action-delete": "Өчүрүү",
 	"vector-action-move": "Аталышын өзгөртүү",
@@ -19,6 +25,8 @@
 	"vector-view-edit": "Оңдоо",
 	"vector-view-history": "Тарыхын кароо",
 	"vector-view-view": "Окуу",
-	"vector-view-viewsource": "Кайнарын кароо",
+	"vector-view-viewsource": "Булагын кароо",
+	"vector-jumptonavigation": "Навигацияга өтүү",
+	"vector-jumptosearch": "Издөөгө өтүү",
 	"vector-more-actions": "Көбүрөөк"
 }
