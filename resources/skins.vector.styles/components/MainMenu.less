@@ -45,10 +45,12 @@
 
 // Main menu when pinned in the sidebar
 .vector-feature-page-tools-enabled #vector-main-menu-pinned-container .vector-main-menu {
-	padding: @padding-vertical-dropdown-menu-item @padding-horizontal-dropdown-menu-item;
-	background-color: @background-color-secondary--modern;
-	// Align text with page container
+	// Align the left edge of the text with the page container
 	margin-left: -@padding-horizontal-dropdown-menu-item;
+	padding: @padding-vertical-dropdown-menu-item @padding-horizontal-dropdown-menu-item;
+	// Ensure main menu takes up full width of its container factoring in the negative left margin
+	width: ~'calc( 100% + @{padding-horizontal-dropdown-menu-item} )';
+	background-color: @background-color-secondary--modern;
 
 	// Match styles of .mw-list-item a in PinnableElement.less
 	.vector-main-menu-action-opt-out a,
