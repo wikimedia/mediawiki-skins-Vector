@@ -196,7 +196,8 @@ class SkinVector22 extends SkinVector {
 				count( $this->getLanguagesCached() ),
 				$langData['html-items'] ?? '',
 				$langData['html-before-portal'] ?? '',
-				$langData['html-after-portal'] ?? ''
+				$langData['html-after-portal'] ?? '',
+				$this->getTitle()
 			) : null,
 			'data-toc' => new VectorComponentTableOfContents(
 				$parentData['data-toc'],

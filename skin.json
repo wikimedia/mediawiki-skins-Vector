@@ -90,7 +90,8 @@
 						"personaltools",
 						"namespaces",
 						"views",
-						"tooltip-p-cactions"
+						"tooltip-p-cactions",
+						"empty-language-selector-body"
 					]
 				}
 			]

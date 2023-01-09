@@ -74,5 +74,6 @@
 	"vector-2022-prefs-talkpage": "Link to the desktop improvements project talk page which is shown before the preview link in skin preferences. See T307113 for more information.",
 	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users.",
 	"vector-prefs-limited-width": "Used in [[Special:Preferences]]",
-	"vector-prefs-limited-width-help": "Help message used on [[Special:Preferences]].\n\nSee also:\n* {{msg-mw|Mypreferences}}"
+	"vector-prefs-limited-width-help": "Help message used on [[Special:Preferences]].\n\nSee also:\n* {{msg-mw|Mypreferences}}",
+	"empty-language-selector-body": "Text of the body of the dropdown that explains to the user that the page is not supported in other languages. The dropdown opens when the less prominent language button is clicked, inside non-content pages"
 }
