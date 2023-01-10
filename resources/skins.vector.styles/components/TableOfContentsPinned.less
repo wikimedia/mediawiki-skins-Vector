@@ -39,9 +39,11 @@
 			}
 
 			.vector-feature-page-tools-enabled & {
-				// Align the left edge of the TOC text with the main menu button icon.
+				// Align the left edge of the TOC text with the page container
 				margin-left: -@spacing-subsection-toggle;
-				padding-left: @spacing-subsection-toggle;
+				padding: 0 @padding-horizontal-dropdown-menu-item 0 @spacing-subsection-toggle;
+				// Ensure TOC takes up full width of its container factoring in the negative left margin
+				width: ~'calc( 100% + @{spacing-subsection-toggle} )';
 			}
 		}
 

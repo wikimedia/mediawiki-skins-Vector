@@ -152,10 +152,6 @@
 // Calculated with: 1.5em (TOC top padding) + @margin-top-pinned-toc = 0.5em (.mw-body padding) + 2.34 (height of #firstHeading)
 @margin-top-pinned-toc: @padding-top-content + (@font-size-heading-1 * @line-height-heading) - 1.5em;
 
-// Sidebar
-@width-sidebar-px: 220px;
-@width-sidebar-px-wide: 244px;
-
 // Search
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em T270202
 @min-width-search-button: 28px;
@@ -218,3 +214,6 @@
 
 // Grid
 @grid-row-gap: 24px;
+@grid-column-gap: 36px;
+@width-column-start-desktop: 196px; // Total width including gap is 232px
+@width-column-start-desktop-wide: 248px; // Total width including gap is 284px

@@ -7,29 +7,29 @@
 // expressed in pixels. See T313817.
 // FIXME: Remove this selector after Iab94f9f600f8e6d032ad70d6b8e502686977441c has been in prod for 5 days
 // FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-#vector-toc-pinned-container .sidebar-toc:after,
-#vector-toc-pinned-container .sidebar-toc,
-#vector-toc-pinned-container .vector-toc:after,
-#vector-toc-pinned-container .vector-toc,
-.vector-feature-page-tools-disabled .vector-main-menu,
-.vector-main-menu-container .vector-main-menu {
+.vector-feature-page-tools-disabled #vector-toc-pinned-container .sidebar-toc:after,
+.vector-feature-page-tools-disabled #vector-toc-pinned-container .sidebar-toc,
+.vector-feature-page-tools-disabled #vector-toc-pinned-container .vector-toc:after,
+.vector-feature-page-tools-disabled #vector-toc-pinned-container .vector-toc,
+.vector-feature-page-tools-disabled .vector-main-menu {
 	// T305069 Layout adjustments of sidebar elements
 	// Align the left edge of main menu with the main menu button.
-	width: @width-sidebar-px;
+	width: 220px;
 
 	// Align the left edge of main menu with the main menu button icon.
 	@media ( min-width: @min-width-desktop-wide ) {
-		width: @width-sidebar-px-wide;
+		width: 244px;
 	}
 }
 
 /* Use of minmax is important to restrict the maximum grid column width more information: T314756 */
-@grid-template-column-desktop: ~'232px minmax(0, 1fr)';
-@grid-template-column-desktop-wide: ~'284px minmax(0, 1fr)';
+@grid-template-column-desktop: ~'@{width-column-start-desktop} minmax(0, 1fr)';
+@grid-template-column-desktop-wide: ~'@{width-column-start-desktop-wide} minmax(0, 1fr)';
 
 @media ( min-width: @min-width-desktop ) {
 	.mw-page-container-inner {
 		display: grid;
+		column-gap: @grid-column-gap;
 		grid-template: ~'min-content min-content min-content 1fr min-content / @{grid-template-column-desktop}';
 		grid-template-areas: 'header header'
 			'siteNotice siteNotice'
@@ -39,7 +39,7 @@
 	}
 
 	.vector-feature-page-tools-disabled .mw-page-container-inner {
-		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
+		column-gap: @grid-column-gap + 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
 	}
 
 	.vector-sitenotice-container {
@@ -74,6 +74,7 @@
 
 	.vector-feature-page-tools-enabled .mw-header {
 		display: grid;
+		column-gap: @grid-column-gap;
 		grid-template: ~'auto / @{grid-template-column-desktop-wide}';
 		grid-template-areas: 'headerStart headerEnd';
 
@@ -136,6 +137,7 @@
 	.vector-feature-page-tools-enabled .mw-body {
 		display: grid;
 		grid-auto-rows: auto;
+		column-gap: @grid-column-gap;
 		grid-template-columns: ~'minmax(0, @{max-width-content-container}) min-content';
 		grid-template-areas: 'titlebar .'
 			'toolbar columnEnd'
