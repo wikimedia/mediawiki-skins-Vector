@@ -23,17 +23,23 @@
 	}
 }
 
+/* Use of minmax is important to restrict the maximum grid column width more information: T314756 */
+@grid-template-column-desktop: ~'232px minmax(0, 1fr)';
+@grid-template-column-desktop-wide: ~'284px minmax(0, 1fr)';
+
 @media ( min-width: @min-width-desktop ) {
 	.mw-page-container-inner {
 		display: grid;
-		width: 100%;
-		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
-		grid-template: ~'min-content min-content min-content 1fr min-content / 232px minmax(0, 1fr)';
+		grid-template: ~'min-content min-content min-content 1fr min-content / @{grid-template-column-desktop}';
 		grid-template-areas: 'header header'
 			'siteNotice siteNotice'
 			'mainMenu pageContent'
 			'toc pageContent'
 			'footer footer';
+	}
+
+	.vector-feature-page-tools-disabled .mw-page-container-inner {
+		column-gap: 8px; // 8px + 12px (.mw-body padding-left) = 20px total spacing
 	}
 
 	.vector-sitenotice-container {
@@ -63,9 +69,21 @@
 
 @media ( min-width: @min-width-desktop-wide ) {
 	.mw-page-container-inner {
-		/* Use of minmax is important to restrict the maximum grid column width
-		more information: T314756 */
-		grid-template-columns: ~'284px minmax(0, 1fr)';
+		grid-template-columns: @grid-template-column-desktop-wide;
+	}
+
+	.vector-feature-page-tools-enabled .mw-header {
+		display: grid;
+		grid-template: ~'auto / @{grid-template-column-desktop-wide}';
+		grid-template-areas: 'headerStart headerEnd';
+
+		.vector-header-start {
+			grid-area: headerStart;
+		}
+
+		.vector-header-end {
+			grid-area: headerEnd;
+		}
 	}
 }
 
