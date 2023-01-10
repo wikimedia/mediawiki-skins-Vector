@@ -384,10 +384,12 @@ abstract class SkinVector extends SkinMustache {
 
 		// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 		$showStickyULS = $this->isULSExtensionEnabled() && !$this->shouldHideLanguages();
+		$langButton = new VectorComponentLanguageButton( $this->getULSLabels()[ 'label' ] );
+
 		return [
 			'data-sticky-header-toc' => $tocPortletData,
 			'data-primary-action' => $showStickyULS ?
-				$this->getULSButtonData() : null,
+				$langButton->getTemplateData() : null,
 			'data-button-start' => [
 				'label' => $this->msg( 'search' ),
 				'icon' => 'wikimedia-search',
@@ -456,20 +458,6 @@ abstract class SkinVector extends SkinMustache {
 			'is-quiet' => true,
 			'tabindex' => '-1',
 			'class' => 'sticky-header-icon mw-ui-primary mw-ui-progressive'
-		];
-	}
-
-	/**
-	 * Creates button data for the ULS button in the sticky header
-	 *
-	 * @return array
-	 */
-	private function getULSButtonData() {
-		$numLanguages = count( $this->getLanguagesCached() );
-		$langButton = new VectorComponentLanguageButton();
-
-		return $langButton->getTemplateData() + [
-			'label' => $this->getULSLabels()[ 'label' ],
 		];
 	}
 

@@ -7,6 +7,15 @@ use MediaWiki\Skins\Vector\Hooks;
  * VectorComponentLanguageButton component
  */
 class VectorComponentLanguageButton implements VectorComponent {
+	/** @var string */
+	private $label;
+
+	/**
+	 * @param string $label
+	 */
+	public function __construct( string $label ) {
+		$this->label = $label;
+	}
 
 	/**
 	 * @inheritDoc
@@ -18,7 +27,8 @@ class VectorComponentLanguageButton implements VectorComponent {
 			'is-quiet' => true,
 			'tabindex' => '-1',
 			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-language' ),
-			'event' => 'ui.dropdown-p-lang-btn-sticky-header'
+			'event' => 'ui.dropdown-p-lang-btn-sticky-header',
+			'label' => $this->label,
 		];
 	}
 }
