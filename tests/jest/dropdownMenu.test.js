@@ -26,7 +26,7 @@ describe( 'addPortletLinkHandler', () => {
 
 		// <li> element is the assumed HTML output of mw.util.addPortlet
 		document.body.innerHTML = `
-		<ul class="vector-menu vector-menu-dropdown vector-menu-dropdown-noicon">
+		<ul class="vector-menu vector-menu-dropdown">
 			<li class="mw-list-item mw-list-item-js" id="test-id">
 				<a href="#test-href">
 					<span>

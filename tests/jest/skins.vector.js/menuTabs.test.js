@@ -52,7 +52,7 @@ describe( 'menuTabs', () => {
 
 	test( 'does not add vector-tab-noicon class to li element when not part of tabs', () => {
 		document.body.innerHTML = `
-			<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants vector-menu-dropdown-noicon vector-menu-dropdown">
+			<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants vector-menu-dropdown">
 				<div class="vector-menu-content">
 					<ul class="vector-menu-content-list">
 						<li class="mw-list-item mw-list-item-js" id="test-id">
