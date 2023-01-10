@@ -5,6 +5,7 @@
 			"Don Alessandro",
 			"Rinatus",
 			"Ерней",
+			"Ильгиз",
 			"Ильнар",
 			"Рашат Якупов"
 		]
@@ -26,5 +27,6 @@
 	"vector-jumptonavigation": "Навигациягә күчү",
 	"vector-jumptosearch": "Эзләүгә күчү",
 	"vector-more-actions": "Тагын",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ны үз эченә алган битләрне эзләү"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ны үз эченә алган битләрне эзләү",
+	"empty-language-selector-body": "Битнең эчтәлекләре башка телләрдә бирелми."
 }

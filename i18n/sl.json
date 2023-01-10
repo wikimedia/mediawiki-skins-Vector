@@ -64,5 +64,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Pogovor]]",
 	"tooltip-vector-anon-user-menu-title": "Več možnosti",
 	"vector-prefs-limited-width": "Omogoči način omejene širine",
-	"vector-prefs-limited-width-help": "Omogoči način omejene širine za boljšo izkušnjo branja in gledanja."
+	"vector-prefs-limited-width-help": "Omogoči način omejene širine za boljšo izkušnjo branja in gledanja.",
+	"empty-language-selector-body": "Vsebina strani ni podprta v drugih jezikih."
 }
