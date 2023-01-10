@@ -39,8 +39,10 @@
 	.vector-menu-content {
 		left: auto;
 		right: 0;
-		// TODO: Standardize dropdown min and max width
-		min-width: 200px;
+
+		.vector-feature-page-tools-disabled & {
+			min-width: 200px;
+		}
 	}
 
 	.user-links-collapsible-item {
@@ -60,7 +62,6 @@
 		.vector-feature-page-tools-disabled & {
 			.mixin-vector-dropdown-menu-item-deprecated();
 		}
-		white-space: nowrap;
 		color: @color-link;
 	}
 }

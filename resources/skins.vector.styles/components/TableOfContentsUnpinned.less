@@ -27,6 +27,11 @@
 .mixin-toc-unpinned() {
 	display: block;
 
+	> .vector-menu-content {
+		// Override default dropdown max width
+		max-width: none;
+	}
+
 	// Shared unpinned TOC styles, applies across all unpinned cases (page titlebar, sticky header, floating)
 	// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
 	.sidebar-toc,
@@ -140,6 +145,10 @@
 			// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 			border: @border-width-base @border-style-base @border-color-base;
 			z-index: @z-index-menu;
+		}
+
+		.vector-feature-page-tools-enabled .vector-toc {
+			padding-left: @padding-horizontal-dropdown-menu-item;
 		}
 
 		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
