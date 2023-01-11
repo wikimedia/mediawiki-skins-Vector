@@ -55,5 +55,6 @@
 	"vector-toc-collapsible-button-label": "Tartalomjegyzék kinyitása/becsukása",
 	"vector-site-nav-label": "Wiki",
 	"vector-unpin-element-label": "elrejtés",
-	"tooltip-vector-anon-user-menu-title": "További lehetőségek"
+	"tooltip-vector-anon-user-menu-title": "További lehetőségek",
+	"empty-language-selector-body": "Az oldal más nyelven nem elérhető."
 }
