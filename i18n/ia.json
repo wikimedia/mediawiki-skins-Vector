@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Amire80"
 		]
 	},
 	"vector-skin-desc": "Forni duo apparentias Vector:\n* 2011 - Le version moderne de MonoBook con aspecto rejuvenescite e multe meliorationes de usabilitate.\n* 2022 - Le apparentia Vector construite como parte del projecto WMF [[mw:Desktop Improvements]].",
@@ -12,8 +13,10 @@
 	"vector.css": "/* Tote CSS hic essera cargate pro le usatores del apparentia Vector */",
 	"vector.js": "/* Tote JavaScript hic essera cargate pro le usatores del apparentia Vector */",
 	"vector-action-toggle-sidebar": "Alternar barra lateral",
+	"vector-languages": "Linguas",
 	"vector-language-button-aria-label": "Leger un articulo in un altere lingua. Disponibile in $1 lingua{{PLURAL:$1||s}}.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 linguas}}",
+	"vector-language-redirect-to-top": "In iste {{SITENAME}} le ligamines a linguas se trova in le parte superior del pagina in facie del titulo del articulo. [[#p-lang-btn|Ir in alto]].",
 	"vector-language-variant-switcher-label": "Cambiar variante de lingua",
 	"vector-action-addsection": "Adder topico",
 	"vector-action-delete": "Deler",
