@@ -366,6 +366,16 @@
 					]
 				},
 				{
+					"name": "resources/skins.vector.es6/templates/PinnableElement/Open.mustache",
+					"file": "includes/templates/PinnableElement/Open.mustache",
+					"type": "text"
+				},
+				{
+					"name": "resources/skins.vector.es6/templates/PinnableElement/Close.mustache",
+					"file": "includes/templates/PinnableElement/Close.mustache",
+					"type": "text"
+				},
+				{
 					"name": "resources/skins.vector.es6/templates/TableOfContents.mustache",
 					"file": "includes/templates/TableOfContents.mustache",
 					"type": "text"

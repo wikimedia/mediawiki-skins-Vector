@@ -5,6 +5,8 @@
  */
 const templateBody = require( /** @type {string} */ ( './templates/TableOfContents.mustache' ) );
 const templateTocLine = require( /** @type {string} */ ( './templates/TableOfContents__line.mustache' ) );
+const templatePinnableElementOpen = require( /** @type {string} */ ( './templates/PinnableElement/Open.mustache' ) );
+const templatePinnableElementClose = require( /** @type {string} */ ( './templates/PinnableElement/Close.mustache' ) );
 /**
  * TableOfContents Config object for filling mustache templates
  */
@@ -462,12 +464,14 @@ module.exports = function tableOfContents( props ) {
 		// @ts-ignore
 		const mustacheCompiler = mw.template.getCompiler( 'mustache' );
 		const compiledTemplateBody = mustacheCompiler.compile( templateBody );
-		const compiledTemplateTocLine = mustacheCompiler.compile( templateTocLine );
 
 		// Identifier 'TableOfContents__line' is not in camel case
 		// (template name is 'TableOfContents__line')
 		const partials = {
-			TableOfContents__line: compiledTemplateTocLine // eslint-disable-line camelcase
+			// eslint-disable-next-line camelcase
+			TableOfContents__line: mustacheCompiler.compile( templateTocLine ),
+			'PinnableElement/Open': mustacheCompiler.compile( templatePinnableElementOpen ),
+			'PinnableElement/Close': mustacheCompiler.compile( templatePinnableElementClose )
 		};
 
 		return compiledTemplateBody.render( data, partials ).html();
