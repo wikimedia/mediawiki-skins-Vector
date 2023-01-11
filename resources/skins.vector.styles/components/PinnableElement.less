@@ -1,3 +1,5 @@
+@import '../../common/variables.less';
+
 .vector-feature-page-tools-enabled .vector-pinnable-element {
 	& > * + * {
 		// Apply top border to every children of pinnable elements except the first
@@ -25,5 +27,17 @@
 	.mw-list-item a {
 		padding-left: 0;
 		padding-right: 0;
+	}
+}
+
+/**
+ * At lower resolutions, we want to hide the pinned containers since these
+ * elements collapse (become unpinned) at this resolution via PinnableElement.js.
+ * Although this is handled in JS, this rule prevents the pinned menu from
+ * appearing on pageload, at low resolutions, before the JS kicks in.
+ */
+@media screen and ( max-width: @max-width-tablet ) {
+	.vector-pinned-container {
+		display: none;
 	}
 }

@@ -32,25 +32,38 @@ function save( feature, enabled ) {
 }
 
 /**
- * @param {string} name
+ *
+ * @param {string} name feature name
+ * @param {boolean} [override] option to force enabled or disabled state.
+ *
+ * @return {boolean} The new feature state (false=disabled, true=enabled).
  * @throws {Error} if unknown feature toggled.
  */
-function toggle( name ) {
+function toggleBodyClasses( name, override ) {
 	const featureClassEnabled = 'vector-feature-' + name + '-enabled',
 		classList = document.body.classList,
 		featureClassDisabled = 'vector-feature-' + name + '-disabled';
 
-	if ( classList.contains( featureClassDisabled ) ) {
+	if ( classList.contains( featureClassDisabled ) || override === true ) {
 		classList.remove( featureClassDisabled );
 		classList.add( featureClassEnabled );
-		save( name, true );
-	} else if ( classList.contains( featureClassEnabled ) ) {
+		return true;
+	} else if ( classList.contains( featureClassEnabled ) || override === false ) {
 		classList.add( featureClassDisabled );
 		classList.remove( featureClassEnabled );
-		save( name, false );
+		return false;
 	} else {
 		throw new Error( 'Attempt to toggle unknown feature: ' + name );
 	}
+}
+
+/**
+ * @param {string} name
+ * @throws {Error} if unknown feature toggled.
+ */
+function toggle( name ) {
+	const featureState = toggleBodyClasses( name );
+	save( name, featureState );
 }
 
 /**
@@ -65,7 +78,4 @@ function isEnabled( name ) {
 	);
 }
 
-module.exports = {
-	isEnabled: isEnabled,
-	toggle: toggle
-};
+module.exports = { isEnabled, toggle, toggleBodyClasses };

@@ -3,6 +3,63 @@ const PINNED_HEADER_CLASS = 'vector-pinnable-header-pinned';
 const UNPINNED_HEADER_CLASS = 'vector-pinnable-header-unpinned';
 
 /**
+ * Callback for matchMedia listener that overrides the pinnable header's stored state
+ * at a certain breakpoint and forces it to unpin. Also hides the pinnable button
+ * at that breakpoint to disable pinning.
+ * Usage of 'e.matches' assumes a `max-width` not `min-width` media query.
+ *
+ * @param {HTMLElement} header
+ * @param {MediaQueryList|MediaQueryListEvent} e
+ */
+function disablePinningAtBreakpoint( header, e ) {
+	const {
+		pinnableElementId,
+		pinnedContainerId,
+		unpinnedContainerId,
+		featureName
+	} = header.dataset;
+	const savedPinnedState = JSON.parse( header.dataset.savedPinnedState || 'false' );
+
+	// (typescript null check)
+	if ( !( pinnableElementId && unpinnedContainerId && pinnedContainerId && featureName ) ) {
+		return;
+	}
+
+	// Hide the button at lower resolutions.
+	header.hidden = e.matches;
+
+	// FIXME: Class toggling should be centralized instead of being
+	// handled here, in features.js and togglePinnableClasses().
+	if ( e.matches && savedPinnedState === true ) {
+		features.toggleBodyClasses( featureName, false );
+		header.classList.remove( PINNED_HEADER_CLASS );
+		header.classList.add( UNPINNED_HEADER_CLASS );
+		movePinnableElement( pinnableElementId, unpinnedContainerId );
+	}
+
+	if ( !e.matches && savedPinnedState === true ) {
+		features.toggleBodyClasses( featureName, true );
+		header.classList.add( PINNED_HEADER_CLASS );
+		header.classList.remove( UNPINNED_HEADER_CLASS );
+		movePinnableElement( pinnableElementId, pinnedContainerId );
+	}
+}
+
+/**
+ * Saves the persistent pinnable state in the element's dataset
+ * so that it can be overridden at lower resolutions and the
+ * reverted to at wider resolutions.
+ *
+ * This is not necessarily the elements current state, but it
+ * seeks to represent the state of the saved user preference.
+ *
+ * @param {HTMLElement} header
+ */
+function setSavedPinnableState( header ) {
+	header.dataset.savedPinnedState = String( isPinned( header ) );
+}
+
+/**
  * Toggle classes on the body and pinnable element
  *
  * @param {HTMLElement} header pinnable element
@@ -32,7 +89,7 @@ function togglePinnableClasses( header ) {
  *
  * @param {HTMLElement} header PinnableHeader element.
  */
-function togglePinnableElement( header ) {
+function pinnableElementClickHandler( header ) {
 	const {
 		pinnableElementId,
 		pinnedContainerId,
@@ -47,6 +104,7 @@ function togglePinnableElement( header ) {
 		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
 	}
+	setSavedPinnableState( header );
 }
 
 /**
@@ -60,11 +118,18 @@ function bindPinnableToggleButtons( header ) {
 		return;
 	}
 
+	const pinnableBreakpoint = window.matchMedia( '(max-width: 1000px)' );
 	const toggleButtons = header.querySelectorAll( '.vector-pinnable-header-toggle-button' );
 
 	toggleButtons.forEach( function ( button ) {
-		button.addEventListener( 'click', togglePinnableElement.bind( null, header ) );
+		button.addEventListener( 'click', pinnableElementClickHandler.bind( null, header ) );
 	} );
+	// set saved pinned state for narrow breakpoint behaviour.
+	setSavedPinnableState( header );
+	// Check the breakpoint in case an override is needed on pageload.
+	disablePinningAtBreakpoint( header, pinnableBreakpoint );
+	// Add match media handler.
+	pinnableBreakpoint.addEventListener( 'change', disablePinningAtBreakpoint.bind( null, header ) );
 }
 
 /**
