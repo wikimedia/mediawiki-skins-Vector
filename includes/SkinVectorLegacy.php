@@ -108,11 +108,6 @@ class SkinVectorLegacy extends SkinVector {
 				break;
 		}
 
-		$isDropdown = $type === self::MENU_TYPE_DROPDOWN;
-		if ( $isDropdown && !$isIconDropdown ) {
-			$portletData['class'] .= ' vector-menu-dropdown-noicon';
-		}
-
 		if ( $key === 'data-personal' ) {
 			// Set tooltip to empty string for the personal menu for both logged-in and logged-out users
 			// to avoid showing the tooltip for legacy version.
@@ -132,7 +127,7 @@ class SkinVectorLegacy extends SkinVector {
 		);
 
 		return $portletData + [
-			'is-dropdown' => $isDropdown,
+			'is-dropdown' => $type === self::MENU_TYPE_DROPDOWN,
 			'is-portal' => $type === self::MENU_TYPE_PORTAL,
 		];
 	}
