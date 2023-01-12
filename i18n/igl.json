@@ -11,9 +11,9 @@
 	"vector-action-move": "Tẹlo",
 	"vector-action-protect": "Dída",
 	"vector-view-create": "Nyí",
-	"vector-view-edit": "nwọ́cha",
+	"vector-view-edit": "Nwọ́che",
 	"vector-view-history": "Gọ ọ́là īgbálá",
 	"vector-view-view": "Gbá",
 	"vector-more-actions": "Mànyú",
-	"vector-searchsuggest-containing": "Téné Ogbá kí gwonyu<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Téné amí ogbá kí gwonwú <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
