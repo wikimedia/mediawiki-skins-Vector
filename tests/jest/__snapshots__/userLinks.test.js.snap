@@ -7,15 +7,15 @@ exports[`UserLinks renders 1`] = `
 		Toggle sidebar
 	</div>
 <div class=\\"vector-menu-content\\">
-    
-    <ul class=\\"vector-menu-content-list\\">
+	
+	<ul class=\\"vector-menu-content-list\\">
 			<li id=\\"ca-uls\\" class=\\"user-links-collapsible-item mw-list-item active\\"><a href=\\"#\\" class=\\"uls-trigger mw-ui-button mw-ui-quiet\\"><span class=\\"mw-ui-icon mw-ui-icon-wikimedia-language\\"></span> <span>English</span></a></li>
 			<li id=\\"pt-userpage-2\\" class=\\"user-links-collapsible-item mw-list-item\\"><a href=\\"/wiki/User:Admin\\" class=\\"mw-ui-button mw-ui-quiet\\" title=\\"Your user page [⌃⌥.]\\" accesskey=\\".\\"><span>Admin</span></a></li>
 			<li id=\\"pt-notifications-alert\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your alerts\\"><span>Alerts (0)</span></a></li>
 			<li id=\\"pt-notifications-notice\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your notices\\"><span>Notices (0)</span></a></li>
 			<li id=\\"pt-watchlist-2\\" class=\\"user-links-collapsible-item mw-list-item\\"><a href=\\"/wiki/Special:Watchlist\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist\\" title=\\"A list of pages you are monitoring for changes [⌃⌥l]\\" accesskey=\\"l\\"><span>Watchlist</span></a></li>
 		</ul>
-    
+	
 </div>
 </div>
 <div id=\\"p-personal\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown\\">
@@ -26,8 +26,8 @@ exports[`UserLinks renders 1`] = `
 	<div class=\\"vector-menu-content\\">
 
 <div class=\\"vector-menu-content\\">
-    
-    <ul class=\\"vector-menu-content-list\\">
+	
+	<ul class=\\"vector-menu-content-list\\">
 			<li id=\\"pt-userpage\\" class=\\"user-links-collapsible-item mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar\\" href=\\"/wiki/User:Admin\\" title=\\"Your user page [.]\\" accesskey=\\".\\"><span>Admin</span></a></li>
 			<li id=\\"pt-mytalk\\" class=\\"mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk\\" href=\\"/wiki/User_talk:Admin\\" title=\\"Your talk page [n]\\" accesskey=\\"n\\"><span>Talk</span></a></li>
 			<li id=\\"pt-sandbox\\" class=\\"new mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-sandbox mw-ui-icon-wikimedia-sandbox\\" href=\\"/w/index.php?title=User:Admin/sandbox&amp;action=edit&amp;redlink=1\\" title=\\"Your sandbox (page does not exist)\\"><span>Sandbox</span></a></li>
@@ -38,13 +38,13 @@ exports[`UserLinks renders 1`] = `
 			<li id=\\"pt-mycontris\\" class=\\"mw-list-item\\"><a class=\\"mw-ui-icon mw-ui-icon-before mw-ui-icon-userContributions mw-ui-icon-wikimedia-userContributions\\" href=\\"/wiki/Special:Contributions/Admin\\" title=\\"A list of your contributions [y]\\" accesskey=\\"y\\"><span>Contributions</span></a></li>
 			<li id=\\"pt-custom\\" class=\\"mw-list-item mw-list-item-js\\">Gadget added item</li>
 		</ul>
-    
+	
 </div>
 <div class=\\"vector-menu-content\\">
-    
-    <ul class=\\"vector-menu-content-list\\"><li class=\\"vector-user-menu-logout\\" id=\\"pt-logout\\"><a data-mw=\\"interface\\" href=\\"/logout\\"><span>Log out</span></a>
+	
+	<ul class=\\"vector-menu-content-list\\"><li class=\\"vector-user-menu-logout\\" id=\\"pt-logout\\"><a data-mw=\\"interface\\" href=\\"/logout\\"><span>Log out</span></a>
 </li></ul>
-    
+	
 </div>
 	</div>
 </div></nav>
