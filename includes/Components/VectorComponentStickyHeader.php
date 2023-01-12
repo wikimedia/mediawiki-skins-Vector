@@ -133,12 +133,13 @@ class VectorComponentStickyHeader implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
+		$tocID = 'vector-sticky-header-toc';
 		$pinnableContainer = new VectorComponentTableOfContentsContainer(
 			$this->localizer,
-			'vector-sticky-header-toc'
+			$tocID
 		);
 		$tocDropdown = new VectorComponentDropdown(
-			'vector-toc',
+			$tocID,
 			'',
 			'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
 			'listBullet'
