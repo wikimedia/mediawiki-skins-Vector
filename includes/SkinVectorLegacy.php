@@ -4,13 +4,15 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
+use SkinMustache;
+use SkinTemplate;
 
 /**
  * @ingroup Skins
  * @package Vector
  * @internal
  */
-class SkinVectorLegacy extends SkinVector {
+class SkinVectorLegacy extends SkinMustache {
 	/** @var int */
 	private const MENU_TYPE_DEFAULT = 0;
 	/** @var int */
@@ -20,21 +22,11 @@ class SkinVectorLegacy extends SkinVector {
 	private const MENU_TYPE_PORTAL = 3;
 
 	/**
-	 * Show the ULS button if it's modern Vector, languages in header is enabled,
-	 * and the ULS extension is enabled. Hide it otherwise.
-	 * There is no point in showing the language button if ULS extension is unavailable
-	 * as there is no ways to add languages without it.
-	 * @return bool
-	 */
-	protected function shouldHideLanguages(): bool {
-		return true;
-	}
-
-	/**
 	 * @inheritDoc
 	 */
-	protected function isLanguagesInContentAt( $location ) {
-		return false;
+	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
 	}
 
 	/**
@@ -99,10 +91,6 @@ class SkinVectorLegacy extends SkinVector {
 			case 'data-user-page':
 			case 'data-vector-user-menu-overflow':
 				$type = self::MENU_TYPE_DEFAULT;
-				break;
-			case 'data-languages':
-				$type = $this->isLanguagesInContent() ?
-					self::MENU_TYPE_DROPDOWN : self::MENU_TYPE_PORTAL;
 				break;
 			default:
 				$type = self::MENU_TYPE_PORTAL;
