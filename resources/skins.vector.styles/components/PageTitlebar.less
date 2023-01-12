@@ -15,4 +15,17 @@
 		flex-grow: 1;
 		border: 0;
 	}
+
+	.vector-page-titlebar-toc {
+		&.ve-active {
+			display: none !important; /* stylelint-disable-line declaration-no-important */
+		}
+
+		.vector-menu-heading {
+			// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
+			@media ( max-width: @max-width-tablet ) {
+				padding: 7px 12px;
+			}
+		}
+	}
 }
