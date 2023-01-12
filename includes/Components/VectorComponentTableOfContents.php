@@ -50,14 +50,12 @@ class VectorComponentTableOfContents implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		// If the table of contents has no items, we won't output it.
-		// empty array is interpreted by Mustache as falsey.
-		if ( empty( $this->tocData ) || empty( $this->tocData[ 'array-sections' ] ) ) {
+		$sections = $this->tocData[ 'array-sections' ] ?? [];
+		if ( empty( $sections ) ) {
 			return [];
 		}
-
 		// Populate button labels for collapsible TOC sections
-		foreach ( $this->tocData[ 'array-sections' ] as &$section ) {
+		foreach ( $sections as &$section ) {
 			if ( $section['is-top-level-section'] && $section['is-parent-section'] ) {
 				$section['vector-button-label'] =
 					$this->localizer->msg( 'vector-toc-toggle-button-label', $section['line'] )->text();
