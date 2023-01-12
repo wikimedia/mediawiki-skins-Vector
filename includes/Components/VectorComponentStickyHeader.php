@@ -77,8 +77,6 @@ class VectorComponentStickyHeader implements VectorComponent {
 	/** @var MessageLocalizer */
 	private $localizer;
 	/** @var VectorComponent */
-	private $toc;
-	/** @var VectorComponent */
 	private $search;
 	/** @var VectorComponent|null */
 	private $langButton;
@@ -133,17 +131,6 @@ class VectorComponentStickyHeader implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$tocID = 'vector-sticky-header-toc';
-		$pinnableContainer = new VectorComponentTableOfContentsContainer(
-			$this->localizer,
-			$tocID
-		);
-		$tocDropdown = new VectorComponentDropdown(
-			$tocID,
-			'',
-			'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc mw-ui-icon-flush-left',
-			'listBullet'
-		);
 		$btns = [
 			self::TALK_ICON,
 			self::SUBJECT_ICON,
@@ -159,8 +146,6 @@ class VectorComponentStickyHeader implements VectorComponent {
 		$searchBoxData = $this->search->getTemplateData();
 
 		return [
-			'data-sticky-header-toc-pinnable-container' => $pinnableContainer->getTemplateData(),
-			'data-sticky-header-toc-dropdown' => $tocDropdown->getTemplateData(),
 			'data-buttons' => $btns,
 			'data-primary-action' => $this->langButton ?
 				$this->langButton->getTemplateData() : null,
