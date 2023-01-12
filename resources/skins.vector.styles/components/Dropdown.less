@@ -26,6 +26,17 @@
 		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.1 );
 		transition-property: opacity;
 		transition-duration: @transition-duration-base;
+
+		.vector-feature-page-tools-disabled & {
+			// The menu content should not be narrower than the menu button.
+			min-width: 100%;
+		}
+
+		.vector-feature-page-tools-enabled & {
+			// TODO Add consistent min/max values for dropdowns in T316055
+			width: max-content;
+			max-width: 200px;
+		}
 	}
 }
 
@@ -35,7 +46,6 @@
 .vector-dropdown .mw-list-item {
 	a {
 		.mixin-vector-dropdown-menu-item();
-		white-space: nowrap;
 		color: @color-link;
 
 		.vector-feature-page-tools-disabled & {
