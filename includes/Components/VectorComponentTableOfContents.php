@@ -24,7 +24,7 @@ class VectorComponentTableOfContents implements VectorComponent {
 	/** @var VectorComponentPinnableHeader */
 	private $pinnableHeader;
 
-	/** @var string */
+	 /** @var string */
 	public const ID = 'vector-toc';
 
 	/**
@@ -42,14 +42,6 @@ class VectorComponentTableOfContents implements VectorComponent {
 		// ToC is pinned by default, hardcoded for now
 		$this->isPinned = true;
 		$this->config = $config;
-		$this->pinnableHeader = new VectorComponentPinnableHeader(
-			$this->localizer,
-			$this->isPinned,
-			'vector-toc',
-			null,
-			false,
-			'h2'
-		);
 	}
 
 	/**
@@ -72,11 +64,9 @@ class VectorComponentTableOfContents implements VectorComponent {
 			}
 		}
 
-		$pinnableContainer = new VectorComponentPinnableContainer( self::ID );
 		$pinnableElement = new VectorComponentPinnableElement( self::ID );
 
 		return $pinnableElement->getTemplateData() +
-			$pinnableContainer->getTemplateData() +
 			array_merge( $this->tocData, [
 			'is-vector-toc-beginning-enabled' => $this->config->get(
 				'VectorTableOfContentsBeginning'
@@ -85,7 +75,6 @@ class VectorComponentTableOfContents implements VectorComponent {
 				$this->tocData[ 'number-section-count'] >= $this->config->get(
 					'VectorTableOfContentsCollapseAtCount'
 				),
-			'data-pinnable-header' => $this->pinnableHeader->getTemplateData(),
 		] );
 	}
 }

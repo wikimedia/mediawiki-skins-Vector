@@ -58,7 +58,7 @@ const editButtonsTemplateData = [ {
 } ];
 
 const templateData = {
-	'data-sticky-header-toc': {
+	'data-sticky-header-toc-dropdown': {
 		id: 'vector-sticky-header-toc',
 		class: 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
 		'html-items': '',

@@ -19,8 +19,6 @@ exports[`Sticky header renders 1`] = `
 	</label>
 	<div class=\\"vector-menu-content\\">
 
-<div id=\\"vector-sticky-header-toc-unpinned-container\\" class=\\"vector-unpinned-container\\">
-</div>
 	</div>
 </div>			</div>
 			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>
