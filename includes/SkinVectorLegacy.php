@@ -148,9 +148,6 @@ class SkinVectorLegacy extends SkinMustache {
 		if ( !isset( $portletData['heading-class'] ) ) {
 			$portletData['heading-class'] = '';
 		}
-		if ( $type === self::MENU_TYPE_DROPDOWN ) {
-			$portletData = Hooks::updateDropdownMenuData( $portletData );
-		}
 
 		$portletData['class'] = trim( $portletData['class'] );
 		$portletData['heading-class'] = trim( $portletData['heading-class'] );
