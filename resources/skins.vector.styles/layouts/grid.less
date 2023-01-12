@@ -137,11 +137,14 @@
 	.vector-feature-page-tools-enabled .mw-body {
 		display: grid;
 		grid-auto-rows: auto;
-		column-gap: @grid-column-gap;
 		grid-template-columns: ~'minmax(0, @{max-width-content-container}) min-content';
 		grid-template-areas: 'titlebar .'
 			'toolbar columnEnd'
 			'content columnEnd';
+
+		.vector-feature-page-tools-pinned-enabled& {
+			column-gap: @grid-column-gap;
+		}
 
 		.vector-feature-limited-width-disabled&,
 		.vector-feature-limited-width-content-disabled& {
