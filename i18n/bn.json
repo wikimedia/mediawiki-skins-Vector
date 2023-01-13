@@ -61,11 +61,16 @@
 	"vector-toc-menu-tooltip": "সূচিপত্র",
 	"vector-toc-collapsible-button-label": "সূচিপত্র টগল করুন",
 	"vector-site-nav-label": "সাইট",
+	"vector-main-menu-label": "প্রধান মেনু",
+	"vector-limited-width-toggle": "সীমিত বিষয়বস্তুর প্রস্থ সক্রিয় বা নিষ্ক্রিয় করুন",
 	"vector-page-tools-label": "সরঞ্জাম",
+	"vector-page-tools-general-label": "সাধারণ",
+	"vector-page-tools-actions-label": "কার্য",
 	"vector-pin-element-label": "পার্শ্বদণ্ডে নিন",
 	"vector-unpin-element-label": "লুকান",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|আলোচনা]]",
 	"tooltip-vector-anon-user-menu-title": "আরও বিকল্প",
 	"vector-prefs-limited-width": "সীমিত প্রস্থ মোড সক্রিয় করুন",
-	"vector-prefs-limited-width-help": "উন্নত পঠন অভিজ্ঞতার জন্য সীমিত প্রস্থ মোড সক্রিয় করে।"
+	"vector-prefs-limited-width-help": "উন্নত পঠন অভিজ্ঞতার জন্য সীমিত প্রস্থ মোড সক্রিয় করে।",
+	"empty-language-selector-body": "পাতাটির বিষয়বস্তু অন্যান্য ভাষায় নেই।"
 }
