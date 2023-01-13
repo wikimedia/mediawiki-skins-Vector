@@ -53,12 +53,12 @@ class VectorComponentLanguageDropdown implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$title = $this->title;
-		$isContentPage = $title && $title->exists() && $title->isContentPage();
-		// if page doesn't exist or if it's not a content page, we should
+		$isSubjectPage = $title && $title->exists() && !$title->isTalkPage();
+		// If page doesn't exist or if it's in a talk namespace, we should
 		// display a less prominent "language" button, without a label, and
 		// quiet instead of progressive. For this reason some default values
 		// should be updated for this case. (T316559)
-		if ( !$isContentPage ) {
+		if ( !$isSubjectPage ) {
 			$icon = '<span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span>';
 			$label = '';
 			$headingClass = 'mw-ui-button mw-ui-quiet mw-portlet-lang-heading-empty';
@@ -80,7 +80,7 @@ class VectorComponentLanguageDropdown implements VectorComponent {
 		// Override header icon (currently no way to do this using constructor)
 		$dropdownData['html-vector-heading-icon'] = $icon;
 		$dropdownData['aria-label'] = $this->ariaLabel;
-		$dropdownData['is-language-selector-empty'] = !$isContentPage;
+		$dropdownData['is-language-selector-empty'] = !$isSubjectPage;
 
 		return $dropdownData + $this->menuContentsData;
 	}
