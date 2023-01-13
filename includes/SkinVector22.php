@@ -307,6 +307,10 @@ class SkinVector22 extends SkinMustache {
 		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$localizer = $this->getContext();
+		$tocData = $parentData['data-toc'];
+		// If the table of contents has no items, we won't output it.
+		// empty array is interpreted by Mustache as falsey.
+		$isTocUnavailable = empty( $tocData ) || empty( $tocData[ 'array-sections' ] );
 		$components = [
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				$parentData['data-portlets']['data-variants'],
@@ -372,11 +376,11 @@ class SkinVector22 extends SkinMustache {
 				$langData['html-after-portal'] ?? '',
 				$this->getTitle()
 			) : null,
-			'data-toc-container' => new VectorComponentTableOfContentsContainer(
+			'data-toc-container' => $isTocUnavailable ? null : new VectorComponentTableOfContentsContainer(
 				$localizer,
 			),
-			'data-toc' => new VectorComponentTableOfContents(
-				$parentData['data-toc'],
+			'data-toc' => $isTocUnavailable ? null : new VectorComponentTableOfContents(
+				$tocData,
 				$localizer,
 				$this->getConfig()
 			),
@@ -417,7 +421,7 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
 			) : null,
-			'data-page-titlebar-toc-dropdown' => new VectorComponentDropdown(
+			'data-page-titlebar-toc-dropdown' => $isTocUnavailable ? null : new VectorComponentDropdown(
 				'vector-page-titlebar-toc',
 				// no label,
 				'',
