@@ -33,8 +33,6 @@
 	}
 
 	// Shared unpinned TOC styles, applies across all unpinned cases (page titlebar, sticky header, floating)
-	// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-	.sidebar-toc,
 	.vector-toc {
 		// T316056 Remove TOC menu fixed width and apply min/max-width
 		width: max-content;
@@ -52,15 +50,11 @@
 	@media ( max-width: @max-width-tablet ) {
 		// Prevent layout shift from the TOC being in the sidebar before JS loads and
 		// moves the TOC into the page titlebar on small screens
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		#vector-toc-pinned-container .sidebar-toc,
 		#vector-toc-pinned-container .vector-toc {
 			display: none;
 		}
 
 		// Hide pin ToC toggles on smaller resolution
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		.sidebar-toc .vector-pinnable-header-toggle-button,
 		.vector-toc .vector-pinnable-header-toggle-button {
 			display: none;
 		}
@@ -132,8 +126,6 @@
 			.mixin-toc-unpinned();
 		}
 
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		.sidebar-toc,
 		.vector-toc {
 			display: none;
 			position: absolute;
@@ -151,8 +143,6 @@
 			padding-left: @padding-horizontal-dropdown-menu-item;
 		}
 
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		@{selector-nojs-collapsed-toc-open} ~ .mw-table-of-contents-container .sidebar-toc,
 		@{selector-nojs-collapsed-toc-open} ~ .mw-table-of-contents-container .vector-toc {
 			// Hide the TOC when the button is not checked
 			display: block;

@@ -1,7 +1,5 @@
 @import '../../common/variables.less';
 
-// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-.sidebar-toc,
 .vector-toc {
 	max-height: 75vh;
 	box-sizing: border-box;
@@ -25,12 +23,10 @@
 		overflow: unset;
 	}
 
-	.sidebar-toc-numb,
 	.vector-toc-numb {
 		display: none;
 	}
 
-	.sidebar-toc-toggle,
 	.vector-toc-toggle {
 		// For no-js users, toggling is disabled and icon is hidden
 		display: none;
@@ -50,7 +46,6 @@
 		}
 	}
 
-	.sidebar-toc-link,
 	.vector-toc-link {
 		word-break: break-word;
 		color: @color-link;
@@ -59,19 +54,14 @@
 
 	// Highlight and bold active sections, active top sections that are unexpanded
 	// and active top sections that are the only active element.
-	.sidebar-toc-list-item-active,
-	.sidebar-toc-level-1-active:not( .sidebar-toc-list-item-expanded ),
-	.sidebar-toc-list-item-active.sidebar-toc-level-1-active,
 	.vector-toc-list-item-active,
 	.vector-toc-level-1-active:not( .vector-toc-list-item-expanded ),
 	.vector-toc-list-item-active.vector-toc-level-1-active {
-		> .sidebar-toc-link,
 		> .vector-toc-link {
 			// Highlight active section
 			color: @color-base;
 			font-weight: bold;
 
-			.sidebar-toc-text,
 			.vector-toc-text {
 				// Increase width to prevent line wrapping due to bold text
 				// Avoid applying on link element to avoid focus indicator changing size
@@ -81,12 +71,10 @@
 	}
 
 	// Highlight active top sections that contain an active section
-	.sidebar-toc-level-1-active:not( .sidebar-toc-list-item-active ) > .sidebar-toc-link,
 	.vector-toc-level-1-active:not( .vector-toc-list-item-active ) > .vector-toc-link {
 		color: @color-base;
 	}
 
-	.sidebar-toc-text,
 	.vector-toc-text {
 		.vector-feature-page-tools-disabled & {
 			padding: 4px 0;
@@ -98,8 +86,6 @@
 		}
 	}
 
-	.sidebar-toc-contents,
-	.sidebar-toc-list,
 	.vector-toc-contents,
 	.vector-toc-list {
 		margin: 0;
@@ -110,7 +96,6 @@
 		}
 	}
 
-	.sidebar-toc-list-item,
 	.vector-toc-list-item {
 		display: block;
 		position: relative;
@@ -121,7 +106,6 @@
 			margin: 0;
 		}
 
-		&.sidebar-toc-level-1,
 		&.vector-toc-level-1 {
 			padding-left: 0;
 		}
@@ -133,35 +117,28 @@
 }
 
 // Collapse ToC sections by default, excluding no-js
-.client-js .sidebar-toc,
 .client-js .vector-toc {
-	.sidebar-toc-level-1 .sidebar-toc-list-item,
 	.vector-toc-level-1 .vector-toc-list-item {
 		display: none;
 	}
 
-	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-list-item,
 	.vector-toc-level-1.vector-toc-list-item-expanded .vector-toc-list-item {
 		display: block;
 	}
 
-	.sidebar-toc-toggle,
 	.vector-toc-toggle {
 		display: block;
 	}
 
-	.sidebar-toc-level-1.sidebar-toc-list-item-expanded .sidebar-toc-toggle,
 	.vector-toc-level-1.vector-toc-list-item-expanded .vector-toc-toggle {
 		transform: rotate( 0deg );
 	}
 }
 
-.client-js body.ltr .sidebar-toc .sidebar-toc-toggle,
 .client-js body.ltr .vector-toc .vector-toc-toggle {
 	transform: rotate( -90deg );
 }
 
-.client-js body.rtl .sidebar-toc .sidebar-toc-toggle,
 .client-js body.rtl .vector-toc .vector-toc-toggle {
 	transform: rotate( 90deg );
 }

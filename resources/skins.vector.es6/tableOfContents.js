@@ -10,6 +10,13 @@ const templateTocLine = require( /** @type {string} */ ( './templates/TableOfCon
  */
 const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContentsConfig.json' ) );
 
+const SECTION_CLASS = 'vector-toc-list-item';
+const ACTIVE_SECTION_CLASS = 'vector-toc-list-item-active';
+const EXPANDED_SECTION_CLASS = 'vector-toc-list-item-expanded';
+const TOP_SECTION_CLASS = 'vector-toc-level-1';
+const ACTIVE_TOP_SECTION_CLASS = 'vector-toc-level-1-active';
+const LINK_CLASS = 'vector-toc-link';
+const TOGGLE_CLASS = 'vector-toc-toggle';
 const TOC_CONTENTS_ID = 'mw-panel-toc-list';
 
 /**
@@ -70,17 +77,6 @@ const TOC_CONTENTS_ID = 'mw-panel-toc-list';
  * @return {TableOfContents}
  */
 module.exports = function tableOfContents( props ) {
-	// FIXME: Replace with const and move to top of file after
-	// I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-	let SECTION_CLASS = 'sidebar-toc-list-item';
-	let ACTIVE_SECTION_CLASS = 'sidebar-toc-list-item-active';
-	let EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
-	let SIDEBAR_EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
-	let TOP_SECTION_CLASS = 'sidebar-toc-level-1';
-	let ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
-	let LINK_CLASS = 'sidebar-toc-link';
-	let TOGGLE_CLASS = 'sidebar-toc-toggle';
-
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
 	let /** @type {HTMLElement | undefined} */ activeSubSection;
 	let /** @type {Array<HTMLElement>} */ expandedSections;
@@ -235,7 +231,6 @@ module.exports = function tableOfContents( props ) {
 		if ( topSection && toggle && expandedSections.indexOf( topSection ) < 0 ) {
 			toggle.setAttribute( 'aria-expanded', 'true' );
 			topSection.classList.add( EXPANDED_SECTION_CLASS );
-			topSection.classList.add( SIDEBAR_EXPANDED_SECTION_CLASS );
 			expandedSections.push( topSection );
 		}
 	}
@@ -289,7 +284,6 @@ module.exports = function tableOfContents( props ) {
 			if ( isSelected && toggle && toggle.length > 0 ) {
 				toggle[ 0 ].setAttribute( 'aria-expanded', 'false' );
 				section.classList.remove( EXPANDED_SECTION_CLASS );
-				section.classList.remove( SIDEBAR_EXPANDED_SECTION_CLASS );
 				return false;
 			}
 			return true;
@@ -317,7 +311,7 @@ module.exports = function tableOfContents( props ) {
 	function initializeExpandedStatus() {
 		const parentSections = props.container.querySelectorAll( `.${TOP_SECTION_CLASS}` );
 		parentSections.forEach( ( section ) => {
-			const expanded = section.classList.contains( EXPANDED_SECTION_CLASS ) || section.classList.contains( SIDEBAR_EXPANDED_SECTION_CLASS );
+			const expanded = section.classList.contains( EXPANDED_SECTION_CLASS );
 			const toggle = section.querySelector( `.${TOGGLE_CLASS}` );
 			if ( toggle ) {
 				toggle.setAttribute( 'aria-expanded', expanded.toString() );
@@ -371,18 +365,6 @@ module.exports = function tableOfContents( props ) {
 	 * Binds event listeners and sets the default state of the component.
 	 */
 	function initialize() {
-		// FIXME: Remove after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		if ( document.querySelector( '.vector-toc' ) ) {
-			SECTION_CLASS = 'vector-toc-list-item';
-			ACTIVE_SECTION_CLASS = 'vector-toc-list-item-active';
-			EXPANDED_SECTION_CLASS = 'vector-toc-list-item-expanded';
-			SIDEBAR_EXPANDED_SECTION_CLASS = 'sidebar-toc-list-item-expanded';
-			TOP_SECTION_CLASS = 'vector-toc-level-1';
-			ACTIVE_TOP_SECTION_CLASS = 'vector-toc-level-1-active';
-			LINK_CLASS = 'vector-toc-link';
-			TOGGLE_CLASS = 'vector-toc-toggle';
-		}
-
 		// Sync component state to the default rendered state of the table of contents.
 		expandedSections = Array.from(
 			props.container.querySelectorAll( `.${EXPANDED_SECTION_CLASS}` )

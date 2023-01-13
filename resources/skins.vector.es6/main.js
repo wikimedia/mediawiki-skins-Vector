@@ -12,7 +12,6 @@ const
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
-	CACHED_TOC_ID = 'mw-panel-toc',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
@@ -121,10 +120,7 @@ const updateTocLocation = () => {
 	const isBelowDesktop = belowDesktopMedia.matches;
 
 	const pinnedContainerId = 'vector-toc-pinned-container';
-	// FIXME: Delete the conditional after has been in prod for 5 days
-	const stickyHeaderUnpinnedContainerId = document.getElementById( 'vector-sticky-header-toc-content-container' ) ?
-		'vector-sticky-header-toc-content-container' :
-		'vector-sticky-header-toc-unpinned-container';
+	const stickyHeaderUnpinnedContainerId = 'vector-sticky-header-toc-unpinned-container';
 	const pageTitlebarUnpinnedContainerId = 'vector-page-titlebar-toc-unpinned-container';
 
 	let newContainerId = '';
@@ -143,12 +139,7 @@ const updateTocLocation = () => {
 		}
 	}
 
-	// FIXME: Remove conditional after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-	if ( document.getElementById( TOC_ID ) ) {
-		pinnableElement.movePinnableElement( TOC_ID, newContainerId );
-	} else {
-		pinnableElement.movePinnableElement( CACHED_TOC_ID, newContainerId );
-	}
+	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
 };
 
 /**
@@ -241,13 +232,7 @@ const main = () => {
 	//
 	//  Table of contents
 	//
-	let tocElement;
-	// FIXME: Remove conditional after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-	if ( document.getElementById( TOC_ID ) ) {
-		tocElement = document.getElementById( TOC_ID );
-	} else {
-		tocElement = document.getElementById( CACHED_TOC_ID );
-	}
+	const tocElement = document.getElementById( TOC_ID );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
 
 	if ( !(

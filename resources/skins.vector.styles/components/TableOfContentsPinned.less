@@ -34,9 +34,6 @@
 			padding-bottom: 20px;
 		}
 
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		.sidebar-toc,
-		.sidebar-toc:after,
 		.vector-toc,
 		.vector-toc:after {
 			.vector-feature-page-tools-disabled & {
@@ -53,9 +50,7 @@
 
 		// T302076: Add fade scrollable indicator when TOC is in sidebar
 		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
-		// FIXME: Remove all .sidebar-toc selectors after I5b9228380f5c4674ef424d33127a5cb4010822da is in prod for 5 days
-		.vector-toc-pinned & .vector-toc:after,
-		.vector-toc-pinned & .sidebar-toc:after {
+		.vector-toc-pinned & .vector-toc:after {
 			content: '';
 			display: block;
 			position: absolute;
