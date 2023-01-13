@@ -12,7 +12,7 @@
 @size-base: 32px;
 
 @min-size-search-button: 30px;
-@background-size-x-search-button: unit( 20px / @font-size-browser / @font-size-base, em );
+@background-size-x-search-button: 20px;
 
 // Search container
 // We have to put those styles outside `.skin-vector-search-vue`,
@@ -39,7 +39,12 @@
 }
 
 .vector-search-box-vue .vector-search-box-input {
-	height: @size-base;
+	height: auto;
+	// The following is copied directly from Codex.
+	min-height: @size-base;
+	line-height: 1.4285714;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 .vector-search-box-vue .searchButton {
