@@ -141,7 +141,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 		$tocDropdown = new VectorComponentDropdown(
 			$tocID,
 			'',
-			'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
+			'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc mw-ui-icon-flush-left',
 			'listBullet'
 		);
 		$btns = [
