@@ -15,7 +15,7 @@
 	"vector-opt-out-tooltip": "Spremenite nastavitve, da se vrnete na stari videz preobleke (stari Vector)",
 	"vector.css": "/* Vsi koda CSS tukaj se bo naložila za uporabnike preobleke Vector */",
 	"vector.js": "/* Vsa koda JavaScript tukaj se bo naložila za uporabnike preobleke Vector */",
-	"vector-action-toggle-sidebar": "Vklopi stransko vrstico",
+	"vector-action-toggle-sidebar": "Preklop stranske letvice",
 	"vector-action-addsection": "Dodaj temo",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Prestavi",

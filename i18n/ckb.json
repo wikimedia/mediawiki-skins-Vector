@@ -4,7 +4,9 @@
 			"Asoxor",
 			"Calak",
 			"Sarchia",
-			"ئارام بکر"
+			"ئارام بکر",
+			"Aram",
+			"Muhammed taha"
 		]
 	},
 	"skinname-vector": "ڤێکتۆر",
@@ -12,6 +14,7 @@
 	"prefs-vector-enable-vector-1-help": "لەماوەی چەند ساڵی داھاتوو، ھەوڵی نوێکردنەوەی پێستەی ڤێکتۆر دەدەین. ڤێکتۆری سپاردە ڕێگەت پێ دەدات کە وەشانە کۆنەکەی ڤێکتۆر (لە کانوونی یەکەمی ٢٠١٩) ببینیت. بۆ زیاتر زانیاری لەسەر نوێکردنەوەکان، بڕۆ بۆ [[mw:Reading/Web/Desktop_Improvements|پەڕەی پرۆژەکەمان]].",
 	"vector-opt-out": "بۆ دیمەنە کۆنەکە بیگۆڕە",
 	"vector-opt-out-tooltip": "ڕێکخستنەکانت بۆ گەڕانەوەی دیمەنە کۆنەکەی پێستەکە (ڤێکتۆری سپاردە) بگۆڕە",
+	"vector-action-toggle-sidebar": "شریتەلا بگۆڕە",
 	"vector-action-addsection": "بابەت دابنێ",
 	"vector-action-delete": "سڕینەوە",
 	"vector-action-move": "گواستنەوە",
@@ -23,5 +26,7 @@
 	"vector-view-history": "مێژوو",
 	"vector-view-view": "خوێندنەوە",
 	"vector-view-viewsource": "سەرچاوەکەی ببینە",
+	"vector-jumptonavigation": "بۆ ڕێدۆزی بازبدە",
+	"vector-jumptosearch": "بۆ گەڕان بازبدە",
 	"vector-more-actions": "زیاتر"
 }
