@@ -5,6 +5,7 @@
 		"start": "bash dev-scripts/setup-storybook.sh && start-storybook --quiet -p 6006 -s resources/skins.vector.styles",
 		"test": "npm -s run lint && tsc && npm run test:unit && npm -s run doc",
 		"test:unit": "jest --silent",
+		"test:unit:updateSnapshot": "jest --updateSnapshot",
 		"test:a11y": "node tests/a11y/runA11yTests.js",
 		"selenium-daily": "node tests/a11y/runA11yTests.js --logResults",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",

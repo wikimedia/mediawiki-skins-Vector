@@ -1,6 +1,7 @@
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const tableOfContentsTemplate = fs.readFileSync( 'includes/templates/TableOfContents.mustache', 'utf8' );
+const tableOfContentsContentsTemplate = fs.readFileSync( 'includes/templates/TableOfContents__list.mustache', 'utf8' );
 const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOfContents__line.mustache', 'utf8' );
 const pinnableElementOpenTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Open.mustache', 'utf8' );
 const pinnableElementCloseTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Close.mustache', 'utf8' );
@@ -87,6 +88,7 @@ function render( templateProps = {} ) {
 		'PinnableElement/Open': pinnableElementOpenTemplate, // eslint-disable-line camelcase
 		'PinnableElement/Close': pinnableElementCloseTemplate, // eslint-disable-line camelcase
 		PinnableHeader: pinnableHeaderTemplate, // eslint-disable-line camelcase
+		TableOfContents__list: tableOfContentsContentsTemplate, // eslint-disable-line camelcase
 		TableOfContents__line: tableOfContentsLineTemplate // eslint-disable-line camelcase
 	} );
 }
@@ -291,12 +293,6 @@ describe( 'Table of contents', () => {
 					};
 				};
 				switch ( msg ) {
-					case 'vector-toc-label':
-						return msgFactory( 'Contents' );
-					case 'vector-pin-element-label':
-						return msgFactory( 'move to sidebar' );
-					case 'vector-unpin-element-label':
-						return msgFactory( 'hide' );
 					case 'vector-toc-beginning':
 						return msgFactory( 'Beginning' );
 					default:

@@ -3,14 +3,14 @@
 /**
  * TableOfContents Mustache templates
  */
-const templateBody = require( /** @type {string} */ ( './templates/TableOfContents.mustache' ) );
+const templateTocContents = require( /** @type {string} */ ( './templates/TableOfContents__list.mustache' ) );
 const templateTocLine = require( /** @type {string} */ ( './templates/TableOfContents__line.mustache' ) );
-const templatePinnableElementOpen = require( /** @type {string} */ ( './templates/PinnableElement/Open.mustache' ) );
-const templatePinnableElementClose = require( /** @type {string} */ ( './templates/PinnableElement/Close.mustache' ) );
 /**
  * TableOfContents Config object for filling mustache templates
  */
 const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContentsConfig.json' ) );
+
+const TOC_CONTENTS_ID = 'mw-panel-toc-list';
 
 /**
  * @callback onHeadingClick
@@ -54,11 +54,7 @@ const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContent
  * @property {boolean} is-vector-toc-beginning-enabled
  * @property {Section[]} array-sections
  * @property {boolean} vector-is-collapse-sections-enabled
- * @property {string} msg-vector-toc-label
- * @property {number} number-section-count
  * @property {string} msg-vector-toc-beginning
- * @property {string} msg-vector-unpin-element-label
- * @property {string} msg-vector-pin-element-label
  */
 
 /**
@@ -83,7 +79,6 @@ module.exports = function tableOfContents( props ) {
 	let ACTIVE_TOP_SECTION_CLASS = 'sidebar-toc-level-1-active';
 	let LINK_CLASS = 'sidebar-toc-link';
 	let TOGGLE_CLASS = 'sidebar-toc-toggle';
-	let TOC_ID = 'mw-panel-toc';
 
 	let /** @type {HTMLElement | undefined} */ activeTopSection;
 	let /** @type {HTMLElement | undefined} */ activeSubSection;
@@ -382,7 +377,6 @@ module.exports = function tableOfContents( props ) {
 			ACTIVE_TOP_SECTION_CLASS = 'vector-toc-level-1-active';
 			LINK_CLASS = 'vector-toc-link';
 			TOGGLE_CLASS = 'vector-toc-toggle';
-			TOC_ID = 'vector-toc';
 		}
 
 		// Sync component state to the default rendered state of the table of contents.
@@ -419,15 +413,22 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function reloadTableOfContents( sections ) {
 		if ( sections.length < 1 ) {
-			reloadPartialHTML( TOC_ID, '' );
+			reloadPartialHTML( TOC_CONTENTS_ID, '' );
 			return;
 		}
 		mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
-			reloadPartialHTML( TOC_ID, getTableOfContentsHTML( sections ) );
+			const { parent: activeParentId, child: activeChildId } = getActiveSectionIds();
+			reloadPartialHTML( TOC_CONTENTS_ID, getTableOfContentsHTML( sections ) );
 			// Reexpand sections that were expanded before the table of contents was reloaded.
 			reExpandSections();
-			// Initialize Collapse toggle buttons
-			bindPinnedToggleListeners();
+			// reActivate the active sections
+			deactivateSections();
+			if ( activeParentId ) {
+				activateSection( activeParentId );
+			}
+			if ( activeChildId ) {
+				activateSection( activeChildId );
+			}
 		} );
 	}
 
@@ -439,7 +440,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function reloadPartialHTML( elementId, html ) {
 		const htmlElement = document.getElementById( elementId );
-		if ( htmlElement ) {
+		if ( htmlElement && html ) {
 			htmlElement.innerHTML = html;
 		}
 	}
@@ -463,18 +464,16 @@ module.exports = function tableOfContents( props ) {
 	function getTableOfContentsListHtml( data ) {
 		// @ts-ignore
 		const mustacheCompiler = mw.template.getCompiler( 'mustache' );
-		const compiledTemplateBody = mustacheCompiler.compile( templateBody );
+		const compiledTemplateTocContents = mustacheCompiler.compile( templateTocContents );
 
 		// Identifier 'TableOfContents__line' is not in camel case
 		// (template name is 'TableOfContents__line')
 		const partials = {
 			// eslint-disable-next-line camelcase
-			TableOfContents__line: mustacheCompiler.compile( templateTocLine ),
-			'PinnableElement/Open': mustacheCompiler.compile( templatePinnableElementOpen ),
-			'PinnableElement/Close': mustacheCompiler.compile( templatePinnableElementClose )
+			TableOfContents__line: mustacheCompiler.compile( templateTocLine )
 		};
 
-		return compiledTemplateBody.render( data, partials ).html();
+		return compiledTemplateTocContents.render( data, partials ).html();
 	}
 
 	/**
@@ -483,10 +482,6 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function getTableOfContentsData( sections ) {
 		return {
-			'number-section-count': sections.length,
-			'msg-vector-toc-label': mw.message( 'vector-toc-label' ).text(),
-			'msg-vector-pin-element-label': mw.message( 'vector-pin-element-label' ).text(),
-			'msg-vector-unpin-element-label': mw.message( 'vector-unpin-element-label' ).text(),
 			'msg-vector-toc-beginning': mw.message( 'vector-toc-beginning' ).text(),
 			'array-sections': getTableOfContentsSectionsData( sections, 1 ),
 			'vector-is-collapse-sections-enabled': sections.length >= tableOfContentsConfig.VectorTableOfContentsCollapseAtCount,
