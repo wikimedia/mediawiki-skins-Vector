@@ -54,8 +54,10 @@
 	"vector-main-menu-tooltip": "Hoofdmenu",
 	"vector-toc-menu-tooltip": "Inhoudsopgave",
 	"vector-site-nav-label": "Site",
+	"vector-limited-width-toggle": "Beperkte inhoudsbreedte inschakelen",
 	"vector-unpin-element-label": "verbergen",
 	"tooltip-vector-anon-user-menu-title": "Meer opties",
 	"vector-prefs-limited-width": "Inschakelen modus beperkte breedte",
-	"vector-prefs-limited-width-help": "Inschakelen modus beperkte breedte voor een verbeterde leeservaring."
+	"vector-prefs-limited-width-help": "Inschakelen modus beperkte breedte voor een verbeterde leeservaring.",
+	"empty-language-selector-body": "Pagina-inhoud wordt niet ondersteund in andere talen."
 }

@@ -71,5 +71,6 @@
 	"vector-pin-element-label": "переместить в боковую панель",
 	"vector-unpin-element-label": "скрыть",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обсуждение]]",
-	"tooltip-vector-anon-user-menu-title": "Больше возможностей"
+	"tooltip-vector-anon-user-menu-title": "Больше возможностей",
+	"empty-language-selector-body": "Содержимое страницы недоступно на других языках."
 }

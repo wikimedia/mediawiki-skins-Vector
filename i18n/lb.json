@@ -19,6 +19,7 @@
 	"vector-language-button-aria-label": "Op en Artikel an enger anerer Sprooch wiesselen. Disponibel an {{PLURAL:$1|enger Sprooch|$1 Sproochen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprooch|$1 Sproochen}}",
 	"vector-no-language-button-label": "Sproochen derbäisetzen",
+	"vector-no-language-button-aria-label": "Dësen Artikel gëtt et nëmmen an dëser Sprooch. Setzt den Artikel fir aner Sproochen derbäi",
 	"vector-language-redirect-to-top": "Op {{SITENAME}} stinn d'Linken an anere Sproochen uewen op der Säit riets niewent dem Titel vum Artikel. : [[#p-lang-btn|No uewe goen]]",
 	"vector-language-variant-switcher-label": "Sproochvariant änneren",
 	"vector-action-addsection": "Sujet derbäisetzen",
@@ -57,5 +58,6 @@
 	"vector-unpin-element-label": "verstoppen",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussioun]]",
 	"tooltip-vector-anon-user-menu-title": "Méi Optiounen",
-	"vector-prefs-limited-width-help": "De Modus fir eng limitéiert Breet fir eng verbessert Lieserfarung aktivéieren."
+	"vector-prefs-limited-width-help": "De Modus fir eng limitéiert Breet fir eng verbessert Lieserfarung aktivéieren.",
+	"empty-language-selector-body": "Inhalter vun der Säit ginn an anere Sproochen net ënnerstëtzt."
 }

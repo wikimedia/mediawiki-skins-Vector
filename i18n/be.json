@@ -26,8 +26,8 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моў}}",
 	"vector-no-language-button-label": "Дадаць мовы",
 	"vector-no-language-button-aria-label": "Гэты артыкул ёсць толькі на гэтай мове. Дадайце артыкул для іншых моў",
-	"vector-language-redirect-to-top": "У гэтай пляцоўцы {{SITENAME}} моўныя спасылкі знаходзяцца ўверсе старонкі насупраць загалоўка артыкула. [[#p-lang-btn|Перайсці ўверх]].",
-	"vector-language-variant-switcher-label": "Зменіць моўны варыянт",
+	"vector-language-redirect-to-top": "На гэтай пляцоўцы {{SITENAME}} моўныя спасылкі знаходзяцца ўверсе старонкі насупраць загалоўка артыкула. [[#p-lang-btn|Перайсці ўверх]].",
+	"vector-language-variant-switcher-label": "Змяніць моўны варыянт",
 	"vector-action-addsection": "Дадаць тэму",
 	"vector-action-delete": "Выдаліць",
 	"vector-action-move": "Перанесці",
@@ -38,7 +38,7 @@
 	"vector-view-edit": "Правіць",
 	"vector-view-history": "Паказаць гісторыю",
 	"vector-view-view": "Чытаць",
-	"vector-view-viewsource": "Паказаць зыходны тэкст",
+	"vector-view-viewsource": "Паказаць зыходны код",
 	"vector-jumptonavigation": "Перайсці да навігацыі",
 	"vector-jumptosearch": "Перайсці да пошуку",
 	"vector-jumptocontent": "Перайсці да зместу",
@@ -57,6 +57,7 @@
 	"vector-toc-collapsible-button-label": "Пераключыць змест",
 	"vector-site-nav-label": "Праект",
 	"vector-main-menu-label": "Галоўнае меню",
+	"vector-limited-width-toggle": "Пераключыць абмежаваную шырыню зместу",
 	"vector-page-tools-label": "Інструменты",
 	"vector-page-tools-general-label": "Агульныя",
 	"vector-page-tools-actions-label": "Дзеянні",
@@ -65,5 +66,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Размова]]",
 	"tooltip-vector-anon-user-menu-title": "Больш магчымасцей",
 	"vector-prefs-limited-width": "Уключыць рэжым абмежаванай шырыні",
-	"vector-prefs-limited-width-help": "Уключыце рэжым абмежаванай шырыні для лепшага чытання."
+	"vector-prefs-limited-width-help": "Уключыце рэжым абмежаванай шырыні для лепшага чытання.",
+	"empty-language-selector-body": "Змест старонкі недаступны на іншых мовах."
 }

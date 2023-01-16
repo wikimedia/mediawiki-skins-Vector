@@ -15,6 +15,7 @@
 			"Prenn",
 			"Thienhau2003",
 			"Thingofme",
+			"Tryvix1509",
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
 			"Withoutaname"
@@ -65,13 +66,14 @@
 	"vector-main-menu-tooltip": "Trình đơn chính",
 	"vector-toc-menu-tooltip": "Mục lục",
 	"vector-site-nav-label": "Trang Web",
-	"vector-main-menu-label": "Thực đơn chính",
-	"vector-page-tools-general-label": "Tổng quan",
-	"vector-page-tools-actions-label": "hành động",
+	"vector-main-menu-label": "Trình đơn chính",
+	"vector-page-tools-general-label": "Chung",
+	"vector-page-tools-actions-label": "Hành động",
 	"vector-pin-element-label": "chuyển sang thanh bên",
 	"vector-unpin-element-label": "ẩn",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Thảo luận]]",
 	"tooltip-vector-anon-user-menu-title": "Thêm tùy chọn",
 	"vector-prefs-limited-width": "Bật chế độ giới hạn chiều rộng nội dung",
-	"vector-prefs-limited-width-help": "Bật chế độ giới hạn chiều rộng nội dung để cải thiện trải nghiệm đọc."
+	"vector-prefs-limited-width-help": "Bật chế độ giới hạn chiều rộng nội dung để cải thiện trải nghiệm đọc.",
+	"empty-language-selector-body": "Nội dung trang không được hỗ trợ ở ngôn ngữ khác."
 }

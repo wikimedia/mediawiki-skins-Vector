@@ -31,5 +31,6 @@
 	"vector-more-actions": "మరిన్ని",
 	"vector-toc-label": "విషయ సూచిక",
 	"vector-toc-beginning": "ప్రవేశిక",
-	"vector-toc-toggle-button-label": "$1 ఉపవర్గాన్ని టాగుల్ చెయ్యి"
+	"vector-toc-toggle-button-label": "$1 ఉపవర్గాన్ని టాగుల్ చెయ్యి",
+	"empty-language-selector-body": "ఈ పేజీ లోని కంటెంటులకు ఇతర భాషలలో మద్దతు లేదు."
 }
