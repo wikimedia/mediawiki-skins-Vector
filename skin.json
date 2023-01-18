@@ -104,7 +104,7 @@
 					"name": "vector",
 					"template": "skin-legacy",
 					"templateDirectory": "includes/templates",
-					"responsive": true,
+					"responsive": false,
 					"link": {
 						"text-wrapper": {
 							"tag": "span"
