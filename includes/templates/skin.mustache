@@ -24,7 +24,7 @@
 	MenuDefinition data-portlets.data-actions
 	object data-search-box. See SearchBox.mustache for documentation.
 	boolean is-main-menu-visible For users that want to see the sidebar on initial render, this should be
-	  true.
+		true.
 	string msg-vector-action-toggle-sidebar The label used by the sidebar button.
 	string msg-vector-main-menu-tooltip The title attribute for the main menu icon.
 	object data-main-menu. See MainMenu.mustache for documentation.
@@ -54,7 +54,7 @@
 				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
 					{{>BeforeContent}}
 					{{! the #contentSub element is currently used by editors, do not hide or remove it
-					  until https://phabricator.wikimedia.org/T316830 has been addressed}}
+						until https://phabricator.wikimedia.org/T316830 has been addressed}}
 					<div id="contentSub"{{{html-user-language-attributes}}}>{{{html-subtitle}}}</div>
 					{{#html-undelete-link}}<div id="contentSub2">{{{.}}}</div>{{/html-undelete-link}}
 					{{{html-user-message}}}
