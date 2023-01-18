@@ -32,6 +32,7 @@
 	"vector-jumptocontent": "Направо към съдържанието",
 	"vector-more-actions": "Още",
 	"vector-searchsuggest-containing": "Търсене на страници съдържащи <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-anon-user-menu-pages": "Страници за излезли от системата редактори",
 	"vector-anon-user-menu-pages-learn": "научете повече",
 	"vector-anon-user-menu-pages-label": "Научете повече за редактирането",
 	"vector-main-menu-tooltip": "Главно меню"
