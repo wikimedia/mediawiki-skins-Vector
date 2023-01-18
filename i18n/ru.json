@@ -72,5 +72,7 @@
 	"vector-unpin-element-label": "скрыть",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обсуждение]]",
 	"tooltip-vector-anon-user-menu-title": "Больше возможностей",
+	"vector-prefs-limited-width": "Включить режим ограниченной ширины",
+	"vector-prefs-limited-width-help": "Включите режим ограниченной ширины для улучшения читательского опыта.",
 	"empty-language-selector-body": "Содержимое страницы недоступно на других языках."
 }
