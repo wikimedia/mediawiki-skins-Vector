@@ -111,27 +111,12 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_STICKY_HEADER_EDIT = 'VectorStickyHeaderEdit';
-
-	/**
-	 * @var string
-	 */
 	public const REQUIREMENT_STICKY_HEADER = 'StickyHeader';
 
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
-
-	/**
-	 * @var string
-	 */
 	public const FEATURE_STICKY_HEADER = 'StickyHeader';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_STICKY_HEADER_EDIT = 'StickyHeaderEdit';
 
 	/**
 	 * Defines whether an A/B test is running.

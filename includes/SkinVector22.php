@@ -452,9 +452,7 @@ class SkinVector22 extends SkinMustache {
 				// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 				$this->isULSExtensionEnabled() && !$this->shouldHideLanguages() ?
 					new VectorComponentLanguageButton( $ulsLabels[ 'label' ] ) : null,
-				$featureManager->isFeatureEnabled(
-					Constants::FEATURE_STICKY_HEADER_EDIT
-				)
+				true
 			) : null
 		];
 		foreach ( $components as $key => $component ) {
