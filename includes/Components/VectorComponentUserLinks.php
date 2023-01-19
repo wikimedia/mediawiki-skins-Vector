@@ -96,7 +96,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			$tooltip = Linker::tooltip( 'vector-anon-user-menu-title' ) ?? '';
 		}
 		$userMenuDropdown = new VectorComponentDropdown(
-			'p-personal', 'Foo', $class, $icon, $tooltip
+			'p-personal', $this->msg( 'personaltools' )->text(), $class, $icon, $tooltip
 		);
 		$additionalData = [];
 		// T317789: The `anontalk` and `anoncontribs` links will not be added to
