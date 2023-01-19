@@ -13,8 +13,10 @@ class VectorResourceLoaderUserModule extends RL\UserModule {
 	protected function getPages( RL\Context $context ) {
 		$user = $context->getUserObj();
 		$pages = [];
+		$config = $this->getConfig();
 		if ( $context->getSkin() === Constants::SKIN_NAME_MODERN &&
-			$this->getConfig()->get( MainConfigNames::AllowUserCss ) &&
+			$config->get( 'VectorShareUserScripts' ) &&
+			$config->get( MainConfigNames::AllowUserCss ) &&
 			$user->isRegistered()
 		) {
 			$userPage = $user->getUserPage()->getPrefixedDBkey();
