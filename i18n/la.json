@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adumbrativus",
 			"Laurentianus",
 			"UV"
 		]
@@ -16,5 +17,6 @@
 	"vector-view-history": "Historiam inspicere",
 	"vector-view-view": "Legere",
 	"vector-view-viewsource": "Fontem inspicere",
-	"vector-more-actions": "Plura"
+	"vector-more-actions": "Plura",
+	"vector-toc-label": "Index"
 }
