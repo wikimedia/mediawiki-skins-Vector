@@ -36,9 +36,7 @@ module.exports = {
 		{
 			name: 'default',
 			url: testData.baseUrl + testData.pageUrl,
-			actions: [
-				'check field #mw-sidebar-checkbox' // Open main menu
-			]
+			actions: []
 		},
 		{
 			name: 'logged_in',
@@ -52,8 +50,7 @@ module.exports = {
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
 				'click #wpLoginAttempt',
-				'wait for #pt-userpage-2 to be visible', // Confirm login was successful
-				'check field #mw-sidebar-checkbox' // Open main menu
+				'wait for #pt-userpage-2 to be visible' // Confirm login was successful
 			]
 		},
 		{
