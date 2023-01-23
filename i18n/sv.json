@@ -57,11 +57,15 @@
 	"vector-toc-collapsible-button-label": "Växla innehållsförteckningen",
 	"vector-site-nav-label": "Webbplats",
 	"vector-main-menu-label": "Huvudmeny",
+	"vector-limited-width-toggle": "Aktivera/inaktivera begränsad bredd på innehåll",
 	"vector-page-tools-label": "Verktyg",
+	"vector-page-tools-general-label": "Allmänt",
+	"vector-page-tools-actions-label": "Åtgärder",
 	"vector-pin-element-label": "flytta till sidofältet",
 	"vector-unpin-element-label": "dölj",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Fler alternativ",
 	"vector-prefs-limited-width": "Aktivera läget med begränsad bredd",
-	"vector-prefs-limited-width-help": "Aktivera läget med begränsad bredd för förbättrad läsupplevelse."
+	"vector-prefs-limited-width-help": "Aktivera läget med begränsad bredd för förbättrad läsupplevelse.",
+	"empty-language-selector-body": "Sidans innehåll stöds inte på andra språk."
 }

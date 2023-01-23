@@ -14,6 +14,7 @@
 			"Piramidion",
 			"Prima klasy4na",
 			"Ата",
+			"Пан Хаунд",
 			"Тест"
 		]
 	},
@@ -63,7 +64,10 @@
 	"vector-toc-menu-tooltip": "Зміст",
 	"vector-toc-collapsible-button-label": "Сховати/показати зміст",
 	"vector-site-nav-label": "Сайт",
+	"vector-main-menu-label": "Головне меню",
 	"vector-page-tools-label": "Інструменти",
+	"vector-page-tools-general-label": "Загальний",
+	"vector-page-tools-actions-label": "Дії",
 	"vector-pin-element-label": "перемістити на бічну панель",
 	"vector-unpin-element-label": "сховати",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обговорення]]",
