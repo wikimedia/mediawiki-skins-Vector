@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Zakaria Tunsung"
+			"Zakaria Tunsung",
+			"Yirkang"
 		]
 	},
 	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
+	"vector-action-move": "Kyɛne/gaa",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
 	"vector-view-history": "kaa yɛlkori/yipɔge",
