@@ -134,7 +134,13 @@
 		display: grid;
 		grid-auto-rows: auto;
 		grid-template-columns: ~'minmax(0, @{max-width-content-container}) min-content';
-		grid-template-areas: 'titlebar .'
+		/**
+		 * NOTE: T327715 - 'titlebar-cx' grid area is a temporary workaround to accommodate
+		 * the Content Translation extension and should not be used beyond that.
+		 * FIXME: This can be removed when T322740 is resolved.
+		 */
+		grid-template-areas: 'titlebar-cx .'
+			'titlebar .'
 			'toolbar columnEnd'
 			'content columnEnd';
 
