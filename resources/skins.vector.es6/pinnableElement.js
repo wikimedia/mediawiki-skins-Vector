@@ -129,7 +129,13 @@ function bindPinnableToggleButtons( header ) {
 	// Check the breakpoint in case an override is needed on pageload.
 	disablePinningAtBreakpoint( header, pinnableBreakpoint );
 	// Add match media handler.
-	pinnableBreakpoint.addEventListener( 'change', disablePinningAtBreakpoint.bind( null, header ) );
+	if ( pinnableBreakpoint.addEventListener ) {
+		pinnableBreakpoint.addEventListener( 'change', disablePinningAtBreakpoint.bind( null, header ) );
+	} else {
+		// Before Safari 14, MediaQueryList is based on EventTarget,
+		// so you must use addListener() and removeListener() to observe media query lists.
+		pinnableBreakpoint.addListener( disablePinningAtBreakpoint.bind( null, header ) );
+	}
 }
 
 /**
