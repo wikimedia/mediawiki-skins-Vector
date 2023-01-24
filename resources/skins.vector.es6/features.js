@@ -4,13 +4,28 @@ let /** @type {MwApi} */ api;
 const debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
 
 /**
- * Saves preference to user preferences if user is logged in
+ * Saves preference to user preferences and/or cookies.
  *
  * @param {string} feature
  * @param {boolean} enabled
  */
 function save( feature, enabled ) {
-	if ( !mw.user.isAnon() ) {
+	if ( mw.user.isAnon() ) {
+		switch ( feature ) {
+			case 'limited-width':
+				if ( enabled ) {
+					// @ts-ignore
+					mw.cookie.set( 'mwclientprefs', null );
+				} else {
+					// @ts-ignore
+					mw.cookie.set( 'mwclientprefs', 'vector-feature-limited-width' );
+				}
+				break;
+			default:
+				// not a supported anonymous preference
+				break;
+		}
+	} else {
 		debounce( function () {
 			api = api || new mw.Api();
 			api.saveOption( 'vector-' + feature, enabled ? 1 : 0 );

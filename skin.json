@@ -382,6 +382,7 @@
 				"mediawiki.page.watch.ajax",
 				"mediawiki.util",
 				"mediawiki.storage",
+				"mediawiki.cookie",
 				"mediawiki.experiments"
 			],
 			"messages": [
