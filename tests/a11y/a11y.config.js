@@ -25,7 +25,7 @@ module.exports = {
 		includeNotices: true,
 		hideElements: '#bodyContent, #siteNotice, #mwe-pt-toolbar, #centralnotice, #centralnotice_testbanner',
 		chromeLaunchConfig: {
-			headless: true,
+			headless: false,
 			args: [
 				'--no-sandbox',
 				'--disable-setuid-sandbox'
