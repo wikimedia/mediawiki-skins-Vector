@@ -4,9 +4,10 @@
 			"Bugirbiig"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 buudi pian'uk|$1 buudi pian'ad}}",
 	"vector-view-edit": "Dɛmisim gbɛlima",
 	"vector-view-history": "Gɔsim linɛ dɛŋin maal",
 	"vector-view-view": "Karim",
-	"vector-more-actions": "Lɛm paas/pamm",
-	"vector-searchsuggest-containing": "Ieem lakir/zin'ibanɛ mɔri <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-more-actions": "iem paas",
+	"vector-searchsuggest-containing": "Iem lakir banɛ mɔri <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
