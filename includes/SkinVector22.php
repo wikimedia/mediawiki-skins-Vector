@@ -185,6 +185,8 @@ class SkinVector22 extends SkinMustache {
 	 */
 	public function getHtmlElementAttributes() {
 		$original = parent::getHtmlElementAttributes();
+		$featureManager = VectorServices::getFeatureManager();
+		$original['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_STICKY_HEADER ) ) {
 			// T290518: Add scroll padding to root element when the sticky header is
@@ -200,6 +202,7 @@ class SkinVector22 extends SkinMustache {
 			// possibly others). It must instead be applied to the html tag.
 			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
 		}
+		$original['class'] = trim( $original['class'] );
 
 		return $original;
 	}

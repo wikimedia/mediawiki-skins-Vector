@@ -31,14 +31,14 @@ function disablePinningAtBreakpoint( header, e ) {
 	// FIXME: Class toggling should be centralized instead of being
 	// handled here, in features.js and togglePinnableClasses().
 	if ( e.matches && savedPinnedState === true ) {
-		features.toggleBodyClasses( featureName, false );
+		features.toggleDocClasses( featureName, false );
 		header.classList.remove( PINNED_HEADER_CLASS );
 		header.classList.add( UNPINNED_HEADER_CLASS );
 		movePinnableElement( pinnableElementId, unpinnedContainerId );
 	}
 
 	if ( !e.matches && savedPinnedState === true ) {
-		features.toggleBodyClasses( featureName, true );
+		features.toggleDocClasses( featureName, true );
 		header.classList.add( PINNED_HEADER_CLASS );
 		header.classList.remove( UNPINNED_HEADER_CLASS );
 		movePinnableElement( pinnableElementId, pinnedContainerId );
