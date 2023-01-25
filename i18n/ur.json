@@ -12,9 +12,16 @@
 			"محبوب عالم"
 		]
 	},
-	"skinname-vector": "ویکٹر",
+	"skinname-vector": "ویکٹر قدیم (2010ء)",
+	"skinname-vector-2022": "ویکٹر (2022ء)",
+	"vector-specialversion-name": "ویکٹر",
 	"vector-skin-desc": "مونوبک کا جدید نسخہ (ورژن) مع شائستہ صورت اور کئی افادیت میں بہتریاں",
+	"prefs-vector-enable-vector-1-label": "قدیم ویکٹر استعمال کریں",
 	"vector-opt-out": "پرانی وضع پر واپس جائیں",
+	"vector-action-toggle-sidebar": "بغلی پٹی کو بدلیں",
+	"vector-languages": "زبانیں",
+	"vector-language-button-label": "{{PLURAL:$1|$1 زبان|$1 زبانیں}}",
+	"vector-language-variant-switcher-label": "زبان کا لہجہ بدلیں",
 	"vector-action-addsection": "نیا موضوع",
 	"vector-action-delete": "حذف کریں",
 	"vector-action-move": "منتقل کریں",
@@ -26,5 +33,13 @@
 	"vector-view-history": "تاریخچہ",
 	"vector-view-view": "مطالعہ",
 	"vector-view-viewsource": "مسودہ دیکھیے",
-	"vector-more-actions": "مزید"
+	"vector-jumptosearch": "خانۂ تلاش میں جائیں",
+	"vector-jumptocontent": "مندرجات کا رخ کریں",
+	"vector-more-actions": "مزید",
+	"vector-search-loader": "تجاویزِ تلاش کھل رہی ہیں",
+	"vector-intro-page": "معاونت:تعارف",
+	"vector-anon-user-menu-pages-learn": "مزید تفصیلات",
+	"vector-anon-user-menu-pages-label": "ترمیم کاری کے متعلق مزید تفصیلات",
+	"vector-main-menu-tooltip": "مرکزی مینو",
+	"tooltip-vector-anon-user-menu-title": "مزید اختیارات"
 }

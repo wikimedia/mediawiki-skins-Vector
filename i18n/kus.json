@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bugirbiig"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 buudi pian'uk|$1 buudi pian'ad}}",
+	"vector-view-edit": "Dɛmisim gbɛlima",
+	"vector-view-history": "Gɔsim linɛ dɛŋin maal",
+	"vector-view-view": "Karim",
+	"vector-more-actions": "iem paas"
+}
