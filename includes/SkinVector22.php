@@ -17,7 +17,6 @@ use MediaWiki\Skins\Vector\Components\VectorComponentPinnableContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
-use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContentsContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use RuntimeException;
 use SkinMustache;
@@ -310,11 +309,52 @@ class SkinVector22 extends SkinMustache {
 		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
 		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$localizer = $this->getContext();
+
 		$tocData = $parentData['data-toc'];
+		$tocComponents = [];
+
 		// If the table of contents has no items, we won't output it.
 		// empty array is interpreted by Mustache as falsey.
-		$isTocUnavailable = empty( $tocData ) || empty( $tocData[ 'array-sections' ] );
-		$components = [
+		$isTocAvailable = !empty( $tocData ) && !empty( $tocData[ 'array-sections' ] );
+		if ( $isTocAvailable ) {
+			$dataToc = new VectorComponentTableOfContents(
+				$parentData['data-toc'],
+				$localizer,
+				$this->getConfig()
+			);
+			$tocComponents = [
+				'data-toc' => $dataToc,
+				'data-toc-pinnable-container' => new VectorComponentPinnableContainer(
+					VectorComponentTableOfContents::ID,
+					$dataToc->isPinned()
+				),
+				'data-page-titlebar-toc-dropdown' => new VectorComponentDropdown(
+					'vector-page-titlebar-toc',
+					// no label,
+					'',
+					// class
+					'vector-page-titlebar-toc mw-ui-icon-flush-left',
+					// icon
+					'listBullet',
+				),
+				'data-page-titlebar-toc-pinnable-container' => new VectorComponentPinnableContainer(
+					'vector-page-titlebar-toc',
+					$dataToc->isPinned()
+				),
+				'data-sticky-header-toc-dropdown' => new VectorComponentDropdown(
+					'vector-sticky-header-toc',
+					'',
+					'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc mw-ui-icon-flush-left',
+					'listBullet'
+				),
+				'data-sticky-header-toc-pinnable-container' => new VectorComponentPinnableContainer(
+					'vector-sticky-header-toc',
+					$dataToc->isPinned()
+				),
+			];
+		}
+
+		$components = $tocComponents + [
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				$parentData['data-portlets']['data-variants'],
 				$this->getTitle()->getPageLanguage(),
@@ -379,14 +419,6 @@ class SkinVector22 extends SkinMustache {
 				$langData['html-after-portal'] ?? '',
 				$this->getTitle()
 			) : null,
-			'data-toc-container' => $isTocUnavailable ? null : new VectorComponentTableOfContentsContainer(
-				$localizer,
-			),
-			'data-toc' => $isTocUnavailable ? null : new VectorComponentTableOfContents(
-				$tocData,
-				$localizer,
-				$this->getConfig()
-			),
 			'data-search-box' => new VectorComponentSearchBox(
 				$parentData['data-search-box'],
 				true,
@@ -424,19 +456,6 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
 			) : null,
-			'data-page-titlebar-toc-dropdown' => $isTocUnavailable ? null : new VectorComponentDropdown(
-				'vector-page-titlebar-toc',
-				// no label,
-				'',
-				// class
-				'vector-page-titlebar-toc mw-ui-icon-flush-left',
-				// icon
-				'listBullet',
-			),
-			'data-page-titlebar-pinnable-container' => new VectorComponentPinnableContainer(
-				'vector-page-titlebar-toc',
-				true
-			),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? new VectorComponentStickyHeader(
