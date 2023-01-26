@@ -140,6 +140,7 @@ const updateTocLocation = () => {
 	}
 
 	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
+	pinnableElement.setFocusOnToggleButton( TOC_ID );
 };
 
 /**

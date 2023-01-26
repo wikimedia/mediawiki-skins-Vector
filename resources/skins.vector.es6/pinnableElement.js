@@ -97,14 +97,45 @@ function pinnableElementClickHandler( header ) {
 	} = header.dataset;
 
 	togglePinnableClasses( header );
+	setSavedPinnableState( header );
 
 	// Optional functionality of moving the pinnable element in the DOM
 	// to different containers based on it's pinned status
 	if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
 		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
+		setFocusOnToggleButton( pinnableElementId );
 	}
-	setSavedPinnableState( header );
+}
+
+/**
+ * Sets focus on the correct toggle button depending on the pinned state.
+ * Also opens the dropdown containing the unpinned element.
+ *
+ * @param {string} pinnableElementId
+ */
+function setFocusOnToggleButton( pinnableElementId ) {
+	let focusElement;
+	const pinnableElement = document.getElementById( pinnableElementId );
+	const header = /** @type {HTMLElement|null} */ ( pinnableElement && pinnableElement.querySelector( '.vector-pinnable-header' ) );
+	if ( !pinnableElement || !header ) {
+		return;
+	}
+
+	if ( isPinned( header ) ) {
+		focusElement = /** @type {HTMLElement|null} */ ( pinnableElement.querySelector( '.vector-pinnable-header-unpin-button' ) );
+	} else {
+		const dropdown = pinnableElement.closest( '.vector-menu-dropdown' );
+		const dropdownCheckbox = /** @type {HTMLInputElement|null} */ ( dropdown && dropdown.querySelector( '.vector-menu-checkbox' ) );
+		// Open dropdown containing the unpinned element
+		if ( dropdownCheckbox ) {
+			dropdownCheckbox.checked = true;
+		}
+		focusElement = /** @type {HTMLElement|null} */ ( pinnableElement.querySelector( '.vector-pinnable-header-pin-button' ) );
+	}
+	if ( focusElement ) {
+		focusElement.focus();
+	}
 }
 
 /**
@@ -124,6 +155,7 @@ function bindPinnableToggleButtons( header ) {
 	toggleButtons.forEach( function ( button ) {
 		button.addEventListener( 'click', pinnableElementClickHandler.bind( null, header ) );
 	} );
+
 	// set saved pinned state for narrow breakpoint behaviour.
 	setSavedPinnableState( header );
 	// Check the breakpoint in case an override is needed on pageload.
@@ -177,6 +209,7 @@ function initPinnableElement() {
 module.exports = {
 	initPinnableElement,
 	movePinnableElement,
+	setFocusOnToggleButton,
 	isPinned,
 	PINNED_HEADER_CLASS,
 	UNPINNED_HEADER_CLASS
