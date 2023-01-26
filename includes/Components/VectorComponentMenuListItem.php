@@ -20,6 +20,7 @@ class VectorComponentMenuListItem implements VectorComponent {
 	public function __construct( VectorComponentIconLink $link, string $class = '', string $id = '' ) {
 		$this->link = $link;
 		$this->class = $class;
+		$this->id = $id;
 	}
 
 	/**
