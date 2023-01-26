@@ -59,6 +59,10 @@
 	// Derived from text input start icon padding in Codex.
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/text-input/TextInput.vue#257
 	@padding-left-start-icon: 36px;
+	// Derived from the @size-icon-medium token in Codex. 14px is the base font size in Vector.
+	@size-icon-medium: unit( 20 / 14, em );
+	// Derived from icon positioning in Codex. This is essentially (@padding-left-start-icon - @size-icon-medium)/2
+	@position-left-icon: 8px;
 
 	.vector-typeahead-search {
 		// Hide the button, only show it on hover or when the input or the button itself is focused
@@ -144,6 +148,12 @@
 		width: @padding-left-start-icon;
 		// Set opacity to match icon color from Codex (0.51 approximates #72777d)
 		opacity: @opacity-base--disabled;
+		// Use relative sizing for the icon
+		background-size: @size-icon-medium auto;
+		// Make sure the icon is positioned consistently with Codex; if we don't do this, it'll
+		// be centered which will be different from Codex's positioning if the text size zoom
+		// is not 100%
+		background-position-x: @position-left-icon;
 	}
 
 	.vector-search-box-input:focus ~ .searchButton {
