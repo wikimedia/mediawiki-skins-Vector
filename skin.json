@@ -609,7 +609,7 @@
 			"description": "@var boolean Temporary feature flag that controls link to beginning of article."
 		},
 		"VectorTableOfContentsCollapseAtCount": {
-			"value": 20,
+			"value": 28,
 			"description": "@var The minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
 		"VectorPageTools": {
