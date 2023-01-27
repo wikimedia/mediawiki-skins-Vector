@@ -503,10 +503,11 @@ function setupSearchIfNeeded( header ) {
  * @return {boolean}
  */
 function isAllowedNamespace( namespaceNumber ) {
-	// Corresponds to Main, Main talk, User, User talk, Wikipedia,
-	// Template, Help, Category, Portal, Module.
-	const allowedNamespaceNumbers = [ 0, 1, 2, 3, 4, 10, 12, 14, 100, 828 ];
-	return allowedNamespaceNumbers.indexOf( namespaceNumber ) > -1;
+	// Corresponds to Main, User, Wikipedia, Template, Help, Category, Portal, Module.
+	const allowedNamespaceNumbers = [ 0, 2, 4, 10, 12, 14, 100, 828 ];
+	// Also allow on all talk namespaces (compare NamespaceInfo::isTalk()).
+	const isAllowedTalk = namespaceNumber > 0 && namespaceNumber % 2 !== 0;
+	return isAllowedTalk || allowedNamespaceNumbers.indexOf( namespaceNumber ) > -1;
 }
 
 /**
