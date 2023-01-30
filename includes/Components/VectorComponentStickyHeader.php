@@ -131,24 +131,28 @@ class VectorComponentStickyHeader implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$btns = [
+		$icons = [
 			self::TALK_ICON,
 			self::SUBJECT_ICON,
 			self::HISTORY_ICON,
 			self::WATCHSTAR_ICON,
 		];
 		if ( $this->includeEditIcons ) {
-			$btns[] = self::EDIT_WIKITEXT_ICON;
-			$btns[] = self::EDIT_PROTECTED_ICON;
-			$btns[] = self::EDIT_VE_ICON;
+			$icons[] = self::EDIT_WIKITEXT_ICON;
+			$icons[] = self::EDIT_PROTECTED_ICON;
+			$icons[] = self::EDIT_VE_ICON;
 		}
-		$btns[] = $this->getAddSectionButtonData();
+		$buttons = [
+			$this->getAddSectionButtonData()
+		];
+		if ( $this->langButton ) {
+			$buttons[] = $this->langButton->getTemplateData();
+		}
 		$searchBoxData = $this->search->getTemplateData();
 
 		return [
-			'data-buttons' => $btns,
-			'data-primary-action' => $this->langButton ?
-				$this->langButton->getTemplateData() : null,
+			'data-icons' => $icons,
+			'data-buttons' => $buttons,
 			'data-button-start' => [
 				'label' => $this->msg( 'search' ),
 				'icon' => 'wikimedia-search',

@@ -51,11 +51,13 @@ exports[`Sticky header renders 1`] = `
 </a>
 
 		</div>
+		<div class=\\"vector-sticky-header-buttons\\">
 
 <button id=\\"p-lang-btn-sticky-header\\" tabindex=\\"-1\\" data-event-name=\\"ui.dropdown-p-lang-btn-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-interlanguage-selector\\">
 	<span class=\\"mw-ui-icon mw-ui-icon-wikimedia-language\\"></span><span>0 languages</span>
 
 </button>
+		</div>
 		<div class=\\"vector-sticky-header-icon-end\\">
 			<div class=\\"vector-user-links\\">
 			</div>

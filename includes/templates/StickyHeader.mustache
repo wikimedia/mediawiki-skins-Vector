@@ -39,13 +39,15 @@
 	</div>
 	<div class="vector-sticky-header-end{{^is-page-tools-enabled}} mw-ui-icon-flush-right{{/is-page-tools-enabled}}" aria-hidden="true">
 		<div class="vector-sticky-header-icons">
+			{{#data-icons}}
+			{{>Button}}
+			{{/data-icons}}
+		</div>
+		<div class="vector-sticky-header-buttons">
 			{{#data-buttons}}
 			{{>Button}}
 			{{/data-buttons}}
 		</div>
-		{{#data-primary-action}}
-		{{>Button}}
-		{{/data-primary-action}}
 		<div class="vector-sticky-header-icon-end">
 			<div class="vector-user-links">
 				{{! User menu items with unique ids are cloned here from the fixed header in stickyHeader.js. }}

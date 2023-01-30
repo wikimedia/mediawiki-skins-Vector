@@ -69,7 +69,7 @@ const templateData = {
 		'html-vector-menu-heading-attributes': 'tabindex="-1"',
 		'heading-class': 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet'
 	},
-	'data-primary-action': {
+	'data-buttons': [ {
 		id: 'p-lang-btn-sticky-header',
 		class: 'mw-interlanguage-selector',
 		'is-quiet': true,
@@ -77,7 +77,7 @@ const templateData = {
 		label: '0 languages',
 		'html-vector-button-icon': '<span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span>',
 		event: 'ui.dropdown-p-lang-btn-sticky-header'
-	},
+	} ],
 	'data-button-start': {
 		label: 'search',
 		icon: 'wikimedia-search',
@@ -87,7 +87,7 @@ const templateData = {
 		event: 'ui.vector-sticky-search-form.icon'
 	},
 	'data-search': {},
-	'data-buttons': defaultButtonsTemplateData.concat( editButtonsTemplateData )
+	'data-icons': defaultButtonsTemplateData.concat( editButtonsTemplateData )
 };
 
 const renderedHTML = mustache.render(
