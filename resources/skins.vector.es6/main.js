@@ -10,7 +10,6 @@ const
 	pinnableElement = require( './pinnableElement.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
-	stickyHeaderEditIconConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorStickyHeaderEdit || true,
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
@@ -58,9 +57,9 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) => {
  * @return {InitStickyHeaderABTests}
  */
 function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEnabledExperiment ) {
-	let show = isStickyHeaderFeatureAllowed,
+	let showStickyHeader = isStickyHeaderFeatureAllowed,
 		stickyHeaderExperiment,
-		noEditIcons = stickyHeaderEditIconConfig;
+		disableEditIcons = true;
 
 	// One of the sticky header AB tests is specified in the config
 	const abTestName = abConfig.name,
@@ -75,35 +74,34 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
 	) {
 		// If eligible, initialize the AB test
 		stickyHeaderExperiment = getEnabledExperiment( abConfig );
+		disableEditIcons = true;
 
 		// If running initial or edit AB test, show sticky header to treatment groups
 		// only. Unsampled and control buckets do not see sticky header.
 		if ( abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
 			abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME
 		) {
-			show = stickyHeaderExperiment.isInTreatmentBucket();
+			showStickyHeader = stickyHeaderExperiment.isInTreatmentBucket();
 		}
 
 		// If running edit-button AB test, the edit buttons in sticky header are shown
 		// to second treatment group only.
 		if ( abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME ) {
 			if ( stickyHeaderExperiment.isInTreatmentBucket( '1' ) ) {
-				noEditIcons = true;
+				disableEditIcons = true;
 			}
 			if ( stickyHeaderExperiment.isInTreatmentBucket( '2' ) ) {
-				noEditIcons = false;
+				disableEditIcons = false;
 			}
 		}
-	} else if (
-		// T310750 Account for when the current experiment is not sticky header or it's disabled.
-		isStickyHeaderFeatureAllowed && ( !abConfig.enabled || !isStickyHeaderExperiment )
-	) {
-		noEditIcons = false;
+	}
+	if ( !abConfig.enabled ) {
+		disableEditIcons = false;
 	}
 
 	return {
-		showStickyHeader: show,
-		disableEditIcons: noEditIcons
+		showStickyHeader,
+		disableEditIcons
 	};
 }
 

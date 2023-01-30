@@ -575,13 +575,6 @@
 			},
 			"description": "@var array Enables a persistent header that allows quick access to user links, editing tools, search and other links while scrolling down a page"
 		},
-		"VectorStickyHeaderEdit": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false
-			},
-			"description": "@var array Enables the edit icons if $wgVectorStickyHeader is true."
-		},
 		"VectorWebABTestEnrollment": {
 			"value": {
 				"name": "skin-vector-toc-experiment",
