@@ -11,7 +11,12 @@
 			"Vito Genovese",
 			"Hedda",
 			"MuratTheTurkish",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"Amire80",
+			"Betseg",
+			"Cobija",
+			"Sayginer",
+			"ToprakM"
 		]
 	},
 	"vector-skin-desc": "MonoBook modern sürümünü ile taze bir görünüm ve iyi bir kullanım kolaylığı",
@@ -27,7 +32,7 @@
 	"vector-action-undelete": "Geri al",
 	"vector-action-unprotect": "Korumayı değiştir",
 	"vector-view-create": "Oluştur",
-	"vector-view-edit": "Düzenle",
+	"vector-view-edit": "Değiştir",
 	"vector-view-history": "Geçmişi gör",
 	"vector-view-view": "Oku",
 	"vector-view-viewsource": "Kaynağı gör",

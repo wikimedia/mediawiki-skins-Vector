@@ -5,12 +5,16 @@
 			"DCLXVI",
 			"Spiritia",
 			"StanProg",
-			"ShockD"
+			"ShockD",
+			"Amire80",
+			"Termininja"
 		]
 	},
 	"vector-skin-desc": "Модерна версия на MonoBook с обновен дизайн и много подобрения на ползваемостта",
 	"prefs-vector-enable-vector-1-label": "Използване на стария Vector",
+	"prefs-vector-enable-vector-1-help": "През следващите няколко години постепенно ще актуализираме облика Vector. Legacy Vector ще Wи позволи да видите старата версия на Vector (от декември 2019 г.). За да научите повече за актуализациите, отидете на [[mw:Reading/Web/Desktop_Improvements|страницата на проекта]].",
 	"vector-opt-out": "Превключване към стария изглед",
+	"vector-opt-out-tooltip": "Променете настройките си, за да се върнете към стария вид на облика (Vector legacy)",
 	"vector-action-toggle-sidebar": "Превключване на страничната лента",
 	"vector-action-addsection": "Добавяне на тема",
 	"vector-action-delete": "Изтриване",

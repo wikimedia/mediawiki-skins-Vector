@@ -4,7 +4,8 @@
 			"Gtbot2007",
 			"Robin van der Vliet",
 			"LesVisages",
-			"שוקו מוקה"
+			"שוקו מוקה",
+			"Tbodt"
 		]
 	},
 	"vector-action-delete": "o weka",
@@ -13,5 +14,5 @@
 	"vector-view-edit": "o ante",
 	"vector-view-history": "o lukin e tenpo pini",
 	"vector-view-view": "lukin",
-	"vector-more-actions": "mute"
+	"vector-more-actions": "ante"
 }
