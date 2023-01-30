@@ -132,9 +132,12 @@ module.exports = function tableOfContents( props ) {
 		}
 
 		// Assign the active top and sub sections, apply classes
-		activeTopSection = /** @type {HTMLElement} */ ( selectedTocSection.closest( `.${TOP_SECTION_CLASS}` ) );
+		activeTopSection = /** @type {HTMLElement|undefined} */ ( selectedTocSection.closest( `.${TOP_SECTION_CLASS}` ) );
+		if ( activeTopSection ) {
+			// T328089 Sometimes activeTopSection is null
+			activeTopSection.classList.add( ACTIVE_TOP_SECTION_CLASS );
+		}
 		activeSubSection = selectedTocSection;
-		activeTopSection.classList.add( ACTIVE_TOP_SECTION_CLASS );
 		activeSubSection.classList.add( ACTIVE_SECTION_CLASS );
 	}
 
