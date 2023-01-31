@@ -387,6 +387,16 @@ class Hooks implements
 				'icon' => '',
 			] );
 		}
+		if ( isset( $content_navigation['user-menu']['login'] ) ) {
+			$content_navigation[$overflow]['login'] = array_merge(
+				$content_navigation['user-menu']['login'], [
+				'id' => 'pt-login-2',
+				'button' => true,
+				'collapsible' => true,
+				// Remove icon
+				'icon' => '',
+			] );
+		}
 
 		self::updateMenuItems( $content_navigation, $overflow );
 	}

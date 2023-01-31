@@ -379,7 +379,7 @@ class SkinVector22 extends SkinMustache {
 								$logoutData[ 'text' ],
 								$logoutData[ 'icon' ],
 								$this,
-								'pt-logout'
+								$logoutData[ 'single-id' ],
 							),
 							'vector-user-menu-logout',
 							'pt-logout'
@@ -391,9 +391,10 @@ class SkinVector22 extends SkinMustache {
 								$createAccountData['text'] ?? null,
 								$createAccountData['icon'] ?? null,
 								$this,
-								'create-account'
+								$createAccountData['single-id']
 							),
-							'vector-user-menu-create-account user-links-collapsible-item'
+							'vector-user-menu-create-account user-links-collapsible-item',
+							'pt-createaccount',
 						),
 						new VectorComponentMenuListItem(
 							new VectorComponentIconLink(
@@ -401,9 +402,10 @@ class SkinVector22 extends SkinMustache {
 								$loginLinkData['text'] ?? null,
 								$loginLinkData['icon'] ?? null,
 								$this,
-								'login'
+								$loginLinkData['single-id']
 							),
-							'vector-user-menu-login'
+							'vector-user-menu-login user-links-collapsible-item',
+							'pt-login',
 						)
 					]
 				),
