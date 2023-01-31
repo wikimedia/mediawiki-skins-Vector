@@ -125,3 +125,13 @@
 		.mixin-vector-menu-heading-arrow();
 	}
 }
+
+// Hide the "Add languages" on pages which are not action=view where there are 0 languages
+.vector-dropdown > .vector-menu-heading.mw-portlet-lang-heading-0 {
+	display: none;
+}
+
+// Show it on view pages where there are 0 languages so user can add languages (JavaScript required)
+.client-js .action-view .vector-dropdown > .vector-menu-heading.mw-portlet-lang-heading-0 {
+	display: flex;
+}
