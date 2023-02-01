@@ -72,5 +72,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussão]]",
 	"tooltip-vector-anon-user-menu-title": "Mais opções",
 	"vector-prefs-limited-width": "Ativar modo de largura limitada",
-	"vector-prefs-limited-width-help": "Ative o modo de largura limitada para melhorar a experiência de leitura."
+	"vector-prefs-limited-width-help": "Ative o modo de largura limitada para melhorar a experiência de leitura.",
+	"empty-language-selector-body": "O conteúdo da página não é suportado em outros idiomas."
 }
