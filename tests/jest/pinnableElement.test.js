@@ -54,8 +54,16 @@ const initializeHTML = ( headerData ) => {
 		<div id="pinned-container">
 			${ headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
 		</div>
-		<div id="unpinned-container">
-			${ !headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
+		<div class="vector-dropdown">
+			<input type="checkbox" id="checkbox" class="vector-menu-checkbox">
+			<label for="checkbox" class="vector-menu-heading ">
+				<span class="vector-menu-heading-label">Dropdown</span>
+			</label>
+			<div class="vector-menu-content">
+				<div id="unpinned-container">
+				${ !headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
+				</div>
+			</div>
 		</div>
 	`;
 
@@ -172,5 +180,18 @@ describe( 'Pinnable header', () => {
 		unpinButton.click();
 
 		expect( pinnableElement.isPinned( header ) ).toBe( false );
+	} );
+
+	test( 'setFocusAfterToggle() sets focus on appropriate element after pinnableElement is toggled', () => {
+		initializeHTML( movableData );
+		pinnableElement.initPinnableElement();
+		const dropdownCheckbox = /** @type {HTMLElement} */ ( document.getElementById( 'checkbox' ) );
+		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
+		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
+
+		pinButton.click();
+		expect( document.activeElement ).toBe( unpinButton );
+		unpinButton.click();
+		expect( document.activeElement ).toBe( dropdownCheckbox );
 	} );
 } );
