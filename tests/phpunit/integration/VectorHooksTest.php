@@ -508,12 +508,23 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				'createaccount' => [ 'class' => [], 'icon' => 'createaccount' ],
 				'login' => [ 'class' => [], 'icon' => 'login' ],
 				'login-private' => [ 'class' => [], 'icon' => 'login-private' ],
+				'anontalk' => [ 'class' => [], 'icon' => 'anontalk' ],
+				'anoncontribs' => [ 'class' => [], 'icon' => 'anoncontribs' ],
 			],
 		];
 		$updateUserLinksDropdownItems->invokeArgs( null, [ $skin, &$contentAnon ] );
 		$this->assertTrue(
-			count( $contentAnon['user-menu'] ) === 0,
-			'Anon user page, create account, login, and login private links are removed from anon user links dropdown'
+			count( $contentAnon['user-menu'] ) === 2 &&
+			isset( $contentAnon['user-menu']['createaccount'] ) &&
+			isset( $contentAnon['user-menu']['login'] ),
+			'Anon user page, login private and anon talk, anon contribs links are removed from user-menu'
+		);
+
+		$this->assertTrue(
+			count( $contentAnon['user-menu'] ) === 2 &&
+			isset( $contentAnon['user-menu-anon-editor']['anontalk'] ) &&
+			isset( $contentAnon['user-menu-anon-editor']['anoncontribs'] ),
+			'Anon talk, anon contribs links are moved to user-menu-anon-editor'
 		);
 
 		// Registered user
@@ -547,6 +558,9 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'Watchlist link in user links dropdown has link-html'
 		);
 		$this->assertFalse( isset( $contentRegistered['user-menu']['logout'] ),
+			'Logout link in user links dropdown is not set'
+		);
+		$this->assertTrue( isset( $contentRegistered['user-menu-logout']['logout'] ),
 			'Logout link in user links dropdown is not set'
 		);
 	}

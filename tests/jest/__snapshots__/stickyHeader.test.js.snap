@@ -16,7 +16,7 @@ exports[`Sticky header renders 1`] = `
 	<label id=\\"vector-sticky-header-toc-label\\" for=\\"vector-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" tabindex=\\"-1\\">
 		<span class=\\"vector-menu-heading-label\\"></span>
 	</label>
-	<div class=\\"vector-menu-content\\">
+	<div class=\\"vector-menu-content vector-dropdown-content\\">
 
 	</div>
 </div>			<div class=\\"vector-sticky-header-context-bar-primary\\"></div>

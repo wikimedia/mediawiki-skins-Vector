@@ -31,34 +31,26 @@ const templateData = {
 	},
 	'data-user-links-dropdown': {
 		id: 'p-personal',
-		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
+		class: 'vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
 		label: 'Personal tools'
 	},
-	'data-dropdown-menu': {
+	'data-user-links-dropdown-menus': [ {
 		'html-items': `
-			<li id="pt-userpage" class="user-links-collapsible-item mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar" href="/wiki/User:Admin" title="Your user page [.]" accesskey="."><span>Admin</span></a></li>
-			<li id="pt-mytalk" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk" href="/wiki/User_talk:Admin" title="Your talk page [n]" accesskey="n"><span>Talk</span></a></li>
-			<li id="pt-sandbox" class="new mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-sandbox mw-ui-icon-wikimedia-sandbox" href="/w/index.php?title=User:Admin/sandbox&amp;action=edit&amp;redlink=1" title="Your sandbox (page does not exist)"><span>Sandbox</span></a></li>
-			<li id="pt-preferences" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-settings mw-ui-icon-wikimedia-settings" href="/wiki/Special:Preferences" title="Your preferences"><span>Preferences</span></a></li>
-			<li id="pt-betafeatures" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-labFlask mw-ui-icon-wikimedia-labFlask" href="/wiki/Special:Preferences#mw-prefsection-betafeatures" title="Beta features"><span>Beta</span></a></li>
-			<li id="pt-watchlist" class="user-links-collapsible-item mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist" href="/wiki/Special:Watchlist" title="A list of pages you are monitoring for changes [l]" accesskey="l"><span>Watchlist</span></a></li>
-			<li id="pt-uploads" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-imageGallery mw-ui-icon-wikimedia-imageGallery" href="/w/index.php?title=Special:ListFiles/Admin&amp;ilshowall=1" title="List of files you have uploaded"><span>Uploads</span></a></li>
-			<li id="pt-mycontris" class="mw-list-item"><a class="mw-ui-icon mw-ui-icon-before mw-ui-icon-userContributions mw-ui-icon-wikimedia-userContributions" href="/wiki/Special:Contributions/Admin" title="A list of your contributions [y]" accesskey="y"><span>Contributions</span></a></li>
+			<li id="pt-userpage" class="user-links-collapsible-item mw-list-item"><a href="/wiki/User:Admin" title="Your user page [.]" accesskey="."><span class="mw-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span> <span>Admin</span></a></li>
+			<li id="pt-mytalk" class="mw-list-item"><a href="/wiki/User_talk:Admin" title="Your talk page [n]" accesskey="n"><span class="mw-ui-icon mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk"></span> <span>Talk</span></a></li>
+			<li id="pt-sandbox" class="new mw-list-item"><a href="/w/index.php?title=User:Admin/sandbox&amp;action=edit&amp;redlink=1" title="Your sandbox (page does not exist)"><span class="mw-ui-icon mw-ui-icon-sandbox mw-ui-icon-wikimedia-sandbox"></span> <span>Sandbox</span></a></li>
+			<li id="pt-preferences" class="mw-list-item"><a href="/wiki/Special:Preferences" title="Your preferences"><span class="mw-ui-icon mw-ui-icon-settings mw-ui-icon-wikimedia-settings"></span> <span>Preferences</span></a></li>
+			<li id="pt-betafeatures" class="mw-list-item"><a href="/wiki/Special:Preferences#mw-prefsection-betafeatures" title="Beta features"><span class="mw-ui-icon mw-ui-icon-labFlask mw-ui-icon-wikimedia-labFlask"></span> <span>Beta</span></a></li>
+			<li id="pt-watchlist" class="user-links-collapsible-item mw-list-item"><a href="/wiki/Special:Watchlist" title="A list of pages you are monitoring for changes [l]" accesskey="l"><span class="mw-ui-icon mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist"></span> <span>Watchlist</span></a></li>
+			<li id="pt-uploads" class="mw-list-item"><a href="/w/index.php?title=Special:ListFiles/Admin&amp;ilshowall=1" title="List of files you have uploaded"><span class="mw-ui-icon mw-ui-icon-imageGallery mw-ui-icon-wikimedia-imageGallery"></span> <span>Uploads</span></a></li>
+			<li id="pt-mycontris" class="mw-list-item"><a href="/wiki/Special:Contributions/Admin" title="A list of your contributions [y]" accesskey="y"><span class="mw-ui-icon mw-ui-icon-userContributions mw-ui-icon-wikimedia-userContributions"></span> <span>Contributions</span></a></li>
 			<li id="pt-custom" class="mw-list-item mw-list-item-js">Gadget added item</li>
 		`
-	},
-	'data-account-links': [
-		{
-			'data-items': [
-				{
-					'item-id': 'pt-logout',
-					'item-class': 'vector-user-menu-logout',
-					href: '/logout',
-					text: 'Log out'
-				}
-			]
-		}
-	]
+	}, {
+		'html-items': `
+			<li id="ca-logout" class="mw-list-item"><a data-mw="interface" href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page" title="Log out"><span class="mw-ui-icon mw-ui-icon-logOut mw-ui-icon-wikimedia-logOut"></span> <span>Log out</span></a></li>
+		`
+	} ]
 };
 
 const dropdownPartials = {

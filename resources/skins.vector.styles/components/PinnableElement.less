@@ -1,29 +1,5 @@
 @import '../../common/variables.less';
 
-.vector-feature-page-tools-enabled .vector-pinnable-element {
-	& > *:not( :last-child ) {
-		// Apply bottom border to every children of pinnable elements except the last
-		border-bottom: @border-width-base @border-style-base @colorGray14;
-	}
-
-	.vector-menu-heading {
-		.mixin-vector-dropdown-menu-item();
-		.mixin-vector-menu-heading();
-	}
-
-	.mw-list-item a {
-		// Mirror styles from Dropdown.less
-		.mixin-vector-dropdown-menu-item();
-		color: @color-link;
-	}
-}
-
-// TODO: merge this into the selector above after page tools is enabled everywhere
-.vector-unpinned-container .vector-pinnable-element {
-	padding: 4px 0;
-}
-
-// TODO: merge this into the selector above after page tools is enabled everywhere
 .vector-pinned-container .vector-pinnable-element {
 	// Make the heading border line up with the edge of the text
 	// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).

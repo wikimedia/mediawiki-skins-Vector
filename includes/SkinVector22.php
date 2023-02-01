@@ -5,12 +5,9 @@ namespace MediaWiki\Skins\Vector;
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
-use MediaWiki\Skins\Vector\Components\VectorComponentIconLink;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
-use MediaWiki\Skins\Vector\Components\VectorComponentMenu;
-use MediaWiki\Skins\Vector\Components\VectorComponentMenuListItem;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableContainer;
@@ -308,11 +305,7 @@ class SkinVector22 extends SkinMustache {
 
 		$langButtonClass = $langData['class'] ?? '';
 		$ulsLabels = $this->getULSLabels();
-		$returnto = $this->getReturnToParam();
 		$user = $this->getUser();
-		$logoutData = $this->buildLogoutLinkData();
-		$loginLinkData = $this->buildLoginData( $returnto, $this->useCombinedLoginLink() );
-		$createAccountData = $this->buildCreateAccountData( $returnto );
 		$localizer = $this->getContext();
 
 		$tocData = $parentData['data-toc'];
@@ -368,52 +361,8 @@ class SkinVector22 extends SkinMustache {
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,
 				$user,
-				new VectorComponentMenu(
-					$portlets['data-user-menu']
-				),
-				new VectorComponentMenu( [
-					// this menu should have no label
-					'label' => '',
-				] + $portlets[ 'data-vector-user-menu-overflow' ] ),
-				new VectorComponentMenu(
-					[],
-					$user->isRegistered() ? [
-						new VectorComponentMenuListItem(
-							new VectorComponentIconLink(
-								$logoutData[ 'href'],
-								$logoutData[ 'text' ],
-								$logoutData[ 'icon' ],
-								$this,
-								$logoutData[ 'single-id' ],
-							),
-							'vector-user-menu-logout',
-							'pt-logout'
-						)
-					] : [
-						new VectorComponentMenuListItem(
-							new VectorComponentIconLink(
-								$createAccountData['href'] ?? null,
-								$createAccountData['text'] ?? null,
-								$createAccountData['icon'] ?? null,
-								$this,
-								$createAccountData['single-id']
-							),
-							'vector-user-menu-create-account user-links-collapsible-item',
-							'pt-createaccount',
-						),
-						new VectorComponentMenuListItem(
-							new VectorComponentIconLink(
-								$loginLinkData['href'] ?? null,
-								$loginLinkData['text'] ?? null,
-								$loginLinkData['icon'] ?? null,
-								$this,
-								$loginLinkData['single-id']
-							),
-							'vector-user-menu-login user-links-collapsible-item',
-							'pt-login',
-						)
-					]
-				),
+				$portlets,
+				$this->getOptions()['link']
 			),
 			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],
