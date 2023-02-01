@@ -2,6 +2,7 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const menuContents = fs.readFileSync( 'includes/templates/MenuContents.mustache', 'utf8' );
 const userLinksTemplate = fs.readFileSync( 'includes/templates/UserLinks.mustache', 'utf8' );
+const userLinksDropdownTemplate = fs.readFileSync( 'includes/templates/UserLinksDropdown.mustache', 'utf8' );
 const dropdownOpenTemplate = fs.readFileSync( 'includes/templates/Dropdown/Open.mustache', 'utf8' );
 const dropdownCloseTemplate = fs.readFileSync( 'includes/templates/Dropdown/Close.mustache', 'utf8' );
 const pinnedContainerOpenTemplate = fs.readFileSync( 'includes/templates/PinnableContainer/Pinned/Open.mustache', 'utf8' );
@@ -16,7 +17,7 @@ const MenuListItem = fs.readFileSync( 'includes/templates/MenuListItem.mustache'
 
 const templateData = {
 	'is-wide': false,
-	'data-user-menu-overflow': {
+	'data-user-links-overflow-menu': {
 		id: 'p-personal-more',
 		class: 'mw-portlet mw-portlet-vector-user-menu-overflow vector-user-menu-overflow',
 		label: 'Toggle sidebar',
@@ -28,7 +29,7 @@ const templateData = {
 			<li id="pt-watchlist-2" class="user-links-collapsible-item mw-list-item"><a href="/wiki/Special:Watchlist" class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist" title="A list of pages you are monitoring for changes [⌃⌥l]" accesskey="l"><span>Watchlist</span></a></li>
 		`
 	},
-	'data-user-menu-dropdown': {
+	'data-user-links-dropdown': {
 		id: 'p-personal',
 		class: 'mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
 		label: 'Personal tools'
@@ -61,6 +62,7 @@ const templateData = {
 };
 
 const dropdownPartials = {
+	UserLinksDropdown: userLinksDropdownTemplate,
 	'Dropdown/Open': dropdownOpenTemplate,
 	'Dropdown/Close': dropdownCloseTemplate,
 	'PinnableContainer/Pinned/Open': pinnedContainerOpenTemplate,

@@ -124,8 +124,8 @@ class VectorComponentUserLinks implements VectorComponent {
 		return $additionalData + [
 			'is-temp-user' => $user->isTemp(),
 			'is-wide' => count( $overflowMenu ) > 3,
-			'data-user-menu-overflow' => $overflowMenu->getTemplateData(),
-			'data-user-menu-dropdown' => $userMenuDropdown->getTemplateData(),
+			'data-user-links-overflow-menu' => $overflowMenu->getTemplateData(),
+			'data-user-links-dropdown' => $userMenuDropdown->getTemplateData(),
 			'data-dropdown-menu' => $userMenu->getTemplateData(),
 			'data-account-links' => $this->accountMenu->getTemplateData(),
 		];
