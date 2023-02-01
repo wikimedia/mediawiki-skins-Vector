@@ -8,7 +8,8 @@
 			"Rancher",
 			"Жељко Тодоровић",
 			"Михајло Анђелковић",
-			"Сербијана"
+			"Сербијана",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "Векторско (2010)",
@@ -23,6 +24,7 @@
 	"vector.js": "/* JavaScript постављен овде учитаће се свим корисницима векторске теме */",
 	"vector-action-toggle-sidebar": "Прикажи/сакриј бочну траку",
 	"vector-languages": "Језици",
+	"vector-language-button-aria-label": "Чланак на другим језицима. Доступан на: {{PLURAL:$1|$1}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 језик|$1 језика}}",
 	"vector-language-redirect-to-top": "Језичке везе се налазе на врху странице поред наслова чланка. [[#p-lang-btn|Идите на врх]].",
 	"vector-language-variant-switcher-label": "Промени варијанту језика",

@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Comp1089"
+			"Comp1089",
+			"Enye Lav"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|кыв}}",
 	"vector-action-move": "Ним вежны",
+	"vector-view-create": "Лӧсьӧдны",
 	"vector-view-edit": "Вежны",
-	"vector-view-view": "Лыддьыны"
+	"vector-view-history": "История",
+	"vector-view-view": "Лыддьыны",
+	"vector-more-actions": "Нӧшта"
 }
