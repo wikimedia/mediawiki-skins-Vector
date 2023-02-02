@@ -278,7 +278,10 @@ const main = () => {
 		onToggleClick: ( id ) => {
 			tableOfContents.toggleExpandSection( id );
 		},
-		onTogglePinned: updateTocLocation
+		onTogglePinned: () => {
+			updateTocLocation();
+			pinnableElement.setFocusAfterToggle( TOC_ID );
+		}
 	} );
 	const headingSelector = [
 		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'

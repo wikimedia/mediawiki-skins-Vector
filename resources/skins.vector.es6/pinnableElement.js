@@ -97,14 +97,39 @@ function pinnableElementClickHandler( header ) {
 	} = header.dataset;
 
 	togglePinnableClasses( header );
+	setSavedPinnableState( header );
 
 	// Optional functionality of moving the pinnable element in the DOM
 	// to different containers based on it's pinned status
 	if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
 		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
+		setFocusAfterToggle( pinnableElementId );
 	}
-	setSavedPinnableState( header );
+}
+
+/**
+ * Sets focus on the correct toggle button depending on the pinned state.
+ * Also opens the dropdown containing the unpinned element.
+ *
+ * @param {string} pinnableElementId
+ */
+function setFocusAfterToggle( pinnableElementId ) {
+	let focusElement;
+	const pinnableElement = document.getElementById( pinnableElementId );
+	const header = /** @type {HTMLElement|null} */ ( pinnableElement && pinnableElement.querySelector( '.vector-pinnable-header' ) );
+	if ( !pinnableElement || !header ) {
+		return;
+	}
+	if ( isPinned( header ) ) {
+		focusElement = /** @type {HTMLElement|null} */ ( pinnableElement.querySelector( '.vector-pinnable-header-unpin-button' ) );
+	} else {
+		const dropdown = pinnableElement.closest( '.vector-dropdown' );
+		focusElement = /** @type {HTMLInputElement|null} */ ( dropdown && dropdown.querySelector( '.vector-menu-checkbox' ) );
+	}
+	if ( focusElement ) {
+		focusElement.focus();
+	}
 }
 
 /**
@@ -177,6 +202,7 @@ function initPinnableElement() {
 module.exports = {
 	initPinnableElement,
 	movePinnableElement,
+	setFocusAfterToggle,
 	isPinned,
 	PINNED_HEADER_CLASS,
 	UNPINNED_HEADER_CLASS
