@@ -54,21 +54,6 @@
 	}
 }
 
-// FIXME: Remove selector after Iac0586893fec26a8a6c2c904ce08fbf1e19b339c has been in prod for a week
-.vector-user-menu-logout,
-.vector-user-menu-create-account,
-.vector-user-menu-login,
-.mw-portlet-personal .mw-list-item {
-	a {
-		.mixin-vector-dropdown-menu-item();
-
-		.vector-feature-page-tools-disabled & {
-			.mixin-vector-dropdown-menu-item-deprecated();
-		}
-		color: @color-link;
-	}
-}
-
 /**
  * Horizontal links menu - logged in and logged out.
  */
@@ -125,41 +110,6 @@
 	a:after {
 		content: '@{msg-parentheses-end}';
 	}
-}
-
-// Anon editor notice i.e. "Pages for logged out editors".
-// FIXME: Remove selector after Iac0586893fec26a8a6c2c904ce08fbf1e19b339c has been in prod for a week
-.vector-user-menu-anon-editor {
-	.mixin-vector-dropdown-menu-item();
-
-	.vector-feature-page-tools-disabled & {
-		.mixin-vector-dropdown-menu-item-deprecated();
-	}
-
-	.vector-feature-page-tools-enabled & p {
-		margin: 0;
-	}
-	color: @color-base--subtle;
-
-	a:before {
-		content: '@{msg-parentheses-start}';
-	}
-
-	a:after {
-		content: '@{msg-parentheses-end}';
-	}
-}
-
-// FIXME: Remove selector after Iac0586893fec26a8a6c2c904ce08fbf1e19b339c has been in prod for a week
-// Login link.
-.vector-user-menu-login {
-	border-bottom: @border-width-base @border-style-base @colorGray14;
-}
-
-// FIXME: Remove selector after Iac0586893fec26a8a6c2c904ce08fbf1e19b339c has been in prod for a week
-// Logout link
-.vector-user-menu-logout {
-	border-top: @border-width-base @border-style-base @colorGray14;
 }
 
 //User-page link in personal (overflow) menu.
