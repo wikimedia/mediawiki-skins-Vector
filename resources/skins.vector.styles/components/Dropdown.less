@@ -67,7 +67,11 @@
 .vector-dropdown .mw-list-item {
 	a {
 		.mixin-vector-dropdown-menu-item();
-		color: @color-link;
+
+		// The link is a mw-selflink in the case of temporary users.
+		&:not( .mw-selflink ) {
+			color: @color-link;
+		}
 
 		.vector-feature-page-tools-disabled & {
 			.mixin-vector-dropdown-menu-item-deprecated();
