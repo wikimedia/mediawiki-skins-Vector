@@ -446,6 +446,7 @@
 			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
 			"+ext.uls.interface": "skinStyles/ext.uls.interface.less",
 			"+ext.visualEditor.base": "skinStyles/ext.visualEditor.less",
+			"wikibase.client.init": "skinStyles/wikibase.client.init.css",
 			"jquery.ui": [
 				"skinStyles/jquery.ui/jquery.ui.core.css",
 				"skinStyles/jquery.ui/jquery.ui.theme.css",

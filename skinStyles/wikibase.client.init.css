@@ -1,0 +1,12 @@
+.wb-langlinks-link > a:before {
+	content: '';
+	background-image: url( images/edit.svg );
+	background-position: 2px center;
+	background-repeat: no-repeat;
+	background-size: 10px 10px;
+	display: inline-block;
+	width: 14px; /* extra 2px of white space around the icon */
+	height: 10px;
+	margin-left: -14px;
+	vertical-align: top;
+}

@@ -13,7 +13,7 @@ function addInterwikiLinkToMainMenu() {
 		var $li = $( '<li>' )
 			// If the Wikibase code runs last, this class is required so it matches the selector @:
 			// https://gerrit.wikimedia.org/g/mediawiki/extensions/Wikibase/+/f2e96e1b08fc5ae2e2e92f05d5eda137dc6b1bc8/client/resources/wikibase.client.linkitem.init.js#82
-			.addClass( 'wb-langlinks-link' )
+			.addClass( 'wb-langlinks-link mw-list-item' )
 			.append( $editLink );
 		$li.appendTo( '#p-tb ul' );
 	}
