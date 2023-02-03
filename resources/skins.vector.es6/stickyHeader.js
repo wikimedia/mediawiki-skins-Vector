@@ -382,6 +382,11 @@ function addVisualEditorHooks( stickyIntersection, observer ) {
 }
 
 /**
+ * Clones the existing user menu (excluding items added by gadgets) and adds to the sticky header
+ * ensuring it is not focusable and that elements are no longer collapsible (since the sticky header
+ * itself collapses at low resolutions) and updates click tracking event names. Also wires up the
+ * logout link so it works in a single click.
+ *
  * @param {Element} userMenu
  * @return {Element} cloned userMenu
  */
@@ -403,6 +408,16 @@ function prepareUserMenu( userMenu ) {
 	const userMenuCheckbox = userMenuClone.querySelector( 'input' );
 	if ( userMenuCheckbox ) {
 		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
+	}
+
+	// Make the logout go through the API (T324638)
+	const logoutLink = userMenuClone.querySelector( '#pt-logout-sticky-header a' );
+	if ( logoutLink ) {
+		logoutLink.addEventListener( 'click', function ( ev ) {
+			ev.preventDefault();
+			// @ts-ignore
+			mw.hook( 'skin.logout' ).fire( this.href );
+		} );
 	}
 	return userMenuClone;
 }
