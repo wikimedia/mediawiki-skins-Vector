@@ -1,3 +1,6 @@
+@import '../../common/variables.less';
+@import '../../common/mixins.less';
+
 // Ensure there is only 1 page tools landmark at anytime
 .vector-page-tools-landmark {
 	.vector-feature-page-tools-pinned-enabled .vector-page-toolbar-container &,
@@ -6,11 +9,32 @@
 	}
 }
 
+.vector-column-end {
+	// T327460: Prevent subpixel rendering issues associated with the text and Chrome.
+	contain: paint;
+
+	.vector-page-tools-landmark {
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
+		position: sticky;
+		top: 0;
+	}
+}
+
 .vector-page-tools {
 	#vector-page-tools-pinned-container & {
 		width: 140px;
 		// Match spacing of TOC and main menu
-		padding-left: @padding-horizontal-dropdown-menu-item;
+		margin-left: @padding-horizontal-dropdown-menu-item;
+		max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
+		overflow-y: auto;
+		// Add extra padding for the fade scrollable indicator.
+		padding-bottom: @height-scroll-indicator - @padding-vertical-dropdown-menu-item;
+		box-sizing: border-box;
+
+		// Add fade indicator.
+		&:after {
+			.mixin-vector-scroll-indicator();
+		}
 	}
 }
 
