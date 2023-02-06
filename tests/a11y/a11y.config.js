@@ -43,9 +43,7 @@ module.exports = {
 			url: testData.baseUrl + testData.pageUrl,
 			wait: '500',
 			actions: [
-				'click #p-personal-checkbox',
-				'wait for .vector-user-menu-login a to be visible',
-				'click .vector-user-menu-login a',
+				'click #pt-login-2 a',
 				'wait for #wpName1 to be visible',
 				'set field #wpName1 to ' + testData.loginUser,
 				'set field #wpPassword1 to ' + testData.loginPassword,
