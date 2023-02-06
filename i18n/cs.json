@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Blahma",
 			"Dvorapa",
 			"Fraxinus.cs",
 			"Jaroslav Cerny",
@@ -58,6 +59,7 @@
 	"vector-toc-menu-tooltip": "Obsah",
 	"vector-toc-collapsible-button-label": "Přepnout obsah",
 	"vector-site-nav-label": "Projekt",
+	"vector-main-menu-label": "Hlavní menu",
 	"vector-page-tools-label": "Nástroje",
 	"vector-page-tools-general-label": "Obecné",
 	"vector-page-tools-actions-label": "Akce",
