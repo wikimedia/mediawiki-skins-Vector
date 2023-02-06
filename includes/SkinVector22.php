@@ -65,9 +65,6 @@ class SkinVector22 extends SkinMustache {
 	 * @return bool
 	 */
 	private function canHaveLanguages(): bool {
-		if ( $this->getContext()->getActionName() !== 'view' ) {
-			return false;
-		}
 		$title = $this->getTitle();
 		// Defensive programming - if a special page has added languages explicitly, best to show it.
 		if ( $title && $title->isSpecialPage() && empty( $this->getLanguagesCached() ) ) {
