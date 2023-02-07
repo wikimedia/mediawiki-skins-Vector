@@ -65,6 +65,14 @@ class SkinVector22 extends SkinMustache {
 	 * @return bool
 	 */
 	private function canHaveLanguages(): bool {
+		$action = $this->getContext()->getActionName();
+
+		// FIXME: This logic should be moved into the ULS extension or core given the button is hidden,
+		// it should not be rendered, short term fix for T328996.
+		if ( $action === 'history' ) {
+			return false;
+		}
+
 		$title = $this->getTitle();
 		// Defensive programming - if a special page has added languages explicitly, best to show it.
 		if ( $title && $title->isSpecialPage() && empty( $this->getLanguagesCached() ) ) {
