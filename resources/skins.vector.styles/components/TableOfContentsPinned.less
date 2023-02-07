@@ -19,16 +19,12 @@
 			contain: paint;
 		}
 
-		// FIXME: `.vector-feature-page-tools-disabled.vector-toc-pinned` can be removed when cached HTML no longer an issue.
-		.vector-feature-page-tools-disabled .vector-toc-pinned &,
-		.vector-feature-page-tools-disabled.vector-toc-pinned & {
+		.vector-feature-page-tools-disabled .vector-toc-pinned & {
 			// Align the left edge of the TOC text with the main menu button icon.
 			margin-left: -27px;
 		}
 
-		// FIXME: `.vector-feature-page-tools-enabled.vector-toc-pinned` can be removed when cached HTML no longer an issue.
-		.vector-feature-page-tools-enabled .vector-toc-pinned &,
-		.vector-feature-page-tools-enabled.vector-toc-pinned & {
+		.vector-feature-page-tools-enabled .vector-toc-pinned & {
 			// Align the left edge of the TOC text with the page container
 			margin-left: -@spacing-subsection-toggle;
 		}
@@ -49,16 +45,12 @@
 			margin-top: 1.5em;
 		}
 
-		// FIXME: .vector-feature-page-tools-disabled.vector-toc-pinned can be removed when cached HTML no longer an issue.
-		.vector-feature-page-tools-disabled .vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container &,
-		.vector-feature-page-tools-disabled.vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
+		.vector-feature-page-tools-disabled .vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
 			// Needed to align TOC with bottom of title.
 			margin-top: @margin-top-pinned-toc;
 		}
 
-		// FIXME: .vector-feature-page-tools-enabled.vector-toc-pinned can be removed when cached HTML no longer an issue.
-		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled .vector-toc-pinned &,
-		.vector-feature-page-tools-enabled.vector-toc-pinned.vector-feature-main-menu-pinned-disabled & {
+		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled .vector-toc-pinned & {
 			// Align TOC with bottom of title when main menu is not pinned but the TOC is
 			margin-top: @margin-top-pinned-toc;
 		}

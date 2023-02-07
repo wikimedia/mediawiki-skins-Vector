@@ -2,7 +2,7 @@ const features = require( '../../../resources/skins.vector.es6/features.js' );
 
 describe( 'features', () => {
 	beforeEach( () => {
-		document.body.setAttribute( 'class', 'vector-feature-foo-disabled vector-feature-bar-enabled hello' );
+		document.documentElement.setAttribute( 'class', 'vector-feature-foo-disabled vector-feature-bar-enabled hello' );
 	} );
 
 	test( 'toggle', () => {
@@ -10,19 +10,19 @@ describe( 'features', () => {
 		features.toggle( 'bar' );
 
 		expect(
-			document.body.classList.contains( 'vector-feature-foo-enabled' )
+			document.documentElement.classList.contains( 'vector-feature-foo-enabled' )
 		).toBe( true );
 		expect(
-			document.body.classList.contains( 'vector-feature-foo-disabled' )
+			document.documentElement.classList.contains( 'vector-feature-foo-disabled' )
 		).toBe( false );
 		expect(
-			document.body.classList.contains( 'vector-feature-bar-disabled' )
+			document.documentElement.classList.contains( 'vector-feature-bar-disabled' )
 		).toBe( true );
 		expect(
-			document.body.classList.contains( 'vector-feature-bar-enabled' )
+			document.documentElement.classList.contains( 'vector-feature-bar-enabled' )
 		).toBe( false );
 		expect(
-			document.body.classList.contains( 'hello' )
+			document.documentElement.classList.contains( 'hello' )
 		).toBe( true );
 	} );
 

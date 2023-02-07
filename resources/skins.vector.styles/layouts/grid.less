@@ -109,10 +109,8 @@
 // Horizontally center content when column start is empty (i.e. no pinned ToC or pinned main menu)
 .vector-feature-page-tools-disabled {
 
-	// FIXME: &.vector-toc-unpinned can be removed when cache is clear.
 	@{selector-sidebar-no-toc-sidebar-closed},
-	.vector-toc-unpinned @{selector-main-menu-closed},
-	&.vector-toc-unpinned @{selector-main-menu-closed} {
+	.vector-toc-unpinned @{selector-main-menu-closed} {
 		& ~ .mw-content-container {
 			grid-column: mainMenu / pageContent;
 			margin-left: auto;
@@ -124,10 +122,8 @@
 
 // Horizontally center content when column start is empty (i.e. no pinned ToC or pinned main menu)
 .vector-feature-page-tools-enabled {
-	// FIXME: &.vector-toc-unpinned can be removed when cache is clear.
 	&.vector-feature-main-menu-pinned-disabled .vector-sidebar-container-no-toc ~ .mw-content-container,
-	&.vector-feature-main-menu-pinned-disabled .vector-toc-unpinned .mw-content-container,
-	&.vector-toc-unpinned.vector-feature-main-menu-pinned-disabled .mw-content-container {
+	&.vector-feature-main-menu-pinned-disabled .vector-toc-unpinned .mw-content-container {
 		grid-column: mainMenu / pageContent;
 		margin-left: auto;
 		margin-right: auto;

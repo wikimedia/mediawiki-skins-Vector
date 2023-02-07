@@ -41,32 +41,6 @@ function save( feature, enabled ) {
  * @return {boolean} The new feature state (false=disabled, true=enabled).
  * @throws {Error} if unknown feature toggled.
  */
-function toggleBodyClasses( name, override ) {
-	const featureClassEnabled = 'vector-feature-' + name + '-enabled',
-		classList = document.body.classList,
-		featureClassDisabled = 'vector-feature-' + name + '-disabled';
-
-	if ( classList.contains( featureClassDisabled ) || override === true ) {
-		classList.remove( featureClassDisabled );
-		classList.add( featureClassEnabled );
-		return true;
-	} else if ( classList.contains( featureClassEnabled ) || override === false ) {
-		classList.add( featureClassDisabled );
-		classList.remove( featureClassEnabled );
-		return false;
-	} else {
-		throw new Error( 'Attempt to toggle unknown feature: ' + name );
-	}
-}
-
-/**
- *
- * @param {string} name feature name
- * @param {boolean} [override] option to force enabled or disabled state.
- *
- * @return {boolean} The new feature state (false=disabled, true=enabled).
- * @throws {Error} if unknown feature toggled.
- */
 function toggleDocClasses( name, override ) {
 	const featureClassEnabled = `vector-feature-${name}-enabled`,
 		classList = document.documentElement.classList,
@@ -81,9 +55,7 @@ function toggleDocClasses( name, override ) {
 		classList.remove( featureClassEnabled );
 		return false;
 	} else {
-		// Perhaps we are dealing with cached HTML ?
-		// FIXME: Can be removed and replaced with throw new Error when cache is clear.
-		return toggleBodyClasses( name, override );
+		throw new Error( `Attempt to toggle unknown feature: ${name}` );
 	}
 }
 
@@ -103,10 +75,7 @@ function toggle( name ) {
  * @return {boolean}
  */
 function isEnabled( name ) {
-	const className = `vector-feature-${name}-enabled`;
-	return document.documentElement.classList.contains( className ) ||
-		// FIXME: For cached HTML. Remove after one train cycle.
-		document.body.classList.contains( className );
+	return document.documentElement.classList.contains( `vector-feature-${name}-enabled` );
 }
 
 module.exports = { isEnabled, toggle, toggleDocClasses };
