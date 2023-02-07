@@ -125,7 +125,8 @@
 // Tabs
 @font-size-tabs: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 @padding-horizontal-tabs: 8px;
-@padding-vertical-tabs: 18px 0 7px 0;
+@padding-top-tabs: 18px;
+@padding-vertical-tabs: @padding-top-tabs 0 7px 0;
 
 // Dropdowns
 @height-dropdown-menu-item: unit( 32 / @font-size-browser, rem );
@@ -139,13 +140,19 @@
 @selector-main-menu-open: ~'#mw-sidebar-checkbox:checked';
 @selector-main-menu-closed: ~'#mw-sidebar-checkbox:not( :checked )';
 
+// Scroll Indicator
+@height-scroll-indicator: 30px;
+// The amount of space that should be between the bottom of the viewport and the
+// bottom of the scroll indicator.
+@max-height-bottom-spacing-scroll-indicator: 16px;
+
 // TOC
-@height-toc-scroll-indicator: 30px;
-@scrollbar-offset-toc-scroll-indicator: 12px;
 @spacing-subsection-toggle: 22px; // @size-toc-subsection-toggle-icon @ 12
 @size-toc-subsection-toggle-icon: 1.834em;
-// Calculated with: 1.5em (TOC top padding) + @margin-top-pinned-toc = 0.5em (.mw-body padding) + 2.34 (height of #firstHeading)
-@margin-top-pinned-toc: @padding-top-content + (@font-size-heading-1 * @line-height-heading) - 1.5em;
+// Calculated with: @margin-top-pinned-toc = 0.5em (.mw-body padding) + 2.34 (height of #firstHeading)
+@margin-top-pinned-toc: @padding-top-content + (@font-size-heading-1 * @line-height-heading);
+// The design spec specifies 30px of space from the top of the viewport to the top of the pinned TOC (excluding top padding).
+@top-sticky-toc: 30px - @padding-top-tabs;
 
 // Search
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em T270202

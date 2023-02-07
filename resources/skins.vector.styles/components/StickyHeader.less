@@ -165,10 +165,16 @@
 		//   https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
 		// - `.charts-stickyhead th` makes chart and table headers appear below the sticky header.
 		.vector-toc-pinned #vector-toc-pinned-container,
+		&.vector-feature-page-tools-pinned-enabled .vector-page-tools-landmark,
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */
 			top: @height-sticky-header !important;
+		}
+
+		#vector-toc-pinned-container .vector-toc,
+		#vector-page-tools-pinned-container .vector-page-tools {
+			max-height: ~'calc( 100vh - @{height-sticky-header} - @{max-height-bottom-spacing-scroll-indicator} )';
 		}
 	}
 }
