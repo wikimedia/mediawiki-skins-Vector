@@ -380,8 +380,6 @@ class Hooks implements
 			$content_navigation[$overflow]['createaccount'] = array_merge(
 				$content_navigation['user-menu']['createaccount'], [
 				'id' => 'pt-createaccount-2',
-				// T312157: Style the userpage link as a blue link rather than a quiet button.
-				'button' => false,
 				'collapsible' => true,
 				// Remove icon
 				'icon' => '',
@@ -391,7 +389,6 @@ class Hooks implements
 			$content_navigation[$overflow]['login'] = array_merge(
 				$content_navigation['user-menu']['login'], [
 				'id' => 'pt-login-2',
-				'button' => true,
 				'collapsible' => true,
 				// Remove icon
 				'icon' => '',
