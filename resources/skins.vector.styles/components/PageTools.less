@@ -27,14 +27,9 @@
 		margin-left: @padding-horizontal-dropdown-menu-item;
 		max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
 		overflow-y: auto;
-		// Add extra padding for the fade scrollable indicator.
-		padding-bottom: @height-scroll-indicator - @padding-vertical-dropdown-menu-item;
 		box-sizing: border-box;
-
 		// Add fade indicator.
-		&:after {
-			.mixin-vector-scroll-indicator();
-		}
+		.mixin-vector-scroll-indicator();
 	}
 }
 

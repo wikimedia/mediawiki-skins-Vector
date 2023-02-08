@@ -66,13 +66,11 @@
 		.vector-feature-page-tools-enabled & .vector-toc {
 			padding-left: @spacing-subsection-toggle;
 			padding-right: @padding-horizontal-dropdown-menu-item;
-			// Add extra padding for the fade scrollable indicator, which is 30px tall
-			padding-bottom: @height-scroll-indicator - @padding-vertical-dropdown-menu-item;
 		}
 
 		// T302076: Add fade scrollable indicator when TOC is in sidebar
 		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
-		.vector-toc-pinned & .vector-toc:after {
+		.vector-toc-pinned & .vector-toc {
 			.mixin-vector-scroll-indicator();
 		}
 	}
