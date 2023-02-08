@@ -6,6 +6,7 @@
 		]
 	},
 	"vector-opt-out": "Gantoe u seuneudeuh awai",
+	"vector-languages": "Bahsa",
 	"vector-language-button-label": "{{PLURAL:$1|$1 bahsa}}",
 	"vector-action-addsection": "Tamah bhaih",
 	"vector-action-delete": "Sampôh",
@@ -18,5 +19,6 @@
 	"vector-view-history": "Eu riwayat",
 	"vector-view-view": "Beuet",
 	"vector-view-viewsource": "Eu nè",
-	"vector-more-actions": "Lom"
+	"vector-more-actions": "Lom",
+	"tooltip-vector-anon-user-menu-title": "Peuniléh laén"
 }
