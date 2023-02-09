@@ -258,12 +258,14 @@ class Hooks implements
 	 * @internal used inside ::updateUserLinksItems
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
+	 * @suppress PhanTypeInvalidDimOffset
 	 */
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
 		$user = $sk->getUser();
 		$isTemp = $user->isTemp();
 		$isRegistered = $user->isRegistered();
+
 		if ( $isTemp ) {
 			if ( isset( $content_navigation['user-page']['tmpuserpage'] ) ) {
 				$content_navigation['user-page']['tmpuserpage']['collapsible'] = true;
@@ -283,28 +285,47 @@ class Hooks implements
 			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
 				$content_navigation['user-menu']['watchlist']['collapsible'] = true;
 			}
-			// Remove logout link from user-menu and recreate it in SkinVector,
-			unset( $content_navigation['user-menu']['logout'] );
-		}
 
-		if ( $isRegistered ) {
-			// Prefix user link items with associated icon.
-			// Don't show icons for anon menu items (besides login and create account).
-			// Loop through each menu to check/append its link classes.
+			// Anon editor links handled manually in new anon editor menu
+			$logoutMenu = [];
+			if ( isset( $content_navigation['user-menu']['logout'] ) ) {
+				$logoutMenu['logout'] = $content_navigation['user-menu']['logout'];
+				$logoutMenu['logout']['id'] = 'pt-logout';
+				unset( $content_navigation['user-menu']['logout'] );
+			}
+			$content_navigation['user-menu-logout'] = $logoutMenu;
+
 			self::updateMenuItems( $content_navigation, 'user-menu' );
-		} else {
-			// Remove "Not logged in" from personal menu dropdown for anon users.
-			unset( $content_navigation['user-menu']['anonuserpage'] );
+			self::updateMenuItems( $content_navigation, 'user-menu-logout' );
 		}
 
 		if ( !$isRegistered || $isTemp ) {
-			// "Create account" link is handled manually by Vector
-			unset( $content_navigation['user-menu']['createaccount'] );
-			// "Login" link is handled manually by Vector
-			unset( $content_navigation['user-menu']['login'] );
+			// Remove "Not logged in" from personal menu dropdown for anon users.
+			unset( $content_navigation['user-menu']['anonuserpage'] );
 			// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
 			// are set to false.
 			unset( $content_navigation['user-menu']['login-private'] );
+
+			// Make login and create account collapsible
+			$content_navigation['user-menu']['login']['collapsible'] = true;
+			$content_navigation['user-menu']['createaccount']['collapsible'] = true;
+
+			// Anon editor links handled manually in new anon editor menu
+			$anonEditorMenu = [];
+			if ( isset( $content_navigation['user-menu']['anoncontribs'] ) ) {
+				$anonEditorMenu['anoncontribs'] = $content_navigation['user-menu']['anoncontribs'];
+				$anonEditorMenu['anoncontribs']['id'] = 'pt-anoncontribs';
+				unset( $content_navigation['user-menu']['anoncontribs'] );
+			}
+			if ( isset( $content_navigation['user-menu']['anontalk'] ) ) {
+				$anonEditorMenu['anontalk'] = $content_navigation['user-menu']['anontalk'];
+				$anonEditorMenu['anontalk']['id'] = 'pt-anontalk';
+				unset( $content_navigation['user-menu']['anontalk'] );
+			}
+			$content_navigation['user-menu-anon-editor'] = $anonEditorMenu;
+
+			// Only show icons for anon menu items (login and create account).
+			self::updateMenuItems( $content_navigation, 'user-menu' );
 		}
 	}
 

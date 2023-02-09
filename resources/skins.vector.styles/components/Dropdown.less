@@ -20,6 +20,7 @@
  * Dropdown container
  */
 .vector-dropdown {
+	.vector-dropdown-content,
 	> .vector-menu-content {
 		background-color: @background-color-base;
 		border: @border-width-base @border-style-base @border-color-base;
@@ -33,10 +34,30 @@
 		}
 
 		.vector-feature-page-tools-enabled & {
+			padding: 4px 0;
 			// TODO Add consistent min/max values for dropdowns in T316055
 			width: max-content;
 			max-width: 200px;
 		}
+	}
+}
+
+.vector-feature-page-tools-enabled .vector-pinnable-element,
+.vector-dropdown-content {
+	.vector-menu-heading {
+		.mixin-vector-dropdown-menu-item();
+		.mixin-vector-menu-heading();
+	}
+
+	.mw-list-item a {
+		// Mirror styles from Dropdown.less
+		.mixin-vector-dropdown-menu-item();
+		color: @color-link;
+	}
+
+	> *:not( :last-child ) {
+		// Apply bottom border to every children of dropdown contents and pinnable elements except the last
+		border-bottom: @border-width-base @border-style-base @colorGray14;
 	}
 }
 
