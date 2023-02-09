@@ -33,15 +33,10 @@
 	#vector-toc-pinned-container {
 		// stylelint-disable-next-line plugin/no-unsupported-browser-features
 		position: sticky;
-		// The design spec specifies 30px of space from the top of the viewport to the top of the pinned TOC (excluding top padding).
-		top: @top-sticky-toc;
-
-		.vector-toc {
-			max-height: ~'calc( 100vh - @{top-sticky-toc} - @{max-height-bottom-spacing-scroll-indicator} )';
-		}
+		top: 0;
 
 		.vector-toc-pinned & {
-			// Default spacing separating the sidebar TOC from the main menu or viewport.
+			// Default spacing separating the sidebar TOC from the main menu.
 			margin-top: 1.5em;
 		}
 
@@ -55,15 +50,22 @@
 			margin-top: @margin-top-pinned-toc;
 		}
 
-		.vector-feature-page-tools-enabled & .vector-toc {
-			padding-left: @spacing-subsection-toggle;
-			padding-right: @padding-horizontal-dropdown-menu-item;
-		}
-
 		// T302076: Add fade scrollable indicator when TOC is in sidebar
 		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
-		.vector-toc-pinned & .vector-toc {
+		.vector-toc {
+			max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
+
 			.mixin-vector-scroll-indicator();
+		}
+
+		.vector-feature-page-tools-disabled & .vector-toc {
+			padding-top: ~'calc( @{padding-top-pinned-element} + @{padding-top-tabs} )';
+		}
+
+		.vector-feature-page-tools-enabled & .vector-toc {
+			padding-top: @padding-top-pinned-element;
+			padding-left: @spacing-subsection-toggle;
+			padding-right: @padding-horizontal-dropdown-menu-item;
 		}
 	}
 }
