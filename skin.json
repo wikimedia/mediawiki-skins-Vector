@@ -145,6 +145,10 @@
 		"vector-2022": "resources/mediawiki.less",
 		"vector": "resources/mediawiki.less.legacy"
 	},
+	"SkinCodexThemes": {
+		"vector-2022": "wikimedia-ui-legacy",
+		"vector": "wikimedia-ui-legacy"
+	},
 	"MessagesDirs": {
 		"Vector": [
 			"i18n"
