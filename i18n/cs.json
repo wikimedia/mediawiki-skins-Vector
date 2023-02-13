@@ -60,6 +60,7 @@
 	"vector-toc-collapsible-button-label": "Přepnout obsah",
 	"vector-site-nav-label": "Projekt",
 	"vector-main-menu-label": "Hlavní menu",
+	"vector-limited-width-toggle": "Přepnout omezenou šířku obsahu",
 	"vector-page-tools-label": "Nástroje",
 	"vector-page-tools-general-label": "Obecné",
 	"vector-page-tools-actions-label": "Akce",
@@ -68,5 +69,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskuse]]",
 	"tooltip-vector-anon-user-menu-title": "Další možnosti",
 	"vector-prefs-limited-width": "Zapnout režim omezené šířky",
-	"vector-prefs-limited-width-help": "Zapnout režim omezené šířky pro lepší zážitek ze čtení."
+	"vector-prefs-limited-width-help": "Zapnout režim omezené šířky pro lepší zážitek ze čtení.",
+	"empty-language-selector-body": "Obsah stránky není podporován v jiných jazycích."
 }

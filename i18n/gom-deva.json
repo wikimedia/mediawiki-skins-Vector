@@ -9,6 +9,9 @@
 		]
 	},
 	"vector-opt-out": "आदल्या स्वरूपांत परत वच",
+	"vector-languages": "भासो",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भास|$1 भासो}}",
+	"vector-no-language-button-label": "भासो जोड",
 	"vector-action-addsection": "माथाळो ज़ोड",
 	"vector-action-delete": "काडून उडयात",
 	"vector-action-move": "दुसरेकडे व्हरात",
@@ -18,5 +21,9 @@
 	"vector-view-history": "इतिहास पळेयात",
 	"vector-view-view": "वाचचें",
 	"vector-view-viewsource": "उगम पळेयात",
-	"vector-more-actions": "आनीक"
+	"vector-more-actions": "आनीक",
+	"vector-toc-label": "विशय सुची",
+	"vector-limited-width-toggle": "पानाची रुंदाय पूर्ण वो थारावीक",
+	"vector-page-tools-label": "साधनां",
+	"vector-unpin-element-label": "लिपय"
 }
