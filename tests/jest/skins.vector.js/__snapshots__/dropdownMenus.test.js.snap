@@ -25,28 +25,3 @@ exports[`addPortletLinkHandler Does not add an icon when noicon class is present
 			</li>
 		</ul>"
 `;
-
-exports[`addPortletLinkHandler JS portlet should be moved to more menu (#p-cactions) at narrow widths 1`] = `
-"
-		<div class=\\"mw-article-toolbar-container\\" style=\\"width:1000px\\">
-
-			<div id=\\"p-namespaces\\" style=\\"width:1001px\\"></div>
-
-			<div id=\\"p-variants\\"></div>
-
-			<div id=\\"p-cactions\\">
-				<ul>
-				</ul>
-			</div>
-
-			<ul id=\\"p-views\\" class=\\"vector-menu vector-menu-dropdown\\">
-				<li class=\\"mw-list-item mw-list-item-js\\" id=\\"test-id\\">
-					<a href=\\"#test-href\\">
-						<span>
-							test link content
-						</span>
-					</a>
-				</li>
-			</ul>
-		</div>"
-`;
