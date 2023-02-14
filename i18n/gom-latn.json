@@ -6,7 +6,11 @@
 		]
 	},
 	"vector-opt-out": "Adlea sworupant porot voch",
+	"vector-action-toggle-sidebar": "Deg-pott'tti dakhoi / lipoi",
+	"vector-languages": "Bhaso",
+	"vector-language-button-aria-label": "Dusrea bhasen eke lekhacher voch. {{PLURAL:$1|$1 bhasen|$1 bhasanim}} uplobdh asa.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 bhas|$1 bhaso}}",
+	"vector-no-language-button-label": "Bhaso zodd",
 	"vector-action-addsection": "Vixoi zodd",
 	"vector-action-delete": "Kadd",
 	"vector-action-move": "Zago bodol",
@@ -20,5 +24,12 @@
 	"vector-view-viewsource": "Mull polloi",
 	"vector-jumptonavigation": "Dixa bodlunk uddki mar",
 	"vector-jumptosearch": "Soda khatir uddki mar",
-	"vector-more-actions": "Anik"
+	"vector-more-actions": "Anik",
+	"vector-toc-beginning": "Survat",
+	"vector-toc-toggle-button-label": "$1 upvibhag dakhoi / lipoi",
+	"vector-anon-user-menu-pages-learn": "odik xikun ghe",
+	"vector-anon-user-menu-pages-label": "Sompadona vixim odik xikun ghe",
+	"vector-toc-menu-tooltip": "Vixoi suchi",
+	"vector-toc-collapsible-button-label": "Vixoi suchi dakhoi / lipoi",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Bhasabhas]]"
 }
