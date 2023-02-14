@@ -15,7 +15,6 @@ const
 	BODY_CONTENT_ID = 'bodyContent',
 	HEADLINE_SELECTOR = '.mw-headline',
 	TOC_SECTION_ID_PREFIX = 'toc-',
-	PAGE_TITLE_SCROLL_HOOK = 'page_title',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
 
 const belowDesktopMedia = window.matchMedia( '(max-width: 999px)' );
@@ -267,7 +266,7 @@ const main = () => {
 			if ( tableOfContents ) {
 				tableOfContents.updateTocToggleStyles( true );
 			}
-			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
+			scrollObserver.firePageTitleScrollHook( 'down' );
 		},
 		() => {
 			if ( isStickyHeaderAllowed && showStickyHeader ) {
@@ -278,7 +277,7 @@ const main = () => {
 			if ( tableOfContents ) {
 				tableOfContents.updateTocToggleStyles( false );
 			}
-			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
+			scrollObserver.firePageTitleScrollHook( 'up' );
 		}
 	);
 
