@@ -3,6 +3,7 @@
 
 @selector-nojs-collapsed-toc-open: ~'#vector-toc-collapsed-checkbox:checked';
 
+// FIXME: Move into .mixin-toc-unpinned() when PageTools feature is enabled everywhere
 .vector-feature-page-tools-enabled .vector-unpinned-container .vector-toc {
 	// Adjust TOC spacing when unpinned
 	.vector-pinnable-header {
@@ -15,12 +16,21 @@
 	}
 }
 
-// TOC dropdown/button styles
+// TOC dropdown styles
 #vector-toc-collapsed-button,
 .vector-sticky-header-toc,
 .vector-page-titlebar-toc {
 	display: none;
 	margin-right: 8px;
+}
+
+// TOC dropdown toggle styles
+#vector-toc-collapsed-button,
+body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
+	@media ( max-width: @max-width-tablet ) {
+		// Override the default button styles so the ToC button in the page titlebar is slightly shorter on small viewports
+		padding: 7px 12px;
+	}
 }
 
 // TOC styles when unpinned
@@ -40,6 +50,15 @@
 		// Collapsed TOC should be smaller than 85% of the content container (51em) and 75vw
 		max-width: ~'min( 0.85 * @{max-width-content-container}, 75vw )'; // min( 51em, 75vw )
 	}
+}
+
+// TOC styles when below page title
+.mixin-toc-below-page-title {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	margin: 0;
+	z-index: @z-index-menu;
 }
 
 .vector-feature-page-tools-disabled .vector-unpinned-container .vector-toc {
@@ -67,19 +86,10 @@
 		}
 
 		//
-		// TOC floating on narrow screens when below page title
+		// TOC in page titlebar on narrow screens below page title
 		//
-		.vector-below-page-title {
-			.vector-page-titlebar-toc {
-				position: fixed;
-				top: 0;
-				left: 0;
-				margin: 0;
-				// Override background color for when the TOC button overlaps content
-				// as a fixed element when the page is scrolled down.
-				background-color: @background-color-base;
-				z-index: @z-index-menu;
-			}
+		.vector-below-page-title .vector-page-titlebar-toc {
+			.mixin-toc-below-page-title();
 		}
 	}
 
@@ -90,6 +100,15 @@
 		.vector-toc-unpinned:not( .vector-sticky-header-visible ) {
 			.vector-page-titlebar-toc {
 				.mixin-toc-unpinned();
+			}
+		}
+
+		//
+		// TOC in page titlebar below page title
+		//
+		.vector-toc-unpinned:not( .vector-sticky-header-visible ).vector-below-page-title {
+			.vector-page-titlebar-toc {
+				.mixin-toc-below-page-title();
 			}
 		}
 
@@ -111,13 +130,6 @@
 	.client-nojs {
 		#vector-toc-collapsed-button {
 			display: block;
-			// Override the default button styles so the ToC button is slightly shorter when collapsed into the page title
-			padding: 7px 12px;
-
-			&:hover,
-			&:active {
-				background-color: @colorGray15;
-			}
 		}
 
 		#vector-toc-pinned-container {
@@ -137,10 +149,14 @@
 			// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 			border: @border-width-base @border-style-base @border-color-base;
 			z-index: @z-index-menu;
-		}
 
-		.vector-feature-page-tools-enabled .vector-toc {
-			padding-left: @padding-horizontal-dropdown-menu-item;
+			.vector-pinnable-header,
+			.vector-toc-contents {
+				// FIXME: Remove !important after PageTools is enabled everywhere currently needed
+				// to deal with selector specificity, overrides padding applied in PinnableHeader.less
+				/* stylelint-disable-next-line declaration-no-important */
+				padding-left: @padding-horizontal-dropdown-menu-item !important;
+			}
 		}
 
 		@{selector-nojs-collapsed-toc-open} ~ .mw-table-of-contents-container .vector-toc {

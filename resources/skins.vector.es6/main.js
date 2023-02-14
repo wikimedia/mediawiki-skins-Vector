@@ -227,7 +227,7 @@ const main = () => {
 	//
 	//  Table of contents
 	//
-	setupTableOfContents();
+	const tableOfContents = setupTableOfContents();
 
 	//
 	// Sticky header
@@ -264,6 +264,9 @@ const main = () => {
 				updateTocLocation();
 			}
 			document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
+			if ( tableOfContents ) {
+				tableOfContents.updateTocToggleStyles( true );
+			}
 			scrollObserver.fireScrollHook( 'down', PAGE_TITLE_SCROLL_HOOK );
 		},
 		() => {
@@ -272,6 +275,9 @@ const main = () => {
 				updateTocLocation();
 			}
 			document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
+			if ( tableOfContents ) {
+				tableOfContents.updateTocToggleStyles( false );
+			}
 			scrollObserver.fireScrollHook( 'up', PAGE_TITLE_SCROLL_HOOK );
 		}
 	);
