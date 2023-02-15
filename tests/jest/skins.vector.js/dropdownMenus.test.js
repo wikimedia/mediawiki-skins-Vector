@@ -1,4 +1,4 @@
-const { addPortletLinkHandler } = require( '../../resources/skins.vector.js/dropdownMenus.js' );
+const { addPortletLinkHandler } = require( '../../../resources/skins.vector.js/dropdownMenus.js' );
 
 describe( 'addPortletLinkHandler', () => {
 
