@@ -6,7 +6,11 @@
 		]
 	},
 	"vector-opt-out": "Adlea sworupant porot voch",
+	"vector-action-toggle-sidebar": "Deg-pott'tti dakhoi / lipoi",
+	"vector-languages": "Bhaso",
+	"vector-language-button-aria-label": "Dusrea bhasen eke lekhacher voch. {{PLURAL:$1|$1 bhasen|$1 bhasanim}} uplobdh asa.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 bhas|$1 bhaso}}",
+	"vector-language-redirect-to-top": "Hea {{SITENAME}} -cher bhasecheo duve lekhachea mathallea samkar panachea voilea bhagant asat. [[#p-lang-btn|Voir voch]].",
 	"vector-action-addsection": "Vixoi zodd",
 	"vector-action-delete": "Kadd",
 	"vector-action-move": "Zago bodol",
@@ -20,5 +24,7 @@
 	"vector-view-viewsource": "Mull polloi",
 	"vector-jumptonavigation": "Dixa bodlunk uddki mar",
 	"vector-jumptosearch": "Soda khatir uddki mar",
-	"vector-more-actions": "Anik"
+	"vector-more-actions": "Anik",
+	"vector-anon-user-menu-pages-learn": "odik xikun ghe",
+	"vector-anon-user-menu-pages-label": "Sompadona vixim odik xikun ghe"
 }

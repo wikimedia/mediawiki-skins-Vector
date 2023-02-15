@@ -9,6 +9,8 @@
 		]
 	},
 	"vector-opt-out": "आदल्या स्वरूपांत परत वच",
+	"vector-languages": "भासो",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भास|$1 भासो}}",
 	"vector-action-addsection": "माथाळो ज़ोड",
 	"vector-action-delete": "काडून उडयात",
 	"vector-action-move": "दुसरेकडे व्हरात",
