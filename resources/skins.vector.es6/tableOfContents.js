@@ -380,7 +380,14 @@ module.exports = function tableOfContents( props ) {
 		bindSubsectionToggleListeners();
 		bindPinnedToggleListeners();
 
-		mw.hook( 'wikipage.tableOfContents' ).add( reloadTableOfContents );
+		// @ts-ignore
+		// FIXME: Move to resources/skins.vector.es6/main.js, dangerous to register twice.
+		mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
+			// @ts-ignore
+			reloadTableOfContents( sections ).then( function () {
+				mw.hook( 'wikipage.tableOfContents.vector' ).fire( sections );
+			} );
+		} );
 	}
 
 	/**
@@ -418,13 +425,14 @@ module.exports = function tableOfContents( props ) {
 	 * Reloads the table of contents from saved data
 	 *
 	 * @param {Section[]} sections
+	 * @return {JQuery.Promise<any>|Promise<any>}
 	 */
 	function reloadTableOfContents( sections ) {
 		if ( sections.length < 1 ) {
 			reloadPartialHTML( TOC_CONTENTS_ID, '' );
-			return;
+			return Promise.resolve();
 		}
-		mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
+		return mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
 			const { parent: activeParentId, child: activeChildId } = getActiveSectionIds();
 			reloadPartialHTML( TOC_CONTENTS_ID, getTableOfContentsHTML( sections ) );
 			// Reexpand sections that were expanded before the table of contents was reloaded.
