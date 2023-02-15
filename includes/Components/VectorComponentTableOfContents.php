@@ -76,6 +76,7 @@ class VectorComponentTableOfContents implements VectorComponent {
 					$this->localizer->msg( 'vector-toc-toggle-button-label', $section['line'] )->text();
 			}
 		}
+		$this->tocData[ 'array-sections' ] = $sections;
 
 		$pinnableElement = new VectorComponentPinnableElement( self::ID );
 
