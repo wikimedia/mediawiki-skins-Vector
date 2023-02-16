@@ -55,6 +55,8 @@
 	"vector-main-menu-tooltip": "เมนูหลัก",
 	"vector-main-menu-label": "เมนูหลัก",
 	"vector-page-tools-label": "เครื่องมือ",
+	"vector-page-tools-general-label": "ทั่วไป",
+	"vector-pin-element-label": "ย้ายเมนูไปที่แถบด้านข้าง",
 	"vector-unpin-element-label": "ซ่อน",
 	"tooltip-vector-anon-user-menu-title": "ตัวเลือกเพิ่มเติม",
 	"vector-prefs-limited-width": "เปิดใช้งานโหมดจำกัดความกว้าง"

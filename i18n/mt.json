@@ -12,6 +12,7 @@
 	"prefs-vector-enable-vector-1-help": "Fis-snin li ġejjin se naġġornaw id-dehra tal-Vector. Id-dehra tal-Vector l-antika se tħallik tara l-verżjoni preċedenti tal-Vector (sa Diċembru tal-2019). Biex tkun taf aktar dwar dawn l-aġġornament żur il-[[mw:Reading/Web/Desktop_Improvements|paġna tal-proġett]].",
 	"vector-opt-out": "Mur lura għad-dehra l-antika",
 	"vector-opt-out-tooltip": "Aqleb l-preferenzi tiegħek sabiex tmur lura għad-dehra l-antika (Vector antik)",
+	"vector-action-toggle-sidebar": "ċaqlaq il-ġenb",
 	"vector-languages": "Lingwi",
 	"vector-language-button-aria-label": "Żur artiklu f'lingwa differenti. Disponibbli fi {{PLURAL:$1|$1 lingwa|$1 lingwi}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingwa|$1 lingwi}}",
@@ -47,6 +48,10 @@
 	"vector-toc-menu-tooltip": "Werrej",
 	"vector-toc-collapsible-button-label": "Aħbi jew uri l-werrej",
 	"vector-site-nav-label": "Sit",
+	"vector-page-tools-label": "Għodda",
+	"vector-page-tools-general-label": "Ġenerali",
+	"vector-page-tools-actions-label": "Azzjonijiet",
+	"vector-pin-element-label": "mexxi għall-ġenb",
 	"vector-unpin-element-label": "aħbi",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussjoni]]",
 	"tooltip-vector-anon-user-menu-title": "Aktar għażliet"
