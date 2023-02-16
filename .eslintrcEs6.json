@@ -22,6 +22,7 @@
 		}
 	},
 	"rules": {
+		"compat/compat": "off",
 		"mediawiki/class-doc": "off"
 	}
 }

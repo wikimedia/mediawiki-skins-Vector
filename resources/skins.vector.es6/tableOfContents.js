@@ -34,6 +34,12 @@ const TOC_CONTENTS_ID = 'mw-panel-toc-list';
  */
 
 /**
+ * @callback tableOfContents
+ * @param {TableOfContentsProps} props
+ * @return {TableOfContents}
+ */
+
+/**
  * @typedef {Object} TableOfContentsProps
  * @property {HTMLElement} container The container element for the table of contents.
  * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
@@ -379,15 +385,6 @@ module.exports = function tableOfContents( props ) {
 		// Bind event listeners.
 		bindSubsectionToggleListeners();
 		bindPinnedToggleListeners();
-
-		// @ts-ignore
-		// FIXME: Move to resources/skins.vector.es6/main.js, dangerous to register twice.
-		mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
-			// @ts-ignore
-			reloadTableOfContents( sections ).then( function () {
-				mw.hook( 'wikipage.tableOfContents.vector' ).fire( sections );
-			} );
-		} );
 	}
 
 	/**
@@ -425,14 +422,14 @@ module.exports = function tableOfContents( props ) {
 	 * Reloads the table of contents from saved data
 	 *
 	 * @param {Section[]} sections
-	 * @return {JQuery.Promise<any>|Promise<any>}
+	 * @return {Promise<any>}
 	 */
 	function reloadTableOfContents( sections ) {
 		if ( sections.length < 1 ) {
 			reloadPartialHTML( TOC_CONTENTS_ID, '' );
-			return Promise.resolve();
+			return Promise.resolve( [] );
 		}
-		return mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
+		const load = () => mw.loader.using( 'mediawiki.template.mustache' ).then( () => {
 			const { parent: activeParentId, child: activeChildId } = getActiveSectionIds();
 			reloadPartialHTML( TOC_CONTENTS_ID, getTableOfContentsHTML( sections ) );
 			// Reexpand sections that were expanded before the table of contents was reloaded.
@@ -445,6 +442,11 @@ module.exports = function tableOfContents( props ) {
 			if ( activeChildId ) {
 				activateSection( activeChildId );
 			}
+		} );
+		return new Promise( ( resolve ) => {
+			load().then( () => {
+				resolve( sections );
+			} );
 		} );
 	}
 
@@ -543,6 +545,7 @@ module.exports = function tableOfContents( props ) {
 
 	/**
 	 * @typedef {Object} TableOfContents
+	 * @property {reloadTableOfContents} reloadTableOfContents
 	 * @property {changeActiveSection} changeActiveSection
 	 * @property {expandSection} expandSection
 	 * @property {toggleExpandSection} toggleExpandSection
@@ -554,6 +557,7 @@ module.exports = function tableOfContents( props ) {
 	 * @property {string} TOGGLE_CLASS
 	 */
 	return {
+		reloadTableOfContents,
 		expandSection,
 		changeActiveSection,
 		toggleExpandSection,

@@ -206,12 +206,10 @@ describe( 'Table of contents', () => {
 
 	describe( 'applies the correct aria attributes', () => {
 		test( 'when initialized', () => {
-			const spy = jest.spyOn( mw, 'hook' );
 			const toc = mount();
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
-			expect( spy ).toBeCalledWith( 'wikipage.tableOfContents' );
 		} );
 
 		test( 'when expanding sections', () => {
@@ -234,49 +232,15 @@ describe( 'Table of contents', () => {
 		} );
 	} );
 
-	describe( 're-rendering', () => {
-		const mockMwHook = () => {
-			/** @type {Function} */
-			let callback;
-			// @ts-ignore
-			jest.spyOn( mw, 'hook' ).mockImplementation( () => {
-
-				return {
-					add: function ( fn ) {
-						callback = fn;
-
-						return this;
-					},
-					fire: ( data ) => {
-						if ( callback ) {
-							callback( data );
-						}
-					}
-				};
-			} );
-		};
-
-		afterEach( () => {
-			jest.restoreAllMocks();
-		} );
-
-		test( 'listens to wikipage.tableOfContents hook when mounted', () => {
-			const spy = jest.spyOn( mw, 'hook' );
-			mount();
-			expect( spy ).toHaveBeenCalledWith( 'wikipage.tableOfContents' );
-		} );
-
-		test( 're-renders toc when wikipage.tableOfContents hook is fired with empty sections', () => {
-			mockMwHook();
-			mount();
-
-			mw.hook( 'wikipage.tableOfContents' ).fire( [] );
+	describe( 'reloadTableOfContents', () => {
+		test( 're-renders toc when wikipage.tableOfContents hook is fired with empty sections', async () => {
+			const toc = mount();
+			await toc.reloadTableOfContents( [] );
 
 			expect( document.body.innerHTML ).toMatchSnapshot();
 		} );
 
 		test( 're-renders toc when wikipage.tableOfContents hook is fired with sections', async () => {
-			mockMwHook();
 			// @ts-ignore
 			// eslint-disable-next-line compat/compat
 			jest.spyOn( mw.loader, 'using' ).mockImplementation( () => Promise.resolve() );
@@ -326,7 +290,8 @@ describe( 'Table of contents', () => {
 
 			// wikipage.tableOfContents includes the nested sections in the top level
 			// of the array.
-			mw.hook( 'wikipage.tableOfContents' ).fire( [
+
+			await toc.reloadTableOfContents( [
 				// foo
 				SECTIONS[ 0 ],
 				// bar
@@ -350,11 +315,6 @@ describe( 'Table of contents', () => {
 					'array-sections': null
 				}
 			] );
-
-			// Wait until the mw.loader.using promise has resolved so that we can
-			// check the DOM after it has been updated.
-			// eslint-disable-next-line compat/compat
-			await Promise.resolve();
 
 			const newToggleButton = /** @type {HTMLElement} */ ( document.querySelector( `#toc-bar .${toc.TOGGLE_CLASS}` ) );
 			expect( newToggleButton ).not.toBeNull();
