@@ -328,8 +328,8 @@ class SkinVector22 extends SkinMustache {
 				),
 				'data-page-titlebar-toc-dropdown' => new VectorComponentDropdown(
 					'vector-page-titlebar-toc',
-					// no label,
-					'',
+					// label
+					$this->msg( 'vector-toc-collapsible-button-label' ),
 					// class
 					'vector-page-titlebar-toc mw-ui-icon-flush-left',
 					// icon
@@ -341,8 +341,11 @@ class SkinVector22 extends SkinMustache {
 				),
 				'data-sticky-header-toc-dropdown' => new VectorComponentDropdown(
 					'vector-sticky-header-toc',
-					'',
+					// label
+					$this->msg( 'vector-toc-collapsible-button-label' ),
+					// class
 					'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc mw-ui-icon-flush-left',
+					// icon
 					'listBullet'
 				),
 				'data-sticky-header-toc-pinnable-container' => new VectorComponentPinnableContainer(
