@@ -9,7 +9,7 @@ const
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
 	FIRST_HEADING_ID = 'firstHeading',
-	USER_MENU_ID = 'p-personal',
+	USER_LINKS_DROPDOWN_ID = 'vector-user-links-dropdown',
 	ULS_STICKY_CLASS = 'uls-dialog-sticky',
 	ULS_HIDE_CLASS = 'uls-dialog-sticky-hide',
 	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
@@ -387,31 +387,31 @@ function addVisualEditorHooks( stickyIntersection, observer ) {
  * itself collapses at low resolutions) and updates click tracking event names. Also wires up the
  * logout link so it works in a single click.
  *
- * @param {Element} userMenu
- * @return {Element} cloned userMenu
+ * @param {Element} userLinksDropdown
+ * @return {Element} cloned userLinksDropdown
  */
-function prepareUserMenu( userMenu ) {
+function prepareUserLinksDropdown( userLinksDropdown ) {
 	const
 		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
-		userMenuClone = /** @type {Element} */( userMenu.cloneNode( true ) ),
-		userMenuStickyElementsWithIds = userMenuClone.querySelectorAll( '[ id ], [ data-event-name ]' );
+		userLinksDropdownClone = /** @type {Element} */( userLinksDropdown.cloneNode( true ) ),
+		userLinksDropdownStickyElementsWithIds = userLinksDropdownClone.querySelectorAll( '[ id ], [ data-event-name ]' );
 	// Update all ids of the cloned user menu to make them unique.
-	makeNodeTrackable( userMenuClone );
-	userMenuStickyElementsWithIds.forEach( makeNodeTrackable );
+	makeNodeTrackable( userLinksDropdownClone );
+	userLinksDropdownStickyElementsWithIds.forEach( makeNodeTrackable );
 	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
-	removeNodes( userMenuClone.querySelectorAll( '.mw-list-item-js' ) );
+	removeNodes( userLinksDropdownClone.querySelectorAll( '.mw-list-item-js' ) );
 	removeClassFromNodes(
-		userMenuClone.querySelectorAll( '.user-links-collapsible-item' ),
+		userLinksDropdownClone.querySelectorAll( '.user-links-collapsible-item' ),
 		'user-links-collapsible-item'
 	);
 	// Prevents user menu from being focusable, T290201
-	const userMenuCheckbox = userMenuClone.querySelector( 'input' );
-	if ( userMenuCheckbox ) {
-		userMenuCheckbox.setAttribute( 'tabindex', '-1' );
+	const userLinksDropdownCheckbox = userLinksDropdownClone.querySelector( 'input' );
+	if ( userLinksDropdownCheckbox ) {
+		userLinksDropdownCheckbox.setAttribute( 'tabindex', '-1' );
 	}
 
 	// Make the logout go through the API (T324638)
-	const logoutLink = userMenuClone.querySelector( '#pt-logout-sticky-header a' );
+	const logoutLink = userLinksDropdownClone.querySelector( '#pt-logout-sticky-header a' );
 	if ( logoutLink ) {
 		logoutLink.addEventListener( 'click', function ( ev ) {
 			ev.preventDefault();
@@ -419,34 +419,34 @@ function prepareUserMenu( userMenu ) {
 			mw.hook( 'skin.logout' ).fire( this.href );
 		} );
 	}
-	return userMenuClone;
+	return userLinksDropdownClone;
 }
 
 /**
  * Makes sticky header functional for modern Vector.
  *
  * @param {Element} header
- * @param {Element} userMenu
- * @param {Element} userMenuStickyContainer
+ * @param {Element} userLinksDropdown
+ * @param {Element} userLinksDropdownStickyContainer
  * @param {IntersectionObserver} stickyObserver
  * @param {Element} stickyIntersection
  * @param {boolean} disableEditIcons
  */
 function makeStickyHeaderFunctional(
 	header,
-	userMenu,
-	userMenuStickyContainer,
+	userLinksDropdown,
+	userLinksDropdownStickyContainer,
 	stickyObserver,
 	stickyIntersection,
 	disableEditIcons
 ) {
 	const
-		userMenuStickyContainerInner = userMenuStickyContainer
+		userLinksDropdownStickyContainerInner = userLinksDropdownStickyContainer
 			.querySelector( VECTOR_USER_LINKS_SELECTOR );
 
 	// Clone the updated user menu to the sticky header.
-	if ( userMenuStickyContainerInner ) {
-		userMenuStickyContainerInner.appendChild( prepareUserMenu( userMenu ) );
+	if ( userLinksDropdownStickyContainerInner ) {
+		userLinksDropdownStickyContainerInner.appendChild( prepareUserLinksDropdown( userLinksDropdown ) );
 	}
 
 	let namespaceName = mw.config.get( 'wgCanonicalNamespace' );
@@ -540,7 +540,7 @@ function isAllowedAction( action ) {
 /**
  * @typedef {Object} StickyHeaderProps
  * @property {Element} header
- * @property {Element} userMenu
+ * @property {Element} userLinksDropdown
  * @property {IntersectionObserver} observer
  * @property {Element} stickyIntersection
  * @property {boolean} disableEditIcons
@@ -550,14 +550,14 @@ function isAllowedAction( action ) {
  * @param {StickyHeaderProps} props
  */
 function initStickyHeader( props ) {
-	const userMenuStickyContainer = document.getElementsByClassName(
+	const userLinksDropdownStickyContainer = document.getElementsByClassName(
 		STICKY_HEADER_USER_MENU_CONTAINER_CLASS
 	)[ 0 ];
 
 	makeStickyHeaderFunctional(
 		props.header,
-		props.userMenu,
-		userMenuStickyContainer,
+		props.userLinksDropdown,
+		userLinksDropdownStickyContainer,
 		props.observer,
 		props.stickyIntersection,
 		props.disableEditIcons
@@ -590,13 +590,13 @@ function initStickyHeader( props ) {
 module.exports = {
 	show,
 	hide,
-	prepareUserMenu,
+	prepareUserLinksDropdown,
 	isAllowedNamespace,
 	isAllowedAction,
 	initStickyHeader,
 	STICKY_HEADER_ID,
 	FIRST_HEADING_ID,
-	USER_MENU_ID,
+	USER_LINKS_DROPDOWN_ID,
 	STICKY_HEADER_EDIT_EXPERIMENT_NAME,
 	STICKY_HEADER_EXPERIMENT_NAME
 };

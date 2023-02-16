@@ -30,11 +30,13 @@ const templateData = {
 		`
 	},
 	'data-user-links-dropdown': {
-		id: 'p-personal',
+		id: 'vector-user-links-dropdown',
 		class: 'vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
 		label: 'Personal tools'
 	},
 	'data-user-links-dropdown-menus': [ {
+		class: 'mw-portlet mw-portlet-personal',
+		id: 'p-personal',
 		'html-items': `
 			<li id="pt-userpage" class="user-links-collapsible-item mw-list-item"><a href="/wiki/User:Admin" title="Your user page [.]" accesskey="."><span class="mw-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span> <span>Admin</span></a></li>
 			<li id="pt-mytalk" class="mw-list-item"><a href="/wiki/User_talk:Admin" title="Your talk page [n]" accesskey="n"><span class="mw-ui-icon mw-ui-icon-userTalk mw-ui-icon-wikimedia-userTalk"></span> <span>Talk</span></a></li>
@@ -47,6 +49,8 @@ const templateData = {
 			<li id="pt-custom" class="mw-list-item mw-list-item-js">Gadget added item</li>
 		`
 	}, {
+		id: 'p-user-menu-logout',
+		class: 'mw-portlet mw-portlet-user-menu-logout',
 		'html-items': `
 			<li id="ca-logout" class="mw-list-item"><a data-mw="interface" href="/w/index.php?title=Special:UserLogout&amp;returnto=Main+Page" title="Log out"><span class="mw-ui-icon mw-ui-icon-logOut mw-ui-icon-wikimedia-logOut"></span> <span>Log out</span></a></li>
 		`

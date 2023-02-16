@@ -102,14 +102,14 @@ test( 'Sticky header renders', () => {
 } );
 
 describe( 'sticky header', () => {
-	test( 'prepareUserMenu removes gadgets from dropdown', async () => {
+	test( 'prepareUserLinksDropdown removes gadgets from dropdown', async () => {
 		const menu = document.createElement( 'div' );
 		menu.innerHTML = userLinksHTML;
-		const userMenu = /** @type {Element} */ ( menu.querySelector( '#' + sticky.USER_MENU_ID ) );
-		const newMenu = sticky.prepareUserMenu( userMenu );
+		const userLinksDropdown = /** @type {Element} */ ( menu.querySelector( '#' + sticky.USER_LINKS_DROPDOWN_ID ) );
+		const newMenu = sticky.prepareUserLinksDropdown( userLinksDropdown );
 		// check classes have been updated and removed.
-		expect( userMenu.querySelectorAll( '.user-links-collapsible-item' ).length > 0 ).toBeTruthy();
-		expect( userMenu.querySelectorAll( '.mw-list-item-js' ).length > 0 ).toBeTruthy();
+		expect( userLinksDropdown.querySelectorAll( '.user-links-collapsible-item' ).length > 0 ).toBeTruthy();
+		expect( userLinksDropdown.querySelectorAll( '.mw-list-item-js' ).length > 0 ).toBeTruthy();
 		expect( newMenu.querySelectorAll( '.user-links-collapsible-item' ).length ).toBe( 0 );
 		expect( newMenu.querySelectorAll( '.mw-list-item-js' ).length ).toBe( 0 );
 	} );

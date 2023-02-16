@@ -18,14 +18,14 @@ exports[`UserLinks renders 1`] = `
 	
 </div>
 </div>
-<div id=\\"p-personal\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown vector-user-menu vector-user-menu-logged-in vector-menu-dropdown\\">
-	<input type=\\"checkbox\\" id=\\"p-personal-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-p-personal\\" class=\\"vector-menu-checkbox\\">
-	<label id=\\"p-personal-label\\" for=\\"p-personal-checkbox\\" class=\\"vector-menu-heading\\">
+<div id=\\"vector-user-links-dropdown\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown vector-user-menu vector-user-menu-logged-in vector-menu-dropdown\\">
+	<input type=\\"checkbox\\" id=\\"vector-user-links-dropdown-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-user-links-dropdown\\" class=\\"vector-menu-checkbox\\">
+	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-menu-heading\\">
 		<span class=\\"vector-menu-heading-label\\">Personal tools</span>
 	</label>
 	<div class=\\"vector-menu-content vector-dropdown-content\\">
 
-<div id=\\"\\" class=\\"vector-menu\\">
+<div id=\\"p-personal\\" class=\\"vector-menu mw-portlet mw-portlet-personal\\">
 <div class=\\"vector-menu-content\\">
 	
 	<ul class=\\"vector-menu-content-list\\">
@@ -42,7 +42,7 @@ exports[`UserLinks renders 1`] = `
 	
 </div>
 </div>
-<div id=\\"\\" class=\\"vector-menu\\">
+<div id=\\"p-user-menu-logout\\" class=\\"vector-menu mw-portlet mw-portlet-user-menu-logout\\">
 <div class=\\"vector-menu-content\\">
 	
 	<ul class=\\"vector-menu-content-list\\">

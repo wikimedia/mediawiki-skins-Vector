@@ -163,14 +163,14 @@ const main = () => {
 	const
 		header = document.getElementById( stickyHeader.STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById( stickyHeader.FIRST_HEADING_ID ),
-		userMenu = document.getElementById( stickyHeader.USER_MENU_ID ),
+		userLinksDropdown = document.getElementById( stickyHeader.USER_LINKS_DROPDOWN_ID ),
 		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
 		allowedAction = stickyHeader.isAllowedAction( mw.config.get( 'wgAction' ) );
 
 	const isStickyHeaderAllowed =
 		!!header &&
 		!!stickyIntersection &&
-		!!userMenu &&
+		!!userLinksDropdown &&
 		allowedNamespace &&
 		allowedAction &&
 		'IntersectionObserver' in window;
@@ -218,7 +218,7 @@ const main = () => {
 	if ( isStickyHeaderAllowed && showStickyHeader ) {
 		stickyHeader.initStickyHeader( {
 			header,
-			userMenu,
+			userLinksDropdown,
 			observer,
 			stickyIntersection,
 			disableEditIcons

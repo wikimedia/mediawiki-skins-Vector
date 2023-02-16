@@ -87,7 +87,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		}
 
 		return new VectorComponentDropdown(
-			'p-personal', $this->msg( 'personaltools' )->text(), $class, $icon, $tooltip
+			'vector-user-links-dropdown', $this->msg( 'personaltools' )->text(), $class, $icon, $tooltip
 		);
 	}
 
