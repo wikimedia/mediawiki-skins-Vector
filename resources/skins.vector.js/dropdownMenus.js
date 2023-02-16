@@ -40,7 +40,10 @@ function bind() {
 function createIconElement( menuElement, parentElement, id ) {
 	// Only the p-personal menu in the user links dropdown supports icons
 	var isIconCapable = menuElement &&
-		[ 'p-personal' ].indexOf( menuElement.getAttribute( 'id' ) || 'p-unknown' ) > -1;
+		[
+			'p-personal',
+			'p-personal-sticky-header'
+		].indexOf( menuElement.getAttribute( 'id' ) || 'p-unknown' ) > -1;
 
 	if ( !isIconCapable || !parentElement ) {
 		return;
