@@ -35,18 +35,19 @@ class VectorComponentDropdown implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
+		// FIXME: Stop hardcoding button and icon styles, this assumes all dropdowns with icons are icon buttons
+		// Not the case for the language dropdown, page tools, etc
 		$icon = $this->icon;
 		$headingClass = $icon ?
-			'mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet ' .
-				'mw-ui-icon-element mw-ui-icon-wikimedia-' . $icon : '';
+			'mw-checkbox-hack-button mw-ui-button mw-ui-quiet mw-ui-icon-element ' : '';
 
 		return [
 			'id' => $this->id,
 			'label' => $this->label,
 			'heading-class' => $headingClass,
+			'icon' => $this->icon,
 			'html-vector-menu-heading-attributes' => '',
 			'html-vector-menu-checkbox-attributes' => '',
-			'html-vector-heading-icon' => '',
 			'class' => $this->class,
 			'html-tooltip' => $this->tooltip,
 			'checkbox-class' => '',

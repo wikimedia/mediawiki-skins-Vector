@@ -59,26 +59,24 @@ class VectorComponentLanguageDropdown implements VectorComponent {
 		// quiet instead of progressive. For this reason some default values
 		// should be updated for this case. (T316559)
 		if ( !$isSubjectPage ) {
-			$icon = '<span class="mw-ui-icon mw-ui-icon-wikimedia-language"></span>';
+			$icon = 'language';
 			$label = '';
 			$headingClass = 'mw-ui-button mw-ui-quiet mw-portlet-lang-heading-empty';
 			$checkboxClass = 'mw-interlanguage-selector-empty';
 		} else {
-			$icon = '<span class="mw-ui-icon mw-ui-icon-wikimedia-language-progressive"></span>';
+			$icon = 'language-progressive';
 			$label = $this->label;
 			$headingClass = 'mw-ui-button mw-ui-quiet '
 				. self::CLASS_PROGRESSIVE . ' mw-portlet-lang-heading-' . strval( $this->numLanguages );
 			$checkboxClass = 'mw-interlanguage-selector';
 		}
 		$dropdown = new VectorComponentDropdown( 'p-lang-btn', $label, $this->class );
-
 		$dropdownData = $dropdown->getTemplateData();
 		// override default heading class.
 		$dropdownData['heading-class'] = $headingClass;
 		// ext.uls.interface attaches click handler to this selector.
 		$dropdownData['checkbox-class'] = $checkboxClass;
-		// Override header icon (currently no way to do this using constructor)
-		$dropdownData['html-vector-heading-icon'] = $icon;
+		$dropdownData['icon'] = $icon;
 		$dropdownData['aria-label'] = $this->ariaLabel;
 		$dropdownData['is-language-selector-empty'] = !$isSubjectPage;
 
