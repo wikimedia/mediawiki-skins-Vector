@@ -150,9 +150,21 @@
 
 .client-js {
 	@media ( min-width: @min-width-desktop ) {
+		/**
+		* FIXME: Remove the following line containing '.vector-toc-unpinned' after line 157 has been in prod for a week.
+		*/
 		.vector-toc-unpinned.vector-sticky-header-visible .vector-sticky-header .vector-toc-landmark,
+		&.vector-feature-toc-pinned-disabled .vector-sticky-header-visible .vector-sticky-header .vector-toc-landmark,
+		/**
+		* FIXME: Remove the following line containing '.vector-toc-unpinned' after line 162 has been in prod for a week.
+		*/
 		.vector-toc-unpinned:not( .vector-sticky-header-visible ) .vector-page-titlebar .vector-toc-landmark,
-		.vector-toc-pinned .mw-table-of-contents-container.vector-toc-landmark {
+		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) .vector-page-titlebar .vector-toc-landmark,
+		/**
+		* FIXME: Remove the following line containing '.vector-toc-pinned' after line 167 has been in prod for a week.
+		*/
+		.vector-toc-pinned .mw-table-of-contents-container.vector-toc-landmark,
+		&.vector-feature-toc-pinned-enabled .mw-table-of-contents-container.vector-toc-landmark {
 			display: block;
 		}
 	}

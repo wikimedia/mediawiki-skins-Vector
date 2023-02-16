@@ -9,7 +9,9 @@
 
 @media ( min-width: @min-width-desktop ) {
 	#mw-panel-toc {
-		.vector-toc-pinned & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned' after line 14 has been in prod for a week.
+		.vector-toc-pinned &,
+		.vector-feature-toc-pinned-enabled & {
 			// Support: Chrome
 			// Work around sticky-positioned layers disabling subpixel text rendering (T327460).
 			// NOTE: This property has an effect similar to 'overflow: hidden', and will prevent elements
@@ -19,12 +21,16 @@
 			contain: paint;
 		}
 
-		.vector-feature-page-tools-disabled .vector-toc-pinned & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned' after line 26 has been in prod for a week.
+		.vector-feature-page-tools-disabled .vector-toc-pinned &,
+		.vector-feature-page-tools-disabled.vector-feature-toc-pinned-enabled & {
 			// Align the left edge of the TOC text with the main menu button icon.
 			margin-left: -27px;
 		}
 
-		.vector-feature-page-tools-enabled .vector-toc-pinned & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned' after line 33 has been in prod for a week.
+		.vector-feature-page-tools-enabled .vector-toc-pinned &,
+		.vector-feature-page-tools-enabled.vector-feature-toc-pinned-enabled & {
 			// Align the left edge of the TOC text with the page container
 			margin-left: -@spacing-subsection-toggle;
 		}
@@ -35,17 +41,23 @@
 		position: sticky;
 		top: 0;
 
-		.vector-toc-pinned & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned &' after line 46 has been in prod for a week.
+		.vector-toc-pinned &,
+		.vector-feature-toc-pinned-enabled & {
 			// Default spacing separating the sidebar TOC from the main menu.
 			margin-top: 1.5em;
 		}
 
-		.vector-feature-page-tools-disabled .vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned' after line 53 has been in prod for a week.
+		.vector-feature-page-tools-disabled .vector-toc-pinned @{selector-main-menu-closed} ~ .mw-table-of-contents-container &,
+		.vector-feature-page-tools-disabled.vector-feature-toc-pinned-enabled @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
 			// Needed to align TOC with bottom of title.
 			margin-top: @margin-top-pinned-toc;
 		}
 
-		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled .vector-toc-pinned & {
+		// FIXME: Remove the following line containing '.vector-toc-pinned' after line 60 has been in prod for a week.
+		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled .vector-toc-pinned &,
+		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-enabled & {
 			// Align TOC with bottom of title when main menu is not pinned but the TOC is
 			margin-top: @margin-top-pinned-toc;
 		}
