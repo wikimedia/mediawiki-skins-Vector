@@ -45,11 +45,16 @@
 	"vector-toc-menu-tooltip": "Satura rādītājs",
 	"vector-toc-collapsible-button-label": "Pārslēgt satura rādītāju",
 	"vector-site-nav-label": "Vietne",
+	"vector-main-menu-label": "Galvenā izvēlne",
+	"vector-limited-width-toggle": "Pārslēgt ierobežoto satura platumu",
 	"vector-page-tools-label": "Rīki",
+	"vector-page-tools-general-label": "Vispārīgi",
+	"vector-page-tools-actions-label": "Darbības",
 	"vector-pin-element-label": "pārvietot uz sānjoslu",
 	"vector-unpin-element-label": "paslēpt",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskusija]]",
 	"tooltip-vector-anon-user-menu-title": "Vairāk iespēju",
 	"vector-prefs-limited-width": "Iespējot ierobežota platuma režīmu",
-	"vector-prefs-limited-width-help": "Iespējojiet ierobežota platuma režīmu, lai uzlabotu lasīšanas pieredzi."
+	"vector-prefs-limited-width-help": "Iespējojiet ierobežota platuma režīmu, lai uzlabotu lasīšanas pieredzi.",
+	"empty-language-selector-body": "Lapas saturs netiek atbalstīts citās valodās."
 }
