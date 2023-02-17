@@ -12,8 +12,8 @@ const pinnableElementOpenTemplate = fs.readFileSync( 'includes/templates/Pinnabl
 const pinnableElementCloseTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Close.mustache', 'utf8' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
 const menuTemplate = fs.readFileSync( 'includes/templates/Menu.mustache', 'utf8' );
-const IconLink = fs.readFileSync( 'includes/templates/IconLink.mustache', 'utf8' );
-const MenuListItem = fs.readFileSync( 'includes/templates/MenuListItem.mustache', 'utf8' );
+const linkTemplate = fs.readFileSync( 'includes/templates/Link.mustache', 'utf8' );
+const menuListItemTemplate = fs.readFileSync( 'includes/templates/MenuListItem.mustache', 'utf8' );
 
 const templateData = {
 	'is-wide': false,
@@ -69,8 +69,8 @@ const dropdownPartials = {
 	PinnableHeader: pinnableHeaderTemplate,
 	Menu: menuTemplate,
 	MenuContents: menuContents,
-	IconLink,
-	MenuListItem
+	Link: linkTemplate,
+	MenuListItem: menuListItemTemplate
 };
 
 const renderedHTML = mustache.render( userLinksTemplate, templateData, dropdownPartials );

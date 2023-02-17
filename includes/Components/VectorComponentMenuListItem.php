@@ -5,7 +5,7 @@ namespace MediaWiki\Skins\Vector\Components;
  * VectorComponentMenuListItem component
  */
 class VectorComponentMenuListItem implements VectorComponent {
-	/** @var VectorComponentIconLink */
+	/** @var VectorComponentLink */
 	private $link;
 	/** @var string */
 	private $class;
@@ -13,11 +13,11 @@ class VectorComponentMenuListItem implements VectorComponent {
 	private $id;
 
 	/**
-	 * @param VectorComponentIconLink $link
+	 * @param VectorComponentLink $link
 	 * @param string $class
 	 * @param string $id
 	 */
-	public function __construct( VectorComponentIconLink $link, string $class = '', string $id = '' ) {
+	public function __construct( VectorComponentLink $link, string $class = '', string $id = '' ) {
 		$this->link = $link;
 		$this->class = $class;
 		$this->id = $id;
