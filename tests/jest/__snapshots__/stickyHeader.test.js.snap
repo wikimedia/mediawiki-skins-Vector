@@ -12,8 +12,8 @@ exports[`Sticky header renders 1`] = `
 		</div>
 <div> </div>		<div class=\\"vector-sticky-header-context-bar\\">
 <div id=\\"vector-sticky-header-toc\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc\\">
-	<input type=\\"checkbox\\" id=\\"vector-sticky-header-toc-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-sticky-header-toc\\" class=\\"vector-menu-checkbox\\" tabindex=\\"-1\\">
-	<label id=\\"vector-sticky-header-toc-label\\" for=\\"vector-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" tabindex=\\"-1\\">
+	<input type=\\"checkbox\\" id=\\"vector-sticky-header-toc-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-sticky-header-toc\\" class=\\"vector-menu-checkbox\\" aria-label=\\"\\" tabindex=\\"-1\\">
+	<label id=\\"vector-sticky-header-toc-label\\" for=\\"vector-sticky-header-toc-checkbox\\" class=\\"vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet\\" aria-hidden=\\"true\\" tabindex=\\"-1\\">
 		<span class=\\"vector-menu-heading-label\\"></span>
 	</label>
 	<div class=\\"vector-menu-content vector-dropdown-content\\">
