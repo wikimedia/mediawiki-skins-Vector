@@ -140,6 +140,73 @@ const updateTocLocation = () => {
 	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
 };
 
+const setupTableOfContents = () => {
+	const header = document.getElementById( stickyHeader.STICKY_HEADER_ID );
+	const tocElement = document.getElementById( TOC_ID );
+	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+
+	if ( !(
+		tocElement &&
+		bodyContent &&
+		window.IntersectionObserver &&
+		window.requestAnimationFrame
+	) ) {
+		return null;
+	}
+
+	const tableOfContents = initTableOfContents( {
+		container: tocElement,
+		onHeadingClick: ( id ) => {
+
+			// eslint-disable-next-line no-use-before-define
+			sectionObserver.pause();
+
+			tableOfContents.expandSection( id );
+			tableOfContents.changeActiveSection( id );
+
+			// T297614: We want the link that the user has clicked inside the TOC to
+			// be "active" (e.g. bolded) regardless of whether the browser's scroll
+			// position corresponds to that section. Therefore, we need to temporarily
+			// ignore section observer until the browser has finished scrolling to the
+			// section (if needed).
+			//
+			// However, because the scroll event happens asyncronously after the user
+			// clicks on a link and may not even happen at all (e.g. the user has
+			// scrolled all the way to the bottom and clicks a section that is already
+			// in the viewport), determining when we should resume section observer is
+			// a bit tricky.
+			//
+			// Because a scroll event may not even be triggered after clicking the
+			// link, we instead allow the browser to perform a maximum number of
+			// repaints before resuming sectionObserver. Per T297614#7687656, Firefox
+			// 97.0 wasn't consistently activating the table of contents section that
+			// the user clicked even after waiting 2 frames. After further
+			// investigation, it sometimes waits up to 3 frames before painting the
+			// new scroll position so we have that as the limit.
+			//
+			// eslint-disable-next-line no-use-before-define
+			deferUntilFrame( () => sectionObserver.resume(), 3 );
+		},
+		onToggleClick: ( id ) => {
+			tableOfContents.toggleExpandSection( id );
+		},
+		onTogglePinned: () => {
+			updateTocLocation();
+			pinnableElement.setFocusAfterToggle( TOC_ID );
+		}
+	} );
+	const headingSelector = [
+		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+	].map( ( tag ) => `.mw-parser-output ${tag}` ).join( ',' );
+	const sectionObserver = initSectionObserver( {
+		elements: bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` ),
+		topMargin: header ? header.getBoundingClientRect().height : 0,
+		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
+	} );
+
+	return tableOfContents;
+};
+
 /**
  * @return {void}
  */
@@ -156,6 +223,11 @@ const main = () => {
 	// Pinnable elements
 	//
 	pinnableElement.initPinnableElement();
+
+	//
+	//  Table of contents
+	//
+	setupTableOfContents();
 
 	//
 	// Sticky header
@@ -226,71 +298,6 @@ const main = () => {
 	} else if ( stickyIntersection ) {
 		observer.observe( stickyIntersection );
 	}
-
-	//
-	//  Table of contents
-	//
-	const tocElement = document.getElementById( TOC_ID );
-	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-
-	if ( !(
-		tocElement &&
-		bodyContent &&
-		window.IntersectionObserver &&
-		window.requestAnimationFrame
-	) ) {
-		return;
-	}
-
-	const tableOfContents = initTableOfContents( {
-		container: tocElement,
-		onHeadingClick: ( id ) => {
-
-			// eslint-disable-next-line no-use-before-define
-			sectionObserver.pause();
-
-			tableOfContents.expandSection( id );
-			tableOfContents.changeActiveSection( id );
-
-			// T297614: We want the link that the user has clicked inside the TOC to
-			// be "active" (e.g. bolded) regardless of whether the browser's scroll
-			// position corresponds to that section. Therefore, we need to temporarily
-			// ignore section observer until the browser has finished scrolling to the
-			// section (if needed).
-			//
-			// However, because the scroll event happens asyncronously after the user
-			// clicks on a link and may not even happen at all (e.g. the user has
-			// scrolled all the way to the bottom and clicks a section that is already
-			// in the viewport), determining when we should resume section observer is
-			// a bit tricky.
-			//
-			// Because a scroll event may not even be triggered after clicking the
-			// link, we instead allow the browser to perform a maximum number of
-			// repaints before resuming sectionObserver. Per T297614#7687656, Firefox
-			// 97.0 wasn't consistently activating the table of contents section that
-			// the user clicked even after waiting 2 frames. After further
-			// investigation, it sometimes waits up to 3 frames before painting the
-			// new scroll position so we have that as the limit.
-			//
-			// eslint-disable-next-line no-use-before-define
-			deferUntilFrame( () => sectionObserver.resume(), 3 );
-		},
-		onToggleClick: ( id ) => {
-			tableOfContents.toggleExpandSection( id );
-		},
-		onTogglePinned: () => {
-			updateTocLocation();
-			pinnableElement.setFocusAfterToggle( TOC_ID );
-		}
-	} );
-	const headingSelector = [
-		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
-	].map( ( tag ) => `.mw-parser-output ${tag}` ).join( ',' );
-	const sectionObserver = initSectionObserver( {
-		elements: bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` ),
-		topMargin: header ? header.getBoundingClientRect().height : 0,
-		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
-	} );
 };
 
 module.exports = {
