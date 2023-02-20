@@ -10,6 +10,7 @@
 			"Srđan"
 		]
 	},
+	"skinname-vector": "Stari Vector (2010)",
 	"vector-skin-desc": "Pruža 2 Vector skina:\n* 2011 - Moderna verzija MonoBook-a sa svježim izgledom i mnogim poboljšanjima upotrebljivosti.\n* 2022 - Vector napravljen kao dio WMF projekta [[mw:Desktop Improvements]].",
 	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
 	"prefs-vector-enable-vector-1-help": "Kroz narednih nekoliko godina postepeno ćemo ažurirati temu Vector. Stari Vector pružit će Vam mogućnost da koristite raniju verziju Vectora (zamrznutu u decembru 2019). Za detalje o ažuriranjima, posjetite našu [[mw:Reading/Web/Desktop_Improvements|projektnu stranicu]].",
@@ -55,7 +56,7 @@
 	"vector-limited-width-toggle": "Uključi/isključi ograničenu širinu sadržaja",
 	"vector-page-tools-label": "Alati",
 	"vector-page-tools-general-label": "Općenito",
-	"vector-page-tools-actions-label": "Akcije",
+	"vector-page-tools-actions-label": "Radnje",
 	"vector-pin-element-label": "premjesti na bočnu traku",
 	"vector-unpin-element-label": "sakrij",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Razgovor]]",
