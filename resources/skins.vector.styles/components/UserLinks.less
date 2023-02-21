@@ -16,7 +16,6 @@
 	position: relative;
 	justify-content: flex-end;
 	flex-shrink: 1;
-	font-size: @font-size-user-links;
 
 	.mw-ui-button {
 		// FIXME: Overrides mw-ui-button's `display: inline-block` property so that
@@ -74,6 +73,8 @@
  * Horizontal links menu - logged in and logged out.
  */
 .vector-user-links .mw-portlet-vector-user-menu-overflow {
+	font-size: @font-size-user-links;
+
 	.vector-menu-content-list {
 		display: flex;
 		align-items: center;
@@ -106,15 +107,8 @@
  * Logged-in dropdown menu
  */
 .vector-user-menu-logged-in {
-	.vector-menu-heading {
-		// override user menu (.mw-ui-icon) fixed width,
-		// so chevron beside icon is visible.
-		width: auto;
-
-		// and override again to ensure the user icon is 20px wide.
-		&:before {
-			width: auto;
-		}
+	.vector-menu-heading:after {
+		.mixin-vector-menu-heading-arrow();
 	}
 }
 
