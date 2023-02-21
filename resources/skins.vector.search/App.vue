@@ -40,14 +40,7 @@
 		</template>
 		<!-- eslint-disable-next-line vue/no-template-shadow -->
 		<template #search-footer-text="{ searchQuery }">
-			<!--
-				Normally we'd use v-i18n-html here, like this:
-				<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
-				but that causes strange rerendering issues and makes the <strong> tag rendered
-				by the message unclickable, see T327229.
-			-->
-			<!-- eslint-disable-next-line max-len, vue/no-v-html -->
-			<span v-html="$i18n( 'vector-searchsuggest-containing' ).params( [ searchQuery ] ).parse()"></span>
+			<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
 		</template>
 	</cdx-typeahead-search>
 </template>
