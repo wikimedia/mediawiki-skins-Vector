@@ -142,3 +142,29 @@
 .client-js body.rtl .vector-toc .vector-toc-toggle {
 	transform: rotate( 90deg );
 }
+
+// Ensure there is only 1 table of contents landmark at anytime
+.vector-toc-landmark {
+	display: none;
+}
+
+.client-js {
+	@media ( min-width: @min-width-desktop ) {
+		.vector-toc-unpinned.vector-sticky-header-visible .vector-sticky-header .vector-toc-landmark,
+		.vector-toc-unpinned:not( .vector-sticky-header-visible ) .vector-page-titlebar .vector-toc-landmark,
+		.vector-toc-pinned .mw-table-of-contents-container.vector-toc-landmark {
+			display: block;
+		}
+	}
+
+	@media ( max-width: @max-width-tablet ) {
+		// On lower resolutions the TOC will always be in the page titlebar regardless of the TOC pinned classes
+		.vector-page-titlebar .vector-toc-landmark {
+			display: block;
+		}
+
+		.mw-table-of-contents-container.vector-toc-landmark {
+			display: none;
+		}
+	}
+}

@@ -17,13 +17,14 @@
 	</label>
 
 	{{! TOC is moved into this dropdown from the sidebar in stickyHeader.js. }}
-	{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Open}}{{/data-page-titlebar-toc-dropdown}}
-		{{#data-page-titlebar-toc-pinnable-container}}
-		{{>PinnableContainer/Unpinned/Open}}
-		{{>PinnableContainer/Close}}
-		{{/data-page-titlebar-toc-pinnable-container}}
-	{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Close}}{{/data-page-titlebar-toc-dropdown}}
-
+	<nav role="navigation" aria-label="{{ msg-vector-toc-label }}" class="vector-toc-landmark">
+		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Open}}{{/data-page-titlebar-toc-dropdown}}
+			{{#data-page-titlebar-toc-pinnable-container}}
+			{{>PinnableContainer/Unpinned/Open}}
+			{{>PinnableContainer/Close}}
+			{{/data-page-titlebar-toc-pinnable-container}}
+		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Close}}{{/data-page-titlebar-toc-dropdown}}
+	</nav>
 	{{{html-title-heading}}}
 
 	{{#is-language-in-content-top}}

@@ -85,9 +85,9 @@ function render( templateProps = {} ) {
 	}, templateProps );
 
 	return mustache.render( tableOfContentsTemplate, templateData, {
-		'PinnableElement/Open': pinnableElementOpenTemplate, // eslint-disable-line camelcase
-		'PinnableElement/Close': pinnableElementCloseTemplate, // eslint-disable-line camelcase
-		PinnableHeader: pinnableHeaderTemplate, // eslint-disable-line camelcase
+		'PinnableElement/Open': pinnableElementOpenTemplate,
+		'PinnableElement/Close': pinnableElementCloseTemplate,
+		PinnableHeader: pinnableHeaderTemplate,
 		TableOfContents__list: tableOfContentsContentsTemplate, // eslint-disable-line camelcase
 		TableOfContents__line: tableOfContentsLineTemplate // eslint-disable-line camelcase
 	} );
