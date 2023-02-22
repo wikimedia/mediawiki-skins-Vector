@@ -5,7 +5,8 @@
 			"Ashok modhvadia",
 			"CptViraj",
 			"Dsvyas",
-			"KartikMistry"
+			"KartikMistry",
+			"Amire80"
 		]
 	},
 	"vector-skin-desc": "તાજા દેખાવ અને વધુ ઉપયોગી સુધારાઓ સાથે મોનોબુકની આધુનિક આવૃત્તિ",
@@ -14,6 +15,7 @@
 	"vector-opt-out-tooltip": "તમારી ગોઠવણીને જૂના દેખાવ પર લઇ જાઓ (જૂનું વેક્ટર)",
 	"vector-action-toggle-sidebar": "સાઇડબાર છુપાવો-બતાવો",
 	"vector-languages": "ભાષાઓ",
+	"vector-language-button-aria-label": "બીજી ભાષાના લેખ પર જાઓ. આમાં પ્રાપ્ત છે: {{PLURAL:$1|$1 ભાષા|$1 ભાષાઓ}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ભાષા|$1 ભાષાઓ}}",
 	"vector-action-addsection": "નવો વિષય",
 	"vector-action-delete": "રદ કરો",
@@ -31,5 +33,8 @@
 	"vector-jumptocontent": "લખાણ પર જાઓ",
 	"vector-more-actions": "વધુ",
 	"vector-search-loader": "શોધ સૂચનો લાવો",
-	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> ધરાવતા પાનાઓ શોધો"
+	"vector-searchsuggest-containing": "<strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> ધરાવતા પાનાઓ શોધો",
+	"vector-anon-user-menu-pages-learn": "વધુ જાણો",
+	"vector-main-menu-tooltip": "મુખ્ય મેનુ",
+	"tooltip-vector-anon-user-menu-title": "વધુ વિકલ્પો"
 }

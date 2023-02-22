@@ -6,12 +6,18 @@
 			"Rinatus",
 			"Ильнар",
 			"Рашат Якупов",
-			"Ерней"
+			"Ерней",
+			"Ильгиз"
 		]
 	},
-	"skinname-vector": "Сызымлы",
+	"skinname-vector": "Сызымлы, иске (2010)",
+	"skinname-vector-2022": "Сызымлы (2022)",
+	"vector-specialversion-name": "Сызымлы",
 	"vector-skin-desc": "Хәзерге заманга туры килгән MonoBook күренеше, яңа бизәлеш һәм яңа мөмкинлекләр",
+	"vector-opt-out": "Иске дизайнга кайту",
+	"vector-languages": "Телләр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
+	"vector-language-variant-switcher-label": "Телне алмаштыру",
 	"vector-action-addsection": "Яңа тема өстәү",
 	"vector-action-delete": "Бетерү",
 	"vector-action-move": "Күчерү",
@@ -25,5 +31,9 @@
 	"vector-view-viewsource": "Чыганагын карау",
 	"vector-jumptonavigation": "Навигациягә күчү",
 	"vector-jumptosearch": "Эзләүгә күчү",
-	"vector-more-actions": "Тагын"
+	"vector-jumptocontent": "Эчтәлеккә күчү",
+	"vector-more-actions": "Тагын",
+	"vector-intro-page": "Help:Кереш",
+	"vector-anon-user-menu-pages-learn": "күбрәк белү",
+	"vector-main-menu-tooltip": "Төп меню"
 }

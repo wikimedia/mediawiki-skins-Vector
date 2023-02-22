@@ -24,7 +24,9 @@
 	"vector-view-viewsource": "Mull polloi",
 	"vector-jumptonavigation": "Dixa bodlunk uddki mar",
 	"vector-jumptosearch": "Soda khatir uddki mar",
+	"vector-jumptocontent": "Mozkuraxim uddki mar",
 	"vector-more-actions": "Anik",
 	"vector-anon-user-menu-pages-learn": "odik xikun ghe",
-	"vector-anon-user-menu-pages-label": "Sompadona vixim odik xikun ghe"
+	"vector-anon-user-menu-pages-label": "Sompadona vixim odik xikun ghe",
+	"vector-main-menu-tooltip": "Mukhel volleri"
 }

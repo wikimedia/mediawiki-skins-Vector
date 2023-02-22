@@ -10,7 +10,10 @@
 			"Rachmat04",
 			"Rex",
 			"William Surya Permana",
-			"Gombang"
+			"Gombang",
+			"Agam Riyandana",
+			"Amire80",
+			"Veracious"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -45,7 +48,7 @@
 	"vector-more-actions": "Lainnya",
 	"vector-search-loader": "Memuat saran pencarian",
 	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
-	"vector-intro-page": "Bantuan:Pengantar",
+	"vector-intro-page": "Help:Pengantar",
 	"vector-anon-user-menu-pages": "Halaman penyunting yang telah keluar log",
 	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut",
 	"vector-anon-user-menu-pages-label": "Pelajari lebih lanjut tentang menyunting",

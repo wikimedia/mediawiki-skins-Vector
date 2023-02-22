@@ -6,9 +6,11 @@
 			"Hunpatinjob",
 			"Misteld",
 			"Samatics",
-			"Atej2*"
+			"Atej2*",
+			"Amire80"
 		]
 	},
+	"vector-languages": "Ogbè lẹ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ogbè|$1 ogbè lẹ}}",
 	"vector-action-addsection": "Yi hosọ dogọ",
 	"vector-action-delete": "Sunsunsẹ",
