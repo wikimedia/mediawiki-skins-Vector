@@ -355,6 +355,8 @@ class SkinVector22 extends SkinMustache {
 			];
 		}
 
+		$isRegistered = $user->isRegistered();
+		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
 		$components = $tocComponents + [
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				$parentData['data-portlets']['data-variants'],
@@ -365,7 +367,8 @@ class SkinVector22 extends SkinMustache {
 				$localizer,
 				$user,
 				$portlets,
-				$this->getOptions()['link']
+				$this->getOptions()['link'],
+				$userPage[ 'icon' ] ?? ''
 			),
 			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],

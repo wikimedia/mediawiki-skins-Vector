@@ -22,23 +22,28 @@ class VectorComponentUserLinks implements VectorComponent {
 	private $portletData;
 	/** @var array */
 	private $linkOptions;
+	/** @var string */
+	private $userIcon;
 
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param User $user
 	 * @param array $portletData
 	 * @param array $linkOptions
+	 * @param string $userIcon that represents the current type of user
 	 */
 	public function __construct(
 		MessageLocalizer $localizer,
 		User $user,
 		array $portletData,
-		array $linkOptions
+		array $linkOptions,
+		string $userIcon = 'userAvatar'
 	) {
 		$this->localizer = $localizer;
 		$this->user = $user;
 		$this->portletData = $portletData;
 		$this->linkOptions = $linkOptions;
+		$this->userIcon = $userIcon;
 	}
 
 	/**
@@ -73,11 +78,8 @@ class VectorComponentUserLinks implements VectorComponent {
 		}
 
 		$tooltip = '';
-		if ( $user->isTemp() ) {
-			$icon = 'userAnonymous';
-		} elseif ( !$isAnon ) {
-			$icon = 'userAvatar';
-		} else {
+		$icon = $this->userIcon;
+		if ( $icon === '' ) {
 			$icon = 'ellipsis';
 			// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons.
 			// For modern Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for
@@ -135,7 +137,10 @@ class VectorComponentUserLinks implements VectorComponent {
 				] + $portletData[ 'data-user-menu-anon-editor' ] );
 			}
 		} else {
-			if ( isset( $portletData[ 'data-user-menu-logout' ] ) ) {
+			// Logout isnt enabled for temp users, who are considered still considered registeredt
+			$isLogoutLinkEnabled = isset( $portletData[ 'data-user-menu-logout' ][ 'is-empty' ] ) &&
+				!$portletData[ 'data-user-menu-logout'][ 'is-empty' ];
+			if ( $isLogoutLinkEnabled ) {
 				$dropdownMenus[] = new VectorComponentMenu( [
 					'label' => null
 				] + $portletData[ 'data-user-menu-logout' ] );
@@ -150,7 +155,6 @@ class VectorComponentUserLinks implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$portletData = $this->portletData;
-		$user = $this->user;
 
 		$isDefaultAnonUserLinks = count( $portletData['data-user-menu']['array-items'] ) === 2;
 		$isAnonEditorLinksEnabled = isset( $portletData['data-user-menu-anon-editor']['is-empty'] )
@@ -161,7 +165,6 @@ class VectorComponentUserLinks implements VectorComponent {
 		] + $portletData[ 'data-vector-user-menu-overflow' ] );
 
 		return [
-			'is-temp-user' => $user->isTemp(),
 			'is-wide' => count( $overflowMenu ) > 3,
 			'data-user-links-overflow-menu' => $overflowMenu->getTemplateData(),
 			'data-user-links-dropdown' => $this->getDropdown( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled )

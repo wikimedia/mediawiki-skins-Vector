@@ -263,21 +263,8 @@ class Hooks implements
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
 		$user = $sk->getUser();
-		$isTemp = $user->isTemp();
 		$isRegistered = $user->isRegistered();
-
-		if ( $isTemp ) {
-			if ( isset( $content_navigation['user-page']['tmpuserpage'] ) ) {
-				$content_navigation['user-page']['tmpuserpage']['collapsible'] = true;
-				$content_navigation['user-page']['tmpuserpage'] =
-					self::updateMenuItemData( $content_navigation['user-page']['tmpuserpage'] );
-			}
-			if ( isset( $content_navigation['user-menu']['tmpuserpage'] ) ) {
-				$content_navigation['user-menu']['tmpuserpage']['collapsible'] = true;
-				$content_navigation['user-menu']['tmpuserpage'] =
-					self::updateMenuItemData( $content_navigation['user-menu']['tmpuserpage'] );
-			}
-		} elseif ( $isRegistered ) {
+		if ( $isRegistered ) {
 			// Remove user page from personal menu dropdown for logged in use
 			$content_navigation['user-menu']['userpage']['collapsible'] = true;
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
@@ -299,7 +286,7 @@ class Hooks implements
 			self::updateMenuItems( $content_navigation, 'user-menu-logout' );
 		}
 
-		if ( !$isRegistered || $isTemp ) {
+		if ( !$isRegistered ) {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
 			// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
@@ -393,11 +380,7 @@ class Hooks implements
 		}
 
 		// Anon/temp overflow items
-		$user = $sk->getUser();
-		$isTemp = $user->isTemp();
-		$isRegistered = $user->isRegistered();
-		$isCreateAccountAllowed = ( !$isRegistered || $isTemp );
-		if ( isset( $content_navigation['user-menu']['createaccount'] ) && $isCreateAccountAllowed ) {
+		if ( isset( $content_navigation['user-menu']['createaccount'] ) ) {
 			$content_navigation[$overflow]['createaccount'] = array_merge(
 				$content_navigation['user-menu']['createaccount'], [
 				'id' => 'pt-createaccount-2',
