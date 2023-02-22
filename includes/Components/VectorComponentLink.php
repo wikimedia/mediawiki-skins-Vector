@@ -6,9 +6,9 @@ use Linker;
 use MessageLocalizer;
 
 /**
- * VectorComponentIconLink component
+ * VectorComponentLink component
  */
-class VectorComponentIconLink implements VectorComponent {
+class VectorComponentLink implements VectorComponent {
 	/** @var MessageLocalizer */
 	private $localizer;
 	/** @var string */
