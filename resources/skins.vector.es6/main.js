@@ -197,12 +197,22 @@ const setupTableOfContents = () => {
 	const headingSelector = [
 		'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 	].map( ( tag ) => `.mw-parser-output ${tag}` ).join( ',' );
+	const elements = () => bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` );
+
 	const sectionObserver = initSectionObserver( {
-		elements: bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` ),
+		elements: elements(),
 		topMargin: header ? header.getBoundingClientRect().height : 0,
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
-
+	const updateElements = () => {
+		sectionObserver.resume();
+		sectionObserver.setElements( elements() );
+	};
+	mw.hook( 've.activationStart' ).add( () => {
+		sectionObserver.pause();
+	} );
+	mw.hook( 'wikipage.tableOfContents.vector' ).add( updateElements );
+	mw.hook( 've.deactivationComplete' ).add( updateElements );
 	return tableOfContents;
 };
 

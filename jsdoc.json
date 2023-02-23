@@ -40,6 +40,7 @@
 				"MwMap": "https://doc.wikimedia.org/mediawiki-core/master/js/#!/api/mw.Map",
 				"RequestInit": "https://developer.mozilla.org/en-US/docs/Web/API/Request/Request",
 				"JQueryStatic": "https://api.jquery.com",
+				"JQuery.Promise": "https://api.jquery.com/promise/",
 				"VectorResourceLoaderVirtualConfig": "#",
 				"void": "#",
 				"Vue.VNode": "https://vuejs.org/v2/api/#VNode-Interface"
