@@ -62,6 +62,7 @@ class SkinVector22 extends SkinMustache {
 	 * This should be upstreamed to the Skin class in core once the logic is finalized.
 	 * Returns false if the page is a special page without any languages, or if an action
 	 * other than view is being used.
+	 *
 	 * @return bool
 	 */
 	private function canHaveLanguages(): bool {
@@ -85,7 +86,7 @@ class SkinVector22 extends SkinMustache {
 	 * @param string $location Either 'top' or 'bottom' is accepted.
 	 * @return bool
 	 */
-	protected function isLanguagesInContentAt( $location ) {
+	protected function isLanguagesInContentAt( string $location ): bool {
 		if ( !$this->canHaveLanguages() ) {
 			return false;
 		}
@@ -112,14 +113,16 @@ class SkinVector22 extends SkinMustache {
 	/**
 	 * Whether or not the languages are out of the sidebar and in the content either at
 	 * the top or the bottom.
+	 *
 	 * @return bool
 	 */
-	final protected function isLanguagesInContent() {
+	final protected function isLanguagesInContent(): bool {
 		return $this->isLanguagesInContentAt( 'top' ) || $this->isLanguagesInContentAt( 'bottom' );
 	}
 
 	/**
 	 * Calls getLanguages with caching.
+	 *
 	 * @return array
 	 */
 	protected function getLanguagesCached(): array {
@@ -168,10 +171,11 @@ class SkinVector22 extends SkinMustache {
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
+	 *
 	 * @param array $data
 	 * @return array
 	 */
-	private function mergeViewOverflowIntoActions( $data ) {
+	private function mergeViewOverflowIntoActions( array $data ): array {
 		$portlets = $data['data-portlets'];
 		$actions = $portlets['data-actions'];
 		$overflow = $portlets['data-views-overflow'];
@@ -216,7 +220,7 @@ class SkinVector22 extends SkinMustache {
 	 *
 	 * @return bool
 	 */
-	private function isMainMenuVisible() {
+	private function isMainMenuVisible(): bool {
 		$skin = $this->getSkin();
 		if ( $skin->getUser()->isRegistered() ) {
 			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
@@ -246,7 +250,7 @@ class SkinVector22 extends SkinMustache {
 	 * @param array &$sidebar
 	 * @param array &$pageToolsMenu
 	 */
-	private static function extractPageToolsFromSidebar( &$sidebar, &$pageToolsMenu ) {
+	private static function extractPageToolsFromSidebar( array &$sidebar, array &$pageToolsMenu ) {
 		$restPortlets = $sidebar[ 'array-portlets-rest' ] ?? [];
 		$toolboxMenuIndex = array_search(
 			VectorComponentPageTools::TOOLBOX_ID,
