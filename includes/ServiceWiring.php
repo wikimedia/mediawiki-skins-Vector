@@ -217,6 +217,26 @@ return [
 			]
 		);
 
+		// Feature: Table of Contents pinned
+		// ================================
+		$featureManager->registerRequirement(
+			new UserPreferenceRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_TOC_PINNED,
+				Constants::REQUIREMENT_TOC_PINNED,
+				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_TOC_PINNED,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_TOC_PINNED
+			]
+		);
+
 		// Feature: Main menu pinned
 		// ================================
 		$featureManager->registerRequirement(

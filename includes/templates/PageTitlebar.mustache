@@ -22,6 +22,9 @@
 		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Open}}{{/data-page-titlebar-toc-dropdown}}
 			{{#data-page-titlebar-toc-pinnable-container}}
 			{{>PinnableContainer/Unpinned/Open}}
+				{{^is-pinned}}
+					{{#data-toc}}{{>TableOfContents}}{{/data-toc}}
+				{{/is-pinned}}
 			{{>PinnableContainer/Close}}
 			{{/data-page-titlebar-toc-pinnable-container}}
 		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Close}}{{/data-page-titlebar-toc-dropdown}}

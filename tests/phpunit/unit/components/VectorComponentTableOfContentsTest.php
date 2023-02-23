@@ -23,6 +23,7 @@ namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
 use HashConfig;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use Message;
 use MessageLocalizer;
 
@@ -113,7 +114,7 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 			'data-pinnable-header' => [
 				'is-pinned' => true,
 				'data-name' => 'vector-toc',
-				'data-feature-name' => null,
+				'data-feature-name' => 'toc-pinned',
 				'label' => 'vector-toc-label',
 				'unpin-label' => 'vector-unpin-element-label',
 				'pin-label' => 'vector-pin-element-label',
@@ -188,11 +189,14 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 			$msg->method( 'text' )->willReturn( $key );
 			return $msg;
 		} );
+		$featureManager = $this->createMock( FeatureManager::class );
+		$featureManager->method( 'isFeatureEnabled' )->willReturn( true );
 
 		$toc = new VectorComponentTableOfContents(
 			$tocData,
 			$localizer,
-			new HashConfig( $config )
+			new HashConfig( $config ),
+			$featureManager
 		);
 		$this->assertEquals( $expected, $toc->getTemplateData() );
 	}

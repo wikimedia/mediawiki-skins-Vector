@@ -349,7 +349,8 @@ class SkinVector22 extends SkinMustache {
 			$dataToc = new VectorComponentTableOfContents(
 				$parentData['data-toc'],
 				$localizer,
-				$this->getConfig()
+				$this->getConfig(),
+				VectorServices::getFeatureManager()
 			);
 			$tocComponents = [
 				'data-toc' => $dataToc,

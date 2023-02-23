@@ -2,6 +2,8 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use Config;
+use MediaWiki\Skins\Vector\Constants;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MessageLocalizer;
 
 /**
@@ -31,22 +33,23 @@ class VectorComponentTableOfContents implements VectorComponent {
 	 * @param array $tocData
 	 * @param MessageLocalizer $localizer
 	 * @param Config $config
+	 * @param FeatureManager $featureManager
 	 */
 	public function __construct(
 		array $tocData,
 		MessageLocalizer $localizer,
-		Config $config
+		Config $config,
+		FeatureManager $featureManager
 	) {
 		$this->tocData = $tocData;
 		$this->localizer = $localizer;
-		// ToC is pinned by default, hardcoded for now
-		$this->isPinned = true;
+		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_TOC_PINNED );
 		$this->config = $config;
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$this->localizer,
 			$this->isPinned,
 			self::ID,
-			null,
+			'toc-pinned',
 			false,
 			'h2'
 		);

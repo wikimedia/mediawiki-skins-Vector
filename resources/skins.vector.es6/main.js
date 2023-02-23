@@ -8,6 +8,7 @@ const
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
+	features = require( './features.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
@@ -111,8 +112,7 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
  * @return {void}
  */
 const updateTocLocation = () => {
-	const TOC_PINNED_CLASS = 'vector-toc-pinned';
-	const isPinned = document.body.classList.contains( TOC_PINNED_CLASS );
+	const isPinned = features.isEnabled( 'toc-pinned' );
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
 

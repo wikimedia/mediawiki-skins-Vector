@@ -40,8 +40,7 @@
 					},
 					"bodyClasses": [
 						"skin-vector",
-						"skin-vector-search-vue",
-						"vector-toc-pinned"
+						"skin-vector-search-vue"
 					],
 					"menus": [
 						"user-interface-preferences",
@@ -167,7 +166,9 @@
 	"DefaultUserOptions": {
 		"vector-limited-width": 1,
 		"vector-page-tools-pinned": 1,
-		"vector-main-menu-pinned": 1
+		"vector-main-menu-pinned": 1,
+		"vector-toc-pinned": 1
+
 	},
 	"HookHandlers": {
 		"VectorHooks": {

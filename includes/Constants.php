@@ -223,6 +223,21 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const REQUIREMENT_TOC_PINNED = 'TOCPinned';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_TOC_PINNED = 'vector-toc-pinned';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_TOC_PINNED = 'TOCPinned';
+
+	/**
+	 * @var string
+	 */
 	public const FEATURE_MAIN_MENU_PINNED = 'MainMenuPinned';
 
 	/**
