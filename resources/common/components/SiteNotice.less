@@ -8,11 +8,7 @@
 /* Site Notice (includes notices from CentralNotice extension) */
 #siteNotice {
 	font-size: @font-size-site-notice;
+	margin: @grid-row-gap 0;
 	position: relative;
 	text-align: center;
-
-	// e.g. #centralNotice, #localNotice, when not empty (T325219)
-	> div:not( :empty ) {
-		margin: @grid-row-gap 0;
-	}
 }
