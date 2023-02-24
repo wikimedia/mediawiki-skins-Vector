@@ -139,16 +139,17 @@ const updateTocLocation = () => {
 	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
 };
 
-const setupTableOfContents = () => {
-	const header = document.getElementById( stickyHeader.STICKY_HEADER_ID );
-	const tocElement = document.getElementById( TOC_ID );
-	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-
+/**
+ * @param {HTMLElement|null} header
+ * @param {HTMLElement|null} tocElement
+ * @param {HTMLElement|null} bodyContent
+ * @param {initSectionObserver} initSectionObserverFn
+ * @return {tableOfContents|null}
+ */
+const setupTableOfContents = ( header, tocElement, bodyContent, initSectionObserverFn ) => {
 	if ( !(
 		tocElement &&
-		bodyContent &&
-		window.IntersectionObserver &&
-		window.requestAnimationFrame
+		bodyContent
 	) ) {
 		return null;
 	}
@@ -199,7 +200,7 @@ const setupTableOfContents = () => {
 	].map( ( tag ) => `.mw-parser-output ${tag}` ).join( ',' );
 	const elements = () => bodyContent.querySelectorAll( `${headingSelector}, .mw-body-content` );
 
-	const sectionObserver = initSectionObserver( {
+	const sectionObserver = initSectionObserverFn( {
 		elements: elements(),
 		topMargin: header ? header.getBoundingClientRect().height : 0,
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
@@ -211,7 +212,13 @@ const setupTableOfContents = () => {
 	mw.hook( 've.activationStart' ).add( () => {
 		sectionObserver.pause();
 	} );
-	mw.hook( 'wikipage.tableOfContents.vector' ).add( updateElements );
+	// @ts-ignore
+	mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
+		tableOfContents.reloadTableOfContents( sections ).then( function () {
+			mw.hook( 'wikipage.tableOfContents.vector' ).fire( sections );
+			updateElements();
+		} );
+	} );
 	mw.hook( 've.deactivationComplete' ).add( updateElements );
 	return tableOfContents;
 };
@@ -220,6 +227,9 @@ const setupTableOfContents = () => {
  * @return {void}
  */
 const main = () => {
+	const isIntersectionObserverSupported = 'IntersectionObserver' in window;
+	const header = document.getElementById( stickyHeader.STICKY_HEADER_ID );
+
 	limitedWidthToggle();
 	// Initialize the search toggle for the main header only. The sticky header
 	// toggle is initialized after Codex search loads.
@@ -236,13 +246,18 @@ const main = () => {
 	//
 	//  Table of contents
 	//
-	const tableOfContents = setupTableOfContents();
+	const tocElement = document.getElementById( TOC_ID );
+	const bodyContent = document.getElementById( BODY_CONTENT_ID );
+
+	const isToCUpdatingAllowed = isIntersectionObserverSupported &&
+		window.requestAnimationFrame;
+	const tableOfContents = isToCUpdatingAllowed ?
+		setupTableOfContents( header, tocElement, bodyContent, initSectionObserver ) : null;
 
 	//
 	// Sticky header
 	//
 	const
-		header = document.getElementById( stickyHeader.STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById( stickyHeader.FIRST_HEADING_ID ),
 		userLinksDropdown = document.getElementById( stickyHeader.USER_LINKS_DROPDOWN_ID ),
 		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
@@ -254,7 +269,7 @@ const main = () => {
 		!!userLinksDropdown &&
 		allowedNamespace &&
 		allowedAction &&
-		'IntersectionObserver' in window;
+		isIntersectionObserverSupported;
 
 	const { showStickyHeader, disableEditIcons } = initStickyHeaderABTests(
 		ABTestConfig,
@@ -318,6 +333,7 @@ const main = () => {
 module.exports = {
 	main,
 	test: {
+		setupTableOfContents,
 		initStickyHeaderABTests,
 		getHeadingIntersectionHandler
 	}

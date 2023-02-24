@@ -18,6 +18,12 @@
  */
 
 /**
+ * @callback initSectionObserver
+ * @param {SectionObserverProps} props
+ * @return {SectionObserver}
+ */
+
+/**
  * Observe intersection changes with the viewport for one or more elements. This
  * is intended to be used with the headings in the content so that the
  * corresponding section(s) in the table of contents can be "activated" (e.g.

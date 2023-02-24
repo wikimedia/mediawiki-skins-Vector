@@ -153,3 +153,79 @@ describe( 'main.js', () => {
 			} );
 	} );
 } );
+
+const sectionObserverFn = () => ( {
+	pause: () => {},
+	resume: () => {},
+	mount: () => {},
+	unmount: () => {},
+	setElements: () => {}
+} );
+
+describe( 'Table of contents re-rendering', () => {
+	const mockMwHook = () => {
+		/** @type {Object.<string, Function>} */
+		let callback = {};
+		// @ts-ignore
+		jest.spyOn( mw, 'hook' ).mockImplementation( ( name ) => {
+
+			return {
+				add: function ( fn ) {
+					callback[ name ] = fn;
+
+					return this;
+				},
+				fire: ( data ) => {
+					if ( callback[ name ] ) {
+						callback[ name ]( data );
+					}
+				}
+			};
+		} );
+	};
+
+	afterEach( () => {
+		jest.restoreAllMocks();
+	} );
+
+	it( 'listens to wikipage.tableOfContents hook when mounted', () => {
+		mockMwHook();
+		const spy = jest.spyOn( mw, 'hook' );
+		const header = document.createElement( 'header' );
+		const tocElement = document.createElement( 'div' );
+		const bodyContent = document.createElement( 'article' );
+		const toc = test.setupTableOfContents( header, tocElement, bodyContent, sectionObserverFn );
+		expect( toc ).not.toBe( null );
+		expect( spy ).toHaveBeenCalledWith( 'wikipage.tableOfContents' );
+		expect( spy ).not.toHaveBeenCalledWith( 'wikipage.tableOfContents.vector' );
+	} );
+
+	it( 'Firing wikipage.tableOfContents triggers reloadTableOfContents', async () => {
+		mockMwHook();
+		const header = document.createElement( 'header' );
+		const tocElement = document.createElement( 'div' );
+		const bodyContent = document.createElement( 'article' );
+		const toc = test.setupTableOfContents( header, tocElement, bodyContent, sectionObserverFn );
+		if ( !toc ) {
+			// something went wrong
+			expect( true ).toBe( false );
+			return;
+		}
+		const spy = jest.spyOn( toc, 'reloadTableOfContents' ).mockImplementation( () => Promise.resolve() );
+
+		mw.hook( 'wikipage.tableOfContents' ).fire( [
+			// Add new section to see how the re-render performs.
+			{
+				toclevel: 1,
+				number: '4',
+				line: 'bat',
+				anchor: 'bat',
+				'is-top-level-section': true,
+				'is-parent-section': false,
+				'array-sections': null
+			}
+		] );
+
+		expect( spy ).toHaveBeenCalled();
+	} );
+} );
