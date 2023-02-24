@@ -331,7 +331,8 @@ class SkinVector22 extends SkinMustache {
 			self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 		}
 
-		$hasAddTopicButton = $this->removeAddTopicButton( $parentData );
+		$hasAddTopicButton = $config->get( 'VectorPromoteAddTopic' ) &&
+			$this->removeAddTopicButton( $parentData );
 
 		$langButtonClass = $langData['class'] ?? '';
 		$ulsLabels = $this->getULSLabels();
