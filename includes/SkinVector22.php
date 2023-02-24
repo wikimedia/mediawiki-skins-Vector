@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponentButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
@@ -77,6 +78,29 @@ class SkinVector22 extends SkinMustache {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Remove the add topic button from data-views if present
+	 *
+	 * @param array &$parentData Template data
+	 * @return bool An add topic button was removed
+	 */
+	private function removeAddTopicButton( array &$parentData ): bool {
+		$views = $parentData['data-portlets']['data-views']['array-items'];
+		$hasAddTopicButton = false;
+		$html = '';
+		foreach ( $views as $i => $view ) {
+			if ( $view['id'] === 'ca-addsection' ) {
+					array_splice( $views, $i, 1 );
+					$hasAddTopicButton = true;
+					continue;
+			}
+			$html .= $view['html-item'];
+		}
+		$parentData['data-portlets']['data-views']['array-items'] = $views;
+		$parentData['data-portlets']['data-views']['html-items'] = $html;
+		return $hasAddTopicButton;
 	}
 
 	/**
@@ -307,6 +331,8 @@ class SkinVector22 extends SkinMustache {
 			self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 		}
 
+		$hasAddTopicButton = $this->removeAddTopicButton( $parentData );
+
 		$langButtonClass = $langData['class'] ?? '';
 		$ulsLabels = $this->getULSLabels();
 		$user = $this->getUser();
@@ -362,7 +388,14 @@ class SkinVector22 extends SkinMustache {
 		$isRegistered = $user->isRegistered();
 		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
 		$components = $tocComponents + [
+			'data-add-topic-button' => $hasAddTopicButton ? new VectorComponentButton(
+				$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
+				'ca-addsection',
+				$this->getTitle()->getLocalURL( 'action=edit&section=new' ),
+				'wikimedia-speechBubbleAdd-progressive'
+			) : null,
 			'data-vector-variants' => new VectorComponentMenuVariants(
+				// @phan-suppress-next-line PhanTypeInvalidDimOffset, PhanTypeMismatchArgument
 				$parentData['data-portlets']['data-variants'],
 				$this->getTitle()->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
@@ -452,7 +485,7 @@ class SkinVector22 extends SkinMustache {
 
 		return array_merge( $parentData, [
 			'is-language-in-content' => $this->isLanguagesInContent(),
-			'is-language-in-content-top' => $this->isLanguagesInContentAt( 'top' ),
+			'has-buttons-in-content-top' => $this->isLanguagesInContentAt( 'top' ) || $hasAddTopicButton,
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null

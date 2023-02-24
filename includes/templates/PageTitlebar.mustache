@@ -27,13 +27,16 @@
 	</nav>
 	{{{html-title-heading}}}
 
-	{{#is-language-in-content-top}}
+	{{#has-buttons-in-content-top}}
+		{{#data-add-topic-button}}
+			{{>Button}}
+		{{/data-add-topic-button}}
 		{{#data-lang-btn}}
 			{{>LanguageDropdown}}
 		{{/data-lang-btn}}
-	{{/is-language-in-content-top}}
+	{{/has-buttons-in-content-top}}
 
-	{{^is-language-in-content-top}}
+	{{^has-buttons-in-content-top}}
 		{{>Indicators}}
-	{{/is-language-in-content-top}}
+	{{/has-buttons-in-content-top}}
 </header>
