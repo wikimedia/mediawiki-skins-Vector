@@ -233,10 +233,6 @@
 				"i18n-all-lists-margins": true,
 				"i18n-headings": true
 			},
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"styles": [
 				"resources/common/common.less",
 				"resources/skins.vector.styles.legacy/skin-legacy.less"
@@ -264,10 +260,6 @@
 				"i18n-headings": true,
 				"toc": false
 			},
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"styles": [
 				"resources/common/common.less",
 				"resources/skins.vector.styles/skin.less"
