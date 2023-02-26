@@ -155,4 +155,9 @@ pre,
 	// Equivalent of `12px` at calculation base of `14px` is `0.857em`.
 	background-size: 0.857em;
 	padding-right: 1em;
+
+	// See T330712 for better understanding of this class and any future changes.
+	&.free {
+		word-break: break-all;
+	}
 }
