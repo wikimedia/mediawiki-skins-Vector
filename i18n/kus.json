@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bugirbiig"
+			"Bugirbiig",
+			"Amire80"
 		]
 	},
 	"vector-action-addsection": "Pɛ'ɛsim pian'azug",
+	"vector-action-delete": "Yisim",
 	"vector-action-move": "Vuugim",
+	"vector-action-protect": "Gur",
 	"vector-view-create": "Maalim",
 	"vector-view-edit": "Dɛmisim gbɛlima",
 	"vector-view-history": "Gɔsim linɛ dɛŋin maal",

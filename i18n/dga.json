@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Zakaria Tunsung",
-			"Yirkang"
+			"Yirkang",
+			"Linus Konkor"
 		]
 	},
 	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
 	"vector-action-delete": "Iri bare",
 	"vector-action-move": "Kyɛne/gaa",
+	"vector-action-protect": "Guubo",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
 	"vector-view-history": "kaa yɛlkori/yipɔge",

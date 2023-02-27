@@ -5,14 +5,16 @@
 			"Robin van der Vliet",
 			"LesVisages",
 			"שוקו מוקה",
-			"Tbodt"
+			"Tbodt",
+			"Keenan Pepper"
 		]
 	},
+	"vector-action-addsection": "o pana e ijo toki sin",
 	"vector-action-delete": "o weka",
 	"vector-action-protect": "o awen",
 	"vector-view-create": "o pali",
 	"vector-view-edit": "o ante",
 	"vector-view-history": "o lukin e tenpo pini",
-	"vector-view-view": "lukin",
+	"vector-view-view": "o lukin",
 	"vector-more-actions": "ante"
 }

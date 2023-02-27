@@ -9,14 +9,18 @@
 		]
 	},
 	"vector-opt-out": "आदल्या स्वरूपांत परत वच",
+	"vector-action-toggle-sidebar": "देग-पट्टी दाखय / लिपय",
 	"vector-action-addsection": "माथाळो ज़ोड",
 	"vector-action-delete": "काडून उडयात",
 	"vector-action-move": "दुसरेकडे व्हरात",
 	"vector-action-protect": "राख",
+	"vector-action-unprotect": "सुरक्षेचें स्थर बदल",
 	"vector-view-create": "रोच",
 	"vector-view-edit": "बदल",
 	"vector-view-history": "इतिहास पळेयात",
 	"vector-view-view": "वाचचें",
 	"vector-view-viewsource": "उगम पळेयात",
+	"vector-jumptonavigation": "दिशा बदलुंक उडकी मार",
+	"vector-jumptosearch": "सदा खातीर उडकी मार",
 	"vector-more-actions": "आनीक"
 }
