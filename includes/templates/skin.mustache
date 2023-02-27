@@ -43,8 +43,8 @@
 		<div class="vector-sitenotice-container">
 			<div id="siteNotice">{{{html-site-notice}}}</div>
 		</div>
-		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
-		{{>TableOfContentsContainer}}
+		{{#data-toc}}<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">{{/data-toc}}
+		{{>TableOfContentsPinned}}
 		<div class="mw-content-container">
 			{{! `role` is unnecessary but kept to support selectors in any gadgets or user styles. }}
 			<main id="content" class="mw-body" role="main">

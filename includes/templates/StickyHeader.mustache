@@ -21,6 +21,7 @@
 		{{>SearchBox}}
 		{{/data-search}}
 		<div class="vector-sticky-header-context-bar">
+			{{#data-toc}}
 			{{! TOC is moved into this dropdown from the sidebar in stickyHeader.js. }}
 			<nav role="navigation" aria-label="{{ msg-vector-toc-label }}" class="vector-toc-landmark">
 				{{#data-sticky-header-toc-dropdown}}
@@ -32,6 +33,7 @@
 					{{>Dropdown/Close}}
 				{{/data-sticky-header-toc-dropdown}}
 			</nav>
+			{{/data-toc}}
 			<div class="vector-sticky-header-context-bar-primary" aria-hidden="true" {{{html-user-language-attributes}}}>{{{html-title}}}</div>
 		</div>
 	</div>
