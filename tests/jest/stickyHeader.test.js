@@ -58,6 +58,9 @@ const editButtonsTemplateData = [ {
 } ];
 
 const templateData = {
+	'data-toc': {
+		'array-sections': []
+	},
 	'data-sticky-header-toc-dropdown': {
 		id: 'vector-sticky-header-toc',
 		class: 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',

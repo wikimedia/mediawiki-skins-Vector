@@ -3,6 +3,7 @@
 	When language button is visible, indicators are placed in the BeforeContent.mustache template instead.
 }}
 <header class="mw-body-header vector-page-titlebar{{#is-title-blank}} vector-page-titlebar-blank{{/is-title-blank}}">
+	{{#data-toc}}
 	{{! Checkbox hack used by collapsed TOC on narrow viewports for no JS users }}
 	<label
 		id="vector-toc-collapsed-button"
@@ -25,6 +26,7 @@
 			{{/data-page-titlebar-toc-pinnable-container}}
 		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Close}}{{/data-page-titlebar-toc-dropdown}}
 	</nav>
+	{{/data-toc}}
 	{{{html-title-heading}}}
 
 	{{#has-buttons-in-content-top}}
