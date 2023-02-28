@@ -2,13 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Zakaria Tunsung",
-			"Yirkang"
+			"Yirkang",
+			"Linus Konkor"
 		]
 	},
+	"vector-languages": "Kɔkɔre/kɔkɔrɛɛ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Kɔkɔre|$1 Kɔkɔɛ}}",
+	"vector-no-language-button-label": "Eŋ kɔkɔre/ kɔkɔre emmbo",
 	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
 	"vector-action-delete": "Iri bare",
 	"vector-action-move": "Kyɛne/gaa",
+	"vector-action-protect": "Guubo",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
 	"vector-view-history": "kaa yɛlkori/yipɔge",
