@@ -191,10 +191,9 @@ describe( 'Table of contents re-rendering', () => {
 	it( 'listens to wikipage.tableOfContents hook when mounted', () => {
 		mockMwHook();
 		const spy = jest.spyOn( mw, 'hook' );
-		const header = document.createElement( 'header' );
 		const tocElement = document.createElement( 'div' );
 		const bodyContent = document.createElement( 'article' );
-		const toc = test.setupTableOfContents( header, tocElement, bodyContent, sectionObserverFn );
+		const toc = test.setupTableOfContents( tocElement, bodyContent, sectionObserverFn );
 		expect( toc ).not.toBe( null );
 		expect( spy ).toHaveBeenCalledWith( 'wikipage.tableOfContents' );
 		expect( spy ).not.toHaveBeenCalledWith( 'wikipage.tableOfContents.vector' );
@@ -202,10 +201,9 @@ describe( 'Table of contents re-rendering', () => {
 
 	it( 'Firing wikipage.tableOfContents triggers reloadTableOfContents', async () => {
 		mockMwHook();
-		const header = document.createElement( 'header' );
 		const tocElement = document.createElement( 'div' );
 		const bodyContent = document.createElement( 'article' );
-		const toc = test.setupTableOfContents( header, tocElement, bodyContent, sectionObserverFn );
+		const toc = test.setupTableOfContents( tocElement, bodyContent, sectionObserverFn );
 		if ( !toc ) {
 			// something went wrong
 			expect( true ).toBe( false );

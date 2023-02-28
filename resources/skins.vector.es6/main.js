@@ -140,13 +140,24 @@ const updateTocLocation = () => {
 };
 
 /**
- * @param {HTMLElement|null} header
+ * Return the computed value of the
+ * `scroll-margin-top` CSS property, of the document element, as a number.
+ *
+ * @return {number} Value of scroll-margin-top OR zero if falsy.
+ */
+function getDocumentScrollPaddingTop() {
+	const documentStyles = getComputedStyle( document.documentElement ),
+		scrollPaddingTopString = documentStyles.getPropertyValue( 'scroll-padding-top' );
+	return parseInt( scrollPaddingTopString, 10 ) || 0;
+}
+
+/**
  * @param {HTMLElement|null} tocElement
  * @param {HTMLElement|null} bodyContent
  * @param {initSectionObserver} initSectionObserverFn
  * @return {tableOfContents|null}
  */
-const setupTableOfContents = ( header, tocElement, bodyContent, initSectionObserverFn ) => {
+const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) => {
 	if ( !(
 		tocElement &&
 		bodyContent
@@ -202,7 +213,7 @@ const setupTableOfContents = ( header, tocElement, bodyContent, initSectionObser
 
 	const sectionObserver = initSectionObserverFn( {
 		elements: elements(),
-		topMargin: header ? header.getBoundingClientRect().height : 0,
+		topMargin: getDocumentScrollPaddingTop(),
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
 	const updateElements = () => {
@@ -252,7 +263,7 @@ const main = () => {
 	const isToCUpdatingAllowed = isIntersectionObserverSupported &&
 		window.requestAnimationFrame;
 	const tableOfContents = isToCUpdatingAllowed ?
-		setupTableOfContents( header, tocElement, bodyContent, initSectionObserver ) : null;
+		setupTableOfContents( tocElement, bodyContent, initSectionObserver ) : null;
 
 	//
 	// Sticky header
