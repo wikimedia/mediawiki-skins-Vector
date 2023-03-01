@@ -11,6 +11,7 @@
 	"prefs-vector-enable-vector-1-label": "Uzez 'Legacy Vector'",
 	"prefs-vector-enable-vector-1-help": "Dum la sequanta yari, ni gradope adoptos la vido-modelo ''Vector''. Legacy Vector permisos vu vidar l'anciena versiono di ''Vector'' (uzita til decembro 2019). Por savar pluse pri l'aktualigi, irez a [[mw:Reading/Web/Desktop_Improvements|nia pagino pri la projeto]].",
 	"vector-opt-out": "Chanjar al anciena ordino",
+	"vector-languages": "Idiomi",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Linguo|$1 Lingui}}",
 	"vector-language-redirect-to-top": "En ca {{SITENAME}} la ligili ad altra idiomi esas en la supra parto di la pagino, an l'opozanta lokizo di lua titulo. [[#p-lang-btn|Irez adsupre]].",
 	"vector-language-variant-switcher-label": "Modifikar linguala varianto",

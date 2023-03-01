@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"DaSupremo"
+			"DaSupremo",
+			"Amire80"
 		]
 	},
+	"vector-languages": "Languages",
 	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-action-addsection": "Add topic",
 	"vector-action-delete": "Delete",

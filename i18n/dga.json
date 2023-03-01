@@ -2,17 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Zakaria Tunsung",
-			"Yirkang"
+			"Yirkang",
+			"Amire80",
+			"Linus Konkor"
 		]
 	},
-	"vector-languages": "Kɔkɔre/kɔkɔrɛɛ",
-	"vector-language-button-label": "{{PLURAL:$1|$1 Kɔkɔre|$1 Kɔkɔɛ}}",
+	"vector-languages": "Kɔkɔɛ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 kɔkɔre|$1 kɔkɔɛ}}",
 	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
 	"vector-action-delete": "Iri bare",
 	"vector-action-move": "Kyɛne/gaa",
+	"vector-action-protect": "Guubo",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
-	"vector-view-history": "kaa yɛlkori/yipɔge",
+	"vector-view-history": "Kaa a dabaŋkoroŋ",
 	"vector-view-view": "Gane",
-	"vector-more-actions": "yaga"
+	"vector-more-actions": "Yaga"
 }
