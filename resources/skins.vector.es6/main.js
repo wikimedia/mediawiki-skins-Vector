@@ -140,15 +140,18 @@ const updateTocLocation = () => {
 };
 
 /**
- * Return the computed value of the
- * `scroll-margin-top` CSS property, of the document element, as a number.
+ * Return the computed value of the scroll intersection threshold,
+ * which is based off of the `scroll-margin-top` CSS property of the document element.
+ *
+ * T317661: Computed value results in a threshold 100px from the
+ * top of the viewport or bottom of the sticky header
  *
  * @return {number} Value of scroll-margin-top OR zero if falsy.
  */
-function getDocumentScrollPaddingTop() {
-	const documentStyles = getComputedStyle( document.documentElement ),
-		scrollPaddingTopString = documentStyles.getPropertyValue( 'scroll-padding-top' );
-	return parseInt( scrollPaddingTopString, 10 ) || 0;
+function getScrollIntersectionThreshold() {
+	const documentStyles = getComputedStyle( document.documentElement );
+	const scrollPaddingTopString = documentStyles.getPropertyValue( 'scroll-padding-top' );
+	return ( parseInt( scrollPaddingTopString, 10 ) || 50 ) + 50;
 }
 
 /**
@@ -213,7 +216,7 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 
 	const sectionObserver = initSectionObserverFn( {
 		elements: elements(),
-		topMargin: getDocumentScrollPaddingTop(),
+		topMargin: getScrollIntersectionThreshold(),
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
 	const updateElements = () => {
@@ -239,7 +242,6 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
  */
 const main = () => {
 	const isIntersectionObserverSupported = 'IntersectionObserver' in window;
-	const header = document.getElementById( stickyHeader.STICKY_HEADER_ID );
 
 	limitedWidthToggle();
 	// Initialize the search toggle for the main header only. The sticky header
@@ -269,13 +271,14 @@ const main = () => {
 	// Sticky header
 	//
 	const
+		stickyHeaderElement = document.getElementById( stickyHeader.STICKY_HEADER_ID ),
 		stickyIntersection = document.getElementById( stickyHeader.FIRST_HEADING_ID ),
 		userLinksDropdown = document.getElementById( stickyHeader.USER_LINKS_DROPDOWN_ID ),
 		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
 		allowedAction = stickyHeader.isAllowedAction( mw.config.get( 'wgAction' ) );
 
 	const isStickyHeaderAllowed =
-		!!header &&
+		!!stickyHeaderElement &&
 		!!stickyIntersection &&
 		!!userLinksDropdown &&
 		allowedNamespace &&
@@ -330,7 +333,7 @@ const main = () => {
 
 	if ( isStickyHeaderAllowed && showStickyHeader ) {
 		stickyHeader.initStickyHeader( {
-			header,
+			header: stickyHeaderElement,
 			userLinksDropdown,
 			observer,
 			stickyIntersection,
