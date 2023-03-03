@@ -168,42 +168,40 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 		return null;
 	}
 
+	const handleTocSectionChange = () => {
+		// eslint-disable-next-line no-use-before-define
+		sectionObserver.pause();
+
+		// T297614: We want the link that the user has clicked inside the TOC or the
+		// section that corresponds to the hashchange event to be "active" (e.g.
+		// bolded) regardless of whether the browser's scroll position corresponds
+		// to that section. Therefore, we need to temporarily ignore section
+		// observer until the browser has finished scrolling to the section (if
+		// needed).
+		//
+		// However, because the scroll event happens asynchronously after the user
+		// clicks on a link and may not even happen at all (e.g. the user has
+		// scrolled all the way to the bottom and clicks a section that is already
+		// in the viewport), determining when we should resume section observer is a
+		// bit tricky.
+		//
+		// Because a scroll event may not even be triggered after clicking the link,
+		// we instead allow the browser to perform a maximum number of repaints
+		// before resuming sectionObserver. Per T297614#7687656, Firefox 97.0 wasn't
+		// consistently activating the table of contents section that the user
+		// clicked even after waiting 2 frames. After further investigation, it
+		// sometimes waits up to 3 frames before painting the new scroll position so
+		// we have that as the limit.
+		deferUntilFrame( () => {
+			// eslint-disable-next-line no-use-before-define
+			sectionObserver.resume();
+		}, 3 );
+	};
+
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
-		onHeadingClick: ( id ) => {
-
-			// eslint-disable-next-line no-use-before-define
-			sectionObserver.pause();
-
-			tableOfContents.expandSection( id );
-			tableOfContents.changeActiveSection( id );
-
-			// T297614: We want the link that the user has clicked inside the TOC to
-			// be "active" (e.g. bolded) regardless of whether the browser's scroll
-			// position corresponds to that section. Therefore, we need to temporarily
-			// ignore section observer until the browser has finished scrolling to the
-			// section (if needed).
-			//
-			// However, because the scroll event happens asyncronously after the user
-			// clicks on a link and may not even happen at all (e.g. the user has
-			// scrolled all the way to the bottom and clicks a section that is already
-			// in the viewport), determining when we should resume section observer is
-			// a bit tricky.
-			//
-			// Because a scroll event may not even be triggered after clicking the
-			// link, we instead allow the browser to perform a maximum number of
-			// repaints before resuming sectionObserver. Per T297614#7687656, Firefox
-			// 97.0 wasn't consistently activating the table of contents section that
-			// the user clicked even after waiting 2 frames. After further
-			// investigation, it sometimes waits up to 3 frames before painting the
-			// new scroll position so we have that as the limit.
-			//
-			// eslint-disable-next-line no-use-before-define
-			deferUntilFrame( () => sectionObserver.resume(), 3 );
-		},
-		onToggleClick: ( id ) => {
-			tableOfContents.toggleExpandSection( id );
-		},
+		onHeadingClick: handleTocSectionChange,
+		onHashChange: handleTocSectionChange,
 		onTogglePinned: () => {
 			updateTocLocation();
 			pinnableElement.setFocusAfterToggle( TOC_ID );
@@ -234,6 +232,46 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 		} );
 	} );
 	mw.hook( 've.deactivationComplete' ).add( updateElements );
+
+	const setInitialActiveSection = () => {
+		const hash = location.hash.slice( 1 );
+		// If hash fragment is blank, determine the active section with section
+		// observer.
+		if ( hash === '' ) {
+			sectionObserver.calcIntersection();
+			return;
+		}
+
+		// T325086: If hash fragment is present and corresponds to a toc section,
+		// expand the section.
+		// @ts-ignore
+		const hashSection = /** @type {HTMLElement|null} */ ( mw.util.getTargetFromFragment( `${TOC_SECTION_ID_PREFIX}${hash}` ) );
+		if ( hashSection ) {
+			tableOfContents.expandSection( hashSection.id );
+		}
+
+		// T325086: If hash fragment corresponds to a section AND the user is at
+		// bottom of page, activate the section. Otherwise, use section observer to
+		// calculate the active section.
+		//
+		// Note that even if a hash fragment is present, it's possible for the
+		// browser to scroll to a position that is different from the position of
+		// the section that corresponds to the hash fragment. This can happen when
+		// the browser remembers a prior scroll position after refreshing the page,
+		// for example.
+		if (
+			hashSection &&
+			Math.round( window.innerHeight + window.scrollY ) >= document.body.scrollHeight
+		) {
+			tableOfContents.changeActiveSection( hashSection.id );
+		} else {
+			// Fallback to section observer's calculation for the active section.
+			sectionObserver.calcIntersection();
+		}
+	};
+
+	setInitialActiveSection();
+
 	return tableOfContents;
 };
 
