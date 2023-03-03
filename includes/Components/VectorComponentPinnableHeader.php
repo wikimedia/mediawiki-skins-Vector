@@ -12,8 +12,8 @@ class VectorComponentPinnableHeader implements VectorComponent {
 	/** @var bool */
 	private $pinned;
 	/** @var string */
-	private $name;
-	/** @var string|null */
+	private $id;
+	/** @var string */
 	private $featureName;
 	/**
 	 * @var bool
@@ -28,9 +28,9 @@ class VectorComponentPinnableHeader implements VectorComponent {
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param bool $pinned
-	 * @param string $name By convention, this should include the `vector-`
+	 * @param string $id Pinnable element id, by convention this should include the `vector-`
 	 * prefix e.g. `vector-page-tools` or `vector-toc`.
-	 * @param string|null $featureName If set, pinned and unpinned states will
+	 * @param string $featureName Pinned and unpinned states will
 	 * persist for logged-in users by leveraging features.js to manage the user
 	 * preference storage and the toggling of the body class. This name should NOT
 	 * contain the "vector-" prefix.
@@ -41,14 +41,14 @@ class VectorComponentPinnableHeader implements VectorComponent {
 	public function __construct(
 		MessageLocalizer $localizer,
 		bool $pinned,
-		string $name,
-		?string $featureName,
+		string $id,
+		string $featureName,
 		?bool $moveElement = true,
 		?string $labelTagName = 'div'
 	) {
 		$this->localizer = $localizer;
 		$this->pinned = $pinned;
-		$this->name = $name;
+		$this->id = $id;
 		$this->featureName = $featureName;
 		$this->moveElement = $moveElement;
 		$this->labelTagName = $labelTagName;
@@ -61,19 +61,18 @@ class VectorComponentPinnableHeader implements VectorComponent {
 		$messageLocalizer = $this->localizer;
 		$data = [
 			'is-pinned' => $this->pinned,
-			'label' => $messageLocalizer->msg( $this->name . '-label' ),
+			'label' => $messageLocalizer->msg( $this->id . '-label' ),
 			'label-tag-name' => $this->labelTagName,
 			'pin-label' => $messageLocalizer->msg( 'vector-pin-element-label' ),
 			'unpin-label' => $messageLocalizer->msg( 'vector-unpin-element-label' ),
-			'data-name' => $this->name,
+			'data-pinnable-element-id' => $this->id,
 			'data-feature-name' => $this->featureName
 		];
 		if ( $this->moveElement ) {
 			// Assumes consistent naming standard for pinnable elements and their containers
 			$data = array_merge( $data, [
-				'data-pinnable-element-id' => $this->name,
-				'data-unpinned-container-id' => $this->name . '-unpinned-container',
-				'data-pinned-container-id' => $this->name . '-pinned-container',
+				'data-unpinned-container-id' => $this->id . '-unpinned-container',
+				'data-pinned-container-id' => $this->id . '-pinned-container',
 			] );
 		}
 		return $data;

@@ -2,7 +2,7 @@
 
 exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.tableOfContents hook is fired with empty sections 1`] = `
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
-<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
+<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-feature-name=\\"pinned\\" data-pinnable-element-id=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
@@ -63,13 +63,13 @@ exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.ta
 
 exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.tableOfContents hook is fired with sections 1`] = `
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
-<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
+<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-feature-name=\\"pinned\\" data-pinnable-element-id=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
 </div>
 <ul class=\\"vector-toc-contents\\" id=\\"mw-panel-toc-list\\"><div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
-<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
+<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-feature-name=\\"pinned\\" data-pinnable-element-id=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
@@ -140,7 +140,7 @@ exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.ta
 
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is false 1`] = `
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
-<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
+<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-feature-name=\\"pinned\\" data-pinnable-element-id=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>
@@ -201,7 +201,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 
 exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` is true 1`] = `
 "<div id=\\"vector-toc\\" class=\\"vector-toc vector-pinnable-element\\">
-<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-name=\\"vector-toc\\">
+<div class=\\"vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned\\" data-feature-name=\\"pinned\\" data-pinnable-element-id=\\"vector-toc\\">
 	<h2 class=\\"vector-pinnable-header-label\\">Contents</h2>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-pin-button\\" data-event-name=\\"pinnable-header.vector-toc.pin\\">move to sidebar</button>
 	<button class=\\"vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button\\" data-event-name=\\"pinnable-header.vector-toc.unpin\\">hide</button>

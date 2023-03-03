@@ -28,19 +28,13 @@ function disablePinningAtBreakpoint( header, e ) {
 	// Hide the button at lower resolutions.
 	header.hidden = e.matches;
 
-	// FIXME: Class toggling should be centralized instead of being
-	// handled here, in features.js and togglePinnableClasses().
 	if ( e.matches && savedPinnedState === true ) {
 		features.toggleDocClasses( featureName, false );
-		header.classList.remove( PINNED_HEADER_CLASS );
-		header.classList.add( UNPINNED_HEADER_CLASS );
 		movePinnableElement( pinnableElementId, unpinnedContainerId );
 	}
 
 	if ( !e.matches && savedPinnedState === true ) {
 		features.toggleDocClasses( featureName, true );
-		header.classList.add( PINNED_HEADER_CLASS );
-		header.classList.remove( UNPINNED_HEADER_CLASS );
 		movePinnableElement( pinnableElementId, pinnedContainerId );
 	}
 }
@@ -65,16 +59,12 @@ function setSavedPinnableState( header ) {
  * @param {HTMLElement} header pinnable element
  */
 function togglePinnableClasses( header ) {
-	const { featureName, name } = header.dataset;
+	const { featureName } = header.dataset;
 
 	if ( featureName ) {
 		// Leverage features.js to toggle the body classes and persist the state
 		// for logged-in users.
 		features.toggle( featureName );
-	} else {
-		// Toggle body classes, assumes default pinned classes are initialized serverside
-		document.body.classList.toggle( `${name}-pinned` );
-		document.body.classList.toggle( `${name}-unpinned` );
 	}
 
 	// Toggle pinned class
@@ -139,10 +129,6 @@ function setFocusAfterToggle( pinnableElementId ) {
  * @param {HTMLElement} header
  */
 function bindPinnableToggleButtons( header ) {
-	if ( !header.dataset.name ) {
-		return;
-	}
-
 	const pinnableBreakpoint = window.matchMedia( '(max-width: 1000px)' );
 	const toggleButtons = header.querySelectorAll( '.vector-pinnable-header-toggle-button' );
 
@@ -168,11 +154,11 @@ function bindPinnableToggleButtons( header ) {
  * @return {boolean} Returns true if the element is pinned and false otherwise.
  */
 function isPinned( header ) {
-	// In the future, consider delegating to `features.isEnabled()` if and when
-	// TOC (T316060, T325032) and all pinnable elements use the
-	// `vector-feature-{name}-pinned-enabled` naming convention for the body
-	// class.
-	return header.classList.contains( PINNED_HEADER_CLASS );
+	if ( !header.dataset.featureName ) {
+		return false;
+	} else {
+		return features.isEnabled( header.dataset.featureName );
+	}
 }
 
 /**

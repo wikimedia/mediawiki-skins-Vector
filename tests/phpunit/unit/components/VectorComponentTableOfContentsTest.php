@@ -113,7 +113,7 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 			'id' => 'vector-toc',
 			'data-pinnable-header' => [
 				'is-pinned' => true,
-				'data-name' => 'vector-toc',
+				'data-pinnable-element-id' => 'vector-toc',
 				'data-feature-name' => 'toc-pinned',
 				'label' => 'vector-toc-label',
 				'unpin-label' => 'vector-unpin-element-label',
