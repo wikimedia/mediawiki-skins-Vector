@@ -15,14 +15,6 @@
 	height: @height-button-lang;
 	flex-shrink: 0;
 
-	// The language button is a BUTTON ICON not a standalone ICON so different rules apply
-	// It might make sense to have a mw-ui-icon-flush-right-button class in core to replace this.
-	&.mw-ui-icon-flush-right {
-		// This number should be synced with the value in:
-		// https://github.com/wikimedia/mediawiki/blob/master/resources/src/mediawiki.less/mediawiki.ui/mixins.buttons.less#L33
-		margin-right: -12px;
-	}
-
 	// If there are no languages and JavaScript is not enabled there is no fallback so we hide
 	// the button altogether.
 	.mw-portlet-lang-heading-0 {

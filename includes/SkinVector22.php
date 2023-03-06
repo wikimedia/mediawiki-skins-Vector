@@ -412,8 +412,7 @@ class SkinVector22 extends SkinMustache {
 			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],
 				$ulsLabels['aria-label'],
-				$this->isLanguagesInContentAt( 'top' ) ?
-					$langButtonClass . ' mw-ui-icon-flush-right' : $langButtonClass,
+				$langButtonClass,
 				count( $this->getLanguagesCached() ),
 				$langData['html-items'] ?? '',
 				$langData['html-before-portal'] ?? '',

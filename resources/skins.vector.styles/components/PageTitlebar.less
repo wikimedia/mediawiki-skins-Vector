@@ -35,4 +35,13 @@
 			min-width: auto;
 		}
 	}
+
+	> .mw-ui-button,
+	> .mw-portlet-lang {
+		&:last-child {
+			// This number should be synced with the value in:
+			// https://github.com/wikimedia/mediawiki/blob/master/resources/src/mediawiki.less/mediawiki.ui/mixins.buttons.less#L33
+			margin-right: -12px;
+		}
+	}
 }
