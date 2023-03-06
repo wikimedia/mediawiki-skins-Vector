@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Apundung",
+			"IHLubis",
 			"Simartampua"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
+	"vector-no-language-button-label": "manambai saro",
 	"vector-action-addsection": "Baen tema",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindah",
@@ -13,5 +16,7 @@
 	"vector-view-edit": "Pature",
 	"vector-view-history": "Sise sejarah",
 	"vector-view-view": "Baca",
-	"vector-more-actions": "Lainna"
+	"vector-more-actions": "Lainna",
+	"vector-searchsuggest-containing": "Jalaki tompat na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-page-tools-label": "Peralatan"
 }

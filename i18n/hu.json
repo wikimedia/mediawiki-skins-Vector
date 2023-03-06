@@ -54,7 +54,15 @@
 	"vector-toc-menu-tooltip": "Tartalomjegyzék",
 	"vector-toc-collapsible-button-label": "Tartalomjegyzék kinyitása/becsukása",
 	"vector-site-nav-label": "Wiki",
+	"vector-main-menu-label": "Főmenü",
+	"vector-limited-width-toggle": "Korlátozott tartalomszélesség ki/be",
+	"vector-page-tools-label": "Eszközök",
+	"vector-page-tools-general-label": "Általános",
+	"vector-page-tools-actions-label": "Műveletek",
+	"vector-pin-element-label": "áthelyezés az oldalsávba",
 	"vector-unpin-element-label": "elrejtés",
 	"tooltip-vector-anon-user-menu-title": "További lehetőségek",
+	"vector-prefs-limited-width": "Korlátozott szélességű mód bekapcsolása",
+	"vector-prefs-limited-width-help": "A tartalom szélességének korlátozása a kényelmesebb olvasás érdekében.",
 	"empty-language-selector-body": "Az oldal más nyelven nem elérhető."
 }
