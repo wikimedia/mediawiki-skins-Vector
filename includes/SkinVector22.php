@@ -394,7 +394,8 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
 				'ca-addsection',
 				$this->getTitle()->getLocalURL( 'action=edit&section=new' ),
-				'wikimedia-speechBubbleAdd-progressive'
+				'wikimedia-speechBubbleAdd-progressive',
+				'addsection-header'
 			) : null,
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				// @phan-suppress-next-line PhanTypeInvalidDimOffset, PhanTypeMismatchArgument
