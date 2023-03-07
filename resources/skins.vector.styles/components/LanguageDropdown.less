@@ -34,8 +34,8 @@
 	.vector-menu-heading {
 		// Prevent select of span text "X languages"
 		user-select: none;
-		// Remove opacity on language button (it applies to more menu because of label color).
-		opacity: 1;
+		// Set opacity to `1` on language button (it applies to more menu because of label color).
+		opacity: @opacity-base;
 
 		.vector-menu-heading-label {
 			// Special treatment for language button, based on Vector font-size
@@ -46,13 +46,13 @@
 		&.mw-ui-progressive.mw-ui-quiet {
 			.mw-ui-icon:before {
 				// Ensure inverted language icon is white
-				opacity: 1;
+				opacity: @opacity-base;
 			}
 
 			&:after {
 				// Invert arrow color
 				background-image: url( ../common/images/arrow-down-progressive.svg );
-				opacity: 1;
+				opacity: @opacity-base;
 			}
 		}
 	}

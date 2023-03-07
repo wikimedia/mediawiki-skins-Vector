@@ -72,7 +72,7 @@
 			transition: opacity 250ms;
 
 			&:focus {
-				opacity: 1;
+				opacity: @opacity-base;
 			}
 		}
 
@@ -84,7 +84,7 @@
 		&--active,
 		&:hover {
 			.cdx-search-input__end-button {
-				opacity: 1;
+				opacity: @opacity-base;
 			}
 
 			// Make the text input's right border appear on top of the button's left border,
@@ -147,7 +147,7 @@
 		// Increase size to match Codex.
 		width: @padding-left-start-icon;
 		// Set opacity to match icon color from Codex (0.51 approximates #72777d)
-		opacity: @opacity-base--disabled;
+		opacity: @opacity-icon-base--disabled;
 		// Use relative sizing for the icon
 		background-size: @size-icon-medium auto;
 		// Make sure the icon is positioned consistently with Codex; if we don't do this, it'll
