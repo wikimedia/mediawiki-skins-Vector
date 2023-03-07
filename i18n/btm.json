@@ -3,9 +3,11 @@
 		"authors": [
 			"Apundung",
 			"IHLubis",
-			"Simartampua"
+			"Simartampua",
+			"Veracious"
 		]
 	},
+	"vector-languages": "Saro",
 	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
 	"vector-no-language-button-label": "manambai saro",
 	"vector-action-addsection": "Baen tema",
@@ -18,5 +20,7 @@
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Lainna",
 	"vector-searchsuggest-containing": "Jalaki tompat na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-page-tools-label": "Peralatan"
+	"vector-page-tools-label": "Peralatan",
+	"vector-page-tools-general-label": "umum",
+	"vector-unpin-element-label": "onjabkon"
 }
