@@ -3,20 +3,21 @@
 		"authors": [
 			"Zakaria Tunsung",
 			"Yirkang",
-			"Linus Konkor"
+			"Linus Konkor",
+			"Amire80"
 		]
 	},
-	"vector-languages": "Kɔkɔre/kɔkɔrɛɛ",
-	"vector-language-button-label": "{{PLURAL:$1|$1 Kɔkɔre|$1 Kɔkɔɛ}}",
-	"vector-no-language-button-label": "Eŋ kɔkɔre/ kɔkɔre emmbo",
+	"vector-languages": "Kɔkɔɛ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 kɔkɔre|$1 kɔkɔɛ}}",
+	"vector-no-language-button-label": "Poɔ kɔkɔɛ",
 	"vector-action-addsection": "Paahi yɛlzu kpoŋ",
 	"vector-action-delete": "Iri bare",
-	"vector-action-move": "Kyɛne/gaa",
+	"vector-action-move": "Kyɛne ane gaa",
 	"vector-action-protect": "Guubo",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
-	"vector-view-history": "kaa yɛlkori/yipɔge",
+	"vector-view-history": "Kaa a dabaŋkoroŋ",
 	"vector-view-view": "Gane",
-	"vector-more-actions": "yaga",
+	"vector-more-actions": "Yaga",
 	"vector-searchsuggest-containing": "Bɔ leɛre ama naŋ taa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
