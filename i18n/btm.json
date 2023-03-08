@@ -8,7 +8,7 @@
 		]
 	},
 	"vector-languages": "Saro",
-	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1saro}}",
 	"vector-no-language-button-label": "manambai saro",
 	"vector-action-addsection": "Baen tema",
 	"vector-action-delete": "Apus",

@@ -41,7 +41,7 @@
 	"vector-jumptocontent": "Sari la conținut",
 	"vector-more-actions": "Mai mult",
 	"vector-search-loader": "Se încarcă sugestiile de căutare",
-	"vector-searchsuggest-containing": "Căutați după pagini care conțin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Căutați pagini care conțin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Cuprins",
 	"vector-toc-beginning": "Început",
 	"vector-anon-user-menu-pages": "Pagini pentru editorii neautentificați",
