@@ -9,16 +9,12 @@ use Countable;
 class VectorComponentMenu implements VectorComponent, Countable {
 	/** @var array */
 	private $data;
-	/** @var array */
-	private $items;
 
 	/**
 	 * @param array $data
-	 * @param VectorComponentMenuListItem[] $items
 	 */
-	public function __construct( array $data, array $items = [] ) {
+	public function __construct( array $data ) {
 		$this->data = $data;
-		$this->items = $items;
 	}
 
 	/**
@@ -35,10 +31,6 @@ class VectorComponentMenu implements VectorComponent, Countable {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$dataItems = [];
-		foreach ( $this->items as $item ) {
-			$dataItems[] = $item->getTemplateData();
-		}
 		return $this->data + [
 			'class' => '',
 			'label' => '',
@@ -48,7 +40,6 @@ class VectorComponentMenu implements VectorComponent, Countable {
 			'html-before-portal' => '',
 			'html-items' => '',
 			'html-after-portal' => '',
-			'data-items' => $dataItems,
 		];
 	}
 }
