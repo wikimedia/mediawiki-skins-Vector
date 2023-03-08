@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80",
+			"Ella Lachow"
+		]
+	},
+	"vector-languages": "Doonata",
+	"vector-language-button-label": "{{PLURAL:$1|$1 doonaa|$1 doonata}}",
+	"vector-action-addsection": "Huuphe yohuwaa gujja",
+	"vector-action-delete": "Qucca",
+	"vector-action-move": "Yuushshanaassi",
+	"vector-view-create": "Medha",
+	"vector-view-history": "Haydaa be'a",
+	"vector-more-actions": "Aaruwassi"
+}

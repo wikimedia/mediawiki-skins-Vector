@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Apundung",
-			"Simartampua"
+			"Simartampua",
+			"IHLubis",
+			"Veracious"
 		]
 	},
+	"vector-languages": "Saro",
+	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
 	"vector-action-addsection": "Baen tema",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindah",
