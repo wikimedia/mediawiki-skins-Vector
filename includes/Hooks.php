@@ -289,13 +289,17 @@ class Hooks implements
 		if ( !$isRegistered ) {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
-			// Remove duplicate "Login" link added by SkinTemplate::buildPersonalUrls if group read permissions
-			// are set to false.
-			unset( $content_navigation['user-menu']['login-private'] );
 
 			// Make login and create account collapsible
-			$content_navigation['user-menu']['login']['collapsible'] = true;
-			$content_navigation['user-menu']['createaccount']['collapsible'] = true;
+			if ( isset( $content_navigation['user-menu']['login'] ) ) {
+				$content_navigation['user-menu']['login']['collapsible'] = true;
+			}
+			if ( isset( $content_navigation['user-menu']['login-private'] ) ) {
+				$content_navigation['user-menu']['login-private']['collapsible'] = true;
+			}
+			if ( isset( $content_navigation['user-menu']['createaccount'] ) ) {
+				$content_navigation['user-menu']['createaccount']['collapsible'] = true;
+			}
 
 			// Anon editor links handled manually in new anon editor menu
 			$anonEditorMenu = [];
@@ -393,6 +397,15 @@ class Hooks implements
 			$content_navigation[$overflow]['login'] = array_merge(
 				$content_navigation['user-menu']['login'], [
 				'id' => 'pt-login-2',
+				'collapsible' => true,
+				// Remove icon
+				'icon' => '',
+			] );
+		}
+		if ( isset( $content_navigation['user-menu']['login-private'] ) ) {
+			$content_navigation[$overflow]['login-private'] = array_merge(
+				$content_navigation['user-menu']['login-private'], [
+				'id' => 'pt-login-private-2',
 				'collapsible' => true,
 				// Remove icon
 				'icon' => '',
