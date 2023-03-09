@@ -9,6 +9,7 @@
 			"Siddhartha Ghai",
 			"ThisIsACreeper0101",
 			"आलोक",
+			"भारत्पराक्रमि",
 			"रोहित रावत"
 		]
 	},
@@ -56,6 +57,8 @@
 	"vector-toc-collapsible-button-label": "विषयसूची को टॉगल करें",
 	"vector-site-nav-label": "साइट",
 	"vector-main-menu-label": "मुख्य मेन्यू",
+	"vector-page-tools-label": "उपकरण",
+	"vector-page-tools-general-label": "सामान्य",
 	"vector-page-tools-actions-label": "क्रियाएँ",
 	"vector-pin-element-label": "साइडबार पर जाएँ",
 	"vector-unpin-element-label": "छुपाएँ",
