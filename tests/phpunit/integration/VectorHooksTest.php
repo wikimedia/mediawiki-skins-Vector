@@ -507,7 +507,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				'anonuserpage' => [ 'class' => [], 'icon' => 'anonuserpage' ],
 				'createaccount' => [ 'class' => [], 'icon' => 'createaccount' ],
 				'login' => [ 'class' => [], 'icon' => 'login' ],
-				'login-private' => [ 'class' => [], 'icon' => 'login-private' ],
 				'anontalk' => [ 'class' => [], 'icon' => 'anontalk' ],
 				'anoncontribs' => [ 'class' => [], 'icon' => 'anoncontribs' ],
 			],
@@ -517,7 +516,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			count( $contentAnon['user-menu'] ) === 2 &&
 			isset( $contentAnon['user-menu']['createaccount'] ) &&
 			isset( $contentAnon['user-menu']['login'] ),
-			'Anon user page, login private and anon talk, anon contribs links are removed from user-menu'
+			'Anon user page, anon talk, anon contribs links are removed from user-menu'
 		);
 
 		$this->assertTrue(
