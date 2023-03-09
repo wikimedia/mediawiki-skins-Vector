@@ -15,6 +15,7 @@ let /** @type {HTMLElement} */ container,
 	/** @type {HTMLElement} */ quxSection,
 	/** @type {HTMLElement} */ quuxSection;
 const onHeadingClick = jest.fn();
+const onHashChange = jest.fn();
 const onToggleClick = jest.fn();
 const onTogglePinned = jest.fn();
 
@@ -110,30 +111,46 @@ function mount( templateProps = {} ) {
 	return initTableOfContents( {
 		container,
 		onHeadingClick,
+		onHashChange,
 		onToggleClick,
 		onTogglePinned
 	} );
 }
 
 describe( 'Table of contents', () => {
+	/**
+	 * @type {module:TableOfContents~TableOfContents}
+	 */
+	let toc;
+
 	beforeEach( () => {
 		// @ts-ignore
 		global.window.matchMedia = jest.fn( () => ( {} ) );
 	} );
 
+	afterEach( () => {
+		if ( toc ) {
+			toc.unmount();
+			toc = undefined;
+		}
+
+		// @ts-ignore
+		mw.util.getTargetFromFragment = undefined;
+	} );
+
 	describe( 'renders', () => {
 		test( 'when `vector-is-collapse-sections-enabled` is false', () => {
-			const toc = mount();
+			toc = mount();
 			expect( document.body.innerHTML ).toMatchSnapshot();
 			expect( barSection.classList.contains( toc.EXPANDED_SECTION_CLASS ) ).toEqual( true );
 		} );
 		test( 'when `vector-is-collapse-sections-enabled` is true', () => {
-			const toc = mount( { 'vector-is-collapse-sections-enabled': true } );
+			toc = mount( { 'vector-is-collapse-sections-enabled': true } );
 			expect( document.body.innerHTML ).toMatchSnapshot();
 			expect( barSection.classList.contains( toc.EXPANDED_SECTION_CLASS ) ).toEqual( false );
 		} );
 		test( 'toggles for top level parent sections', () => {
-			const toc = mount();
+			toc = mount();
 			expect( fooSection.getElementsByClassName( toc.TOGGLE_CLASS ).length ).toEqual( 0 );
 			expect( barSection.getElementsByClassName( toc.TOGGLE_CLASS ).length ).toEqual( 1 );
 			expect( bazSection.getElementsByClassName( toc.TOGGLE_CLASS ).length ).toEqual( 0 );
@@ -144,26 +161,46 @@ describe( 'Table of contents', () => {
 
 	describe( 'binds event listeners', () => {
 		test( 'for onHeadingClick', () => {
-			const toc = mount();
+			toc = mount();
 			const heading = /** @type {HTMLElement} */ ( document.querySelector( `#toc-foo .${toc.LINK_CLASS}` ) );
 			heading.click();
 
 			expect( onToggleClick ).not.toBeCalled();
+			expect( onHashChange ).not.toBeCalled();
 			expect( onHeadingClick ).toBeCalled();
 		} );
 		test( 'for onToggleClick', () => {
-			const toc = mount();
+			toc = mount();
 			const toggle = /** @type {HTMLElement} */ ( document.querySelector( `#toc-bar .${toc.TOGGLE_CLASS}` ) );
 			toggle.click();
 
 			expect( onHeadingClick ).not.toBeCalled();
+			expect( onHashChange ).not.toBeCalled();
 			expect( onToggleClick ).toBeCalled();
+		} );
+		test( 'for onHashChange', () => {
+			// @ts-ignore
+			mw.util.getTargetFromFragment = jest.fn().mockImplementation( ( hash ) => {
+				return hash === 'toc-foo' ? fooSection : null;
+			} );
+			mount();
+
+			// Jest doesn't trigger a hashchange event when setting a hash location.
+			location.hash = 'foo';
+			window.dispatchEvent( new HashChangeEvent( 'hashchange', {
+				oldURL: 'http://example.com',
+				newURL: 'http://example.com#foo'
+			} ) );
+
+			expect( onHeadingClick ).not.toBeCalled();
+			expect( onToggleClick ).not.toBeCalled();
+			expect( onHashChange ).toBeCalled();
 		} );
 	} );
 
 	describe( 'applies correct classes', () => {
 		test( 'when changing active sections', () => {
-			const toc = mount( { 'vector-is-collapse-sections-enabled': true } );
+			toc = mount( { 'vector-is-collapse-sections-enabled': true } );
 			let activeSections;
 			let activeTopSections;
 
@@ -190,13 +227,13 @@ describe( 'Table of contents', () => {
 		} );
 
 		test( 'when expanding sections', () => {
-			const toc = mount();
+			toc = mount();
 			toc.expandSection( 'toc-bar' );
 			expect( barSection.classList.contains( toc.EXPANDED_SECTION_CLASS ) ).toEqual( true );
 		} );
 
 		test( 'when toggling sections', () => {
-			const toc = mount();
+			toc = mount();
 			toc.toggleExpandSection( 'toc-bar' );
 			expect( barSection.classList.contains( toc.EXPANDED_SECTION_CLASS ) ).toEqual( false );
 			toc.toggleExpandSection( 'toc-bar' );
@@ -206,14 +243,14 @@ describe( 'Table of contents', () => {
 
 	describe( 'applies the correct aria attributes', () => {
 		test( 'when initialized', () => {
-			const toc = mount();
+			toc = mount();
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			expect( toggleButton.getAttribute( 'aria-expanded' ) ).toEqual( 'true' );
 		} );
 
 		test( 'when expanding sections', () => {
-			const toc = mount();
+			toc = mount();
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			toc.expandSection( 'toc-bar' );
@@ -221,7 +258,7 @@ describe( 'Table of contents', () => {
 		} );
 
 		test( 'when toggling sections', () => {
-			const toc = mount();
+			toc = mount();
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 
 			toc.toggleExpandSection( 'toc-bar' );
@@ -232,9 +269,43 @@ describe( 'Table of contents', () => {
 		} );
 	} );
 
+	describe( 'when the hash fragment changes', () => {
+		test( 'expands and activates corresponding section', () => {
+			// @ts-ignore
+			mw.util.getTargetFromFragment = jest.fn().mockImplementation( ( hash ) => {
+				return hash === 'toc-qux' ? quxSection : null;
+			} );
+			toc = mount( { 'vector-is-collapse-sections-enabled': true } );
+			expect(
+				quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS )
+			).toEqual( false );
+
+			// Jest doesn't trigger a hashchange event when setting a hash location.
+			location.hash = 'qux';
+			window.dispatchEvent( new HashChangeEvent( 'hashchange', {
+				oldURL: 'http://example.com',
+				newURL: 'http://example.com#qux'
+			} ) );
+
+			const activeSections = container.querySelectorAll( `.${toc.ACTIVE_SECTION_CLASS}` );
+			const activeTopSections = container.querySelectorAll( `.${toc.ACTIVE_TOP_SECTION_CLASS}` );
+			expect( activeSections.length ).toEqual( 1 );
+			expect( activeTopSections.length ).toEqual( 1 );
+			expect(
+				barSection.classList.contains( toc.ACTIVE_TOP_SECTION_CLASS )
+			).toEqual( true );
+			expect(
+				barSection.classList.contains( toc.EXPANDED_SECTION_CLASS )
+			).toEqual( true );
+			expect(
+				quxSection.classList.contains( toc.ACTIVE_SECTION_CLASS )
+			).toEqual( true );
+		} );
+	} );
+
 	describe( 'reloadTableOfContents', () => {
 		test( 're-renders toc when wikipage.tableOfContents hook is fired with empty sections', async () => {
-			const toc = mount();
+			toc = mount();
 			await toc.reloadTableOfContents( [] );
 
 			expect( document.body.innerHTML ).toMatchSnapshot();
@@ -281,7 +352,7 @@ describe( 'Table of contents', () => {
 				};
 			} );
 
-			const toc = mount();
+			toc = mount();
 
 			const toggleButton = /** @type {HTMLElement} */ ( barSection.querySelector( `.${toc.TOGGLE_CLASS}` ) );
 			// Collapse section.

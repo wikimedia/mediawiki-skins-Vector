@@ -159,7 +159,8 @@ const sectionObserverFn = () => ( {
 	resume: () => {},
 	mount: () => {},
 	unmount: () => {},
-	setElements: () => {}
+	setElements: () => {},
+	calcIntersection: () => {}
 } );
 
 describe( 'Table of contents re-rendering', () => {

@@ -9,7 +9,9 @@ const templateTocLine = require( /** @type {string} */ ( './templates/TableOfCon
  * TableOfContents Config object for filling mustache templates
  */
 const tableOfContentsConfig = require( /** @type {string} */ ( './tableOfContentsConfig.json' ) );
+const deferUntilFrame = require( './deferUntilFrame.js' );
 
+const SECTION_ID_PREFIX = 'toc-';
 const SECTION_CLASS = 'vector-toc-list-item';
 const ACTIVE_SECTION_CLASS = 'vector-toc-list-item-active';
 const EXPANDED_SECTION_CLASS = 'vector-toc-list-item-expanded';
@@ -20,8 +22,21 @@ const TOGGLE_CLASS = 'vector-toc-toggle';
 const TOC_CONTENTS_ID = 'mw-panel-toc-list';
 
 /**
+ * Fired when the user clicks a toc link. Note that this callback takes
+ * precedence over the onHashChange callback. The onHashChange callback will not
+ * be called when the user clicks a toc link.
+ *
  * @callback onHeadingClick
  * @param {string} id The id of the clicked list item.
+ */
+
+/**
+ * Fired when the page's hash fragment has changed. Note that if the user clicks
+ * a link inside the TOC, the `onHeadingClick` callback will fire instead of the
+ * `onHashChange` callback to avoid redundant behavior.
+ *
+ * @callback onHashChange
+ * @param {string} id The id of the list item that corresponds to the hash change event.
  */
 
 /**
@@ -43,7 +58,9 @@ const TOC_CONTENTS_ID = 'mw-panel-toc-list';
  * @typedef {Object} TableOfContentsProps
  * @property {HTMLElement} container The container element for the table of contents.
  * @property {onHeadingClick} onHeadingClick Called when an arrow is clicked.
- * @property {onToggleClick} onToggleClick Called when a list item is clicked.
+ * @property {onHashChange} onHashChange Called when a hash change event
+ * matches the id of a LINK_CLASS anchor element.
+ * @property {onToggleClick} [onToggleClick] Called when an arrow is clicked.
  * @property {onTogglePinned} onTogglePinned Called when pinned toggle buttons are clicked.
  */
 
@@ -235,7 +252,7 @@ module.exports = function tableOfContents( props ) {
 		}
 
 		const topSection = /** @type {HTMLElement} */ ( tocSection.closest( `.${TOP_SECTION_CLASS}` ) );
-		const toggle = tocSection.querySelector( `.${TOGGLE_CLASS}` );
+		const toggle = topSection.querySelector( `.${TOGGLE_CLASS}` );
 
 		if ( topSection && toggle && expandedSections.indexOf( topSection ) < 0 ) {
 			toggle.setAttribute( 'aria-expanded', 'true' );
@@ -329,6 +346,44 @@ module.exports = function tableOfContents( props ) {
 	}
 
 	/**
+	 * Event handler for hash change event.
+	 */
+	function handleHashChange() {
+		const hash = location.hash.slice( 1 );
+		const listItem =
+			// @ts-ignore
+			/** @type {HTMLElement|null} */ ( mw.util.getTargetFromFragment( `${SECTION_ID_PREFIX}${hash}` ) );
+
+		if ( !listItem ) {
+			return;
+		}
+
+		expandSection( listItem.id );
+		changeActiveSection( listItem.id );
+
+		props.onHashChange( listItem.id );
+	}
+
+	/**
+	 * Bind event listener for hash change events that match the hash of
+	 * LINK_CLASS.
+	 *
+	 * Note that if the user clicks a link inside the TOC, the onHeadingClick
+	 * callback will fire instead of the onHashChange callback, since it takes
+	 * precedence.
+	 */
+	function bindHashChangeListener() {
+		window.addEventListener( 'hashchange', handleHashChange );
+	}
+
+	/**
+	 * Unbinds event listener for hash change events.
+	 */
+	function unbindHashChangeListener() {
+		window.removeEventListener( 'hashchange', handleHashChange );
+	}
+
+	/**
 	 * Bind event listener for clicking on show/hide Table of Contents links.
 	 */
 	function bindPinnedToggleListeners() {
@@ -358,12 +413,27 @@ module.exports = function tableOfContents( props ) {
 				// In case section link contains HTML,
 				// test if click occurs on any child elements.
 				if ( e.target.closest( `.${LINK_CLASS}` ) ) {
+					// Temporarily unbind the hash change listener to avoid redundant
+					// behavior caused by firing both the onHeadingClick callback and the
+					// onHashChange callback. Instead, only fire the onHeadingClick
+					// callback.
+					unbindHashChangeListener();
+
+					expandSection( tocSection.id );
+					changeActiveSection( tocSection.id );
 					props.onHeadingClick( tocSection.id );
+
+					deferUntilFrame( () => {
+						bindHashChangeListener();
+					}, 3 );
 				}
 				// Toggle button does not contain child elements,
 				// so classList check will suffice.
 				if ( e.target.classList.contains( TOGGLE_CLASS ) ) {
-					props.onToggleClick( tocSection.id );
+					toggleExpandSection( tocSection.id );
+					if ( props.onToggleClick ) {
+						props.onToggleClick( tocSection.id );
+					}
 				}
 			}
 
@@ -385,6 +455,7 @@ module.exports = function tableOfContents( props ) {
 		// Bind event listeners.
 		bindSubsectionToggleListeners();
 		bindPinnedToggleListeners();
+		bindHashChangeListener();
 	}
 
 	/**
@@ -541,6 +612,17 @@ module.exports = function tableOfContents( props ) {
 		return data;
 	}
 
+	/**
+	 * Cleans up the hash change event listener to prevent memory leaks. This
+	 * should be called when the table of contents is permanently no longer
+	 * needed.
+	 *
+	 * @ignore
+	 */
+	function unmount() {
+		unbindHashChangeListener();
+	}
+
 	initialize();
 
 	/**
@@ -550,6 +632,7 @@ module.exports = function tableOfContents( props ) {
 	 * @property {expandSection} expandSection
 	 * @property {toggleExpandSection} toggleExpandSection
 	 * @property {updateTocToggleStyles} updateTocToggleStyles
+	 * @property {unmount} unmount
 	 * @property {string} ACTIVE_SECTION_CLASS
 	 * @property {string} ACTIVE_TOP_SECTION_CLASS
 	 * @property {string} EXPANDED_SECTION_CLASS
@@ -562,6 +645,7 @@ module.exports = function tableOfContents( props ) {
 		changeActiveSection,
 		toggleExpandSection,
 		updateTocToggleStyles,
+		unmount,
 		ACTIVE_SECTION_CLASS,
 		ACTIVE_TOP_SECTION_CLASS,
 		EXPANDED_SECTION_CLASS,

@@ -50,9 +50,9 @@ module.exports = function sectionObserver( props ) {
 		onIntersection: () => {}
 	}, props );
 
-	let /** @type {boolean} */ inThrottle = false;
+	let /** @type {number | undefined} */ timeoutId;
 	let /** @type {HTMLElement | undefined} */ current;
-	// eslint-disable-next-line compat/compat
+
 	const observer = new IntersectionObserver( ( entries ) => {
 		let /** @type {IntersectionObserverEntry | undefined} */ closestNegativeEntry;
 		let /** @type {IntersectionObserverEntry | undefined} */ closestPositiveEntry;
@@ -105,6 +105,9 @@ module.exports = function sectionObserver( props ) {
 		observer.disconnect();
 	} );
 
+	/**
+	 * Calculate the intersection of each observed element.
+	 */
 	function calcIntersection() {
 		// IntersectionObserver will asynchronously calculate the boundingClientRect
 		// of each observed element off the main thread after `observe` is called.
@@ -120,12 +123,10 @@ module.exports = function sectionObserver( props ) {
 
 	function handleScroll() {
 		// Throttle the scroll event handler to fire at a rate limited by `props.throttleMs`.
-		if ( !inThrottle ) {
-			inThrottle = true;
-
-			setTimeout( () => {
+		if ( !timeoutId ) {
+			timeoutId = window.setTimeout( () => {
 				calcIntersection();
-				inThrottle = false;
+				timeoutId = undefined;
 			}, props.throttleMs );
 		}
 	}
@@ -143,6 +144,8 @@ module.exports = function sectionObserver( props ) {
 	 */
 	function pause() {
 		unbindScrollListener();
+		clearTimeout( timeoutId );
+		timeoutId = undefined;
 		// Assume current is no longer valid while paused.
 		current = undefined;
 	}
@@ -173,17 +176,17 @@ module.exports = function sectionObserver( props ) {
 	}
 
 	bindScrollListener();
-	// Calculate intersection on page load.
-	calcIntersection();
 
 	/**
 	 * @typedef {Object} SectionObserver
+	 * @property {calcIntersection} calcIntersection
 	 * @property {pause} pause
 	 * @property {resume} resume
 	 * @property {unmount} unmount
 	 * @property {setElements} setElements
 	 */
 	return {
+		calcIntersection,
 		pause,
 		resume,
 		unmount,
