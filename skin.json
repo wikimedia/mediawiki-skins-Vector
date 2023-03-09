@@ -490,6 +490,10 @@
 		}
 	},
 	"config": {
+		"VectorShareUserScripts": {
+			"value": true,
+			"description": "Temporary configuration flag that determines whether Vector skins should share user scripts and styles."
+		},
 		"Vector2022PreviewPages": {
 			"value": [],
 			"description": "Temporary configuration flag for allowing users to preview the new Vector skin."
