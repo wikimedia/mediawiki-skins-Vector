@@ -590,7 +590,8 @@ class Hooks implements
 	 * @param array &$pages
 	 */
 	public function onResourceLoaderSiteStylesModulePages( $skin, &$pages ): void {
-		if ( $skin === Constants::SKIN_NAME_MODERN ) {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		if ( $skin === Constants::SKIN_NAME_MODERN && $config->get( 'VectorShareUserScripts' ) ) {
 			$pages['MediaWiki:Vector.css'] = [ 'type' => 'style' ];
 		}
 	}
@@ -602,7 +603,8 @@ class Hooks implements
 	 * @param array &$pages
 	 */
 	public function onResourceLoaderSiteModulePages( $skin, &$pages ): void {
-		if ( $skin === Constants::SKIN_NAME_MODERN ) {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		if ( $skin === Constants::SKIN_NAME_MODERN && $config->get( 'VectorShareUserScripts' ) ) {
 			$pages['MediaWiki:Vector.js'] = [ 'type' => 'script' ];
 		}
 	}
