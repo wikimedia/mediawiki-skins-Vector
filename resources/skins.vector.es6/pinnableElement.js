@@ -59,13 +59,11 @@ function setSavedPinnableState( header ) {
  * @param {HTMLElement} header pinnable element
  */
 function togglePinnableClasses( header ) {
-	const { featureName } = header.dataset;
+	const featureName = /** @type {string} */ ( header.dataset.featureName );
 
-	if ( featureName ) {
-		// Leverage features.js to toggle the body classes and persist the state
-		// for logged-in users.
-		features.toggle( featureName );
-	}
+	// Leverage features.js to toggle the body classes and persist the state
+	// for logged-in users.
+	features.toggle( featureName );
 
 	// Toggle pinned class
 	header.classList.toggle( PINNED_HEADER_CLASS );
@@ -87,11 +85,11 @@ function pinnableElementClickHandler( header ) {
 	} = header.dataset;
 
 	togglePinnableClasses( header );
-	setSavedPinnableState( header );
 
 	// Optional functionality of moving the pinnable element in the DOM
 	// to different containers based on it's pinned status
 	if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
+		setSavedPinnableState( header );
 		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
 		setFocusAfterToggle( pinnableElementId );
@@ -129,16 +127,30 @@ function setFocusAfterToggle( pinnableElementId ) {
  * @param {HTMLElement} header
  */
 function bindPinnableToggleButtons( header ) {
-	const pinnableBreakpoint = window.matchMedia( '(max-width: 1000px)' );
 	const toggleButtons = header.querySelectorAll( '.vector-pinnable-header-toggle-button' );
-
 	toggleButtons.forEach( function ( button ) {
 		button.addEventListener( 'click', pinnableElementClickHandler.bind( null, header ) );
 	} );
-	// set saved pinned state for narrow breakpoint behaviour.
+}
+
+/**
+ * Binds pinnable breakpoint to allow automatic unpinning
+ * of pinnable elements with pinnedContainerId and unpinnedContainerId defined
+ *
+ * @param {HTMLElement} header
+ */
+function bindPinnableBreakpoint( header ) {
+	const { pinnedContainerId, unpinnedContainerId } = header.dataset;
+	if ( !unpinnedContainerId || !pinnedContainerId ) {
+		return;
+	}
+
+	const pinnableBreakpoint = window.matchMedia( '(max-width: 1000px)' );
+	// Set saved pinned state for narrow breakpoint behaviour.
 	setSavedPinnableState( header );
 	// Check the breakpoint in case an override is needed on pageload.
 	disablePinningAtBreakpoint( header, pinnableBreakpoint );
+
 	// Add match media handler.
 	if ( pinnableBreakpoint.addEventListener ) {
 		pinnableBreakpoint.addEventListener( 'change', disablePinningAtBreakpoint.bind( null, header ) );
@@ -154,11 +166,8 @@ function bindPinnableToggleButtons( header ) {
  * @return {boolean} Returns true if the element is pinned and false otherwise.
  */
 function isPinned( header ) {
-	if ( !header.dataset.featureName ) {
-		return false;
-	} else {
-		return features.isEnabled( header.dataset.featureName );
-	}
+	const featureName = /** @type {string} */ ( header.dataset.featureName );
+	return features.isEnabled( featureName );
 }
 
 /**
@@ -182,7 +191,12 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 
 function initPinnableElement() {
 	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
-	pinnableHeader.forEach( bindPinnableToggleButtons );
+	pinnableHeader.forEach( ( header ) => {
+		if ( header.dataset.featureName && header.dataset.pinnableElementId ) {
+			bindPinnableToggleButtons( header );
+			bindPinnableBreakpoint( header );
+		}
+	} );
 }
 
 module.exports = {
