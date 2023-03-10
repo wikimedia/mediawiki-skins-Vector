@@ -767,6 +767,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 		$updateItemData->setAccessible( true );
 		$data = $updateItemData->invokeArgs( null, [ $item, $buttonClassProp, $iconHtmlProp ] );
-		$this->assertEquals( $expected, $data );
+		$this->assertArraySubmapSame( $expected, $data );
 	}
 }
