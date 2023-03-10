@@ -24,9 +24,18 @@ Object.defineProperty( window, 'matchMedia', {
 	} ) )
 } );
 
+// Mock functionality of features.js
+let pinnedStatus = false;
+features.toggle = jest.fn( () => {
+	pinnedStatus = !pinnedStatus;
+} );
+features.isEnabled = jest.fn( () => {
+	return pinnedStatus;
+} );
+
 const simpleData = {
 	'is-pinned': false,
-	'data-name': 'simple',
+	'data-feature-name': 'pinned',
 	'data-pinnable-element-id': 'pinnable-element',
 	label: 'simple pinnable element',
 	'label-tag-name': 'div',
@@ -34,20 +43,14 @@ const simpleData = {
 	'unpin-label': 'unpin'
 };
 
-const movableData = {
-	'is-pinned': false,
-	'data-name': 'movable',
-	'data-pinnable-element-id': 'pinnable-element',
+const movableData = { ...simpleData, ...{
 	'data-pinned-container-id': 'pinned-container',
-	'data-unpinned-container-id': 'unpinned-container',
-	label: 'moveable pinnable element',
-	'label-tag-name': 'div',
-	'pin-label': 'pin',
-	'unpin-label': 'unpin'
-};
+	'data-unpinned-container-id': 'unpinned-container'
+} };
 
 // @ts-ignore
 const initializeHTML = ( headerData ) => {
+	pinnedStatus = headerData[ 'is-pinned' ];
 	const pinnableHeaderHTML = mustache.render( pinnableHeaderTemplate, headerData );
 	const pinnableElementHTML = `<div id="pinnable-element"> ${ pinnableHeaderHTML } </div>`;
 	document.body.innerHTML = `
@@ -66,20 +69,6 @@ const initializeHTML = ( headerData ) => {
 			</div>
 		</div>
 	`;
-
-	if ( headerData[ 'data-feature-name' ] ) {
-		// Return early if the persistent option is enabled as features.js will
-		// manage the body classes instead of pinnableElement.
-		return;
-	}
-
-	if ( headerData[ 'is-pinned' ] ) {
-		document.body.classList.add( `${headerData[ 'data-name' ]}-pinned` );
-		document.body.classList.remove( `${headerData[ 'data-name' ]}-unpinned` );
-	} else {
-		document.body.classList.remove( `${headerData[ 'data-name' ]}-pinned` );
-		document.body.classList.add( `${headerData[ 'data-name' ]}-unpinned` );
-	}
 };
 
 describe( 'Pinnable header', () => {
@@ -88,27 +77,21 @@ describe( 'Pinnable header', () => {
 		expect( document.body.innerHTML ).toMatchSnapshot();
 	} );
 
-	test( 'updates pinnable classes when toggle is pressed', () => {
+	test( 'updates pinnable header classes when toggle is pressed', () => {
 		initializeHTML( simpleData );
 		pinnableElement.initPinnableElement();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
-		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-name' ]}-pinnable-header` ) );
+		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-pinnable-element-id' ]}-pinnable-header` ) );
 
 		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( false );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( false );
 		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( true );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( true );
 		pinButton.click();
 		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( true );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( true );
 		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( false );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( false );
 		unpinButton.click();
 		expect( header.classList.contains( pinnableElement.PINNED_HEADER_CLASS ) ).toBe( false );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-pinned` ) ).toBe( false );
 		expect( header.classList.contains( pinnableElement.UNPINNED_HEADER_CLASS ) ).toBe( true );
-		expect( document.body.classList.contains( `${simpleData[ 'data-name' ]}-unpinned` ) ).toBe( true );
 	} );
 
 	test( 'doesnt move pinnable element when data attributes arent defined', () => {
@@ -143,43 +126,33 @@ describe( 'Pinnable header', () => {
 		/* eslint-enable no-restricted-properties */
 	} );
 
-	test( 'calls features.js when data-feature-name is set', () => {
-		initializeHTML( {
-			...simpleData,
-			'data-name': 'vector-page-tools',
-			'data-feature-name': 'page-tools-pinned'
-		} );
-		pinnableElement.initPinnableElement();
-		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
-		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
-
-		pinButton.click();
-
-		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
-		expect( features.toggle ).toHaveBeenCalledWith( 'page-tools-pinned' );
-
-		// @ts-ignore
-		features.toggle.mockClear();
-		unpinButton.click();
-
-		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
-		expect( features.toggle ).toHaveBeenCalledWith( 'page-tools-pinned' );
-	} );
-
-	test( 'isPinned() returns whether the element is pinned or not', () => {
+	test( 'calls features.toggle() when toggle is pressed', () => {
 		initializeHTML( simpleData );
 		pinnableElement.initPinnableElement();
 		const pinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-pin-button' ) );
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
-		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-name' ]}-pinnable-header` ) );
 
 		pinButton.click();
+		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
+		expect( features.toggle ).toHaveBeenCalledWith( simpleData[ 'data-feature-name' ] );
 
-		expect( pinnableElement.isPinned( header ) ).toBe( true );
-
+		// @ts-ignore
+		features.toggle.mockClear();
 		unpinButton.click();
+		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
+		expect( features.toggle ).toHaveBeenCalledWith( simpleData[ 'data-feature-name' ] );
+	} );
 
-		expect( pinnableElement.isPinned( header ) ).toBe( false );
+	test( 'isPinned() calls features.isEnabled()', () => {
+		initializeHTML( simpleData );
+		pinnableElement.initPinnableElement();
+		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-pinnable-element-id' ]}-pinnable-header` ) );
+
+		// @ts-ignore
+		features.isEnabled.mockClear();
+		pinnableElement.isPinned( header );
+		expect( features.isEnabled ).toHaveBeenCalledTimes( 1 );
+		expect( features.isEnabled ).toHaveBeenCalledWith( simpleData[ 'data-feature-name' ] );
 	} );
 
 	test( 'setFocusAfterToggle() sets focus on appropriate element after pinnableElement is toggled', () => {

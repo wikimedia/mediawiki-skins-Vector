@@ -97,8 +97,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 		//
 		// TOC in page titlebar
 		//
-		// FIXME: Remove the following line containing '.vector-toc-unpinned' after line 102 has been in prod for a week.
-		.vector-toc-unpinned:not( .vector-sticky-header-visible ),
 		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) {
 			.vector-page-titlebar-toc {
 				.mixin-toc-unpinned();
@@ -108,8 +106,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 		//
 		// TOC in page titlebar below page title
 		//
-		// FIXME: Remove the following line containing '.vector-toc-unpinned' after line 113 has been in prod for a week.
-		.vector-toc-unpinned:not( .vector-sticky-header-visible ).vector-below-page-title,
 		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ).vector-below-page-title {
 			.vector-page-titlebar-toc {
 				.mixin-toc-below-page-title();
@@ -119,8 +115,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 		//
 		// TOC in sticky header
 		//
-		// FIXME: Remove the following line containing '.vector-toc-unpinned' after line 124 has been in prod for a week.
-		.vector-toc-unpinned.vector-sticky-header-visible,
 		&.vector-feature-toc-pinned-disabled .vector-sticky-header-visible {
 			.vector-sticky-header-toc {
 				.mixin-toc-unpinned();

@@ -75,7 +75,22 @@ function toggle( name ) {
  * @return {boolean}
  */
 function isEnabled( name ) {
-	return document.documentElement.classList.contains( `vector-feature-${name}-enabled` );
+	return document.documentElement.classList.contains( getClass( name, true ) );
 }
 
-module.exports = { isEnabled, toggle, toggleDocClasses };
+/**
+ * Get name of feature class.
+ *
+ * @param {string} name
+ * @param {boolean} featureEnabled
+ * @return {string}
+ */
+function getClass( name, featureEnabled ) {
+	if ( featureEnabled ) {
+		return `vector-feature-${name}-enabled`;
+	} else {
+		return `vector-feature-${name}-disabled`;
+	}
+}
+
+module.exports = { getClass, isEnabled, toggle, toggleDocClasses };

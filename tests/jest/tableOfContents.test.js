@@ -77,11 +77,12 @@ function render( templateProps = {} ) {
 		id: 'vector-toc',
 		'data-pinnable-header': {
 			'is-pinned': true,
+			'data-feature-name': 'pinned',
+			'data-pinnable-element-id': 'vector-toc',
 			label: 'Contents',
 			'label-tag-name': 'h2',
 			'pin-label': 'move to sidebar',
-			'unpin-label': 'hide',
-			'data-name': 'vector-toc'
+			'unpin-label': 'hide'
 		}
 	}, templateProps );
 
