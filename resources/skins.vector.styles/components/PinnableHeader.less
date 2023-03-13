@@ -53,10 +53,12 @@
 	}
 }
 
-.client-js {
-	// Pinnable behavior is only enabled when JS is on
-	.vector-pinnable-header-unpinned .vector-pinnable-header-pin-button,
-	.vector-pinnable-header-pinned .vector-pinnable-header-unpin-button {
-		display: inline-block;
+// Pinnable behavior is only enabled when JS is enabled and on larger viewports
+@media ( min-width: @min-width-desktop ) {
+	.client-js {
+		.vector-pinnable-header-unpinned .vector-pinnable-header-pin-button,
+		.vector-pinnable-header-pinned .vector-pinnable-header-unpin-button {
+			display: inline-block;
+		}
 	}
 }
