@@ -20,7 +20,7 @@ class VectorComponentPageTools implements VectorComponent {
 	/** @var bool */
 	private $isPinned;
 
-	/** @var VectorComponentPinnableHeader|null */
+	/** @var VectorComponentPinnableHeader */
 	private $pinnableHeader;
 
 	/** @var string */
@@ -47,14 +47,14 @@ class VectorComponentPageTools implements VectorComponent {
 		$this->menus = $menus;
 		$this->localizer = $localizer;
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
-		$this->pinnableHeader = $user->isRegistered() ? new VectorComponentPinnableHeader(
+		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$localizer,
 			$this->isPinned,
 			// Name
 			self::ID,
 			// Feature name
 			'page-tools-pinned'
-		) : null;
+		);
 	}
 
 	/**
@@ -88,7 +88,7 @@ class VectorComponentPageTools implements VectorComponent {
 			$pinnedContainer->getTemplateData();
 
 		return $data + [
-			'data-pinnable-header' => $this->pinnableHeader ? $this->pinnableHeader->getTemplateData() : null,
+			'data-pinnable-header' => $this->pinnableHeader->getTemplateData(),
 			'data-menus' => $this->getMenus()
 		];
 	}
