@@ -3,7 +3,9 @@
 		"authors": [
 			"Har-wradim",
 			"Joystick",
-			"פוילישער"
+			"פוילישער",
+			"Castillerian",
+			"Pacha Tchernof"
 		]
 	},
 	"skinname-vector": "וועקטאר",
@@ -20,5 +22,5 @@
 	"vector-view-history": "ווייזן היסטאָריע",
 	"vector-view-view": "לייענען",
 	"vector-view-viewsource": "ווײַזן מקור",
-	"vector-more-actions": "נאך"
+	"vector-more-actions": "נאָך"
 }
