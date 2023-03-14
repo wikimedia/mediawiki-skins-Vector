@@ -4,8 +4,7 @@ const UNPINNED_HEADER_CLASS = 'vector-pinnable-header-unpinned';
 
 /**
  * Callback for matchMedia listener that overrides the pinnable header's stored state
- * at a certain breakpoint and forces it to unpin. Also hides the pinnable button
- * at that breakpoint to disable pinning.
+ * at a certain breakpoint and forces it to unpin.
  * Usage of 'e.matches' assumes a `max-width` not `min-width` media query.
  *
  * @param {HTMLElement} header
@@ -24,9 +23,6 @@ function disablePinningAtBreakpoint( header, e ) {
 	if ( !( pinnableElementId && unpinnedContainerId && pinnedContainerId && featureName ) ) {
 		return;
 	}
-
-	// Hide the button at lower resolutions.
-	header.hidden = e.matches;
 
 	if ( e.matches && savedPinnedState === true ) {
 		features.toggleDocClasses( featureName, false );

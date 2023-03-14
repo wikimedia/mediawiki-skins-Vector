@@ -146,24 +146,21 @@
 // Ensure there is only 1 table of contents landmark at anytime
 .vector-toc-landmark {
 	display: none;
-}
 
-.client-js {
-	@media ( min-width: @min-width-desktop ) {
-		&.vector-feature-toc-pinned-disabled .vector-sticky-header-visible .vector-sticky-header .vector-toc-landmark,
-		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) .vector-page-titlebar .vector-toc-landmark,
-		&.vector-feature-toc-pinned-enabled .mw-table-of-contents-container.vector-toc-landmark {
-			display: block;
-		}
+	.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) .vector-page-titlebar &,
+	.vector-feature-toc-pinned-disabled .vector-sticky-header-visible .vector-sticky-header &,
+	.vector-feature-toc-pinned-enabled .mw-table-of-contents-container& {
+		display: block;
 	}
 
+	// On smaller viewports the TOC will always be moved to the page titlebar via JS
+	// regardless of the TOC pinned classes
 	@media ( max-width: @max-width-tablet ) {
-		// On lower resolutions the TOC will always be in the page titlebar regardless of the TOC pinned classes
-		.vector-page-titlebar .vector-toc-landmark {
+		.client-js .vector-page-titlebar & {
 			display: block;
 		}
 
-		.mw-table-of-contents-container.vector-toc-landmark {
+		.client-js .mw-table-of-contents-container& {
 			display: none;
 		}
 	}
