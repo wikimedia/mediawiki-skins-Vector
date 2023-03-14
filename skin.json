@@ -21,7 +21,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.39.0"
+		"MediaWiki": ">= 1.40.0"
 	},
 	"ValidSkinNames": {
 		"vector-2022": {
@@ -168,7 +168,6 @@
 		"vector-page-tools-pinned": 1,
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1
-
 	},
 	"HookHandlers": {
 		"VectorHooks": {
@@ -411,7 +410,9 @@
 				"mediawiki.page.ready",
 				"mediawiki.util"
 			],
-			"messages": [ "vector-search-loader" ]
+			"messages": [
+				"vector-search-loader"
+			]
 		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [
