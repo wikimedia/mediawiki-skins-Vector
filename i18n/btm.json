@@ -3,11 +3,14 @@
 		"authors": [
 			"Apundung",
 			"Simartampua",
-			"IHLubis"
+			"IHLubis",
+			"Amire80",
+			"Veracious"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
-	"vector-no-language-button-label": "manambai saro",
+	"vector-languages": "Saro",
+	"vector-language-button-label": "{{PLURAL:$1|$1 saro}}",
+	"vector-no-language-button-label": "Manambai saro",
 	"vector-action-addsection": "Baen tema",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindah",
