@@ -33,6 +33,19 @@ use User;
  * @coversDefaultClass \MediaWiki\Skins\Vector\Components\VectorComponentPageTools
  */
 class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
+	public function getPinnableHeaderData( $data = [] ) {
+		return array_merge( [
+			'is-pinned' => false,
+			'label' => 'vector-page-tools-label',
+			'label-tag-name' => 'div',
+			'pin-label' => 'vector-pin-element-label',
+			'unpin-label' => 'vector-unpin-element-label',
+			'data-feature-name' => 'page-tools-pinned',
+			'data-pinnable-element-id' => 'vector-page-tools',
+			'data-unpinned-container-id' => 'vector-page-tools-unpinned-container',
+			'data-pinned-container-id' => 'vector-page-tools-pinned-container',
+		], $data );
+	}
 
 	public function provideConstructorData() {
 		$menus = [ [
@@ -61,37 +74,31 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 				[
 					'id' => 'vector-page-tools',
 					'is-pinned' => false,
-					'data-pinnable-header' => null,
+					'data-pinnable-header' => $this->getPinnableHeaderData(),
 					'data-menus' => $expectedMenus
 				]
-			], [
+			],
+			[
 				$menus,
 				false,
 				true,
 				[
 					'id' => 'vector-page-tools',
 					'is-pinned' => true,
-					'data-pinnable-header' => null,
+					'data-pinnable-header' => $this->getPinnableHeaderData( [
+						'is-pinned' => true,
+					] ),
 					'data-menus' => $expectedMenus
 				]
-			], [
+			],
+			[
 				$menus,
 				true,
 				false,
 				[
 					'id' => 'vector-page-tools',
 					'is-pinned' => false,
-					'data-pinnable-header' => [
-						'is-pinned' => false,
-						'label' => 'vector-page-tools-label',
-						'label-tag-name' => 'div',
-						'pin-label' => 'vector-pin-element-label',
-						'unpin-label' => 'vector-unpin-element-label',
-						'data-feature-name' => 'page-tools-pinned',
-						'data-pinnable-element-id' => 'vector-page-tools',
-						'data-unpinned-container-id' => 'vector-page-tools-unpinned-container',
-						'data-pinned-container-id' => 'vector-page-tools-pinned-container',
-					],
+					'data-pinnable-header' => $this->getPinnableHeaderData(),
 					'data-menus' => $expectedMenus
 				]
 			]
