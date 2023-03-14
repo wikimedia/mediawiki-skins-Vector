@@ -55,7 +55,7 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 	top: 12px;
 	left: 12px;
 	margin: 0;
-	z-index: @z-index-menu;
+	z-index: @z-index-dropdown;
 }
 
 &.client-js {
@@ -143,7 +143,7 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 				margin-top: @padding-top-content; // Account for padding-top from .mw-body
 				// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 				border: @border-width-base @border-style-base @border-color-base;
-				z-index: @z-index-menu;
+				z-index: @z-index-dropdown;
 
 				.vector-pinnable-header,
 				.vector-toc-contents {
