@@ -8,6 +8,7 @@
 	},
 	"vector-languages": "Goama",
 	"vector-language-button-label": "{{PLURAL:$1|$1 buudi-gomde|$1 buudi-goma}}",
+	"vector-no-language-button-label": "Paas goama",
 	"vector-action-addsection": "Paase wɛɛbgẽ",
 	"vector-action-delete": "Yẽese",
 	"vector-action-move": "Kedme",
@@ -19,5 +20,6 @@
 	"vector-more-actions": "Paase",
 	"vector-searchsuggest-containing": "Bao nemse n tar <strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
 	"vector-page-tools-label": "Teedo",
+	"vector-page-tools-general-label": "Bõn-gilli",
 	"vector-unpin-element-label": "lilli"
 }
