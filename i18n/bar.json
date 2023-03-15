@@ -7,6 +7,8 @@
 			"WikiBayer"
 		]
 	},
+	"vector-languages": "Sproochen",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Sprache|$1 Sproochen}}",
 	"vector-action-addsection": "An Obschnitt dazua doa",
 	"vector-action-delete": "Leschn",
 	"vector-action-move": "Vaschiabm",

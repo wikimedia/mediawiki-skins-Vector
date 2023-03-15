@@ -4,11 +4,12 @@
 			"Apundung",
 			"Simartampua",
 			"IHLubis",
-			"Veracious"
+			"Veracious",
+			"Amire80"
 		]
 	},
 	"vector-languages": "Saro",
-	"vector-language-button-label": "{{PLURAL:$1|$1 saro|$1 saro}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 saro}}",
 	"vector-action-addsection": "Baen tema",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindah",

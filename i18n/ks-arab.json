@@ -8,16 +8,26 @@
 			"Tajamul9"
 		]
 	},
+	"skinname-vector": "ویکٹر پرٛون (2010)",
+	"skinname-vector-2022": "ویکٹر (2022)",
+	"vector-specialversion-name": "ویکٹر",
+	"prefs-vector-enable-vector-1-label": "پرٛون ویکٹر کٔرِو اِستِمال",
 	"vector-languages": "زَبانہٕ",
 	"vector-language-button-label": "{{PLURAL:$1|$1زَبان|$1 زَبانہٕ}}",
 	"vector-action-addsection": "نٔو موضوٗع",
 	"vector-action-delete": "مِٹٲیو",
 	"vector-action-move": "پکناوُن",
 	"vector-action-protect": "رٲچھؠ",
+	"vector-action-undelete": "بَحال کٔرِو",
+	"vector-action-unprotect": "رٲچھؠ بَدلٲیو",
 	"vector-view-create": "تَخلیٖق",
 	"vector-view-edit": "اؠڈِٹ",
-	"vector-view-history": "تَوأریٖخ وُچھِو",
+	"vector-view-history": "تَوٲریٖخ وُچھِو",
 	"vector-view-view": "پَرُن",
+	"vector-view-viewsource": "آگُر وُچھِو",
 	"vector-more-actions": "بێیہِ",
-	"vector-searchsuggest-containing": "صَفَن کٔرِو تَلاش یِمَن مَنٛز <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> چھُ"
+	"vector-searchsuggest-containing": "صَفَن کٔرِو تَلاش یِمَن مَنٛز <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong> چھُ",
+	"vector-anon-user-menu-pages-learn": "مٔزیٖد وُچھِو",
+	"vector-main-menu-tooltip": "اَہَم مینیو",
+	"tooltip-vector-anon-user-menu-title": "مٔزیٖد یَختِیار"
 }
