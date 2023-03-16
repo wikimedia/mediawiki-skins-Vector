@@ -141,8 +141,8 @@
 		}
 	},
 	"SkinLessImportPaths": {
-		"vector-2022": "resources/mediawiki.less",
-		"vector": "resources/mediawiki.less.legacy"
+		"vector-2022": "resources/mediawiki.less/vector-2022",
+		"vector": "resources/mediawiki.less/vector"
 	},
 	"SkinCodexThemes": {
 		"vector-2022": "wikimedia-ui-legacy",
