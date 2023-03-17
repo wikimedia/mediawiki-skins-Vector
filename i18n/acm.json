@@ -1,15 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmedadeljaff"
+			"Ahmedadeljaff",
+			"MRidhaAJ"
 		]
 	},
+	"vector-languages": "لغات",
 	"vector-language-button-label": "{{PLURAL:$1|$1 لغـة|$1 لغـات}}",
+	"vector-no-language-button-label": "حط لغات",
 	"vector-action-addsection": "شارك مقالة",
 	"vector-view-create": "سوي",
 	"vector-view-edit": "تعديل",
 	"vector-view-history": "شوف التاريخ",
 	"vector-view-view": "اقرأ",
 	"vector-more-actions": "بعد",
-	"vector-searchsuggest-containing": "بحث عن صفحات تحوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "بحث عن صفحات تحوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-page-tools-label": "عدة",
+	"vector-unpin-element-label": "ضمها"
 }
