@@ -12,7 +12,7 @@ export default {
 /**
  *
  * @typedef {Object} ButtonProps
- * @property {string} type
+ * @property {string} weight
  * @property {string} action
  */
 /**
@@ -33,13 +33,13 @@ function makeButtonLegacy( props, label ) {
 			iconClass += '-destructive';
 			break;
 	}
-	if ( props.type === 'primary' ) {
+	if ( props.weight === 'primary' ) {
 		iconClass = 'mw-ui-icon-add-invert';
 	}
 	return mustache.render( buttonTemplate, {
 		label,
 		class: typeClass,
-		'is-quiet': props.type === 'quiet',
+		'is-quiet': props.weight === 'quiet',
 		'html-vector-button-icon': `<span class="mw-ui-icon ${iconClass}"></span>`
 	} );
 }
@@ -90,7 +90,7 @@ function makeIcon() {
 		render: function () {
 			// @ts-ignore
 			return h( CdxButton, {
-				type: 'quiet',
+				weight: 'quiet',
 				'aria-label': 'add'
 			}, [
 				h( CdxIcon, { icon: cdxIconAdd } )
@@ -169,26 +169,26 @@ function makeButtons( btns ) {
 export const Button = () => makeButtons( [
 	makeButton( {
 		action: 'default',
-		type: 'quiet'
+		weight: 'quiet'
 	}, 'Quiet button', cdxIconAdd ),
 	makeButton( {
 		action: 'progressive',
-		type: 'quiet'
+		weight: 'quiet'
 	}, 'Quiet progressive', cdxIconAdd ),
 	makeButton( {
 		action: 'destructive',
-		type: 'quiet'
+		weight: 'quiet'
 	}, 'Quiet destructive', cdxIconAdd ),
 	makeButton( {
 		action: 'default',
-		type: 'normal'
+		weight: 'normal'
 	}, 'Normal', cdxIconAdd ),
 	makeButton( {
-		type: 'primary',
+		weight: 'primary',
 		action: 'progressive'
 	}, 'Progressive primary', cdxIconAdd ),
 	makeButton( {
-		type: 'primary',
+		weight: 'primary',
 		action: 'destructive'
 	}, 'Destructive primary', cdxIconAdd ),
 	makeIcon()
