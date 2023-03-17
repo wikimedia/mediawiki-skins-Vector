@@ -613,7 +613,7 @@
 		"VectorPageTools": {
 			"value": {
 				"logged_in": true,
-				"logged_out": false
+				"logged_out": true
 			},
 			"description": "@var array Moves the tools links from the main menu into a new menu in the page toolbar"
 		}
