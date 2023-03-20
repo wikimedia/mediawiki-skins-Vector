@@ -16,5 +16,6 @@
 	"vector-more-actions": "بعد",
 	"vector-searchsuggest-containing": "بحث عن صفحات تحوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-page-tools-label": "عدة",
+	"vector-page-tools-general-label": "عام",
 	"vector-unpin-element-label": "ضمها"
 }

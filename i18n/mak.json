@@ -4,7 +4,13 @@
 			"Han4299"
 		]
 	},
+	"vector-languages": "Basa",
 	"vector-view-create": "Parek",
 	"vector-view-edit": "Pinra",
-	"vector-view-view": "Baca"
+	"vector-view-history": "Cinik riwayakna",
+	"vector-view-view": "Baca",
+	"vector-more-actions": "Maraengangna",
+	"vector-page-tools-label": "Parewa",
+	"vector-page-tools-general-label": "Ammang",
+	"vector-unpin-element-label": "pacokkoi"
 }
