@@ -182,6 +182,7 @@ class Hooks implements
 	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
 		$featureManager = VectorServices::getFeatureManager();
 
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		foreach ( $content_navigation['views'] as $key => $item ) {
 			$icon = $item['icon'] ?? null;
 			if ( $icon ) {
@@ -548,6 +549,7 @@ class Hooks implements
 	private static function createMoreOverflowMenu( &$content_navigation ) {
 		$clonedViews = [];
 		foreach ( array_keys( $content_navigation['views'] ?? [] ) as $key ) {
+			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 			$newItem = $content_navigation['views'][$key];
 			self::makeMenuItemCollapsible(
 				$newItem,
