@@ -5,13 +5,21 @@
 			"Proabscorp!"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "लिगेसी Vector क उपयोग करौ",
+	"vector-opt-out": "पुरनका दिखावट प जा",
+	"vector-action-toggle-sidebar": "साइडबार क टॉगल करौ",
 	"vector-action-addsection": "विषय जोड़ौ",
 	"vector-action-delete": "मेटाबौ",
 	"vector-action-move": "स्थानांतरित करौ",
 	"vector-action-protect": "सुरक्षित करौ",
+	"vector-action-undelete": "हटाना वापस ला",
+	"vector-action-unprotect": "सुरक्षितता बदलौ",
 	"vector-view-create": "बनाबौ",
 	"vector-view-edit": "संपादन करौ",
 	"vector-view-history": "इतिहास देखौ",
 	"vector-view-view": "पढ़ौ",
+	"vector-view-viewsource": "स्रोत देखौ",
+	"vector-jumptonavigation": "नेविगेशन प जा",
+	"vector-jumptosearch": "खोज प जा",
 	"vector-more-actions": "आरू जादा"
 }
