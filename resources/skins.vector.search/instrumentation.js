@@ -12,7 +12,6 @@ const INPUT_LOCATION_MOVED = 'header-moved',
 	shouldTestSearchPerformance = !!( window.performance &&
 		// @ts-ignore
 		window.requestAnimationFrame &&
-		/* eslint-disable compat/compat */
 		// @ts-ignore
 		performance.mark &&
 		// @ts-ignore
@@ -40,7 +39,6 @@ function onFetchStart() {
 		performance.clearMarks( queryMark );
 	}
 
-	/* eslint-disable-next-line compat/compat */
 	performance.mark( queryMark );
 }
 

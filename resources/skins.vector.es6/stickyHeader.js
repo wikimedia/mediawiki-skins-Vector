@@ -7,12 +7,11 @@ const
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
 	STICKY_HEADER_APPENDED_PARAM = [ 'wvprov', 'sticky-header' ],
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
-	STICKY_HEADER_USER_MENU_CONTAINER_CLASS = 'vector-sticky-header-icon-end',
+	STICKY_HEADER_USER_MENU_CONTAINER_SELECTOR = '.vector-sticky-header-icon-end .vector-user-links',
 	FIRST_HEADING_ID = 'firstHeading',
 	USER_LINKS_DROPDOWN_ID = 'vector-user-links-dropdown',
 	ULS_STICKY_CLASS = 'uls-dialog-sticky',
 	ULS_HIDE_CLASS = 'uls-dialog-sticky-hide',
-	VECTOR_USER_LINKS_SELECTOR = '.vector-user-links',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
 	STICKY_HEADER_EDIT_EXPERIMENT_NAME = 'vector.sticky_header_edit',
 	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header';
@@ -82,7 +81,7 @@ function suffixStickyAttribute( node, attribute ) {
  * @param {Element} node
  */
 function suffixStickyHref( node ) {
-	/* eslint-disable compat/compat */
+
 	// @ts-ignore
 	const url = new URL( node.href );
 	if ( url && !url.searchParams.has( STICKY_HEADER_APPENDED_PARAM[ 0 ] ) ) {
@@ -101,7 +100,7 @@ function suffixStickyHref( node ) {
  * @param {Element} node
  */
 function unsuffixStickyHref( node ) {
-	/* eslint-disable compat/compat */
+
 	// @ts-ignore
 	const url = new URL( node.href );
 	url.searchParams.delete( STICKY_HEADER_APPENDED_PARAM[ 0 ] );
@@ -427,7 +426,6 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
  *
  * @param {Element} header
  * @param {Element} userLinksDropdown
- * @param {Element} userLinksDropdownStickyContainer
  * @param {IntersectionObserver} stickyObserver
  * @param {Element} stickyIntersection
  * @param {boolean} disableEditIcons
@@ -435,18 +433,18 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
 function makeStickyHeaderFunctional(
 	header,
 	userLinksDropdown,
-	userLinksDropdownStickyContainer,
 	stickyObserver,
 	stickyIntersection,
 	disableEditIcons
 ) {
-	const
-		userLinksDropdownStickyContainerInner = userLinksDropdownStickyContainer
-			.querySelector( VECTOR_USER_LINKS_SELECTOR );
+	const userLinksDropdownStickyContainer = document.querySelector(
+		STICKY_HEADER_USER_MENU_CONTAINER_SELECTOR
+	);
 
 	// Clone the updated user menu to the sticky header.
-	if ( userLinksDropdownStickyContainerInner ) {
-		userLinksDropdownStickyContainerInner.appendChild( prepareUserLinksDropdown( userLinksDropdown ) );
+	if ( userLinksDropdownStickyContainer ) {
+		const clonedUserLinksDropdown = prepareUserLinksDropdown( userLinksDropdown );
+		userLinksDropdownStickyContainer.appendChild( clonedUserLinksDropdown );
 	}
 
 	let namespaceName = mw.config.get( 'wgCanonicalNamespace' );
@@ -551,14 +549,9 @@ function isAllowedAction( action ) {
  * @param {StickyHeaderProps} props
  */
 function initStickyHeader( props ) {
-	const userLinksDropdownStickyContainer = document.getElementsByClassName(
-		STICKY_HEADER_USER_MENU_CONTAINER_CLASS
-	)[ 0 ];
-
 	makeStickyHeaderFunctional(
 		props.header,
 		props.userLinksDropdown,
-		userLinksDropdownStickyContainer,
 		props.observer,
 		props.stickyIntersection,
 		props.disableEditIcons
