@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khanmarat"
+			"Khanmarat",
+			"Sorbat"
 		]
 	},
+	"vector-languages": "Телләр",
 	"vector-action-addsection": "Тема өстәгәле",
 	"vector-action-delete": "Йуҡ иткәле",
 	"vector-action-move": "Исемне алмаштырғалы",

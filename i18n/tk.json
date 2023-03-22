@@ -6,8 +6,11 @@
 			"Amire80"
 		]
 	},
+	"vector-opt-out": "Köne görnüşe geçiň",
 	"vector-languages": "Diller",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Dil}}",
+	"vector-language-redirect-to-top": "Bu {{SITENAME}} saýtynda diller ýokarda, makala adynyň ýanynda. [[#p-lang-btn|Ýokary git]].",
+	"vector-language-variant-switcher-label": "Dil görnüşini üýtgediň",
 	"vector-action-addsection": "Mowzuk goş",
 	"vector-action-delete": "Öçür",
 	"vector-action-move": "Adyny üýtget",
@@ -19,6 +22,13 @@
 	"vector-view-history": "Taryhy gör",
 	"vector-view-view": "Oka",
 	"vector-view-viewsource": "Çeşmäni gör",
+	"vector-jumptonavigation": "Nawigasiýa geçiň",
+	"vector-jumptosearch": "Gözleg geçiň",
+	"vector-jumptocontent": "Mazmuna geçiň",
 	"vector-more-actions": "Has köp",
-	"vector-searchsuggest-containing": "Içindäki sahypalary gözläň <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Içindäki sahypalary gözläň <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-anon-user-menu-pages-learn": "köpräk oka",
+	"vector-anon-user-menu-pages-label": "Redaktirlemek barada has giňişleýin öwreniň",
+	"vector-main-menu-tooltip": "Esasy menýu",
+	"tooltip-vector-anon-user-menu-title": "Has köp wariant"
 }
