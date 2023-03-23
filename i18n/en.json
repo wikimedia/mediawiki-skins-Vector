@@ -59,5 +59,8 @@
 	"tooltip-vector-anon-user-menu-title": "More options",
 	"vector-prefs-limited-width": "Enable limited width mode",
 	"vector-prefs-limited-width-help": "Enable limited width mode for improved reading experience.",
-	"empty-language-selector-body": "Page contents not supported in other languages."
+	"empty-language-selector-body": "Page contents not supported in other languages.",
+	"vector-toc-unpinned-popup": "The table of contents has been moved here.",
+	"vector-page-tools-unpinned-popup": "The tools menu has been moved here.",
+	"vector-main-menu-unpinned-popup": "The main menu has been moved here."
 }

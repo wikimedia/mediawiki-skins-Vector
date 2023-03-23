@@ -75,5 +75,8 @@
 	"tooltip-vector-anon-user-menu-title": "Used as title attribute for user menu icon on hover for anonymous users.",
 	"vector-prefs-limited-width": "Used in [[Special:Preferences]]",
 	"vector-prefs-limited-width-help": "Help message used on [[Special:Preferences]].\n\nSee also:\n* {{msg-mw|Mypreferences}}",
-	"empty-language-selector-body": "Text of the body of the dropdown that explains to the user that the page is not supported in other languages. The dropdown opens when the less prominent language button is clicked, inside non-content pages"
+	"empty-language-selector-body": "Text of the body of the dropdown that explains to the user that the page is not supported in other languages. The dropdown opens when the less prominent language button is clicked, inside non-content pages",
+	"vector-toc-unpinned-popup": "Text to show in popup body when Table of Contents has been moved.",
+	"vector-page-tools-unpinned-popup": "Text to show in popup body when Page Tools has been moved.",
+	"vector-main-menu-unpinned-popup": "Text to show in popup body when Main menu has been moved."
 }

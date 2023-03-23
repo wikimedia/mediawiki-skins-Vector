@@ -1,6 +1,7 @@
 const features = require( './features.js' );
 const PINNED_HEADER_CLASS = 'vector-pinnable-header-pinned';
 const UNPINNED_HEADER_CLASS = 'vector-pinnable-header-unpinned';
+const popupNotification = require( './popupNotification.js' );
 
 /**
  * Callback for matchMedia listener that overrides the pinnable header's stored state
@@ -67,6 +68,23 @@ function togglePinnableClasses( header ) {
 }
 
 /**
+ * Create the indicators for the pinnable element
+ *
+ * @param {string|undefined} pinnableElementId
+ */
+function addPinnableElementIndicator( pinnableElementId ) {
+	const dropdownSelector = document.querySelector( `#${pinnableElementId}-dropdown` );
+	const container = dropdownSelector && dropdownSelector.parentElement;
+	if ( container ) {
+		// Possible messages include:
+		// * vector-page-tools-unpinned-popup
+		// * vector-main-menu-unpinned-popup
+		const message = mw.msg( `${pinnableElementId}-unpinned-popup` );
+		popupNotification.add( container, message );
+	}
+}
+
+/**
  * Event handler that toggles the pinnable elements pinned state.
  * Also moves the pinned element when those params are provided
  * (via data attributes).
@@ -82,13 +100,17 @@ function pinnableElementClickHandler( header ) {
 
 	togglePinnableClasses( header );
 
+	const isPinnedElement = isPinned( header );
 	// Optional functionality of moving the pinnable element in the DOM
 	// to different containers based on it's pinned status
 	if ( pinnableElementId && pinnedContainerId && unpinnedContainerId ) {
 		setSavedPinnableState( header );
-		const newContainerId = isPinned( header ) ? pinnedContainerId : unpinnedContainerId;
+		const newContainerId = isPinnedElement ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
 		setFocusAfterToggle( pinnableElementId );
+		if ( !isPinnedElement ) {
+			addPinnableElementIndicator( pinnableElementId );
+		}
 	}
 }
 
@@ -183,6 +205,8 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 	if ( currContainer.id !== newContainerId ) {
 		newContainer.insertAdjacentElement( 'beforeend', pinnableElem );
 	}
+
+	popupNotification.removeAll();
 }
 
 function initPinnableElement() {

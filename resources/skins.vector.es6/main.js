@@ -8,6 +8,7 @@ const
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
+	popupNotification = require( './popupNotification.js' ),
 	features = require( './features.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './config.json' ) ).wgVectorWebABTestEnrollment || {},
@@ -205,6 +206,17 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 		onTogglePinned: () => {
 			updateTocLocation();
 			pinnableElement.setFocusAfterToggle( TOC_ID );
+			if ( !features.isEnabled( 'toc-pinned' ) ) {
+				const isStickyHeaderVisible = document.body.classList
+					.contains( STICKY_HEADER_VISIBLE_CLASS );
+				const containerSelector = !isStickyHeaderVisible ?
+					'.vector-page-titlebar .vector-toc-landmark' : '#vector-sticky-header .vector-toc-landmark';
+				const container = document.querySelector( containerSelector );
+				if ( container ) {
+					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text() );
+				}
+			}
+
 		}
 	} );
 	const headingSelector = [

@@ -90,7 +90,10 @@
 						"namespaces",
 						"views",
 						"tooltip-p-cactions",
-						"empty-language-selector-body"
+						"empty-language-selector-body",
+						"vector-toc-unpinned-popup",
+						"vector-page-tools-unpinned-popup",
+						"vector-main-menu-unpinned-popup"
 					]
 				}
 			]
@@ -350,6 +353,7 @@
 				"resources/skins.vector.es6/pinnableElement.js",
 				"resources/skins.vector.es6/features.js",
 				"resources/skins.vector.es6/limitedWidthToggle.js",
+				"resources/skins.vector.es6/popupNotification.js",
 				{
 					"name": "resources/skins.vector.es6/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
@@ -387,7 +391,10 @@
 				"vector-toc-beginning",
 				"vector-toc-label",
 				"vector-pin-element-label",
-				"vector-unpin-element-label"
+				"vector-unpin-element-label",
+				"vector-toc-unpinned-popup",
+				"vector-page-tools-unpinned-popup",
+				"vector-main-menu-unpinned-popup"
 			]
 		},
 		"skins.vector.js": {
