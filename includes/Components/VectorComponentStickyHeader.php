@@ -142,12 +142,11 @@ class VectorComponentStickyHeader implements VectorComponent {
 			$icons[] = self::EDIT_PROTECTED_ICON;
 			$icons[] = self::EDIT_VE_ICON;
 		}
-		$buttons = [
-			$this->getAddSectionButtonData()
-		];
+		$buttons = [];
 		if ( $this->langButton ) {
 			$buttons[] = $this->langButton->getTemplateData();
 		}
+		$buttons[] = $this->getAddSectionButtonData();
 		$searchBoxData = $this->search->getTemplateData();
 
 		return [
