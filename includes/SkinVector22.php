@@ -164,13 +164,15 @@ class SkinVector22 extends SkinMustache {
 
 	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
-	 * and the ULS extension is enabled. Hide it otherwise.
+	 * the ULS extension is enabled, and we are on a subect page. Hide it otherwise.
 	 * There is no point in showing the language button if ULS extension is unavailable
 	 * as there is no ways to add languages without it.
 	 * @return bool
 	 */
 	protected function shouldHideLanguages(): bool {
-		return !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled();
+		$title = $this->getTitle();
+		$isSubjectPage = $title && $title->exists() && !$title->isTalkPage();
+		return !$this->isLanguagesInContent() || !$this->isULSExtensionEnabled() || !$isSubjectPage;
 	}
 
 	/**
