@@ -66,5 +66,8 @@
 	"tooltip-vector-anon-user-menu-title": "Weitere Optionen",
 	"vector-prefs-limited-width": "Modus für begrenzte Breite aktivieren",
 	"vector-prefs-limited-width-help": "Aktiviere den Modus mit begrenzter Breite für eine verbesserte Leseansicht",
-	"empty-language-selector-body": "Seiteninhalte werden in anderen Sprachen nicht unterstützt."
+	"empty-language-selector-body": "Seiteninhalte werden in anderen Sprachen nicht unterstützt.",
+	"vector-toc-unpinned-popup": "Das Inhaltsverzeichnis wurde hierher verschoben.",
+	"vector-page-tools-unpinned-popup": "Das Werkzeugmenü wurde hierher verschoben.",
+	"vector-main-menu-unpinned-popup": "Das Hauptmenü wurde hierher verschoben."
 }

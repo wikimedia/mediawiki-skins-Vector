@@ -80,5 +80,8 @@
 	"tooltip-vector-anon-user-menu-title": "Plus d’options",
 	"vector-prefs-limited-width": "Activer le mode de largeur limitée",
 	"vector-prefs-limited-width-help": "Activer le mode de largeur limitée pour améliorer l’expérience de lecture.",
-	"empty-language-selector-body": "Le contenu de la page n’est pas pris en charge dans d’autres langues."
+	"empty-language-selector-body": "Le contenu de la page n’est pas pris en charge dans d’autres langues.",
+	"vector-toc-unpinned-popup": "La table des matières a été déplacée ici.",
+	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
+	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici."
 }
