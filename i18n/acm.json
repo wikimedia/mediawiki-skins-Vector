@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmedadeljaff"
+			"Ahmedadeljaff",
+			"MRidhaAJ"
 		]
 	},
 	"vector-action-addsection": "شارك مقالة",
+	"vector-action-move": "حرك",
 	"vector-view-create": "سوي",
 	"vector-view-edit": "تعديل",
 	"vector-view-history": "شوف التاريخ",

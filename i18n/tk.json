@@ -6,6 +6,7 @@
 			"TayfunEt."
 		]
 	},
+	"vector-opt-out": "Köne görnüşe geçiň",
 	"vector-action-addsection": "Mowzuk goş",
 	"vector-action-delete": "Öçür",
 	"vector-action-move": "Adyny üýtget",
@@ -17,5 +18,7 @@
 	"vector-view-history": "Taryhy gör",
 	"vector-view-view": "Oka",
 	"vector-view-viewsource": "Çeşmäni gör",
+	"vector-jumptonavigation": "Nawigasiýa geçiň",
+	"vector-jumptosearch": "Gözleg geçiň",
 	"vector-more-actions": "Has köp"
 }
