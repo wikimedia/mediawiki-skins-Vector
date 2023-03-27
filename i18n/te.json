@@ -41,5 +41,7 @@
 	"vector-page-tools-general-label": "సాధారణం",
 	"vector-pin-element-label": "సైడ్‌బార్‌ లోకి తరలించు",
 	"vector-unpin-element-label": "దాచు",
-	"empty-language-selector-body": "ఈ పేజీ లోని కంటెంటులకు ఇతర భాషలలో మద్దతు లేదు."
+	"empty-language-selector-body": "ఈ పేజీ లోని కంటెంటులకు ఇతర భాషలలో మద్దతు లేదు.",
+	"vector-page-tools-unpinned-popup": "సాధనాల మెను ఇక్కడికి తరలించబడింది.",
+	"vector-main-menu-unpinned-popup": "ప్రధాన మెనూ ఇక్కడికి తరలించబడింది."
 }

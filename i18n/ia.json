@@ -59,5 +59,8 @@
 	"tooltip-vector-anon-user-menu-title": "Plus optiones",
 	"vector-prefs-limited-width": "Activar le limitation de latitude",
 	"vector-prefs-limited-width-help": "Activar le limitation de latitude pro un experientia de lectura meliorate.",
-	"empty-language-selector-body": "Le contento del pagina non es supportate in altere linguas."
+	"empty-language-selector-body": "Le contento del pagina non es supportate in altere linguas.",
+	"vector-toc-unpinned-popup": "Le tabula de contento ha essite displaciate hic.",
+	"vector-page-tools-unpinned-popup": "Le menu de utensiles ha essite displaciate hic.",
+	"vector-main-menu-unpinned-popup": "Le menu principal ha essite displaciate hic."
 }

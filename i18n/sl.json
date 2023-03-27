@@ -65,5 +65,8 @@
 	"tooltip-vector-anon-user-menu-title": "Več možnosti",
 	"vector-prefs-limited-width": "Omogoči način omejene širine",
 	"vector-prefs-limited-width-help": "Omogoči način omejene širine za boljšo izkušnjo branja in gledanja.",
-	"empty-language-selector-body": "Vsebina strani ni podprta v drugih jezikih."
+	"empty-language-selector-body": "Vsebina strani ni podprta v drugih jezikih.",
+	"vector-toc-unpinned-popup": "Kazalo je bilo premaknjeno sem.",
+	"vector-page-tools-unpinned-popup": "Meni orodij je bil premaknjen sem.",
+	"vector-main-menu-unpinned-popup": "Glavni meni je bil premaknjen sem."
 }

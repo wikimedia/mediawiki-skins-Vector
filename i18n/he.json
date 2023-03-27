@@ -61,5 +61,8 @@
 	"tooltip-vector-anon-user-menu-title": "אפשרויות נוספות",
 	"vector-prefs-limited-width": "להפעיל מצב רוחב מוגבל",
 	"vector-prefs-limited-width-help": "הפעלת מצב רוחב מוגבל, לחוויית קריאה משופרת.",
-	"empty-language-selector-body": "תוכן הדף אינו נתמך בשפות אחרות."
+	"empty-language-selector-body": "תוכן הדף אינו נתמך בשפות אחרות.",
+	"vector-toc-unpinned-popup": "תוכן העניינים הועבר לכאן.",
+	"vector-page-tools-unpinned-popup": "תפריט הכלים הועבר לכאן.",
+	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן."
 }

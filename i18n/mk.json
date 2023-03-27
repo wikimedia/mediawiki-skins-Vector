@@ -63,5 +63,8 @@
 	"tooltip-vector-anon-user-menu-title": "Повеќе можности",
 	"vector-prefs-limited-width": "Овозможи режим со ограничена ширина",
 	"vector-prefs-limited-width-help": "Овозможи режим со ограничена ширина за подобрено читање.",
-	"empty-language-selector-body": "Содржината на страницата не е поддржана на други јазици."
+	"empty-language-selector-body": "Содржината на страницата не е поддржана на други јазици.",
+	"vector-toc-unpinned-popup": "Прегледот на содржината е преместен овде.",
+	"vector-page-tools-unpinned-popup": "Алатникот е преместен овде.",
+	"vector-main-menu-unpinned-popup": "Главното мени е преместено овде."
 }
