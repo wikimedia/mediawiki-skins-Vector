@@ -219,6 +219,11 @@ class SkinVector22 extends SkinMustache {
 		$featureManager = VectorServices::getFeatureManager();
 		$original['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 
+		// FIXME: Added as a temporary workaround for
+		// https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/903849
+		// Must  be removed once Page Tools cleanup is finished.
+		$original['class'] .= ' vector-feature-page-tools-enabled ';
+
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_STICKY_HEADER ) ) {
 			// T290518: Add scroll padding to root element when the sticky header is
 			// enabled. This class needs to be server rendered instead of added from
@@ -326,12 +331,9 @@ class SkinVector22 extends SkinMustache {
 		$langData = $parentData['data-portlets']['data-languages'] ?? null;
 		$config = $this->getConfig();
 
-		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 		$pageToolsMenu = [];
-		if ( $isPageToolsEnabled ) {
-			self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
-		}
+		self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 
 		$hasAddTopicButton = $config->get( 'VectorPromoteAddTopic' ) &&
 			$this->removeAddTopicButton( $parentData );
@@ -448,17 +450,17 @@ class SkinVector22 extends SkinMustache {
 				VectorComponentMainMenu::ID . '-dropdown' . ' mw-ui-icon-flush-left mw-ui-icon-flush-right',
 				'menu'
 			),
-			'data-page-tools' => $isPageToolsEnabled ? new VectorComponentPageTools(
+			'data-page-tools' => new VectorComponentPageTools(
 				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenu ),
 				$localizer,
 				$this->getUser(),
 				$featureManager
-			) : null,
-			'data-page-tools-dropdown' => $isPageToolsEnabled ? new VectorComponentDropdown(
+			),
+			'data-page-tools-dropdown' => new VectorComponentDropdown(
 				VectorComponentPageTools::ID . '-dropdown',
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
-			) : null,
+			),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? new VectorComponentStickyHeader(
@@ -493,8 +495,7 @@ class SkinVector22 extends SkinMustache {
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
-			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
-			'is-page-tools-enabled' => $isPageToolsEnabled
+			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle']
 		] );
 	}
 }

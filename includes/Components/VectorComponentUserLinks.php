@@ -3,8 +3,6 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use Linker;
 use MediaWiki\Skin\SkinComponentLink;
-use MediaWiki\Skins\Vector\Constants;
-use MediaWiki\Skins\Vector\VectorServices;
 use Message;
 use MessageLocalizer;
 use Title;
@@ -64,9 +62,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		$isAnon = !$user->isRegistered();
 
 		$class = 'vector-user-menu';
-		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS ) ) {
-			$class .= ' mw-ui-icon-flush-right';
-		}
+		$class .= ' mw-ui-icon-flush-right';
 		$class .= !$isAnon ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';

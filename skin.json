@@ -617,13 +617,6 @@
 			"value": 28,
 			"description": "@var The minimum number of headings required to collapse all headings in the sticky table of contents by default."
 		},
-		"VectorPageTools": {
-			"value": {
-				"logged_in": true,
-				"logged_out": true
-			},
-			"description": "@var array Moves the tools links from the main menu into a new menu in the page toolbar"
-		},
 		"VectorZebraDesign": {
 			"value": false,
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
