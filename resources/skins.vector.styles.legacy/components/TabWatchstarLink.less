@@ -19,7 +19,7 @@
 		padding: @height-watchlink 0 0 0;
 		overflow: hidden;
 
-		&:before {
+		&::before {
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
 			content: '';
@@ -32,36 +32,36 @@
 		}
 	}
 
-	#ca-unwatch.icon a:before {
+	#ca-unwatch.icon a::before {
 		background-image: url( ../common/images/unwatch-icon.svg );
 	}
 
-	#ca-unwatch.mw-watchlink-temp.icon a:before {
+	#ca-unwatch.mw-watchlink-temp.icon a::before {
 		background-image: url( ../common/images/unwatch-temp-icon.svg );
 	}
 
-	#ca-watch.icon a:before {
+	#ca-watch.icon a::before {
 		background-image: url( ../common/images/watch-icon.svg );
 	}
 
-	#ca-unwatch.icon a:hover:before,
-	#ca-unwatch.icon a:focus:before {
+	#ca-unwatch.icon a:hover::before,
+	#ca-unwatch.icon a:focus::before {
 		background-image: url( ../common/images/unwatch-icon-hl.svg );
 	}
 
-	#ca-unwatch.mw-watchlink-temp.icon a:hover:before,
-	#ca-unwatch.mw-watchlink-temp.icon a:focus:before {
+	#ca-unwatch.mw-watchlink-temp.icon a:hover::before,
+	#ca-unwatch.mw-watchlink-temp.icon a:focus::before {
 		background-image: url( ../common/images/unwatch-temp-icon-hl.svg );
 	}
 
-	#ca-watch.icon a:hover:before,
-	#ca-watch.icon a:focus:before {
+	#ca-watch.icon a:hover::before,
+	#ca-watch.icon a:focus::before {
 		background-image: url( ../common/images/watch-icon-hl.svg );
 	}
 
 	// Loading watchstar link class.
-	#ca-unwatch.icon .loading:before,
-	#ca-watch.icon .loading:before {
+	#ca-unwatch.icon .loading::before,
+	#ca-watch.icon .loading::before {
 		.rotation( 700ms );
 		/* Suppress the hilarious rotating focus outline on Firefox */
 		outline: 0;

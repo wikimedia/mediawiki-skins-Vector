@@ -92,7 +92,7 @@
  * Logged-in dropdown menu
  */
 .vector-user-menu-logged-in {
-	.vector-menu-heading:after {
+	.vector-menu-heading::after {
 		.mixin-vector-menu-heading-arrow();
 	}
 }
@@ -103,11 +103,11 @@
 #p-user-menu-anon-editor .vector-menu-heading {
 	display: block;
 
-	a:before {
+	a::before {
 		content: '@{msg-parentheses-start}';
 	}
 
-	a:after {
+	a::after {
 		content: '@{msg-parentheses-end}';
 	}
 }
