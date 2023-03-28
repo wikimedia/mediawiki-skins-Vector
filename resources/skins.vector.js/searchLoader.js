@@ -14,13 +14,9 @@ const /** @type {VectorResourceLoaderVirtualConfig} */
 	// mediawiki.searchSuggest performance.
 	CAN_TEST_SEARCH = !!(
 		window.performance &&
-
-		// @ts-ignore
-		performance.mark &&
-		// @ts-ignore
-		performance.measure &&
+		!!performance.mark &&
+		!!performance.measure &&
 		performance.getEntriesByName ),
-	/* eslint-enable compat/compat */
 	LOAD_START_MARK = 'mwVectorVueSearchLoadStart',
 	LOAD_END_MARK = 'mwVectorVueSearchLoadEnd',
 	LOAD_MEASURE = 'mwVectorVueSearchLoadStartToLoadEnd',

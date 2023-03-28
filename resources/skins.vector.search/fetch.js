@@ -28,7 +28,6 @@ function fetchJson( resource, init ) {
 	const controller = window.AbortController ?
 		new AbortController() :
 		nullAbortController;
-	/* eslint-enable compat/compat */
 
 	const getJson = fetch( resource, $.extend( init, {
 		signal: controller.signal

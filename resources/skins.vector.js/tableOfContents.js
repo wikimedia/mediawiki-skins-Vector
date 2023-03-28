@@ -349,8 +349,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function handleHashChange() {
 		const hash = location.hash.slice( 1 );
-		const listItem =
-			/** @type {HTMLElement|null} */ ( mw.util.getTargetFromFragment( `${SECTION_ID_PREFIX}${hash}` ) );
+		const listItem = mw.util.getTargetFromFragment( `${SECTION_ID_PREFIX}${hash}` );
 
 		if ( !listItem ) {
 			return;

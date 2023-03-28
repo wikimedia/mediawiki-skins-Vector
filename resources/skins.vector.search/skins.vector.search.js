@@ -21,7 +21,7 @@ function initApp( searchBox ) {
 		throw new Error( 'Attempted to create Vue search element from an incompatible element.' );
 	}
 
-	// @ts-ignore
+	// @ts-ignore MediaWiki-specific function
 	Vue.createMwApp(
 		App, $.extend( {
 			id: searchForm.id,

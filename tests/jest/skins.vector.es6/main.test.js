@@ -1,4 +1,3 @@
-// @ts-ignore
 window.matchMedia = window.matchMedia || function () {
 	return {
 		matches: false,
@@ -167,7 +166,6 @@ describe( 'Table of contents re-rendering', () => {
 	const mockMwHook = () => {
 		/** @type {Object.<string, Function>} */
 		const callback = {};
-		// @ts-ignore
 		jest.spyOn( mw, 'hook' ).mockImplementation( ( name ) => {
 
 			return {

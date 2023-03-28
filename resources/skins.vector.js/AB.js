@@ -25,7 +25,7 @@ const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
 
 /**
  * @typedef {Object} WebABTestProps
- * @property {string} name The naqqme of the experiment.
+ * @property {string} name The name of the experiment.
  * @property {Record<string, SamplingRate>} buckets Dict with bucket name as key and SamplingRate
  * object as value. There must be an `unsampled` bucket that represents a
  * population excluded from the experiment. Additionally, the treatment
@@ -161,9 +161,9 @@ module.exports = function webABTest( props ) {
 	 * @return {boolean}
 	 */
 	function isInTreatmentBucket( treatmentBucketName = '' ) {
-		const bucket = getBucket();
-		// eslint-disable-next-line es-x/no-array-prototype-includes
-		return bucket.toLowerCase().includes( `${TREATMENT_BUCKET_SUBSTRING}${treatmentBucketName}` );
+		const bucketLowerCase = getBucket().toLowerCase();
+		// Array.prototype.includes` is ES7
+		return bucketLowerCase.indexOf( `${TREATMENT_BUCKET_SUBSTRING}${treatmentBucketName}` ) > -1;
 	}
 
 	/**

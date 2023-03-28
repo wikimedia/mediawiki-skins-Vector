@@ -81,7 +81,6 @@ function suffixStickyAttribute( node, attribute ) {
  * @param {HTMLAnchorElement} node
  */
 function suffixStickyHref( node ) {
-
 	const url = new URL( node.href );
 	if ( url && !url.searchParams.has( STICKY_HEADER_APPENDED_PARAM[ 0 ] ) ) {
 		url.searchParams.append(
@@ -292,10 +291,11 @@ function prepareEditIcons(
 			const target = ev.target;
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
+				const link = /** @type {HTMLAnchorElement} */( $ve[ 0 ] );
 				const event = $.Event( 'click' );
-				suffixStickyHref( /** @type {HTMLAnchorElement} */( $ve[ 0 ] ) );
+				suffixStickyHref( link );
 				$ve.trigger( event );
-				unsuffixStickyHref( /** @type {HTMLAnchorElement} */( $ve[ 0 ] ) );
+				unsuffixStickyHref( link );
 				// The link has been progressively enhanced.
 				if ( event.isDefaultPrevented() ) {
 					disableStickyHeader();
@@ -311,10 +311,11 @@ function prepareEditIcons(
 				if ( target ) {
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
+						const link = /** @type {HTMLAnchorElement} */( $edit[ 0 ] );
 						const event = $.Event( 'click' );
-						suffixStickyHref( /** @type {HTMLAnchorElement} */( $edit[ 0 ] ) );
+						suffixStickyHref( link );
 						$edit.trigger( event );
-						unsuffixStickyHref( /** @type {HTMLAnchorElement} */( $edit[ 0 ] ) );
+						unsuffixStickyHref( link );
 						// The link has been progressively enhanced.
 						if ( event.isDefaultPrevented() ) {
 							disableStickyHeader();

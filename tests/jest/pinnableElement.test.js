@@ -48,7 +48,6 @@ const movableData = { ...simpleData, ...{
 	'data-unpinned-container-id': 'unpinned-container'
 } };
 
-// @ts-ignore
 const initializeHTML = ( headerData ) => {
 	pinnedStatus = headerData[ 'is-pinned' ];
 	const pinnableHeaderHTML = mustache.render( pinnableHeaderTemplate, headerData );
@@ -131,7 +130,6 @@ describe( 'Pinnable header', () => {
 		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
 		expect( features.toggle ).toHaveBeenCalledWith( simpleData[ 'data-feature-name' ] );
 
-		// @ts-ignore
 		features.toggle.mockClear();
 		unpinButton.click();
 		expect( features.toggle ).toHaveBeenCalledTimes( 1 );
@@ -143,7 +141,6 @@ describe( 'Pinnable header', () => {
 		pinnableElement.initPinnableElement();
 		const header = /** @type {HTMLElement} */ ( document.querySelector( `.${simpleData[ 'data-pinnable-element-id' ]}-pinnable-header` ) );
 
-		// @ts-ignore
 		features.isEnabled.mockClear();
 		pinnableElement.isPinned( header );
 		expect( features.isEnabled ).toHaveBeenCalledTimes( 1 );
