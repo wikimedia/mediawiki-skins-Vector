@@ -30,10 +30,12 @@
 	object data-main-menu. See MainMenu.mustache for documentation.
 	object data-footer for footer template partial. see Footer.mustache for documentation.
 }}
+<a class="mw-jump-link" href="#bodyContent">{{msg-vector-jumptocontent}}</a>
+<div class="vector-header-container">
+	{{>Header}}
+</div>
 <div class="mw-page-container">
-	<a class="mw-jump-link" href="#bodyContent">{{msg-vector-jumptocontent}}</a>
 	<div class="mw-page-container-inner">
-		{{>Header}}
 		{{>MainMenuPinned}}
 		<div class="vector-sitenotice-container">
 			<div id="siteNotice">{{{html-site-notice}}}</div>
@@ -78,4 +80,8 @@
 		</div>
 	</div> {{! END mw-page-container-inner }}
 </div> {{! END mw-page-container }}
-{{#data-vector-sticky-header}}{{>StickyHeader}}{{/data-vector-sticky-header}}
+{{#data-vector-sticky-header}}
+<div class="vector-header-container vector-sticky-header-container">
+	{{>StickyHeader}}
+</div>
+{{/data-vector-sticky-header}}

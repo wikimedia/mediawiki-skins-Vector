@@ -5,39 +5,26 @@
 @spacing-search-title-divider: 30px;
 @font-size-sticky-header-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 
-.vector-sticky-header {
-	width: 100%;
-	max-width: @max-width-page-container;
-	height: @height-sticky-header;
+.vector-sticky-header-container {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: @z-index-header;
-	transition: @transition-sticky-header;
-	align-items: center;
-	margin: 0 auto;
-	background: @background-color-base;
-	background-color: #fffffff7;
 	border-bottom: @border-width-base @border-style-base @colorGray14;
-	justify-content: space-between;
-	box-sizing: border-box;
-
-	.vector-feature-limited-width-disabled & {
-		max-width: none;
-	}
-
-	// T317573 Account for page container.
-	padding: 6px @padding-horizontal-page-container-desktop;
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		padding: 6px @padding-horizontal-page-container-desktop-wide;
-	}
-
 	// Hide sticky header until visible class is applied to the body
+	transition: @transition-sticky-header;
 	display: none;
 	transform: translateY( -100% );
 	opacity: 0;
+}
+
+.vector-sticky-header {
+	width: 100%;
+	height: @height-sticky-header;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
 	//
 	// Layout
@@ -156,17 +143,15 @@
 		// (e.g. when the user navigates to a page with a hash fragment in the URI).
 		scroll-padding-top: ~'calc( @{height-sticky-header} + @{scroll-padding-top} )';
 
-		.vector-sticky-header {
+		.vector-sticky-header-container {
 			// Sticky header is only enabled for js users and when feature flag is enabled
-			display: flex;
+			display: block;
 		}
 
-		.vector-sticky-header-visible {
-			.vector-sticky-header {
-				// Show sticky header with transition when visible class is applied to the body
-				opacity: @opacity-base;
-				transform: translateY( 0 );
-			}
+		.vector-sticky-header-visible .vector-sticky-header-container {
+			// Show sticky header with transition when visible class is applied to the body
+			opacity: @opacity-base;
+			transform: translateY( 0 );
 		}
 
 		// - T314330 `.vector-feature-toc-pinned-enabled #vector-toc-pinned-container`

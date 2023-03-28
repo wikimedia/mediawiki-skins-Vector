@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Sticky header renders 1`] = `
-"<header id=\\"vector-sticky-header\\" class=\\"vector-sticky-header\\">
+"<div id=\\"vector-sticky-header\\" class=\\"vector-sticky-header\\">
 	<div class=\\"vector-sticky-header-start\\">
 		<div class=\\"vector-sticky-header-icon-start mw-ui-icon-flush-left mw-ui-icon-flush-right\\" aria-hidden=\\"true\\">
 
@@ -63,6 +63,6 @@ exports[`Sticky header renders 1`] = `
 			</div>
 		</div>
 	</div>
-</header>
+</div>
 "
 `;

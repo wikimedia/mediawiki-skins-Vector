@@ -26,6 +26,7 @@
 	.mw-page-container-inner {
 		display: grid;
 		column-gap: @grid-column-gap;
+		// FIXME: Remove header from grid after cached HTML is resolved
 		grid-template: ~'min-content min-content min-content 1fr min-content / @{grid-template-column-desktop}';
 		grid-template-areas: 'header header'
 			'siteNotice siteNotice'
@@ -47,6 +48,7 @@
 		overflow-anchor: none; // T330108
 	}
 
+	// FIXME: Remove header from grid after cached HTML is resolved
 	.mw-header {
 		grid-area: header;
 	}

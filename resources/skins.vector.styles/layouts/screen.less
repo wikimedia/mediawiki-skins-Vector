@@ -111,32 +111,18 @@ body {
 	padding: @padding-content;
 }
 
-// Container logic.
-.mw-page-container {
-	// Setting position and z-index is important as it allows overlays appended to the body tag
-	// to position themselves over the Vector interface. This forms another stacking context for
-	// elements placed inside this element
-	position: relative;
-	z-index: 0;
+.mixin-page-container() {
 	max-width: @max-width-page-container;
 	// Set a min-width to make explicit we do not support anything below this threshold.
 	// For devices too small, they should be more useable with horizontal scrolling.
 	// e.g. Portrait on an iPad
 	min-width: @min-width-supported;
-	// Fill the viewport even if the content height is small. This also helps
-	// mitigate a long sidebar overflowing the page container (T257518).
-	min-height: 100%;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	// Use non-zero padding to disable margin collapse.
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
 	padding: 0.05px @padding-horizontal-page-container;
 	background-color: @background-color-page-container;
 	box-sizing: border-box;
-
-	.vector-feature-limited-width-disabled & {
-		max-width: none;
-	}
 
 	@media ( min-width: @min-width-desktop ) {
 		padding-left: @padding-horizontal-page-container-desktop;
@@ -147,6 +133,27 @@ body {
 		padding-left: @padding-horizontal-page-container-desktop-wide;
 		padding-right: @padding-horizontal-page-container-desktop-wide;
 	}
+
+	.vector-feature-limited-width-disabled & {
+		max-width: none;
+	}
+}
+
+// Container logic.
+.mw-page-container {
+	// Setting position and z-index is important as it allows overlays appended to the body tag
+	// to position themselves over the Vector interface. This forms another stacking context for
+	// elements placed inside this element
+	position: relative;
+	z-index: 0;
+	// Fill the viewport even if the content height is small. This also helps
+	// mitigate a long sidebar overflowing the page container (T257518).
+	min-height: 100%;
+	.mixin-page-container();
+}
+
+.vector-header-container {
+	.mixin-page-container();
 }
 
 .skin--responsive .mw-page-container {
