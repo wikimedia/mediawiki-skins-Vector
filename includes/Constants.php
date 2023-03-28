@@ -281,6 +281,21 @@ final class Constants {
 	public const CONFIG_DEFAULT_LIMITED_WIDTH = 1;
 
 	/**
+	 * @var string
+	 */
+	public const FEATURE_ZEBRA_DESIGN = 'ZebraDesign';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_ZEBRA_DESIGN = 'ZebraDesign';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_ZEBRA_DESIGN = 'VectorZebraDesign';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
