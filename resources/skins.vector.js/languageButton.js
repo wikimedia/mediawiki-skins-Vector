@@ -6,16 +6,30 @@
  */
 function addInterwikiLinkToMainMenu() {
 	// eslint-disable-next-line no-jquery/no-global-selector
-	var $editLink = $( '#p-lang-btn .wbc-editpage' );
-	if ( $editLink.length ) {
-		// Use title attribute for link text
-		$editLink.text( $editLink.attr( 'title' ) || '' );
-		var $li = $( '<li>' )
-			// If the Wikibase code runs last, this class is required so it matches the selector @:
-			// https://gerrit.wikimedia.org/g/mediawiki/extensions/Wikibase/+/f2e96e1b08fc5ae2e2e92f05d5eda137dc6b1bc8/client/resources/wikibase.client.linkitem.init.js#82
-			.addClass( 'wb-langlinks-link mw-list-item' )
-			.append( $editLink );
-		$li.appendTo( '#p-tb ul' );
+	var $editLink = $( '#p-lang-btn .wbc-editpage' ),
+		addInterlanguageLink;
+
+	if ( !$editLink.length ) {
+		return;
+	}
+
+	// @ts-ignore
+	addInterlanguageLink = mw.util.addPortletLink(
+		'p-tb',
+		$editLink.attr( 'href' ) || '#',
+		// Original text is "Edit links".
+		// Since its taken out of context the title is more descriptive.
+		$editLink.attr( 'title' ),
+		'wbc-editpage',
+		$editLink.attr( 'title' )
+	);
+
+	if ( addInterlanguageLink ) {
+		addInterlanguageLink.addEventListener( 'click', function ( /** @type {Event} */ e ) {
+			e.preventDefault();
+			// redirect to the detached and original edit link
+			$editLink.trigger( 'click' );
+		} );
 	}
 }
 
