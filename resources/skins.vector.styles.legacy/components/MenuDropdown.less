@@ -3,7 +3,7 @@
 @import '../../common/mixins.less';
 
 // Flips the chevron so it points up when the dropdown is open.
-.vector-menu-checkbox:checked + .vector-menu-heading:after {
+.vector-menu-checkbox:checked + .vector-menu-heading::after {
 	transform: scaleY( -1 );
 }
 
@@ -29,7 +29,7 @@
 		padding: 1.25em 8px 6px;
 		font-weight: normal;
 
-		&:after {
+		&::after {
 			.mixin-vector-legacy-menu-heading-arrow();
 			// Modify the color of the image from the default #202122 to approx. #404244 to match the text.
 			opacity: @opacity-icon-base;
@@ -39,7 +39,7 @@
 		&:focus {
 			color: @color-base;
 
-			&:after {
+			&::after {
 				opacity: @opacity-icon-base--selected;
 			}
 		}

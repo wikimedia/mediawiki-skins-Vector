@@ -7,7 +7,7 @@
 		overflow: visible;
 	}
 
-	&:after {
+	&::after {
 		position: absolute;
 		left: 55%;
 		top: 43%;
@@ -21,7 +21,7 @@
 	}
 
 	// The number of notifications shouldn't show if there are none.
-	&[ data-counter-num='0' ]:after {
+	&[ data-counter-num='0' ]::after {
 		content: none;
 	}
 }
@@ -31,11 +31,11 @@
 }
 
 // Special colors for unseen notifications
-#pt-notifications-alert .mw-echo-unseen-notifications:after {
+#pt-notifications-alert .mw-echo-unseen-notifications::after {
 	background-color: @color-destructive;
 }
 
-#pt-notifications-notice .mw-echo-unseen-notifications:after {
+#pt-notifications-notice .mw-echo-unseen-notifications::after {
 	background-color: @color-primary;
 }
 

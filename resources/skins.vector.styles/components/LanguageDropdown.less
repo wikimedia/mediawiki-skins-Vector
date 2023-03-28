@@ -36,12 +36,12 @@
 
 		// T291286: Temporarily use progressive ULS style
 		&.mw-ui-progressive.mw-ui-quiet {
-			.mw-ui-icon:before {
+			.mw-ui-icon::before {
 				// Ensure inverted language icon is white
 				opacity: @opacity-base;
 			}
 
-			&:after {
+			&::after {
 				// Invert arrow color
 				background-image: url( ../common/images/arrow-down-progressive.svg );
 				opacity: @opacity-base;
@@ -56,7 +56,7 @@
 				filter: brightness( 0 ) invert( 1 );
 			}
 
-			&:after {
+			&::after {
 				background-image: url( ../common/images/arrow-down-invert.svg );
 			}
 		}
@@ -114,7 +114,7 @@
 .mw-interlanguage-selector {
 	display: flex;
 
-	&:after {
+	&::after {
 		.mixin-vector-menu-heading-arrow();
 	}
 }
