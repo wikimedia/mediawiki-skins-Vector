@@ -3,19 +3,6 @@
 
 @selector-nojs-collapsed-toc-open: ~'#vector-toc-collapsed-checkbox:checked';
 
-// FIXME: Move into .mixin-toc-unpinned() when PageTools feature is enabled everywhere
-.vector-feature-page-tools-enabled .vector-unpinned-container .vector-toc {
-	// Adjust TOC spacing when unpinned
-	.vector-pinnable-header {
-		padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-	}
-
-	.vector-toc-contents {
-		padding-right: @padding-horizontal-dropdown-menu-item;
-		padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-	}
-}
-
 // TOC dropdown styles
 #vector-toc-collapsed-button,
 .vector-sticky-header-toc,
@@ -49,6 +36,16 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 		min-width: 200px;
 		// Collapsed TOC should be smaller than 85% of the content container (51em) and 75vw
 		max-width: ~'min( 0.85 * @{max-width-content-container}, 75vw )'; // min( 51em, 75vw )
+
+		// Adjust TOC spacing when unpinned
+		.vector-pinnable-header {
+			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
+		}
+
+		.vector-toc-contents {
+			padding-right: @padding-horizontal-dropdown-menu-item;
+			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
+		}
 	}
 }
 
@@ -59,10 +56,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 	left: 12px;
 	margin: 0;
 	z-index: @z-index-menu;
-}
-
-.vector-feature-page-tools-disabled .vector-unpinned-container .vector-toc {
-	box-sizing: content-box;
 }
 
 .client-js {
@@ -154,10 +147,7 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 
 				.vector-pinnable-header,
 				.vector-toc-contents {
-					// FIXME: Remove !important after PageTools is enabled everywhere currently needed
-					// to deal with selector specificity, overrides padding applied in PinnableHeader.less
-					/* stylelint-disable-next-line declaration-no-important */
-					padding-left: @padding-horizontal-dropdown-menu-item !important;
+					padding-left: @padding-horizontal-dropdown-menu-item;
 				}
 			}
 

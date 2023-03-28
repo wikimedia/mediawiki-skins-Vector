@@ -99,10 +99,6 @@
 @font-size-nav-main-body: unit( 12 / @font-size-browser, em );
 @margin-start-nav-main-body: 0.5em;
 
-// Navigation: Portal
-// Font size of the Portal links.
-@font-size-portal-list-item: @font-size-nav-main-body;
-
 // Margin space from the start of the Portal (left edge in LTR
 // languages).
 @margin-start-portal: 0.7em;
@@ -130,15 +126,9 @@
 
 // Dropdowns
 @height-dropdown-menu-item: unit( 32 / @font-size-browser, rem );
-// Remove this variable after VectorPageTools is enabled everywhere
-@padding-dropdown-menu-item: 0 12px;
 @padding-vertical-dropdown-menu-item: 6px;
 @padding-horizontal-dropdown-menu-item: 14px;
 @font-size-dropdown: unit( @font-size-base, rem ); // Equals `0.875rem`.
-
-// Main menu
-@selector-main-menu-open: ~'#mw-sidebar-checkbox:checked';
-@selector-main-menu-closed: ~'#mw-sidebar-checkbox:not( :checked )';
 
 // Scroll Indicator
 @height-scroll-indicator: 30px;
