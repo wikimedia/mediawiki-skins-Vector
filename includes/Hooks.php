@@ -625,20 +625,13 @@ class Hooks implements
 	}
 
 	/**
-	 * Adds the persistent sidebar hidden API preference.
+	 * Adds Vector specific user preferences that can only be accessed via API.
 	 *
 	 * @param User $user User whose preferences are being modified.
 	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$vectorPrefs = [
-			Constants::PREF_KEY_SIDEBAR_VISIBLE => [
-				'type' => 'api',
-				'default' => $config->get(
-					Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
-				),
-			],
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
 				'type' => 'api'
 			],
@@ -724,12 +717,6 @@ class Hooks implements
 		$config = $out->getConfig();
 		$user = $out->getUser();
 
-		if ( $user->isRegistered() && self::isSkinVersionLegacy( $skinName ) ) {
-			$vars[ 'wgVectorDisableSidebarPersistence' ] =
-				$config->get(
-					Constants::CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE
-				);
-		}
 		// Must be exposed to CentralNotice banners via mw.config
 		$vars[ 'wgVector2022PreviewPages' ] = $config->get( 'Vector2022PreviewPages' );
 	}

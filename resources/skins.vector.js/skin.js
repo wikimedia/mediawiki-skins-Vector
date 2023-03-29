@@ -2,7 +2,6 @@ var languageButton = require( './languageButton.js' ),
 	echo = require( './echo.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
-	sidebarPersistence = require( './sidebarPersistence.js' ),
 	watchstar = require( './watchstar.js' ),
 	// @ts-ignore
 	menuTabs = require( './menuTabs.js' ),
@@ -72,7 +71,6 @@ function addNamespacesGadgetSupport() {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	sidebarPersistence.init();
 	checkbox.init( window.document );
 	initSearchLoader( document );
 	languageButton();
