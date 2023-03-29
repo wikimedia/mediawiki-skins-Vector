@@ -9,6 +9,7 @@
 			"L2212"
 		]
 	},
+	"vector-languages": "Limbas",
 	"vector-language-button-label": "{{PLURAL:$1|$1 limba|$1 limbas}}",
 	"vector-action-addsection": "Agiunghe cuntierra",
 	"vector-action-delete": "Burra",

@@ -17,6 +17,7 @@
 	"vector-opt-out": "Иске дизайнга кайту",
 	"vector-languages": "Телләр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
+	"vector-language-redirect-to-top": "Бу сайтта тел сылтамаларын битнең югары өлешендә, мәкалә исеме янында, табарга була. [[#p-lang-btn|Өскә кайту]].",
 	"vector-language-variant-switcher-label": "Телне алмаштыру",
 	"vector-action-addsection": "Яңа тема өстәү",
 	"vector-action-delete": "Бетерү",
