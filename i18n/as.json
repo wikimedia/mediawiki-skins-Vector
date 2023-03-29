@@ -65,5 +65,8 @@
 	"tooltip-vector-anon-user-menu-title": "অধিক বিকল্প",
 	"vector-prefs-limited-width": "সীমিত প্ৰস্থ অৱস্থা সক্ষম কৰক",
 	"vector-prefs-limited-width-help": "পঠনৰ উত্তম অভিজ্ঞতাৰ বাবে সীমিত প্ৰস্থ অৱস্থা সক্ষম কৰক।",
-	"empty-language-selector-body": "এই পৃষ্ঠাৰ সমল অন্য ভাষাত সমৰ্থিত নহয়।"
+	"empty-language-selector-body": "এই পৃষ্ঠাৰ সমল অন্য ভাষাত সমৰ্থিত নহয়।",
+	"vector-toc-unpinned-popup": "সূচী ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
+	"vector-page-tools-unpinned-popup": "সঁজুলিৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
+	"vector-main-menu-unpinned-popup": "মুখ্য মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।"
 }
