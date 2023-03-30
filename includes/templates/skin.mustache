@@ -33,11 +33,6 @@
 <div class="mw-page-container">
 	<a class="mw-jump-link" href="#bodyContent">{{msg-vector-jumptocontent}}</a>
 	<div class="mw-page-container-inner">
-		<input
-			type="checkbox"
-			id="mw-sidebar-checkbox"
-			class="mw-checkbox-hack-checkbox"
-			{{#is-main-menu-visible}}checked{{/is-main-menu-visible}}>
 		{{>Header}}
 		{{>MainMenuPinned}}
 		<div class="vector-sitenotice-container">
@@ -61,7 +56,7 @@
 			<main id="content" class="mw-body" role="main">
 				{{>PageTitlebar}}
 				{{>PageToolbar}}
-				{{#is-page-tools-enabled}}{{>ColumnEnd}}{{/is-page-tools-enabled}}
+				{{>ColumnEnd}}
 				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
 					{{>BeforeContent}}
 					{{! the #contentSub element is currently used by editors, do not hide or remove it
@@ -71,13 +66,10 @@
 					{{{html-user-message}}}
 					{{{html-body-content}}}
 					{{{html-categories}}}
-					{{#is-page-tools-enabled}}{{#is-language-in-content-bottom}}
+					{{#is-language-in-content-bottom}}
 						{{#data-lang-btn}}{{>LanguageDropdown}}{{/data-lang-btn}}
-					{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
+					{{/is-language-in-content-bottom}}
 				</div>
-				{{^is-page-tools-enabled}}{{#is-language-in-content-bottom}}
-					{{#data-lang-btn}}{{>LanguageDropdown}}{{/data-lang-btn}}
-				{{/is-language-in-content-bottom}}{{/is-page-tools-enabled}}
 			</main>
 			{{{html-after-content}}}
 		</div>

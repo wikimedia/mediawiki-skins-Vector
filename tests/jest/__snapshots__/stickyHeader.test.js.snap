@@ -24,7 +24,7 @@ exports[`Sticky header renders 1`] = `
 			<div class=\\"vector-sticky-header-context-bar-primary\\" aria-hidden=\\"true\\"></div>
 		</div>
 	</div>
-	<div class=\\"vector-sticky-header-end mw-ui-icon-flush-right\\" aria-hidden=\\"true\\">
+	<div class=\\"vector-sticky-header-end\\" aria-hidden=\\"true\\">
 		<div class=\\"vector-sticky-header-icons\\">
 <a href=\\"#\\" id=\\"ca-talk-sticky-header\\" data-event-name=\\"talk-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-speechBubbles sticky-header-icon\\">
 	<span></span>

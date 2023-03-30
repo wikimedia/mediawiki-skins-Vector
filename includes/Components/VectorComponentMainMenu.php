@@ -51,15 +51,13 @@ class VectorComponentMainMenu implements VectorComponent {
 		$this->localizer = $localizer;
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_MAIN_MENU_PINNED );
 
-		$isPageToolsEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS );
-		if ( $isPageToolsEnabled ) {
-			$this->pinnableHeader = new VectorComponentPinnableHeader(
-				$this->localizer,
-				$this->isPinned,
-				self::ID,
-				'main-menu-pinned'
-			);
-		}
+		$this->pinnableHeader = new VectorComponentPinnableHeader(
+			$this->localizer,
+			$this->isPinned,
+			self::ID,
+			'main-menu-pinned'
+		);
+
 		if ( $user->isRegistered() ) {
 			$this->optOut = new VectorComponentMainMenuActionOptOut( $skin );
 		}

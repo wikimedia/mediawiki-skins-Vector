@@ -168,26 +168,6 @@ return [
 			]
 		);
 
-		// Feature: Page tools menu
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				null,
-				Constants::CONFIG_PAGE_TOOLS,
-				Constants::REQUIREMENT_PAGE_TOOLS
-			)
-		);
-		$featureManager->registerFeature(
-			Constants::FEATURE_PAGE_TOOLS,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_PAGE_TOOLS,
-			]
-		);
-
 		// Feature: Page tools pinned
 		// ================================
 		$featureManager->registerRequirement(
@@ -212,7 +192,6 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_LOGGED_IN,
-				Constants::REQUIREMENT_PAGE_TOOLS,
 				Constants::REQUIREMENT_PAGE_TOOLS_PINNED
 			]
 		);
@@ -254,7 +233,6 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_LOGGED_IN,
-				Constants::REQUIREMENT_PAGE_TOOLS,
 				Constants::REQUIREMENT_MAIN_MENU_PINNED
 			]
 		);
