@@ -625,7 +625,10 @@
 			"description": "@var array Moves the tools links from the main menu into a new menu in the page toolbar"
 		},
 		"VectorZebraDesign": {
-			"value": false,
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
 		}
 	},
