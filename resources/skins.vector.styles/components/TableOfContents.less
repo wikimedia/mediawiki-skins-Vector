@@ -7,17 +7,6 @@
 	overflow-x: hidden;
 	background-color: @background-color-page-container;
 
-	.vector-feature-page-tools-disabled & {
-		padding: @padding-top-tabs 12px 20px 27px;
-
-		.vector-toc-pinnable-header {
-			// Override default pinnable header styles
-			padding: 0 0 12px 0;
-			border: 0;
-			line-height: initial;
-		}
-	}
-
 	.vector-pinnable-header-label {
 		// Override heading element styles in elements.less
 		overflow: unset;
@@ -39,11 +28,8 @@
 		transition: @transition-duration-base;
 		color: transparent;
 		cursor: pointer;
-
-		.vector-feature-page-tools-enabled & {
-			// Vertically center the icon with the text
-			margin-top: 2px;
-		}
+		// Vertically center the icon with the text
+		margin-top: 2px;
 	}
 
 	.vector-toc-link {
@@ -76,24 +62,14 @@
 	}
 
 	.vector-toc-text {
-		.vector-feature-page-tools-disabled & {
-			padding: 4px 0;
-		}
-
-		.vector-feature-page-tools-enabled & {
-			// Match .mixin-vector-dropdown-menu-item() vertical padding
-			padding: @padding-vertical-dropdown-menu-item 0;
-		}
+		// Match .mixin-vector-dropdown-menu-item() vertical padding
+		padding: @padding-vertical-dropdown-menu-item 0;
 	}
 
 	.vector-toc-contents,
 	.vector-toc-list {
 		margin: 0;
 		list-style: none;
-
-		.vector-feature-page-tools-disabled & {
-			line-height: 18px;
-		}
 	}
 
 	.vector-toc-list-item {
@@ -101,10 +77,7 @@
 		position: relative;
 		list-style-type: none;
 		padding-left: 8px;
-
-		.vector-feature-page-tools-enabled & {
-			margin: 0;
-		}
+		margin: 0;
 
 		&.vector-toc-level-1 {
 			padding-left: 0;

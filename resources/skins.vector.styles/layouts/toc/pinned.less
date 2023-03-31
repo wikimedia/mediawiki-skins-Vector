@@ -17,14 +17,6 @@
 			// be positioned there using absolute positioning, negative margin, transforms, etc.
 			// That's why the negative margins have to be applied here, instead of on #vector-toc.
 			contain: paint;
-		}
-
-		.vector-feature-page-tools-disabled.vector-feature-toc-pinned-enabled & {
-			// Align the left edge of the TOC text with the main menu button icon.
-			margin-left: -27px;
-		}
-
-		.vector-feature-page-tools-enabled.vector-feature-toc-pinned-enabled & {
 			// Align the left edge of the TOC text with the page container
 			margin-left: -@spacing-subsection-toggle;
 		}
@@ -40,12 +32,7 @@
 			margin-top: 1.5em;
 		}
 
-		.vector-feature-page-tools-disabled.vector-feature-toc-pinned-enabled @{selector-main-menu-closed} ~ .mw-table-of-contents-container & {
-			// Needed to align TOC with bottom of title.
-			margin-top: @margin-top-pinned-toc;
-		}
-
-		.vector-feature-page-tools-enabled.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-enabled & {
+		.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-enabled & {
 			// Align TOC with bottom of title when main menu is not pinned but the TOC is
 			margin-top: @margin-top-pinned-toc;
 		}
@@ -54,18 +41,10 @@
 		// Avoid showing indicator when the TOC is floating, or collapsed in the page title/sticky header
 		.vector-toc {
 			max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
-
-			.mixin-vector-scroll-indicator();
-		}
-
-		.vector-feature-page-tools-disabled & .vector-toc {
-			padding-top: ~'calc( @{padding-top-pinned-element} + @{padding-top-tabs} )';
-		}
-
-		.vector-feature-page-tools-enabled & .vector-toc {
 			padding-top: @padding-top-pinned-element;
 			padding-left: @spacing-subsection-toggle;
 			padding-right: @padding-horizontal-dropdown-menu-item;
+			.mixin-vector-scroll-indicator();
 		}
 	}
 }

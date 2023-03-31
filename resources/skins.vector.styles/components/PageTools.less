@@ -2,11 +2,9 @@
 @import '../../common/mixins.less';
 
 // Ensure there is only 1 page tools landmark at anytime
-.vector-page-tools-landmark {
-	.vector-feature-page-tools-pinned-enabled .vector-page-toolbar-container &,
-	.vector-feature-page-tools-pinned-disabled .vector-column-end & {
-		display: none;
-	}
+.vector-feature-page-tools-pinned-enabled .vector-page-toolbar-container .vector-page-tools-landmark,
+.vector-feature-page-tools-pinned-disabled .vector-column-end .vector-page-tools-landmark {
+	display: none;
 }
 
 .vector-column-end {
@@ -33,11 +31,7 @@
 		// Add fade indicator.
 		.mixin-vector-scroll-indicator();
 	}
-}
 
-// FIXME: Remove the following selector when page tools feature is on by default, needed for LegacyMoreDropdown
-.vector-feature-page-tools-disabled .vector-page-tools-landmark,
-.vector-page-tools {
 	// Ensure collapsible items are visible on lower resolutions
 	.vector-more-collapsible-item {
 		display: block;
