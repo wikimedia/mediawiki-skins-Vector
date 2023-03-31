@@ -1,5 +1,5 @@
 const
-	HEADER_SELECTOR = 'header',
+	HEADER_CONTAINER_CLASS = 'vector-header-container',
 	SEARCH_BOX_SELECTOR = '.vector-search-box',
 	SEARCH_VISIBLE_CLASS = 'vector-header-search-toggled';
 
@@ -106,19 +106,19 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
  * @param {HTMLElement|Element} searchToggle
  */
 module.exports = function initSearchToggle( searchToggle ) {
-	const header =
-		/** @type {HTMLElement|null} */ ( searchToggle.closest( HEADER_SELECTOR ) );
+	const headerContainer =
+		/** @type {HTMLElement|null} */ ( searchToggle.closest( `.${HEADER_CONTAINER_CLASS}` ) );
 
-	if ( !header ) {
+	if ( !headerContainer ) {
 		return;
 	}
 
 	const searchBox =
-	/** @type {HTMLElement|null} */ ( header.querySelector( SEARCH_BOX_SELECTOR ) );
+	/** @type {HTMLElement|null} */ ( headerContainer.querySelector( SEARCH_BOX_SELECTOR ) );
 
 	if ( !searchBox ) {
 		return;
 	}
 
-	bindToggleClickHandler( searchBox, header, searchToggle );
+	bindToggleClickHandler( searchBox, headerContainer, searchToggle );
 };
