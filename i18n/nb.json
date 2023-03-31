@@ -64,5 +64,8 @@
 	"tooltip-vector-anon-user-menu-title": "Flere alternativer",
 	"vector-prefs-limited-width": "Aktiver modus med begrenset bredde",
 	"vector-prefs-limited-width-help": "Aktiver modus med begrenset bredde for en bedre leseopplevelse.",
-	"empty-language-selector-body": "Sideinnholdet støttes ikke på andre språk."
+	"empty-language-selector-body": "Sideinnholdet støttes ikke på andre språk.",
+	"vector-toc-unpinned-popup": "Innholdsfortegnelsen har blitt flyttet hit.",
+	"vector-page-tools-unpinned-popup": "Verktøymenyen har blitt flyttet hit.",
+	"vector-main-menu-unpinned-popup": "Hovedmenyen har blitt flyttet hit."
 }
