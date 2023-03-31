@@ -47,24 +47,7 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER =
-		'VectorDefaultSidebarVisibleForAuthorisedUser';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER =
-		'VectorDefaultSidebarVisibleForAnonymousUser';
-
-	/**
-	 * @var string
-	 */
 	public const PREF_KEY_SKIN = 'skin';
-
-	/**
-	 * @var string
-	 */
-	public const PREF_KEY_SIDEBAR_VISIBLE = 'VectorSidebarVisible';
 
 	// These are used in the Feature Management System.
 	/**
@@ -87,11 +70,6 @@ final class Constants {
 	 * @var string
 	 */
 	public const FEATURE_LANGUAGE_IN_HEADER = 'LanguageInHeader';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_DISABLE_SIDEBAR_PERSISTENCE = 'VectorDisableSidebarPersistence';
 
 	/**
 	 * @var string

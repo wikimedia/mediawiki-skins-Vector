@@ -407,7 +407,6 @@
 				"resources/skins.vector.js/watchstar.js",
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/checkbox.js",
-				"resources/skins.vector.js/sidebarPersistence.js",
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/echo.js",
 				"resources/skins.vector.js/searchLoader.js",
@@ -549,12 +548,6 @@
 				"showDescription": true
 			}
 		},
-		"VectorDefaultSidebarVisibleForAuthorisedUser": {
-			"value": true
-		},
-		"VectorDefaultSidebarVisibleForAnonymousUser": {
-			"value": false
-		},
 		"VectorLanguageInHeader": {
 			"value": {
 				"logged_in": true,
@@ -604,10 +597,6 @@
 		"VectorPromoteAddTopic": {
 			"value": true,
 			"description": "@var boolean Temporary feature flag that promotes the 'Add topic' link in the views menu, to a button in the page title bar."
-		},
-		"VectorDisableSidebarPersistence": {
-			"value": false,
-			"description": "@var boolean Temporary feature flag that disables saving the sidebar expanded/collapsed state as a user-preference (triggered via clicking the main menu icon). This is intended as a temporary kill-switch in the event that the DB is overloaded with writes to the user_options table."
 		},
 		"VectorTableOfContentsBeginning": {
 			"value": true,

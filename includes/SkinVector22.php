@@ -244,35 +244,6 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
-	 * Determines wheather the initial state of sidebar is visible on not
-	 *
-	 * @return bool
-	 */
-	private function isMainMenuVisible(): bool {
-		$skin = $this->getSkin();
-		if ( $skin->getUser()->isRegistered() ) {
-			$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-			$userPrefSidebarState = $userOptionsLookup->getOption(
-				$skin->getUser(),
-				Constants::PREF_KEY_SIDEBAR_VISIBLE
-			);
-
-			$defaultLoggedinSidebarState = $this->getConfig()->get(
-				Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_AUTHORISED_USER
-			);
-
-			// If the sidebar user preference has been set, return that value,
-			// if not, then the default sidebar state for logged-in users.
-			return ( $userPrefSidebarState !== null )
-				? (bool)$userPrefSidebarState
-				: $defaultLoggedinSidebarState;
-		}
-		return $this->getConfig()->get(
-			Constants::CONFIG_KEY_DEFAULT_SIDEBAR_VISIBLE_FOR_ANONYMOUS_USER
-		);
-	}
-
-	/**
 	 * Pulls the page tools menu out of $sidebar into $pageToolsMenu
 	 *
 	 * @param array &$sidebar
@@ -493,7 +464,6 @@ class SkinVector22 extends SkinMustache {
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'has-buttons-in-content-top' => $this->isLanguagesInContentAt( 'top' ) || $hasAddTopicButton,
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
-			'is-main-menu-visible' => $this->isMainMenuVisible(),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle']
 		] );
