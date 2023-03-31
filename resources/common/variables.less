@@ -164,12 +164,13 @@
 // Language button
 @height-button-lang: unit( 32 / @font-size-browser, em );
 
-// T296321 For sticky header, set an explicit height. This is needed for scroll padding
+// Header
+// T245190 T296321 For sticky header, set an explicit height. This is needed for scroll padding
 // and for other sticky elements on the page. Setting the height in relative units enables
 // the header's height to adapt to the browser's font size setting. Because
 // this variable is used to determine top offsets for sticky elements where the
 // font-size might not be 16px, using rem avoids the cascading effects of em units.
-@height-sticky-header: unit( 50px / @font-size-browser, rem );
+@height-header: unit( 50px / @font-size-browser, rem );
 
 // Z-indices
 // See skinStyles/jquery.ui/jquery.ui.datepicker.css.

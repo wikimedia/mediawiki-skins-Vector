@@ -131,10 +131,6 @@ body {
 		padding-left: @padding-horizontal-page-container-desktop-wide;
 		padding-right: @padding-horizontal-page-container-desktop-wide;
 	}
-
-	.vector-feature-limited-width-disabled & {
-		max-width: none;
-	}
 }
 
 // Container logic.
@@ -148,14 +144,31 @@ body {
 	// mitigate a long sidebar overflowing the page container (T257518).
 	min-height: 100%;
 	.mixin-page-container();
-}
 
-.vector-header-container {
-	.mixin-page-container();
+	.vector-feature-limited-width-disabled & {
+		max-width: none;
+	}
 }
 
 .skin--responsive .mw-page-container {
 	min-width: auto;
+}
+
+.vector-header-container {
+	.mw-header,
+	.vector-sticky-header {
+		width: 100%;
+		// A min-height is set to account for projects where no icon is set.
+		min-height: @height-header;
+	}
+}
+
+.vector-feature-zebra-design-disabled {
+	@import 'preZebra.less';
+}
+
+.vector-feature-zebra-design-enabled {
+	@import 'zebra.less';
 }
 
 @import 'grid.less';

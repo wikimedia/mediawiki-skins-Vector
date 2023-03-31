@@ -2,23 +2,14 @@
 @import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 
-// Header sizes defined in the description of T246170 and comment T246170#5957100
-@padding-vertical-header: 0.125em;
-@margin-top-header: 0.5em;
-@margin-bottom-header: 2em;
-
-// Logo sizes per specification in T245190.
-@height-logo-icon: 3.125em;
-
 .mw-header {
-	// A min-height is set to account for projects where no icon is set.
-	min-height: @height-logo-icon;
-	padding: 8px 0;
 	// Vertical centering of header elements (IE>=11), requires Flexbox.
 	.flex-display();
 	flex-wrap: nowrap;
 	// https://caniuse.com/#search=align-items
 	align-items: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
 
 	.vector-header-start,
 	.vector-header-end {
