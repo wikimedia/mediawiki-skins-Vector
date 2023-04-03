@@ -108,17 +108,19 @@ function bindToggleClickHandler( searchBox, header, searchToggle ) {
 module.exports = function initSearchToggle( searchToggle ) {
 	const headerContainer =
 		/** @type {HTMLElement|null} */ ( searchToggle.closest( `.${HEADER_CONTAINER_CLASS}` ) );
+	const header =
+		/** @type {HTMLElement|null} */ ( headerContainer && headerContainer.firstElementChild );
 
-	if ( !headerContainer ) {
+	if ( !header ) {
 		return;
 	}
 
 	const searchBox =
-	/** @type {HTMLElement|null} */ ( headerContainer.querySelector( SEARCH_BOX_SELECTOR ) );
+	/** @type {HTMLElement|null} */ ( header.querySelector( SEARCH_BOX_SELECTOR ) );
 
 	if ( !searchBox ) {
 		return;
 	}
 
-	bindToggleClickHandler( searchBox, headerContainer, searchToggle );
+	bindToggleClickHandler( searchBox, header, searchToggle );
 };
