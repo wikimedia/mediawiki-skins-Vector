@@ -9,15 +9,18 @@
 	display: none;
 }
 
+.vector-settings {
+	position: fixed;
+	bottom: 8px;
+	right: 8px;
+}
+
 // Note on certain pages the control will have no effect e.g. Special:RecentChanges
 // Defining this at 1400px is a product decision so do not change it
 // (more context at https://phabricator.wikimedia.org/T326887#8540889)
 @media ( min-width: 1400px ) {
 	.vector-limited-width-toggle {
 		display: block;
-		position: fixed;
-		bottom: 8px;
-		right: 8px;
 	}
 
 	//NOTE: enabled/disabled class on body.

@@ -66,6 +66,8 @@
 	"vector-site-nav-label": "Accessible label for site (main menu) nav landmark",
 	"vector-main-menu-label": "Main menu label",
 	"vector-limited-width-toggle": "Toggle for control to limit content width.",
+	"vector-limited-width-toggle-on-popup": "Hint that points out the limited width toggle control.",
+	"vector-limited-width-toggle-off-popup": "Hint that points out the limited width toggle control.",
 	"vector-page-tools-label": "Label for the page tools pinnable dropdown\n{{identical|Tools}}",
 	"vector-page-tools-general-label": "Label for the page tools 'General' menu\n{{identical|General}}",
 	"vector-page-tools-actions-label": "Label for the page tools 'Actions' menu\n{{identical|Action}}",
