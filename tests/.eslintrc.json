@@ -7,7 +7,16 @@
 		"ecmaVersion": 2018
 	},
 	"rules": {
-		"es/no-object-assign": "off"
+		"es-x/no-object-assign": "off",
+		"es-x/no-arrow-functions": "warn",
+		"es-x/no-async-functions": "warn",
+		"es-x/no-block-scoped-variables": "warn",
+		"es-x/no-default-parameters": "warn",
+		"es-x/no-destructuring": "warn",
+		"es-x/no-promise": "warn",
+		"es-x/no-property-shorthands": "warn",
+		"es-x/no-rest-spread-properties": "warn",
+		"es-x/no-template-literals": "warn"
 	},
 	"env": {
 		"es6": true,
