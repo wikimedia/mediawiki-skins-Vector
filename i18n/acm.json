@@ -5,11 +5,23 @@
 			"MRidhaAJ"
 		]
 	},
-	"vector-action-addsection": "شارك مقالة",
+	"prefs-vector-enable-vector-1-label": "استخدم النسخة القديمة لفيكتور",
+	"prefs-vector-enable-vector-1-help": "على مدار السنوات القليلة الجاية، راح نحدث واجهة فيكتور بشكل تدريجي. راح تسمحلك النسخة القديمة لفيكتور  بمشاهدة الإصدار القديم من فيكتور (اعتبارا من ديسمبر 2019). حتى تعرف بعد على التحديثات، انتقل إلى [[mw:Reading/Web/Desktop_Improvements|صفحة المشروع]].",
+	"vector-opt-out": "التبديل للشكل القديم",
+	"vector-opt-out-tooltip": "غيِّر الإعدادات لحتى ترجع إلى طريقة العرض القديمة (النسخة القديمة لفيكتور)",
+	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
+	"vector-action-addsection": "حط موضوع",
+	"vector-action-delete": "حذف",
 	"vector-action-move": "حرك",
+	"vector-action-protect": "إحمي",
+	"vector-action-undelete": "استرجع",
+	"vector-action-unprotect": "غير الحمايه",
 	"vector-view-create": "سوي",
 	"vector-view-edit": "تعديل",
 	"vector-view-history": "شوف التاريخ",
 	"vector-view-view": "اقرأ",
+	"vector-view-viewsource": "طلع المصدر",
+	"vector-jumptonavigation": "اطفر للتنقل",
+	"vector-jumptosearch": "اطفر للبحث",
 	"vector-more-actions": "بعد"
 }
