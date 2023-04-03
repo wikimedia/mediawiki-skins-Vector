@@ -12,7 +12,7 @@
 	"vector-opt-out-tooltip": "غيِّر الإعدادات لحتى ترجع إلى طريقة العرض القديمة (النسخة القديمة لفيكتور)",
 	"vector-action-toggle-sidebar": "تبديل الشريط الجانبي",
 	"vector-languages": "لغات",
-	"vector-language-button-aria-label": "{{GENDER:|روح|روحي}} إلى المقالة في لغةٍ ثانية. مُتاحة في {{PLURAL:$1|لغة وحده|هاي اللغات الـ$1",
+	"vector-language-button-aria-label": "{{GENDER:|روح|روحي}} إلى المقالة في لغةٍ ثانية. مُتاحة في {{PLURAL:$1|لغة وحده|هاي اللغات الـ$1}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 لغـة|$1 لغـات}}",
 	"vector-no-language-button-label": "حط لغات",
 	"vector-no-language-button-aria-label": "هذه المقالة موجودة بس بهاي اللغة. حطها إلى اللغات الثانية.",

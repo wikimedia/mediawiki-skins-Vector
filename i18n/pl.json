@@ -68,5 +68,8 @@
 	"tooltip-vector-anon-user-menu-title": "Więcej opcji",
 	"vector-prefs-limited-width": "Włącz tryb ograniczonej szerokości",
 	"vector-prefs-limited-width-help": "Włącz tryb ograniczonej szerokości, aby poprawić wygodę czytania.",
-	"empty-language-selector-body": "Treść strony nie jest dostępna w innych językach."
+	"empty-language-selector-body": "Treść strony nie jest dostępna w innych językach.",
+	"vector-toc-unpinned-popup": "Spis treści został przeniesiony tutaj.",
+	"vector-page-tools-unpinned-popup": "Menu z narzędziami zostało przeniesione tutaj.",
+	"vector-main-menu-unpinned-popup": "Główne menu zostało przeniesione tutaj."
 }

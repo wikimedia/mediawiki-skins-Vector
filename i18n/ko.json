@@ -74,5 +74,6 @@
 	"tooltip-vector-anon-user-menu-title": "더 많은 옵션",
 	"vector-prefs-limited-width": "폭 제한 모드 사용",
 	"vector-prefs-limited-width-help": "향상된 읽기 경험을 위해 폭 제한 모드를 활성화합니다.",
-	"empty-language-selector-body": "문서 내용이 다른 언어로는 지원되지 않습니다."
+	"empty-language-selector-body": "문서 내용이 다른 언어로는 지원되지 않습니다.",
+	"vector-page-tools-unpinned-popup": "도구 메뉴가 여기로 이동되었습니다."
 }

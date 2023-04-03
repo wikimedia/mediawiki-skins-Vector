@@ -58,5 +58,8 @@
 	"tooltip-vector-anon-user-menu-title": "Mai multe opțiuni",
 	"vector-prefs-limited-width": "Activează modul de lățime limitată",
 	"vector-prefs-limited-width-help": "Activează modul de lățime limitată pentru experiență de lectură îmbunătățită.",
-	"empty-language-selector-body": "Conținutul paginii nu este suportat în alte limbi."
+	"empty-language-selector-body": "Conținutul paginii nu este suportat în alte limbi.",
+	"vector-toc-unpinned-popup": "Cuprinsul a fost mutat aici.",
+	"vector-page-tools-unpinned-popup": "Meniul uneltelor a fost mutat aici.",
+	"vector-main-menu-unpinned-popup": "Meniul principal a fost mutat aici."
 }
