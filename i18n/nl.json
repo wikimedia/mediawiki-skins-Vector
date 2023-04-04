@@ -11,7 +11,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Troefkaart"
+			"Troefkaart",
+			"Strepulah"
 		]
 	},
 	"skinname-vector": "Vector, oude versie (2010)",
@@ -56,6 +57,7 @@
 	"vector-anon-user-menu-pages-label": "Meer leren over bewerken",
 	"vector-main-menu-tooltip": "Hoofdmenu",
 	"vector-toc-menu-tooltip": "Inhoudsopgave",
+	"vector-toc-collapsible-button-label": "Inhoudsopgave tonen of verbergen",
 	"vector-article-tools-nav-label": "Hulpmiddelen",
 	"vector-site-nav-label": "Site",
 	"tooltip-vector-anon-user-menu-title": "Meer opties"
