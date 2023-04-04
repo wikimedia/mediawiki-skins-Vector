@@ -39,7 +39,7 @@ class VectorComponentDropdown implements VectorComponent {
 		// Not the case for the language dropdown, page tools, etc
 		$icon = $this->icon;
 		$headingClass = $icon ?
-			'mw-checkbox-hack-button mw-ui-button mw-ui-quiet mw-ui-icon-element ' : '';
+			'mw-ui-button mw-ui-quiet mw-ui-icon-element ' : '';
 
 		return [
 			'id' => $this->id,
