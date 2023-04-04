@@ -89,6 +89,7 @@ class VectorComponentTableOfContents implements VectorComponent {
 				'VectorTableOfContentsBeginning'
 			),
 			'vector-is-collapse-sections-enabled' =>
+				count( $this->tocData['array-sections'] ) > 3 &&
 				$this->tocData[ 'number-section-count'] >= $this->config->get(
 					'VectorTableOfContentsCollapseAtCount'
 				),
