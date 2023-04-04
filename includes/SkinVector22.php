@@ -219,11 +219,6 @@ class SkinVector22 extends SkinMustache {
 		$featureManager = VectorServices::getFeatureManager();
 		$original['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 
-		// FIXME: Added as a temporary workaround for
-		// https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/903849
-		// Must  be removed once Page Tools cleanup is finished.
-		$original['class'] .= ' vector-feature-page-tools-enabled ';
-
 		if ( VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_STICKY_HEADER ) ) {
 			// T290518: Add scroll padding to root element when the sticky header is
 			// enabled. This class needs to be server rendered instead of added from
