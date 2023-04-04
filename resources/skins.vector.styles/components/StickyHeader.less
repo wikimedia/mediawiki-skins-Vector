@@ -20,8 +20,6 @@
 }
 
 .vector-sticky-header {
-	width: 100%;
-	height: @height-sticky-header;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -141,11 +139,11 @@
 		// .vector-sticky-header-visible class to correctly handle situations where the
 		// sticky header isn't visible yet but we still need scroll padding applied
 		// (e.g. when the user navigates to a page with a hash fragment in the URI).
-		scroll-padding-top: ~'calc( @{height-sticky-header} + @{scroll-padding-top} )';
+		scroll-padding-top: ~'calc( @{height-header} + @{scroll-padding-top} )';
 
 		.vector-sticky-header-container {
 			// Sticky header is only enabled for js users and when feature flag is enabled
-			display: block;
+			display: flex;
 		}
 
 		.vector-sticky-header-visible .vector-sticky-header-container {
@@ -166,12 +164,12 @@
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */
-			top: @height-sticky-header !important;
+			top: @height-header !important;
 		}
 
 		#vector-toc-pinned-container .vector-toc,
 		#vector-page-tools-pinned-container .vector-page-tools {
-			max-height: ~'calc( 100vh - @{height-sticky-header} - @{max-height-bottom-spacing-scroll-indicator} )';
+			max-height: ~'calc( 100vh - @{height-header} - @{max-height-bottom-spacing-scroll-indicator} )';
 		}
 	}
 }
