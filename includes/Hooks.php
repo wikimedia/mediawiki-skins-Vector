@@ -3,10 +3,8 @@
 namespace MediaWiki\Skins\Vector;
 
 use Config;
-use IContextSource;
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
-use MediaWiki\Hook\RequestContextCreateSkinHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
@@ -15,7 +13,6 @@ use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use OutputPage;
 use RuntimeException;
-use Skin;
 use SkinTemplate;
 use User;
 
@@ -33,7 +30,6 @@ class Hooks implements
 	MakeGlobalVariablesScriptHook,
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
-	RequestContextCreateSkinHook,
 	SkinPageReadyConfigHook
 {
 	/**
@@ -673,31 +669,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Temporary RequestContextCreateSkin hook handler.
-	 * Switches to new Vector on certain pages.
-	 *
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/RequestContextCreateSkin
-	 *
-	 * @param IContextSource $context The RequestContext object the skin is being created for.
-	 * @param Skin|null|string &$skin A variable reference you may set a Skin instance or string
-	 *                                key on to override the skin that will be used for the context.
-	 * @return bool|void
-	 */
-	public function onRequestContextCreateSkin( $context, &$skin ) {
-		if ( !$skin ) {
-			// user is anonymous
-			$user = $context->getUser();
-			$config = $context->getConfig();
-			$titles = $config->get( 'Vector2022PreviewPages' );
-			$title = $context->getTitle();
-			$titleText = $title ? $title->getPrefixedText() : null;
-			if ( $titleText && $user->isAnon() && in_array( $titleText, $titles ) ) {
-				$skin = 'vector-2022';
-			}
-		}
-	}
-
-	/**
 	 * NOTE: Please use ResourceLoaderGetConfigVars hook instead if possible
 	 * for adding config to the page.
 	 * Adds config variables to JS that depend on current page/request.
@@ -716,9 +687,6 @@ class Hooks implements
 		}
 		$config = $out->getConfig();
 		$user = $out->getUser();
-
-		// Must be exposed to CentralNotice banners via mw.config
-		$vars[ 'wgVector2022PreviewPages' ] = $config->get( 'Vector2022PreviewPages' );
 	}
 
 	/**
