@@ -165,7 +165,7 @@ module.exports = function webABTest( props ) {
 	 */
 	function isInTreatmentBucket( treatmentBucketName = '' ) {
 		const bucket = getBucket();
-		// eslint-disable-next-line no-restricted-syntax
+		// eslint-disable-next-line es-x/no-array-prototype-includes
 		return bucket.toLowerCase().includes( `${TREATMENT_BUCKET_SUBSTRING}${treatmentBucketName}` );
 	}
 
