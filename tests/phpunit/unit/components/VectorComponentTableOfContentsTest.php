@@ -109,6 +109,7 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 		$expectedConfigData = [
 			'is-vector-toc-beginning-enabled' => $config[ 'VectorTableOfContentsBeginning' ],
 			'vector-is-collapse-sections-enabled' =>
+				count( $tocData['array-sections'] ) > 3 &&
 				$tocData[ 'number-section-count' ] >= $config[ 'VectorTableOfContentsCollapseAtCount' ],
 			'id' => 'vector-toc',
 			'data-pinnable-header' => [
