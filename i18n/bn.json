@@ -72,5 +72,8 @@
 	"tooltip-vector-anon-user-menu-title": "আরও বিকল্প",
 	"vector-prefs-limited-width": "সীমিত প্রস্থযুক্ত মোড সক্রিয় করুন",
 	"vector-prefs-limited-width-help": "উন্নত পঠন অভিজ্ঞতার জন্য সীমিত প্রস্থ মোড সক্রিয় করে।",
-	"empty-language-selector-body": "পাতাটির বিষয়বস্তু অন্যান্য ভাষায় নেই।"
+	"empty-language-selector-body": "পাতাটির বিষয়বস্তু অন্যান্য ভাষায় নেই।",
+	"vector-toc-unpinned-popup": "সূচিপত্র এখানে স্থানান্তরিত হয়েছে।",
+	"vector-page-tools-unpinned-popup": "সরঞ্জামের মেনু এখানে স্থানান্তরিত হয়েছে।",
+	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।"
 }
