@@ -23,5 +23,7 @@
 	"vector-searchsuggest-containing": "Найдз боки хтори содержа <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Змист",
 	"vector-anon-user-menu-pages-learn": "дознайце вецей",
+	"vector-page-tools-label": "Алатки",
+	"vector-page-tools-general-label": "Обще",
 	"vector-unpin-element-label": "скриц"
 }
