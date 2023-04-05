@@ -2,11 +2,19 @@
 @import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
 @import '../layouts/screen.less';
-@import './checkboxHack.less';
 
 // Ensure there is only 1 main menu landmark at anytime
 .vector-feature-main-menu-pinned-enabled .vector-header-start .vector-main-menu-landmark,
 .vector-feature-main-menu-pinned-disabled .vector-main-menu-container .vector-main-menu-landmark {
+	display: none;
+}
+
+/**
+ * This checkbox is used to expand/collapse the main menu for no-js users.
+ * Despite being display:none, the :checked attribute is still changed when
+ * clicking the associated label.
+ */
+#mw-sidebar-checkbox {
 	display: none;
 }
 
