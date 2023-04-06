@@ -11,7 +11,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Troefkaart"
+			"Troefkaart",
+			"Strepulah"
 		]
 	},
 	"skinname-vector": "Vector, oude versie (2010)",
@@ -55,12 +56,14 @@
 	"vector-anon-user-menu-pages-label": "Meer leren over bewerken",
 	"vector-main-menu-tooltip": "Hoofdmenu",
 	"vector-toc-menu-tooltip": "Inhoudsopgave",
+	"vector-toc-collapsible-button-label": "Inhoudsopgave tonen of verbergen",
 	"vector-site-nav-label": "Site",
 	"vector-main-menu-label": "Hoofdmenu",
 	"vector-limited-width-toggle": "Beperkte inhoudsbreedte inschakelen",
 	"vector-page-tools-label": "Hulpmiddelen",
 	"vector-page-tools-general-label": "Algemeen",
 	"vector-page-tools-actions-label": "Handelingen",
+	"vector-pin-element-label": "naar zijbalk verplaatsen",
 	"vector-unpin-element-label": "verbergen",
 	"tooltip-vector-anon-user-menu-title": "Meer opties",
 	"vector-prefs-limited-width": "Inschakelen modus beperkte breedte",

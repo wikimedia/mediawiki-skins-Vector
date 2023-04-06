@@ -20,7 +20,8 @@
 			"ديفيد",
 			"زكريا",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"MRidhaAJ"
 		]
 	},
 	"skinname-vector": "فكتور القديم (2010)",
@@ -70,6 +71,7 @@
 	"vector-site-nav-label": "الموقع",
 	"vector-main-menu-label": "القائمة الرئيسية",
 	"vector-page-tools-label": "أدوات",
+	"vector-page-tools-general-label": "عام",
 	"vector-page-tools-actions-label": "أفعال",
 	"vector-pin-element-label": "انقل للشريط الجانبي",
 	"vector-unpin-element-label": "أخف",

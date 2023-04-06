@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Don Alessandro",
-			"Frhdkazan"
+			"Frhdkazan",
+			"TayfunEt."
 		]
 	},
 	"skinname-vector": "Sızımlı",
+	"vector-languages": "Tellär",
 	"vector-action-addsection": "Yaña tema östäw",
 	"vector-action-delete": "Beterü",
 	"vector-action-move": "Küçerü",
@@ -17,5 +19,7 @@
 	"vector-view-history": "Tarixın qaraw",
 	"vector-view-view": "Uqu",
 	"vector-view-viewsource": "Çığanağın qaraw",
-	"vector-more-actions": "Başqalar"
+	"vector-more-actions": "Başqalar",
+	"vector-page-tools-label": "Qorallar",
+	"vector-unpin-element-label": "yäşerü"
 }

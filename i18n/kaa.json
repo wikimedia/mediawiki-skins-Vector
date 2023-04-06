@@ -26,8 +26,11 @@
 	"vector-view-history": "Tariyxın kóriw",
 	"vector-view-view": "Oqıw",
 	"vector-view-viewsource": "Kodın kóriw",
+	"vector-jumptonavigation": "Navigaciyaǵa ótiw",
+	"vector-jumptosearch": "Izlewge ótiw",
 	"vector-more-actions": "Jáne",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> nı óz ishine alǵan betler ushın izlew",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> tekstin óz ishine alǵan betlerdi izlew",
+	"vector-toc-beginning": "Kirisiw",
 	"vector-anon-user-menu-pages": "Shıǵıwdı ámelge asırǵan redaktorlawshılar ushın betler",
 	"vector-anon-user-menu-pages-learn": "tolıq maǵlıwmat",
 	"vector-toc-menu-tooltip": "Mazmunı",
@@ -36,5 +39,6 @@
 	"vector-page-tools-general-label": "Ulıwma",
 	"vector-page-tools-actions-label": "Háreketler",
 	"vector-unpin-element-label": "jasırıw",
-	"tooltip-vector-anon-user-menu-title": "Kóbirek opciyalar"
+	"tooltip-vector-anon-user-menu-title": "Kóbirek opciyalar",
+	"empty-language-selector-body": "Basqa tillerde kórsetiw funkciyası bul bet ushın islemeydi."
 }
