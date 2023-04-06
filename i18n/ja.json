@@ -16,6 +16,7 @@
 			"Otokoume",
 			"Penn Station",
 			"RYOUMA1117",
+			"Ryoya3",
 			"Shirayuki",
 			"Sou0012",
 			"Takot",
@@ -84,5 +85,6 @@
 	"tooltip-vector-anon-user-menu-title": "その他の操作",
 	"vector-prefs-limited-width": "横幅制限モードを有効にする",
 	"vector-prefs-limited-width-help": "横幅制限モードを有効にすることで文章の可読性が向上します。",
-	"empty-language-selector-body": "ページのコンテンツが他言語でサポートされていません。"
+	"empty-language-selector-body": "ページのコンテンツが他言語でサポートされていません。",
+	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。"
 }
