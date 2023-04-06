@@ -4,8 +4,7 @@ var languageButton = require( './languageButton.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ),
 	// @ts-ignore
-	menuTabs = require( './menuTabs.js' ),
-	checkbox = require( './checkbox.js' );
+	menuTabs = require( './menuTabs.js' );
 
 /**
  * Wait for first paint before calling this function. That's its whole purpose.
@@ -71,7 +70,6 @@ function addNamespacesGadgetSupport() {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	checkbox.init( window.document );
 	initSearchLoader( document );
 	languageButton();
 	echo();
