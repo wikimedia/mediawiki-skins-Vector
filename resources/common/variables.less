@@ -60,55 +60,25 @@
 @line-height-footer-info: 1.4;
 @line-height-footer-buttons: 2;
 
-@size-sidebar-button: unit( 44 / @font-size-browser, em ); // Equals `2.75em`.
-
 @size-icon: unit( 20 / @font-size-browser, em );
-@size-indicator: unit( 12 / @font-size-browser, em );
-
-@background-position-nav-personal-icon: left unit( 4 / @font-size-browser / @font-size-nav-personal, em );
-@background-size-nav-personal-icon: unit( 14 / @font-size-browser / @font-size-nav-personal, em );
 
 // FIXME: Use global variable since Echo and CentralNotice use this variable
 @border-color-content: #a7d7f9;
 // Due to darker background gradient, border needs to be darkened for aligned visual perception.
 @border-color-content--tabs-inactive: darken( @border-color-content, 10% );
 @border-color-portal-heading: #c8ccd1;
-@border-color-pagetitle: #eaecf0;
 // Use `rgba()` notation for better Safari support, see T254489.
-@border-color-portal-heading-transparent: rgba( red( @border-color-portal-heading ), green( @border-color-portal-heading ), blue( @border-color-portal-heading ), 0 );
 @border-start-blockquote: 4px @border-style-base #eaecf0;
 @padding-top-content: 0.5em;
 @padding-blockquote: 8px 32px;
-// T311311 Match VE toolbar styles
-@border-bottom-tabs: @border-width-base @border-style-base @colorGray12;
 
 @background-color-secondary--modern: #f8f9fa;
 @background-color-page-container: @background-color-base;
 
 // Navigation
 @background-color-secondary: #f6f6f6;
-@color-nav-subtle: #444;
 // Navigation `line-height` has to be set in `em`s due to a rendering calculation issue.
 @line-height-nav: 1.125em;
-
-// Navigation: Main
-@font-size-nav-main: inherit;
-
-@font-size-nav-main-heading: unit( 12 / @font-size-browser, em ); // Equals `0.75em`.
-
-@font-size-nav-main-body: unit( 12 / @font-size-browser, em );
-@margin-start-nav-main-body: 0.5em;
-
-// Margin space from the start of the Portal (left edge in LTR
-// languages).
-@margin-start-portal: 0.7em;
-
-// Margin space from the end of the Portal (right edge in LTR
-// languages).
-@margin-end-portal: 0.6em;
-
-// Margin space from the start of the Portal body (left edge in LTR languages).
-@margin-start-portal-body: @margin-start-nav-main-body;
 
 // Navigation: Personal tools
 @background-position-nav-personal-icon: left unit( 4 / @font-size-browser / @font-size-nav-personal, em );
@@ -178,7 +148,6 @@
 @z-index-base: 0;
 // Header z-index-header higher than z-index-menu so that search results overlay variants and more menu
 @z-index-header: 4;
-@z-index-sidebar: 1;
 @z-index-menu-checkbox: 1;
 @z-index-search-button: 1;
 @z-index-search-loader: 1;
