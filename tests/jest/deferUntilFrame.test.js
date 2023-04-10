@@ -1,4 +1,4 @@
-const deferUntilFrame = require( '../../resources/skins.vector.es6/deferUntilFrame.js' );
+const deferUntilFrame = require( '../../resources/skins.vector.js/deferUntilFrame.js' );
 
 describe( 'deferUntilFrame.js', () => {
 	let /** @type {jest.SpyInstance} */ spy;

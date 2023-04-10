@@ -17,6 +17,7 @@
 	"settings": {
 	},
 	"rules": {
+		"no-var": "warn",
 		"compat/compat": "off",
 		"mediawiki/class-doc": "off"
 	}

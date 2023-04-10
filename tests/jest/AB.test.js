@@ -1,4 +1,4 @@
-const AB = require( '../../resources/skins.vector.es6/AB.js' );
+const AB = require( '../../resources/skins.vector.js/AB.js' );
 const NAME_OF_EXPERIMENT = 'name-of-experiment';
 const TOKEN = 'token';
 const MW_EXPERIMENT_PARAM = {

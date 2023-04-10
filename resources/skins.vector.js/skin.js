@@ -3,6 +3,7 @@ var languageButton = require( './languageButton.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ),
+	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	// @ts-ignore
 	menuTabs = require( './menuTabs.js' );
 
@@ -79,6 +80,7 @@ function main( window ) {
 	menuTabs();
 	addNamespacesGadgetSupport();
 	watchstar();
+	setupIntersectionObservers.main();
 }
 
 /**
@@ -110,35 +112,11 @@ function init( window ) {
 }
 
 init( window );
-
-/**
- * Because stickyHeader.js clones the user menu, it must initialize before
- * dropdownMenus.js initializes in order for the sticky header's user menu to
- * bind the necessary checkboxHack event listeners. This is solved by using
- * mw.loader.using to ensure that the skins.vector.es6 module initializes first
- * followed by initializing this module. If the es6 module loading fails (which
- * can happen in browsers that don't support es6), continue to initialize this
- * module.
- */
-function initAfterEs6Module() {
-	mw.loader.using( 'skins.vector.es6' ).then( function () {
-		// Loading of the 'skins.vector.es6' module has succeeded. Initialize the
-		// `skins.vector.es6` module first.
-		require( /** @type {string} */ ( 'skins.vector.es6' ) ).main();
-		// Initialize this module second.
-		main( window );
-	}, function () {
-		// Loading of the 'skins.vector.es6' has failed (e.g. this will fail in
-		// browsers that don't support ES6) so only initialize this module.
-		main( window );
-	} );
-}
-
 if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
-	initAfterEs6Module();
+	main( window );
 } else {
 	// This is needed when document.readyState === 'loading'.
 	document.addEventListener( 'DOMContentLoaded', function () {
-		initAfterEs6Module();
+		main( window );
 	} );
 }

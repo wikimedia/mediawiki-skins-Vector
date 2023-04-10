@@ -1,10 +1,10 @@
-jest.mock( '../../resources/skins.vector.es6/features.js' );
+jest.mock( '../../resources/skins.vector.js/features.js' );
 
-const features = require( '../../resources/skins.vector.es6/features.js' );
+const features = require( '../../resources/skins.vector.js/features.js' );
 const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
-const pinnableElement = require( '../../resources/skins.vector.es6/pinnableElement.js' );
+const pinnableElement = require( '../../resources/skins.vector.js/pinnableElement.js' );
 
 /**
  * Mock for matchMedia, which is not included in JSDOM.

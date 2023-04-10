@@ -6,7 +6,7 @@ const tableOfContentsLineTemplate = fs.readFileSync( 'includes/templates/TableOf
 const pinnableElementOpenTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Open.mustache', 'utf8' );
 const pinnableElementCloseTemplate = fs.readFileSync( 'includes/templates/PinnableElement/Close.mustache', 'utf8' );
 const pinnableHeaderTemplate = fs.readFileSync( 'includes/templates/PinnableHeader.mustache', 'utf8' );
-const initTableOfContents = require( '../../resources/skins.vector.es6/tableOfContents.js' );
+const initTableOfContents = require( '../../resources/skins.vector.js/tableOfContents.js' );
 
 let /** @type {HTMLElement} */ container,
 	/** @type {HTMLElement} */ fooSection,

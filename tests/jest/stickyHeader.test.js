@@ -2,7 +2,7 @@ const mustache = require( 'mustache' );
 const fs = require( 'fs' );
 const stickyHeaderTemplate = fs.readFileSync( 'includes/templates/StickyHeader.mustache', 'utf8' );
 const buttonTemplate = fs.readFileSync( 'includes/templates/Button.mustache', 'utf8' );
-const sticky = require( '../../resources/skins.vector.es6/stickyHeader.js' );
+const sticky = require( '../../resources/skins.vector.js/stickyHeader.js' );
 const { userLinksHTML, dropdownPartials } = require( './userLinksData.js' );
 
 const defaultButtonsTemplateData = [ {

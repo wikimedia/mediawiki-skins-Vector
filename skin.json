@@ -54,8 +54,7 @@
 					],
 					"scripts": [
 						"skins.vector.user",
-						"skins.vector.js",
-						"skins.vector.es6"
+						"skins.vector.js"
 					],
 					"styles": [
 						"mediawiki.ui.button",
@@ -335,77 +334,49 @@
 				"listBullet"
 			]
 		},
-		"skins.vector.es6": {
+		"skins.vector.js": {
 			"es6": true,
 			"styles": [
-				"resources/skins.vector.es6/limitedWidthToggle.less"
+				"resources/skins.vector.js/limitedWidthToggle.less"
 			],
 			"packageFiles": [
-				"resources/skins.vector.es6/main.js",
-				"resources/skins.vector.es6/searchToggle.js",
-				"resources/skins.vector.es6/stickyHeader.js",
-				"resources/skins.vector.es6/scrollObserver.js",
-				"resources/skins.vector.es6/AB.js",
-				"resources/skins.vector.es6/tableOfContents.js",
-				"resources/skins.vector.es6/sectionObserver.js",
-				"resources/skins.vector.es6/deferUntilFrame.js",
-				"resources/skins.vector.es6/pinnableElement.js",
-				"resources/skins.vector.es6/features.js",
-				"resources/skins.vector.es6/limitedWidthToggle.js",
-				"resources/skins.vector.es6/popupNotification.js",
+				"resources/skins.vector.js/skin.js",
+				"resources/skins.vector.js/setupIntersectionObservers.js",
+				"resources/skins.vector.js/searchToggle.js",
+				"resources/skins.vector.js/stickyHeader.js",
+				"resources/skins.vector.js/scrollObserver.js",
+				"resources/skins.vector.js/AB.js",
+				"resources/skins.vector.js/tableOfContents.js",
+				"resources/skins.vector.js/sectionObserver.js",
+				"resources/skins.vector.js/deferUntilFrame.js",
+				"resources/skins.vector.js/pinnableElement.js",
+				"resources/skins.vector.js/features.js",
+				"resources/skins.vector.js/limitedWidthToggle.js",
+				"resources/skins.vector.js/popupNotification.js",
 				{
-					"name": "resources/skins.vector.es6/activeABTest.json",
+					"name": "resources/skins.vector.js/activeABTest.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getActiveABTest"
 				},
 				{
-					"name": "resources/skins.vector.es6/config.json",
+					"name": "resources/skins.vector.js/config.json",
 					"config": [ "VectorSearchApiUrl" ]
 				},
 				{
-					"name": "resources/skins.vector.es6/tableOfContentsConfig.json",
+					"name": "resources/skins.vector.js/tableOfContentsConfig.json",
 					"config": [
 						"VectorTableOfContentsCollapseAtCount",
 						"VectorTableOfContentsBeginning"
 					]
 				},
 				{
-					"name": "resources/skins.vector.es6/templates/TableOfContents__list.mustache",
+					"name": "resources/skins.vector.js/templates/TableOfContents__list.mustache",
 					"file": "includes/templates/TableOfContents__list.mustache",
 					"type": "text"
 				},
 				{
-					"name": "resources/skins.vector.es6/templates/TableOfContents__line.mustache",
+					"name": "resources/skins.vector.js/templates/TableOfContents__line.mustache",
 					"file": "includes/templates/TableOfContents__line.mustache",
 					"type": "text"
-				}
-			],
-			"dependencies": [
-				"mediawiki.user",
-				"skins.vector.icons.js",
-				"mediawiki.page.ready",
-				"mediawiki.page.watch.ajax",
-				"mediawiki.util",
-				"mediawiki.storage",
-				"mediawiki.cookie",
-				"mediawiki.experiments"
-			],
-			"messages": [
-				"vector-limited-width-toggle",
-				"vector-toc-beginning",
-				"vector-toc-label",
-				"vector-pin-element-label",
-				"vector-unpin-element-label",
-				"vector-toc-unpinned-popup",
-				"vector-page-tools-unpinned-popup",
-				"vector-main-menu-unpinned-popup"
-			]
-		},
-		"skins.vector.js": {
-			"packageFiles": [
-				"resources/skins.vector.js/skin.js",
-				{
-					"name": "resources/skins.vector.js/config.json",
-					"config": [ "VectorSearchApiUrl" ]
 				},
 				"resources/skins.vector.js/watchstar.js",
 				"resources/skins.vector.js/dropdownMenus.js",
@@ -415,11 +386,26 @@
 				"resources/skins.vector.js/menuTabs.js"
 			],
 			"dependencies": [
+				"mediawiki.user",
+				"mediawiki.page.watch.ajax",
+				"mediawiki.storage",
+				"mediawiki.cookie",
+				"mediawiki.experiments",
 				"skins.vector.icons.js",
 				"mediawiki.page.ready",
 				"mediawiki.util"
 			],
-			"messages": [ "vector-search-loader" ]
+			"messages": [
+				"vector-search-loader",
+				"vector-limited-width-toggle",
+				"vector-toc-beginning",
+				"vector-toc-label",
+				"vector-pin-element-label",
+				"vector-unpin-element-label",
+				"vector-toc-unpinned-popup",
+				"vector-page-tools-unpinned-popup",
+				"vector-main-menu-unpinned-popup"
+			]
 		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [

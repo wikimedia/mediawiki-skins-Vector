@@ -6,11 +6,11 @@ window.matchMedia = window.matchMedia || function () {
 	};
 };
 
-const { test } = require( '../../../resources/skins.vector.es6/main.js' );
+const { test } = require( '../../../resources/skins.vector.js/setupIntersectionObservers.js' );
 const {
 	STICKY_HEADER_EXPERIMENT_NAME,
 	STICKY_HEADER_EDIT_EXPERIMENT_NAME
-} = require( '../../../resources/skins.vector.es6/stickyHeader.js' );
+} = require( '../../../resources/skins.vector.js/stickyHeader.js' );
 describe( 'main.js', () => {
 	it( 'getHeadingIntersectionHandler', () => {
 		const section = document.createElement( 'div' );
