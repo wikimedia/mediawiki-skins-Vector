@@ -9,6 +9,7 @@
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "پرٛون ویکٹر کٔرِو اِستِمال",
+	"vector-opt-out": "پرٛانہِ ظٲہِریَتھ پؠٹھ گٔژھِو واپَس",
 	"vector-action-addsection": "نٔو موضوٗع",
 	"vector-action-delete": "مِٹٲیو",
 	"vector-action-move": "پکناوُن",
@@ -18,7 +19,9 @@
 	"vector-view-create": "تَخلیٖق",
 	"vector-view-edit": "اؠڈِٹ",
 	"vector-view-history": "تَوٲریٖخ وُچھِو",
-	"vector-view-view": "پَرُن",
+	"vector-view-view": "پٔرِو",
 	"vector-view-viewsource": "آگُر وُچھِو",
+	"vector-jumptonavigation": "رَہنُمٲیی کُن گٔژھِو",
+	"vector-jumptosearch": "تَلاشَس کُن گٔژھِو",
 	"vector-more-actions": "بێیہِ"
 }
