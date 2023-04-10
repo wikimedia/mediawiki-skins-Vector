@@ -141,8 +141,8 @@ function initSearchLoader( document ) {
 	var searchBoxes = document.querySelectorAll( '.vector-search-box' );
 
 	// Allow developers to defined $wgVectorSearchApiUrl in LocalSettings to target different APIs
-	if ( config.wgVectorSearchApiUrl ) {
-		mw.config.set( 'wgVectorSearchApiUrl', config.wgVectorSearchApiUrl );
+	if ( config.VectorSearchApiUrl ) {
+		mw.config.set( 'wgVectorSearchApiUrl', config.VectorSearchApiUrl );
 	}
 
 	if ( !searchBoxes.length ) {
