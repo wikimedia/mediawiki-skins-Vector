@@ -8,6 +8,14 @@
 		"maxSize": "12.3 kB"
 	},
 	{
+		"resourceModule": "skins.vector.es6",
+		"maxSize": "11.0 kB"
+	},
+	{
+		"resourceModule": "skins.vector.js",
+		"maxSize": "3.3 kB"
+	},
+	{
 		"resourceModule": "skins.vector.legacy.js",
 		"maxSize": "2.2 kB"
 	},
