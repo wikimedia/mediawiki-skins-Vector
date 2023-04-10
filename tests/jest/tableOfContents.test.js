@@ -314,7 +314,6 @@ describe( 'Table of contents', () => {
 
 		test( 're-renders toc when wikipage.tableOfContents hook is fired with sections', async () => {
 			// @ts-ignore
-			// eslint-disable-next-line compat/compat
 			jest.spyOn( mw.loader, 'using' ).mockImplementation( () => Promise.resolve() );
 			// @ts-ignore
 			mw.template.getCompiler = () => {};

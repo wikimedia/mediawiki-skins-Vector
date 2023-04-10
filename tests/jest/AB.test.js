@@ -13,6 +13,7 @@ const MW_EXPERIMENT_PARAM = {
 
 /**
  * @param {Object} props
+ * @return {AB.WebABTest}
  */
 function createInstance( props = {} ) {
 	const mergedProps = /** @type {AB.WebABTestProps} */ ( Object.assign( {

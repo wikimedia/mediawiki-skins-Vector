@@ -17,14 +17,14 @@ describe( 'deferUntilFrame.js', () => {
 		spy.mockRestore();
 	} );
 
-	it( 'does not fire rAF if `0` is passed', done => {
+	it( 'does not fire rAF if `0` is passed', ( done ) => {
 		deferUntilFrame( () => {
 			expect( spy ).toHaveBeenCalledTimes( 0 );
 			done();
 		}, 0 );
 	} );
 
-	it( 'fires rAF the specified number of times', done => {
+	it( 'fires rAF the specified number of times', ( done ) => {
 		deferUntilFrame( () => {
 			expect( spy ).toHaveBeenCalledTimes( 3 );
 			done();

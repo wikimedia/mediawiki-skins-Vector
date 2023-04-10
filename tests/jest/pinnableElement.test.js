@@ -12,7 +12,7 @@ const pinnableElement = require( '../../resources/skins.vector.es6/pinnableEleme
  */
 Object.defineProperty( window, 'matchMedia', {
 	writable: true,
-	value: jest.fn().mockImplementation( query => ( {
+	value: jest.fn().mockImplementation( ( query ) => ( {
 		matches: false,
 		media: query,
 		onchange: null,
@@ -52,10 +52,9 @@ const movableData = { ...simpleData, ...{
 const initializeHTML = ( headerData ) => {
 	pinnedStatus = headerData[ 'is-pinned' ];
 	const pinnableHeaderHTML = mustache.render( pinnableHeaderTemplate, headerData );
-	const pinnableElementHTML = `<div id="pinnable-element"> ${ pinnableHeaderHTML } </div>`;
-	document.body.innerHTML = `
-		<div id="pinned-container">
-			${ headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
+	const pinnableElementHTML = `<div id="pinnable-element">${pinnableHeaderHTML}</div>`;
+	document.body.innerHTML = `<div id="pinned-container">
+			${headerData[ 'is-pinned' ] ? pinnableElementHTML : ''}
 		</div>
 		<div class="vector-dropdown">
 			<input type="checkbox" id="checkbox" class="vector-menu-checkbox">
@@ -64,11 +63,11 @@ const initializeHTML = ( headerData ) => {
 			</label>
 			<div class="vector-menu-content">
 				<div id="unpinned-container">
-				${ !headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
+				${!headerData[ 'is-pinned' ] ? pinnableElementHTML : ''}
 				</div>
 			</div>
 		</div>
-	`;
+`;
 };
 
 describe( 'Pinnable header', () => {
@@ -101,13 +100,11 @@ describe( 'Pinnable header', () => {
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		const pinnableElem = /** @type {HTMLElement} */ ( document.getElementById( simpleData[ 'data-pinnable-element-id' ] ) );
 
-		/* eslint-disable no-restricted-properties */
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
 		pinButton.click();
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
 		unpinButton.click();
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
-		/* eslint-enable no-restricted-properties */
 	} );
 
 	test( 'moves pinnable element when data attributes are defined', () => {
@@ -117,13 +114,11 @@ describe( 'Pinnable header', () => {
 		const unpinButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		const pinnableElem = /** @type {HTMLElement} */ ( document.getElementById( movableData[ 'data-pinnable-element-id' ] ) );
 
-		/* eslint-disable no-restricted-properties */
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
 		pinButton.click();
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'pinned-container' );
 		unpinButton.click();
 		expect( pinnableElem.parentElement && pinnableElem.parentElement.id ).toBe( 'unpinned-container' );
-		/* eslint-enable no-restricted-properties */
 	} );
 
 	test( 'calls features.toggle() when toggle is pressed', () => {
