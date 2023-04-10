@@ -12,6 +12,7 @@
 			"GuoPC",
 			"Hydra",
 			"Irati",
+			"Kishinsagi",
 			"Lakejason0",
 			"Lantx",
 			"Lanyun1103",
@@ -90,5 +91,7 @@
 	"tooltip-vector-anon-user-menu-title": "更多选项",
 	"vector-prefs-limited-width": "启用限制页面宽度的模式",
 	"vector-prefs-limited-width-help": "限制页面宽度以改善阅读体验。",
-	"empty-language-selector-body": "页面内容不支持其他语言。"
+	"empty-language-selector-body": "页面内容不支持其他语言。",
+	"vector-page-tools-unpinned-popup": "工具菜单已移至此处。",
+	"vector-main-menu-unpinned-popup": "主菜单已移至此处。"
 }
