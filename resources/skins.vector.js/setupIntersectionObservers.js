@@ -1,7 +1,5 @@
 // Enable Vector features limited to ES6 browse
 const
-	limitedWidthToggle = require( './limitedWidthToggle.js' ),
-	searchToggle = require( './searchToggle.js' ),
 	stickyHeader = require( './stickyHeader.js' ),
 	scrollObserver = require( './scrollObserver.js' ),
 	initExperiment = require( './AB.js' ),
@@ -290,19 +288,6 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
  */
 const main = () => {
 	const isIntersectionObserverSupported = 'IntersectionObserver' in window;
-
-	limitedWidthToggle();
-	// Initialize the search toggle for the main header only. The sticky header
-	// toggle is initialized after Codex search loads.
-	const searchToggleElement = document.querySelector( '.mw-header .search-toggle' );
-	if ( searchToggleElement ) {
-		searchToggle( searchToggleElement );
-	}
-
-	//
-	// Pinnable elements
-	//
-	pinnableElement.initPinnableElement();
 
 	//
 	//  Table of contents
