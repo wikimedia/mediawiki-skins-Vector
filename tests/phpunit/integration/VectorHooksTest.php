@@ -53,17 +53,13 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public function provideGetVectorResourceLoaderConfig() {
+	public function provideGetActiveABTest() {
 		return [
 			[
 				[
 					'VectorWebABTestEnrollment' => [],
-					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php'
 				],
-				[
-					'wgVectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
-					'wgVectorWebABTestEnrollment' => [],
-				]
+				[]
 			],
 			[
 				[
@@ -85,34 +81,30 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 								],
 						],
 					],
-					'VectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php'
 				],
 				[
-					'wgVectorSearchApiUrl' => 'https://en.wikipedia.org/w/rest.php',
-					'wgVectorWebABTestEnrollment' => [
-						'name' => 'vector.sticky_header',
-						'enabled' => true,
-						'buckets' => [
-								'unsampled' => [
-										'samplingRate' => 1,
-								],
-								'control' => [
-										'samplingRate' => 0
-								],
-								'stickyHeaderEnabled' => [
-										'samplingRate' => 0
-								],
-								'stickyHeaderDisabled' => [
-										'samplingRate' => 0
-								],
-						],
+					'name' => 'vector.sticky_header',
+					'enabled' => true,
+					'buckets' => [
+							'unsampled' => [
+									'samplingRate' => 1,
+							],
+							'control' => [
+									'samplingRate' => 0
+							],
+							'stickyHeaderEnabled' => [
+									'samplingRate' => 0
+							],
+							'stickyHeaderDisabled' => [
+									'samplingRate' => 0
+							],
 					],
 				]
 			],
 		];
 	}
 
-	public function provideGetVectorResourceLoaderConfigWithExceptions() {
+	public function provideGetActiveABTestWithExceptions() {
 		return [
 			# Bad experiment (no buckets)
 			[
@@ -343,12 +335,12 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getVectorResourceLoaderConfig
-	 * @dataProvider provideGetVectorResourceLoaderConfig
+	 * @covers ::getActiveABTest
+	 * @dataProvider provideGetActiveABTest
 	 */
-	public function testGetVectorResourceLoaderConfig( $configData, $expected ) {
+	public function testGetActiveABTest( $configData, $expected ) {
 		$config = new HashConfig( $configData );
-		$vectorConfig = Hooks::getVectorResourceLoaderConfig(
+		$vectorConfig = Hooks::getActiveABTest(
 			$this->createMock( ResourceLoaderContext::class ),
 			$config
 		);
@@ -360,13 +352,13 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers ::getVectorResourceLoaderConfig
-	 * @dataProvider provideGetVectorResourceLoaderConfigWithExceptions
+	 * @covers ::getActiveABTest
+	 * @dataProvider provideGetActiveABTestWithExceptions
 	 */
-	public function testGetVectorResourceLoaderConfigWithExceptions( $configData ) {
+	public function testGetActiveABTestWithExceptions( $configData ) {
 		$config = new HashConfig( $configData );
 		$this->expectException( RuntimeException::class );
-		Hooks::getVectorResourceLoaderConfig(
+		Hooks::getActiveABTest(
 			$this->createMock( ResourceLoaderContext::class ),
 			$config
 		);

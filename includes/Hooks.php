@@ -46,10 +46,14 @@ class Hooks implements
 	}
 
 	/**
+	 * @param RL\Context $context
 	 * @param Config $config
 	 * @return array
 	 */
-	private static function getActiveABTest( $config ) {
+	public static function getActiveABTest(
+		RL\Context $context,
+		Config $config
+	) {
 		$ab = $config->get(
 			Constants::CONFIG_WEB_AB_TEST_ENROLLMENT
 		);
@@ -78,22 +82,6 @@ class Hooks implements
 		}
 
 		return $ab;
-	}
-
-	/**
-	 * Passes config variables to Vector (modern) ResourceLoader module.
-	 * @param RL\Context $context
-	 * @param Config $config
-	 * @return array
-	 */
-	public static function getVectorResourceLoaderConfig(
-		RL\Context $context,
-		Config $config
-	) {
-		return [
-			'wgVectorSearchApiUrl' => $config->get( 'VectorSearchApiUrl' ),
-			'wgVectorWebABTestEnrollment' => self::getActiveABTest( $config ),
-		];
 	}
 
 	/**
@@ -140,8 +128,6 @@ class Hooks implements
 		// and from its point of view they are the same thing.
 		// Please see the modules `skins.vector.js` and `skins.vector.legacy.js`
 		// for the wire up of search.
-		// The related method self::getVectorResourceLoaderConfig handles which
-		// search to load.
 		$config['search'] = false;
 	}
 

@@ -354,8 +354,12 @@
 				"resources/skins.vector.es6/limitedWidthToggle.js",
 				"resources/skins.vector.es6/popupNotification.js",
 				{
+					"name": "resources/skins.vector.es6/activeABTest.json",
+					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getActiveABTest"
+				},
+				{
 					"name": "resources/skins.vector.es6/config.json",
-					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
+					"config": [ "VectorSearchApiUrl" ]
 				},
 				{
 					"name": "resources/skins.vector.es6/tableOfContentsConfig.json",
@@ -401,7 +405,7 @@
 				"resources/skins.vector.js/skin.js",
 				{
 					"name": "resources/skins.vector.js/config.json",
-					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorResourceLoaderConfig"
+					"config": [ "VectorSearchApiUrl" ]
 				},
 				"resources/skins.vector.js/watchstar.js",
 				"resources/skins.vector.js/dropdownMenus.js",
