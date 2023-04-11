@@ -4,7 +4,9 @@
 			"ऐक्टिवेटेड्"
 		]
 	},
+	"vector-languages": "भासा",
 	"vector-language-button-label": "{{PLURAL:$1|$1 भासा}}",
+	"vector-no-language-button-label": "भासा जोड़ी",
 	"vector-action-addsection": "बिसय जोड़ी",
 	"vector-action-delete": "हटावी",
 	"vector-action-move": "स्थानान्तरण",

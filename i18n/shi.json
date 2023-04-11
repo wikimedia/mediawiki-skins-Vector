@@ -7,6 +7,8 @@
 			"Lhoussine AIT TAYFST"
 		]
 	},
+	"vector-languages": "Tutlayin",
+	"vector-language-button-label": "{{PLURAL:$1|$1 tutlayt|$1 tutlayin}}",
 	"vector-action-addsection": "Rnu asntl",
 	"vector-action-delete": "Kks",
 	"vector-action-move": "Smatti",
