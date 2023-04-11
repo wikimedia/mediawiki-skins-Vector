@@ -259,6 +259,13 @@ final class Constants {
 	public const CONFIG_ZEBRA_DESIGN = 'VectorZebraDesign';
 
 	/**
+	 * Requirement that checks the value of ABTestEnrollment.
+	 *
+	 * @var string
+	 */
+	public const REQUIREMENT_ZEBRA_AB_TEST = 'VectorZebraDesign';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

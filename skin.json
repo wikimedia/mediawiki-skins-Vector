@@ -570,7 +570,7 @@
 		},
 		"VectorWebABTestEnrollment": {
 			"value": {
-				"name": "skin-vector-toc-experiment",
+				"name": "skin-vector-zebra-experiment",
 				"enabled": false,
 				"buckets": {
 					"unsampled": {

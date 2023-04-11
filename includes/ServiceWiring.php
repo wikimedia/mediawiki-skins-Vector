@@ -25,6 +25,7 @@
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Skins\Vector\FeatureManagement\Requirements\ABRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
@@ -71,9 +72,20 @@ return [
 
 		// MultiConfig checks each config in turn, allowing us to override the main config for specific keys.
 		$config = new MultiConfig( [
-			new HashConfig( [] ),
+			new HashConfig( [
+				Constants::REQUIREMENT_ZEBRA_AB_TEST => true,
+			] ),
 			$services->getMainConfig(),
 		] );
+
+		$featureManager->registerRequirement(
+			new ABRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				Constants::REQUIREMENT_ZEBRA_AB_TEST,
+				'skin-vector-zebra-experiment'
+			)
+		);
 
 		$featureManager->registerRequirement(
 			new OverridableConfigRequirement(
@@ -82,8 +94,7 @@ return [
 				$context->getRequest(),
 				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
-				$requirementName,
-				/* $overrideName = */ ''
+				$requirementName
 			)
 		);
 
@@ -282,7 +293,8 @@ return [
 				$context->getRequest(),
 				null,
 				Constants::CONFIG_ZEBRA_DESIGN,
-				Constants::REQUIREMENT_ZEBRA_DESIGN
+				Constants::REQUIREMENT_ZEBRA_DESIGN,
+				Constants::REQUIREMENT_ZEBRA_AB_TEST
 			)
 		);
 		$featureManager->registerFeature(
@@ -290,6 +302,7 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_ZEBRA_DESIGN,
+				Constants::REQUIREMENT_ZEBRA_AB_TEST
 			]
 		);
 
