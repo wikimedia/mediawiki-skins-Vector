@@ -1,6 +1,6 @@
 {
 	"extends": [
-		"../../.eslintrcEs6.json"
+		"../../.eslintrc.json"
 	],
 	"parserOptions": {
 		"ecmaVersion": 2018

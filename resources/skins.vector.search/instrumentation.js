@@ -1,4 +1,3 @@
-/* global FetchEndEvent, SuggestionClickEvent, SearchSubmitEvent */
 /**
  * The value of the `inputLocation` property of any and all SearchSatisfaction events sent by the
  * corresponding instrumentation.

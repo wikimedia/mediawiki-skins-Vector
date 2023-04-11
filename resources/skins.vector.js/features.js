@@ -14,10 +14,8 @@ function save( feature, enabled ) {
 		switch ( feature ) {
 			case 'limited-width':
 				if ( enabled ) {
-					// @ts-ignore
 					mw.cookie.set( 'mwclientprefs', null );
 				} else {
-					// @ts-ignore
 					mw.cookie.set( 'mwclientprefs', 'vector-feature-limited-width' );
 				}
 				break;

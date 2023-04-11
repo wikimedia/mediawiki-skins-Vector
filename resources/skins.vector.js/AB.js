@@ -25,8 +25,8 @@ const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
 
 /**
  * @typedef {Object} WebABTestProps
- * @property {string} name The name of the experiment.
- * @property {Object} buckets Dict with bucket name as key and SamplingRate
+ * @property {string} name The naqqme of the experiment.
+ * @property {Record<string, SamplingRate>} buckets Dict with bucket name as key and SamplingRate
  * object as value. There must be an `unsampled` bucket that represents a
  * population excluded from the experiment. Additionally, the treatment
  * bucket(s) must include a case-insensitive `treatment` substring in their name
@@ -121,14 +121,11 @@ module.exports = function webABTest( props ) {
 		cachedBucket = mw.experiments.getBucket( {
 			name: props.name,
 			enabled: true,
-			// @ts-ignore
-			buckets:
-			getBucketNames().reduce( ( buckets, key ) => {
-			// @ts-ignore
-				buckets[ key ] = props.buckets[ key ].samplingRate;
-
-				return buckets;
-			}, {} )
+			buckets: getBucketNames().reduce(
+				( /** @type {Record<string, number>} */ buckets, key ) => {
+					buckets[ key ] = props.buckets[ key ].samplingRate;
+					return buckets;
+				}, {} )
 		}, props.token );
 
 		return cachedBucket;

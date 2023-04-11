@@ -113,7 +113,6 @@ module.exports = function sectionObserver( props ) {
 		// of each observed element off the main thread after `observe` is called.
 		props.elements.forEach( ( element ) => {
 			if ( !element.parentNode ) {
-				// @ts-ignore
 				mw.log.warn( 'Element being observed is not in DOM', element );
 				return;
 			}

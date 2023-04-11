@@ -1,5 +1,5 @@
 /** @interface MediaWikiPageReadyModule */
-var
+const
 	collapsibleTabs = require( './collapsibleTabs.js' ),
 	/** @type {MediaWikiPageReadyModule} */
 	pageReady = require( /** @type {string} */( 'mediawiki.page.ready' ) ),

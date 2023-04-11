@@ -1,5 +1,3 @@
-/* global RestResult, SearchResult */
-
 /**
  * @typedef {Object} UrlParams
  * @param {string} title

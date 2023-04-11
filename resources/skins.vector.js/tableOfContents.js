@@ -191,14 +191,13 @@ module.exports = function tableOfContents( props ) {
 		}
 
 		// Get currently visible active link
-		let link = section.firstElementChild;
-		// @ts-ignore
+		let link = /** @type {HTMLElement|null} */( section.firstElementChild );
 		if ( link && !link.offsetParent ) {
 			// If active link is a hidden subsection, use active parent link
 			const { parent: activeTopId } = getActiveSectionIds();
 			const parentSection = document.getElementById( activeTopId || '' );
 			if ( parentSection ) {
-				link = parentSection.firstElementChild;
+				link = /** @type {HTMLElement|null} */( parentSection.firstElementChild );
 			} else {
 				link = null;
 			}
@@ -351,7 +350,6 @@ module.exports = function tableOfContents( props ) {
 	function handleHashChange() {
 		const hash = location.hash.slice( 1 );
 		const listItem =
-			// @ts-ignore
 			/** @type {HTMLElement|null} */ ( mw.util.getTargetFromFragment( `${SECTION_ID_PREFIX}${hash}` ) );
 
 		if ( !listItem ) {
@@ -551,7 +549,6 @@ module.exports = function tableOfContents( props ) {
 	 * @return {string}
 	 */
 	function getTableOfContentsListHtml( data ) {
-		// @ts-ignore
 		const mustacheCompiler = mw.template.getCompiler( 'mustache' );
 		const compiledTemplateTocContents = mustacheCompiler.compile( templateTocContents );
 

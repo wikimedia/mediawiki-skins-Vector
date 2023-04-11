@@ -8,13 +8,13 @@
 /** @interface VectorResourceLoaderVirtualConfig */
 /** @interface MediaWikiPageReadyModule */
 
-var /** @type {VectorResourceLoaderVirtualConfig} */
+const /** @type {VectorResourceLoaderVirtualConfig} */
 	config = require( /** @type {string} */ ( './config.json' ) ),
 	// T251544: Collect search performance metrics to compare Vue search with
 	// mediawiki.searchSuggest performance.
 	CAN_TEST_SEARCH = !!(
 		window.performance &&
-		/* eslint-disable compat/compat */
+
 		// @ts-ignore
 		performance.mark &&
 		// @ts-ignore
@@ -39,7 +39,7 @@ var /** @type {VectorResourceLoaderVirtualConfig} */
  * @param {null|function(): void} afterLoadFn function to execute after search module loads.
  */
 function loadSearchModule( element, moduleName, startMarker, afterLoadFn ) {
-	var SHOULD_TEST_SEARCH = CAN_TEST_SEARCH &&
+	const SHOULD_TEST_SEARCH = CAN_TEST_SEARCH &&
 		moduleName === 'skins.vector.search';
 
 	function requestSearchModule() {
@@ -70,7 +70,7 @@ function loadSearchModule( element, moduleName, startMarker, afterLoadFn ) {
  */
 function renderSearchLoadingIndicator( event ) {
 
-	var form = /** @type {HTMLElement} */ ( event.currentTarget ),
+	const form = /** @type {HTMLElement} */ ( event.currentTarget ),
 		input = /** @type {HTMLInputElement} */ ( event.target );
 
 	if (
@@ -106,7 +106,7 @@ function renderSearchLoadingIndicator( event ) {
 function setLoadingIndicatorListeners( element, attach, eventCallback ) {
 
 	/** @type { "addEventListener" | "removeEventListener" } */
-	var addOrRemoveListener = ( attach ? 'addEventListener' : 'removeEventListener' );
+	const addOrRemoveListener = ( attach ? 'addEventListener' : 'removeEventListener' );
 
 	[ 'input', 'focusin', 'focusout' ].forEach( function ( eventType ) {
 		element[ addOrRemoveListener ]( eventType, eventCallback );
@@ -138,7 +138,7 @@ function markLoadEnd( startMarker, endMarker, measureMarker ) {
  * @param {Document} document
  */
 function initSearchLoader( document ) {
-	var searchBoxes = document.querySelectorAll( '.vector-search-box' );
+	const searchBoxes = document.querySelectorAll( '.vector-search-box' );
 
 	// Allow developers to defined $wgVectorSearchApiUrl in LocalSettings to target different APIs
 	if ( config.VectorSearchApiUrl ) {
@@ -160,11 +160,10 @@ function initSearchLoader( document ) {
 	}
 
 	Array.prototype.forEach.call( searchBoxes, function ( searchBox ) {
-		var searchInner = searchBox.querySelector( 'form > div' ),
+		const searchInner = searchBox.querySelector( 'form > div' ),
 			searchInput = searchBox.querySelector( 'input[name="search"]' ),
 			clearLoadingIndicators = function () {
 				setLoadingIndicatorListeners(
-					// @ts-ignore
 					searchInner,
 					false,
 					renderSearchLoadingIndicator

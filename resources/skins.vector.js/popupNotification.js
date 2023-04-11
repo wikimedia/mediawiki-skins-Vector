@@ -14,7 +14,6 @@ function add( container, message, classes = [], timeout = 4000, autoClose = true
 	let popupWidget;
 	// load oojs-ui if it's not already loaded
 	mw.loader.using( 'oojs-ui-core' ).then( () => {
-		// @ts-ignore-next-line
 		popupWidget = new OO.ui.PopupWidget( {
 			$content: $( '<p>' ).text( message ),
 			autoClose,

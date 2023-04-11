@@ -7,12 +7,11 @@ function init() {
 		return;
 	}
 
-	// @ts-ignore
 	mw.hook( 'ext.echo.NotificationBadgeWidget.onInitialize' ).add( function ( badge ) {
-		var $element = badge.$element;
+		const $element = badge.$element;
 		$element.addClass( 'mw-list-item' );
 
-		var iconButtonClasses = 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element ';
+		const iconButtonClasses = 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element ';
 		if ( $element.attr( 'id' ) === 'pt-notifications-alert' ) {
 			$element.children( 'a' ).addClass( iconButtonClasses + 'mw-ui-icon-bell' );
 			$element.children( 'a' ).removeClass( 'oo-ui-icon-bell' );
