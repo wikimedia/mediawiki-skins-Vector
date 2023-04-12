@@ -1,4 +1,4 @@
-/* global RestResult, SearchResult */
+// / <reference lib="@wikimedia/types" />
 /** @module restSearchClient */
 
 const fetchJson = require( './fetch.js' );

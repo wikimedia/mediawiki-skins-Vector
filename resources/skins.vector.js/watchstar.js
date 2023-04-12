@@ -1,7 +1,7 @@
 module.exports = function () {
 	mw.hook( 'wikipage.watchlistChange' ).add(
 		function ( /** @type {boolean} */ isWatched, /** @type {string} */ expiry ) {
-			var watchElement = document.querySelectorAll( '#ca-watch a, #ca-unwatch a' )[ 0 ];
+			const watchElement = document.querySelectorAll( '#ca-watch a, #ca-unwatch a' )[ 0 ];
 			if ( !watchElement ) {
 				return;
 			}

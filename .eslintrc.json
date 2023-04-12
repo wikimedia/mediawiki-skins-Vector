@@ -1,17 +1,25 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client-es5",
+		"wikimedia/client-es6",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"exports": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"settings": {
+	},
 	"rules": {
-		"//": [
-			"off",
-			"ResourceLoader's `packageFiles` do not require wrapping but the `module` option is only available in ES6+."
-		],
-		"no-implicit-globals": "off",
-		"compat/compat": "warn",
+		"mediawiki/no-nodelist-unsupported-methods": "off",
+		"jsdoc/no-undefined-types": "off",
+		"compat/compat": "off",
 		"mediawiki/class-doc": "off"
 	}
 }

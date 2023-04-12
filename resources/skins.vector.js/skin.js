@@ -1,10 +1,9 @@
-var languageButton = require( './languageButton.js' ),
+const languageButton = require( './languageButton.js' ),
 	echo = require( './echo.js' ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ),
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
-	// @ts-ignore
 	menuTabs = require( './menuTabs.js' );
 
 /**
@@ -46,7 +45,7 @@ function enableCssAnimations( document ) {
  */
 function addNamespacesGadgetSupport() {
 	// Set up hidden dummy portlet.
-	var dummyPortlet = document.createElement( 'div' );
+	const dummyPortlet = document.createElement( 'div' );
 	dummyPortlet.setAttribute( 'id', 'p-namespaces' );
 	dummyPortlet.setAttribute( 'style', 'display: none;' );
 	dummyPortlet.appendChild( document.createElement( 'ul' ) );
@@ -57,7 +56,6 @@ function addNamespacesGadgetSupport() {
 		if ( $( '#p-namespaces' ).find( node ).length ) {
 			// eslint-disable-next-line no-jquery/no-global-selector
 			$( '#p-associated-pages ul' ).append( node );
-			// @ts-ignore
 			mw.log.warn( 'Please update call to mw.util.addPortletLink with ID p-namespaces. Use p-associatedPages instead.' );
 			// in case it was empty before:
 			mw.util.showPortlet( 'p-associated-pages' );
@@ -88,7 +86,7 @@ function main( window ) {
  * @return {void}
  */
 function init( window ) {
-	var now = mw.now();
+	const now = mw.now();
 	// This is the earliest time we can run JS for users (and bucket anonymous
 	// users for A/B tests).
 	// Where the browser supports it, for a 10% sample of users

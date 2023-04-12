@@ -68,7 +68,6 @@ describe( 'menuTabs', () => {
 		`;
 		const menuItem = document.getElementById( 'test-id' );
 		menuTabs();
-		// @ts-ignore
 		mw.hook( 'util' ).fire( menuItem, { id: 'test-id' } );
 
 		expect( document.body.innerHTML ).toMatchSnapshot();

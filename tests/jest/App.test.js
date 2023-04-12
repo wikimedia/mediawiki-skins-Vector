@@ -10,7 +10,6 @@ const defaultProps = {
 };
 
 const mount = ( /** @type {Object} */ customProps ) => {
-	// @ts-ignore
 	return VueTestUtils.shallowMount( App, {
 		props: Object.assign( {}, defaultProps, customProps ),
 		global: {

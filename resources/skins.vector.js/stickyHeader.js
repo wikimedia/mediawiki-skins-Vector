@@ -78,35 +78,28 @@ function suffixStickyAttribute( node, attribute ) {
  * Distinct from suffixStickyAttribute as it's intended to support followed
  * links recording their origin.
  *
- * @param {Element} node
+ * @param {HTMLAnchorElement} node
  */
 function suffixStickyHref( node ) {
 
-	// @ts-ignore
 	const url = new URL( node.href );
 	if ( url && !url.searchParams.has( STICKY_HEADER_APPENDED_PARAM[ 0 ] ) ) {
 		url.searchParams.append(
 			STICKY_HEADER_APPENDED_PARAM[ 0 ], STICKY_HEADER_APPENDED_PARAM[ 1 ]
 		);
-		// @ts-ignore
 		node.href = url.toString();
 	}
-	/* eslint-enable compat/compat */
 }
 
 /**
  * Undoes the effect of suffixStickyHref
  *
- * @param {Element} node
+ * @param {HTMLAnchorElement} node
  */
 function unsuffixStickyHref( node ) {
-
-	// @ts-ignore
 	const url = new URL( node.href );
 	url.searchParams.delete( STICKY_HEADER_APPENDED_PARAM[ 0 ] );
-	// @ts-ignore
 	node.href = url.toString();
-	/* eslint-enable compat/compat */
 }
 
 /**
@@ -163,14 +156,13 @@ function updateStickyWatchlink( watchSticky, status ) {
 /**
  * Callback for watchsar
  *
- * @param {jQuery} $link Watchstar link
+ * @param {JQuery} $link Watchstar link
  * @param {boolean} isWatched The page is watched
  * @param {string} [expiry] Optional expiry time
  */
 function watchstarCallback( $link, isWatched, expiry ) {
 	updateStickyWatchlink(
-		// @ts-ignore
-		$link[ 0 ],
+		/** @type {HTMLAnchorElement} */( $link[ 0 ] ),
 		expiry !== 'infinity' ? 'temporary' :
 			isWatched ? 'watched' : 'unwatched'
 	);
@@ -248,17 +240,22 @@ function prepareEditIcons(
 	addSection,
 	disableStickyHeader
 ) {
+	/**
+	 * @param {string} selector
+	 * @return {HTMLAnchorElement|null}
+	 */
+	const getAnchorElement = ( selector ) => header.querySelector( selector );
 	const
-		primaryEditSticky = header.querySelector(
+		primaryEditSticky = getAnchorElement(
 			'#ca-ve-edit-sticky-header'
 		),
-		protectedSticky = header.querySelector(
+		protectedSticky = getAnchorElement(
 			'#ca-viewsource-sticky-header'
 		),
-		wikitextSticky = header.querySelector(
+		wikitextSticky = getAnchorElement(
 			'#ca-edit-sticky-header'
 		),
-		addSectionSticky = header.querySelector(
+		addSectionSticky = getAnchorElement(
 			'#ca-addsection-sticky-header'
 		);
 
@@ -296,9 +293,9 @@ function prepareEditIcons(
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
 				const event = $.Event( 'click' );
-				suffixStickyHref( $ve[ 0 ] );
+				suffixStickyHref( /** @type {HTMLAnchorElement} */( $ve[ 0 ] ) );
 				$ve.trigger( event );
-				unsuffixStickyHref( $ve[ 0 ] );
+				unsuffixStickyHref( /** @type {HTMLAnchorElement} */( $ve[ 0 ] ) );
 				// The link has been progressively enhanced.
 				if ( event.isDefaultPrevented() ) {
 					disableStickyHeader();
@@ -315,9 +312,9 @@ function prepareEditIcons(
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
 						const event = $.Event( 'click' );
-						suffixStickyHref( $edit[ 0 ] );
+						suffixStickyHref( /** @type {HTMLAnchorElement} */( $edit[ 0 ] ) );
 						$edit.trigger( event );
-						unsuffixStickyHref( $edit[ 0 ] );
+						unsuffixStickyHref( /** @type {HTMLAnchorElement} */( $edit[ 0 ] ) );
 						// The link has been progressively enhanced.
 						if ( event.isDefaultPrevented() ) {
 							disableStickyHeader();
@@ -410,12 +407,11 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
 	}
 
 	// Make the logout go through the API (T324638)
-	const logoutLink = userLinksDropdownClone.querySelector( '#pt-logout-sticky-header a' );
+	const logoutLink = /** @type {HTMLAnchorElement} */( userLinksDropdownClone.querySelector( '#pt-logout-sticky-header a' ) );
 	if ( logoutLink ) {
 		logoutLink.addEventListener( 'click', function ( ev ) {
 			ev.preventDefault();
-			// @ts-ignore
-			mw.hook( 'skin.logout' ).fire( this.href );
+			mw.hook( 'skin.logout' ).fire( logoutLink.href );
 		} );
 	}
 	return userLinksDropdownClone;
@@ -561,7 +557,6 @@ function initStickyHeader( props ) {
 	addVisualEditorHooks( props.stickyIntersection, props.observer );
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
-	// @ts-ignore
 	mw.hook( 'mw.uls.compact_language_links.open' ).add( function ( $trigger ) {
 		if ( $trigger.attr( 'id' ) !== 'p-lang-btn-sticky-header' ) {
 			const bodyClassList = document.body.classList;

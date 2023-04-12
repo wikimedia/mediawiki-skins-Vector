@@ -1,8 +1,0 @@
-{
-	"extends": [
-		"../../.eslintrcEs6.json"
-	],
-	"rules": {
-		"mediawiki/no-nodelist-unsupported-methods": "warn"
-	}
-}

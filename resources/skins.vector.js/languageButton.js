@@ -6,20 +6,18 @@
  */
 function addInterwikiLinkToMainMenu() {
 	// eslint-disable-next-line no-jquery/no-global-selector
-	var $editLink = $( '#p-lang-btn .wbc-editpage' ),
-		addInterlanguageLink;
+	const $editLink = $( '#p-lang-btn .wbc-editpage' );
 
 	if ( !$editLink.length ) {
 		return;
 	}
 
-	// @ts-ignore
-	addInterlanguageLink = mw.util.addPortletLink(
+	const addInterlanguageLink = mw.util.addPortletLink(
 		'p-tb',
 		$editLink.attr( 'href' ) || '#',
 		// Original text is "Edit links".
 		// Since its taken out of context the title is more descriptive.
-		$editLink.attr( 'title' ),
+		$editLink.attr( 'title' ) || '',
 		'wbc-editpage',
 		$editLink.attr( 'title' )
 	);

@@ -236,7 +236,6 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 	mw.hook( 've.activationStart' ).add( () => {
 		sectionObserver.pause();
 	} );
-	// @ts-ignore
 	mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
 		tableOfContents.reloadTableOfContents( sections ).then( function () {
 			mw.hook( 'wikipage.tableOfContents.vector' ).fire( sections );
@@ -256,7 +255,6 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 
 		// T325086: If hash fragment is present and corresponds to a toc section,
 		// expand the section.
-		// @ts-ignore
 		const hashSection = /** @type {HTMLElement|null} */ ( mw.util.getTargetFromFragment( `${TOC_SECTION_ID_PREFIX}${hash}` ) );
 		if ( hashSection ) {
 			tableOfContents.expandSection( hashSection.id );

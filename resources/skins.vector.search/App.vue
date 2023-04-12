@@ -46,7 +46,6 @@
 </template>
 
 <script>
-/* global AbortableSearchFetch, SearchSubmitEvent */
 const { CdxTypeaheadSearch } = require( '@wikimedia/codex-search' ),
 	{ defineComponent, nextTick } = require( 'vue' ),
 	client = require( './restSearchClient.js' ),
@@ -69,6 +68,7 @@ module.exports = exports = defineComponent( {
 			type: String,
 			required: true
 		},
+		// eslint-disable-next-line vue/require-default-prop
 		autocapitalizeValue: {
 			type: String
 		},
@@ -227,7 +227,9 @@ module.exports = exports = defineComponent( {
 							this.suggestions = [];
 						}
 						this.suggestions.push(
-							...instrumentation.addWprovToSearchResultUrls( data.results, this.suggestions.length )
+							...instrumentation.addWprovToSearchResultUrls(
+								data.results, this.suggestions.length
+							)
 						);
 						this.searchFooterUrl = urlGenerator.generateUrl( query );
 					}

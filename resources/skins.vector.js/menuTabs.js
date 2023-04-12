@@ -1,4 +1,4 @@
-var
+const
 	TABS_SELECTOR = '.vector-menu-tabs',
 	LIST_ITEM_JS_SELECTOR = '.mw-list-item-js',
 	NO_ICON_CLASS = 'vector-tab-noicon';
