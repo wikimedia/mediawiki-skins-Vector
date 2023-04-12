@@ -23,9 +23,12 @@ function add( container, message, id, classes = [], timeout = 4000, onDismiss = 
 		delete activeNotification[ id ];
 	}
 	// load oojs-ui if it's not already loaded
+	// FIXME: This should be replaced with Codex.
 	return mw.loader.using( 'oojs-ui-core' ).then( () => {
+		const content = document.createElement( 'p' );
+		content.textContent = message;
 		popupWidget = new OO.ui.PopupWidget( {
-			$content: $( '<p>' ).text( message ),
+			$content: $( content ),
 			padded: true,
 			autoClose: timeout !== false,
 			head: timeout === false,

@@ -29,7 +29,7 @@ function fetchJson( resource, init ) {
 		new AbortController() :
 		nullAbortController;
 
-	const getJson = fetch( resource, $.extend( init, {
+	const getJson = fetch( resource, Object.assign( {}, init, {
 		signal: controller.signal
 	} ) ).then( ( response ) => {
 		if ( !response.ok ) {

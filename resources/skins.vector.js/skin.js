@@ -54,11 +54,13 @@ function addNamespacesGadgetSupport() {
 	dummyPortlet.appendChild( document.createElement( 'ul' ) );
 	document.body.appendChild( dummyPortlet );
 	mw.hook( 'util.addPortletLink' ).add( function ( /** @type {Element} */ node ) {
+		const namespaces = document.querySelector( '#p-namespaces' );
 		// If it was added to p-namespaces, show warning and move.
-		// eslint-disable-next-line no-jquery/no-global-selector
-		if ( $( '#p-namespaces' ).find( node ).length ) {
-			// eslint-disable-next-line no-jquery/no-global-selector
-			$( '#p-associated-pages ul' ).append( node );
+		if ( namespaces && node.closest( '#p-namespaces' ) ) {
+			const list = document.querySelector( '#p-associated-pages ul' );
+			if ( list ) {
+				list.appendChild( node );
+			}
 			mw.log.warn( 'Please update call to mw.util.addPortletLink with ID p-namespaces. Use p-associatedPages instead.' );
 			// in case it was empty before:
 			mw.util.showPortlet( 'p-associated-pages' );

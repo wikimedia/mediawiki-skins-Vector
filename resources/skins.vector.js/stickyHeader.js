@@ -292,12 +292,12 @@ function prepareEditIcons(
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
 				const link = /** @type {HTMLAnchorElement} */( $ve[ 0 ] );
-				const event = $.Event( 'click' );
+				const event = new Event( 'click' );
 				suffixStickyHref( link );
-				$ve.trigger( event );
+				link.dispatchEvent( event );
 				unsuffixStickyHref( link );
 				// The link has been progressively enhanced.
-				if ( event.isDefaultPrevented() ) {
+				if ( event.defaultPrevented ) {
 					disableStickyHeader();
 					ev.preventDefault();
 				}
@@ -312,12 +312,12 @@ function prepareEditIcons(
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
 						const link = /** @type {HTMLAnchorElement} */( $edit[ 0 ] );
-						const event = $.Event( 'click' );
+						const event = new Event( 'click' );
 						suffixStickyHref( link );
-						$edit.trigger( event );
+						link.dispatchEvent( event );
 						unsuffixStickyHref( link );
 						// The link has been progressively enhanced.
-						if ( event.isDefaultPrevented() ) {
+						if ( event.defaultPrevented ) {
 							disableStickyHeader();
 							ev.preventDefault();
 						}
@@ -559,7 +559,8 @@ function initStickyHeader( props ) {
 
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	mw.hook( 'mw.uls.compact_language_links.open' ).add( function ( $trigger ) {
-		if ( $trigger.attr( 'id' ) !== 'p-lang-btn-sticky-header' ) {
+		const trigger = $trigger[ 0 ];
+		if ( trigger.attr( 'id' ) !== 'p-lang-btn-sticky-header' ) {
 			const bodyClassList = document.body.classList;
 			bodyClassList.remove( ULS_HIDE_CLASS );
 			bodyClassList.remove( ULS_STICKY_CLASS );

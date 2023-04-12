@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} UrlParams
+ * @typedef {Record<string,string>} UrlParams
  * @param {string} title
  * @param {string} fulltext
  */
@@ -51,7 +51,10 @@ function urlGenerator( config ) {
 				} );
 			}
 
-			return articlePath + '?' + $.param( Object.assign( {}, params, { search: suggestion } ) );
+			const searchParams = new URLSearchParams(
+				Object.assign( {}, params, { search: suggestion } )
+			);
+			return `${articlePath}?${searchParams.toString()}`;
 		}
 	} );
 }
