@@ -8,6 +8,7 @@
 			"Aggasena"
 		]
 	},
+	"vector-languages": "ဘာသာစကားတိ",
 	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
 	"vector-action-addsection": "ခေါင်းစီးတိထည့်ပါ",
 	"vector-action-delete": "ဖျက်​ပါ​",

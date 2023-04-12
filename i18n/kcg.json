@@ -5,6 +5,7 @@
 			"Kambai Akau"
 		]
 	},
+	"vector-languages": "Lilyem",
 	"vector-language-button-label": "{{PLURAL:$1|a̱lyem $1|lilyem $1}}",
 	"vector-action-addsection": "Mbeang a̱pyia̱ a̱lyiat",
 	"vector-action-delete": "Ti̱n",
@@ -15,5 +16,8 @@
 	"vector-view-history": "Nwuan nkhang",
 	"vector-view-view": "Fang",
 	"vector-more-actions": "Nkyang njhyang",
-	"vector-searchsuggest-containing": "Zop ngwat na̱ byia̱ <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Zop ngwat na̱ byia̱ <strong class=\"wvui-typeahead-search__suggestions__footer__text__query\">$1</strong>",
+	"vector-anon-user-menu-pages-learn": "myiam nkyang jhyang",
+	"vector-anon-user-menu-pages-label": "Myiam nkyang jhyang tazwa jhyuk",
+	"vector-main-menu-tooltip": "A̱tsak meniu"
 }

@@ -3,9 +3,12 @@
 		"authors": [
 			"Servien",
 			"Slomox",
-			"Zylbath"
+			"Zylbath",
+			"Wikiundeplattsnacker"
 		]
 	},
+	"vector-languages": "Spraken",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Spraak|$1 Spraaken}}",
 	"vector-action-addsection": "Thema tofögen",
 	"vector-action-delete": "Wegdoon",
 	"vector-action-move": "Schuven",

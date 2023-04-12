@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Masiziva"
+		]
+	},
+	"vector-languages": "Mitauro",
+	"vector-language-button-label": "{{PLURAL:$1|$1 mutauro|$1 mitauro}}",
+	"vector-action-addsection": "Wedzera ndaba",
+	"vector-action-delete": "Bharanura",
+	"vector-action-move": "Chichinura",
+	"vector-action-protect": "Dzivirira",
+	"vector-view-create": "Sika",
+	"vector-view-history": "Ringa nhoroondo",
+	"vector-more-actions": "Zvimwe"
+}

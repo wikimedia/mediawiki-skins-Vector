@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Ebenoffen1",
-			"Leonard Nketsia"
+			"Leonard Nketsia",
+			"Amire80"
 		]
 	},
+	"vector-languages": "Kasahorow",
 	"vector-language-button-label": "{{PLURAL:$1|$1 kasa|$1 kasahorow}}",
 	"vector-action-addsection": "Fa tsirasɛm ka ho",
 	"vector-action-delete": "Pepa fi hɔ",
