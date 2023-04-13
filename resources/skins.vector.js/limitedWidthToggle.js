@@ -24,16 +24,7 @@ function init() {
 	toggle.addEventListener( 'click', function () {
 		features.toggle( LIMITED_WIDTH_FEATURE_NAME );
 		setDataAttribute( toggle );
-		// Fire a simulated window resize event (T328121)
-		let event;
-		if ( typeof Event === 'function' ) {
-			event = new Event( 'resize' );
-		} else {
-			// IE11
-			event = window.document.createEvent( 'UIEvents' );
-			event.initUIEvent( 'resize', true, false, window, 0 );
-		}
-		window.dispatchEvent( event );
+		window.dispatchEvent( new Event( 'resize' ) );
 	} );
 }
 

@@ -14,11 +14,6 @@ function addNoIconClass( item ) {
 }
 
 function init() {
-	// Feature detect whether the `.closest` api is supported. If not, return early.
-	if ( !document.body.closest ) {
-		return;
-	}
-
 	// Enhance previously added items.
 	Array.prototype.forEach.call(
 		document.querySelectorAll( TABS_SELECTOR + ' ' + LIST_ITEM_JS_SELECTOR ),

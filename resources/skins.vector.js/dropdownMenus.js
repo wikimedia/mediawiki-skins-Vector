@@ -123,8 +123,12 @@ function addPortletLinkHandler( item, data ) {
 
 	// assign variables after early return.
 	const link = item.querySelector( 'a' );
-	const $menu = $( item ).parents( '.vector-menu' );
-	const menuElement = $menu.length && $menu.get( 0 ) || null;
+	const menuElement = /** @type {HTMLElement} */(
+		item.closest( '.vector-menu' )
+	);
+	if ( !menuElement ) {
+		return;
+	}
 
 	if ( data.id ) {
 		iconElement = createIconElement( menuElement, link, data.id );
@@ -132,7 +136,7 @@ function addPortletLinkHandler( item, data ) {
 
 	// The views menu has limited space so we need to decide whether there is space
 	// to accommodate the new item and if not to redirect to the more dropdown.
-	if ( $menu.prop( 'id' ) === 'p-views' ) {
+	if ( menuElement.id === 'p-views' ) {
 		const availableWidth = getAvailableViewMenuWidth();
 		const moreDropdown = document.querySelector( '#p-cactions ul' );
 
@@ -143,8 +147,7 @@ function addPortletLinkHandler( item, data ) {
 		}
 	}
 
-	// Check link.prepend exists for older browser since this is ES5 code
-	if ( link && iconElement && link.prepend ) {
+	if ( link && iconElement ) {
 		link.prepend( iconElement );
 	}
 }
