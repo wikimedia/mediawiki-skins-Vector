@@ -125,7 +125,6 @@ describe( 'Table of contents', () => {
 	let toc;
 
 	beforeEach( () => {
-		// @ts-ignore
 		global.window.matchMedia = jest.fn( () => ( {} ) );
 	} );
 
@@ -135,7 +134,6 @@ describe( 'Table of contents', () => {
 			toc = undefined;
 		}
 
-		// @ts-ignore
 		mw.util.getTargetFromFragment = undefined;
 	} );
 
@@ -180,7 +178,6 @@ describe( 'Table of contents', () => {
 			expect( onToggleClick ).toBeCalled();
 		} );
 		test( 'for onHashChange', () => {
-			// @ts-ignore
 			mw.util.getTargetFromFragment = jest.fn().mockImplementation( ( hash ) => {
 				return hash === 'toc-foo' ? fooSection : null;
 			} );
@@ -272,7 +269,6 @@ describe( 'Table of contents', () => {
 
 	describe( 'when the hash fragment changes', () => {
 		test( 'expands and activates corresponding section', () => {
-			// @ts-ignore
 			mw.util.getTargetFromFragment = jest.fn().mockImplementation( ( hash ) => {
 				return hash === 'toc-qux' ? quxSection : null;
 			} );
@@ -313,9 +309,7 @@ describe( 'Table of contents', () => {
 		} );
 
 		test( 're-renders toc when wikipage.tableOfContents hook is fired with sections', async () => {
-			// @ts-ignore
 			jest.spyOn( mw.loader, 'using' ).mockImplementation( () => Promise.resolve() );
-			// @ts-ignore
 			mw.template.getCompiler = () => {};
 			jest.spyOn( mw, 'message' ).mockImplementation( ( msg ) => {
 				const msgFactory = ( /** @type {string} */ text ) => {
@@ -335,7 +329,6 @@ describe( 'Table of contents', () => {
 				}
 
 			} );
-			// @ts-ignore
 			jest.spyOn( mw.template, 'getCompiler' ).mockImplementation( () => {
 				return {
 					compile: () => {
@@ -368,10 +361,8 @@ describe( 'Table of contents', () => {
 				// bar
 				SECTIONS[ 1 ],
 				// baz
-				// @ts-ignore
 				SECTIONS[ 1 ][ 'array-sections' ][ 0 ],
 				// qux
-				// @ts-ignore
 				SECTIONS[ 1 ][ 'array-sections' ][ 0 ][ 'array-sections' ][ 0 ],
 				// quux
 				SECTIONS[ 2 ],

@@ -4,7 +4,6 @@ describe( 'menuTabs', () => {
 	beforeEach( () => {
 		/** @type {Function} */
 		let callback;
-		// @ts-ignore
 		jest.spyOn( mw, 'hook' ).mockImplementation( () => {
 			return {
 				add: function ( fn ) {
@@ -44,7 +43,6 @@ describe( 'menuTabs', () => {
 		`;
 		const menuItem = document.getElementById( 'test-id' );
 		menuTabs();
-		// @ts-ignore
 		mw.hook( 'util' ).fire( menuItem, { id: 'test-id' } );
 
 		expect( document.body.innerHTML ).toMatchSnapshot();

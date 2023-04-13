@@ -11,15 +11,16 @@ function addInterwikiLinkToMainMenu() {
 	if ( !$editLink.length ) {
 		return;
 	}
+	const title = $editLink.attr( 'title' ) || '';
 
 	const addInterlanguageLink = mw.util.addPortletLink(
 		'p-tb',
 		$editLink.attr( 'href' ) || '#',
 		// Original text is "Edit links".
 		// Since its taken out of context the title is more descriptive.
-		$editLink.attr( 'title' ) || '',
+		title,
 		'wbc-editpage',
-		$editLink.attr( 'title' )
+		title
 	);
 
 	if ( addInterlanguageLink ) {

@@ -68,9 +68,9 @@ module.exports = exports = defineComponent( {
 			type: String,
 			required: true
 		},
-		// eslint-disable-next-line vue/require-default-prop
 		autocapitalizeValue: {
-			type: String
+			type: String,
+			default: undefined
 		},
 		searchPageTitle: {
 			type: String,
@@ -85,42 +85,40 @@ module.exports = exports = defineComponent( {
 			default: ''
 		},
 		/** The keyboard shortcut to focus search. */
-		// eslint-disable-next-line vue/require-default-prop
 		searchAccessKey: {
-			type: String
+			type: String,
+			default: undefined
 		},
 		/** The access key informational tip for search. */
-		// eslint-disable-next-line vue/require-default-prop
 		searchTitle: {
-			type: String
+			type: String,
+			default: undefined
 		},
 		/** The ghost text shown when no search query is entered. */
-		// eslint-disable-next-line vue/require-default-prop
 		searchPlaceholder: {
-			type: String
+			type: String,
+			default: undefined
 		},
 		/**
 		 * The search query string taken from the server-side rendered input immediately before
 		 * client render.
 		 */
-		// eslint-disable-next-line vue/require-default-prop
 		searchQuery: {
-			type: String
+			type: String,
+			default: undefined
 		},
 		showThumbnail: {
 			type: Boolean,
-			// eslint-disable-next-line vue/no-boolean-default
-			default: true
+			required: true,
+			default: false
 		},
 		showDescription: {
 			type: Boolean,
-			// eslint-disable-next-line vue/no-boolean-default
-			default: true
+			default: false
 		},
 		highlightQuery: {
 			type: Boolean,
-			// eslint-disable-next-line vue/no-boolean-default
-			default: true
+			default: false
 		},
 		autoExpandWidth: {
 			type: Boolean,

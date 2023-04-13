@@ -5,6 +5,9 @@ const defaultProps = {
 	id: 'searchform',
 	searchAccessKey: 'f',
 	searchTitle: 'search',
+	showThumbnail: true,
+	showDescription: true,
+	highlightQuery: true,
 	searchPlaceholder: 'Search MediaWiki',
 	searchQuery: ''
 };
