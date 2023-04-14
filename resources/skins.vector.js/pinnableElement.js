@@ -70,7 +70,7 @@ function togglePinnableClasses( header ) {
 /**
  * Create the indicators for the pinnable element
  *
- * @param {string|undefined} pinnableElementId
+ * @param {string} pinnableElementId
  */
 function addPinnableElementIndicator( pinnableElementId ) {
 	const dropdownSelector = document.querySelector( `#${pinnableElementId}-dropdown` );
@@ -80,7 +80,7 @@ function addPinnableElementIndicator( pinnableElementId ) {
 		// * vector-page-tools-unpinned-popup
 		// * vector-main-menu-unpinned-popup
 		const message = mw.msg( `${pinnableElementId}-unpinned-popup` );
-		popupNotification.add( container, message );
+		popupNotification.add( container, message, pinnableElementId );
 	}
 }
 

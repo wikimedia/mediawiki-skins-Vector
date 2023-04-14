@@ -1,23 +1,34 @@
+// Store active notifications to only show one at a time, for use inside clearHints and showHint
+const /** @type {Record<string,OoUiPopupWidget>} */ activeNotification = {};
+
 /**
  * Adds and show a popup to the user to point them to the new location of the element
  *
- * @param {Element} container
+ * @param {HTMLElement} container
  * @param {string} message
+ * @param {string} id
  * @param {string[]} [classes]
- * @param {number} [timeout]
- * @param {boolean} [autoClose]
+ * @param {number|false} [timeout]
+ * @param {Function} [onDismiss]
+ * @return {JQuery.Promise<OoUiPopupWidget|undefined>}
  */
-function add( container, message, classes = [], timeout = 4000, autoClose = true ) {
+function add( container, message, id, classes = [], timeout = 4000, onDismiss = () => {} ) {
 	/**
-	 * @type {any}
+	 * @type {OoUiPopupWidget}
 	 */
 	let popupWidget;
+	// clear existing hints.
+	if ( id && activeNotification[ id ] ) {
+		remove( activeNotification[ id ] );
+		delete activeNotification[ id ];
+	}
 	// load oojs-ui if it's not already loaded
-	mw.loader.using( 'oojs-ui-core' ).then( () => {
+	return mw.loader.using( 'oojs-ui-core' ).then( () => {
 		popupWidget = new OO.ui.PopupWidget( {
 			$content: $( '<p>' ).text( message ),
-			autoClose,
 			padded: true,
+			autoClose: timeout !== false,
+			head: timeout === false,
 			anchor: true,
 			align: 'center',
 			position: 'below',
@@ -25,24 +36,43 @@ function add( container, message, classes = [], timeout = 4000, autoClose = true
 			container
 		} );
 		popupWidget.$element.appendTo( container );
+		if ( popupWidget && id ) {
+			activeNotification[ id ] = popupWidget;
+		}
+		popupWidget.on( 'closing', () => {
+			onDismiss();
+		} );
 		show( popupWidget, timeout );
+		return popupWidget;
 	} );
 }
-
 /**
  * Toggle the popup widget
  *
- * @param {any} popupWidget popupWidget from oojs-ui
+ * @param {OoUiPopupWidget} popupWidget popupWidget from oojs-ui
  * cannot use type because it's not loaded yet
- * @param {number} [timeout]
+ */
+function remove( popupWidget ) {
+	popupWidget.toggle( false );
+	popupWidget.$element.remove();
+}
+/**
+ * Toggle the popup widget
+ *
+ * @param {OoUiPopupWidget} popupWidget popupWidget from oojs-ui
+ * cannot use type because it's not loaded yet
+ * @param {number|false} [timeout] use false if user must dismiss it themselves.
  */
 function show( popupWidget, timeout = 4000 ) {
 	popupWidget.toggle( true );
+	// @ts-ignore https://github.com/wikimedia/typescript-types/pull/40
 	popupWidget.toggleClipping( true );
 	// hide the popup after timeout ms
+	if ( timeout === false ) {
+		return;
+	}
 	setTimeout( () => {
-		popupWidget.toggle( false );
-		popupWidget.$element.remove();
+		remove( popupWidget );
 	}, timeout );
 }
 
@@ -59,5 +89,6 @@ function removeAll( selector = '.vector-popup-notification' ) {
 
 module.exports = {
 	add,
+	remove,
 	removeAll
 };

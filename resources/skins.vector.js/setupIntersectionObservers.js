@@ -209,9 +209,11 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 					.contains( STICKY_HEADER_VISIBLE_CLASS );
 				const containerSelector = !isStickyHeaderVisible ?
 					'.vector-page-titlebar .vector-toc-landmark' : '#vector-sticky-header .vector-toc-landmark';
-				const container = document.querySelector( containerSelector );
+				const container = /** @type {HTMLElement} */(
+					document.querySelector( containerSelector )
+				);
 				if ( container ) {
-					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text() );
+					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), TOC_ID );
 				}
 			}
 

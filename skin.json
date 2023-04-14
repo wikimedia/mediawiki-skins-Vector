@@ -359,7 +359,7 @@
 				},
 				{
 					"name": "resources/skins.vector.js/config.json",
-					"config": [ "VectorSearchApiUrl" ]
+					"config": [ "VectorSearchApiUrl", "VectorLimitedWidthIndicator" ]
 				},
 				{
 					"name": "resources/skins.vector.js/tableOfContentsConfig.json",
@@ -396,6 +396,8 @@
 				"mediawiki.util"
 			],
 			"messages": [
+				"vector-limited-width-toggle-on-popup",
+				"vector-limited-width-toggle-off-popup",
 				"vector-search-loader",
 				"vector-limited-width-toggle",
 				"vector-toc-beginning",
@@ -485,6 +487,10 @@
 		}
 	},
 	"config": {
+		"VectorLimitedWidthIndicator": {
+			"value": false,
+			"description": "Temporary configuration flag that determines whether Vector skins can load indicators for limited width."
+		},
 		"VectorShareUserScripts": {
 			"value": true,
 			"description": "Temporary configuration flag that determines whether Vector skins should share user scripts and styles."
