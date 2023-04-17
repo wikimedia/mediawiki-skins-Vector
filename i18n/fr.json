@@ -71,6 +71,8 @@
 	"vector-site-nav-label": "Site",
 	"vector-main-menu-label": "Menu principal",
 	"vector-limited-width-toggle": "Activer ou désactiver la limitation de largeur du contenu",
+	"vector-limited-width-toggle-on-popup": "Vous avez basculé votre mise en page en pleine largeur. Pour revenir à la largeur limitée, appuyez sur ce bouton.",
+	"vector-limited-width-toggle-off-popup": "Vous pouvez basculer entre une largeur limitée et une largeur totale en cliquant sur ce bouton.",
 	"vector-page-tools-label": "Outils",
 	"vector-page-tools-general-label": "Général",
 	"vector-page-tools-actions-label": "Actions",

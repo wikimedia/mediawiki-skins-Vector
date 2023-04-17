@@ -50,6 +50,8 @@
 	"vector-site-nav-label": "Sito",
 	"vector-main-menu-label": "Menu principal",
 	"vector-limited-width-toggle": "Alternar limitation de latitude de contento",
+	"vector-limited-width-toggle-on-popup": "Tu ha cambiate tu disposition a latitude complete. Pro revenir a latitude limitate, preme iste button.",
+	"vector-limited-width-toggle-off-popup": "Tu pote alternar inter un latitude limitate e latitude complete cliccante iste button.",
 	"vector-page-tools-label": "Instrumentos",
 	"vector-page-tools-general-label": "General",
 	"vector-page-tools-actions-label": "Actiones",

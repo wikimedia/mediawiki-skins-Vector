@@ -59,6 +59,8 @@
 	"vector-site-nav-label": "Witryna",
 	"vector-main-menu-label": "Menu główne",
 	"vector-limited-width-toggle": "Przełącz ograniczenie szerokości strony",
+	"vector-limited-width-toggle-on-popup": "Przełączono układ strony na tryb pełnej szerokości. Aby powrócić do trybu ograniczonej szerokości, naciśnij ten przycisk.",
+	"vector-limited-width-toggle-off-popup": "Możesz przełączać się pomiędzy trybem pełnej i ograniczonej szerokości strony, klikając ten przycisk.",
 	"vector-page-tools-label": "Narzędzia",
 	"vector-page-tools-general-label": "Ogólne",
 	"vector-page-tools-actions-label": "Działania",
