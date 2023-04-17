@@ -5,17 +5,16 @@
  * has been released and contains this
  */
 function addInterwikiLinkToMainMenu() {
-	// eslint-disable-next-line no-jquery/no-global-selector
-	const $editLink = $( '#p-lang-btn .wbc-editpage' );
+	const editLink = document.querySelector( '#p-lang-btn .wbc-editpage' );
 
-	if ( !$editLink.length ) {
+	if ( !editLink ) {
 		return;
 	}
-	const title = $editLink.attr( 'title' ) || '';
+	const title = editLink.getAttribute( 'title' ) || '';
 
 	const addInterlanguageLink = mw.util.addPortletLink(
 		'p-tb',
-		$editLink.attr( 'href' ) || '#',
+		editLink.getAttribute( 'href' ) || '#',
 		// Original text is "Edit links".
 		// Since its taken out of context the title is more descriptive.
 		title,
@@ -27,7 +26,7 @@ function addInterwikiLinkToMainMenu() {
 		addInterlanguageLink.addEventListener( 'click', function ( /** @type {Event} */ e ) {
 			e.preventDefault();
 			// redirect to the detached and original edit link
-			$editLink.trigger( 'click' );
+			editLink.dispatchEvent( new Event( 'click' ) );
 		} );
 	}
 }
