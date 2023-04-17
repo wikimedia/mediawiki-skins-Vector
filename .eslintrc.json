@@ -1,6 +1,10 @@
 {
 	"root": true,
+	"plugins": [
+		"no-jquery"
+	],
 	"extends": [
+		"plugin:no-jquery/deprecated",
 		"wikimedia/client-es6",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
