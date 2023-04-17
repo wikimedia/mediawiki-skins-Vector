@@ -1,11 +1,4 @@
-/**
- * Limited width toggle - a button which lets users change the layout from
- * a fixed-width content column to a layout where the content takes up the
- * full window width.
- */
-
-// By default, toggle should be hidden unless the breakpoint below is reached.
-.vector-limited-width-toggle {
+.client-nojs .vector-settings {
 	display: none;
 }
 
@@ -15,11 +8,24 @@
 	right: 8px;
 }
 
+/**
+ * Limited width toggle - a button which lets users change the layout from
+ * a fixed-width content column to a layout where the content takes up the
+ * full window width.
+ */
+
+// By default, toggle should be hidden unless the breakpoint below is reached.
+.vector-limited-width-toggle,
+.vector-limited-width-popup {
+	display: none;
+}
+
 // Note on certain pages the control will have no effect e.g. Special:RecentChanges
 // Defining this at 1400px is a product decision so do not change it
 // (more context at https://phabricator.wikimedia.org/T326887#8540889)
 @media ( min-width: 1400px ) {
-	.vector-limited-width-toggle {
+	.vector-limited-width-toggle,
+	.vector-limited-width-popup {
 		display: block;
 	}
 
@@ -30,5 +36,72 @@
 
 	.vector-feature-limited-width-enabled .vector-limited-width-toggle::before {
 		background-image: url( images/fullscreen.svg );
+	}
+}
+
+// Custom popup notification that shows on page load
+.vector-limited-width-popup {
+	position: absolute;
+	z-index: 1;
+	filter: drop-shadow( 0 2px 1px rgba( 0, 0, 0, 0.3 ) );
+	background-color: #fff;
+	border: 1px solid #a2a9b1;
+	border-radius: 2px;
+	margin-bottom: 9px;
+	left: -290.733px;
+	bottom: 31px;
+
+	&-head {
+		margin-bottom: 9px;
+	}
+
+	&-close-button {
+		position: absolute;
+		right: 0;
+	}
+
+	&-body {
+		margin: 5px 12px;
+		line-height: 1.42857143em;
+		width: 296px;
+		height: auto;
+		max-width: 298px;
+		max-height: 593px;
+
+		p {
+			margin: 0.4em 0 0.5em 0;
+		}
+	}
+
+	&-anchor {
+		bottom: -9px;
+		display: block;
+		position: absolute;
+		background-repeat: no-repeat;
+		left: 306.367px;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+		}
+
+		&::before {
+			top: -10px;
+			left: -9px;
+			border-top-color: #a2a9b1;
+			border-width: 10px;
+		}
+
+		&::after {
+			top: -10px;
+			left: -8px;
+			border-top-color: #fff;
+			border-width: 9px;
+		}
 	}
 }

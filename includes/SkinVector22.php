@@ -460,7 +460,12 @@ class SkinVector22 extends SkinMustache {
 			'has-buttons-in-content-top' => $this->isLanguagesInContentAt( 'top' ) || $hasAddTopicButton,
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			// Cast empty string to null
-			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle']
+			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
+			// FIXME: Replace with VectorComponentButton
+			'data-vector-settings-button' => [
+				'label' => $this->msg( 'vector-limited-width-toggle' ),
+				'class' => 'mw-ui-icon mw-ui-icon-element vector-limited-width-toggle',
+			],
 		] );
 	}
 }

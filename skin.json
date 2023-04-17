@@ -331,7 +331,8 @@
 				"imageGallery",
 				"userGroup",
 				"expand",
-				"listBullet"
+				"listBullet",
+				"close"
 			]
 		},
 		"skins.vector.js": {
