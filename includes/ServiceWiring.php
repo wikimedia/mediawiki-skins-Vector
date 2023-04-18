@@ -58,7 +58,6 @@ return [
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
 				null
@@ -92,7 +91,6 @@ return [
 				$config,
 				$context->getUser(),
 				$context->getRequest(),
-				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				$requirementName
 			)
@@ -115,7 +113,6 @@ return [
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				null,
 				Constants::CONFIG_LANGUAGE_IN_MAIN_PAGE_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER
 			)
@@ -143,7 +140,6 @@ return [
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				null,
 				Constants::CONFIG_LANGUAGE_ALERT_IN_SIDEBAR,
 				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
 			)
@@ -165,7 +161,6 @@ return [
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				null,
 				Constants::CONFIG_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER
 			)
@@ -291,7 +286,6 @@ return [
 				$services->getMainConfig(),
 				$context->getUser(),
 				$context->getRequest(),
-				null,
 				Constants::CONFIG_ZEBRA_DESIGN,
 				Constants::REQUIREMENT_ZEBRA_DESIGN,
 				Constants::REQUIREMENT_ZEBRA_AB_TEST
