@@ -2,7 +2,8 @@
 
 .vector-page-titlebar {
 	display: flex;
-
+	// Enabled bottom border via ::after element for Zebra update.
+	flex-wrap: wrap;
 	// Ensure language button or indicators are positioned to the right even when the title is hidden
 	justify-content: flex-end;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
