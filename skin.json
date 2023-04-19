@@ -273,6 +273,18 @@
 				"brackets-end"
 			]
 		},
+		"skins.vector.zebra.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"styles": [
+				"resources/skins.vector.zebra.styles/skin.less"
+			],
+			"lessMessages": [
+				"parentheses-start",
+				"parentheses-end",
+				"brackets-start",
+				"brackets-end"
+			]
+		},
 		"skins.vector.icons.js": {
 			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
