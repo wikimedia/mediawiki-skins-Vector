@@ -12,6 +12,10 @@
 @max-width-desktop: @width-breakpoint-desktop-wide - 1px; // Below 1199px
 @min-width-desktop-wide: @width-breakpoint-desktop-wide; // Above 1200px
 
+// Defines the minimum viewport width, at which point the layout will not get any
+// smaller and will start horizontal scrolling instead.
+@min-width-supported: unit( 500px / @font-size-browser, em );
+
 // Sizing calculation primitives.
 @font-size-root: 100%;
 @font-size-browser: 16; // Assumed browser default of `16px`

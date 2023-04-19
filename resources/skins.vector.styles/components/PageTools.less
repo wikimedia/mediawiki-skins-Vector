@@ -19,32 +19,30 @@
 	}
 }
 
-.vector-page-tools {
-	#vector-page-tools-pinned-container & {
-		width: 140px;
-		// Match spacing of TOC and main menu
-		margin-left: @padding-horizontal-dropdown-menu-item;
-		max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
-		overflow-y: auto;
-		box-sizing: border-box;
-		padding-top: @padding-top-pinned-element;
-		// Add fade indicator.
-		.mixin-vector-scroll-indicator();
-	}
+#vector-page-tools-pinned-container .vector-page-tools {
+	width: 140px;
+	// Match spacing of TOC and main menu
+	margin-left: @padding-horizontal-dropdown-menu-item;
+	max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
+	overflow-y: auto;
+	box-sizing: border-box;
+	padding-top: @padding-top-pinned-element;
+	// Add fade indicator.
+	.mixin-vector-scroll-indicator();
+}
 
-	// Ensure collapsible items are visible on lower resolutions
-	.vector-more-collapsible-item {
+// Ensure collapsible items are visible on lower resolutions
+.vector-page-tools .vector-more-collapsible-item {
+	display: block;
+
+	@media ( min-width: @min-width-tablet ) {
+		display: none;
+	}
+}
+
+// Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
+.vector-page-tools .vector-has-collapsible-items {
+	@media ( max-width: @max-width-mobile ) {
 		display: block;
-
-		@media ( min-width: @min-width-tablet ) {
-			display: none;
-		}
-	}
-
-	// Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
-	.vector-has-collapsible-items {
-		@media ( max-width: @max-width-mobile ) {
-			display: block;
-		}
 	}
 }

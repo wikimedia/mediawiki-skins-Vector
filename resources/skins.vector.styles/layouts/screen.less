@@ -14,12 +14,6 @@
 // see T259331.
 @padding-content: @padding-top-content 0 1.5em;
 
-// Breakpoints
-
-// Defines the minimum viewport width, at which point the layout will not get any
-// smaller and will start horizontal scrolling instead.
-@min-width-supported: unit( 500px / @font-size-browser, em );
-
 html {
 	scroll-padding-top: @scroll-padding-top;
 }
@@ -109,30 +103,6 @@ body {
 	padding: @padding-content;
 }
 
-.mixin-page-container() {
-	max-width: @max-width-page-container;
-	// Set a min-width to make explicit we do not support anything below this threshold.
-	// For devices too small, they should be more useable with horizontal scrolling.
-	// e.g. Portrait on an iPad
-	min-width: @min-width-supported;
-	margin: 0 auto;
-	// Use non-zero padding to disable margin collapse.
-	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
-	padding: 0.05px @padding-horizontal-page-container;
-	background-color: @background-color-page-container;
-	box-sizing: border-box;
-
-	@media ( min-width: @min-width-desktop ) {
-		padding-left: @padding-horizontal-page-container-desktop;
-		padding-right: @padding-horizontal-page-container-desktop;
-	}
-
-	@media ( min-width: @min-width-desktop-wide ) {
-		padding-left: @padding-horizontal-page-container-desktop-wide;
-		padding-right: @padding-horizontal-page-container-desktop-wide;
-	}
-}
-
 // Container logic.
 .mw-page-container {
 	// Setting position and z-index is important as it allows overlays appended to the body tag
@@ -143,15 +113,11 @@ body {
 	// Fill the viewport even if the content height is small. This also helps
 	// mitigate a long sidebar overflowing the page container (T257518).
 	min-height: 100%;
+	// Use non-zero padding to disable margin collapse.
+	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
+	padding-top: 0.05px;
+	padding-bottom: 0.05px;
 	.mixin-page-container();
-
-	.vector-feature-limited-width-disabled & {
-		max-width: none;
-	}
-}
-
-.skin--responsive .mw-page-container {
-	min-width: auto;
 }
 
 .vector-header-container {
@@ -163,14 +129,10 @@ body {
 	}
 }
 
-.vector-feature-zebra-design-disabled {
-	@import 'preZebra.less';
+.vector-feature-limited-width-disabled .mw-page-container {
+	max-width: none;
 }
 
-.vector-feature-zebra-design-enabled {
-	@import 'zebra.less';
+.skin--responsive .mw-page-container {
+	min-width: auto;
 }
-
-@import 'grid.less';
-@import 'toc/pinned.less';
-@import 'toc/unpinned.less';

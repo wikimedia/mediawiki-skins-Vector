@@ -1,9 +1,11 @@
+@import '../../common/mixins.less';
+
 .vector-header-container {
 	.mixin-page-container();
+}
 
-	.vector-feature-limited-width-disabled& {
-		max-width: none;
-	}
+&.vector-feature-limited-width-disabled .vector-header-container {
+	max-width: none;
 }
 
 .vector-sticky-header-container {
