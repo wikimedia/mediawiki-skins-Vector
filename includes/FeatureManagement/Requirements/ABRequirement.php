@@ -22,6 +22,7 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
+use CentralIdLookup;
 use Config;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use User;
@@ -35,6 +36,11 @@ class ABRequirement implements Requirement {
 	 * @var Config
 	 */
 	private $config;
+
+	/**
+	 * @var CentralIdLookup
+	 */
+	private $centralIdLookup;
 
 	/**
 	 * @var User
@@ -54,17 +60,20 @@ class ABRequirement implements Requirement {
 	/**
 	 * @param Config $config
 	 * @param User $user
+	 * @param CentralIdLookup|null $centralIdLookup
 	 * @param string $name The name of the requirement
 	 * @param string $experimentName The name of the experiment
 	 */
 	public function __construct(
 		Config $config,
 		User $user,
+		?CentralIdLookup $centralIdLookup,
 		string $name,
 		string $experimentName
 	) {
 		$this->config = $config;
 		$this->user = $user;
+		$this->centralIdLookup = $centralIdLookup;
 		$this->name = $name;
 		$this->experimentName = $experimentName;
 	}
@@ -85,6 +94,16 @@ class ABRequirement implements Requirement {
 		// Get the experiment configuration from the config object.
 		$experiment = $this->config->get( 'VectorWebABTestEnrollment' );
 
+		$id = null;
+		if ( $this->centralIdLookup ) {
+			$id = $this->centralIdLookup->centralIdFromLocalUser( $this->user );
+		}
+
+		// $id will be 0 if the central ID lookup failed.
+		if ( !$id ) {
+			$id = $this->user->getId();
+		}
+
 		// Check if the experiment is not enabled or does not match the specified name.
 		if ( !$experiment['enabled'] || $experiment['name'] !== $this->experimentName ) {
 			// If the experiment is not enabled or does not match the specified name,
@@ -92,8 +111,8 @@ class ABRequirement implements Requirement {
 			return true;
 		} else {
 			// If the experiment is enabled and matches the specified name,
-			// calculate the user's variant based on their ID
-			$variant = $this->user->getID() % 2;
+			// calculate the user's variant based on their central ID
+			$variant = $id % 2;
 
 			// Cast the variant value to a boolean and return it, indicating whether
 			// the user is in the "control" or "test" group.
