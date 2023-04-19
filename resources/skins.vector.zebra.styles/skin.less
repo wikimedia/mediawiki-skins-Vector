@@ -11,14 +11,17 @@
 @import './mixins.less';
 
 @media screen {
-	@import './layouts/screen.less';
-	@import './layouts/toc/pinned.less';
-	@import './layouts/toc/unpinned.less';
-	@import './components/Dropdown.less';
-	@import './components/MainMenu.less';
-	@import './components/PinnableElement.less';
-	@import './components/PinnableHeader.less';
-	@import './components/PageTools.less';
-	@import './components/TableOfContents.less';
-	@import './components/StickyHeader.less';
+	.vector-feature-zebra-design-enabled {
+		@import './layouts/screen.less';
+		@import './layouts/zebra.less';
+		@import './layouts/toc/pinned.less';
+		@import './layouts/toc/unpinned.less';
+		@import './components/Dropdown.less';
+		@import './components/MainMenu.less';
+		@import './components/PinnableElement.less';
+		@import './components/PinnableHeader.less';
+		@import './components/PageTools.less';
+		@import './components/TableOfContents.less';
+		@import './components/StickyHeader.less';
+	}
 }

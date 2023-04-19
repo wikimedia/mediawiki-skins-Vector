@@ -57,6 +57,28 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
+	 * Provide styles required to present the server rendered page in this skin. Additional styles
+	 * may be loaded dynamically by the client.
+	 *
+	 * Any styles returned by this method are loaded on the critical rendering path as linked
+	 * stylesheets. I.e., they are required to load on the client before first paint.
+	 *
+	 * @return array
+	 */
+	public function getDefaultModules(): array {
+		$modules = parent::getDefaultModules();
+		$featureManager = VectorServices::getFeatureManager();
+		$zebraUpdate = $featureManager->isFeatureEnabled(
+			Constants::FEATURE_ZEBRA_DESIGN
+		);
+
+		if ( $zebraUpdate ) {
+			$modules['styles']['skin'][] = 'skins.vector.zebra.styles';
+		}
+		return $modules;
+	}
+
+	/**
 	 * This should be upstreamed to the Skin class in core once the logic is finalized.
 	 * Returns false if the page is a special page without any languages, or if an action
 	 * other than view is being used.
