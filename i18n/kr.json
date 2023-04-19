@@ -7,7 +7,7 @@
 		]
 	},
 	"vector-languages": "Tǝlam",
-	"vector-language-button-label": "{{PLURAL:$1|$1 telam|$1 telam}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 telam|$1 telam wa gade}}",
 	"vector-no-language-button-label": "Tǝlam yira",
 	"vector-action-addsection": "Bayin yukko",
 	"vector-action-delete": "Chinne",
