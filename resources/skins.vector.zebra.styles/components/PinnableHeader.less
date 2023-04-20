@@ -1,17 +1,3 @@
-.vector-pinnable-header {
-	.mixin-vector-dropdown-menu-item();
-	// Override display: flex applied by .mixin-vector-dropdown-menu-item()
-	display: block;
-}
-
-.vector-pinned-container .vector-page-tools .vector-pinnable-header,
-.vector-pinned-container .vector-toc .vector-pinnable-header {
-	// Match styles with tabs in page toolbar to ensure TOC and Page Tools pinnable headers
-	// align with page toolbar border
-	padding: @padding-vertical-tabs;
-	margin-bottom: -1px;
-}
-
 .vector-pinnable-header-label {
 	display: inline-block;
 	color: @color-base--subtle;

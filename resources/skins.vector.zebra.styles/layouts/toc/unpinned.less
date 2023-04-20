@@ -1,6 +1,3 @@
-@import '../../../common/variables.less';
-@import '../../../common/mixins.less';
-
 @selector-nojs-collapsed-toc-open: ~'#vector-toc-collapsed-checkbox:checked';
 
 // TOC dropdown styles
@@ -36,16 +33,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 		min-width: 200px;
 		// Collapsed TOC should be smaller than 85% of the content container (51em) and 75vw
 		max-width: ~'min( 0.85 * @{max-width-content-container}, 75vw )'; // min( 51em, 75vw )
-
-		// Adjust TOC spacing when unpinned
-		.vector-pinnable-header {
-			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-		}
-
-		.vector-toc-contents {
-			padding-right: @padding-horizontal-dropdown-menu-item;
-			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-		}
 	}
 }
 
@@ -144,11 +131,6 @@ body:not( .vector-below-page-title ) #vector-page-titlebar-toc-label {
 				// FIXME: Collapsed TOC styles are not consistent with other vector dropdowns
 				border: @border-width-base @border-style-base @border-color-base;
 				z-index: @z-index-menu;
-
-				.vector-pinnable-header,
-				.vector-toc-contents {
-					padding-left: @padding-horizontal-dropdown-menu-item;
-				}
 			}
 
 			@{selector-nojs-collapsed-toc-open} ~ .mw-table-of-contents-container .vector-toc {

@@ -1,14 +1,17 @@
-@import '../../common/variables.less';
+/**
+ * PinnableElement
+ * Pinned containers are typically dropdown menus that have been
+ * placed in a sidebar column, e.g. page tools menu, main menu.
+ */
 
-.vector-pinned-container .vector-pinnable-element {
-	// Make the heading border line up with the edge of the text
-	// (Whereas in a dropdown, the border lines up with the edge of the dropdown container).
-	.vector-pinnable-header,
-	.vector-menu-heading,
-	.mw-list-item a {
-		padding-left: 0;
-		padding-right: 0;
-	}
+.vector-pinnable-element {
+	font-size: @font-size-dropdown;
+}
+
+.vector-pinned-container {
+	.mixin-vector-content-box();
+	padding: @padding-vertical-dropdown-menu @padding-horizontal-dropdown-menu;
+	margin-bottom: @grid-column-gap;
 }
 
 /**

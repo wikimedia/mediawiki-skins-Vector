@@ -98,11 +98,17 @@
 @padding-top-tabs: 12px;
 @padding-vertical-tabs: @padding-top-tabs 0 7px 0;
 
-// Dropdowns
+// Dropdowns & menus
 @height-dropdown-menu-item: unit( 32 / @font-size-browser, rem );
+@padding-horizontal-dropdown-menu: 20px;
+@padding-vertical-dropdown-menu: 20px;
 @padding-vertical-dropdown-menu-item: 6px;
-@padding-horizontal-dropdown-menu-item: 14px;
 @font-size-dropdown: unit( @font-size-base, rem ); // Equals `0.875rem`.
+
+// Content boxes
+@border-radius-content-box: 4px;
+@border-color-content-box: #ececec;
+@padding-main-content-box: 30px 50px;
 
 // Scroll Indicator
 @height-scroll-indicator: 30px;
@@ -113,17 +119,8 @@
 // TOC and Page tools Pinned elements
 @padding-top-pinned-element: unit( (30px - @padding-top-tabs) / @font-size-browser, em);
 
-// Page Tools
-// 2.34 (height of #firstHeading) - the padding on the pinned element to allow
-// for 30px of space between the top of the pinned element and the top of the viewport.
-@margin-top-pinned-page-tools: (@font-size-heading-1 * @line-height-heading) - @padding-top-pinned-element;
-
 // TOC
-@spacing-subsection-toggle: 22px; // @size-toc-subsection-toggle-icon @ 12
 @size-toc-subsection-toggle-icon: 1.834em;
-// Add the top padding of .mw-body element to @margin-top-pinned-page-tools
-// since it starts higher on the page.
-@margin-top-pinned-toc: @margin-top-pinned-page-tools + @padding-top-content;
 
 // Search
 @max-width-search: unit( 500px / @font-size-browser / @font-size-base, em ); // 35.71428571em @ 16 & 0.875em T270202
@@ -191,6 +188,6 @@
 
 // Grid
 @grid-row-gap: 24px;
-@grid-column-gap: 36px;
+@grid-column-gap: 24px;
 @width-column-start-desktop: unit( 196px / @font-size-browser, em ); // Total width including gap is 232px
 @width-column-start-desktop-wide: unit( 248px / @font-size-browser, em ); // Total width including gap is 284px
