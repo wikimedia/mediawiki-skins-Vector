@@ -99,7 +99,7 @@
 }
 
 // Collapse ToC sections by default, excluding no-js
-.client-js .vector-toc {
+&.client-js .vector-toc {
 	.vector-toc-level-1 .vector-toc-list-item {
 		display: none;
 	}
@@ -117,33 +117,33 @@
 	}
 }
 
-.client-js body.ltr .vector-toc .vector-toc-toggle {
+&.client-js body.ltr .vector-toc .vector-toc-toggle {
 	transform: rotate( -90deg );
 }
 
-.client-js body.rtl .vector-toc .vector-toc-toggle {
+&.client-js body.rtl .vector-toc .vector-toc-toggle {
 	transform: rotate( 90deg );
 }
 
 // Ensure there is only 1 table of contents landmark at anytime
 .vector-toc-landmark {
 	display: none;
+}
 
-	.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) .vector-page-titlebar &,
-	.vector-feature-toc-pinned-disabled .vector-sticky-header-visible .vector-sticky-header &,
-	.vector-feature-toc-pinned-enabled .mw-table-of-contents-container& {
+&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) .vector-page-titlebar .vector-toc-landmark,
+&.vector-feature-toc-pinned-disabled .vector-sticky-header-visible .vector-sticky-header .vector-toc-landmark,
+&.vector-feature-toc-pinned-enabled .mw-table-of-contents-container.vector-toc-landmark {
+	display: block;
+}
+
+// On smaller viewports the TOC will always be moved to the page titlebar via JS
+// regardless of the TOC pinned classes
+@media ( max-width: @max-width-tablet ) {
+	&.client-js .vector-page-titlebar .vector-toc-landmark {
 		display: block;
 	}
 
-	// On smaller viewports the TOC will always be moved to the page titlebar via JS
-	// regardless of the TOC pinned classes
-	@media ( max-width: @max-width-tablet ) {
-		.client-js .vector-page-titlebar & {
-			display: block;
-		}
-
-		.client-js .mw-table-of-contents-container& {
-			display: none;
-		}
+	&.client-js .mw-table-of-contents-container.vector-toc-landmark {
+		display: none;
 	}
 }

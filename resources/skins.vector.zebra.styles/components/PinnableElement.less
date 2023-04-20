@@ -24,8 +24,8 @@
 	// .client-js and .client-nojs selectors needed to increase specificity to override gradeC.less
 	// Prefered to using !important as this still needs to be overridable to handle
 	// the anon, no-js TOC case found in layouts/toc/unpinned.less
-	.client-js,
-	.client-nojs {
+	&.client-js,
+	&.client-nojs {
 		.vector-pinned-container {
 			display: none;
 		}
