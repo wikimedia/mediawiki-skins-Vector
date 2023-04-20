@@ -560,7 +560,7 @@ function initStickyHeader( props ) {
 	// Make sure ULS outside sticky header disables the sticky header behaviour.
 	mw.hook( 'mw.uls.compact_language_links.open' ).add( function ( $trigger ) {
 		const trigger = $trigger[ 0 ];
-		if ( trigger.attr( 'id' ) !== 'p-lang-btn-sticky-header' ) {
+		if ( trigger.id !== 'p-lang-btn-sticky-header' ) {
 			const bodyClassList = document.body.classList;
 			bodyClassList.remove( ULS_HIDE_CLASS );
 			bodyClassList.remove( ULS_STICKY_CLASS );
