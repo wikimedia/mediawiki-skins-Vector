@@ -14,6 +14,39 @@
 	margin-bottom: @grid-column-gap;
 }
 
+// Applies styles for making a pinned element sticky
+// Mixin should be applied to the container element of `.vector-pinned-container`;
+.vector-sticky-pinned-container {
+	height: 100%;
+
+	.vector-pinned-container {
+		// stylelint-disable-next-line plugin/no-unsupported-browser-features
+		position: sticky;
+		top: @grid-row-gap;
+	}
+
+	.vector-pinnable-element {
+		max-height: ~'calc( 100vh - @{grid-row-gap} - @{padding-vertical-dropdown-menu} - @{padding-vertical-dropdown-menu} - @{grid-row-gap} )';
+		overflow-y: auto;
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			// Offset position to account for menu borders.
+			bottom: @border-width-base;
+			// Offset to account for border radius.
+			left: @border-radius-content-box;
+			right: @border-radius-content-box;
+			height: @height-scroll-indicator;
+			background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
+			background-repeat: no-repeat;
+			background-position: -12px; // T311436 Hacky way to prevent the fade from covering the scrollbar
+			pointer-events: none; // Make the link below the fade clickable
+		}
+	}
+}
+
 /**
  * At lower resolutions, we want to hide the pinned containers when JS is enabled since these
  * elements collapse (become unpinned) at this resolution via PinnableElement.js.
