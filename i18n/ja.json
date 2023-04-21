@@ -76,6 +76,8 @@
 	"vector-site-nav-label": "サイト",
 	"vector-main-menu-label": "メインメニュー",
 	"vector-limited-width-toggle": "本文の横幅制限を有効化／無効化",
+	"vector-limited-width-toggle-on-popup": "レイアウトを全幅に切り替えました。制限された幅に戻すには、このボタンを押してください。",
+	"vector-limited-width-toggle-off-popup": "このボタンをクリックすることで、制限された幅と全幅を切り替えることができます。",
 	"vector-page-tools-label": "ツール",
 	"vector-page-tools-general-label": "全般",
 	"vector-page-tools-actions-label": "操作",
@@ -86,5 +88,7 @@
 	"vector-prefs-limited-width": "横幅制限モードを有効にする",
 	"vector-prefs-limited-width-help": "横幅制限モードを有効にすることで文章の可読性が向上します。",
 	"empty-language-selector-body": "ページのコンテンツが他言語でサポートされていません。",
-	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。"
+	"vector-toc-unpinned-popup": "目次はここに移動しました。",
+	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。",
+	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。"
 }
