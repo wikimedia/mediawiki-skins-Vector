@@ -38,6 +38,8 @@
 		"mustache": "3.0.1",
 		"mustache-jest": "1.1.1",
 		"node-fetch": "2.6.7",
+		"oojs": "6.0.0",
+		"oojs-ui": "0.46.3",
 		"postcss-less": "6.0.0",
 		"pre-commit": "1.2.2",
 		"stylelint-config-wikimedia": "0.14.0",

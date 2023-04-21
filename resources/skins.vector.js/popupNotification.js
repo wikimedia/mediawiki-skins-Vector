@@ -1,3 +1,4 @@
+/** @module PopupNotification */
 // Store active notifications to only show one at a time, for use inside clearHints and showHint
 const /** @type {Record<string,OoUiPopupWidget>} */ activeNotification = {};
 
@@ -93,5 +94,8 @@ function removeAll( selector = '.vector-popup-notification' ) {
 module.exports = {
 	add,
 	remove,
-	removeAll
+	removeAll,
+	tests: {
+		show
+	}
 };
