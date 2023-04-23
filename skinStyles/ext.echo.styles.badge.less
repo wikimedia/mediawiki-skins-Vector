@@ -15,7 +15,7 @@
 		padding: 7px 0.3em;
 		border: 1px solid #fff;
 		border-radius: @border-radius-base;
-		background-color: @colorGray7;
+		background-color: #72777d;
 		content: attr( data-counter-text );
 		color: #fff;
 	}
@@ -36,7 +36,7 @@
 }
 
 #pt-notifications-notice .mw-echo-unseen-notifications::after {
-	background-color: @color-primary;
+	background-color: @color-progressive;
 }
 
 // Override ULS enhanced buttons
@@ -49,6 +49,6 @@
 
 	&:focus {
 		// Copied from mixins.buttons.less, match button focus styles
-		box-shadow: @box-shadow-primary--focus;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, @box-shadow-inset-medium @box-shadow-color-inverted;
 	}
 }

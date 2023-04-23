@@ -1,6 +1,6 @@
 .vector-pinnable-header-label {
 	display: inline-block;
-	color: @color-base--subtle;
+	color: @color-subtle;
 	font-size: unit( 14 / @font-size-browser, rem );
 	margin: 0;
 	padding: 0;
@@ -13,22 +13,22 @@
 	border: 0;
 	padding: 0;
 	background-color: transparent;
-	color: @color-primary;
+	color: @color-progressive;
 	cursor: pointer;
 	text-align: left;
 
 	&:hover {
-		color: @color-primary--hover;
+		color: @color-progressive--hover;
 	}
 
 	&::before {
 		content: '@{msg-brackets-start}';
-		color: @color-base--subtle;
+		color: @color-subtle;
 	}
 
 	&::after {
 		content: '@{msg-brackets-end}';
-		color: @color-base--subtle;
+		color: @color-subtle;
 	}
 }
 

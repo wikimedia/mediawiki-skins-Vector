@@ -1,7 +1,6 @@
 @import '../../common/variables.less';
 @import '../../common/mixins.less';
 @import 'mediawiki.mixins.less';
-@import 'mediawiki.ui/variables.less';
 
 @font-size-user-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
 // Applies to links in the overflow menu that do not have the .mw-ui-button class.
@@ -114,7 +113,7 @@
 
 	a:not( .mw-selflink ) {
 		// T312157 Override redlink (.new) color for non-existant userpage
-		color: @color-primary;
+		color: @color-link;
 	}
 
 	span {

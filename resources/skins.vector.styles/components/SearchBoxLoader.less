@@ -47,7 +47,7 @@
 	border: @border-base;
 	border-top-width: 0; // Hide the top border so it doesn't interfere with focus state.
 	border-radius: 0 0 @border-radius-base @border-radius-base;
-	box-shadow: @box-shadow-base;
+	box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 	padding-left: @padding-left-start-icon;
 	//
 	// Hide text in case it extends beyond the input.
@@ -60,7 +60,7 @@
 	//
 	// Add a progress-bar to the loading indicator,
 	// but only show it animating after 1 second of loading.
-	background: /*image*/ linear-gradient( 90deg, @colorProgressive 0%, @colorProgressive 100% )
+	background: /*image*/ linear-gradient( 90deg, @color-progressive 0%, @color-progressive 100% )
 		/* position / size*/ -10% 0 ~'/' 0 2px
 		/* repeat */ no-repeat,/*second bg, just color*/#fff;
 	//

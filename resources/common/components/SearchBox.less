@@ -14,7 +14,7 @@
 // a Codex element.
 .vector-search-box-input {
 	background-color: rgba( 255, 255, 255, 0.5 );
-	color: @color-base--emphasized;
+	color: @color-emphasized;
 	width: 100%;
 	// Reduce height slightly from standard to match legacy Vector tabs.
 	height: unit( 28 / @font-size-browser / @font-size-search-input, em ); // Equals `2.15384615em`.
@@ -23,7 +23,7 @@
 	border-radius: @border-radius-base;
 	// `padding-right` equals to `#searchbutton` width below.
 	padding: 5px @width-search-button 5px 0.4em;
-	box-shadow: @box-shadow-base;
+	box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 	// Match Codex.
 	font-family: inherit;
 	font-size: @font-size-search-input;
@@ -40,14 +40,14 @@
 	-moz-appearance: textfield;
 
 	.vector-search-box-inner:hover & {
-		border-color: @colorGray7;
+		border-color: #72777d;
 	}
 
 	&:focus,
 	.vector-search-box-inner:hover &:focus {
 		outline: 0;
-		border-color: @border-color-base--focus;
-		box-shadow: @box-shadow-base--focus;
+		border-color: @border-color-progressive--focus;
+		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
 	}
 
 	.mixin-placeholder( {
