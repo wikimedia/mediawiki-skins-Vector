@@ -30,6 +30,7 @@ describe( 'Popup Notification', () => {
 		testMessage = 'test message';
 		vectorPopupClass = 'vector-popup-notification';
 		activeNotification = [];
+		popUpNotification.hideAll();
 	} );
 
 	afterEach( () => {
@@ -55,8 +56,8 @@ describe( 'Popup Notification', () => {
 			.contains( vectorPopupClass ) ).toBe( true );
 	} );
 
-	// test remove function
-	test( 'remove', async () => {
+	// test hide function
+	test( 'hide', async () => {
 		const popupWidget = await popUpNotification.add(
 			document.body,
 			testMessage,
@@ -66,10 +67,11 @@ describe( 'Popup Notification', () => {
 			() => {}
 		);
 		activeNotification[ testId ] = popupWidget;
+		expect( activeNotification[ testId ].visible ).toBe( false );
+		popUpNotification.show( activeNotification[ testId ] );
 		expect( activeNotification[ testId ].visible ).toBe( true );
-		popUpNotification.remove( activeNotification[ testId ] );
-		expect( document.body.contains( activeNotification[ testId ].$element[ 0 ] ) )
-			.toBe( false );
+		popUpNotification.hide( activeNotification[ testId ] );
+		expect( activeNotification[ testId ].visible ).toBe( false );
 	} );
 
 	// test show function
@@ -83,15 +85,13 @@ describe( 'Popup Notification', () => {
 			() => {}
 		);
 		activeNotification[ testId ] = popupWidget;
-		expect( activeNotification[ testId ].visible ).toBe( true );
-		activeNotification[ testId ].toggle( false );
 		expect( activeNotification[ testId ].visible ).toBe( false );
-		popUpNotification.tests.show( activeNotification[ testId ] );
+		popUpNotification.show( activeNotification[ testId ] );
 		expect( activeNotification[ testId ].visible ).toBe( true );
 	} );
 
-	// test removeAll function
-	test( 'removeAll', async () => {
+	// test hideAll function
+	test( 'hideAll', async () => {
 		const popupWidget = await popUpNotification.add(
 			document.body,
 			testMessage,
@@ -101,9 +101,10 @@ describe( 'Popup Notification', () => {
 			() => {}
 		);
 		activeNotification[ testId ] = popupWidget;
+		expect( activeNotification[ testId ].visible ).toBe( false );
+		popUpNotification.show( activeNotification[ testId ] );
 		expect( activeNotification[ testId ].visible ).toBe( true );
-		popUpNotification.removeAll();
-		expect( document.body.contains( activeNotification[ testId ].$element[ 0 ] ) )
-			.toBe( false );
+		popUpNotification.hideAll();
+		expect( activeNotification[ testId ].visible ).toBe( false );
 	} );
 } );

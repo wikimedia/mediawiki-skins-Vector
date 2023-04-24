@@ -213,7 +213,12 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 					document.querySelector( containerSelector )
 				);
 				if ( container ) {
-					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), TOC_ID );
+					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), container.id )
+						.then( ( popupWidget ) => {
+							if ( popupWidget ) {
+								popupNotification.show( popupWidget );
+							}
+						} );
 				}
 			}
 

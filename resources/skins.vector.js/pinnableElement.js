@@ -80,7 +80,12 @@ function addPinnableElementIndicator( pinnableElementId ) {
 		// * vector-page-tools-unpinned-popup
 		// * vector-main-menu-unpinned-popup
 		const message = mw.msg( `${pinnableElementId}-unpinned-popup` );
-		popupNotification.add( container, message, pinnableElementId );
+		popupNotification.add( container, message, pinnableElementId )
+			.then( ( popupWidget ) => {
+				if ( popupWidget ) {
+					popupNotification.show( popupWidget );
+				}
+			} );
 	}
 }
 
@@ -206,7 +211,7 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 		newContainer.insertAdjacentElement( 'beforeend', pinnableElem );
 	}
 
-	popupNotification.removeAll();
+	popupNotification.hideAll();
 }
 
 function initPinnableElement() {
