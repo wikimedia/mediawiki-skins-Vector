@@ -4,16 +4,6 @@
 	display: none;
 }
 
-.vector-column-end {
-	// T327460: Prevent subpixel rendering issues associated with the text and Chrome.
-	contain: paint;
-
-	.vector-page-tools {
-		// FIXME: Use grid styles to define width
-		width: 140px;
-	}
-}
-
 // Ensure collapsible items are visible on lower resolutions
 .vector-page-tools .vector-more-collapsible-item {
 	display: block;
