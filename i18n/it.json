@@ -27,7 +27,7 @@
 	"vector.js": "/* Il codice JavaScript inserito qui viene caricato dagli utenti che usano il tema Vector */",
 	"vector-action-toggle-sidebar": "Attiva/disattiva la barra laterale",
 	"vector-languages": "Lingue",
-	"vector-language-button-aria-label": "Vai a una voce in un'altra lingua. Disponibile in {{PLURAL:$1| $1 lingua| $1 lingue}}",
+	"vector-language-button-aria-label": "Vai a una voce in un'altra lingua. Disponibile in {{PLURAL:$1|$1 lingua|$1 lingue}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 lingue}}",
 	"vector-no-language-button-label": "Aggiungi lingue",
 	"vector-no-language-button-aria-label": "Questa voce esiste solo in questa lingua. Aggiungi la voce per altre lingue",
