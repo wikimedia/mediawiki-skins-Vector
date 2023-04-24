@@ -384,10 +384,14 @@ class SkinVector22 extends SkinMustache {
 		$components = $tocComponents + [
 			'data-add-topic-button' => $hasAddTopicButton ? new VectorComponentButton(
 				$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
+				'speechBubbleAdd-progressive',
 				'ca-addsection',
-				$this->getTitle()->getLocalURL( 'action=edit&section=new' ),
-				'wikimedia-speechBubbleAdd-progressive',
-				'addsection-header'
+				'',
+				[ 'data-event-name' => 'addsection-header' ],
+				'quiet',
+				'progressive',
+				false,
+				$this->getTitle()->getLocalURL( 'action=edit&section=new' )
 			) : null,
 			'data-vector-variants' => new VectorComponentMenuVariants(
 				// @phan-suppress-next-line PhanTypeInvalidDimOffset, PhanTypeMismatchArgument
