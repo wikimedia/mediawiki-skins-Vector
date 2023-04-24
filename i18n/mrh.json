@@ -2,16 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Laitei",
-			"Teitei Para"
+			"Teitei Para",
+			"Amire80",
+			"Taytay"
 		]
 	},
 	"vector-action-addsection": "Chôtlâhpi khô",
-	"vector-action-delete": "ParaoHip",
+	"vector-action-delete": "Parao",
 	"vector-action-move": "Paly",
 	"vector-action-protect": "Vaih",
 	"vector-view-create": "Tao",
 	"vector-view-edit": "Taopathi",
-	"vector-view-history": "Chhichânazy palâ teih",
+	"vector-view-history": "Chhichânazy palâ teh",
 	"vector-view-view": "Reih teih",
-	"vector-more-actions": "Ahluhviapa"
+	"vector-more-actions": "A hluh via"
 }

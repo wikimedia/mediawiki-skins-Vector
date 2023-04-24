@@ -6,15 +6,23 @@
 			"Vlad5250"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Хаснуй старшу векторску тему",
+	"prefs-vector-enable-vector-1-help": "У наиходзацих пар рокох будземе поступнє ажурировац векторску тему. Виберце опцию понад же бисце ше врацели на старши випатрунок теми (так як вона була у децембре 2019). [[mw:Reading/Web/Desktop_Improvements|Детальнєйше о ажурированьох]]",
+	"vector-opt-out": "Прейдзце на старши випатрунок",
+	"vector-opt-out-tooltip": "Пременьце штелованя же бисце ше врацели на стари випатрунок теми (старша векторска)",
+	"vector-action-toggle-sidebar": "Прикаж/скри бочни панел",
 	"vector-action-addsection": "Додай тему",
 	"vector-action-delete": "Посцерай",
 	"vector-action-move": "Пременовац",
 	"vector-action-protect": "Защициц",
+	"vector-action-undelete": "Обновиц",
 	"vector-action-unprotect": "Премень защиту",
 	"vector-view-create": "Витвориц",
 	"vector-view-edit": "Ушориц",
 	"vector-view-history": "Опать историю",
 	"vector-view-view": "Читай",
 	"vector-view-viewsource": "Опатриц жридлови код",
+	"vector-jumptonavigation": "Прейдз на навиґацию",
+	"vector-jumptosearch": "Прейдз на глєданє",
 	"vector-more-actions": "Вецей"
 }

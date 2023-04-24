@@ -7,7 +7,11 @@
 			"Octahedron80",
 			"Woraponboonkerd",
 			"Aefgh39622",
-			"Patsagorn Y."
+			"Patsagorn Y.",
+			"Amire80",
+			"Bebiezaza",
+			"Ekminarin",
+			"Trisorn Triboon"
 		]
 	},
 	"skinname-vector": "เวกเตอร์",
@@ -21,7 +25,7 @@
 	"vector-action-toggle-sidebar": "เปิด/ปิดแถบข้าง",
 	"vector-action-addsection": "เพิ่มหัวข้อ",
 	"vector-action-delete": "ลบ",
-	"vector-action-move": "เปลี่ยนชื่อ",
+	"vector-action-move": "ย้าย",
 	"vector-action-protect": "ป้องกัน",
 	"vector-action-undelete": "กู้คืน",
 	"vector-action-unprotect": "เปลี่ยนการป้องกัน",

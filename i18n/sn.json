@@ -4,11 +4,23 @@
 			"Masiziva"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Shandisa Legacy Vector",
+	"prefs-vector-enable-vector-1-help": "Mumakore mashoma achatevera, tichange tichivandudza ganda re Vector neufambe. Legacy Vector ichakubvumidza kuona uhlovo wekare cheVector (kubva muna Zvita 2019). Kuti mudzidze zvimwe pamusoro pezvivandudzo, endai [[mw:Reading/Web/Desktop_Improvements|kuzanhi rewushumo]] redu.",
+	"vector-opt-out": "Chinja kumataridziko ekare",
+	"vector-opt-out-tooltip": "Shandura marongero ako kuti udzokere kumataridziko eganda rekare (legacy Vector)",
+	"vector-action-toggle-sidebar": "Hlogora bhaaredivi",
 	"vector-action-addsection": "Wedzera ndaba",
 	"vector-action-delete": "Bharanura",
 	"vector-action-move": "Chichinura",
 	"vector-action-protect": "Dzivirira",
+	"vector-action-undelete": "Dzosarubharanuro",
+	"vector-action-unprotect": "Shandura rudziviriro",
 	"vector-view-create": "Sika",
+	"vector-view-edit": "Chinjirudza",
 	"vector-view-history": "Ringa nhoroondo",
+	"vector-view-view": "Werenga",
+	"vector-view-viewsource": "Ringa mabviro",
+	"vector-jumptonavigation": "Svetuka kumufambairo",
+	"vector-jumptosearch": "Svetuka kukwekutsvaga",
 	"vector-more-actions": "Zvimwe"
 }
