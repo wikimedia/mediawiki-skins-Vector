@@ -147,17 +147,14 @@
 			transform: translateY( 0 );
 		}
 
-		// - T314330 `.vector-feature-toc-pinned-enabled #vector-toc-pinned-container`
-		//   Prevent ToC from jumping when sticky header is enabled.
-		#vector-toc-pinned-container,
-		#vector-page-tools-pinned-container {
-			/* stylelint-disable-next-line declaration-no-important */
-			top: ~'calc( @{height-header} + @{grid-row-gap})' !important;
-		}
+		.vector-sticky-pinned-container {
+			.vector-pinned-container {
+				top: ~'calc( @{height-header} + @{grid-row-gap})';
+			}
 
-		#vector-toc-pinned-container .vector-toc,
-		#vector-page-tools-pinned-container .vector-page-tools {
-			max-height: ~'calc( 100vh - @{height-header} - @{grid-row-gap} - @{padding-vertical-dropdown-menu} - @{padding-vertical-dropdown-menu} - @{grid-row-gap} )';
+			.vector-pinnable-element {
+				max-height: ~'calc( 100vh - @{height-header} - @{grid-row-gap} - @{padding-vertical-dropdown-menu} - @{padding-vertical-dropdown-menu} - @{grid-row-gap} )';
+			}
 		}
 
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
