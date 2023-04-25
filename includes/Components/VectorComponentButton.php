@@ -87,7 +87,7 @@ class VectorComponentButton implements VectorComponent {
 				$classes .= ' mw-ui-destructive';
 				break;
 		}
-		if ( $this->icon && $this->iconOnly ) {
+		if ( $this->iconOnly ) {
 			$classes .= ' mw-ui-icon-element';
 		}
 		if ( $this->class ) {

@@ -5,8 +5,9 @@ exports[`Sticky header renders 1`] = `
 	<div class=\\"vector-sticky-header-start\\">
 		<div class=\\"vector-sticky-header-icon-start mw-ui-icon-flush-left mw-ui-icon-flush-right\\" aria-hidden=\\"true\\">
 
-<button tabindex=\\"-1\\" data-event-name=\\"ui.vector-sticky-search-form.icon\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search vector-sticky-header-search-toggle\\">
-	<span>search</span>
+<button class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element vector-sticky-header-search-toggle\\" data-event-name=\\"ui.vector-sticky-search-form.icon\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-search mw-ui-icon-wikimedia-search\\"></span>
+
+<span>search</span>
 
 </button>
 		</div>
@@ -26,35 +27,40 @@ exports[`Sticky header renders 1`] = `
 	</div>
 	<div class=\\"vector-sticky-header-end\\" aria-hidden=\\"true\\">
 		<div class=\\"vector-sticky-header-icons\\">
-<a href=\\"#\\" id=\\"ca-talk-sticky-header\\" data-event-name=\\"talk-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-speechBubbles sticky-header-icon\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-talk-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon\\" data-event-name=\\"talk-sticky-header\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles\\"></span>
+
+<span></span>
 </a>
 
-<a href=\\"#\\" id=\\"ca-history-sticky-header\\" data-event-name=\\"history-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-history sticky-header-icon\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-history-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon\\" data-event-name=\\"history-sticky-header\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-history mw-ui-icon-wikimedia-history\\"></span>
+
+<span></span>
 </a>
 
-<a href=\\"#\\" id=\\"ca-watchstar-sticky-header\\" data-event-name=\\"watch-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-star sticky-header-icon mw-watchlink\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-watchstar-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon mw-watchlink\\" data-event-name=\\"watch-sticky-header\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-star mw-ui-icon-wikimedia-star\\"></span>
+
+<span></span>
 </a>
 
-<a href=\\"#\\" id=\\"ca-ve-edit-sticky-header\\" data-event-name=\\"ve-edit-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-edit sticky-header-icon\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-ve-edit-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon\\" data-event-name=\\"ve-edit-sticky-header\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-edit mw-ui-icon-wikimedia-edit\\"></span>
+
+<span></span>
 </a>
 
-<a href=\\"#\\" id=\\"ca-edit-sticky-header\\" data-event-name=\\"wikitext-edit-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-wikiText sticky-header-icon\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-edit-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon\\" data-event-name=\\"wikitext-edit-sticky-header\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-wikiText mw-ui-icon-wikimedia-wikiText\\"></span>
+
+<span></span>
 </a>
 
-<a href=\\"#\\" id=\\"ca-viewsource-sticky-header\\" data-event-name=\\"wikimedia-editLock\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-star sticky-header-icon\\">
-	<span></span>
+<a href=\\"#\\" id=\\"ca-viewsource-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon\\" data-event-name=\\"editLock\\" tabindex=\\"-1\\"><span class=\\"mw-ui-icon mw-ui-icon-star mw-ui-icon-wikimedia-star\\"></span>
+
+<span></span>
 </a>
 
 		</div>
 		<div class=\\"vector-sticky-header-buttons\\">
 
-<button id=\\"p-lang-btn-sticky-header\\" tabindex=\\"-1\\" data-event-name=\\"ui.dropdown-p-lang-btn-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-interlanguage-selector\\">
-	<span class=\\"mw-ui-icon mw-ui-icon-wikimedia-language\\"></span><span>0 languages</span>
+<button id=\\"p-lang-btn-sticky-header\\" class=\\"mw-ui-button mw-ui-quiet mw-interlanguage-selector\\" data-event-name=\\"ui.dropdown-p-lang-btn-sticky-header\\" tabindex=\\"-1\\"><span>0 languages</span>
 
 </button>
 		</div>

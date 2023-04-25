@@ -1,7 +1,6 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use MediaWiki\Skins\Vector\Hooks;
 use Message;
 use MessageLocalizer;
 
@@ -10,35 +9,26 @@ use MessageLocalizer;
  */
 class VectorComponentStickyHeader implements VectorComponent {
 	private const TALK_ICON = [
-		'href' => '#',
+		'label' => '',
+		'icon' => 'speechBubbles',
 		'id' => 'ca-talk-sticky-header',
-		'event' => 'talk-sticky-header',
-		'icon' => 'wikimedia-speechBubbles',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
+		'event' => 'talk-sticky-header'
 	];
 	private const SUBJECT_ICON = [
-		'href' => '#',
+		'label' => '',
+		'icon' => 'article',
 		'id' => 'ca-subject-sticky-header',
-		'event' => 'subject-sticky-header',
-		'icon' => 'wikimedia-article',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
+		'event' => 'subject-sticky-header'
 	];
 	private const HISTORY_ICON = [
-		'href' => '#',
+		'label' => '',
+		'icon' => 'wikimedia-history',
 		'id' => 'ca-history-sticky-header',
 		'event' => 'history-sticky-header',
-		'icon' => 'wikimedia-history',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
 	];
 	// Event and icon will be updated depending on watchstar state
 	private const WATCHSTAR_ICON = [
-		'href' => '#',
+		'label' => '',
 		'id' => 'ca-watchstar-sticky-header',
 		'event' => 'watch-sticky-header',
 		'icon' => 'wikimedia-star',
@@ -47,31 +37,23 @@ class VectorComponentStickyHeader implements VectorComponent {
 		'class' => 'sticky-header-icon mw-watchlink'
 	];
 	private const EDIT_VE_ICON = [
-		'href' => '#',
+		'label' => '',
 		'id' => 'ca-ve-edit-sticky-header',
 		'event' => 've-edit-sticky-header',
 		'icon' => 'wikimedia-edit',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
 	];
 	private const EDIT_WIKITEXT_ICON = [
-		'href' => '#',
+		'label' => '',
 		'id' => 'ca-edit-sticky-header',
 		'event' => 'wikitext-edit-sticky-header',
 		'icon' => 'wikimedia-wikiText',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
 	];
 	private const EDIT_PROTECTED_ICON = [
+		'label' => '',
 		'href' => '#',
 		'id' => 'ca-viewsource-sticky-header',
 		'event' => 've-edit-protected-sticky-header',
 		'icon' => 'wikimedia-editLock',
-		'is-quiet' => true,
-		'tabindex' => '-1',
-		'class' => 'sticky-header-icon'
 	];
 
 	/** @var MessageLocalizer */
@@ -110,27 +92,11 @@ class VectorComponentStickyHeader implements VectorComponent {
 	}
 
 	/**
-	 * Creates button data for the "Add section" button in the sticky header
+	 * Creates array of Button components in the sticky header
 	 *
 	 * @return array
 	 */
-	private function getAddSectionButtonData() {
-		return [
-			'href' => '#',
-			'id' => 'ca-addsection-sticky-header',
-			'event' => 'addsection-sticky-header',
-			'html-vector-button-icon' => Hooks::makeIcon( 'wikimedia-speechBubbleAdd-progressive' ),
-			'label' => $this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
-			'is-quiet' => true,
-			'tabindex' => '-1',
-			'class' => 'sticky-header-icon mw-ui-primary mw-ui-progressive'
-		];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getTemplateData(): array {
+	private function getIconButtons() {
 		$icons = [
 			self::TALK_ICON,
 			self::SUBJECT_ICON,
@@ -142,24 +108,85 @@ class VectorComponentStickyHeader implements VectorComponent {
 			$icons[] = self::EDIT_PROTECTED_ICON;
 			$icons[] = self::EDIT_VE_ICON;
 		}
-		$buttons = [];
-		if ( $this->langButton ) {
-			$buttons[] = $this->langButton->getTemplateData();
+		$iconButtons = [];
+		foreach ( $icons as $icon ) {
+			$iconButtons[] = new VectorComponentButton(
+				$icon[ 'label' ],
+				$icon[ 'icon' ],
+				$icon[ 'id' ],
+				'sticky-header-icon',
+				[
+					'tabindex' => '-1',
+					'data-event-name' => $icon[ 'event' ],
+				],
+				'quiet',
+				'default',
+				true,
+				'#'
+			);
 		}
-		$buttons[] = $this->getAddSectionButtonData();
-		$searchBoxData = $this->search->getTemplateData();
+		return $iconButtons;
+	}
 
-		return [
-			'data-icons' => $icons,
-			'data-buttons' => $buttons,
-			'data-button-start' => [
-				'label' => $this->msg( 'search' ),
-				'icon' => 'wikimedia-search',
-				'is-quiet' => true,
+	/**
+	 * Creates button data for the "Add section" button in the sticky header
+	 *
+	 * @return VectorComponentButton
+	 */
+	private function getAddSectionButton() {
+		return new VectorComponentButton(
+			$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
+			'speechBubbleAdd-progressive',
+			'ca-addsection-sticky-header',
+			'sticky-header-icon',
+			[
 				'tabindex' => '-1',
-				'class' => 'vector-sticky-header-search-toggle',
-				'event' => 'ui.' . $searchBoxData['form-id'] . '.icon'
+				'data-event-name' => 'addsection-sticky-header'
 			],
+			'quiet',
+			'progressive',
+			false,
+			'#'
+		);
+	}
+
+	/**
+	 * Creates button data for the "search" button in the sticky header
+	 *
+	 * @param array $searchBoxData
+	 * @return VectorComponentButton
+	 */
+	private function getSearchButton( $searchBoxData ) {
+		return new VectorComponentButton(
+			$this->msg( 'search' ),
+			'search',
+			'',
+			'vector-sticky-header-search-toggle',
+			[
+				'tabindex' => '-1',
+				'data-event-name' => 'ui.' . $searchBoxData['form-id'] . '.icon'
+			],
+			'quiet',
+			'default',
+			true
+		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getTemplateData(): array {
+		$iconButtonData = array_map( static function ( $btn ) {
+			return $btn->getTemplateData();
+		}, $this->getIconButtons() );
+		$buttonData = $this->langButton ? [ $this->langButton->getTemplateData() ] : [];
+		$buttonData[] = $this->getAddSectionButton()->getTemplateData();
+		$searchBoxData = $this->search->getTemplateData();
+		$searchButtonData = $this->getSearchButton( $searchBoxData )->getTemplateData();
+		return [
+			'array-icon-buttons' => $iconButtonData,
+			'array-buttons' => $buttonData,
+			'data-button-start' => $searchButtonData,
 			'data-search' => $searchBoxData,
 		];
 	}

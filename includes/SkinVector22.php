@@ -6,7 +6,6 @@ use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
-use MediaWiki\Skins\Vector\Components\VectorComponentLanguageButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
@@ -406,7 +405,7 @@ class SkinVector22 extends SkinMustache {
 				$this->getOptions()['link'],
 				$userPage[ 'icon' ] ?? ''
 			),
-			'data-lang-btn' => $langData ? new VectorComponentLanguageDropdown(
+			'data-lang-dropdown' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],
 				$ulsLabels['aria-label'],
 				$langButtonClass,
@@ -470,9 +469,29 @@ class SkinVector22 extends SkinMustache {
 				),
 				// Show sticky ULS if the ULS extension is enabled and the ULS in header is not hidden
 				$this->isULSExtensionEnabled() && !$this->shouldHideLanguages() ?
-					new VectorComponentLanguageButton( $ulsLabels[ 'label' ] ) : null,
+					new VectorComponentButton(
+						$ulsLabels[ 'label' ],
+						'wikimedia-language',
+						'p-lang-btn-sticky-header',
+						'mw-interlanguage-selector',
+						[
+							'tabindex' => '-1',
+							'data-event-name' => 'ui.dropdown-p-lang-btn-sticky-header'
+						],
+						'quiet',
+					) : null,
 				true
-			) : null
+			) : null,
+			'data-vector-settings-button' => new VectorComponentButton(
+				$this->msg( 'vector-limited-width-toggle' ),
+				null,
+				'',
+				'mw-ui-icon vector-limited-width-toggle',
+				[],
+				'normal',
+				'default',
+				true
+			)
 		];
 		foreach ( $components as $key => $component ) {
 			// Array of components or null values.
@@ -487,11 +506,6 @@ class SkinVector22 extends SkinMustache {
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),
 			// Cast empty string to null
 			'html-subtitle' => $parentData['html-subtitle'] === '' ? null : $parentData['html-subtitle'],
-			// FIXME: Replace with VectorComponentButton
-			'data-vector-settings-button' => [
-				'label' => $this->msg( 'vector-limited-width-toggle' ),
-				'class' => 'mw-ui-icon mw-ui-icon-element vector-limited-width-toggle',
-			],
 		] );
 	}
 }

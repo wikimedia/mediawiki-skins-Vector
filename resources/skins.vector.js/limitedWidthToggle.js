@@ -33,20 +33,8 @@ function getPopupText() {
  * adds a toggle button
  */
 function init() {
-	let settings = /** @type {HTMLElement} */ ( document.querySelector( '.vector-settings' ) );
-	let toggle = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
-	if ( !( toggle && settings ) ) {
-		// FIXME: Replace this block with a return statement after caching implications are resolved
-		toggle = document.createElement( 'button' );
-		toggle.setAttribute( 'title', mw.msg( 'vector-limited-width-toggle' ) );
-		toggle.setAttribute( 'aria-hidden', 'true' );
-		toggle.textContent = mw.msg( 'vector-limited-width-toggle' );
-		toggle.classList.add( 'mw-ui-icon', 'mw-ui-icon-element', 'mw-ui-button', 'vector-limited-width-toggle' );
-		settings = document.createElement( 'div' );
-		settings.setAttribute( 'class', 'vector-settings' );
-		settings.appendChild( toggle );
-		document.body.appendChild( settings );
-	}
+	const settings = /** @type {HTMLElement} */ ( document.querySelector( '.vector-settings' ) );
+	const toggle = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
 
 	setDataAttribute( toggle );
 	const userMayNotKnowTheyAreInExpandedMode = !mw.cookie.get( AWARE_COOKIE_NAME );

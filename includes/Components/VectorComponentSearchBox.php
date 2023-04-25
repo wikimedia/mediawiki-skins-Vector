@@ -95,13 +95,18 @@ class VectorComponentSearchBox implements VectorComponent {
 		// It should behave like a form submit link (e.g. submit the form with no input value).
 		// We'll wire this up in a later task T284242.
 		$collapseIconAttrs = Linker::tooltipAndAccesskeyAttribs( 'search' );
-		$searchBoxData['data-collapse-icon'] = array_merge( [
-			'href' => Title::newFromText( $searchBoxData['page-title'] )->getLocalURL(),
-			'label' => $this->localizer->msg( 'search' ),
-			'icon' => 'wikimedia-search',
-			'is-quiet' => true,
-			'class' => 'search-toggle',
-		], $collapseIconAttrs );
+		$searchButton = new VectorComponentButton(
+			$this->localizer->msg( 'search' ),
+			'search',
+			'',
+			'search-toggle',
+			$collapseIconAttrs,
+			'quiet',
+			'default',
+			true,
+			Title::newFromText( $searchBoxData['page-title'] )->getLocalURL()
+		);
+		$searchBoxData['data-collapsed-search-button'] = $searchButton->getTemplateData();
 
 		return $searchBoxData;
 	}
