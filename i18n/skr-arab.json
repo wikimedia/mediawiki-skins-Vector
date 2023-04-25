@@ -4,6 +4,9 @@
 			"Saraiki"
 		]
 	},
+	"vector-languages": "زباناں",
+	"vector-language-button-label": "{{PLURAL:$1|$1 زبان|$1 زباناں}}",
+	"vector-no-language-button-label": "زباناں شامل کرو",
 	"vector-action-addsection": "نواں موضوع",
 	"vector-action-delete": "مٹاؤ",
 	"vector-action-move": "ٹورو",
