@@ -6,7 +6,8 @@
 			"Mohammedbama123"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
+	"vector-languages": "Tǝlam",
+	"vector-language-button-label": "{{PLURAL:$1|$1 telam|$1 telam wa gade}}",
 	"vector-action-addsection": "Bayin yukko",
 	"vector-action-delete": "Chinne",
 	"vector-action-move": "Huutu",

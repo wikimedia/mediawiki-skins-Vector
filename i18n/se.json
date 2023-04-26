@@ -9,7 +9,7 @@
 		]
 	},
 	"vector-languages": "Gielat",
-	"vector-language-button-label": "{{PLURAL:$1|$1 gillii|$1 gillii}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 giella|$1 giela}}",
 	"vector-action-addsection": "Lasit fáttá",
 	"vector-action-delete": "Sihko",
 	"vector-action-move": "Sirdde",
