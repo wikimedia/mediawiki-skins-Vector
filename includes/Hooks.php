@@ -177,7 +177,7 @@ class Hooks implements
 					// Force the item as a button with hidden text.
 					$item['button'] = true;
 					$item['text-hidden'] = true;
-					$item = self::updateMenuItemData( $item, true, false );
+					$item = self::updateMenuItemData( $item, false );
 				}
 			} elseif ( !$isLegacy ) {
 				// The vector-tab-noicon class is only used in Vector-22.
@@ -436,16 +436,11 @@ class Hooks implements
 	 *
 	 * @internal for use inside Vector skin.
 	 * @param string $name
-	 * @param bool $isSmall
 	 * @return string of HTML
 	 */
-	public static function makeIcon( $name, $isSmall = false ) {
+	public static function makeIcon( $name ) {
 		// Html::makeLink will pass this through rawElement
-		$iconClasses = 'mw-ui-icon';
-		if ( $isSmall ) {
-			$iconClasses .= ' mw-ui-icon-small';
-		}
-		return '<span class="' . $iconClasses . ' mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
+		return '<span class="vector-icon mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
 	}
 
 	/**
@@ -455,12 +450,11 @@ class Hooks implements
 	 * @param array $item data to update
 	 * @param string $buttonClassProp property to append button classes
 	 * @param string $iconHtmlProp property to set icon HTML
-	 * @param bool $isSmallIcon when set a small icon will be applied rather than the standard icon size
 	 * @param bool $unsetIcon should the icon field be unset?
 	 * @return array $item Updated data
 	 */
 	private static function updateItemData(
-		$item, $buttonClassProp, $iconHtmlProp, $isSmallIcon = false, $unsetIcon = true
+		$item, $buttonClassProp, $iconHtmlProp, $unsetIcon = true
 	) {
 		$hasButton = $item['button'] ?? false;
 		$hideText = $item['text-hidden'] ?? false;
@@ -477,14 +471,20 @@ class Hooks implements
 			self::makeMenuItemCollapsible( $item );
 		}
 		if ( $hasButton ) {
-			self::appendClassToItem( $item[ $buttonClassProp ], [ 'mw-ui-button', 'mw-ui-quiet' ] );
+			// Hardcoded button classes, this should be fixed by replacing Hooks.php with VectorComponentButton.php
+			self::appendClassToItem( $item[ $buttonClassProp ], [
+				'cdx-button',
+				'cdx-button--fake-button',
+				'cdx-button--fake-button--enabled',
+				'cdx-button--weight-quiet'
+			] );
 		}
 		if ( $icon ) {
-			if ( $hideText ) {
-				$iconElementClasses = [ 'mw-ui-icon-element' ];
-				self::appendClassToItem( $item[ $buttonClassProp ], $iconElementClasses );
+			if ( $hideText && $hasButton ) {
+				self::appendClassToItem( $item[ $buttonClassProp ], [ 'cdx-button--icon-only' ] );
 			}
-			$item[ $iconHtmlProp ] = self::makeIcon( $icon, $isSmallIcon );
+
+			$item[ $iconHtmlProp ] = self::makeIcon( $icon );
 		}
 		return $item;
 	}
@@ -494,14 +494,13 @@ class Hooks implements
 	 *
 	 * @internal used inside Hooks::updateMenuItems ::updateViewsMenuIcons and ::updateUserLinksDropdownItems
 	 * @param array $item menu item data to update
-	 * @param bool $isSmallIcon when set a small icon will be applied rather than the standard icon size
 	 * @param bool $unsetIcon should the icon field be unset?
 	 * @return array $item Updated menu item data
 	 */
-	public static function updateMenuItemData( $item, $isSmallIcon = false, $unsetIcon = true ) {
+	public static function updateMenuItemData( $item, $unsetIcon = true ) {
 		$buttonClassProp = 'link-class';
 		$iconHtmlProp = 'link-html';
-		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp, $isSmallIcon, $unsetIcon );
+		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp, $unsetIcon );
 	}
 
 	/**

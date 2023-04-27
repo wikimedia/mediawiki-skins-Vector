@@ -50,7 +50,7 @@ function createIconElement( menuElement, parentElement, id ) {
 	}
 
 	const iconElement = document.createElement( 'span' );
-	iconElement.classList.add( 'mw-ui-icon' );
+	iconElement.classList.add( 'vector-icon' );
 
 	if ( id ) {
 		// The following class allows gadgets developers to style or hide an icon.

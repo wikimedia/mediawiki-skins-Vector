@@ -4,7 +4,9 @@
 	position: relative;
 
 	// When 99+ allow counter so spill outside icon
-	&.mw-ui-button {
+	// FIXME: Remove old button classes after caching
+	&.mw-ui-button,
+	&.cdx-button {
 		overflow: visible;
 	}
 
@@ -12,8 +14,8 @@
 		position: absolute;
 		left: 55%;
 		top: 43%;
-		font-size: unit( 12 / @font-size-browser, em );
-		padding: 7px 0.3em;
+		font-size: unit( 12 / @font-size-browser, rem );
+		padding: 0 unit( 4 / @font-size-browser, rem );
 		border: 1px solid #fff;
 		border-radius: @border-radius-base;
 		background-color: #72777d;
@@ -44,12 +46,7 @@
 #pt-notifications-notice .mw-echo-notifications-badge,
 #pt-notifications-alert .mw-echo-notifications-badge {
 	.mixin-notification-badge();
+	display: inline-flex;
 	margin: 0;
-	line-height: 0;
 	opacity: 1;
-
-	&:focus {
-		// Copied from mixins.buttons.less, match button focus styles
-		box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus, @box-shadow-inset-medium @box-shadow-color-inverted;
-	}
 }

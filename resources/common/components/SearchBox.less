@@ -96,13 +96,14 @@
 
 .search-toggle {
 	// At lower resolutions the search input is hidden and a toggle is shown
-	display: block;
+	display: inline-flex;
 	float: right;
 	// Ensures the button has a font size of 16px
 	font-size: unit( 16 / @font-size-browser, rem );
 
 	@media ( min-width: @min-width-desktop ) {
-		display: none;
+		// Override .cdx-button styles
+		display: none !important;  /* stylelint-disable-line declaration-no-important */
 	}
 }
 

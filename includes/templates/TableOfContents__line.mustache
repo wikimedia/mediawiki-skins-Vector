@@ -8,8 +8,9 @@
 	{{{.}}}
 	{{/extensionData.DiscussionTools-html-summary}}
 	{{#is-top-level-section}}{{#is-parent-section}}
-		<button aria-controls="toc-{{anchor}}-sublist" class="mw-ui-icon mw-ui-icon-wikimedia-expand mw-ui-icon-small vector-toc-toggle">
-			{{{vector-button-label}}}
+		<button aria-controls="toc-{{anchor}}-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle">
+			<span class="vector-icon vector-icon--x-small mw-ui-icon-wikimedia-expand"></span>
+			<span>{{{vector-button-label}}}</span>
 		</button>
 	{{/is-parent-section}}{{/is-top-level-section}}
 	<ul id="toc-{{anchor}}-sublist" class="vector-toc-list">

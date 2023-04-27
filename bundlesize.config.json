@@ -4,8 +4,12 @@
 		"maxSize": "8.4 kB"
 	},
 	{
+		"resourceModule": "codex-search-styles",
+		"maxSize": "4.2 kB"
+	},
+	{
 		"resourceModule": "skins.vector.styles",
-		"maxSize": "12.3 kB"
+		"maxSize": "12.7 kB"
 	},
 	{
 		"resourceModule": "skins.vector.js",

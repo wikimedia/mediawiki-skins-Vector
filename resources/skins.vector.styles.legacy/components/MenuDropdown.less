@@ -71,7 +71,8 @@
 		text-align: left;
 		line-height: 1em;
 
-		a:not( .mw-ui-icon ) {
+		// FIXME: Remove old icon classes after caching
+		a:not( .vector-icon ):not( .mw-ui-icon ) {
 			font-size: @font-size-tabs;
 		}
 

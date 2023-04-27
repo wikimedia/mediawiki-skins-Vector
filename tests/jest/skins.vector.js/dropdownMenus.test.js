@@ -10,7 +10,7 @@ describe( 'addPortletLinkHandler', () => {
 				<ul class="vector-menu-content-list">
 					<li id="pt-userpage" class="mw-list-item">
 						<a href="#bar">
-							<span class="mw-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
+							<span class="vector-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
 							<span>Admin</span>
 						</a>
 					</li>
@@ -23,7 +23,7 @@ describe( 'addPortletLinkHandler', () => {
 				<ul class="vector-menu-content-list">
 					<li id="pt-userpage" class="mw-list-item">
 						<a href="#bar">
-							<span class="mw-ui-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
+							<span class="vector-icon mw-ui-icon-userAvatar mw-ui-icon-wikimedia-userAvatar"></span>
 							<span>Admin</span>
 						</a>
 					</li>
@@ -131,7 +131,7 @@ describe( 'addPortletLinkHandler', () => {
 		addPortletLinkHandler( portletLinkItem, { id: 'foo-id' } );
 
 		// Asserting that the icon classes were added.
-		expect( portletLinkItem.querySelectorAll( 'span.mw-ui-icon.mw-ui-icon-vector-gadget-foo-id' ) ).toHaveLength( 1 );
+		expect( portletLinkItem.querySelectorAll( 'span.vector-icon.mw-ui-icon-vector-gadget-foo-id' ) ).toHaveLength( 1 );
 	} );
 
 	test( 'addPortletLinkHandler does not add icons to p-views menu', () => {
@@ -196,8 +196,8 @@ describe( 'addPortletLinkHandler', () => {
 
 		// Asserting that the icon classes were added where necessary
 		// and that only one icon class was added per item.
-		expect( portletLinkItem1.querySelectorAll( 'span.mw-ui-icon.mw-ui-icon-vector-gadget-foo' ) ).toHaveLength( 0 );
-		expect( portletLinkItem2.querySelectorAll( 'span.mw-ui-icon.mw-ui-icon-vector-gadget-bar' ) ).toHaveLength( 1 );
-		expect( portletLinkItem3.querySelectorAll( 'span.mw-ui-icon.mw-ui-icon-vector-gadget-baz' ) ).toHaveLength( 1 );
+		expect( portletLinkItem1.querySelectorAll( 'span.vector-icon.mw-ui-icon-vector-gadget-foo' ) ).toHaveLength( 0 );
+		expect( portletLinkItem2.querySelectorAll( 'span.vector-icon.mw-ui-icon-vector-gadget-bar' ) ).toHaveLength( 1 );
+		expect( portletLinkItem3.querySelectorAll( 'span.vector-icon.mw-ui-icon-vector-gadget-baz' ) ).toHaveLength( 1 );
 	} );
 } );

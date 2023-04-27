@@ -10,7 +10,7 @@ const defaultButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-talk-sticky-header',
 	icon: 'speechBubbles',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 'talk-sticky-header'
@@ -22,7 +22,7 @@ const defaultButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-history-sticky-header',
 	icon: 'history',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 'history-sticky-header'
@@ -34,7 +34,7 @@ const defaultButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-watchstar-sticky-header',
 	icon: 'star',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon mw-watchlink',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon mw-watchlink',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 'watch-sticky-header'
@@ -48,7 +48,7 @@ const editButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-ve-edit-sticky-header',
 	icon: 'edit',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 've-edit-sticky-header'
@@ -60,7 +60,7 @@ const editButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-edit-sticky-header',
 	icon: 'wikiText',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 'wikitext-edit-sticky-header'
@@ -72,7 +72,7 @@ const editButtonsTemplateData = [ {
 	href: '#',
 	id: 'ca-viewsource-sticky-header',
 	icon: 'star',
-	class: 'mw-ui-button mw-ui-quiet mw-ui-icon-element sticky-header-icon',
+	class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon',
 	'array-attributes': [ {
 		key: 'data-event-name',
 		value: 'editLock'
@@ -92,12 +92,12 @@ const templateData = {
 		'html-items': '',
 		'html-vector-menu-checkbox-attributes': 'tabindex="-1"',
 		'html-vector-menu-heading-attributes': 'tabindex="-1"',
-		'heading-class': 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet'
+		'heading-class': 'cdx-button cdx-button--weight-quiet cdx-button--icon-only'
 	},
 	'array-buttons': [ {
 		label: '0 languages',
 		id: 'p-lang-btn-sticky-header',
-		class: 'mw-ui-button mw-ui-quiet mw-interlanguage-selector',
+		class: 'cdx-button cdx-button--weight-quiet mw-interlanguage-selector',
 		'array-attributes': [ {
 			key: 'data-event-name',
 			value: 'ui.dropdown-p-lang-btn-sticky-header'
@@ -109,7 +109,7 @@ const templateData = {
 	'data-button-start': {
 		label: 'search',
 		icon: 'search',
-		class: 'mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element vector-sticky-header-search-toggle',
+		class: 'cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle',
 		'array-attributes': [ {
 			key: 'data-event-name',
 			value: 'ui.vector-sticky-search-form.icon'

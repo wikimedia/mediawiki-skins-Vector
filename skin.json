@@ -57,11 +57,10 @@
 						"skins.vector.js"
 					],
 					"styles": [
-						"mediawiki.ui.button",
+						"codex-search-styles",
 						"skins.vector.styles",
 						"skins.vector.user.styles",
-						"skins.vector.icons",
-						"mediawiki.ui.icon"
+						"skins.vector.icons"
 					],
 					"messages": [
 						"tooltip-p-logo",
@@ -283,8 +282,8 @@
 			]
 		},
 		"skins.vector.icons.js": {
-			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
-			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before,.vector-icon.mw-ui-icon-wikimedia-{name}-{variant}",
+			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before,.vector-icon.mw-ui-icon-wikimedia-{name}",
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -307,8 +306,8 @@
 			]
 		},
 		"skins.vector.icons": {
-			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before",
-			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before",
+			"selectorWithVariant": ".mw-ui-icon-wikimedia-{name}-{variant}:before,.vector-icon.mw-ui-icon-wikimedia-{name}-{variant}",
+			"selectorWithoutVariant": ".mw-ui-icon-wikimedia-{name}:before,.vector-icon.mw-ui-icon-wikimedia-{name}",
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
@@ -319,6 +318,8 @@
 				}
 			},
 			"icons": [
+				"tray",
+				"bell",
 				"menu",
 				"heart",
 				"language",

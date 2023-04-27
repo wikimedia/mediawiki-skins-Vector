@@ -62,7 +62,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		$isAnon = !$user->isRegistered();
 
 		$class = 'vector-user-menu';
-		$class .= ' mw-ui-icon-flush-right';
+		$class .= ' vector-button-flush-right';
 		$class .= !$isAnon ?
 			' vector-user-menu-logged-in' :
 			' vector-user-menu-logged-out';

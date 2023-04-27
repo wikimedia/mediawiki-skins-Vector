@@ -70,25 +70,28 @@ class VectorComponentButton implements VectorComponent {
 	 * Constructs button classes based on the props
 	 */
 	private function getClasses(): string {
-		$classes = 'mw-ui-button';
+		$classes = 'cdx-button';
+		if ( $this->href ) {
+			$classes .= ' cdx-button--fake-button cdx-button--fake-button--enabled';
+		}
 		switch ( $this->weight ) {
 			case 'primary':
-				$classes .= ' mw-ui-primary';
+				$classes .= ' cdx-button--weight-primary';
 				break;
 			case 'quiet':
-				$classes .= ' mw-ui-quiet';
+				$classes .= ' cdx-button--weight-quiet';
 				break;
 		}
 		switch ( $this->action ) {
 			case 'progressive':
-				$classes .= ' mw-ui-progressive';
+				$classes .= ' cdx-button--action-progressive';
 				break;
 			case 'destructive':
-				$classes .= ' mw-ui-destructive';
+				$classes .= ' cdx-button--action-destructive';
 				break;
 		}
 		if ( $this->iconOnly ) {
-			$classes .= ' mw-ui-icon-element';
+			$classes .= ' cdx-button--icon-only';
 		}
 		if ( $this->class ) {
 			$classes .= ' ' . $this->class;

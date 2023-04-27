@@ -425,7 +425,7 @@ module.exports = function tableOfContents( props ) {
 				}
 				// Toggle button does not contain child elements,
 				// so classList check will suffice.
-				if ( e.target.classList.contains( TOGGLE_CLASS ) ) {
+				if ( e.target.closest( `.${TOGGLE_CLASS}` ) ) {
 					toggleExpandSection( tocSection.id );
 					if ( props.onToggleClick ) {
 						props.onToggleClick( tocSection.id );
@@ -474,7 +474,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function updateTocToggleStyles( scrollBelow ) {
 		const TOC_TITLEBAR_TOGGLE_ID = 'vector-page-titlebar-toc-label';
-		const QUIET_BUTTON_CLASS = 'mw-ui-quiet';
+		const QUIET_BUTTON_CLASS = 'cdx-button--weight-quiet';
 		const tocToggle = document.getElementById( TOC_TITLEBAR_TOGGLE_ID );
 		if ( tocToggle ) {
 			if ( scrollBelow ) {

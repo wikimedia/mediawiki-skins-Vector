@@ -19,16 +19,18 @@
 	.vector-toc-toggle {
 		// For no-js users, toggling is disabled and icon is hidden
 		display: none;
-		width: @size-toc-subsection-toggle;
-		height: @size-toc-subsection-toggle;
-		// Changes the size of the icon background image
-		font-size: @size-toc-subsection-toggle-icon;
 		transition: @transition-duration-base;
 		position: absolute;
 		left: -@size-toc-subsection-toggle/2;
 		// Visual centering.
-		top: 2px;
+		top: 1px;
+		// Override .cdx-button styles
+		min-width: @size-toc-subsection-toggle; // ~22px @ 12
+		min-height: @size-toc-subsection-toggle;
+		padding: 0;
+		// FIXME: Remove the following styles after cached HTML
 		cursor: pointer;
+		font-size: @size-toc-subsection-toggle-icon;
 	}
 
 	.vector-toc-link {

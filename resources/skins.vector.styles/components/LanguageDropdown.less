@@ -9,7 +9,6 @@
 // the language portlet that can display in the sidebar.
 .vector-page-titlebar .mw-portlet-lang {
 	box-sizing: border-box;
-	height: @height-button-lang;
 	flex-shrink: 0;
 
 	// If there are no languages and JavaScript is not enabled there is no fallback so we hide
@@ -32,29 +31,40 @@
 		}
 
 		// T291286: Temporarily use progressive ULS style
-		&.mw-ui-progressive.mw-ui-quiet {
+		// FIXME: Remove old classes after caching
+		&.mw-ui-progressive.mw-ui-quiet,
+		&.cdx-button--action-progressive.cdx-button--weight-quiet {
 			.mw-ui-icon::before {
 				// Ensure inverted language icon is white
 				opacity: @opacity-base;
 			}
 
 			&::after {
-				// Invert arrow color
-				background-image: url( ../common/images/arrow-down-progressive.svg );
+				// !important needed to override Zebra Dropdown.less styles
+				// FIXME: Remove !important when Zebra is default
+				/* stylelint-disable-next-line declaration-no-important */
+				background-image: url( ../common/images/arrow-down-progressive.svg ) !important;
 				opacity: @opacity-base;
 			}
 		}
 	}
 
 	input:active + .vector-menu-heading {
-		&.mw-ui-progressive.mw-ui-quiet {
-			.mw-ui-icon {
+		// FIXME: Remove old classes after caching
+		&.mw-ui-progressive.mw-ui-quiet,
+		&.cdx-button--action-progressive.cdx-button--weight-quiet {
+			.mw-ui-icon,
+			.vector-icon {
 				// stylelint-disable-next-line plugin/no-unsupported-browser-features
 				filter: brightness( 0 ) invert( 1 );
 			}
 
 			&::after {
-				background-image: url( ../common/images/arrow-down-invert.svg );
+				// Invert arrow color
+				// !important needed to override Zebra Dropdown.less styles
+				// FIXME: Remove !important when Zebra is default
+				/* stylelint-disable-next-line declaration-no-important */
+				background-image: url( ../common/images/arrow-down-invert.svg ) !important;
 			}
 		}
 	}
@@ -79,13 +89,13 @@
 		}
 	}
 
-	.vector-menu-checkbox:checked ~ .vector-menu-content {
-		display: block;
-	}
-
 	.after-portlet {
 		// ensure there is a visual separation between the language links and additional links.
 		margin-top: 10px;
+	}
+
+	.mw-portlet-lang-heading-empty {
+		.mixin-vector-arrowed-dropdown-toggle();
 	}
 
 	// styles for less prominent Language button (without label) to be used for non-content pages (see T316559)
@@ -109,11 +119,7 @@
 }
 
 .mw-interlanguage-selector {
-	display: flex;
-
-	&::after {
-		.mixin-vector-menu-heading-arrow();
-	}
+	.mixin-vector-arrowed-dropdown-toggle();
 }
 
 // Hide the "Add languages" on pages which are not action=view where there are 0 languages

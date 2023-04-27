@@ -25,27 +25,36 @@
 		display: none !important; /* stylelint-disable-line declaration-no-important */
 	}
 
-	> .mw-ui-button {
+	// FIXME: Remove old button classes after caching
+	> .mw-ui-button,
+	> .cdx-button {
 		font-size: @font-size-base;
-		// Removes redundant whitespace (line break) between Icon and Button templates
-		display: flex;
 		// When labels have multiple words e.g. "Add topic" make sure they do not wrap onto
 		// new line. This can happen when editing pages with long titles. e.g. F36867314
 		white-space: nowrap;
 
 		// At low resolutions, the rule in core for `.mw-ui-button:not(.mw-ui-icon-element)`
 		// interferes with add topic and makes it overlap the language button. e.g. F36867319
-		&:not( .mw-ui-icon-element ) {
+		// FIXME: See if this selector can be removed after caching
+		&:not( .mw-ui-icon-element ),
+		&:not( .cdx-button--icon-only ) {
 			min-width: auto;
 		}
 	}
 
+	// FIXME: Remove old button classes after caching
 	> .mw-ui-button,
+	> .cdx-button,
 	> .mw-portlet-lang {
 		&:last-child {
-			// This number should be synced with the value in:
-			// https://github.com/wikimedia/mediawiki/blob/master/resources/src/mediawiki.less/mediawiki.ui/mixins.buttons.less#L33
-			margin-right: -12px;
+			.cdx-mixin-button-layout-flush( 'end' );
 		}
+	}
+
+	// The language button sometimes appears as an icon only button, in which
+	// case we need to flush differently. See an empty user page for an example of
+	// where this is used.
+	> .mw-portlet-lang-icon-only:last-child {
+		.cdx-mixin-button-layout-flush( 'end', true );
 	}
 }

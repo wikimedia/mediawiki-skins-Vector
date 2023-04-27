@@ -536,7 +536,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'User page link in user links dropdown requires collapsible class'
 		);
 		$this->assertEquals(
-			'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>',
+			'<span class="vector-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>',
 			$contentRegistered['user-menu']['userpage']['link-html'],
 			'User page link in user links dropdown has link-html'
 		);
@@ -544,7 +544,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			'Watchlist link in user links dropdown requires collapsible class'
 		);
 		$this->assertEquals(
-			'<span class="mw-ui-icon mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist"></span>',
+			'<span class="vector-icon mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist"></span>',
 			$contentRegistered['user-menu']['watchlist']['link-html'],
 			'Watchlist link in user links dropdown has link-html'
 		);
@@ -597,7 +597,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			$content['vector-user-menu-overflow']['userpage']['class'],
 			'User page link in user links overflow requires collapsible class'
 		);
-		$this->assertNotContains( 'mw-ui-icon',
+		$this->assertNotContains( 'vector-icon',
 			$content['vector-user-menu-overflow']['userpage']['class'],
 			'User page link in user links overflow does not have icon classes'
 		);
@@ -605,15 +605,15 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			$content['vector-user-menu-overflow']['watchlist']['class'],
 			'Watchlist link in user links overflow requires collapsible class'
 		);
-		$this->assertContains( 'mw-ui-button',
+		$this->assertContains( 'cdx-button',
 			$content['vector-user-menu-overflow']['watchlist']['link-class'],
 			'Watchlist link in user links overflow requires button classes'
 		);
-		$this->assertContains( 'mw-ui-quiet',
+		$this->assertContains( 'cdx-button--weight-quiet',
 			$content['vector-user-menu-overflow']['watchlist']['link-class'],
 			'Watchlist link in user links overflow requires quiet button classes'
 		);
-		$this->assertContains( 'mw-ui-icon-element',
+		$this->assertContains( 'cdx-button--icon-only',
 			$content['vector-user-menu-overflow']['watchlist']['link-class'],
 			'Watchlist link in user links overflow hides text'
 		);
@@ -699,7 +699,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				[
 					'class' => [],
 					'link-html' =>
-					'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+					'<span class="vector-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
 				],
 			],
 			// Adds collapsible class
@@ -714,17 +714,29 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				[ 'class' => [], 'button' => true ],
 				'link-class',
 				'link-html',
-				[ 'class' => [], 'link-class' => [ 'mw-ui-button', 'mw-ui-quiet' ] ],
+				[ 'class' => [], 'link-class' => [
+					'cdx-button',
+					'cdx-button--fake-button',
+					'cdx-button--fake-button--enabled',
+					'cdx-button--weight-quiet'
+				] ],
 			],
 			// Adds text hidden classes
 			[
-				[ 'class' => [], 'text-hidden' => true, 'icon' => 'userpage' ],
+				[ 'class' => [], 'button' => true, 'text-hidden' => true, 'icon' => 'userpage' ],
 				'link-class',
 				'link-html',
 				[
 					'class' => [],
-					'link-class' => [ 'mw-ui-icon-element' ],
-					'link-html' => '<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+					'link-class' => [
+						'cdx-button',
+						'cdx-button--fake-button',
+						'cdx-button--fake-button--enabled',
+						'cdx-button--weight-quiet',
+						'cdx-button--icon-only'
+					],
+					'link-html' =>
+						'<span class="vector-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
 				],
 			],
 			// Adds button and icon classes
@@ -732,9 +744,13 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				[ 'class' => [], 'button' => true, 'icon' => 'userpage' ],
 				'class',
 				'link-html',
-				[
-					'class' => [ 'mw-ui-button', 'mw-ui-quiet' ],
-					'link-html' => '<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+				[ 'class' => [
+					'cdx-button',
+					'cdx-button--fake-button',
+					'cdx-button--fake-button--enabled',
+					'cdx-button--weight-quiet'
+				], 'link-html' =>
+					'<span class="vector-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
 				],
 			]
 		];

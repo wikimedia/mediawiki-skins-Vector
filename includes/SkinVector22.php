@@ -354,7 +354,7 @@ class SkinVector22 extends SkinMustache {
 					// label
 					$this->msg( 'vector-toc-collapsible-button-label' ),
 					// class
-					'vector-page-titlebar-toc mw-ui-icon-flush-left',
+					'vector-page-titlebar-toc vector-button-flush-left',
 					// icon
 					'listBullet',
 				),
@@ -367,7 +367,7 @@ class SkinVector22 extends SkinMustache {
 					// label
 					$this->msg( 'vector-toc-collapsible-button-label' ),
 					// class
-					'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc mw-ui-icon-flush-left',
+					'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc vector-button-flush-left',
 					// icon
 					'listBullet'
 				),
@@ -438,7 +438,7 @@ class SkinVector22 extends SkinMustache {
 			'data-main-menu-dropdown' => new VectorComponentDropdown(
 				VectorComponentMainMenu::ID . '-dropdown',
 				$this->msg( VectorComponentMainMenu::ID . '-label' )->text(),
-				VectorComponentMainMenu::ID . '-dropdown' . ' mw-ui-icon-flush-left mw-ui-icon-flush-right',
+				VectorComponentMainMenu::ID . '-dropdown' . ' vector-button-flush-left vector-button-flush-right',
 				'menu'
 			),
 			'data-page-tools' => new VectorComponentPageTools(

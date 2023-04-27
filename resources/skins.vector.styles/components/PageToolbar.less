@@ -20,9 +20,23 @@
 		}
 	}
 
+	// Reduce icon size for icon buttons in the page toolbar (i.e. watchstar, wikilove)
+	.vector-icon {
+		.cdx-mixin-css-icon-background( @size-icon-small );
+		.cdx-mixin-css-icon-size( @size-icon-small );
+		.cdx-mixin-css-icon-alignment( );
+	}
+
+	// Prevent icon buttons in the page toolbar from automatically increasing padding on small viewports
+	.cdx-button--icon-only {
+		// !important needed to override 'responsive' button styles on smaller viewports defined in Button.less
+		min-width: 32px !important; /* stylelint-disable-line declaration-no-important */
+		min-height: 32px !important; /* stylelint-disable-line declaration-no-important */
+	}
+
+	// FIXME: Remove selector after caching
 	.mw-ui-icon-element {
 		// Override icon styles to apply .mw-ui-icon-small styles
-		// FIXME: To be replaced with Codex mixins
 		.mw-ui-icon {
 			min-width: 16px;
 			min-height: 16px;

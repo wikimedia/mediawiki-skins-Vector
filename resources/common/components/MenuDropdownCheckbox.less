@@ -77,7 +77,7 @@
 	}
 
 	// Add focus state to menu dropdown buttons (i.e. #p-variants, #p-cactions)
-	&:focus + .vector-menu-heading {
+	&:focus + .vector-menu-heading:not( .cdx-button ) {
 		// Simulate browser focus ring
 		outline: dotted 1px; // Firefox style
 		outline: auto -webkit-focus-ring-color; // Webkit style

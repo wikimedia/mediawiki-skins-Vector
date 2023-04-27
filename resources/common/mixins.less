@@ -23,13 +23,18 @@
 	height: unit( 16 / @font-size-tabs / @font-size-browser, em );
 }
 
-.mixin-vector-menu-heading-arrow() {
-	content: '';
-	background: url( ../common/images/arrow-down.svg ) 100% 50% no-repeat;
-	width: unit( 16 / @font-size-tabs / @font-size-browser, em );
-	height: unit( 16 / @font-size-tabs / @font-size-browser, em );
-	// https://phabricator.wikimedia.org/T319070#8284272
-	margin-left: -1px;
+.mixin-vector-arrowed-dropdown-toggle() {
+	display: inline-flex;
+	align-items: center;
+
+	&::after {
+		content: '';
+		background: url( ../common/images/arrow-down.svg ) 100% 50% no-repeat;
+		width: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		height: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		// https://phabricator.wikimedia.org/T319070#8284272
+		margin-left: -1px;
+	}
 }
 
 .mixin-vector-dropdown-menu-item() {
@@ -40,6 +45,10 @@
 
 	&:not( .mw-selflink ):visited {
 		color: @color-link;
+	}
+
+	.vector-icon {
+		margin-right: @spacing-35;
 	}
 
 	&.selected a,

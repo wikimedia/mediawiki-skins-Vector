@@ -204,7 +204,8 @@ function prepareIcons( header, history, talk, subject, watch ) {
 		const watchContainer = watch.parentNode;
 		const isTemporaryWatch = watchContainer.classList.contains( 'mw-watchlink-temp' );
 		const isWatched = isTemporaryWatch || watchContainer.getAttribute( 'id' ) === 'ca-unwatch';
-		const watchIcon = /** @type {HTMLElement} */ ( watchSticky.querySelector( '.mw-ui-icon' ) );
+		// FIXME: Remove old icon classes after caching
+		const watchIcon = /** @type {HTMLElement} */ ( watchSticky.querySelector( '.mw-ui-icon, .vector-icon' ) );
 
 		// Initialize sticky watchlink
 		copyButtonAttributes( watch, watchSticky );

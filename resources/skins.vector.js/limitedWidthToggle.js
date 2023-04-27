@@ -33,7 +33,8 @@ function getPopupText() {
 function init() {
 	const settings = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-settings' ) );
 	const toggle = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
-	const toggleIcon = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle .mw-ui-icon' ) );
+	// FIXME: Remove old icon classes after caching
+	const toggleIcon = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle .mw-ui-icon, .vector-limited-width-toggle .vector-icon' ) );
 
 	if ( !settings || !toggle || !toggleIcon ) {
 		return;
