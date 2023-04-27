@@ -76,7 +76,12 @@ function init() {
 		if ( !config.VectorLimitedWidthIndicator ) {
 			return;
 		}
-		popupNotification.add( settings, getPopupText(), id, [], timeout, dismiss );
+		popupNotification.add( settings, getPopupText(), id, [], timeout, dismiss )
+			.then( ( popupWidget ) => {
+				if ( popupWidget ) {
+					popupNotification.show( popupWidget, timeout );
+				}
+			} );
 	};
 
 	/**

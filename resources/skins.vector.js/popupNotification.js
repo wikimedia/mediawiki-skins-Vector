@@ -18,14 +18,13 @@ function add( container, message, id, classes = [], timeout = 4000, onDismiss = 
 	 * @type {OoUiPopupWidget}
 	 */
 	let popupWidget;
-	// clear existing hints.
-	if ( id && activeNotification[ id ] ) {
-		remove( activeNotification[ id ] );
-		delete activeNotification[ id ];
-	}
 	// load oojs-ui if it's not already loaded
 	// FIXME: This should be replaced with Codex.
 	return mw.loader.using( 'oojs-ui-core' ).then( () => {
+		// use existing hint.
+		if ( id && activeNotification[ id ] ) {
+			return activeNotification[ id ];
+		}
 		const content = document.createElement( 'p' );
 		content.textContent = message;
 		popupWidget = new OO.ui.PopupWidget( {
@@ -40,28 +39,26 @@ function add( container, message, id, classes = [], timeout = 4000, onDismiss = 
 			container
 		} );
 		popupWidget.$element.appendTo( container );
-		if ( popupWidget && id ) {
-			activeNotification[ id ] = popupWidget;
-		}
 		popupWidget.on( 'closing', () => {
 			onDismiss();
 		} );
-		show( popupWidget, timeout );
+		if ( popupWidget && id ) {
+			activeNotification[ id ] = popupWidget;
+		}
 		return popupWidget;
 	} );
 }
 /**
- * Toggle the popup widget
+ * Hides the popup widget
  *
  * @param {OoUiPopupWidget} popupWidget popupWidget from oojs-ui
  * cannot use type because it's not loaded yet
  */
-function remove( popupWidget ) {
+function hide( popupWidget ) {
 	popupWidget.toggle( false );
-	popupWidget.$element.remove();
 }
 /**
- * Toggle the popup widget
+ * Shows the popup widget
  *
  * @param {OoUiPopupWidget} popupWidget popupWidget from oojs-ui
  * cannot use type because it's not loaded yet
@@ -76,26 +73,24 @@ function show( popupWidget, timeout = 4000 ) {
 		return;
 	}
 	setTimeout( () => {
-		remove( popupWidget );
+		hide( popupWidget );
 	}, timeout );
 }
 
 /**
- * Remove all popups
+ * Hides all popups
  *
- * @param {string} [selector]
  */
-function removeAll( selector = '.vector-popup-notification' ) {
-	document.querySelectorAll( selector ).forEach( ( element ) => {
-		element.remove();
-	} );
+function hideAll() {
+	for ( const key in activeNotification ) {
+		const popupWidget = activeNotification[ key ];
+		hide( popupWidget );
+	}
 }
 
 module.exports = {
 	add,
-	remove,
-	removeAll,
-	tests: {
-		show
-	}
+	hide,
+	hideAll,
+	show
 };
