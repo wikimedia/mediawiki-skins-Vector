@@ -18,8 +18,7 @@
 	"parserOptions": {
 		"sourceType": "module"
 	},
-	"settings": {
-	},
+	"settings": {},
 	"rules": {
 		"mediawiki/no-nodelist-unsupported-methods": "off",
 		"jsdoc/no-undefined-types": "off",
