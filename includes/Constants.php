@@ -151,21 +151,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR = 'LanguageAlertInSidebar';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_LANGUAGE_ALERT_IN_SIDEBAR = 'VectorLanguageAlertInSidebar';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_LANGUAGE_ALERT_IN_SIDEBAR = 'LanguageAlertInSidebar';
-
-	/**
-	 * @var string
-	 */
 	public const WEB_AB_TEST_ARTICLE_ID_FACTORY_SERVICE = 'WikimediaEvents.WebABTestArticleIdFactory';
 
 	/**

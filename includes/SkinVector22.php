@@ -208,7 +208,7 @@ class SkinVector22 extends SkinMustache {
 		$shouldShowOnMainPage = $isMainPage && !empty( $this->getLanguagesCached() ) &&
 			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
 		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
-			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR ) ) ||
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_HEADER ) ) ||
 			$shouldShowOnMainPage;
 	}
 

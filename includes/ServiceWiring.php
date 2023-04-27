@@ -134,27 +134,6 @@ return [
 			]
 		);
 
-		// Feature: T295555: Language switch alert in sidebar
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$context->getRequest(),
-				Constants::CONFIG_LANGUAGE_ALERT_IN_SIDEBAR,
-				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_LANGUAGE_ALERT_IN_SIDEBAR,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
-				Constants::REQUIREMENT_LANGUAGE_ALERT_IN_SIDEBAR
-			]
-		);
-
 		// Feature: Sticky header
 		// ================================
 		$featureManager->registerRequirement(

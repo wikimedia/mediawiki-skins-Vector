@@ -566,13 +566,6 @@
 			},
 			"description": "@var When `VectorLanguageInHeader` is enabled, determines whether the Main Page's language button should be at the top or bottom of the content. The default position on the main page is at the bottom."
 		},
-		"VectorLanguageAlertInSidebar": {
-			"value": {
-				"logged_in": true,
-				"logged_out": true
-			},
-			"description": "@var When `VectorLanguageAlertInSidebar` is enabled, the language switch alert box is shown in the sidebar."
-		},
 		"VectorStickyHeader": {
 			"value": {
 				"logged_in": true,
