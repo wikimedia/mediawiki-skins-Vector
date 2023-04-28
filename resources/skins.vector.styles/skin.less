@@ -9,10 +9,13 @@
 
 @media screen {
 	.vector-feature-zebra-design-disabled {
-		@import './layouts/preZebra.less';
+		// Layouts
 		@import './layouts/screen.less';
+		@import './layouts/preZebra.less';
+		@import './layouts/grid.less';
 		@import './layouts/toc/pinned.less';
 		@import './layouts/toc/unpinned.less';
+		// Components
 		@import './components/Dropdown.less';
 		@import './components/MainMenu.less';
 		@import './components/PinnableElement.less';
@@ -23,9 +26,6 @@
 }
 
 @media screen {
-	// Layouts
-	@import './layouts/grid.less';
-
 	// Components
 	@import './components/SearchBoxLoader.less';
 	@import './components/VueEnhancedSearchBox.less';

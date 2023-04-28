@@ -174,10 +174,10 @@
 // Layout
 //
 @max-width-page-container: unit( 1596px / @font-size-browser, em ); // T305069 - 99.75em @ 16
-@max-width-content-container: unit( 960px / @font-size-browser, em ); // T305069 - 60em @ 16
-@padding-horizontal-page-container: unit( 24px / @font-size-browser, em );
-@padding-horizontal-page-container-desktop: unit( 44px / @font-size-browser, em );
-@padding-horizontal-page-container-desktop-wide: unit( 52px / @font-size-browser, em );
+@max-width-content-container: unit( 1040px / @font-size-browser, rem ); // T335155
+@padding-horizontal-page-container: unit( 24px / @font-size-browser, rem );
+@padding-horizontal-page-container-desktop: unit( 44px / @font-size-browser, rem );
+@padding-horizontal-page-container-desktop-wide: unit( 52px / @font-size-browser, rem );
 // T314419 - Scroll padding is modified primarily to bring section headings into a position that is
 // easier to read, which is slightly lower than the very top of the page. The primary use-case is when
 // navigating sections via the table of contents. When changing this value, also change the value in
@@ -187,5 +187,5 @@
 // Grid
 @grid-row-gap: 24px;
 @grid-column-gap: 24px;
-@width-column-start-desktop: unit( 196px / @font-size-browser, em ); // Total width including gap is 232px
-@width-column-start-desktop-wide: unit( 248px / @font-size-browser, em ); // Total width including gap is 284px
+@width-column-desktop: unit( 196px / @font-size-browser, rem ); // Total width including gap is 232px
+@width-column-desktop-wide: unit( 248px / @font-size-browser, rem ); // Total width including gap is 284px

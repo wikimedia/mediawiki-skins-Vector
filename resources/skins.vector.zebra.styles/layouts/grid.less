@@ -3,8 +3,8 @@
 //
 
 /* Use of minmax is important to restrict the maximum grid column width more information: T314756 */
-@grid-template-column-desktop: ~'@{width-column-start-desktop} minmax(0, 1fr)';
-@grid-template-column-desktop-wide: ~'@{width-column-start-desktop-wide} minmax(0, 1fr)';
+@grid-template-column-desktop: ~'@{width-column-desktop} minmax(0, 1fr)';
+@grid-template-column-desktop-wide: ~'@{width-column-desktop-wide} minmax(0, 1fr)';
 
 @media ( min-width: @min-width-desktop ) {
 	.mw-page-container-inner {
@@ -38,6 +38,10 @@
 	.mw-footer-container {
 		grid-area: footer;
 	}
+
+	&.vector-feature-page-tools-pinned-enabled .vector-column-end {
+		width: @width-column-desktop;
+	}
 }
 
 @media ( min-width: @min-width-desktop-wide ) {
@@ -58,6 +62,10 @@
 		.vector-header-end {
 			grid-area: headerEnd;
 		}
+	}
+
+	&.vector-feature-page-tools-pinned-enabled .vector-column-end {
+		width: @width-column-desktop-wide;
 	}
 }
 
