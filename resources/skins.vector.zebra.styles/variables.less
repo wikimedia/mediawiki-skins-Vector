@@ -96,18 +96,23 @@
 @padding-top-tabs: 12px;
 @padding-vertical-tabs: @padding-top-tabs 0 7px 0;
 
+// Content boxes
+@border-radius-content-box: 4px;
+@border-color-content-box: @background-color-interactive;
+// Content padding
+@padding-vertical-content-box: @spacing-150;
+@padding-horizontal-content-box: @spacing-150;
+// content box changes *horizontal* padding at wide resolutions
+@padding-horizontal-content-box-wide: @spacing-300;
+// Content box shadow
+@box-shadow-content-box:  @box-shadow-drop-medium;
+
 // Dropdowns & menus
 @height-dropdown-menu-item: unit( 32 / @font-size-browser, rem );
 @padding-horizontal-dropdown-menu: 20px;
 @padding-vertical-dropdown-menu: 20px;
 @padding-vertical-dropdown-menu-item: 6px;
 @font-size-dropdown: unit( @font-size-base, rem ); // Equals `0.875rem`.
-
-// Content boxes
-@border-radius-content-box: 4px;
-@border-color-content-box: #ececec;
-@padding-vertical-content-box: 30px;
-@padding-horizontal-content-box: 50px;
 
 // Scroll Indicator
 @height-scroll-indicator: 30px;
@@ -133,6 +138,9 @@
 
 // Language button
 @height-button-lang: unit( 32 / @font-size-browser, em );
+
+// Pre-content
+@margin-top-pre-content: 8px;
 
 // Header
 // T245190 T296321 For sticky header, set an explicit height. This is needed for scroll padding

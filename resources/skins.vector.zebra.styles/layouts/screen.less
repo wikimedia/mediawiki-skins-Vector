@@ -9,6 +9,22 @@
 // see T259331.
 @padding-content: @padding-top-content 0 1.5em;
 
+/**
+ * Padding for the page content column gets smaller at narrow screen widths.
+ * NOTE: This selector represents the HTML element because :root is unavailable due to how
+ * the file is wrapped in an html selector in the skins.vector.zebra.styles/skin.less file.
+ */
+html& {
+	--padding-vertical-content: @padding-vertical-content-box;
+	--padding-horizontal-content: @padding-horizontal-content-box;
+}
+
+@media ( min-width: @min-width-desktop ) {
+	html& {
+		--padding-horizontal-content: @padding-horizontal-content-box-wide;
+	}
+}
+
 &html {
 	scroll-padding-top: @scroll-padding-top;
 }
@@ -55,8 +71,8 @@ body {
 		display: block;
 		position: absolute;
 		bottom: 0;
-		left: @padding-horizontal-content-box;
-		right: @padding-horizontal-content-box;
+		left: var( --padding-horizontal-content );
+		right: var( --padding-horizontal-content );
 		height: 1px;
 		background-color: @border-color-base;
 	}
@@ -66,6 +82,12 @@ body {
 	// Contain the floating .mw-indicators, but don't use clearfix because of browser inconsistencies
 	// when combining 'clear' and 'margin-top' (T325391)
 	overflow: hidden;
+
+	// Margin is only applied to indicators inside `.vector-body-before-content` since they can
+	// also appear next to the page title, where margin is not needed.
+	.mw-indicators {
+		margin-top: @margin-top-pre-content;
+	}
 }
 
 // Language button at bottom of content.
@@ -83,12 +105,12 @@ body {
 .vector-page-toolbar,
 .vector-body {
 	.mixin-vector-content-box();
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: var( --padding-horizontal-content );
+	padding-right: var( --padding-horizontal-content );
 }
 
 .vector-page-titlebar {
-	padding-top: 30px;
+	padding-top: var( --padding-vertical-content );
 	/* stylelint-disable-next-line declaration-property-value-disallowed-list */
 	border-bottom-style: none;
 	border-bottom-right-radius: 0;
@@ -106,7 +128,7 @@ body {
 .vector-body {
 	position: relative;
 	z-index: @z-index-base;
-	padding-bottom: 50px;
+	padding-bottom: var( --padding-vertical-content );
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 	/* stylelint-disable-next-line declaration-property-value-disallowed-list */
@@ -114,7 +136,7 @@ body {
 }
 
 #siteSub {
-	margin-top: 8px; // T311564
+	margin-top: @margin-top-pre-content; // T311564
 }
 
 // Styles only applied to non-empty #contentSub to avoid extra margins when both #contentSub and #contentSub2
@@ -126,7 +148,7 @@ body {
 	color: @color-subtle;
 	width: auto;
 	// Visually separate #contentSub and #contentSub2 (T315639)
-	margin: 8px 0 0;
+	margin: @margin-top-pre-content 0 0;
 }
 
 .parsoid-body {
@@ -155,7 +177,7 @@ body {
 	display: flex;
 	justify-content: center;
 	background-color: @background-color-page-container;
-	border-bottom: @border-width-base @border-style-base #eaecf0;
+	border-bottom: @border-width-base @border-style-base @border-color-content-box;
 }
 
 .vector-header-container .mw-header,
