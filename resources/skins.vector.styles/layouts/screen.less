@@ -70,6 +70,12 @@ body {
 	// Contain the floating .mw-indicators, but don't use clearfix because of browser inconsistencies
 	// when combining 'clear' and 'margin-top' (T325391)
 	overflow: hidden;
+
+	// Margin is only applied to indicators inside `.vector-body-before-content` since they can
+	// also appear next to the page title, where margin is not needed.
+	.mw-indicators {
+		margin-top: @margin-top-pre-content;
+	}
 }
 
 .mw-body .mw-portlet-lang {
@@ -82,7 +88,7 @@ body {
 }
 
 #siteSub {
-	margin-top: 8px; // T311564
+	margin-top: @margin-top-pre-content; // T311564
 }
 
 // Styles only applied to non-empty #contentSub to avoid extra margins when both #contentSub and #contentSub2
@@ -94,7 +100,7 @@ body {
 	color: @color-subtle;
 	width: auto;
 	// Visually separate #contentSub and #contentSub2 (T315639)
-	margin: 8px 0 0;
+	margin: @margin-top-pre-content 0 0;
 }
 
 .parsoid-body {
