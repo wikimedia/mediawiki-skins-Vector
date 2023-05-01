@@ -53,6 +53,7 @@
 	"vector-intro-page": "Help:Úvod",
 	"vector-toc-label": "Obsah",
 	"vector-toc-beginning": "Začátek",
+	"vector-toc-toggle-button-label": "Přepnout podsekci $1",
 	"vector-anon-user-menu-pages": "Stránky pro odhlášené editory",
 	"vector-anon-user-menu-pages-learn": "dozvědět se více",
 	"vector-anon-user-menu-pages-label": "Více informací o editování",
@@ -62,6 +63,8 @@
 	"vector-site-nav-label": "Projekt",
 	"vector-main-menu-label": "Hlavní menu",
 	"vector-limited-width-toggle": "Přepnout omezenou šířku obsahu",
+	"vector-limited-width-toggle-on-popup": "Přepnuli jste vzhled na plnou šířku. Kliknutím na toto tlačítko můžete přepnout zpět na omezenou šířku.",
+	"vector-limited-width-toggle-off-popup": "Kliknutím na toto tlačítko můžete přepínat mezi omezenou šířkou a plnou šířkou.",
 	"vector-page-tools-label": "Nástroje",
 	"vector-page-tools-general-label": "Obecné",
 	"vector-page-tools-actions-label": "Akce",
@@ -71,5 +74,8 @@
 	"tooltip-vector-anon-user-menu-title": "Další možnosti",
 	"vector-prefs-limited-width": "Zapnout režim omezené šířky",
 	"vector-prefs-limited-width-help": "Zapnout režim omezené šířky pro lepší zážitek ze čtení.",
-	"empty-language-selector-body": "Obsah stránky není podporován v jiných jazycích."
+	"empty-language-selector-body": "Obsah stránky není podporován v jiných jazycích.",
+	"vector-toc-unpinned-popup": "Obsah byl přesunut sem.",
+	"vector-page-tools-unpinned-popup": "Nástroje byly přesunuty sem.",
+	"vector-main-menu-unpinned-popup": "Hlavní menu bylo přesunuto sem."
 }
