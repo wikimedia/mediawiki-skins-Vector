@@ -75,6 +75,13 @@ pre,
 	}
 }
 
+// T335625 - Move siteSub into common.less to prevent it from being feature-flagged
+// and overriding on-wiki modifications.
+#siteSub {
+	// By default the sitesub (i.e. tagline) is hidden as it was hidden in Vector legacy but site styles can reveal.
+	display: none;
+}
+
 .vector-body {
 	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
