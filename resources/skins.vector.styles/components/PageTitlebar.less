@@ -1,9 +1,10 @@
 @import '../../common/variables.less';
 
 .vector-page-titlebar {
+	position: relative;
 	display: flex;
-	// Enabled bottom border via ::after element for Zebra update.
-	flex-wrap: wrap;
+	// T335633 - Although nowrap is default, setting it explicitly to prevent layout issues with ToC & languages button.
+	flex-wrap: nowrap;
 	// Ensure language button or indicators are positioned to the right even when the title is hidden
 	justify-content: flex-end;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
