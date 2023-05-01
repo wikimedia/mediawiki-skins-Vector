@@ -213,7 +213,8 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 					document.querySelector( containerSelector )
 				);
 				if ( container ) {
-					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), container.id )
+					const containerId = !isStickyHeaderVisible ? 'toc-page-titlebar' : 'toc-sticky-header';
+					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), containerId )
 						.then( ( popupWidget ) => {
 							if ( popupWidget ) {
 								popupNotification.show( popupWidget );
