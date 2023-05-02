@@ -721,23 +721,20 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				[ 'class' => [], 'text-hidden' => true, 'icon' => 'userpage' ],
 				'link-class',
 				'link-html',
-				[ 'class' => [], 'link-class' => [
-					'mw-ui-icon',
-					'mw-ui-icon-element',
-					'mw-ui-icon-userpage',
-					'mw-ui-icon-wikimedia-userpage'
-				] ],
+				[
+					'class' => [],
+					'link-class' => [ 'mw-ui-icon-element' ],
+					'link-html' => '<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+				],
 			],
 			// Adds button and icon classes
 			[
 				[ 'class' => [], 'button' => true, 'icon' => 'userpage' ],
 				'class',
 				'link-html',
-				[ 'class' => [
-					'mw-ui-button',
-					'mw-ui-quiet'
-				], 'link-html' =>
-					'<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
+				[
+					'class' => [ 'mw-ui-button', 'mw-ui-quiet' ],
+					'link-html' => '<span class="mw-ui-icon mw-ui-icon-userpage mw-ui-icon-wikimedia-userpage"></span>'
 				],
 			]
 		];

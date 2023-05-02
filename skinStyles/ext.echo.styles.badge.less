@@ -1,11 +1,7 @@
 @import '../resources/common/variables.less';
 
 .mixin-notification-badge() {
-	// When 99+ allow counter so spill outside icon
-	// Overrides mw-ui-icon default.
-	&.mw-ui-icon {
-		overflow: visible;
-	}
+	position: relative;
 
 	&::after {
 		position: absolute;
