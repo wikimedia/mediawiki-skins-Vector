@@ -7,14 +7,14 @@
 	{{! Checkbox hack used by collapsed TOC on narrow viewports for no JS users }}
 	<label
 		id="vector-toc-collapsed-button"
-		class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-flush-left mw-ui-icon-element mw-ui-icon-wikimedia-listBullet"
+		class="mw-ui-button mw-ui-quiet mw-ui-icon-flush-left mw-ui-icon-element"
 		for="vector-toc-collapsed-checkbox"
 		role="button"
-		aria-controls="toc-toggle-list"
-		data-event-name="vector.toc-toggle-list"
+		aria-controls="vector-toc"
 		tabindex="0"
 		title="{{msg-vector-toc-menu-tooltip}}">
-		{{msg-vector-toc-collapsible-button-label}}
+		<span class="mw-ui-icon mw-ui-icon-wikimedia-listBullet"></span>
+		<span>{{msg-vector-toc-collapsible-button-label}}</span>
 	</label>
 
 	{{! TOC is moved into this dropdown from the sidebar in stickyHeader.js. }}
