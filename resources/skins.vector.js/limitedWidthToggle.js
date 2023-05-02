@@ -33,8 +33,13 @@ function getPopupText() {
  * adds a toggle button
  */
 function init() {
-	const settings = /** @type {HTMLElement} */ ( document.querySelector( '.vector-settings' ) );
-	const toggle = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
+	const settings = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-settings' ) );
+	const toggle = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
+	const toggleIcon = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle .mw-ui-icon' ) );
+
+	if ( !settings || !toggle || !toggleIcon ) {
+		return;
+	}
 
 	setDataAttribute( toggle );
 	const userMayNotKnowTheyAreInExpandedMode = !mw.cookie.get( AWARE_COOKIE_NAME );
@@ -85,10 +90,17 @@ function init() {
 	};
 
 	toggle.addEventListener( 'click', function () {
+		const isLimitedWidth = features.isEnabled( LIMITED_WIDTH_FEATURE_NAME );
+		const oldIcon = isLimitedWidth ? 'fullScreen' : 'exitFullscreen';
+		const newIcon = isLimitedWidth ? 'exitFullscreen' : 'fullScreen';
+
 		features.toggle( LIMITED_WIDTH_FEATURE_NAME );
 		setDataAttribute( toggle );
+		toggleIcon.classList.remove( `mw-ui-icon-wikimedia-${oldIcon}` );
+		toggleIcon.classList.add( `mw-ui-icon-wikimedia-${newIcon}` );
 		window.dispatchEvent( new Event( 'resize' ) );
-		if ( !features.isEnabled( LIMITED_WIDTH_FEATURE_NAME ) ) {
+		if ( isLimitedWidth ) {
+			// Now is full width, show notification
 			showPopup( TOGGLE_ID );
 		}
 	} );

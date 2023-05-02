@@ -301,6 +301,8 @@
 				"article",
 				"edit",
 				"editLock",
+				"exitFullscreen",
+				"fullScreen",
 				"halfStar",
 				"history",
 				"speechBubbles",

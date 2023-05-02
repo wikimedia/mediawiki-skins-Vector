@@ -484,9 +484,11 @@ class SkinVector22 extends SkinMustache {
 			) : null,
 			'data-vector-settings-button' => new VectorComponentButton(
 				$this->msg( 'vector-limited-width-toggle' ),
-				null,
+				$featureManager->isFeatureEnabled(
+					Constants::FEATURE_LIMITED_WIDTH
+				) ? 'fullScreen' : 'exitFullscreen',
 				'',
-				'mw-ui-icon vector-limited-width-toggle',
+				'vector-limited-width-toggle',
 				[],
 				'normal',
 				'default',
