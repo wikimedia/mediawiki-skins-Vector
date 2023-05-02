@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Yakku3",
 			"बडा काजी"
 		]
 	},
-	"vector-more-actions": "खार्युं"
+	"vector-more-actions": "खार्युं",
+	"vector-unpin-element-label": "लुकावा"
 }
