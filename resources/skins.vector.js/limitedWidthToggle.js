@@ -133,14 +133,18 @@ function addLimitedWidthPopup( container, message, onDismiss = () => {} ) {
 	`;
 	const popupFrag = document.createRange().createContextualFragment( popupTemplateString );
 	container.appendChild( popupFrag );
-	const closeButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-popup-close-button' ) );
-	closeButton.addEventListener( 'click', () => {
+
+	const closePopup = () => {
 		const popup = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-popup' ) );
 		if ( popup && popup.parentElement ) {
 			popup.parentElement.removeChild( popup );
 		}
 		onDismiss();
-	}, { once: true } );
+	};
+	const closeButton = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-popup-close-button' ) );
+	closeButton.addEventListener( 'click', closePopup, { once: true } );
+	const toggle = /** @type {HTMLElement} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
+	toggle.addEventListener( 'click', closePopup, { once: true } );
 }
 
 module.exports = init;
