@@ -104,23 +104,20 @@ final class OverridableConfigRequirement implements Requirement {
 	 * @param WebRequest $request
 	 * @param string $configName Any `Config` key. This name is used to query `$config` state.
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
-	 * @param string|null $overrideName The name of the override presented to FeatureManager, i.e. query parameter.
-	 *   When not set defaults to lowercase version of config key.
 	 */
 	public function __construct(
 		Config $config,
 		User $user,
 		WebRequest $request,
 		string $configName,
-		string $requirementName,
-		?string $overrideName = null
+		string $requirementName
 	) {
 		$this->config = $config;
 		$this->user = $user;
 		$this->request = $request;
 		$this->configName = $configName;
 		$this->requirementName = $requirementName;
-		$this->overrideName = $overrideName === null ? strtolower( $configName ) : $overrideName;
+		$this->overrideName = strtolower( $configName );
 	}
 
 	/**
@@ -141,6 +138,9 @@ final class OverridableConfigRequirement implements Requirement {
 		// Check query parameter.
 		if ( $this->request->getCheck( $this->overrideName ) ) {
 			return $this->request->getBool( $this->overrideName );
+		}
+		if ( $this->request->getCheck( $this->configName ) ) {
+			return $this->request->getBool( $this->configName );
 		}
 
 		// If AB test is not enabled, fallback to checking config state.

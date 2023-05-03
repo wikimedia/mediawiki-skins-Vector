@@ -59,8 +59,7 @@ return [
 				$context->getUser(),
 				$context->getRequest(),
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
-				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
-				null
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER
 			)
 		);
 
@@ -267,8 +266,7 @@ return [
 				$context->getUser(),
 				$context->getRequest(),
 				Constants::CONFIG_ZEBRA_DESIGN,
-				Constants::REQUIREMENT_ZEBRA_DESIGN,
-				Constants::REQUIREMENT_ZEBRA_AB_TEST
+				Constants::REQUIREMENT_ZEBRA_DESIGN
 			)
 		);
 		$featureManager->registerFeature(
