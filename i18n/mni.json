@@ -5,6 +5,7 @@
 			"꯴꯰꯴"
 		]
 	},
+	"vector-languages": "ꯂꯣꯟꯁꯤꯡ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ꯂꯣꯟ|$1 ꯂꯣꯟꯁꯤꯡ}}",
 	"vector-action-addsection": "ꯅꯩꯅꯕ ꯍꯤꯔꯝ ꯍꯥꯞꯆꯤꯟꯂꯨ",
 	"vector-action-delete": "ꯀꯛꯊꯠꯄꯥ",
@@ -14,5 +15,8 @@
 	"vector-view-edit": "ꯁꯦꯝꯒꯠꯄꯥ",
 	"vector-view-history": "ꯄꯨꯋꯥꯔꯤ ꯎꯠꯂꯨ",
 	"vector-view-view": "ꯄꯥꯑꯣ",
-	"vector-more-actions": "ꯋꯥꯠꯂꯤ"
+	"vector-view-viewsource": "ꯍꯧꯔꯛꯐꯝ ꯌꯦꯡꯉꯨ",
+	"vector-jumptosearch": "ꯊꯤꯕꯥ ꯗ ꯆꯣꯡꯉꯨ",
+	"vector-more-actions": "ꯋꯥꯠꯂꯤ",
+	"vector-anon-user-menu-pages-learn": "ꯍꯦꯟꯅ ꯇꯝꯁꯤꯟꯂꯨ"
 }
