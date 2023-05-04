@@ -85,3 +85,23 @@
 		padding-right: @padding-horizontal-page-container-desktop-wide;
 	}
 }
+
+.mixin-vector-scrollable-with-fade() {
+	overflow-y: auto;
+
+	&::after {
+		content: '';
+		display: block;
+		position: sticky;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: ~'calc( 100% + @{padding-vertical-dropdown-menu} * 2 )';
+		height: @padding-vertical-dropdown-menu;
+		margin-top: -@padding-vertical-dropdown-menu;
+		transform: translate( -@padding-vertical-dropdown-menu, @padding-vertical-dropdown-menu );
+		background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
+		background-repeat: no-repeat;
+		pointer-events: none; // Make the link below the fade clickable
+	}
+}

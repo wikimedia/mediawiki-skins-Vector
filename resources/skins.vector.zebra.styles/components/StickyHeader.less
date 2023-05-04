@@ -148,14 +148,12 @@
 			transform: translateY( 0 );
 		}
 
-		.vector-sticky-pinned-container {
-			.vector-pinned-container {
-				top: ~'calc( @{height-header} + @{grid-row-gap})';
-			}
+		.vector-pinned-container {
+			max-height: ~'calc( 100vh - @{height-header} - (@{grid-row-gap} * 2) )';
+		}
 
-			.vector-pinnable-element {
-				max-height: ~'calc( 100vh - @{height-header} - @{grid-row-gap} - @{padding-vertical-dropdown-menu} - @{padding-vertical-dropdown-menu} - @{grid-row-gap} )';
-			}
+		.vector-sticky-pinned-container {
+			top: ~'calc( @{height-header} + @{grid-row-gap})';
 		}
 
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
