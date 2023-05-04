@@ -1,11 +1,12 @@
 module.exports = function () {
 	mw.hook( 'wikipage.watchlistChange' ).add(
 		function ( /** @type {boolean} */ isWatched, /** @type {string} */ expiry ) {
-			const watchElement = document.querySelectorAll( '#ca-watch a, #ca-unwatch a' )[ 0 ];
-			if ( !watchElement ) {
+			const watchIcon = document.querySelectorAll( '#ca-watch .mw-ui-icon, #ca-unwatch .mw-ui-icon' )[ 0 ];
+			if ( !watchIcon ) {
 				return;
 			}
-			watchElement.classList.remove(
+
+			watchIcon.classList.remove(
 				// Vector attaches two icon classes to the element.
 				// Remove the mw-ui-icon one rather than managing both.
 				'mw-ui-icon-star',
@@ -14,14 +15,15 @@ module.exports = function () {
 				'mw-ui-icon-wikimedia-star',
 				'mw-ui-icon-wikimedia-halfStar'
 			);
+
 			if ( isWatched ) {
 				if ( expiry === 'infinity' ) {
-					watchElement.classList.add( 'mw-ui-icon-wikimedia-unStar' );
+					watchIcon.classList.add( 'mw-ui-icon-wikimedia-unStar' );
 				} else {
-					watchElement.classList.add( 'mw-ui-icon-wikimedia-halfStar' );
+					watchIcon.classList.add( 'mw-ui-icon-wikimedia-halfStar' );
 				}
 			} else {
-				watchElement.classList.add( 'mw-ui-icon-wikimedia-star' );
+				watchIcon.classList.add( 'mw-ui-icon-wikimedia-star' );
 			}
 		}
 	);

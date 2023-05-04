@@ -57,6 +57,11 @@
 .vector-user-links .mw-portlet-vector-user-menu-overflow {
 	font-size: @font-size-user-links;
 
+	// Ensure icon buttons have a base font of 16px
+	.mw-ui-icon-element {
+		font-size: unit( 16 / @font-size-browser, rem );
+	}
+
 	.vector-menu-content-list {
 		display: flex;
 		align-items: center;
