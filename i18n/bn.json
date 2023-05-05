@@ -63,6 +63,8 @@
 	"vector-site-nav-label": "সাইট",
 	"vector-main-menu-label": "প্রধান মেনু",
 	"vector-limited-width-toggle": "সীমিত বিষয়বস্তুর প্রস্থ সক্রিয় বা নিষ্ক্রিয় করুন",
+	"vector-limited-width-toggle-on-popup": "আপনি আপনার লেআউট পূর্ণ প্রস্থে পরিবর্তন করেছেন। সীমিত প্রস্থে ফিরে যেতে, এই বোতামটি টিপুন।",
+	"vector-limited-width-toggle-off-popup": "আপনি এই বোতামটিতে ক্লিক করে সীমিত প্রস্থ থেকে পূর্ণ প্রস্থে যেতে পারেন।",
 	"vector-page-tools-label": "সরঞ্জাম",
 	"vector-page-tools-general-label": "সাধারণ",
 	"vector-page-tools-actions-label": "কার্য",
