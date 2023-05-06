@@ -30,7 +30,7 @@
 		"@wikimedia/codex-search": "0.9.1",
 		"@wikimedia/mw-node-qunit": "7.0.0",
 		"@wikimedia/types-wikimedia": "0.4.0",
-		"eslint-config-wikimedia": "0.24.0",
+		"eslint-config-wikimedia": "0.25.0",
 		"eslint-plugin-no-jquery": "2.7.0",
 		"grunt-banana-checker": "0.10.0",
 		"jest": "27.4.7",
