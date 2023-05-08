@@ -81,7 +81,6 @@ const TOC_CONTENTS_ID = 'mw-panel-toc-list';
 
 /**
  * @typedef {Object} SectionsListData
- * @property {boolean} is-vector-toc-beginning-enabled
  * @property {Section[]} array-sections
  * @property {boolean} vector-is-collapse-sections-enabled
  * @property {string} msg-vector-toc-beginning
@@ -570,8 +569,7 @@ module.exports = function tableOfContents( props ) {
 		return {
 			'msg-vector-toc-beginning': mw.message( 'vector-toc-beginning' ).text(),
 			'array-sections': tableOfContentsLevel1Sections,
-			'vector-is-collapse-sections-enabled': tableOfContentsLevel1Sections.length > 3 && sections.length >= tableOfContentsConfig.VectorTableOfContentsCollapseAtCount,
-			'is-vector-toc-beginning-enabled': tableOfContentsConfig.VectorTableOfContentsBeginning
+			'vector-is-collapse-sections-enabled': tableOfContentsLevel1Sections.length > 3 && sections.length >= tableOfContentsConfig.VectorTableOfContentsCollapseAtCount
 		};
 	}
 

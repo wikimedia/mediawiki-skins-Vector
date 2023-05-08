@@ -379,8 +379,7 @@
 				{
 					"name": "resources/skins.vector.js/tableOfContentsConfig.json",
 					"config": [
-						"VectorTableOfContentsCollapseAtCount",
-						"VectorTableOfContentsBeginning"
+						"VectorTableOfContentsCollapseAtCount"
 					]
 				},
 				{
@@ -596,10 +595,6 @@
 		"VectorPromoteAddTopic": {
 			"value": true,
 			"description": "@var boolean Temporary feature flag that promotes the 'Add topic' link in the views menu, to a button in the page title bar."
-		},
-		"VectorTableOfContentsBeginning": {
-			"value": true,
-			"description": "@var boolean Temporary feature flag that controls link to beginning of article."
 		},
 		"VectorTableOfContentsCollapseAtCount": {
 			"value": 28,
