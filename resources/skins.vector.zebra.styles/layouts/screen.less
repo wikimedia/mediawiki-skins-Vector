@@ -32,8 +32,6 @@ html& {
 body {
 	background-color: @background-color-secondary--modern;
 	color: @color-base;
-	// Vertical scrollbar always visible.
-	overflow-y: scroll;
 }
 
 .mw-body,
@@ -163,9 +161,6 @@ body {
 	// elements placed inside this element
 	position: relative;
 	z-index: 0;
-	// Fill the viewport even if the content height is small. This also helps
-	// mitigate a long sidebar overflowing the page container (T257518).
-	min-height: 100%;
 	margin: 0 auto;
 	// Use non-zero padding to disable margin collapse.
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
