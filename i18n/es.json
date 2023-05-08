@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"-sasha-",
 			"Adam N.",
 			"Amire80",
 			"Armando-Martin",
@@ -84,5 +85,8 @@
 	"tooltip-vector-anon-user-menu-title": "Más opciones",
 	"vector-prefs-limited-width": "Habilitar el modo de ancho limitado",
 	"vector-prefs-limited-width-help": "Activa el modo de ancho limitado para una experiencia de lectura mejorada.",
-	"empty-language-selector-body": "Contenido de la página no disponible en otros idiomas."
+	"empty-language-selector-body": "Contenido de la página no disponible en otros idiomas.",
+	"vector-toc-unpinned-popup": "La tabla de contenidos se ha movido aquí.",
+	"vector-page-tools-unpinned-popup": "El menú de herramientas se ha movido aquí.",
+	"vector-main-menu-unpinned-popup": "El menú principal se ha movido aquí."
 }
