@@ -24,7 +24,10 @@
 	"vector-more-actions": "Кхы а",
 	"vector-anon-user-menu-pages": "Авторизаци яь йоацача доакъашхошта йола оагӀонаш",
 	"vector-anon-user-menu-pages-learn": "дукхагӀа хá",
+	"vector-main-menu-tooltip": "Керттера меню",
+	"vector-main-menu-label": "Керттера меню",
 	"vector-page-tools-label": "Кечалаш",
 	"vector-page-tools-general-label": "Юкъара",
-	"vector-pin-element-label": "дехьаяккха аьттехьа"
+	"vector-pin-element-label": "дехьаяккха аьттехьа",
+	"vector-main-menu-unpinned-popup": "Керттера меню укхазахьа дехьаяьккхай."
 }
