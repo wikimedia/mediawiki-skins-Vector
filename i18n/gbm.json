@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"बडा काजी"
+			"बडा काजी",
+			"Yakku3"
 		]
 	},
+	"vector-languages": "भासा",
+	"vector-view-create": "बणावा",
+	"vector-view-history": "इत्यास हेरा",
 	"vector-more-actions": "खार्युं"
 }

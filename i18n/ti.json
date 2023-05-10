@@ -21,5 +21,9 @@
 	"vector-jumptonavigation": "ናብ ዳህሳስ ኪድ",
 	"vector-jumptosearch": "ናብ ምድላይ ኪድ",
 	"vector-jumptocontent": "ናብ ትሕዝቶ ኪድ",
-	"vector-more-actions": "ተወሳኺ"
+	"vector-more-actions": "ተወሳኺ",
+	"vector-anon-user-menu-pages-learn": "ተወሳኺ ሓበሬታ",
+	"vector-anon-user-menu-pages-label": "ብዛዕባ ኣርትዖት ዝያዳ ሓበሬታ ርኸብ",
+	"vector-main-menu-tooltip": "ቀንዲ መምረጺ",
+	"tooltip-vector-anon-user-menu-title": "ተወሳኺ ኣማራጽታት"
 }

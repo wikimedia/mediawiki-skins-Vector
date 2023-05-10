@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Zolgoyo"
+		]
+	},
+	"vector-languages": "Tĭller",
+	"vector-language-button-label": "{{PLURAL:$1|tĭl}}",
+	"vector-action-addsection": "Mewzu qoş",
+	"vector-action-delete": "Yoq et",
+	"vector-action-move": "Adını degĭştĭr",
+	"vector-action-protect": "Qolla",
+	"vector-view-create": "Yarat",
+	"vector-view-history": "Keşmĭş",
+	"vector-more-actions": "Taa köp"
+}

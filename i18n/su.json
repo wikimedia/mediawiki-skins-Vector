@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Daud I.F. Argana",
-			"Kandar"
+			"Kandar",
+			"Amire80",
+			"Pijri Paijar"
 		]
 	},
 	"vector-skin-desc": "MonoBook vérsi modéren dina pidangan anu leuwih anyar jeung leuwih hadé",
+	"vector-languages": "Basa",
 	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
 	"vector-action-addsection": "Tambah jejer",
 	"vector-action-delete": "Hapus",

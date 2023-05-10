@@ -8,6 +8,8 @@
 			"ⵕⴰⵊⵉ"
 		]
 	},
+	"vector-languages": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ⵜⵓⵜⵍⴰⵢⵜ|$1 ⵜⵓⵜⵍⴰⵢⵉⵏ}}",
 	"vector-action-addsection": "ⵔⵏⵓ ⴰⵙⵏⵜⵍ",
 	"vector-action-delete": "ⴽⴽⵙ",
 	"vector-action-move": "ⵙⵎⴰⵜⵜⵉ",
