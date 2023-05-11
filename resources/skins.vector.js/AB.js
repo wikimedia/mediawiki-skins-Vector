@@ -3,6 +3,9 @@
 const EXCLUDED_BUCKET = 'unsampled';
 const TREATMENT_BUCKET_SUBSTRING = 'treatment';
 const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
+
+let initialized = false;
+
 /**
  * @typedef {Function} TreatmentBucketFunction
  * @param {string} [a]
@@ -62,9 +65,12 @@ const WEB_AB_TEST_ENROLLMENT_HOOK = 'mediawiki.web_AB_test_enrollment';
  * });
  *
  * @param {WebABTestProps} props
+ * @param {string} token
+ * @param {boolean} [forceInit] forces initialization of init event.
+ *  Bypasses caching. Do not use outside tests.
  * @return {WebABTest}
  */
-module.exports = function webABTest( props ) {
+module.exports = function webABTest( props, token, forceInit ) {
 	let /** @type {string} */ cachedBucket;
 
 	/**
@@ -114,7 +120,7 @@ module.exports = function webABTest( props ) {
 			return bucketFromHTML;
 		}
 
-		if ( props.token === undefined ) {
+		if ( token === undefined ) {
 			throw new Error( 'Tried to call `getBucket` with an undefined token' );
 		}
 
@@ -126,7 +132,7 @@ module.exports = function webABTest( props ) {
 					buckets[ key ] = props.buckets[ key ].samplingRate;
 					return buckets;
 				}, {} )
-		}, props.token );
+		}, token );
 
 		return cachedBucket;
 	}
@@ -177,10 +183,14 @@ module.exports = function webABTest( props ) {
 				group: getBucket(),
 				experimentName: props.name
 			} );
+			// don't run this again.
+			initialized = true;
 		}
 	}
 
-	init();
+	if ( !initialized || forceInit ) {
+		init();
+	}
 
 	/**
 	 * @typedef {Object} WebABTest

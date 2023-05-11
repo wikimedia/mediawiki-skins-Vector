@@ -330,7 +330,8 @@ const main = () => {
 		ABTestConfig,
 		isStickyHeaderAllowed && !mw.user.isAnon(),
 		( config ) => initExperiment(
-			Object.assign( {}, config, { token: mw.user.getId() } )
+			config,
+			String( mw.user.getId() )
 		)
 	);
 

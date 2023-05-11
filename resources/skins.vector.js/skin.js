@@ -3,6 +3,8 @@ const languageButton = require( './languageButton.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
 	searchToggle = require( './searchToggle.js' ),
 	echo = require( './echo.js' ),
+	initExperiment = require( './AB.js' ),
+	ABTestConfig = require( /** @type {string} */ ( './activeABTest.json' ) ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ),
@@ -124,6 +126,9 @@ function init( window ) {
 }
 
 init( window );
+if ( ABTestConfig.enabled && !mw.user.isAnon() ) {
+	initExperiment( ABTestConfig, String( mw.user.getId() ) );
+}
 if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
 	main( window );
 } else {
