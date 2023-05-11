@@ -5,6 +5,7 @@
 			"Ella Lachow"
 		]
 	},
+	"vector-opt-out": "Gal\"a be'uwaassi zaara",
 	"vector-languages": "Doonata",
 	"vector-language-button-label": "{{PLURAL:$1|$1 doonaa|$1 doonata}}",
 	"vector-no-language-button-label": "Doonata gujja",
@@ -25,7 +26,7 @@
 	"vector-more-actions": "Aaruwassi",
 	"vector-search-loader": "Koshshaa zoreta ehiidi de'ees",
 	"vector-searchsuggest-containing": "Oyqqida sinttata koyya <strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
-	"vector-intro-page": "Maaduwaa:Geluwaa",
+	"vector-intro-page": "Help:Geluwaa",
 	"vector-toc-label": "Kesota",
 	"vector-toc-beginning": "Doomettaa",
 	"vector-toc-toggle-button-label": "$1 sima shaahuwaa laameretta",
@@ -41,6 +42,7 @@
 	"vector-page-tools-label": "Buqurata",
 	"vector-page-tools-general-label": "Xaaxi waaxin",
 	"vector-page-tools-actions-label": "Oosota",
+	"vector-pin-element-label": "Sayidibaariyakko yuuyya",
 	"vector-unpin-element-label": "gentta",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Tobbiyaa]]",
 	"tooltip-vector-anon-user-menu-title": "Aaho doorota",
