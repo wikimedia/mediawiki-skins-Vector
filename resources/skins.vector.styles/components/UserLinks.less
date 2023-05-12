@@ -67,20 +67,23 @@
 		align-items: center;
 	}
 
-	// TODO: Simplify button, icon button and link styling with T323244
 	@media ( min-width: @min-width-desktop ) {
 		// Right margin to separate overflow menu from dropdown
 		margin-right: 8px;
 
-		// Separate icon buttons inside the overflow menu
+		// Separate menu items inside overflow menu
 		.vector-menu-content-list {
 			column-gap: 8px;
 		}
 	}
 
-	// Add margin to links that don't have the .mw-ui-button or related icon classes.
-	a:not( .mw-ui-button ):not( .mw-echo-notifications-badge  ) {
-		margin: 0 8px;
+	@media ( max-width: @max-width-tablet ) {
+		// Only apply 8px spacing to normal links (i.e. Create account, User page)
+		// Links with button classes will have a larger touch area
+		// and therefore dont need additional spacing
+		a:not( .mw-ui-button ):not( .mw-echo-notifications-badge  ) {
+			margin: 0 8px;
+		}
 	}
 
 	.user-links-collapsible-item {
