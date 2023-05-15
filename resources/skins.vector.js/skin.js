@@ -7,7 +7,7 @@ const languageButton = require( './languageButton.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './activeABTest.json' ) ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
-	watchstar = require( './watchstar.js' ),
+	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	menuTabs = require( './menuTabs.js' );
 
