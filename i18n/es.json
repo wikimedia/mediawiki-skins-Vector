@@ -76,6 +76,8 @@
 	"vector-site-nav-label": "Sitio",
 	"vector-main-menu-label": "Menú principal",
 	"vector-limited-width-toggle": "Activar o desactivar el límite de anchura del contenido",
+	"vector-limited-width-toggle-on-popup": "Has cambiado la página al ancho completo. Si quieres volver al ancho limitado, haz clic en el botón.",
+	"vector-limited-width-toggle-off-popup": "Puedes alternar entre el ancho limitado y completo haciendo clic en este botón.",
 	"vector-page-tools-label": "Herramientas",
 	"vector-page-tools-general-label": "General",
 	"vector-page-tools-actions-label": "Acciones",
