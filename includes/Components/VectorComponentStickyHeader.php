@@ -34,7 +34,10 @@ class VectorComponentStickyHeader implements VectorComponent {
 		'icon' => 'wikimedia-star',
 		'is-quiet' => true,
 		'tabindex' => '-1',
-		'class' => 'sticky-header-icon mw-watchlink'
+		// With the original watchstar, this class is applied to the <li> element
+		// thats the parent of the actual watchlink. In the sticky header we dont use
+		// the same markup, so its directly applied to the watchlink element
+		'class' => 'mw-watchlink'
 	];
 	private const EDIT_VE_ICON = [
 		'label' => '',
@@ -114,7 +117,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 				$icon[ 'label' ],
 				$icon[ 'icon' ],
 				$icon[ 'id' ],
-				'sticky-header-icon',
+				$icon[ 'class' ] ?? '',
 				[
 					'tabindex' => '-1',
 					'data-event-name' => $icon[ 'event' ],
@@ -138,7 +141,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 			$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
 			'speechBubbleAdd-progressive',
 			'ca-addsection-sticky-header',
-			'sticky-header-icon',
+			'',
 			[
 				'tabindex' => '-1',
 				'data-event-name' => 'addsection-sticky-header'
