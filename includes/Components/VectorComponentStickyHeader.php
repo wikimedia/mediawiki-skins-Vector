@@ -9,26 +9,22 @@ use MessageLocalizer;
  */
 class VectorComponentStickyHeader implements VectorComponent {
 	private const TALK_ICON = [
-		'label' => '',
 		'icon' => 'speechBubbles',
 		'id' => 'ca-talk-sticky-header',
 		'event' => 'talk-sticky-header'
 	];
 	private const SUBJECT_ICON = [
-		'label' => '',
 		'icon' => 'article',
 		'id' => 'ca-subject-sticky-header',
 		'event' => 'subject-sticky-header'
 	];
 	private const HISTORY_ICON = [
-		'label' => '',
 		'icon' => 'wikimedia-history',
 		'id' => 'ca-history-sticky-header',
 		'event' => 'history-sticky-header',
 	];
 	// Event and icon will be updated depending on watchstar state
 	private const WATCHSTAR_ICON = [
-		'label' => '',
 		'id' => 'ca-watchstar-sticky-header',
 		'event' => 'watch-sticky-header',
 		'icon' => 'wikimedia-star',
@@ -40,19 +36,16 @@ class VectorComponentStickyHeader implements VectorComponent {
 		'class' => 'mw-watchlink'
 	];
 	private const EDIT_VE_ICON = [
-		'label' => '',
 		'id' => 'ca-ve-edit-sticky-header',
 		'event' => 've-edit-sticky-header',
 		'icon' => 'wikimedia-edit',
 	];
 	private const EDIT_WIKITEXT_ICON = [
-		'label' => '',
 		'id' => 'ca-edit-sticky-header',
 		'event' => 'wikitext-edit-sticky-header',
 		'icon' => 'wikimedia-wikiText',
 	];
 	private const EDIT_PROTECTED_ICON = [
-		'label' => '',
 		'href' => '#',
 		'id' => 'ca-viewsource-sticky-header',
 		'event' => 've-edit-protected-sticky-header',
@@ -114,7 +107,8 @@ class VectorComponentStickyHeader implements VectorComponent {
 		$iconButtons = [];
 		foreach ( $icons as $icon ) {
 			$iconButtons[] = new VectorComponentButton(
-				$icon[ 'label' ],
+				// Button labels will be populated in stickyHeader.js
+				"",
 				$icon[ 'icon' ],
 				$icon[ 'id' ],
 				$icon[ 'class' ] ?? '',

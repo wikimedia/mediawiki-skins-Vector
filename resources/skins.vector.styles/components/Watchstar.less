@@ -7,10 +7,12 @@
  * (in which case it is inside `.vector-menu-dropdown` instead of `.vector-menu-tabs`). */
 // Note: there's no watchstar for anon users so no need to worry about cached HTML when changing this class
 // Loading watchstar link class.
-.mw-watchlink .mw-ui-icon::before {
-	transition: transform 500ms;
-}
+.mw-watchlink {
+	.mw-ui-icon {
+		transition: transform 500ms;
+	}
 
-.mw-ui-icon-wikimedia-unStar::before {
-	transform: rotate( 72deg );
+	.mw-ui-icon-wikimedia-unStar {
+		transform: rotate( 72deg );
+	}
 }

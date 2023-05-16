@@ -3,6 +3,7 @@
  */
 const
 	initSearchToggle = require( './searchToggle.js' ),
+	updateWatchIcon = require( './watchstar.js' ).updateWatchIcon,
 	STICKY_HEADER_ID = 'vector-sticky-header',
 	STICKY_HEADER_APPENDED_ID = '-sticky-header',
 	STICKY_HEADER_APPENDED_PARAM = [ 'wvprov', 'sticky-header' ],
@@ -55,6 +56,10 @@ function hide() {
 function copyButtonAttributes( from, to ) {
 	copyAttribute( from, to, 'href' );
 	copyAttribute( from, to, 'title' );
+	// Copy button labels
+	if ( to.lastElementChild && from.lastElementChild ) {
+		to.lastElementChild.innerHTML = from.lastElementChild.textContent || '';
+	}
 }
 
 /**
@@ -121,6 +126,16 @@ function removeNode( node ) {
 }
 
 /**
+ * Ensures a sticky header button has the correct attributes
+ *
+ * @param {Element} watchLink
+ * @param {boolean} isWatched The page is watched
+ */
+function updateStickyWatchlink( watchLink, isWatched ) {
+	watchLink.setAttribute( 'data-event-name', isWatched ? 'watch-sticky-header' : 'unwatch-sticky-header' );
+}
+
+/**
  * @param {NodeList} nodes
  * @param {string} className
  */
@@ -140,31 +155,13 @@ function removeNodes( nodes ) {
 }
 
 /**
- * Ensures a sticky header button has the correct attributes
- *
- * @param {Element} watchSticky
- * @param {string} status 'watched', 'unwatched', or 'temporary'
- */
-function updateStickyWatchlink( watchSticky, status ) {
-	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-star', status === 'unwatched' );
-	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-unStar', status === 'watched' );
-	watchSticky.classList.toggle( 'mw-ui-icon-wikimedia-halfStar', status === 'temporary' );
-	watchSticky.setAttribute( 'data-event-name', status === 'unwatched' ? 'watch-sticky-header' : 'unwatch-sticky-header' );
-}
-
-/**
  * Callback for watchsar
  *
  * @param {JQuery} $link Watchstar link
  * @param {boolean} isWatched The page is watched
- * @param {string} [expiry] Optional expiry time
  */
-function watchstarCallback( $link, isWatched, expiry ) {
-	updateStickyWatchlink(
-		/** @type {HTMLAnchorElement} */( $link[ 0 ] ),
-		expiry !== 'infinity' ? 'temporary' :
-			isWatched ? 'watched' : 'unwatched'
-	);
+function watchstarCallback( $link, isWatched ) {
+	updateStickyWatchlink( /** @type {HTMLAnchorElement} */( $link[ 0 ] ), isWatched );
 }
 
 /**
@@ -206,12 +203,14 @@ function prepareIcons( header, history, talk, subject, watch ) {
 
 	if ( watch && watch.parentNode instanceof Element ) {
 		const watchContainer = watch.parentNode;
+		const isTemporaryWatch = watchContainer.classList.contains( 'mw-watchlink-temp' );
+		const isWatched = isTemporaryWatch || watchContainer.getAttribute( 'id' ) === 'ca-unwatch';
+		const watchIcon = /** @type {HTMLElement} */ ( watchSticky.querySelector( '.mw-ui-icon' ) );
+
+		// Initialize sticky watchlink
 		copyButtonAttributes( watch, watchSticky );
-		updateStickyWatchlink(
-			watchSticky,
-			watchContainer.classList.contains( 'mw-watchlink-temp' ) ? 'temporary' :
-				watchContainer.getAttribute( 'id' ) === 'ca-watch' ? 'unwatched' : 'watched'
-		);
+		updateWatchIcon( watchIcon, isWatched, isTemporaryWatch ? '' : 'infinity' );
+		updateStickyWatchlink( watchSticky, isWatched );
 
 		const watchLib = require( /** @type {string} */( 'mediawiki.page.watch.ajax' ) );
 		watchLib.watchstar( $( watchSticky ), mw.config.get( 'wgRelevantPageName' ), watchstarCallback );
