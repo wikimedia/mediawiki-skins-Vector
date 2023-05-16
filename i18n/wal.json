@@ -5,6 +5,7 @@
 			"Ella Lachow"
 		]
 	},
+	"vector-opt-out": "Gal\"a be'uwaassi zaara",
 	"vector-languages": "Doonata",
 	"vector-language-button-label": "{{PLURAL:$1|$1 doonaa|$1 doonata}}",
 	"vector-no-language-button-label": "Doonata gujja",
@@ -25,7 +26,7 @@
 	"vector-more-actions": "Aaruwassi",
 	"vector-search-loader": "Koshshaa zoreta ehiidi de'ees",
 	"vector-searchsuggest-containing": "Oyqqida sinttata koyya <strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
-	"vector-intro-page": "Maaduwaa:Geluwaa",
+	"vector-intro-page": "Help:Geluwaa",
 	"vector-toc-beginning": "Doomettaa",
 	"vector-toc-toggle-button-label": "$1 sima shaahuwaa laameretta",
 	"vector-anon-user-menu-pages": "Gelennan giigissiyaageetu sinttata",
