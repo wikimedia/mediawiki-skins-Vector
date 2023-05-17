@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"এম আবু সাঈদ",
-			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ",
+			"Amire80"
 		]
 	},
+	"vector-languages": "ꠜꠣꠡꠣꠁꠘ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ꠝꠣꠔ|$1 ꠝꠣꠔꠣꠁꠘ}}",
 	"vector-action-addsection": "ꠐꠙꠤꠇ ꠡꠥꠞꠥ ꠈꠞꠁꠘ",
 	"vector-action-delete": "ꠙꠣꠟꠣꠃꠇ꠆ꠇꠣ",

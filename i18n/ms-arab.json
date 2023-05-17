@@ -6,6 +6,7 @@
 	},
 	"skinname-vector-2022": "ۏيکتور (2022)",
 	"vector-specialversion-name": "ۏيکتور",
+	"vector-opt-out": "توکر کواجه لاما",
 	"vector-languages": "بهاس",
 	"vector-action-addsection": "بوک توڤيک",
 	"vector-action-delete": "هاڤوس",
@@ -15,5 +16,6 @@
 	"vector-view-edit": "سونتيڠ",
 	"vector-view-history": "ليهت سجاره",
 	"vector-view-view": "باچ",
-	"vector-more-actions": "لاݢي"
+	"vector-more-actions": "لاݢي",
+	"vector-main-menu-tooltip": "مينو اوتام"
 }
