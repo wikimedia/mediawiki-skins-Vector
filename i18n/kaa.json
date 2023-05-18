@@ -6,7 +6,7 @@
 			"Nurlan"
 		]
 	},
-	"skinname-vector": "Vektor miyrası (2010)",
+	"skinname-vector": "Vektor, eski (2010)",
 	"skinname-vector-2022": "Vektor (2022)",
 	"vector-specialversion-name": "Vektor",
 	"prefs-vector-enable-vector-1-label": "Eski Vektordan paydalanıw",
@@ -33,6 +33,7 @@
 	"vector-search-loader": "Izlew usınısları júklenbekte",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> tekstin óz ishine alǵan betlerdi izlew",
 	"vector-intro-page": "Járdem:Xosh keldińiz",
+	"vector-toc-label": "Mazmunı",
 	"vector-toc-beginning": "Kirisiw",
 	"vector-anon-user-menu-pages": "Shıǵıwdı ámelge asırǵan redaktorlawshılar ushın betler",
 	"vector-anon-user-menu-pages-learn": "tolıq maǵlıwmat",
