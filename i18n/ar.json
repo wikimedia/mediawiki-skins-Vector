@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abanima",
+			"Alshamiri1",
 			"Amire80",
 			"Bachounda",
 			"Beginneruser",
@@ -70,6 +71,9 @@
 	"vector-toc-collapsible-button-label": "تبديل عرض جدول المحتويات",
 	"vector-site-nav-label": "الموقع",
 	"vector-main-menu-label": "القائمة الرئيسية",
+	"vector-limited-width-toggle": "تبديل عرض المحتوى المحدود",
+	"vector-limited-width-toggle-on-popup": "لقد قمت بتبديل التخطيط الخاص بك إلى العرض الكامل. للعودة إلى العرض المحدود ، اضغط على هذا الزر.",
+	"vector-limited-width-toggle-off-popup": "يمكنك التبديل بين العرض المحدود والعرض الكامل بالنقر فوق هذا الزر.",
 	"vector-page-tools-label": "أدوات",
 	"vector-page-tools-general-label": "عام",
 	"vector-page-tools-actions-label": "أفعال",
@@ -78,5 +82,9 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|نقاش]]",
 	"tooltip-vector-anon-user-menu-title": "المزيد من الخيارات",
 	"vector-prefs-limited-width": "تفعيل وضع العرض المحدود",
-	"vector-prefs-limited-width-help": "قم بتمكين وضع العرض المحدود لتجربة قراءة محسنة."
+	"vector-prefs-limited-width-help": "قم بتمكين وضع العرض المحدود لتجربة قراءة محسنة.",
+	"empty-language-selector-body": "محتويات الصفحة غير مدعومة بلغات أخرى.",
+	"vector-toc-unpinned-popup": "تم نقل جدول المحتويات هنا.",
+	"vector-page-tools-unpinned-popup": "تم نقل قائمة الأدوات هنا.",
+	"vector-main-menu-unpinned-popup": "تم نقل القائمة الرئيسية هنا."
 }
