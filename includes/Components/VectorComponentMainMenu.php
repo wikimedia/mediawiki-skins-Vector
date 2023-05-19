@@ -31,6 +31,7 @@ class VectorComponentMainMenu implements VectorComponent {
 	/**
 	 * @param array $sidebarData
 	 * @param bool $shouldLanguageAlertBeInSidebar
+	 * @param int $numLanguages
 	 * @param array $languageData
 	 * @param MessageLocalizer $localizer
 	 * @param User $user
@@ -40,6 +41,7 @@ class VectorComponentMainMenu implements VectorComponent {
 	public function __construct(
 		array $sidebarData,
 		bool $shouldLanguageAlertBeInSidebar,
+		int $numLanguages,
 		array $languageData,
 		MessageLocalizer $localizer,
 		User $user,
@@ -62,7 +64,7 @@ class VectorComponentMainMenu implements VectorComponent {
 			$this->optOut = new VectorComponentMainMenuActionOptOut( $skin );
 		}
 		if ( $shouldLanguageAlertBeInSidebar ) {
-			$this->alert = new VectorComponentMainMenuActionLanguageSwitchAlert( $skin );
+			$this->alert = new VectorComponentMainMenuActionLanguageSwitchAlert( $skin, $numLanguages );
 		}
 	}
 

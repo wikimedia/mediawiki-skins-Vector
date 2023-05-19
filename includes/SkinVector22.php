@@ -429,6 +429,7 @@ class SkinVector22 extends SkinMustache {
 			'data-main-menu' => new VectorComponentMainMenu(
 				$sidebar,
 				$this->shouldLanguageAlertBeInSidebar(),
+				count( $this->getLanguagesCached() ),
 				$parentData['data-portlets']['data-languages'] ?? [],
 				$localizer,
 				$this->getUser(),
