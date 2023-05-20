@@ -33,7 +33,7 @@ use WebRequest;
  */
 class OverridableConfigRequirementTest extends \MediaWikiUnitTestCase {
 
-	public function providerLanguageInHeaderTreatmentRequirement() {
+	public static function providerLanguageInHeaderTreatmentRequirement() {
 		return [
 			[
 				// Is language enabled

@@ -13,7 +13,7 @@ use User;
  * @coversDefaultClass \MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement
  */
 final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
-	public function providerTestIsMetRequirement() {
+	public static function providerTestIsMetRequirement() {
 		return [
 			[
 				// Is option enabled?

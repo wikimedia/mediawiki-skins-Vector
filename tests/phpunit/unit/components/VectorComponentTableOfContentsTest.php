@@ -34,7 +34,7 @@ use MessageLocalizer;
  */
 class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 
-	public function provideGetTocData() {
+	public static function provideGetTocData() {
 		$config = [
 			'VectorTableOfContentsCollapseAtCount' => 1
 		];

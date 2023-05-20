@@ -22,7 +22,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @return SkinVectorLegacy
 	 */
-	private function provideVectorTemplateObject() {
+	private static function provideVectorTemplateObject() {
 		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
 		$template = $skinFactory->makeSkin( 'vector' );
 		return $template;
@@ -138,7 +138,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	 * Standard config for Language Alert in Sidebar
 	 * @return array
 	 */
-	private function enableLanguageInHeaderFeatureConfig(): array {
+	private static function enableLanguageInHeaderFeatureConfig(): array {
 		return [
 			'VectorLanguageInHeader' => [
 				'logged_in' => true,
@@ -151,7 +151,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public function providerLanguageAlertRequirements() {
+	public static function providerLanguageAlertRequirements() {
 		$testTitle = Title::makeTitle( NS_MAIN, 'Test' );
 		$testTitleMainPage = Title::makeTitle( NS_MAIN, 'MAIN_PAGE' );
 		return [
@@ -170,7 +170,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				false
 			],
 			'When the feature is enabled and languages should be hidden, do not show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitle,
 				[], true, true, false
 			],
@@ -185,12 +185,12 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				[ 'fr', 'en', 'ko' ], true, false, false
 			],
 			'When it is a main page, feature is enabled, and there are no languages, do not show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitleMainPage,
 				[], true, true, false
 			],
 			'When it is a non-main page, feature is enabled, and there are no languages, do not show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitle,
 				[], true, true, false
 			],
@@ -205,22 +205,22 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				[ 'fr', 'en', 'ko' ], true, true, false
 			],
 			'When most requirements are present but languages are not at the top, do not show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitle,
 				[ 'fr', 'en', 'ko' ], false, false, false
 			],
 			'When most requirements are present but languages should be hidden, do not show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitle,
 				[ 'fr', 'en', 'ko' ], true, true, false
 			],
 			'When it is a main page, features are enabled, and there are languages, show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitleMainPage,
 				[ 'fr', 'en', 'ko' ], true, false, true
 			],
 			'When all the requirements are present on a non-main page, show alert' => [
-				$this->enableLanguageInHeaderFeatureConfig(),
+				self::enableLanguageInHeaderFeatureConfig(),
 				$testTitle,
 				[ 'fr', 'en', 'ko' ], true, false, true
 			],

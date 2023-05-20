@@ -53,7 +53,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public function provideGetActiveABTest() {
+	public static function provideGetActiveABTest() {
 		return [
 			[
 				[
@@ -104,7 +104,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public function provideGetActiveABTestWithExceptions() {
+	public static function provideGetActiveABTestWithExceptions() {
 		return [
 			# Bad experiment (no buckets)
 			[
@@ -165,7 +165,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @covers ::shouldDisableMaxWidth
 	 */
-	public function providerShouldDisableMaxWidth() {
+	public static function providerShouldDisableMaxWidth() {
 		$excludeTalkFooConfig = self::makeMaxWidthConfig(
 			false,
 			[ NS_TALK ],
@@ -623,7 +623,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function provideAppendClassToItem() {
+	public static function provideAppendClassToItem() {
 		return [
 			// Add array class to array
 			[
@@ -682,7 +682,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $item );
 	}
 
-	public function provideUpdateItemData() {
+	public static function provideUpdateItemData() {
 		return [
 			// Removes extra attributes
 			[
