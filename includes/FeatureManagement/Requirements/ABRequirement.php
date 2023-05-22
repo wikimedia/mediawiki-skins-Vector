@@ -22,7 +22,6 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use CentralIdLookup;
 use Config;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use User;
@@ -38,19 +37,9 @@ class ABRequirement implements Requirement {
 	private $config;
 
 	/**
-	 * @var CentralIdLookup
-	 */
-	private $centralIdLookup;
-
-	/**
 	 * @var User
 	 */
 	private $user;
-
-	/**
-	 * @var string The name of the requirement
-	 */
-	private $name;
 
 	/**
 	 * @var string The name of the experiment
@@ -58,24 +47,26 @@ class ABRequirement implements Requirement {
 	private $experimentName;
 
 	/**
+	 * @var string The name of the requirement
+	 */
+	private $name;
+
+	/**
 	 * @param Config $config
 	 * @param User $user
-	 * @param CentralIdLookup|null $centralIdLookup
-	 * @param string $name The name of the requirement
 	 * @param string $experimentName The name of the experiment
+	 * @param string|null $name The name of the requirement
 	 */
 	public function __construct(
 		Config $config,
 		User $user,
-		?CentralIdLookup $centralIdLookup,
-		string $name,
-		string $experimentName
+		string $experimentName,
+		?string $name = null
 	) {
 		$this->config = $config;
 		$this->user = $user;
-		$this->centralIdLookup = $centralIdLookup;
-		$this->name = $name;
 		$this->experimentName = $experimentName;
+		$this->name = $name ?? '';
 	}
 
 	/**
@@ -94,15 +85,8 @@ class ABRequirement implements Requirement {
 		// Get the experiment configuration from the config object.
 		$experiment = $this->config->get( 'VectorWebABTestEnrollment' );
 
-		$id = null;
-		if ( $this->centralIdLookup ) {
-			$id = $this->centralIdLookup->centralIdFromLocalUser( $this->user );
-		}
-
-		// $id will be 0 if the central ID lookup failed.
-		if ( !$id ) {
-			$id = $this->user->getId();
-		}
+		// Use the local user ID directly
+		$id = $this->user->getId();
 
 		// Check if the experiment is not enabled or does not match the specified name.
 		if ( !$experiment['enabled'] || $experiment['name'] !== $this->experimentName ) {
@@ -111,7 +95,7 @@ class ABRequirement implements Requirement {
 			return true;
 		} else {
 			// If the experiment is enabled and matches the specified name,
-			// calculate the user's variant based on their central ID
+			// calculate the user's variant based on their user ID
 			$variant = $id % 2;
 
 			// Cast the variant value to a boolean and return it, indicating whether

@@ -80,9 +80,8 @@ return [
 			new ABRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$services->getCentralIdLookupFactory()->getNonLocalLookup(),
-				Constants::REQUIREMENT_ZEBRA_AB_TEST,
-				'skin-vector-zebra-experiment'
+				'skin-vector-zebra-experiment',
+				Constants::REQUIREMENT_ZEBRA_AB_TEST
 			)
 		);
 
