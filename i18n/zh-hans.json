@@ -84,7 +84,7 @@
 	"vector-main-menu-label": "主菜单",
 	"vector-limited-width-toggle": "切换限制内容宽度",
 	"vector-limited-width-toggle-on-popup": "您已将布局切换为全宽度。要切回有限宽度，请按此按钮。",
-	"vector-limited-width-toggle-off-popup": "您可以单击此按钮，来切换有限宽度和全宽度。",
+	"vector-limited-width-toggle-off-popup": "您可通过单击此按钮，在固定宽度和全屏宽度间切换。",
 	"vector-page-tools-label": "工具",
 	"vector-page-tools-general-label": "常规",
 	"vector-page-tools-actions-label": "操作",
