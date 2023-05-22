@@ -25,7 +25,9 @@ body {
 	position: absolute;
 	top: @top-personal-tools;
 	right: 0.75em;
-	z-index: @z-index-personal;
+	// It doesn't seem needed to have a `z-index` here. Even with menu overlays like Contributions
+	// and other dynamic menus like legacy search autocomplete, it seems to work fine without it.
+	z-index: @z-index-fixed;
 
 	ul {
 		padding-left: 10em; /* Keep from overlapping logo */

@@ -107,11 +107,12 @@ body {
 
 // Container logic.
 .mw-page-container {
-	// Setting position and z-index is important as it allows overlays appended to the body tag
+	// Create stacking context.
+	// Setting position and z-index as it allows overlays appended to the body tag
 	// to position themselves over the Vector interface. This forms another stacking context for
 	// elements placed inside this element
 	position: relative;
-	z-index: 0;
+	z-index: @z-index-base;
 	// Use non-zero padding to disable margin collapse.
 	// Be careful not to use overflow-y: scroll here (see T270146 and T271868)
 	padding-top: 0.05px;

@@ -144,27 +144,27 @@
 @height-header: unit( 50px / @font-size-browser, rem );
 
 // Z-indices
-// See skinStyles/jquery.ui/jquery.ui.datepicker.css.
-// @z-index-ui-datepicker-cover: -1;
-@z-index-base: 0;
-// Header z-index-header higher than z-index-menu so that search results overlay variants and more menu
-@z-index-header: 4;
-@z-index-menu-checkbox: 1;
-@z-index-search-button: 1;
-@z-index-search-loader: 1;
+// See Codex tokens https://doc.wikimedia.org/codex/latest/design-tokens/z-index.html
+
+// Header z-index-header with 200 in Codex higher than @z-index-dropdown so that search results
+// overlay variants and more menu
+@z-index-header: @z-index-fixed;
+@z-index-search-button: @z-index-stacking-1;
+@z-index-search-loader: @z-index-stacking-1;
 // Ensure that this is displayed on top of .vector-body and clickable.
-@z-index-indicators: 1;
+@z-index-indicators: @z-index-stacking-1;
+// Menus must overlap indicators (@z-index-indicators) and VisualEditor toolbar (z-index: 2).
+// @z-index-dropdown: 50; in Codex
+// @z-index-overlay is 450 in new Codex tokens; was 101;
+
 // See skinStyles/jquery.ui/jquery.ui.slider.css.
 // @z-index-ui-slider-range: 1;
-// Menus must overlap indicators (@z-index-indicators) and VisualEditor toolbar (z-index: 2).
-@z-index-menu: 3;
+// See skinStyles/jquery.ui/jquery.ui.datepicker.css.
+// @z-index-ui-datepicker-cover: -1;
 // See skinStyles/jquery.ui/jquery.ui.slider.css.
 // @z-index-ui-slider-handle: 2;
-// Display on top of page tabs (T39158, T50078).
-@z-index-personal: 100;
 // See skinStyles/jquery.ui/jquery.ui.selectable.css.
 // @z-index-ui-selectable-helper: 100;
-@z-index-overlay: 101;
 // See skinStyles/jquery.ui/jquery.ui.tooltip.css.
 // @z-index-ui-tooltip: 9999;
 
