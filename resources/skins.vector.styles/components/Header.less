@@ -21,16 +21,26 @@
 		flex-grow: 1;
 	}
 
-	@media ( min-width: @min-width-desktop-wide ) {
-		.client-js & .vector-search-box.vector-search-box-auto-expand-width {
-			// Ensure search box is aligned with content when it autoexpands (i.e. search thumbnails)
-			margin-left: -@size-search-expand;
+	.search-toggle {
+		// At lower resolutions the search input is hidden and a toggle is shown
+		display: inline-flex;
+		float: right;
+		// Ensures the button has a font size of 16px
+		font-size: unit( 16 / @font-size-browser, rem );
+
+		@media ( min-width: @min-width-desktop ) {
+			// Override .cdx-button styles
+			display: none !important;  /* stylelint-disable-line declaration-no-important */
 		}
 	}
 
-	@media ( min-width: @min-width-desktop ) {
-		.vector-search-box {
-			margin-right: @margin-end-search;
+	// FIXME: Remove .vector-search-box-collapses > div after caching
+	.vector-search-box-collapses > div,
+	.vector-typeahead-search-container {
+		display: none;
+
+		@media ( min-width: @min-width-desktop ) {
+			display: block;
 		}
 	}
 
@@ -44,22 +54,21 @@
 				display: none;
 			}
 
-			.vector-search-box-collapses > div {
+			// FIXME: Remove .vector-search-box-collapses > div after caching
+			.vector-search-box-collapses > div,
+			.vector-typeahead-search-container {
 				display: block;
+				// Override default max width at lower resolutions
+				max-width: none;
 			}
 
 			.vector-search-box {
 				// T284242#7206507: Widen the suggestion results to the edge of the search
 				// button at small resolutions.
 				position: relative;
-				margin-right: @margin-end-search;
-
-				// Override default max width at lower resolutions
-				> div {
-					max-width: none;
-				}
 			}
 
+			// FIXME: Remove selector after caching
 			// Make the menu below the search input wider, to match the width of the input+button
 			// rather than just the width of the input
 			.cdx-search-input__input-wrapper {

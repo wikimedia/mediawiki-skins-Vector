@@ -1,6 +1,8 @@
 @import 'mediawiki.mixins.less';
 @import '../../common/variables.less';
 
+// FIXME: Move entire file into the legacy SearchBox.less after caching
+
 // Defined as `div`.
 // Provide extra element for gadgets due to `form` already carrying an `id`.
 .vector-search-box-inner {
@@ -26,7 +28,6 @@
 	box-shadow: @box-shadow-inset-small @box-shadow-color-transparent;
 	// Match Codex.
 	font-family: inherit;
-	font-size: @font-size-search-input;
 	direction: ltr;
 	transition-property: border-color, box-shadow;
 	transition-duration: @transition-duration-medium;
@@ -92,25 +93,4 @@
 .searchButton[ name='go' ] {
 	background: no-repeat center/unit( 16 / @font-size-browser / @font-size-search-input, em ) url( images/search.svg );
 	opacity: 0.67;
-}
-
-.search-toggle {
-	// At lower resolutions the search input is hidden and a toggle is shown
-	display: inline-flex;
-	float: right;
-	// Ensures the button has a font size of 16px
-	font-size: unit( 16 / @font-size-browser, rem );
-
-	@media ( min-width: @min-width-desktop ) {
-		// Override .cdx-button styles
-		display: none !important;  /* stylelint-disable-line declaration-no-important */
-	}
-}
-
-.vector-search-box-collapses > div {
-	display: none;
-
-	@media ( min-width: @min-width-desktop ) {
-		display: block;
-	}
 }

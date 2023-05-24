@@ -1,5 +1,7 @@
 @import '../../common/variables.less';
 
+// FIXME: Remove entire file after caching
+
 /**
  * Minimal styling for initial no-JS server-rendered
  * search form, which gets replaced by Codex on focus.
@@ -7,29 +9,6 @@
  * mimic Codex-specific variables and disable the
  * ResourceLoader LESS transformation of `calc`.
  */
-
-// Derived from @size-base design token in Codex
-@size-base: 32px;
-
-@min-size-search-button: 30px;
-@background-size-x-search-button: 20px;
-
-// Search container
-// We have to put those styles outside `.skin-vector-search-vue`,
-// as we can't address no-JS modern and Vue enhanced otherwise.
-.vector-search-box {
-	// Use Vector's base font-size, as this is a component outside of `.vector-body`.
-	font-size: @font-size-base;
-	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
-	// `calc` enables to set correct calculation in place again. See T102364.
-	font-size: @font-size-base--trident-hack;
-	// If this is a flex item, make sure it grows into available space.
-	flex-grow: 1;
-
-	> div {
-		max-width: @max-width-search;
-	}
-}
 
 // Typeahead search elements
 .vector-search-box-vue .vector-search-box-input,
@@ -41,18 +20,18 @@
 .vector-search-box-vue .vector-search-box-input {
 	height: auto;
 	// The following is copied directly from Codex.
-	min-height: @size-base;
+	min-height: 32px;
 	line-height: 1.4285714;
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
 
 .vector-search-box-vue .searchButton {
-	background-size: @background-size-x-search-button auto;
+	background-size: 20px auto;
 }
 
 // Only apply the following Codex-related rules to clients who have js enabled.
-.client-js .vector-search-box-vue {
+.client-js .vector-search-box-vue > div:not( .vector-typeahead-search-container ) {
 	// Derived from @size-search-figure in Codex.
 	// https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/typeahead-search/TypeaheadSearch.vue#676
 	@size-search-figure: 40px;
