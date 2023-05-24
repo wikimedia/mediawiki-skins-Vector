@@ -236,6 +236,8 @@ class SkinVector22 extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function getHtmlElementAttributes() {
+		$aBTest = $this->getConfig()->get( 'VectorWebABTestEnrollment' );
+		$zebraEnabled = VectorServices::getFeatureManager()->isFeatureEnabled( Constants::FEATURE_ZEBRA_DESIGN );
 		$original = parent::getHtmlElementAttributes();
 		$featureManager = VectorServices::getFeatureManager();
 		$original['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
@@ -254,6 +256,15 @@ class SkinVector22 extends SkinMustache {
 			// possibly others). It must instead be applied to the html tag.
 			$original['class'] = implode( ' ', [ $original['class'] ?? '', self::STICKY_HEADER_ENABLED_CLASS ] );
 		}
+
+		if ( $aBTest[ 'enabled' ] ) {
+			if ( $zebraEnabled ) {
+				$original['class'] .= ' ' . $aBTest[ 'name' ] . '-treatment ';
+			} else {
+				$original['class'] .= ' ' . $aBTest[ 'name' ] . '-control ';
+			}
+		}
+
 		$original['class'] = trim( $original['class'] );
 
 		return $original;
