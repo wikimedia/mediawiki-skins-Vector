@@ -14,7 +14,9 @@
 			"Tacsipacsi",
 			"Thibaut120094",
 			"Umherirrender",
-			"Verdy p"
+			"Verdy p",
+			"Mormegil",
+			"Robby"
 		]
 	},
 	"skinname-vector": "{{name}}",
@@ -26,8 +28,8 @@
 	"prefs-vector-enable-vector-1-help": "Detail explaining the operation of the prefs-vector-enable-vector-1-label checkbox.",
 	"vector-opt-out": "Text of link that takes the user to the Special:Preferences page so they can opt-out of the latest version of Vector and go back to legacy Vector.",
 	"vector-opt-out-tooltip": "Used as the tooltip for the Vector opt-out link",
-	"vector.css": "{{optional}}",
-	"vector.js": "{{optional}}",
+	"vector.css": "{{optional}}\n{{related/css}}",
+	"vector.js": "{{optional}}\n{{related/js}}",
 	"vector-action-toggle-sidebar": "Accessibility label for the button that toggles the sidebar's visibility, as well as audible presentation for screen readers.",
 	"vector-languages": "Label for language alert in sidebar when language switching is in header\n\n{{Identical|Language}}",
 	"vector-language-button-aria-label": "Accessibility label for language button dropdown menu in modern Vector.\n* $1 - the count of languages available, supports plural",

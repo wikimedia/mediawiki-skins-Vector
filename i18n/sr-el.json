@@ -24,7 +24,7 @@
 	"vector-action-toggle-sidebar": "Prikaži/sakrij bočnu traku",
 	"vector-languages": "Jezici",
 	"vector-language-button-aria-label": "Članak na drugim jezicima. Dostupan na: {{PLURAL:$1|$1}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
+	"vector-language-button-label": "$1 jezik{{PLURAL:$1||a}}",
 	"vector-language-redirect-to-top": "Jezičke veze se nalaze na vrhu stranice pored naslova članka. [[#p-lang-btn|Idite na vrh]].",
 	"vector-language-variant-switcher-label": "Promeni varijantu jezika",
 	"vector-action-addsection": "Dodaj temu",
