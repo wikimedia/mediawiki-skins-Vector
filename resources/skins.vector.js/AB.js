@@ -90,10 +90,7 @@ module.exports = function webABTest( props, token, forceInit ) {
 	 */
 	function getBucketFromHTML() {
 		for ( const bucketName of getBucketNames() ) {
-			if (
-				document.body.classList.contains( `${props.name}-${bucketName}` ) ||
-				document.documentElement.classList.contains( `${props.name}-${bucketName}` )
-			) {
+			if ( document.body.classList.contains( `${props.name}-${bucketName}` ) ) {
 				return bucketName;
 			}
 		}
