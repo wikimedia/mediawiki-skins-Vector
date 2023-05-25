@@ -4,6 +4,9 @@
 			"Nikki"
 		]
 	},
+	"vector-languages": "ᡤᡳᠰᡠᠨ",
+	"vector-action-addsection": "ᠨᠣᡤᡳᠯᠠ ᠵᠣᡵᡳᠩᡤᠠ",
 	"vector-action-move": "ᡤᡠᡵᡳᠪᡠᡵᡝ",
-	"vector-view-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ"
+	"vector-view-edit": "ᠪᠠᠨᠵᡳᠪᡠᠮᡝ ᠠᡵᠠᡵᠠ",
+	"vector-more-actions": "ᡝᠯᡝ"
 }
