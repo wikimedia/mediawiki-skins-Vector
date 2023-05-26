@@ -18,7 +18,7 @@
 	"vector-no-language-button-label": "زبانہٕ کٔرِو جَمَع",
 	"vector-action-addsection": "نٔو موضوٗع",
 	"vector-action-delete": "مِٹٲیو",
-	"vector-action-move": "پکناوُن",
+	"vector-action-move": "پکنٲیِو",
 	"vector-action-protect": "رٲچھؠ",
 	"vector-action-undelete": "بَحال کٔرِو",
 	"vector-action-unprotect": "رٲچھؠ بَدلٲیو",
@@ -45,7 +45,7 @@
 	"vector-page-tools-general-label": "عام",
 	"vector-page-tools-actions-label": "عَملہٕ",
 	"vector-pin-element-label": "اَنٛد کُن تھٲوِو",
-	"vector-unpin-element-label": "کٔھٹِتھ تھاون",
+	"vector-unpin-element-label": "کٔھٹِتھ",
 	"tooltip-vector-anon-user-menu-title": "مٔزیٖد یَختِیار",
 	"vector-main-menu-unpinned-popup": "اَہَم مؠنِو چھُ یور اَنہٕ آمُت۔"
 }
