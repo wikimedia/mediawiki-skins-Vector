@@ -348,9 +348,6 @@
 		},
 		"skins.vector.js": {
 			"es6": true,
-			"styles": [
-				"resources/skins.vector.js/limitedWidthToggle.less"
-			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
 				"resources/skins.vector.js/setupIntersectionObservers.js",
