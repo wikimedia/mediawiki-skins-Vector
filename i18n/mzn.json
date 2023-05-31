@@ -5,6 +5,8 @@
 			"محک"
 		]
 	},
+	"vector-languages": "زوون",
+	"vector-language-button-label": "{{PLURAL:$1|$1 زوون}}",
 	"vector-action-addsection": "ترنه گپ بزوئن",
 	"vector-action-delete": "پاک هاکردن",
 	"vector-action-move": "دکش هاکردن",
