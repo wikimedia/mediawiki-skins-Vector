@@ -7,8 +7,7 @@ window.matchMedia = window.matchMedia || function () {
 
 const { test } = require( '../../../resources/skins.vector.js/setupIntersectionObservers.js' );
 const {
-	STICKY_HEADER_EXPERIMENT_NAME,
-	STICKY_HEADER_EDIT_EXPERIMENT_NAME
+	STICKY_HEADER_EXPERIMENT_NAME
 } = require( '../../../resources/skins.vector.js/stickyHeader.js' );
 describe( 'main.js', () => {
 	it( 'getHeadingIntersectionHandler', () => {
@@ -41,49 +40,13 @@ describe( 'main.js', () => {
 			name: STICKY_HEADER_EXPERIMENT_NAME,
 			enabled: true
 		};
-		const STICKY_HEADER_AB_EDIT = {
-			name: STICKY_HEADER_EDIT_EXPERIMENT_NAME,
-			enabled: true
-		};
-		const DISABLED_STICKY_HEADER_AB_EDIT = {
-			name: STICKY_HEADER_EDIT_EXPERIMENT_NAME,
-			enabled: false
-		};
 		[
-			{
-				abConfig: STICKY_HEADER_AB_EDIT,
-				isEnabled: false,
-				isUserInTreatmentBucket: false,
-				expectedResult: {
-					showStickyHeader: false,
-					disableEditIcons: true
-				}
-			},
-			{
-				abConfig: STICKY_HEADER_AB_EDIT,
-				isEnabled: true,
-				isUserInTreatmentBucket: false,
-				expectedResult: {
-					showStickyHeader: false,
-					disableEditIcons: true
-				}
-			},
-			{
-				abConfig: STICKY_HEADER_AB_EDIT,
-				isEnabled: true,
-				isUserInTreatmentBucket: true,
-				expectedResult: {
-					showStickyHeader: true,
-					disableEditIcons: false
-				}
-			},
 			{
 				abConfig: STICKY_HEADER_AB,
 				isEnabled: false, // sticky header unavailable
 				isUserInTreatmentBucket: false, // not in treatment bucket
 				expectedResult: {
-					showStickyHeader: false,
-					disableEditIcons: true
+					showStickyHeader: false
 				}
 			},
 			{
@@ -91,8 +54,7 @@ describe( 'main.js', () => {
 				isEnabled: true, // sticky header available
 				isUserInTreatmentBucket: false, // not in treatment bucket
 				expectedResult: {
-					showStickyHeader: false,
-					disableEditIcons: true
+					showStickyHeader: false
 				}
 			},
 			{
@@ -100,8 +62,7 @@ describe( 'main.js', () => {
 				isEnabled: false, // sticky header is not available
 				isUserInTreatmentBucket: true, // but the user is in the treatment bucket
 				expectedResult: {
-					showStickyHeader: false,
-					disableEditIcons: true
+					showStickyHeader: false
 				}
 			},
 			{
@@ -109,17 +70,7 @@ describe( 'main.js', () => {
 				isEnabled: true,
 				isUserInTreatmentBucket: true,
 				expectedResult: {
-					showStickyHeader: true,
-					disableEditIcons: true
-				}
-			},
-			{
-				abConfig: DISABLED_STICKY_HEADER_AB_EDIT,
-				isEnabled: true,
-				isUserInTreatmentBucket: false,
-				expectedResult: {
-					showStickyHeader: true,
-					disableEditIcons: false
+					showStickyHeader: true
 				}
 			}
 		].forEach(

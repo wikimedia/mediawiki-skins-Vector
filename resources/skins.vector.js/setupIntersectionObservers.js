@@ -48,7 +48,6 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) => {
  * based on which buckets the user is in.
  *
  * @typedef {Object} InitStickyHeaderABTests
- * @property {boolean} disableEditIcons - Should the sticky header have an edit icon
  * @property {boolean} showStickyHeader - Should the sticky header be shown
  * @param {ABTestConfig} abConfig
  * @param {boolean} isStickyHeaderFeatureAllowed and the user is logged in
@@ -57,13 +56,11 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) => {
  */
 function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEnabledExperiment ) {
 	let showStickyHeader = isStickyHeaderFeatureAllowed,
-		stickyHeaderExperiment,
-		disableEditIcons = true;
+		stickyHeaderExperiment;
 
 	// One of the sticky header AB tests is specified in the config
 	const abTestName = abConfig.name,
-		isStickyHeaderExperiment = abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
-			abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME;
+		isStickyHeaderExperiment = abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME;
 
 	// Determine if user is eligible for sticky header AB test
 	if (
@@ -73,34 +70,16 @@ function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEna
 	) {
 		// If eligible, initialize the AB test
 		stickyHeaderExperiment = getEnabledExperiment( abConfig );
-		disableEditIcons = true;
 
 		// If running initial or edit AB test, show sticky header to treatment groups
 		// only. Unsampled and control buckets do not see sticky header.
-		if ( abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ||
-			abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME
-		) {
+		if ( abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
 			showStickyHeader = stickyHeaderExperiment.isInTreatmentBucket();
 		}
-
-		// If running edit-button AB test, the edit buttons in sticky header are shown
-		// to second treatment group only.
-		if ( abTestName === stickyHeader.STICKY_HEADER_EDIT_EXPERIMENT_NAME ) {
-			if ( stickyHeaderExperiment.isInTreatmentBucket( '1' ) ) {
-				disableEditIcons = true;
-			}
-			if ( stickyHeaderExperiment.isInTreatmentBucket( '2' ) ) {
-				disableEditIcons = false;
-			}
-		}
-	}
-	if ( !abConfig.enabled ) {
-		disableEditIcons = false;
 	}
 
 	return {
-		showStickyHeader,
-		disableEditIcons
+		showStickyHeader
 	};
 }
 
@@ -326,7 +305,7 @@ const main = () => {
 		allowedAction &&
 		isIntersectionObserverSupported;
 
-	const { showStickyHeader, disableEditIcons } = initStickyHeaderABTests(
+	const { showStickyHeader } = initStickyHeaderABTests(
 		ABTestConfig,
 		isStickyHeaderAllowed && !mw.user.isAnon(),
 		( config ) => initExperiment(
@@ -378,8 +357,7 @@ const main = () => {
 			header: stickyHeaderElement,
 			userLinksDropdown,
 			observer,
-			stickyIntersection,
-			disableEditIcons
+			stickyIntersection
 		} );
 	} else if ( stickyIntersection ) {
 		observer.observe( stickyIntersection );

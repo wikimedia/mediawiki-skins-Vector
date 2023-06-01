@@ -14,7 +14,6 @@ const
 	ULS_STICKY_CLASS = 'uls-dialog-sticky',
 	ULS_HIDE_CLASS = 'uls-dialog-sticky-hide',
 	SEARCH_TOGGLE_SELECTOR = '.vector-sticky-header-search-toggle',
-	STICKY_HEADER_EDIT_EXPERIMENT_NAME = 'vector.sticky_header_edit',
 	STICKY_HEADER_EXPERIMENT_NAME = 'vector.sticky_header';
 
 /**
@@ -424,14 +423,12 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
  * @param {Element} userLinksDropdown
  * @param {IntersectionObserver} stickyObserver
  * @param {Element} stickyIntersection
- * @param {boolean} disableEditIcons
  */
 function makeStickyHeaderFunctional(
 	header,
 	userLinksDropdown,
 	stickyObserver,
-	stickyIntersection,
-	disableEditIcons
+	stickyIntersection
 ) {
 	const userLinksDropdownStickyContainer = document.querySelector(
 		STICKY_HEADER_USER_MENU_CONTAINER_SELECTOR
@@ -469,7 +466,7 @@ function makeStickyHeaderFunctional(
 	const isProtected = !!protectedEdit;
 	// For sticky header edit A/B test, conditionally remove the edit icon by setting null.
 	// Otherwise, use either protected, ve, or source edit (in that order).
-	const primaryEdit = disableEditIcons ? null : protectedEdit || veEdit || ceEdit;
+	const primaryEdit = protectedEdit || veEdit || ceEdit;
 	const secondaryEdit = veEdit ? ceEdit : null;
 	const disableStickyHeader = () => {
 		document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
@@ -538,7 +535,6 @@ function isAllowedAction( action ) {
  * @property {Element} userLinksDropdown
  * @property {IntersectionObserver} observer
  * @property {Element} stickyIntersection
- * @property {boolean} disableEditIcons
  */
 
 /**
@@ -549,8 +545,7 @@ function initStickyHeader( props ) {
 		props.header,
 		props.userLinksDropdown,
 		props.observer,
-		props.stickyIntersection,
-		props.disableEditIcons
+		props.stickyIntersection
 	);
 
 	setupSearchIfNeeded( props.header );
@@ -587,6 +582,5 @@ module.exports = {
 	STICKY_HEADER_ID,
 	FIRST_HEADING_ID,
 	USER_LINKS_DROPDOWN_ID,
-	STICKY_HEADER_EDIT_EXPERIMENT_NAME,
 	STICKY_HEADER_EXPERIMENT_NAME
 };
