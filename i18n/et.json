@@ -58,5 +58,8 @@
 	"tooltip-vector-anon-user-menu-title": "Veel valikuid",
 	"vector-prefs-limited-width": "Luba piiratud laiuse režiim",
 	"vector-prefs-limited-width-help": "Luba piiratud laiuse režiim parema lugemiskogemuse jaoks.",
-	"empty-language-selector-body": "Selle lehekülje sisule puudub teiste keelte tugi."
+	"empty-language-selector-body": "Selle lehekülje sisule puudub teiste keelte tugi.",
+	"vector-toc-unpinned-popup": "Sisukord liigutati siia.",
+	"vector-page-tools-unpinned-popup": "Tööriistade menüü liigutati siia.",
+	"vector-main-menu-unpinned-popup": "Peamenüü liigutati siia."
 }
