@@ -96,11 +96,17 @@ class Hooks implements
 		RL\Context $context,
 		Config $config
 	): array {
-		$result = $config->get( 'VectorWvuiSearchOptions' );
-		$result['highlightQuery'] =
-			VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() );
+		$vectorSearchConfig = [
+			'highlightQuery' =>
+				VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() )
+		];
 
-		return $result;
+		MediaWikiServices::getInstance()->getHookContainer()->run(
+			'VectorSearchResourceLoaderConfig',
+			[ &$vectorSearchConfig ]
+		);
+
+		return array_merge( $config->get( 'VectorWvuiSearchOptions' ), $vectorSearchConfig );
 	}
 
 	/**
