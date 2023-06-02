@@ -290,12 +290,12 @@ function prepareEditIcons(
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
 				const link = /** @type {HTMLAnchorElement} */( $ve[ 0 ] );
-				const event = new Event( 'click' );
+				const event = $.Event( 'click' );
 				suffixStickyHref( link );
-				link.dispatchEvent( event );
+				$ve.trigger( event );
 				unsuffixStickyHref( link );
 				// The link has been progressively enhanced.
-				if ( event.defaultPrevented ) {
+				if ( event.isDefaultPrevented() ) {
 					disableStickyHeader();
 					ev.preventDefault();
 				}
@@ -310,12 +310,12 @@ function prepareEditIcons(
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
 						const link = /** @type {HTMLAnchorElement} */( $edit[ 0 ] );
-						const event = new Event( 'click' );
+						const event = $.Event( 'click' );
 						suffixStickyHref( link );
-						link.dispatchEvent( event );
+						$edit.trigger( event );
 						unsuffixStickyHref( link );
 						// The link has been progressively enhanced.
-						if ( event.defaultPrevented ) {
+						if ( event.isDefaultPrevented() ) {
 							disableStickyHeader();
 							ev.preventDefault();
 						}
