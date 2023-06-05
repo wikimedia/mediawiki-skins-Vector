@@ -4,6 +4,7 @@
 			"Amire80",
 			"Anakmalaysia",
 			"Aurora",
+			"Hakimi97",
 			"Izington",
 			"Pizza1016",
 			"Tofeiku"
@@ -58,6 +59,7 @@
 	"vector-main-menu-label": "Menu utama",
 	"vector-limited-width-toggle": "Togol lebar kandungan terhad",
 	"vector-limited-width-toggle-on-popup": "Anda telah menukar bentangan kepada lebar penuh. Untuk kembali ke lebar terhad, tekan butang ini.",
+	"vector-limited-width-toggle-off-popup": "Anda boleh menogol antara lebar terhad dan lebar penuh dengan mengklik butang ini.",
 	"vector-page-tools-label": "Peralatan",
 	"vector-page-tools-general-label": "Umum",
 	"vector-page-tools-actions-label": "Tindakan",
