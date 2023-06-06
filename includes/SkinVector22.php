@@ -299,8 +299,8 @@ class SkinVector22 extends SkinMustache {
 			];
 		} else {
 			return [
-				'label' => $this->msg( 'vector-language-button-label' )->numParams( $numLanguages )->escaped(),
-				'aria-label' => $this->msg( 'vector-language-button-aria-label' )->numParams( $numLanguages )->escaped()
+				'label' => $this->msg( 'vector-language-button-label' )->numParams( $numLanguages )->text(),
+				'aria-label' => $this->msg( 'vector-language-button-aria-label' )->numParams( $numLanguages )->text()
 			];
 		}
 	}
