@@ -6,9 +6,13 @@
 			"Salomo Christian Hutajulu",
 			"WBT003Bugari",
 			"WBT006Hendra",
-			"WBT009Anju"
+			"WBT009Anju",
+			"Bennylin"
 		]
 	},
+	"vector-languages": "Parhataan",
+	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan|$1 parhataan}}",
+	"vector-no-language-button-label": "Tambah parhataan",
 	"vector-action-addsection": "Bagian na imbaru",
 	"vector-action-delete": "Sesa",
 	"vector-action-move": "Pahusor",
