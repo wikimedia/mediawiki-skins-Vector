@@ -6,6 +6,8 @@
 			"SatyamMishra"
 		]
 	},
+	"vector-languages": "भाषा",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषा सभ}}",
 	"vector-action-addsection": "बिसय जोड़ीं",
 	"vector-action-delete": "मिटाईं",
 	"vector-action-move": "स्थानांतरण",

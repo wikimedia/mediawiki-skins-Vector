@@ -8,6 +8,7 @@
 		]
 	},
 	"vector-opt-out": "Baalih ka tampaian lawas",
+	"vector-languages": "Basa",
 	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
 	"vector-action-addsection": "Tambahi tupik",
 	"vector-action-delete": "Hapus",
