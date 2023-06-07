@@ -10,7 +10,7 @@ const debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
  * @param {boolean} enabled
  */
 function save( feature, enabled ) {
-	if ( mw.user.isAnon() ) {
+	if ( !mw.user.isNamed() ) {
 		switch ( feature ) {
 			case 'limited-width':
 				if ( enabled ) {
