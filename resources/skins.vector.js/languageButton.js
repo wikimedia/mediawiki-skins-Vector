@@ -5,7 +5,9 @@
  * has been released and contains this
  */
 function addInterwikiLinkToMainMenu() {
-	const editLink = document.querySelector( '#p-lang-btn .wbc-editpage' );
+	const editLink = /** @type {HTMLElement|null} */ (
+		document.querySelector( '#p-lang-btn .wbc-editpage' )
+	);
 
 	if ( !editLink ) {
 		return;
@@ -26,7 +28,7 @@ function addInterwikiLinkToMainMenu() {
 		addInterlanguageLink.addEventListener( 'click', function ( /** @type {Event} */ e ) {
 			e.preventDefault();
 			// redirect to the detached and original edit link
-			editLink.dispatchEvent( new Event( 'click' ) );
+			editLink.click();
 		} );
 	}
 }
