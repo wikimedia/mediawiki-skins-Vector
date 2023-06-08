@@ -20,5 +20,6 @@
 	"vector-view-history": "Тарихты ҡарау",
 	"vector-view-view": "Уҡыу",
 	"vector-view-viewsource": "Сығанаҡты ҡарарға",
-	"vector-more-actions": "Тағы"
+	"vector-more-actions": "Тағы",
+	"vector-searchsuggest-containing": "Эсәтегендә <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> булған биттәрҙе эҙләргә"
 }
