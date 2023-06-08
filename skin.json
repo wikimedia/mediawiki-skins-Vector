@@ -300,12 +300,9 @@
 				"editLock",
 				"exitFullscreen",
 				"fullScreen",
-				"halfStar",
 				"history",
 				"speechBubbles",
 				"speechBubbleAdd",
-				"star",
-				"unStar",
 				"wikiText"
 			]
 		},
@@ -334,6 +331,8 @@
 				"search",
 				"settings",
 				"labFlask",
+				"star",
+				"halfStar",
 				"unStar",
 				"watchlist",
 				"userContributions",
