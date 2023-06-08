@@ -5,8 +5,19 @@
 			"Naval Scene"
 		]
 	},
+	"vector-languages": "Basa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 basa|$1 basa}}",
+	"vector-no-language-button-label": "Tambah basa",
+	"vector-action-addsection": "Tambah topik",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindahin",
+	"vector-action-protect": "Lindungin",
 	"vector-action-undelete": "Urungin ngapusnya",
-	"vector-view-create": "Keja"
+	"vector-view-create": "Keja",
+	"vector-view-history": "Deleng riwayat",
+	"vector-more-actions": "Laènnya",
+	"vector-searchsuggest-containing": "Cari halaman nyang ada <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-page-tools-label": "Peranti",
+	"vector-page-tools-general-label": "Umum",
+	"vector-unpin-element-label": "umpetin"
 }

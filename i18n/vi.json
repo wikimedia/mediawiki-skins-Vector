@@ -78,5 +78,6 @@
 	"tooltip-vector-anon-user-menu-title": "Thêm tùy chọn",
 	"vector-prefs-limited-width": "Bật chế độ giới hạn chiều rộng nội dung",
 	"vector-prefs-limited-width-help": "Bật chế độ giới hạn chiều rộng nội dung để cải thiện trải nghiệm đọc.",
-	"empty-language-selector-body": "Nội dung trang không được hỗ trợ ở ngôn ngữ khác."
+	"empty-language-selector-body": "Nội dung trang không được hỗ trợ ở ngôn ngữ khác.",
+	"vector-main-menu-unpinned-popup": "Trình đơn chính đã được chuyển đến đây."
 }

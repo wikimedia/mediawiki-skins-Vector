@@ -5,6 +5,7 @@
 			"Crazymadlover",
 			"Evropi",
 			"Geraki",
+			"Gpbiza",
 			"NikosLikomitros",
 			"Nikosgranturismogt",
 			"Norhorn",
@@ -68,5 +69,7 @@
 	"tooltip-vector-anon-user-menu-title": "Περισσότερες επιλογές",
 	"vector-prefs-limited-width": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους",
 	"vector-prefs-limited-width-help": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους για βελτιωμένη εμπειρία ανάγνωσης.",
-	"empty-language-selector-body": "Τα περιεχόμενα της σελίδας δεν υποστηρίζονται σε άλλες γλώσσες."
+	"empty-language-selector-body": "Τα περιεχόμενα της σελίδας δεν υποστηρίζονται σε άλλες γλώσσες.",
+	"vector-toc-unpinned-popup": "Ο πίνακας περιεχομένων έχει μεταφερθεί εδώ.",
+	"vector-page-tools-unpinned-popup": "Το μενού εργαλείων έχει μεταφερθεί εδώ."
 }
