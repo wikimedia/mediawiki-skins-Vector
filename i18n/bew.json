@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bangrapip",
 			"Naval Scene"
 		]
 	},
 	"vector-languages": "Basa",
-	"vector-language-button-label": "{{PLURAL:$1|$1 basa|$1 basa}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
 	"vector-no-language-button-label": "Tambah basa",
 	"vector-action-addsection": "Tambah topik",
 	"vector-action-delete": "Apus",
