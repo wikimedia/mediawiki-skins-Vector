@@ -33,23 +33,6 @@
 		min-width: 32px !important; /* stylelint-disable-line declaration-no-important */
 		min-height: 32px !important; /* stylelint-disable-line declaration-no-important */
 	}
-
-	// FIXME: Remove selector after caching
-	.mw-ui-icon-element {
-		// Override icon styles to apply .mw-ui-icon-small styles
-		.mw-ui-icon {
-			min-width: 16px;
-			min-height: 16px;
-			width: 1em;
-			height: 1em;
-
-			&::before {
-				min-width: 100%;
-				min-height: 100%;
-				background-size: 100% 100%;
-			}
-		}
-	}
 }
 
 // ID Selectors outside of .vector-page-toolbar-container to avoid over-specificity.

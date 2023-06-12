@@ -31,29 +31,17 @@
 		}
 
 		// T291286: Temporarily use progressive ULS style
-		// FIXME: Remove old classes after caching
-		&.mw-ui-progressive.mw-ui-quiet,
-		&.cdx-button--action-progressive.cdx-button--weight-quiet {
-			.mw-ui-icon::before {
-				// Ensure inverted language icon is white
-				opacity: @opacity-base;
-			}
-
-			&::after {
-				// !important needed to override Zebra Dropdown.less styles
-				// FIXME: Remove !important when Zebra is default
-				/* stylelint-disable-next-line declaration-no-important */
-				background-image: url( ../common/images/arrow-down-progressive.svg ) !important;
-				opacity: @opacity-base;
-			}
+		&.cdx-button--action-progressive.cdx-button--weight-quiet::after {
+			// !important needed to override Zebra Dropdown.less styles
+			// FIXME: Remove !important when Zebra is default
+			/* stylelint-disable-next-line declaration-no-important */
+			background-image: url( ../common/images/arrow-down-progressive.svg ) !important;
+			opacity: @opacity-base;
 		}
 	}
 
 	input:active + .vector-menu-heading {
-		// FIXME: Remove old classes after caching
-		&.mw-ui-progressive.mw-ui-quiet,
 		&.cdx-button--action-progressive.cdx-button--weight-quiet {
-			.mw-ui-icon,
 			.vector-icon {
 				// stylelint-disable-next-line plugin/no-unsupported-browser-features
 				filter: brightness( 0 ) invert( 1 );
