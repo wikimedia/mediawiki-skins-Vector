@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"27christian11",
 			"Bennylin",
 			"Daniel Harahap",
 			"NoiX180",
@@ -11,7 +12,7 @@
 		]
 	},
 	"vector-languages": "Parhataan",
-	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan|$1 parhataan}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan}}",
 	"vector-no-language-button-label": "Tambah parhataan",
 	"vector-action-addsection": "Bagian na imbaru",
 	"vector-action-delete": "Sesa",
@@ -25,6 +26,8 @@
 	"vector-view-view": "Jaha",
 	"vector-view-viewsource": "Ida haroanna",
 	"vector-more-actions": "Lobian",
+	"vector-searchsuggest-containing": "Lului alaman na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-page-tools-label": "Parhohas",
+	"vector-page-tools-general-label": "Hatopan",
 	"vector-unpin-element-label": "bunihon"
 }

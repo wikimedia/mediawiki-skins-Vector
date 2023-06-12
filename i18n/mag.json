@@ -7,7 +7,7 @@
 	"vector-languages": "भासा",
 	"vector-language-button-label": "{{PLURAL:$1|$1 भासा}}",
 	"vector-no-language-button-label": "भासा जोड़ी",
-	"vector-action-addsection": "बिसय जोड़ी",
+	"vector-action-addsection": "बिषय जोड़ी",
 	"vector-action-delete": "हटावी",
 	"vector-action-move": "स्थानान्तरण",
 	"vector-action-protect": "सुरक्षित करी",
@@ -19,5 +19,5 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> बाला पन्ना खोजी",
 	"vector-page-tools-label": "उपकरण",
 	"vector-page-tools-general-label": "सामान्य",
-	"vector-unpin-element-label": "लुकाबी"
+	"vector-unpin-element-label": "लुकावी"
 }
