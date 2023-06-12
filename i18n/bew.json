@@ -1,11 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Naval Scene"
+			"Naval Scene",
+			"Amire80",
+			"Bangrapip"
 		]
 	},
-	"vector-action-delete": "Ngapus",
+	"vector-action-addsection": "Tambah topik",
+	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindahin",
-	"vector-action-undelete": "Balikin nyang keapus",
-	"vector-view-create": "Bikin"
+	"vector-action-protect": "Lindungin",
+	"vector-action-undelete": "Urungin ngapusnya",
+	"vector-view-create": "Keja",
+	"vector-view-history": "Deleng riwayat",
+	"vector-more-actions": "Laènnya"
 }

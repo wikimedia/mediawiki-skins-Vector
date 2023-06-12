@@ -3,7 +3,9 @@
 		"authors": [
 			"Agilight",
 			"Sborsody",
-			"Монгуш Салим"
+			"Монгуш Салим",
+			"Karak-Kyzyl",
+			"Riverman"
 		]
 	},
 	"skinname-vector": "Вектор",
@@ -13,10 +15,10 @@
 	"vector-action-protect": "Камгалаары",
 	"vector-action-undelete": "Эгидер",
 	"vector-action-unprotect": "Камгалалды өскертири",
-	"vector-view-create": "Тургузуп кылыр",
+	"vector-view-create": "Чаяар",
 	"vector-view-edit": "Эдер",
 	"vector-view-history": "Төөгүнү көөр",
 	"vector-view-view": "Номчуур",
 	"vector-view-viewsource": "Дөзү бижиин көөрү",
-	"vector-more-actions": "Оон ыңай"
+	"vector-more-actions": "Оон"
 }
