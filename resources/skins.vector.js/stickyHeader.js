@@ -213,6 +213,8 @@ function prepareIcons( header, history, talk, subject, watch ) {
 		updateStickyWatchlink( watchSticky, isWatched );
 
 		const watchLib = require( /** @type {string} */( 'mediawiki.page.watch.ajax' ) );
+		// jQuery required as parameter for external API:
+		// eslint-disable-next-line no-jquery/no-jquery-constructor
 		watchLib.watchstar( $( watchSticky ), mw.config.get( 'wgRelevantPageName' ), watchstarCallback );
 	} else {
 		removeNode( watchSticky );
@@ -288,11 +290,15 @@ function prepareEditIcons(
 
 		primaryEditSticky.addEventListener( 'click', function ( ev ) {
 			const target = ev.target;
+			// T336639:
+			// eslint-disable-next-line no-jquery/no-jquery-constructor
 			const $ve = $( primaryEdit );
 			if ( target && $ve.length ) {
 				const link = /** @type {HTMLAnchorElement} */( $ve[ 0 ] );
+				// eslint-disable-next-line no-jquery/no-other-utils
 				const event = $.Event( 'click' );
 				suffixStickyHref( link );
+				// eslint-disable-next-line no-jquery/no-trigger
 				$ve.trigger( event );
 				unsuffixStickyHref( link );
 				// The link has been progressively enhanced.
@@ -308,11 +314,15 @@ function prepareEditIcons(
 			wikitextSticky.addEventListener( 'click', function ( ev ) {
 				const target = ev.target;
 				if ( target ) {
+					// T336639:
+					// eslint-disable-next-line no-jquery/no-jquery-constructor
 					const $edit = $( secondaryEdit );
 					if ( $edit.length ) {
 						const link = /** @type {HTMLAnchorElement} */( $edit[ 0 ] );
+						// eslint-disable-next-line no-jquery/no-other-utils
 						const event = $.Event( 'click' );
 						suffixStickyHref( link );
+						// eslint-disable-next-line no-jquery/no-trigger
 						$edit.trigger( event );
 						unsuffixStickyHref( link );
 						// The link has been progressively enhanced.
