@@ -1,11 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Naval Scene"
+			"Naval Scene",
+			"Amire80",
+			"Bangrapip"
 		]
 	},
-	"vector-action-delete": "Ngapus",
+	"vector-languages": "Basa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
+	"vector-no-language-button-label": "Tambah basa",
+	"vector-action-addsection": "Tambah topik",
+	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindahin",
-	"vector-action-undelete": "Balikin nyang keapus",
-	"vector-view-create": "Bikin"
+	"vector-action-protect": "Lindungin",
+	"vector-action-undelete": "Urungin ngapusnya",
+	"vector-view-create": "Keja",
+	"vector-view-history": "Deleng riwayat",
+	"vector-more-actions": "Laènnya",
+	"vector-searchsuggest-containing": "Cari halaman nyang ada <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
