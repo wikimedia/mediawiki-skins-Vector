@@ -1,3 +1,4 @@
+/* eslint-disable no-jquery/no-jquery-constructor */
 /** @interface MediaWikiPageReadyModule */
 const
 	collapsibleTabs = require( './collapsibleTabs.js' ),

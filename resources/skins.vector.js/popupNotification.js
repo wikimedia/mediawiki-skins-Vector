@@ -28,6 +28,7 @@ function add( container, message, id, classes = [], timeout = 4000, onDismiss = 
 		const content = document.createElement( 'p' );
 		content.textContent = message;
 		popupWidget = new OO.ui.PopupWidget( {
+			// eslint-disable-next-line no-jquery/no-jquery-constructor
 			$content: $( content ),
 			padded: true,
 			autoClose: timeout !== false,
@@ -38,6 +39,7 @@ function add( container, message, id, classes = [], timeout = 4000, onDismiss = 
 			classes: [ 'vector-popup-notification' ].concat( classes ),
 			container
 		} );
+		// eslint-disable-next-line no-jquery/no-other-methods
 		popupWidget.$element.appendTo( container );
 		popupWidget.on( 'closing', () => {
 			onDismiss();
