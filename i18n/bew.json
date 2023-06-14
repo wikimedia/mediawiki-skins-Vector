@@ -2,11 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Naval Scene",
-			"Bangrapip"
+			"Bangrapip",
+			"Amire80"
 		]
 	},
+	"vector-languages": "Basa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
+	"vector-action-addsection": "Tambah topik",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindahin",
+	"vector-action-protect": "Lindungin",
 	"vector-action-undelete": "Urungin ngapusnya",
-	"vector-view-create": "Keja"
+	"vector-view-create": "Keja",
+	"vector-view-history": "Deleng riwayat",
+	"vector-more-actions": "Laènnya"
 }

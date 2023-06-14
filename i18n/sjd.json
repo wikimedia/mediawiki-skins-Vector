@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Meerrahtar",
-			"Merrahtar"
+			"Merrahtar",
+			"Amire80"
 		]
 	},
 	"vector-languages": "Кӣл",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кӣлл|$1 кӣл|$1 кӣллэ}}",
-	"vector-action-addsection": "Лажьхэ тема",
+	"vector-action-addsection": "Лажьхэ те̄ма",
 	"vector-action-delete": "Вэ̄цксэ",
 	"vector-action-move": "Вуайхэ нэ̄м",
 	"vector-action-protect": "Пынне",

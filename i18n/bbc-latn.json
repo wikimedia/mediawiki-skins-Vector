@@ -7,11 +7,12 @@
 			"WBT003Bugari",
 			"WBT006Hendra",
 			"WBT009Anju",
-			"Bennylin"
+			"Bennylin",
+			"27christian11"
 		]
 	},
 	"vector-languages": "Parhataan",
-	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan|$1 parhataan}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan}}",
 	"vector-action-addsection": "Bagian na imbaru",
 	"vector-action-delete": "Sesa",
 	"vector-action-move": "Pahusor",
