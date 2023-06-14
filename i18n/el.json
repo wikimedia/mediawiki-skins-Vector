@@ -3,6 +3,7 @@
 		"authors": [
 			"Calak",
 			"Crazymadlover",
+			"Dogogos123",
 			"Evropi",
 			"Geraki",
 			"Gpbiza",
@@ -60,6 +61,8 @@
 	"vector-site-nav-label": "Ιστότοπος",
 	"vector-main-menu-label": "Κύριο μενού",
 	"vector-limited-width-toggle": "Εναλλαγή περιορισμένου πλάτους περιεχομένου",
+	"vector-limited-width-toggle-on-popup": "Έχετε αλλάξει τη διάταξή σας σε πλήρες πλάτος. Για να επιστρέψετε στο περιορισμένο πλάτος, πατήστε αυτό το κουμπί.",
+	"vector-limited-width-toggle-off-popup": "Μπορείτε να κάνετε εναλλαγή μεταξύ περιορισμένου πλάτους και πλήρους πλάτους κάνοντας κλικ σε αυτό το κουμπί.",
 	"vector-page-tools-label": "Εργαλεία",
 	"vector-page-tools-general-label": "Γενικά",
 	"vector-page-tools-actions-label": "Ενέργειες",
@@ -71,5 +74,6 @@
 	"vector-prefs-limited-width-help": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους για βελτιωμένη εμπειρία ανάγνωσης.",
 	"empty-language-selector-body": "Τα περιεχόμενα της σελίδας δεν υποστηρίζονται σε άλλες γλώσσες.",
 	"vector-toc-unpinned-popup": "Ο πίνακας περιεχομένων έχει μεταφερθεί εδώ.",
-	"vector-page-tools-unpinned-popup": "Το μενού εργαλείων έχει μεταφερθεί εδώ."
+	"vector-page-tools-unpinned-popup": "Το μενού εργαλείων έχει μεταφερθεί εδώ.",
+	"vector-main-menu-unpinned-popup": "Το κύριο μενού έχει μεταφερθεί εδώ."
 }

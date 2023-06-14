@@ -70,6 +70,9 @@
 	"vector-toc-collapsible-button-label": "Скрыть/показать содержание",
 	"vector-site-nav-label": "Сайт",
 	"vector-main-menu-label": "Главное меню",
+	"vector-limited-width-toggle": "Переключить ограниченную ширину контента",
+	"vector-limited-width-toggle-on-popup": "Вы переключили макет на полную ширину. Чтобы вернуться к ограниченной ширине, нажмите эту кнопку.",
+	"vector-limited-width-toggle-off-popup": "Вы можете переключаться между ограниченной шириной и полной шириной, нажав эту кнопку.",
 	"vector-page-tools-label": "Инструменты",
 	"vector-page-tools-general-label": "Общие",
 	"vector-page-tools-actions-label": "Действия",
@@ -80,6 +83,7 @@
 	"vector-prefs-limited-width": "Включить режим ограниченной ширины",
 	"vector-prefs-limited-width-help": "Включите режим ограниченной ширины для улучшения читательского опыта.",
 	"empty-language-selector-body": "Содержимое страницы недоступно на других языках.",
+	"vector-toc-unpinned-popup": "Содержание перенесено сюда.",
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
 	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда."
 }
