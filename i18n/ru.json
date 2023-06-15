@@ -19,7 +19,8 @@
 			"Sunpriat",
 			"Tanzun",
 			"Thothsum",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Adam-Yourist"
 		]
 	},
 	"skinname-vector": "Векторная, устаревшая (2010)",
@@ -69,6 +70,7 @@
 	"vector-toc-collapsible-button-label": "Скрыть/показать содержание",
 	"vector-site-nav-label": "Сайт",
 	"vector-main-menu-label": "Главное меню",
+	"vector-limited-width-toggle": "Переключить ограниченную ширину контента",
 	"vector-page-tools-label": "Инструменты",
 	"vector-page-tools-general-label": "Общие",
 	"vector-page-tools-actions-label": "Действия",
