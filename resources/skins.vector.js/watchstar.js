@@ -28,8 +28,7 @@ const updateWatchIcon = ( watchIcon, isWatched, expiry ) => {
 const init = () => {
 	mw.hook( 'wikipage.watchlistChange' ).add(
 		function ( /** @type {boolean} */ isWatched, /** @type {string} */ expiry ) {
-			// FIXME: Remove old icon classes after caching
-			const watchIcons = document.querySelectorAll( '.mw-watchlink .mw-ui-icon, .mw-watchlink .vector-icon' );
+			const watchIcons = document.querySelectorAll( '.mw-watchlink .vector-icon' );
 			if ( !watchIcons ) {
 				return;
 			}

@@ -10,8 +10,7 @@ const
  * @return {void}
  */
 function initApp( searchBox ) {
-	// FIXME: Remove searchForm.parentNode after caching
-	const searchForm = searchBox.querySelector( '.vector-search-box-form, .cdx-search-input' ),
+	const searchForm = searchBox.querySelector( '.cdx-search-input' ),
 		titleInput = /** @type {HTMLInputElement|null} */ (
 			searchBox.querySelector( 'input[name=title]' )
 		),
@@ -39,8 +38,7 @@ function initApp( searchBox ) {
 		// Pass additional config from server.
 		}, config )
 	)
-		// FIXME: Remove searchForm.parentNode after caching
-		.mount( searchContainer || searchForm.parentNode );
+		.mount( searchContainer );
 }
 /**
  * @param {Document} document

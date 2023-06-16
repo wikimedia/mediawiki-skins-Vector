@@ -34,8 +34,6 @@
 		}
 	}
 
-	// FIXME: Remove .vector-search-box-collapses > div after caching
-	.vector-search-box-collapses > div,
 	.vector-typeahead-search-container {
 		display: none;
 
@@ -54,8 +52,6 @@
 				display: none;
 			}
 
-			// FIXME: Remove .vector-search-box-collapses > div after caching
-			.vector-search-box-collapses > div,
 			.vector-typeahead-search-container {
 				display: block;
 				// Override default max width at lower resolutions
@@ -66,13 +62,6 @@
 				// T284242#7206507: Widen the suggestion results to the edge of the search
 				// button at small resolutions.
 				position: relative;
-			}
-
-			// FIXME: Remove selector after caching
-			// Make the menu below the search input wider, to match the width of the input+button
-			// rather than just the width of the input
-			.cdx-search-input__input-wrapper {
-				position: static;
 			}
 
 			// Since the end button's corner is now right above the menu's corner, don't use a

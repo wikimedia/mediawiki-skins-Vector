@@ -3,7 +3,7 @@
 @import 'mediawiki.mixins.less';
 
 @font-size-user-links: unit( 14 / @font-size-browser, em ); // Equals `0.875em`.
-// Applies to links in the overflow menu that do not have the .mw-ui-button class.
+// Applies to links in the overflow menu that do not have the .cdx-button class.
 @overflow-link-margin: 0 8px;
 
 /**
@@ -15,16 +15,6 @@
 	position: relative;
 	justify-content: flex-end;
 	flex-shrink: 1;
-
-	// FIXME: Remove old button classes after caching
-	.mw-ui-button {
-		// FIXME: Overrides mw-ui-button's `display: inline-block` property so that
-		// the text in the button is vertically centered. `.mw-ui-button` sets a
-		// min-height to the button, but should also vertically center the
-		// button's children.
-		display: flex;
-		align-items: center;
-	}
 
 	.mw-list-item {
 		margin: 0;
@@ -56,12 +46,6 @@
 .vector-user-links .mw-portlet-vector-user-menu-overflow {
 	font-size: @font-size-user-links;
 
-	// Ensure icon buttons have a base font of 16px
-	// FIXME: Remove old button classes after caching
-	.mw-ui-icon-element {
-		font-size: unit( 16 / @font-size-browser, rem );
-	}
-
 	.vector-menu-content-list {
 		display: flex;
 		align-items: center;
@@ -81,8 +65,7 @@
 		// Only apply 8px spacing to normal links (i.e. Create account, User page)
 		// Links with button classes will have a larger touch area
 		// and therefore dont need additional spacing
-		// FIXME: Remove old button selector after caching
-		a:not( .mw-ui-button ):not( .mw-echo-notifications-badge  ):not( .cdx-button ) {
+		a:not( .mw-echo-notifications-badge  ):not( .cdx-button ) {
 			margin: 0 8px;
 		}
 	}
