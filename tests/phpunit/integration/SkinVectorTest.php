@@ -56,7 +56,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$context->setLanguage( 'fr' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$vectorTemplate->setContext( $context );
-		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal', [
+		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal',
 			static function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation['actions'] = [
 					'action-1' => []
@@ -78,7 +78,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 					'pt-1' => [ 'text' => 'pt1' ],
 				];
 			}
-		] );
+		);
 		$openVectorTemplate = TestingAccessWrapper::newFromObject( $vectorTemplate );
 
 		$props = $openVectorTemplate->getTemplateData()['data-portlets'];
