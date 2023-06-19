@@ -6,7 +6,9 @@
 			"Salomo Christian Hutajulu",
 			"WBT003Bugari",
 			"WBT006Hendra",
-			"WBT009Anju"
+			"WBT009Anju",
+			"27christian11",
+			"Bennylin"
 		]
 	},
 	"vector-action-addsection": "Bagian na imbaru",
@@ -17,8 +19,8 @@
 	"vector-action-unprotect": "Uba parlindungan",
 	"vector-view-create": "Tompa",
 	"vector-view-edit": "Patota",
-	"vector-view-history": "Patudu turihonna",
+	"vector-view-history": "Patudu jujur panotaon",
 	"vector-view-view": "Jaha",
 	"vector-view-viewsource": "Ida haroanna",
-	"vector-more-actions": "Lobian"
+	"vector-more-actions": "Asingna muse"
 }

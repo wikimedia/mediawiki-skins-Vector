@@ -2,16 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Meerrahtar",
-			"Merrahtar"
+			"Merrahtar",
+			"Amire80"
 		]
 	},
-	"vector-action-addsection": "Лажьхэ тема",
+	"vector-action-addsection": "Лажьхэ те̄ма",
 	"vector-action-delete": "Вэ̄цксэ",
 	"vector-action-move": "Вуайхэ нэ̄м",
 	"vector-action-protect": "Пынне",
 	"vector-view-create": "Лыһкэ",
 	"vector-view-edit": "Вуайхэ",
-	"vector-view-history": "История",
+	"vector-view-history": "Исторья",
 	"vector-view-view": "Ло̄гкэ",
 	"vector-more-actions": "Вя̄л"
 }
