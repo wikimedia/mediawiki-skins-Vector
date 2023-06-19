@@ -15,7 +15,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 parhataan}}",
 	"vector-no-language-button-label": "Tambai parhataan",
 	"vector-action-addsection": "Bagian na imbaru",
-	"vector-action-delete": "Sesa",
+	"vector-action-delete": "Bolonghon",
 	"vector-action-move": "Pahusor",
 	"vector-action-protect": "Ramoti",
 	"vector-action-undelete": "unang sesa",
@@ -26,7 +26,7 @@
 	"vector-view-view": "Jaha",
 	"vector-view-viewsource": "Ida haroanna",
 	"vector-more-actions": "Asingna muse",
-	"vector-searchsuggest-containing": "Lului alaman na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Diori alaman na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-page-tools-label": "Parhohas",
 	"vector-page-tools-general-label": "Hatopan",
 	"vector-unpin-element-label": "bunihon"

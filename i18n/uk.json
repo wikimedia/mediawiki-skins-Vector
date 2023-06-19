@@ -67,6 +67,8 @@
 	"vector-site-nav-label": "Сайт",
 	"vector-main-menu-label": "Головне меню",
 	"vector-limited-width-toggle": "Перемкнути ширину вмісту",
+	"vector-limited-width-toggle-on-popup": "Ви переключили макет на повну ширину. Щоб повернутися до обмеженої ширини, натисніть цю кнопку.",
+	"vector-limited-width-toggle-off-popup": "Ви можете перемикатися між обмеженою шириною та повною шириною, натискаючи цю кнопку.",
 	"vector-page-tools-label": "Інструменти",
 	"vector-page-tools-general-label": "Загальний",
 	"vector-page-tools-actions-label": "Дії",
