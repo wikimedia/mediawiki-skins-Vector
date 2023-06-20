@@ -38,6 +38,9 @@
 				:value="wprov"
 			>
 		</template>
+		<template #search-results-pending>
+			{{ $i18n( 'vector-search-loader' ).text() }}
+		</template>
 		<!-- eslint-disable-next-line vue/no-template-shadow -->
 		<template #search-footer-text="{ searchQuery }">
 			<span v-i18n-html:vector-searchsuggest-containing="[ searchQuery ]"></span>
