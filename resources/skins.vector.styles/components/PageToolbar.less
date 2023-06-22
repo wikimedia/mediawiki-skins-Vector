@@ -1,4 +1,5 @@
 @import '../../common/variables.less';
+@import '../../common/mixins.less';
 
 @border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
 
@@ -51,7 +52,6 @@
 	// Any dropdowns inside the right navigation in modern Vector (e.g. "more" menu).
 	// should be right-aligned to prevent horizontal scrolling.
 	.vector-menu-content {
-		left: auto;
-		right: -@border-width-base;
+		.mixin-vector-dropdown-content-flip();
 	}
 }

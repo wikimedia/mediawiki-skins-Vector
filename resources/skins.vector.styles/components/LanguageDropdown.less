@@ -13,10 +13,10 @@
 
 	// If there are no languages and JavaScript is not enabled there is no fallback so we hide
 	// the button altogether.
-	.mw-portlet-lang-heading-0 {
-		.client-nojs & {
-			display: none;
-		}
+	.client-nojs & .mw-portlet-lang-heading-0 {
+		// FIXME: remove !important after VectorZebra is the default
+		/* stylelint-disable-next-line declaration-no-important */
+		display: none !important;
 	}
 
 	.vector-menu-heading {
@@ -60,17 +60,11 @@
 	// The `vector-menu-content` class is present twice in current implementation of language switcher
 	// (see FIXME in Dropdown/Open.mustache) so it is important we target the direct child.
 	> .vector-menu-content {
-		top: auto;
-		left: -@border-width-base;
-		right: -@border-width-base;
 		// align borders of open menu align with button
 		box-sizing: border-box;
 		max-height: 65vh;
 		overflow: auto;
-
-		// Adds to the show/hide technique in Dropdown.less with
-		// display to prevent rendering and long scrolling on Main page
-		display: none;
+		.mixin-vector-dropdown-content-flip();
 
 		li a {
 			font-size: inherit;
@@ -88,8 +82,6 @@
 
 	// styles for less prominent Language button (without label) to be used for non-content pages (see T316559)
 	.mw-portlet-lang-heading-empty + .vector-menu-content {
-		left: auto;
-		right: 0;
 		min-width: 300px;
 
 		.mw-portlet-empty-language-selector-body {
