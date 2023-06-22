@@ -44,9 +44,9 @@ class VectorComponentDropdown implements VectorComponent {
 		return [
 			'id' => $this->id,
 			'label' => $this->label,
-			'heading-class' => $buttonClass . $iconButtonClass,
+			'label-class' => $buttonClass . $iconButtonClass,
 			'icon' => $this->icon,
-			'html-vector-menu-heading-attributes' => '',
+			'html-vector-menu-label-attributes' => '',
 			'html-vector-menu-checkbox-attributes' => '',
 			'class' => $this->class,
 			'html-tooltip' => $this->tooltip,

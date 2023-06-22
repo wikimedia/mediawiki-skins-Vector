@@ -91,8 +91,8 @@ const templateData = {
 		class: 'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc',
 		'html-items': '',
 		'html-vector-menu-checkbox-attributes': 'tabindex="-1"',
-		'html-vector-menu-heading-attributes': 'tabindex="-1"',
-		'heading-class': 'cdx-button cdx-button--weight-quiet cdx-button--icon-only'
+		'html-vector-menu-label-attributes': 'tabindex="-1"',
+		'label-class': 'cdx-button cdx-button--weight-quiet cdx-button--icon-only'
 	},
 	'array-buttons': [ {
 		label: '0 languages',

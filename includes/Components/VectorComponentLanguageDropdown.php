@@ -61,18 +61,18 @@ class VectorComponentLanguageDropdown implements VectorComponent {
 		if ( !$isSubjectPage ) {
 			$icon = 'language';
 			$this->class .= ' mw-portlet-lang-icon-only';
-			$headingClass = $buttonClasses . ' cdx-button--icon-only mw-portlet-lang-heading-empty';
+			$labelClass = $buttonClasses . ' cdx-button--icon-only mw-portlet-lang-heading-empty';
 			$checkboxClass = 'mw-interlanguage-selector-empty';
 		} else {
 			$icon = 'language-progressive';
-			$headingClass = $buttonClasses . ' cdx-button--action-progressive'
+			$labelClass = $buttonClasses . ' cdx-button--action-progressive'
 				. ' mw-portlet-lang-heading-' . strval( $this->numLanguages );
 			$checkboxClass = 'mw-interlanguage-selector';
 		}
 		$dropdown = new VectorComponentDropdown( 'p-lang-btn', $this->label, $this->class );
 		$dropdownData = $dropdown->getTemplateData();
 		// override default heading class.
-		$dropdownData['heading-class'] = $headingClass;
+		$dropdownData['label-class'] = $labelClass;
 		// ext.uls.interface attaches click handler to this selector.
 		$dropdownData['checkbox-class'] = $checkboxClass;
 		$dropdownData['icon'] = $icon;
