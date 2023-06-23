@@ -133,7 +133,7 @@ class VectorComponentUserLinks implements VectorComponent {
 				] + $portletData[ 'data-user-menu-anon-editor' ] );
 			}
 		} else {
-			// Logout isnt enabled for temp users, who are considered still considered registeredt
+			// Logout isn't enabled for temp users, who are considered still considered registered
 			$isLogoutLinkEnabled = isset( $portletData[ 'data-user-menu-logout' ][ 'is-empty' ] ) &&
 				!$portletData[ 'data-user-menu-logout'][ 'is-empty' ];
 			if ( $isLogoutLinkEnabled ) {
