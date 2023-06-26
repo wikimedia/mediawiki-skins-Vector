@@ -18,7 +18,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 linguas}}",
 	"vector-no-language-button-label": "Adder linguas",
 	"vector-no-language-button-aria-label": "Iste articulo existe solmente in iste lingua. Adder le articulo pro altere linguas.",
-	"vector-language-redirect-to-top": "In iste {{SITENAME}} le ligamines a linguas se trova in le parte superior del pagina in facie del titulo del articulo. [[#p-lang-btn|Ir in alto]].",
+	"vector-language-redirect-to-top": "Le ligamines a linguas se trova in le parte superior del pagina in facie del titulo del articulo.",
 	"vector-language-variant-switcher-label": "Cambiar variante de lingua",
 	"vector-action-addsection": "Adder topico",
 	"vector-action-delete": "Deler",
