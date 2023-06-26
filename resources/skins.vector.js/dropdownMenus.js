@@ -2,10 +2,10 @@
 
 const
 	checkboxHack = /** @type {CheckboxHack} */ require( /** @type {string} */( 'mediawiki.page.ready' ) ).checkboxHack,
-	CHECKBOX_HACK_CONTAINER_SELECTOR = '.vector-menu-dropdown',
-	CHECKBOX_HACK_CHECKBOX_SELECTOR = '.vector-menu-checkbox',
-	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-menu-heading',
-	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-menu-content';
+	CHECKBOX_HACK_CONTAINER_SELECTOR = '.vector-dropdown',
+	CHECKBOX_HACK_CHECKBOX_SELECTOR = '.vector-dropdown-checkbox',
+	CHECKBOX_HACK_BUTTON_SELECTOR = '.vector-dropdown-label',
+	CHECKBOX_HACK_TARGET_SELECTOR = '.vector-dropdown-content';
 
 /**
  * Enhance dropdownMenu functionality and accessibility using core's checkboxHack.

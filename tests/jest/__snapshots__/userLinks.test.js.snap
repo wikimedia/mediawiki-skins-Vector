@@ -18,12 +18,12 @@ exports[`UserLinks renders 1`] = `
 	
 </div>
 </div>
-<div id=\\"vector-user-links-dropdown\\" class=\\"vector-menu vector-dropdown vector-menu-dropdown vector-user-menu vector-user-menu-logged-in\\">
-	<input type=\\"checkbox\\" id=\\"vector-user-links-dropdown-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-user-links-dropdown\\" class=\\"vector-dropdown-checkbox vector-menu-checkbox\\" aria-label=\\"Personal tools\\">
-	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-dropdown-label vector-menu-heading\\" aria-hidden=\\"true\\">
-		<span class=\\"vector-dropdown-label-text vector-menu-heading-label\\">Personal tools</span>
+<div id=\\"vector-user-links-dropdown\\" class=\\"vector-dropdown vector-user-menu vector-user-menu-logged-in\\">
+	<input type=\\"checkbox\\" id=\\"vector-user-links-dropdown-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-user-links-dropdown\\" class=\\"vector-dropdown-checkbox\\" aria-label=\\"Personal tools\\">
+	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-dropdown-label\\" aria-hidden=\\"true\\">
+		<span class=\\"vector-dropdown-label-text\\">Personal tools</span>
 	</label>
-	<div class=\\"vector-menu-content vector-dropdown-content\\">
+	<div class=\\"vector-dropdown-content\\">
 
 <div id=\\"p-personal\\" class=\\"vector-menu mw-portlet mw-portlet-personal\\">
 <div class=\\"vector-menu-content\\">

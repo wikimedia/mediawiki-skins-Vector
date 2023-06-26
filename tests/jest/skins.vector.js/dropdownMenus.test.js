@@ -5,7 +5,7 @@ const { addPortletLinkHandler } = require( '../../../resources/skins.vector.js/d
 describe( 'addPortletLinkHandler', () => {
 	beforeEach( () => {
 		document.body.innerHTML = `
-		<div id="p-views" class="vector-menu vector-menu-dropdown">
+		<div id="p-views" class="vector-menu">
 			<div class="vector-menu-content">
 				<ul class="vector-menu-content-list">
 					<li id="pt-userpage" class="mw-list-item">
@@ -18,7 +18,7 @@ describe( 'addPortletLinkHandler', () => {
 			</div>
 		</div>
 
-		<div id="p-personal" class="vector-menu vector-menu-dropdown">
+		<div id="p-personal" class="vector-menu">
 			 <div class="vector-menu-content">
 				<ul class="vector-menu-content-list">
 					<li id="pt-userpage" class="mw-list-item">
@@ -36,11 +36,11 @@ describe( 'addPortletLinkHandler', () => {
 		jest.restoreAllMocks();
 	} );
 
-	test( 'Adds a span with icon class to dropdown menus', () => {
+	test( 'Adds a span with icon class to menus', () => {
 
 		// <li> element is the assumed HTML output of mw.util.addPortlet
 		document.body.innerHTML = `
-		<ul class="vector-menu vector-menu-dropdown">
+		<ul class="vector-menu">
 			<li class="mw-list-item mw-list-item-js" id="test-id">
 				<a href="#test-href">
 					<span>
@@ -59,7 +59,7 @@ describe( 'addPortletLinkHandler', () => {
 
 		// <li> element is the assumed HTML output of mw.util.addPortlet
 		document.body.innerHTML = `
-		<ul class="vector-menu vector-menu-dropdown">
+		<ul class="vector-menu">
 			<li class="mw-list-item mw-list-item-js" id="test-id">
 				<a href="#test-href">
 					<span>
@@ -94,7 +94,7 @@ describe( 'addPortletLinkHandler', () => {
 			</div>
 
 			<div id="right-navigation">
-				<ul id="p-views" class="vector-menu vector-menu-dropdown">
+				<ul id="p-views" class="vector-menu">
 					<li class="mw-list-item mw-list-item-js" id="test-id">
 						<a href="#test-href">
 							<span>

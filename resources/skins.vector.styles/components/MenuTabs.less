@@ -46,27 +46,27 @@
  * and dropdown menus inside the article toolbar
  */
 .vector-menu-tabs .mw-list-item.vector-tab-noicon,
-.vector-page-toolbar-container .vector-menu-dropdown {
+.vector-page-toolbar-container .vector-dropdown {
 	margin: 0 @padding-horizontal-tabs;
 }
 
 .vector-menu-tabs .mw-list-item,
-.vector-page-toolbar-container .vector-menu-dropdown > .vector-menu-heading {
+.vector-page-toolbar-container .vector-dropdown-label {
 	// Only apply no wrap
 	white-space: nowrap;
 }
 
 .vector-menu-tabs .mw-list-item,
-.vector-page-toolbar-container .vector-menu-dropdown {
+.vector-page-toolbar-container .vector-dropdown {
 	float: left;
 	margin-bottom: 0; /* overrides default `li` styling */
 
 	// target links inside of .vector-tab-menu
-	// and dropdown menu headings inside the article toolbar.
+	// and dropdown toggles inside the article toolbar.
 	// NOTE: Consider adding a single selector to define both items,
 	// since they both appear beside each other in the article toolbar.
 	& > a,
-	> .vector-menu-heading {
+	.vector-dropdown-label {
 		display: inline-flex;
 		position: relative;
 		cursor: pointer;
@@ -77,7 +77,7 @@
 		font-weight: normal;
 	}
 
-	> .vector-menu-heading {
+	.vector-dropdown-label {
 		// For better compatibility with gadgets (like Twinkle) that append
 		// <H3> elements as dropdown headings (which was the convention in legacy Vector).
 		font-size: inherit;
@@ -86,7 +86,7 @@
 	}
 
 	&.vector-tab-noicon > a,
-	> .vector-menu-heading {
+	.vector-dropdown-label {
 		// Top & bottom padding to increase clickable area.
 		padding: @padding-vertical-tabs;
 		// bottom margin to overlap border with toolbar border.

@@ -19,13 +19,13 @@
 		display: none !important;
 	}
 
-	.vector-menu-heading {
+	.vector-dropdown-label {
 		// Prevent select of span text "X languages"
 		user-select: none;
 		// Set opacity to `1` on language button (it applies to more menu because of label color).
 		opacity: @opacity-base;
 
-		.vector-menu-heading-label {
+		.vector-dropdown-label-text {
 			// Special treatment for language button, based on Vector font-size
 			font-size: @font-size-base;
 		}
@@ -40,7 +40,7 @@
 		}
 	}
 
-	input:active + .vector-menu-heading {
+	.vector-dropdown-checkbox:active + .vector-dropdown-label {
 		&.cdx-button--action-progressive.cdx-button--weight-quiet {
 			.vector-icon {
 				// stylelint-disable-next-line plugin/no-unsupported-browser-features
@@ -57,9 +57,7 @@
 		}
 	}
 
-	// The `vector-menu-content` class is present twice in current implementation of language switcher
-	// (see FIXME in Dropdown/Open.mustache) so it is important we target the direct child.
-	> .vector-menu-content {
+	.vector-dropdown-content {
 		// align borders of open menu align with button
 		box-sizing: border-box;
 		max-height: 65vh;
@@ -81,7 +79,7 @@
 	}
 
 	// styles for less prominent Language button (without label) to be used for non-content pages (see T316559)
-	.mw-portlet-lang-heading-empty + .vector-menu-content {
+	.mw-portlet-lang-heading-empty + .vector-dropdown-content {
 		min-width: 300px;
 
 		.mw-portlet-empty-language-selector-body {
@@ -103,11 +101,11 @@
 }
 
 // Hide the "Add languages" on pages which are not action=view where there are 0 languages
-.vector-dropdown > .vector-menu-heading.mw-portlet-lang-heading-0 {
+.vector-dropdown > .mw-portlet-lang-heading-0 {
 	display: none;
 }
 
 // Show it on view pages where there are 0 languages so user can add languages (JavaScript required)
-.client-js .action-view .vector-dropdown > .vector-menu-heading.mw-portlet-lang-heading-0 {
+.client-js .action-view .vector-dropdown > .mw-portlet-lang-heading-0 {
 	display: flex;
 }

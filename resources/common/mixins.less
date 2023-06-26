@@ -102,6 +102,7 @@
 
 .mixin-vector-dropdown-content-flip() {
 	// Flip dropdown horizontal alignment
-	left: auto;
+	// FIXME: !important necessary for flipping user links dropdown, remove after VectorZebraDesign is default
+	left: auto !important; /* stylelint-disable-line declaration-no-important */
 	right: 0;
 }
