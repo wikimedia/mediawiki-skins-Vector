@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Samatics"
+			"Samatics",
+			"Emmikweok",
+			"Maryeren"
 		]
 	},
-	"vector-view-view": "Kot"
+	"vector-action-addsection": "Dian ibuotikọ",
+	"vector-action-delete": "Sọhi",
+	"vector-action-move": "Men ka",
+	"vector-action-protect": "Kpeme",
+	"vector-view-create": "Bot",
+	"vector-view-history": "Se se ẹma ẹkenanam",
+	"vector-view-view": "Kot",
+	"vector-more-actions": "Eñwen"
 }

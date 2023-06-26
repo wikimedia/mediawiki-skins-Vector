@@ -3,16 +3,17 @@
 		"authors": [
 			"Aliyu shaba",
 			"Amire80",
-			"Mohammedbama123"
+			"Mohammedbama123",
+			"Umargana1"
 		]
 	},
 	"vector-action-addsection": "Bayin yukko",
-	"vector-action-delete": "Chinne",
+	"vector-action-delete": "Chinta",
 	"vector-action-move": "Huutu",
 	"vector-action-protect": "Teliwune",
 	"vector-view-create": "Awo kelta",
 	"vector-view-edit": "Yasa",
 	"vector-view-history": "Awodoyə közina kuru",
 	"vector-view-view": "Qra",
-	"vector-more-actions": "Kuru"
+	"vector-more-actions": "Kureman"
 }

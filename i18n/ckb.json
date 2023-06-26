@@ -6,13 +6,14 @@
 			"Sarchia",
 			"ئارام بکر",
 			"Aram",
-			"Muhammed taha"
+			"Muhammed taha",
+			"Halbast"
 		]
 	},
 	"skinname-vector": "ڤێکتۆر",
 	"prefs-vector-enable-vector-1-label": "ڤێکتۆری سپاردە بەکاربێنە",
 	"prefs-vector-enable-vector-1-help": "لەماوەی چەند ساڵی داھاتوو، ھەوڵی نوێکردنەوەی پێستەی ڤێکتۆر دەدەین. ڤێکتۆری سپاردە ڕێگەت پێ دەدات کە وەشانە کۆنەکەی ڤێکتۆر (لە کانوونی یەکەمی ٢٠١٩) ببینیت. بۆ زیاتر زانیاری لەسەر نوێکردنەوەکان، بڕۆ بۆ [[mw:Reading/Web/Desktop_Improvements|پەڕەی پرۆژەکەمان]].",
-	"vector-opt-out": "بۆ دیمەنە کۆنەکە بیگۆڕە",
+	"vector-opt-out": "بیگۆڕە بۆ ڕووکەشە کۆنەکە",
 	"vector-opt-out-tooltip": "ڕێکخستنەکانت بۆ گەڕانەوەی دیمەنە کۆنەکەی پێستەکە (ڤێکتۆری سپاردە) بگۆڕە",
 	"vector-action-toggle-sidebar": "شریتەلا بگۆڕە",
 	"vector-action-addsection": "بابەت دابنێ",
