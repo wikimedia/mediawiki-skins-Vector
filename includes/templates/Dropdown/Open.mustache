@@ -17,7 +17,7 @@
 		role="button"
 		aria-haspopup="true"
 		data-event-name="ui.dropdown-{{id}}"
-		class="vector-menu-checkbox{{#checkbox-class}} {{.}}{{/checkbox-class}}"
+		class="vector-dropdown-checkbox vector-menu-checkbox{{#checkbox-class}} {{.}}{{/checkbox-class}}"
 		{{#aria-label}}aria-label="{{.}}"{{/aria-label}}
 		{{^aria-label}}aria-label="{{label}}"{{/aria-label}}
 		{{{html-vector-menu-checkbox-attributes}}}
@@ -25,12 +25,12 @@
 	<label
 		id="{{id}}-label"
 		for="{{id}}-checkbox"
-		class="vector-menu-heading{{#label-class}} {{.}}{{/label-class}}"
+		class="vector-dropdown-label vector-menu-heading{{#label-class}} {{.}}{{/label-class}}"
 		aria-hidden="true"
 		{{{html-vector-menu-label-attributes}}}
 	>
 		{{#icon}}{{>Icon}}{{/icon}}
-		<span class="vector-menu-heading-label">{{label}}</span>
+		<span class="vector-dropdown-label-text vector-menu-heading-label">{{label}}</span>
 	</label>
 	{{! FIXME: Rename this class to vector-dropdown-content. It currently clashes with MenuContents mustache template }}
 	<div class="vector-menu-content vector-dropdown-content">

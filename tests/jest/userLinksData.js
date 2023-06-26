@@ -30,7 +30,7 @@ const templateData = {
 	},
 	'data-user-links-dropdown': {
 		id: 'vector-user-links-dropdown',
-		class: 'vector-user-menu vector-user-menu-logged-in vector-menu-dropdown',
+		class: 'vector-user-menu vector-user-menu-logged-in',
 		label: 'Personal tools'
 	},
 	'data-user-links-dropdown-menus': [ {
