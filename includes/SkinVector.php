@@ -269,16 +269,20 @@ abstract class SkinVector extends SkinMustache {
 		$templateName = $isTempUser ? 'UserLinks__templogin' : 'UserLinks__login';
 
 		if ( !$isTempUser && $includeLearnMoreLink ) {
-			$learnMoreLinkData = [
-				'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-				'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
-				'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
-			];
+			try {
+				$learnMoreLinkData = [
+					'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
+					'href' => Title::newFromText( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
+					'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
+				];
 
-			$templateData['data-anon-editor'] = [
-				'htmlLearnMoreLink' => $this->makeLink( '', $learnMoreLinkData ),
-				'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' )
-			];
+				$templateData['data-anon-editor'] = [
+					'htmlLearnMoreLink' => $this->makeLink( '', $learnMoreLinkData ),
+					'msgLearnMore' => $this->msg( 'vector-anon-user-menu-pages' )
+				];
+			} catch ( MalformedTitleException $e ) {
+				// ignore (T340220)
+			}
 		}
 
 		return $templateParser->processTemplate( $templateName, $templateData );
