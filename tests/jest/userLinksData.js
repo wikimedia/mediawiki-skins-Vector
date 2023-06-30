@@ -33,7 +33,7 @@ const templateData = {
 		class: 'vector-user-menu vector-user-menu-logged-in',
 		label: 'Personal tools'
 	},
-	'data-user-links-dropdown-menus': [ {
+	'data-user-links-menus': [ {
 		class: 'mw-portlet mw-portlet-personal',
 		id: 'p-personal',
 		'html-items': `

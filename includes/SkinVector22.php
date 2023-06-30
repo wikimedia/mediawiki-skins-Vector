@@ -8,13 +8,13 @@ use MediaWiki\Skins\Vector\Components\VectorComponentButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
-use MediaWiki\Skins\Vector\Components\VectorComponentMenuVariants;
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
+use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
@@ -315,7 +315,7 @@ class SkinVector22 extends SkinMustache {
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 		$portlets = $parentData['data-portlets'];
 
-		$langData = $parentData['data-portlets']['data-languages'] ?? null;
+		$langData = $portlets['data-languages'] ?? null;
 		$config = $this->getConfig();
 
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
@@ -392,9 +392,8 @@ class SkinVector22 extends SkinMustache {
 				false,
 				$this->getTitle()->getLocalURL( 'action=edit&section=new' )
 			) : null,
-			'data-vector-variants' => new VectorComponentMenuVariants(
-				// @phan-suppress-next-line PhanTypeInvalidDimOffset, PhanTypeMismatchArgument
-				$parentData['data-portlets']['data-variants'],
+			'data-variants' => new VectorComponentVariants(
+				$portlets['data-variants'],
 				$this->getTitle()->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
 			),
@@ -430,7 +429,7 @@ class SkinVector22 extends SkinMustache {
 				$sidebar,
 				$this->shouldLanguageAlertBeInSidebar(),
 				count( $this->getLanguagesCached() ),
-				$parentData['data-portlets']['data-languages'] ?? [],
+				$portlets['data-languages'] ?? [],
 				$localizer,
 				$this->getUser(),
 				VectorServices::getFeatureManager(),
@@ -443,7 +442,7 @@ class SkinVector22 extends SkinMustache {
 				'menu'
 			),
 			'data-page-tools' => new VectorComponentPageTools(
-				array_merge( [ $parentData['data-portlets']['data-actions'] ?? [] ], $pageToolsMenu ),
+				array_merge( [ $portlets['data-actions'] ?? [] ], $pageToolsMenu ),
 				$localizer,
 				$this->getUser(),
 				$featureManager

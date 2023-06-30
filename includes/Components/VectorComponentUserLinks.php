@@ -94,7 +94,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	 * @param bool $isAnonEditorLinksEnabled
 	 * @return array
 	 */
-	private function getDropdownMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) {
+	private function getMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) {
 		$user = $this->user;
 		$isAnon = !$user->isRegistered();
 		$portletData = $this->portletData;
@@ -167,9 +167,9 @@ class VectorComponentUserLinks implements VectorComponent {
 			'data-user-links-overflow-menu' => $overflowMenu->getTemplateData(),
 			'data-user-links-dropdown' => $this->getDropdown( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled )
 				->getTemplateData(),
-			'data-user-links-dropdown-menus' => array_map( static function ( $menu ) {
+			'data-user-links-menus' => array_map( static function ( $menu ) {
 				return $menu->getTemplateData();
-			}, $this->getDropdownMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) ),
+			}, $this->getMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) ),
 		];
 	}
 }
