@@ -22,7 +22,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 јазик|$1 јазици}}",
 	"vector-no-language-button-label": "Додај јазици",
 	"vector-no-language-button-aria-label": "Оваа статија постои само на овој јазик. Додајте ја статијата за други јазици",
-	"vector-language-redirect-to-top": "Јазичните врски на проектот {{SITENAME}} се во горниот дел на страницата, спроти насловот на статијата. [[#p-lang-btn|Одете најгоре]].",
+	"vector-language-redirect-to-top": "Јазичните врски се наоѓаат на врвот на страницата, спроти насловот.",
 	"vector-language-variant-switcher-label": "Менување на јазичната варијанта",
 	"vector-action-addsection": "Додај тема",
 	"vector-action-delete": "Избриши",

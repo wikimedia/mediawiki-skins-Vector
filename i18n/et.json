@@ -22,7 +22,7 @@
 	"vector-language-button-aria-label": "Mine teises keeles artiklisse. Saadaval {{PLURAL:$1|$1 keeles}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 keel|$1 keelt}}",
 	"vector-no-language-button-label": "Lisa keeled",
-	"vector-language-redirect-to-top": "Selles {{GRAMMAR:genitive|{{SITENAME}}}} artiklis on keelelingid artikli kohal pealkirja vastas. [[#p-lang-btn|Mine üles]].",
+	"vector-language-redirect-to-top": "Keelelingid on lehekülje ülaosas pealkirja vastas.",
 	"vector-action-addsection": "Lisa teema",
 	"vector-action-delete": "Kustuta",
 	"vector-action-move": "Teisalda",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Akbar Soepadhi",
 			"Amire80",
 			"Daud I.F. Argana",
 			"Kandar",
@@ -24,6 +25,8 @@
 	"vector-view-viewsource": "Témbongkeun sumber",
 	"vector-more-actions": "Lianna",
 	"vector-searchsuggest-containing": "Paluruh kaca-kaca anu ngandung <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Eusi",
+	"vector-toc-beginning": "Mimiti",
 	"vector-page-tools-label": "Parabot",
 	"vector-page-tools-general-label": "Umum",
 	"vector-unpin-element-label": "sumputkeun"
