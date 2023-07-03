@@ -8,15 +8,18 @@
 			"Vago",
 			"Vugar 1981",
 			"Wertuose",
-			"NMW03"
+			"NMW03",
+			"Toghrul Rahimli"
 		]
 	},
 	"skinname-vector": "Vector",
 	"prefs-vector-enable-vector-1-label": "Legacy Vector istifadə edin",
 	"prefs-vector-enable-vector-1-help": "Növbəti bir neçə il ərzində Vector dizaynını tədricən yeniləyəcəyik. Legacy Vector, Vector-un köhnə versiyasına baxmağa imkan verəcəkdir (dekabr 2019-cu ildən etibarən). Yeniləmələr haqqında daha çox məlumat üçün  [[mw:Reading/Web/Desktop_Improvements|layihə səhifəmizə]] nəzər yetirin.",
 	"vector-opt-out": "Əvvəlki dizayna keç",
-	"vector.css": "/* Burada yerləşən CSS Vector istifadəçilərinə tətbiq olunur */",
-	"vector.js": "/* Burada Vector skin istifadəçiləri üçün istənilən JavaScript yüklənəcək */",
+	"vector-opt-out-tooltip": "Köhnə dizayna qayıtmaq üçün parametrlərinizi dəyişdirin (köhnə Vektor)",
+	"vector.css": "/* Buradakı CSS kodu Vektor istifadəçiləri üçün yüklənəcək */",
+	"vector.js": "/* Buradakı JavaScript kodu Vektor istifadəçiləri üçün yüklənəcək */",
+	"vector-action-toggle-sidebar": "Yan paneli göstər/gizlət",
 	"vector-action-addsection": "Mövzu əlavə et",
 	"vector-action-delete": "Sil",
 	"vector-action-move": "Adını dəyiş",
@@ -28,5 +31,7 @@
 	"vector-view-history": "Tarixçəyə bax",
 	"vector-view-view": "Oxu",
 	"vector-view-viewsource": "Mənbəyə bax",
+	"vector-jumptonavigation": "Naviqasiyaya keçin",
+	"vector-jumptosearch": "Axtarışa keçin",
 	"vector-more-actions": "Daha çox"
 }
