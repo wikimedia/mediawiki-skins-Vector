@@ -4,9 +4,12 @@
 			"Azim",
 			"Sergey Ivanov",
 			"Сай",
-			"Санюн Вадик"
+			"Санюн Вадик",
+			"Lifeway"
 		]
 	},
+	"vector-language-button-label": "{{PLURAL:$1|$1 йылме}}",
+	"vector-no-language-button-label": "Йылме-влакым ешараш",
 	"vector-action-addsection": "У ӱжашым тӱҥалаш",
 	"vector-action-delete": "Шӧраш",
 	"vector-action-move": "Лӱмым вашталташ",

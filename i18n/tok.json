@@ -6,10 +6,12 @@
 			"Robin van der Vliet",
 			"שוקו מוקה",
 			"Tbodt",
-			"Keenan Pepper"
+			"Keenan Pepper",
+			"20kdc"
 		]
 	},
 	"vector-language-button-label": "toki $1",
+	"vector-no-language-button-label": "o sin e lipu toki",
 	"vector-action-addsection": "o pana e ijo toki sin",
 	"vector-action-delete": "o weka",
 	"vector-action-move": "o ante e nimi",
