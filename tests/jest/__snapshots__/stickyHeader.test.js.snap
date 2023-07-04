@@ -4,11 +4,9 @@ exports[`Sticky header renders 1`] = `
 "<div id=\\"vector-sticky-header\\" class=\\"vector-sticky-header\\">
 	<div class=\\"vector-sticky-header-start\\">
 		<div class=\\"vector-sticky-header-icon-start vector-button-flush-left vector-button-flush-right\\" aria-hidden=\\"true\\">
-
 <button class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle\\" data-event-name=\\"ui.vector-sticky-search-form.icon\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search\\"></span>
 
 <span>search</span>
-
 </button>
 		</div>
 <div> </div>		<div class=\\"vector-sticky-header-context-bar\\">
@@ -31,37 +29,29 @@ exports[`Sticky header renders 1`] = `
 
 <span></span>
 </a>
-
 <a href=\\"#\\" id=\\"ca-history-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon\\" data-event-name=\\"history-sticky-header\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-history mw-ui-icon-wikimedia-history\\"></span>
 
 <span></span>
 </a>
-
 <a href=\\"#\\" id=\\"ca-watchstar-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon mw-watchlink\\" data-event-name=\\"watch-sticky-header\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-star mw-ui-icon-wikimedia-star\\"></span>
 
 <span></span>
 </a>
-
 <a href=\\"#\\" id=\\"ca-ve-edit-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon\\" data-event-name=\\"ve-edit-sticky-header\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-edit mw-ui-icon-wikimedia-edit\\"></span>
 
 <span></span>
 </a>
-
 <a href=\\"#\\" id=\\"ca-edit-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon\\" data-event-name=\\"wikitext-edit-sticky-header\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-wikiText mw-ui-icon-wikimedia-wikiText\\"></span>
 
 <span></span>
 </a>
-
 <a href=\\"#\\" id=\\"ca-viewsource-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only sticky-header-icon\\" data-event-name=\\"editLock\\" tabindex=\\"-1\\"><span class=\\"vector-icon mw-ui-icon-star mw-ui-icon-wikimedia-star\\"></span>
 
 <span></span>
 </a>
-
 		</div>
 		<div class=\\"vector-sticky-header-buttons\\">
-
 <button id=\\"p-lang-btn-sticky-header\\" class=\\"cdx-button cdx-button--weight-quiet mw-interlanguage-selector\\" data-event-name=\\"ui.dropdown-p-lang-btn-sticky-header\\" tabindex=\\"-1\\"><span>0 languages</span>
-
 </button>
 		</div>
 		<div class=\\"vector-sticky-header-icon-end\\">
