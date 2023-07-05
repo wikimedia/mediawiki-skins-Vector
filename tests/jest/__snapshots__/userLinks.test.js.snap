@@ -20,8 +20,7 @@ exports[`UserLinks renders 1`] = `
 </div>
 <div id=\\"vector-user-links-dropdown\\" class=\\"vector-dropdown vector-user-menu vector-user-menu-logged-in\\">
 	<input type=\\"checkbox\\" id=\\"vector-user-links-dropdown-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-user-links-dropdown\\" class=\\"vector-dropdown-checkbox\\" aria-label=\\"Personal tools\\">
-	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-dropdown-label\\" aria-hidden=\\"true\\">
-		<span class=\\"vector-dropdown-label-text\\">Personal tools</span>
+	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-dropdown-label\\" aria-hidden=\\"true\\"><span class=\\"vector-dropdown-label-text\\">Personal tools</span>
 	</label>
 	<div class=\\"vector-dropdown-content\\">
 
@@ -52,6 +51,7 @@ exports[`UserLinks renders 1`] = `
 </div>
 </div>
 	</div>
-</div></nav>
+</div>
+</nav>
 "
 `;
