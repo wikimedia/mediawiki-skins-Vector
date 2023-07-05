@@ -3,7 +3,8 @@
 		"authors": [
 			"Esbardu",
 			"Xuacu",
-			"Tokvo"
+			"Tokvo",
+			"Fueyas"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -11,6 +12,7 @@
 	"prefs-vector-enable-vector-1-label": "Utilizar versión anticuada de Vector",
 	"vector.css": "/* Los CSS allugaos equí afeutarán a los usuarios del aspeutu Vector */",
 	"vector.js": "/* Cualesquier JavaScript que tea equí se cargará pa los usuarios del aspeutu Vector */",
+	"vector-languages": "Llingües",
 	"vector-language-button-label": "{{PLURAL:$1|$1 llingua|$1 llingües}}",
 	"vector-action-addsection": "Amestar seición",
 	"vector-action-delete": "Desaniciar",

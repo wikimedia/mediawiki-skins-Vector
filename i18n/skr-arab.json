@@ -11,9 +11,16 @@
 	"vector-action-delete": "مٹاؤ",
 	"vector-action-move": "ٹورو",
 	"vector-action-protect": "حفاظت کرو",
+	"vector-action-undelete": "اݨ مٹایا کرو",
+	"vector-action-unprotect": "تحفظ وچ تبدیلی",
 	"vector-view-create": "بݨاؤ",
 	"vector-view-edit": "لکھو",
 	"vector-view-history": "تاریخچہ",
 	"vector-view-view": "پڑھو",
-	"vector-more-actions": "ٻئے"
+	"vector-view-viewsource": "ماخذ ݙیکھو",
+	"vector-more-actions": "ٻئے",
+	"vector-intro-page": "Help:تعارف",
+	"vector-anon-user-menu-pages-learn": "ٻیا سِکھو",
+	"vector-main-menu-tooltip": "اصل مینیو",
+	"tooltip-vector-anon-user-menu-title": "ٻئے اختیار"
 }
