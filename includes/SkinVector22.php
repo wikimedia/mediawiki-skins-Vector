@@ -337,6 +337,7 @@ class SkinVector22 extends SkinMustache {
 		// empty array is interpreted by Mustache as falsey.
 		$isTocAvailable = !empty( $tocData ) && !empty( $tocData[ 'array-sections' ] );
 		if ( $isTocAvailable ) {
+			// @phan-suppress-next-line SecurityCheck-XSS
 			$dataToc = new VectorComponentTableOfContents(
 				$parentData['data-toc'],
 				$localizer,
