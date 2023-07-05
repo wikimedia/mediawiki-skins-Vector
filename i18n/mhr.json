@@ -8,6 +8,7 @@
 			"Санюн Вадик"
 		]
 	},
+	"vector-languages": "Йылме-влак",
 	"vector-language-button-label": "{{PLURAL:$1|$1 йылме}}",
 	"vector-no-language-button-label": "Йылме-влакым ешараш",
 	"vector-action-addsection": "У ӱжашым тӱҥалаш",
@@ -22,6 +23,9 @@
 	"vector-view-view": "Лудаш",
 	"vector-view-viewsource": "Тӱҥалтыш текстым ончалаш",
 	"vector-more-actions": "Эше",
+	"vector-toc-label": "Контент",
+	"vector-toc-beginning": "Тӱҥалтыш",
 	"vector-page-tools-label": "Ӱзгар-влак",
+	"vector-page-tools-general-label": "Чумыр",
 	"vector-unpin-element-label": "шылташ"
 }
