@@ -4,12 +4,15 @@
 			"Andrewboltachev",
 			"Kaganer",
 			"Kotwys",
-			"Wadorgurt"
+			"Wadorgurt",
+			"Света Поторочина"
 		]
 	},
 	"skinname-vector": "Вектор",
 	"vector-opt-out": "Вуж тусэ берытсконо",
+	"vector-languages": "Кылъёс",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кыл}}",
+	"vector-no-language-button-label": "Кылъёсты ватсан",
 	"vector-action-addsection": "Выль тема ватсано",
 	"vector-action-delete": "Быдтоно",
 	"vector-action-move": "Нимзэ воштыны",
@@ -23,5 +26,10 @@
 	"vector-jumptosearch": "Утчан доры потоно",
 	"vector-jumptocontent": "Пуштрос доры потоно",
 	"vector-more-actions": "Эшшо",
-	"vector-toc-label": "Пуштросэз"
+	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-утчан_утчан-улӥ колонтитул__курон\">$1</strong>",
+	"vector-toc-label": "Пуштросэз",
+	"vector-toc-beginning": "Кутскон",
+	"vector-page-tools-label": "Тӥрлыкъёс",
+	"vector-page-tools-general-label": "Огъя",
+	"vector-unpin-element-label": "Ватыны"
 }
