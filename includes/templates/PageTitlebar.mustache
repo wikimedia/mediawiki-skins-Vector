@@ -1,5 +1,5 @@
 {{!-
-	Page titlebar - Main <H1> title for all pages, with either the indicators or language selector.
+	Page titlebar - Main h1 title for all pages, with either the indicators or language selector.
 	When language button is visible, indicators are placed in the BeforeContent.mustache template instead.
 }}
 <header class="mw-body-header vector-page-titlebar{{#is-title-blank}} vector-page-titlebar-blank{{/is-title-blank}}">
@@ -16,7 +16,6 @@
 		<span class="vector-icon mw-ui-icon-wikimedia-listBullet"></span>
 		<span>{{msg-vector-toc-collapsible-button-label}}</span>
 	</label>
-
 	{{! TOC is moved into this dropdown from the sidebar in stickyHeader.js. }}
 	<nav role="navigation" aria-label="{{ msg-vector-toc-label }}" class="vector-toc-landmark">
 		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Open}}{{/data-page-titlebar-toc-dropdown}}
@@ -31,7 +30,6 @@
 	</nav>
 	{{/data-toc}}
 	{{{html-title-heading}}}
-
 	{{#has-buttons-in-content-top}}
 		{{#data-lang-dropdown}}
 			{{>LanguageDropdown}}
@@ -40,7 +38,6 @@
 			{{>Button}}
 		{{/data-add-topic-button}}
 	{{/has-buttons-in-content-top}}
-
 	{{^has-buttons-in-content-top}}
 		{{>Indicators}}
 	{{/has-buttons-in-content-top}}
