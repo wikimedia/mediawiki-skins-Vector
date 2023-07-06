@@ -8,17 +8,25 @@
 			"Гусейн"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|$1 zıvon|$1 zıvonon}}",
-	"vector-action-addsection": "Mıvzo əlovə bıkə",
+	"vector-languages": "Zyvonon",
+	"vector-language-button-label": "{{PLURAL:$1|$1 zzvon|$1 zzvonon}}",
+	"vector-no-language-button-label": "Zyvonon əlovə karde",
+	"vector-action-addsection": "Myžori əlovə karde",
 	"vector-action-delete": "Mole",
 	"vector-action-move": "Kuç kardə",
 	"vector-action-protect": "Mıdofiə karde",
 	"vector-action-undelete": "Бәрпо кардеј",
 	"vector-action-unprotect": "Mıdofiyə dəqiş karde",
-	"vector-view-create": "Сохтеј",
+	"vector-view-create": "Soxtej",
 	"vector-view-edit": "Sərosti bıkə",
-	"vector-view-history": "Diyəkə bə torix",
+	"vector-view-history": "Tarixi dijə bykə",
 	"vector-view-view": "Bıhand",
 	"vector-view-viewsource": "Səvon diyə karde",
-	"vector-more-actions": "Ve"
+	"vector-more-actions": "Ve",
+	"vector-searchsuggest-containing": "Səhifon nəve končo heste <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Myndəričot",
+	"vector-toc-beginning": "Bino",
+	"vector-page-tools-label": "Diləgon",
+	"vector-page-tools-general-label": "Umumi",
+	"vector-unpin-element-label": "niyo karde"
 }
