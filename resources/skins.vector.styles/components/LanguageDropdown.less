@@ -105,6 +105,21 @@
 	display: none;
 }
 
+// IMPORTANT: Since dropdowns are visibility: hidden, it is important if ULS has been enabled
+// and taken over the menu, that we set the dropdown to display none to avoid impacting the
+// initial render. Language lists can be long (on some pages +200 links) so avoid having to
+// consider them in the render at all costs! In future, we may want to reconsider this component
+// and potentially use Minerva's fallback - where languages are inside the footer, but that's
+// a change for another day!
+.client-js .mw-portlet-lang .vector-dropdown-content {
+	display: none;
+
+	// ... since ULS is an optional dependency it may not be installed.
+	.vector-uls-disabled& {
+		display: inherit;
+	}
+}
+
 // Show it on view pages where there are 0 languages so user can add languages (JavaScript required)
 .client-js .action-view .vector-dropdown > .mw-portlet-lang-heading-0 {
 	display: flex;

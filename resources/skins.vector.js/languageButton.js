@@ -34,8 +34,20 @@ function addInterwikiLinkToMainMenu() {
 }
 
 /**
+ * Checks if ULS is disabled, and makes sure the language dropdown continues
+ * to work if it is.
+ */
+function checkIfULSDisabled() {
+	const langModuleState = mw.loader.getState( 'ext.uls.interface' );
+	if ( langModuleState === null || langModuleState === 'registered' ) {
+		document.documentElement.classList.add( 'vector-uls-disabled' );
+	}
+}
+
+/**
  * Initialize the language button.
  */
 module.exports = function () {
+	checkIfULSDisabled();
 	addInterwikiLinkToMainMenu();
 };
