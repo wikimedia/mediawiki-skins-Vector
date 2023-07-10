@@ -65,5 +65,8 @@
 	"tooltip-vector-anon-user-menu-title": "Muioc'h a zibaboù",
 	"vector-prefs-limited-width": "Gweredekaat mod ledander bihanet",
 	"vector-prefs-limited-width-help": "Gweredekaat mod ledander bihanet evit lenn gwelloc’h",
-	"empty-language-selector-body": "N’eus ket eus endalc’had ar bajenn e yezhoù all."
+	"empty-language-selector-body": "N’eus ket eus endalc’had ar bajenn e yezhoù all.",
+	"vector-toc-unpinned-popup": "Lakaet eo bet an daolenn amañ.",
+	"vector-page-tools-unpinned-popup": "Lakaet eo bet ar meuziad benvegoù amañ.",
+	"vector-main-menu-unpinned-popup": "Lakaet eo bet ar meuziad pennañ amañ."
 }

@@ -21,6 +21,8 @@
 	"vector-view-view": "Ааҕыы",
 	"vector-view-viewsource": "Бэлиэлэрин көрүү",
 	"vector-more-actions": "Эбии",
+	"vector-searchsuggest-containing": "Иһилэригэр <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> баар сирэйдэри көрдөөһүн",
+	"vector-toc-label": "Иһинээҕитэ",
 	"vector-toc-beginning": "Саҕаланыы",
 	"vector-page-tools-label": "Сэп-сэбиргэл",
 	"vector-page-tools-general-label": "Сүнньүнэн",

@@ -2,8 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"MinecraftAustralia",
-			"Piwaiwaka"
+			"Piwaiwaka",
+			"Ultron90"
 		]
 	},
+	"vector-languages": "Reo",
+	"vector-action-delete": "Muku",
+	"vector-action-move": "Nuku",
 	"vector-view-view": "Tirohia"
 }
