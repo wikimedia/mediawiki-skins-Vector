@@ -31,8 +31,8 @@
 	// Prevent icon buttons in the page toolbar from automatically increasing padding on small viewports
 	.cdx-button--icon-only {
 		// !important needed to override 'responsive' button styles on smaller viewports defined in Button.less
-		min-width: 32px !important; /* stylelint-disable-line declaration-no-important */
-		min-height: 32px !important; /* stylelint-disable-line declaration-no-important */
+		min-width: @min-size-interactive-pointer !important; /* stylelint-disable-line declaration-no-important */
+		min-height: @min-size-interactive-pointer !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
 

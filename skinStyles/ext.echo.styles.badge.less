@@ -47,4 +47,10 @@
 	display: inline-flex;
 	margin: 0;
 	opacity: 1;
+	// T341490 We are incorrectly applying Codex icon and button styles on the
+	// same element because ULS frequently overwrites the contents of the element
+	// so it is too difficult to maintain the correct markup. Because we are mixing
+	// Codex styles, the proper styles are overridden, this corrects that.
+	min-width: @min-size-interactive-pointer;
+	min-height: @min-size-interactive-pointer;
 }
