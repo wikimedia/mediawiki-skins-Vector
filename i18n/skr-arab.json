@@ -9,9 +9,12 @@
 	"vector-action-delete": "مٹاؤ",
 	"vector-action-move": "ٹورو",
 	"vector-action-protect": "حفاظت کرو",
+	"vector-action-undelete": "اݨ مٹایا کرو",
+	"vector-action-unprotect": "تحفظ وچ تبدیلی",
 	"vector-view-create": "بݨاؤ",
 	"vector-view-edit": "لکھو",
 	"vector-view-history": "تاریخچہ",
 	"vector-view-view": "پڑھو",
+	"vector-view-viewsource": "ماخذ ݙیکھو",
 	"vector-more-actions": "ٻئے"
 }
