@@ -6,7 +6,6 @@ exports[`UserLinks renders 1`] = `
 	<div class=\\"vector-menu-heading\\">
 		Toggle sidebar
 	</div>
-	
 <div class=\\"vector-menu-content\\">
 	
 	<ul class=\\"vector-menu-content-list\\">
@@ -27,7 +26,6 @@ exports[`UserLinks renders 1`] = `
 	<div class=\\"vector-menu-content vector-dropdown-content\\">
 
 <div id=\\"p-personal\\" class=\\"vector-menu mw-portlet mw-portlet-personal\\">
-	
 <div class=\\"vector-menu-content\\">
 	
 	<ul class=\\"vector-menu-content-list\\">
@@ -45,7 +43,6 @@ exports[`UserLinks renders 1`] = `
 </div>
 </div>
 <div id=\\"p-user-menu-logout\\" class=\\"vector-menu mw-portlet mw-portlet-user-menu-logout\\">
-	
 <div class=\\"vector-menu-content\\">
 	
 	<ul class=\\"vector-menu-content-list\\">
