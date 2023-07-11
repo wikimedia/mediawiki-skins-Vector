@@ -3,9 +3,11 @@
 		"authors": [
 			"Amire80",
 			"Bennylin",
-			"Marwan Mohamad"
+			"Marwan Mohamad",
+			"Veracious"
 		]
 	},
+	"vector-languages": "Bahasa",
 	"vector-language-button-label": "{{PLURAL:$1|Bahasa $1}}",
 	"vector-action-addsection": "Duhengi topik",
 	"vector-action-delete": "Luluta",

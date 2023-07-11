@@ -5,9 +5,11 @@
 			"Sergey Ivanov",
 			"Сай",
 			"Санюн Вадик",
-			"Lifeway"
+			"Lifeway",
+			"Венина Наталья Константиновна"
 		]
 	},
+	"vector-languages": "Йылме-влак",
 	"vector-language-button-label": "{{PLURAL:$1|$1 йылме}}",
 	"vector-no-language-button-label": "Йылме-влакым ешараш",
 	"vector-action-addsection": "У ӱжашым тӱҥалаш",
@@ -21,5 +23,7 @@
 	"vector-view-history": "Эртымгорным ончалаш",
 	"vector-view-view": "Лудаш",
 	"vector-view-viewsource": "Тӱҥалтыш текстым ончалаш",
-	"vector-more-actions": "Эше"
+	"vector-more-actions": "Эше",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> мутан лаштыклам кычалмаш",
+	"vector-toc-beginning": "Тӱҥалтыш"
 }

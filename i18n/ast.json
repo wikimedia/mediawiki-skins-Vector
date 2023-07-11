@@ -3,7 +3,8 @@
 		"authors": [
 			"Esbardu",
 			"Tokvo",
-			"Xuacu"
+			"Xuacu",
+			"Fueyas"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -11,7 +12,9 @@
 	"prefs-vector-enable-vector-1-label": "Utilizar versión anticuada de Vector",
 	"vector.css": "/* Los CSS allugaos equí afeutarán a los usuarios del aspeutu Vector */",
 	"vector.js": "/* Cualesquier JavaScript que tea equí se cargará pa los usuarios del aspeutu Vector */",
+	"vector-languages": "Llingües",
 	"vector-language-button-label": "{{PLURAL:$1|$1 llingua|$1 llingües}}",
+	"vector-no-language-button-label": "Añedir llingües",
 	"vector-action-addsection": "Amestar seición",
 	"vector-action-delete": "Desaniciar",
 	"vector-action-move": "Treslladar",
@@ -25,5 +28,7 @@
 	"vector-view-viewsource": "Ver fonte",
 	"vector-jumptonavigation": "Saltar a navegación",
 	"vector-jumptosearch": "Saltar a la gueta",
-	"vector-more-actions": "Más"
+	"vector-more-actions": "Más",
+	"vector-searchsuggest-containing": "Busca páxines que contengan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Entamu"
 }
