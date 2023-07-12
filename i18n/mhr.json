@@ -5,9 +5,11 @@
 			"Sergey Ivanov",
 			"Сай",
 			"Санюн Вадик",
-			"Lifeway"
+			"Lifeway",
+			"Венина Наталья Константиновна"
 		]
 	},
+	"vector-languages": "Йылме-влак",
 	"vector-language-button-label": "{{PLURAL:$1|$1 йылме}}",
 	"vector-action-addsection": "У ӱжашым тӱҥалаш",
 	"vector-action-delete": "Шӧраш",

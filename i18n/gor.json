@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Marwan Mohamad",
-			"Bennylin"
+			"Bennylin",
+			"Amire80",
+			"Veracious"
 		]
 	},
+	"vector-languages": "Bahasa",
 	"vector-language-button-label": "{{PLURAL:$1|Bahasa $1}}",
 	"vector-action-addsection": "Duhengi topik",
 	"vector-action-delete": "Luluta",

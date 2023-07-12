@@ -7,9 +7,11 @@
 			"Dnshitobu",
 			"Jahinfo",
 			"Masssly",
-			"Ruky Wunpini"
+			"Ruky Wunpini",
+			"Musahfm"
 		]
 	},
+	"vector-languages": "Bala",
 	"vector-language-button-aria-label": "Kpemi lahabali bali sheli ni. Din be {{PLURAL:$1|$1 Balli |$1 Bala}}",
 	"vector-language-variant-switcher-label": "Taɣimi balli woliginsima",
 	"vector-action-addsection": "Pahimi yaɣili",

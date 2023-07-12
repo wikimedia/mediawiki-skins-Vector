@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ftillimi",
+			"Martindimaggio"
+		]
+	},
+	"vector-languages": "Gljuh",
+	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh|$1 gljuh}}",
+	"vector-view-history": "Vrej kronologiën",
+	"vector-more-actions": "Më shurbise"
+}

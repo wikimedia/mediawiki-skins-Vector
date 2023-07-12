@@ -4,11 +4,13 @@
 			"Andrewboltachev",
 			"Kaganer",
 			"Kotwys",
-			"Wadorgurt"
+			"Wadorgurt",
+			"Света Поторочина"
 		]
 	},
 	"skinname-vector": "Вектор",
 	"vector-opt-out": "Вуж тусэ берытсконо",
+	"vector-languages": "Кылъёс",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кыл}}",
 	"vector-action-addsection": "Выль тема ватсано",
 	"vector-action-delete": "Быдтоно",
