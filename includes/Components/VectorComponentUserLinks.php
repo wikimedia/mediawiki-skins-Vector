@@ -130,9 +130,8 @@ class VectorComponentUserLinks implements VectorComponent {
 				$anonEditorLabelLinkHtml = $anonEditorLabelLink->getTemplateData()[ 'html' ];
 				$dropdownMenus[] = new VectorComponentMenu( [
 					'label' => null,
-					'html-label' => '<div class="vector-menu-heading">' .
-						$this->msg( 'vector-anon-user-menu-pages' )->escaped() .
-						" " . $anonEditorLabelLinkHtml . '</div>',
+					'html-label' => $this->msg( 'vector-anon-user-menu-pages' )->escaped() .
+						" " . $anonEditorLabelLinkHtml,
 				] + $portletData[ 'data-user-menu-anon-editor' ] );
 			}
 		} else {

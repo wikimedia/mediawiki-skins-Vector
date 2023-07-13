@@ -8,6 +8,10 @@
 		{{.}}
 	</div>
 	{{/label}}
-	{{{html-label}}}
+	{{#html-label}}
+	<div class="vector-menu-heading{{#label-class}} {{.}}{{/label-class}}">
+		{{{.}}}
+	</div>
+	{{/html-label}}
 	{{>MenuContents}}
 </div>
