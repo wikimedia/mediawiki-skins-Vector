@@ -17,7 +17,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
 	"vector-no-language-button-label": "Tambah basa",
 	"vector-no-language-button-aria-label": "Ni makalah cuman ada dalem ni basa. Tambah makalah bakal laèn-laèn basa",
-	"vector-language-redirect-to-top": "Di ni {{SITENAME}}, sènggètan basa ada di atas halaman di sampingnya judulmakalah. [[#p-lang-btn|Ke atas]].",
+	"vector-language-redirect-to-top": "Di ni {{SITENAME}}, sènggètan basa ada di atas halaman di sampingnya judul makalah. [[#p-lang-btn|Ke atas]].",
 	"vector-language-variant-switcher-label": "Robah ragem basa",
 	"vector-action-addsection": "Tambah topik",
 	"vector-action-delete": "Apus",
