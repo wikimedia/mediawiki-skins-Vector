@@ -2,16 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"ChoiChong",
-			"Kahin He"
+			"Kahin He",
+			"Winston Sung"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1语言}}",
 	"vector-action-addsection": "添加话题",
-	"vector-action-delete": "刪除",
 	"vector-action-move": "移动",
 	"vector-action-protect": "保护",
-	"vector-view-create": "創建",
-	"vector-view-edit": "修改",
 	"vector-view-history": "看历史",
 	"vector-view-view": "读",
 	"vector-more-actions": "価兮",
