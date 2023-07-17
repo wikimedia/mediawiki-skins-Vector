@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Piwaiwaka"
+			"Piwaiwaka",
+			"MinecraftAustralia",
+			"Ultron90"
 		]
 	},
+	"vector-action-delete": "Muku",
+	"vector-action-move": "Nuku",
 	"vector-view-view": "Tirohia"
 }
