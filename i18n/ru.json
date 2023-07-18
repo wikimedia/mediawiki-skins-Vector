@@ -19,7 +19,9 @@
 			"Sunpriat",
 			"Tanzun",
 			"Thothsum",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Adam-Yourist",
+			"BerryAVGN"
 		]
 	},
 	"skinname-vector": "Векторная, устаревшая (2010)",
@@ -62,13 +64,13 @@
 	"vector-toc-toggle-position-sidebar": "переместить в боковую панель",
 	"vector-toc-toggle-position-title": "скрыть",
 	"vector-toc-beginning": "Начало",
-	"vector-toc-toggle-button-label": "Показать/Скрыть подраздел $1",
+	"vector-toc-toggle-button-label": "Отобразить/Скрыть подраздел $1",
 	"vector-anon-user-menu-pages": "Страницы для неавторизованных редакторов",
 	"vector-anon-user-menu-pages-learn": "узнать больше",
 	"vector-anon-user-menu-pages-label": "Подробнее о редактировании",
 	"vector-main-menu-tooltip": "Главное меню",
 	"vector-toc-menu-tooltip": "Содержание",
-	"vector-toc-collapsible-button-label": "Скрыть/показать содержание",
+	"vector-toc-collapsible-button-label": "Отобразить/Скрыть содержание",
 	"vector-article-tools-nav-label": "Инструменты",
 	"vector-site-nav-label": "Сайт",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Обсуждение]]",
