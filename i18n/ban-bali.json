@@ -6,6 +6,8 @@
 			"Tok Pisin"
 		]
 	},
+	"vector-languages": "ᬪᬵᬱ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ᬪᬲ}}",
 	"vector-action-addsection": "ᬯᭂᬯᭂᬄᬢᭀᬧᬶᬓ᭄",
 	"vector-action-delete": "ᬳᬸᬲᬧ᭄",
 	"vector-action-move": "ᬕᬶᬗ᭄ᬲᬶᬭᬗ᭄",

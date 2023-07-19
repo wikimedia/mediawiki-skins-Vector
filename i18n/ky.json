@@ -33,7 +33,7 @@
 	"vector-action-undelete": "Калыбына келтирүү",
 	"vector-action-unprotect": "Коргоону өзгөртүү",
 	"vector-view-create": "Түзүү",
-	"vector-view-edit": "Оңдоо",
+	"vector-view-edit": "Түзөтүү",
 	"vector-view-history": "Тарыхын кароо",
 	"vector-view-view": "Окуу",
 	"vector-view-viewsource": "Булагын кароо",
@@ -44,7 +44,7 @@
 	"vector-search-loader": "Издөө сунуштары жүктөлүүдө",
 	"vector-intro-page": "Жардам:Бет ачар",
 	"vector-anon-user-menu-pages": "Катталбаган түзөтүүчүлөр үчүн барактар",
-	"vector-anon-user-menu-pages-learn": "Чоо-жайын билүү",
+	"vector-anon-user-menu-pages-learn": "чоо-жайы",
 	"vector-anon-user-menu-pages-label": "Түзөтүү жөнүндө көбүрөөк билүү",
 	"vector-main-menu-tooltip": "Иш тилкеси",
 	"tooltip-vector-anon-user-menu-title": "Кошумча мүмкүнчүлүктөр"
