@@ -7,6 +7,8 @@
 	"vector-languages": "ЧIелбыр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 чIел|$1 чIелбыр}}",
 	"vector-no-language-button-label": "ЧIелбыр уу лихъихьин",
+	"vector-action-addsection": "Яратмиш тема",
+	"vector-view-create": "Яратмиш",
 	"vector-view-history": "Тарих",
 	"vector-more-actions": "Бала",
 	"vector-searchsuggest-containing": "Мид-кид джарбыр ахтармиш <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
