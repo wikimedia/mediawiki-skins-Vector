@@ -321,11 +321,10 @@ class Hooks implements
 		$overflow = 'vector-user-menu-overflow';
 		$content_navigation[$overflow] = [];
 		$featureManager = VectorServices::getFeatureManager();
-
 		// Logged in and logged out overflow items
-		if ( isset( $content_navigation['user-interface-preferences']['uls'] ) ) {
-			$content_navigation[$overflow]['uls'] = array_merge(
-				$content_navigation['user-interface-preferences']['uls'], [
+		foreach ( $content_navigation['user-interface-preferences'] ?? [] as $key => $item ) {
+			$content_navigation[$overflow][ $key ] = array_merge(
+				$content_navigation['user-interface-preferences'][ $key ], [
 				'collapsible' => true,
 			] );
 		}
