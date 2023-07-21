@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"20kdc",
+			"Frzzl",
 			"Gtbot2007",
 			"Keenan Pepper",
 			"LesVisages",
@@ -10,6 +11,7 @@
 			"שוקו מוקה"
 		]
 	},
+	"vector-languages": "toki",
 	"vector-language-button-label": "toki $1",
 	"vector-no-language-button-label": "o sin e lipu toki",
 	"vector-action-addsection": "o pana e ijo toki sin",
