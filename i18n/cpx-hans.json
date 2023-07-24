@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"ChoiChong",
+			"Kahin He",
+			"Winston Sung"
+		]
+	},
+	"vector-action-addsection": "添加话题",
+	"vector-action-move": "移动",
+	"vector-action-protect": "保护",
+	"vector-view-history": "看历史",
+	"vector-view-view": "读",
+	"vector-more-actions": "価兮"
+}
