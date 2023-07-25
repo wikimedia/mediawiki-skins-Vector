@@ -26,8 +26,10 @@
 		min-width: @min-size-interactive-touch;
 		min-height: @min-size-interactive-touch;
 	}
+}
 
-	// Hide text in icon only buttons
+// Hide text in icon only buttons
+.cdx-button.cdx-button--icon-only {
 	span + span {
 		.mixin-screen-reader-text();
 	}
