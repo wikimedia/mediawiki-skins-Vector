@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pintupi Luritja Guy"
+		]
+	},
+	"vector-languages": "Wangka tjuṯa",
+	"vector-language-button-label": "{{PLURAL:$1|wangka $1}}",
+	"vector-action-addsection": "Kuwitjina tuturrpuwa",
+	"vector-view-create": "Palyala",
+	"vector-view-history": "Yara nyawa",
+	"vector-more-actions": "Piyuku"
+}

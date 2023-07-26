@@ -6,9 +6,12 @@
 			"LesVisages",
 			"שוקו מוקה",
 			"Tbodt",
-			"Keenan Pepper"
+			"Keenan Pepper",
+			"20kdc",
+			"Frzzl"
 		]
 	},
+	"vector-languages": "toki",
 	"vector-language-button-label": "toki $1",
 	"vector-action-addsection": "o pana e ijo toki sin",
 	"vector-action-delete": "o weka",

@@ -10,6 +10,8 @@
 	"skinname-vector": "Vector",
 	"vector.css": "/* CSS placed here will affect users of the Vector skin */",
 	"vector.js": "/* Any JavaScript here will be loaded for users using the Vector skin */",
+	"vector-languages": "تىللار",
+	"vector-language-button-label": "{{PLURAL:$1|$1 تىل}}",
 	"vector-action-addsection": "يېڭى تېما قوش",
 	"vector-action-delete": "ئۆچۈر",
 	"vector-action-move": "يۆتكە",

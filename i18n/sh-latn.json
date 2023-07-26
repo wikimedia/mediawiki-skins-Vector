@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"BadDog",
+			"Conquistador",
+			"OC Ripper",
+			"Srdjan m",
+			"Srđan",
+			"Vlad5250",
+			"Winston Sung"
+		]
+	},
+	"vector-skin-desc": "Pruža dvije varijante Vectora:\n* 2011 – Savremena verzija MonoBooka s osvježenim izgledom i mnogim poboljšanjima.\n* 2022 – Vector izrađen kao dio projekta [[mw:Desktop Improvements|Poboljšanja računarskog prikaza]] Fondacije Wikimedia.",
+	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
+	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite postavke da biste vratili stari izgled teme (stari Vector)",
+	"vector-action-toggle-sidebar": "Prikaži/sakrij bočnu traku",
+	"vector-languages": "Jezici",
+	"vector-language-button-aria-label": "Prijedi na druge jezične varijante članka. Dostupno je na {{PLURAL:$1|$1 jeziku|$1 jezika}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
+	"vector-language-variant-switcher-label": "Promijeni jezičnu varijantu",
+	"vector-action-addsection": "Dodaj temu",
+	"vector-action-delete": "Izbriši",
+	"vector-action-move": "Premjesti",
+	"vector-action-protect": "Zaštiti",
+	"vector-action-undelete": "Vrati",
+	"vector-action-unprotect": "Promijeni zaštitu",
+	"vector-view-create": "Napravi",
+	"vector-view-edit": "Uredi",
+	"vector-view-history": "Historija",
+	"vector-view-view": "Prikaži",
+	"vector-view-viewsource": "Izvorni kod",
+	"vector-jumptonavigation": "Prijeđi na navigaciju",
+	"vector-jumptosearch": "Prijeđi na pretragu",
+	"vector-jumptocontent": "Prijeđi na sadržaj",
+	"vector-more-actions": "Više",
+	"vector-search-loader": "Učitavanje prijedloga pretrage",
+	"vector-anon-user-menu-pages": "Stranice za neprijavljene suradnike",
+	"vector-anon-user-menu-pages-learn": "detaljnije",
+	"vector-anon-user-menu-pages-label": "Saznajte više o uređivanju",
+	"vector-main-menu-tooltip": "Glavni meni",
+	"tooltip-vector-anon-user-menu-title": "Više mogućnosti"
+}
