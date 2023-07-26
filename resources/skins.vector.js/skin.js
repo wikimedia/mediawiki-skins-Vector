@@ -6,6 +6,7 @@ const languageButton = require( './languageButton.js' ),
 	initExperiment = require( './AB.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './activeABTest.json' ) ),
 	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
+	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
@@ -79,6 +80,7 @@ function main( window ) {
 	initSearchLoader( document );
 	languageButton();
 	echo();
+	portletsManager.main();
 	dropdownMenus();
 	// menuTabs should follow `dropdownMenus` as that can move menu items from a
 	// tab menu to a dropdown.
