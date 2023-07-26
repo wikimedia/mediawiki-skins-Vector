@@ -422,6 +422,7 @@
 		"skins.vector.legacy.js": {
 			"packageFiles": [
 				"resources/skins.vector.legacy.js/skin-legacy.js",
+				"resources/skins.vector.legacy.js/portlets.js",
 				"resources/skins.vector.legacy.js/collapsibleTabs.js",
 				"resources/skins.vector.legacy.js/vector.js"
 			],
