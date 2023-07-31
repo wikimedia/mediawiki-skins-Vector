@@ -3,6 +3,7 @@
 		"authors": [
 			"Khun Kt",
 			"Ninjastrikers",
+			"ခွန်ဖန်ဒွဲ့",
 			"咽頭べさ"
 		]
 	},
@@ -21,6 +22,7 @@
 	"vector-view-view": "ဟော်ꩻ",
 	"vector-view-viewsource": "ထွားအရွီးအခိုႏ",
 	"vector-more-actions": "ထဲင်းယင်း",
+	"vector-searchsuggest-containing": "ထိုမ်ႏသွော့ ကပါသော့ꩻ လိတ်မဲ့ငါဖုံႏယို။ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ငဝ်းတယ်ႏအွဉ်",
 	"vector-toc-label": "ဟော်ꩻထွားရီးတာႏ",
 	"vector-toc-beginning": "အစ",
