@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"BadDog",
+			"Conquistador",
+			"OC Ripper",
+			"Srdjan m",
+			"Srđan",
+			"Vlad5250",
+			"Winston Sung"
+		]
+	},
+	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
+	"vector-opt-out": "Prebaci na stari izgled",
+	"vector-opt-out-tooltip": "Promijenite postavke da biste vratili stari izgled teme (stari Vector)",
+	"vector-action-toggle-sidebar": "Prikaži/sakrij bočnu traku",
+	"vector-action-addsection": "Dodaj temu",
+	"vector-action-delete": "Izbriši",
+	"vector-action-move": "Premjesti",
+	"vector-action-protect": "Zaštiti",
+	"vector-action-undelete": "Vrati",
+	"vector-action-unprotect": "Promijeni zaštitu",
+	"vector-view-create": "Napravi",
+	"vector-view-edit": "Uredi",
+	"vector-view-history": "Historija",
+	"vector-view-view": "Prikaži",
+	"vector-view-viewsource": "Izvorni kod",
+	"vector-jumptonavigation": "Prijeđi na navigaciju",
+	"vector-jumptosearch": "Prijeđi na pretragu",
+	"vector-more-actions": "Više"
+}
