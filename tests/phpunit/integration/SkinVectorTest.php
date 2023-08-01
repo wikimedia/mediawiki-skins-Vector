@@ -2,9 +2,12 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use Exception;
+use LinkCache;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
+use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
+use MediaWiki\User\TalkPageNotificationManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
@@ -18,6 +21,14 @@ use Wikimedia\TestingAccessWrapper;
  * @group Skins
  */
 class SkinVectorTest extends MediaWikiIntegrationTestCase {
+	use MockAuthorityTrait;
+
+	protected function setUp(): void {
+		parent::setUp();
+		// Mock TalkPageNotificationManager to avoid DB queries
+		$this->setService( 'TalkPageNotificationManager', $this->createMock( TalkPageNotificationManager::class ) );
+		$this->clearHooks();
+	}
 
 	/**
 	 * @return SkinVectorLegacy
@@ -51,9 +62,14 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Skins\Vector\SkinVectorLegacy::getTemplateData
 	 */
 	public function testGetTemplateData() {
-		$title = Title::newFromText( 'SkinVector' );
-		$context = RequestContext::newExtraneousContext( $title );
+		$this->setService( 'LinkCache', $this->createMock( LinkCache::class ) );
+		$title = Title::makeTitle( NS_MAIN, 'SkinVector' );
+		$title->resetArticleID( 0 );
+		$context = new RequestContext();
+		$context->setTitle( $title );
+		$context->setAuthority( $this->mockAnonNullAuthority() );
 		$context->setLanguage( 'fr' );
+		$context->setActionName( 'view' );
 		$vectorTemplate = $this->provideVectorTemplateObject();
 		$vectorTemplate->setContext( $context );
 		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal',
