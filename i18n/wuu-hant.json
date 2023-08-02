@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"vector-languages": "閒話",
+	"vector-language-button-label": "{{PLURAL:$1|$1種閒話}}",
+	"vector-action-addsection": "加話題",
+	"vector-view-history": "望歷史",
+	"vector-more-actions": "更多"
+}
