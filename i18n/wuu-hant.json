@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"vector-languages": "閒話",
+	"vector-language-button-label": "{{PLURAL:$1|$1種閒話}}",
+	"vector-action-addsection": "加話題",
+	"vector-action-delete": "刪除",
+	"vector-action-move": "移動",
+	"vector-action-protect": "保護",
+	"vector-view-history": "望歷史",
+	"vector-view-view": "閱讀",
+	"vector-more-actions": "更多",
+	"vector-page-tools-label": "家生",
+	"vector-unpin-element-label": "囥脫"
+}

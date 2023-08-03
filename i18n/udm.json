@@ -5,7 +5,8 @@
 			"Kaganer",
 			"Kotwys",
 			"Wadorgurt",
-			"Света Поторочина"
+			"Света Поторочина",
+			"Udmwiki"
 		]
 	},
 	"skinname-vector": "Вектор",
@@ -29,7 +30,7 @@
 	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-утчан_утчан-улӥ колонтитул__курон\">$1</strong>",
 	"vector-toc-label": "Пуштросэз",
 	"vector-toc-beginning": "Кутскон",
-	"vector-page-tools-label": "Тӥрлыкъёс",
+	"vector-page-tools-label": "Тӥрлык",
 	"vector-page-tools-general-label": "Огъя",
-	"vector-unpin-element-label": "Ватыны"
+	"vector-unpin-element-label": "ватыны"
 }
