@@ -8,6 +8,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 harshe|$1 bòo}}",
 	"vector-no-language-button-label": "Sauwadi yare",
 	"vector-action-protect": "deito",
+	"vector-view-history": "Beyi ewe tarihi",
 	"vector-more-actions": "Sauwadi",
 	"vector-searchsuggest-containing": "Inne ngafeka lagani gah<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Zalshe",
