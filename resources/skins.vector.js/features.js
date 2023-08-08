@@ -55,9 +55,16 @@ function toggleDocClasses( name, override, isLegacy ) {
 	const suffixDisabled = isLegacy ? 'disabled' : 'clientpref-0';
 	const featureClassEnabled = `vector-feature-${name}-${suffixEnabled}`,
 		classList = document.documentElement.classList,
-		featureClassDisabled = `vector-feature-${name}-${suffixDisabled}`;
+		featureClassDisabled = `vector-feature-${name}-${suffixDisabled}`,
+		// If neither of the classes can be found it is a legacy feature
+		isLegacyFeature = !classList.contains( featureClassDisabled ) &&
+			!classList.contains( featureClassEnabled );
 
-	if ( classList.contains( featureClassDisabled ) || override === true ) {
+	// Check in legacy mode.
+	if ( isLegacyFeature && !isLegacy ) {
+		// try again using the legacy classes
+		return toggleDocClasses( name, override, true );
+	} else if ( classList.contains( featureClassDisabled ) || override === true ) {
 		classList.remove( featureClassDisabled );
 		classList.add( featureClassEnabled );
 		return true;
@@ -65,9 +72,6 @@ function toggleDocClasses( name, override, isLegacy ) {
 		classList.add( featureClassDisabled );
 		classList.remove( featureClassEnabled );
 		return false;
-	} else if ( !isLegacy ) {
-		// try again using the legacy classes
-		return toggleDocClasses( name, override, true );
 	} else {
 		throw new Error( `Attempt to toggle unknown feature: ${name}` );
 	}
