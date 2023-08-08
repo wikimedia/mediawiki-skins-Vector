@@ -121,6 +121,12 @@
 }
 
 // Show it on view pages where there are 0 languages so user can add languages (JavaScript required)
-.client-js .action-view .vector-dropdown > .mw-portlet-lang-heading-0 {
-	display: flex;
+.client-js .action-view .vector-dropdown {
+	> .mw-portlet-lang-heading-0 {
+		display: flex;
+	}
+
+	.mw-interlanguage-selector-empty:checked ~ .vector-dropdown-content {
+		display: inherit;
+	}
 }
