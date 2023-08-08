@@ -60,12 +60,10 @@
 		}
 	}
 }
-// FIXME: Remove -disabled when cache has cleared.
+
 &.vector-feature-limited-width-clientpref-0 .mw-content-container,
 &.vector-feature-limited-width-clientpref-0 .mw-table-of-contents-container,
-&.vector-feature-limited-width-disabled .mw-content-container,
 &.vector-feature-limited-width-content-disabled .mw-content-container,
-&.vector-feature-limited-width-disabled .mw-table-of-contents-container,
 &.vector-feature-limited-width-content-disabled .mw-table-of-contents-container {
 	// Allow the max-width of content on history/special pages to be wider than
 	// the max-width of content on article pages.
@@ -124,9 +122,7 @@
 		column-gap: @grid-column-gap;
 	}
 
-	// FIXME: Remove -disabled when cache has cleared.
 	&.vector-feature-limited-width-clientpref-0 .mw-body,
-	&.vector-feature-limited-width-disabled .mw-body,
 	&.vector-feature-limited-width-content-disabled .mw-body {
 		grid-template-columns: ~'minmax(0, 1fr) min-content';
 	}

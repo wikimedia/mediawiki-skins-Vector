@@ -13,17 +13,6 @@ function save( feature, enabled ) {
 	if ( !mw.user.isNamed() ) {
 		switch ( feature ) {
 			case 'limited-width':
-				// FIXME: Cookie is set for cached HTML using the older inline script.
-				// When removing this code,
-				// please retain `mw.cookie.set( 'mwclientprefs', null );` for 1-4 weeks
-				// to clean up after ourselves so users don't have a non-expiring cookie which
-				// serves no purpose.
-				if ( enabled ) {
-					mw.cookie.set( 'mwclientprefs', null );
-				} else {
-					mw.cookie.set( 'mwclientprefs', 'vector-feature-limited-width' );
-				}
-
 				// Save the setting under the new system
 				// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 				mw.user.clientPrefs.set( `vector-feature-${feature}`, enabled ? '1' : '0' );
