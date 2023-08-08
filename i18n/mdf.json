@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Metsavend",
-			"Numulunj pilgae"
+			"Numulunj pilgae",
+			"Валгриш"
 		]
 	},
+	"vector-languages": "Кяльхть",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кяль|$1 кяльхть}}",
+	"vector-no-language-button-label": "Поладомс кяльхть",
 	"vector-action-addsection": "Поладомс мезень колга корхтамс",
 	"vector-action-delete": "Нардамс",
 	"vector-action-move": "Шашфтомс",
@@ -17,5 +20,7 @@
 	"vector-view-history": "История няфтемс",
 	"vector-view-view": "Морафтомс",
 	"vector-view-viewsource": "Лисьма няфтемс",
-	"vector-more-actions": "Сяда лама"
+	"vector-more-actions": "Сяда лама",
+	"vector-searchsuggest-containing": "Вешендемс лопат, конатнень эса <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Ушеткссь"
 }
