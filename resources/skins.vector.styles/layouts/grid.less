@@ -60,7 +60,9 @@
 		}
 	}
 }
-
+// FIXME: Remove -disabled when cache has cleared.
+&.vector-feature-limited-width-clientpref-0 .mw-content-container,
+&.vector-feature-limited-width-clientpref-0 .mw-table-of-contents-container,
 &.vector-feature-limited-width-disabled .mw-content-container,
 &.vector-feature-limited-width-content-disabled .mw-content-container,
 &.vector-feature-limited-width-disabled .mw-table-of-contents-container,
@@ -122,6 +124,8 @@
 		column-gap: @grid-column-gap;
 	}
 
+	// FIXME: Remove -disabled when cache has cleared.
+	&.vector-feature-limited-width-clientpref-0 .mw-body,
 	&.vector-feature-limited-width-disabled .mw-body,
 	&.vector-feature-limited-width-content-disabled .mw-body {
 		grid-template-columns: ~'minmax(0, 1fr) min-content';
