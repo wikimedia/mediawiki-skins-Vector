@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Metsavend",
-			"Numulunj pilgae"
+			"Numulunj pilgae",
+			"Валгриш"
 		]
 	},
+	"vector-languages": "Кяльхть",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кяль|$1 кяльхть}}",
 	"vector-action-addsection": "Поладомс мезень колга корхтамс",
 	"vector-action-delete": "Нардамс",

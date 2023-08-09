@@ -6,6 +6,9 @@
 	},
 	"vector-languages": "bòo",
 	"vector-language-button-label": "{{PLURAL:$1|$1 harshe|$1 bòo}}",
+	"vector-action-addsection": "Sawwai labar",
 	"vector-action-protect": "deito",
+	"vector-view-create": "Algino",
+	"vector-view-history": "Beyi ewe tarihi",
 	"vector-more-actions": "Sauwadi"
 }
