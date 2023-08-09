@@ -103,15 +103,15 @@ function isEnabled( name ) {
  * @param {string} name
  * @param {boolean} featureEnabled
  * @param {boolean} [isLegacy] FIXME: this is for supporting cached HTML,
- *   this should be removed 1-4 weeks after the patch has been in production.
+ *   but also features using the old feature class structure.
  * @return {string}
  */
 function getClass( name, featureEnabled, isLegacy ) {
 	if ( featureEnabled ) {
-		const suffix = isLegacy ? 'enabled' : '1';
+		const suffix = isLegacy ? 'enabled' : 'clientpref-1';
 		return `vector-feature-${name}-${suffix}`;
 	} else {
-		const suffix = isLegacy ? 'disabled' : '0';
+		const suffix = isLegacy ? 'disabled' : 'clientpref-0';
 		return `vector-feature-${name}-${suffix}`;
 	}
 }
