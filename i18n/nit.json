@@ -4,7 +4,10 @@
 			"Athram Rajkumar"
 		]
 	},
+	"vector-action-move": "పావిడ్",
+	"vector-view-create": "తయ్యర్",
 	"vector-more-actions": "పెన కొన్ని",
 	"vector-searchsuggest-containing": "ఇత్తి అనేక పేజీకుంగ్ సటి కిరావ్<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-page-tools-label": "సామన్",
 	"vector-unpin-element-label": "డాప్"
 }

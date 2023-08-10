@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Cumbril",
 			"Ker",
 			"Pikne",
 			"WikedKentaur"
@@ -49,6 +50,7 @@
 	"vector-main-menu-tooltip": "Peamenüü",
 	"vector-toc-menu-tooltip": "Sisukord",
 	"vector-main-menu-label": "Peamenüü",
+	"vector-limited-width-toggle-on-popup": "Lülitasid lehe paigutuse täislaiusele. Piiratud laiusele tagasi pöördumiseks vajuta seda nuppu.",
 	"vector-page-tools-label": "Tööriistad",
 	"vector-page-tools-general-label": "Üldine",
 	"vector-page-tools-actions-label": "Toimingud",
