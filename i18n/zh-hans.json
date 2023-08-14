@@ -83,7 +83,7 @@
 	"vector-toc-collapsible-button-label": "切换目录",
 	"vector-site-nav-label": "站点",
 	"vector-main-menu-label": "主菜单",
-	"vector-limited-width-toggle": "切换有限宽度模式",
+	"vector-limited-width-toggle": "开关有限宽度模式",
 	"vector-limited-width-toggle-on-popup": "您已将布局切换为全屏宽度。要切换回有限宽度，请点击此按钮。",
 	"vector-limited-width-toggle-off-popup": "您可通过单击此按钮，在有限宽度和全屏宽度间切换。",
 	"vector-page-tools-label": "工具",
