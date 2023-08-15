@@ -251,6 +251,21 @@ final class Constants {
 	public const REQUIREMENT_ZEBRA_AB_TEST = 'VectorZebraDesign';
 
 	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_FONT_SIZE = 'VectorCustomFontSize';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_FONT_SIZE = 'CustomFontSize';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_FONT_SIZE = 'CustomFontSize';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

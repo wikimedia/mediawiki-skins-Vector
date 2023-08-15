@@ -598,6 +598,13 @@
 				"logged_out": false
 			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
+		},
+		"VectorCustomFontSize": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var boolean feature flag that enables customizing the Vector font-size."
 		}
 	},
 	"ServiceWiringFiles": [
