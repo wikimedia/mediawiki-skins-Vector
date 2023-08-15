@@ -8,7 +8,11 @@
 	"vector-languages": "Gljuh",
 	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh|$1 gljuh}}",
 	"vector-no-language-button-label": "Vu gnatrë gljuh",
+	"vector-action-addsection": "Jungir gnë argument",
+	"vector-action-move": "Tunde",
+	"vector-view-create": "Kriar",
 	"vector-view-history": "Vrej kronologiën",
 	"vector-more-actions": "Më shurbise",
-	"vector-searchsuggest-containing": "Kërkoj paginet çë kan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Kërkoj paginet çë kan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Iniziu"
 }
