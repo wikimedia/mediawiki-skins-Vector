@@ -7,6 +7,9 @@
 	},
 	"vector-languages": "Gljuh",
 	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh|$1 gljuh}}",
+	"vector-action-addsection": "Jungir gnë argument",
+	"vector-action-move": "Tunde",
+	"vector-view-create": "Kriar",
 	"vector-view-history": "Vrej kronologiën",
 	"vector-more-actions": "Më shurbise"
 }
