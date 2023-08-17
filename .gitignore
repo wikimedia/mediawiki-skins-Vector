@@ -20,7 +20,6 @@ sftp-config.json
 # Building & testing
 /composer.lock
 /docs
-/a11y
 /node_modules
 /vendor
 /coverage
