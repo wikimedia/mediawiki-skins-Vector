@@ -43,6 +43,7 @@
 						"skin-vector",
 						"skin-vector-search-vue"
 					],
+					"clientPrefEnabled": true,
 					"menus": [
 						"user-interface-preferences",
 						"user-page",
