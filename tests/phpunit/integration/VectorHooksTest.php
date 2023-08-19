@@ -6,8 +6,8 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use FauxRequest;
 use HashConfig;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
 use MediaWiki\Skins\Vector\Hooks;
