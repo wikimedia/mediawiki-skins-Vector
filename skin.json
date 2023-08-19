@@ -168,7 +168,6 @@
 		"vector-page-tools-pinned": 1,
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1
-
 	},
 	"HookHandlers": {
 		"VectorHooks": {
@@ -370,7 +369,9 @@
 				},
 				{
 					"name": "resources/skins.vector.js/config.json",
-					"config": [ "VectorSearchApiUrl" ]
+					"config": [
+						"VectorSearchApiUrl"
+					]
 				},
 				{
 					"name": "resources/skins.vector.js/tableOfContentsConfig.json",

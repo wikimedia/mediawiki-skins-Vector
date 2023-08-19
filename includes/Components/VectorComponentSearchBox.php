@@ -3,8 +3,8 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use Config;
 use Linker;
+use MediaWiki\Title\Title;
 use MessageLocalizer;
-use Title;
 
 /**
  * VectorSearchBox component

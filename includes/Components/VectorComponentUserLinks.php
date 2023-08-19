@@ -3,9 +3,9 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use Linker;
 use MediaWiki\Skin\SkinComponentLink;
+use MediaWiki\Title\Title;
 use Message;
 use MessageLocalizer;
-use Title;
 use User;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use Title;
+use MediaWiki\Title\Title;
 
 /**
  * VectorComponentLanguageButton component
