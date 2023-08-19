@@ -13,13 +13,13 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentReq
 use MediaWiki\Skins\Vector\Hooks;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
 use ResourceLoaderContext;
 use RuntimeException;
-use Title;
 use User;
 
 /**

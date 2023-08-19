@@ -7,11 +7,11 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
+use MediaWiki\Title\Title;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
-use Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
