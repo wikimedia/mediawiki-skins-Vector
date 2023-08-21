@@ -1,11 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hugo.arg"
+			"Hugo.arg",
+			"P. S. F. Freitas"
 		]
 	},
+	"vector-languages": "Ñe'ẽnguéra",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|$1 ñe'ẽ}}",
+	"vector-no-language-button-label": "Emoĩve ñe'ẽnguéra",
+	"vector-view-create": "Emboypy",
 	"vector-view-edit": "Jehaijey",
 	"vector-view-history": "Tembiasakue",
 	"vector-view-view": "Moñe'ẽ",
-	"vector-more-actions": "Ve"
+	"vector-more-actions": "Ve",
+	"vector-searchsuggest-containing": "Eheka umi kuatia oguerekóva <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Ñepyrũ",
+	"vector-page-tools-label": "Tembiporu",
+	"vector-page-tools-general-label": "Opavave",
+	"vector-unpin-element-label": "toñemi"
 }
