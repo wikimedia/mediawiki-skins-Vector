@@ -4,7 +4,8 @@
 			"Assele",
 			"Haqmar",
 			"Sagan",
-			"Рустам Нурыев"
+			"Рустам Нурыев",
+			"З. ӘЙЛЕ"
 		]
 	},
 	"skinname-vector": "Векторлы",
@@ -18,7 +19,7 @@
 	"vector-view-create": "Яһау",
 	"vector-view-edit": "Үҙгәртергә",
 	"vector-view-history": "Тарихты ҡарау",
-	"vector-view-view": "Уҡыу",
+	"vector-view-view": "Уҡырға",
 	"vector-view-viewsource": "Сығанаҡты ҡарарға",
 	"vector-more-actions": "Тағы"
 }

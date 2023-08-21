@@ -15,7 +15,17 @@
 			"Vivaelcelta",
 			"Avengium",
 			"Johny Weissmuller Jr",
-			"Rodney Araujo"
+			"Rodney Araujo",
+			"-sasha-",
+			"Adam N.",
+			"Amire80",
+			"DarkGames26",
+			"Dgstranz",
+			"DiegoAmbrocio",
+			"Diegodlh",
+			"FlyingAce",
+			"Rodelar",
+			"Zapipedia (WMF)"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -29,7 +39,7 @@
 	"vector-action-toggle-sidebar": "Mostrar u ocultar la barra lateral",
 	"vector-action-addsection": "Añadir tema",
 	"vector-action-delete": "Borrar",
-	"vector-action-move": "Trasladar",
+	"vector-action-move": "Mover",
 	"vector-action-protect": "Proteger",
 	"vector-action-undelete": "Restaurar",
 	"vector-action-unprotect": "Cambiar protección",

@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Athram Rajkumar"
+			"Athram Rajkumar",
+			"Madavi Jangu"
 		]
 	},
+	"vector-action-addsection": "గొట్టిన్ సెర్ప్",
+	"vector-action-delete": "పుస్స్",
 	"vector-action-move": "పావిడ్",
+	"vector-action-protect": "సంరక్షించు",
 	"vector-view-create": "తయ్యర్",
+	"vector-view-history": "కానున్ ఓల్",
 	"vector-more-actions": "పెన కొన్ని"
 }
