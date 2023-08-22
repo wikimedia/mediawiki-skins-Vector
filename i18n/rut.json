@@ -8,6 +8,8 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 чIел|$1 чIелбыр}}",
 	"vector-no-language-button-label": "ЧIелбыр уу лихъихьин",
 	"vector-action-addsection": "Яратмиш тема",
+	"vector-action-move": "ЦIинды дур вын",
+	"vector-action-protect": "Тебин гьыъын",
 	"vector-view-create": "Яратмиш",
 	"vector-view-history": "Тарих",
 	"vector-more-actions": "Бала",
