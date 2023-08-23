@@ -11,7 +11,9 @@
 		display: grid;
 		column-gap: @grid-column-gap;
 		grid-template: ~'min-content min-content 1fr min-content / @{grid-template-column-desktop}';
-		grid-template-areas: 'siteNotice siteNotice'
+		// stylelint-disable-next-line stylistic/declaration-colon-space-after
+		grid-template-areas:
+			'siteNotice siteNotice'
 			'mainMenu pageContent'
 			'toc pageContent'
 			'footer footer';
@@ -97,7 +99,9 @@
 		 * the Content Translation extension and should not be used beyond that.
 		 * FIXME: This can be removed when T322740 is resolved.
 		 */
-		grid-template-areas: 'titlebar-cx .'
+		// stylelint-disable-next-line stylistic/declaration-colon-space-after
+		grid-template-areas:
+			'titlebar-cx .'
 			'titlebar columnEnd'
 			'toolbar columnEnd'
 			'content columnEnd';
