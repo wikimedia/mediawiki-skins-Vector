@@ -7,6 +7,9 @@
 	"vector-languages": "ЧIелбыр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 чIел|$1 чIелбыр}}",
 	"vector-action-addsection": "Яратмиш тема",
+	"vector-action-delete": "Хъуъ",
+	"vector-action-move": "ЦIинды дур вын",
+	"vector-action-protect": "Тебин гьыъын",
 	"vector-view-create": "Яратмиш",
 	"vector-view-history": "Тарих",
 	"vector-more-actions": "Бала"

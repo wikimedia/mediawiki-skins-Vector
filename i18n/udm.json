@@ -5,7 +5,8 @@
 			"Kaganer",
 			"Kotwys",
 			"Wadorgurt",
-			"Света Поторочина"
+			"Света Поторочина",
+			"Udmwiki"
 		]
 	},
 	"skinname-vector": "Вектор",
@@ -13,14 +14,14 @@
 	"vector-languages": "Кылъёс",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кыл}}",
 	"vector-action-addsection": "Выль тема ватсано",
-	"vector-action-delete": "Быдтоно",
+	"vector-action-delete": "Ӵушоно",
 	"vector-action-move": "Нимзэ воштыны",
 	"vector-action-protect": "Утьыны",
 	"vector-view-create": "Кылдытоно",
 	"vector-view-edit": "Тупатоно",
 	"vector-view-history": "Историзэ учконо",
 	"vector-view-view": "Лыдӟоно",
-	"vector-view-viewsource": "Кодзэ учкыны",
+	"vector-view-viewsource": "Кылдэмез сярысь тодэтсэ учконо",
 	"vector-jumptonavigation": "Навигация доры потоно",
 	"vector-jumptosearch": "Утчан доры потоно",
 	"vector-jumptocontent": "Пуштрос доры потоно",

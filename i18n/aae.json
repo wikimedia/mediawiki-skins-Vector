@@ -8,7 +8,9 @@
 	"vector-languages": "Gljuh",
 	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh|$1 gljuh}}",
 	"vector-action-addsection": "Jungir gnë argument",
+	"vector-action-delete": "Kançilar",
 	"vector-action-move": "Tunde",
+	"vector-action-protect": "Mbroj",
 	"vector-view-create": "Kriar",
 	"vector-view-history": "Vrej kronologiën",
 	"vector-more-actions": "Më shurbise"
