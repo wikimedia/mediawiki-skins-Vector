@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BHARATHESHA ALASANDEMAJALU",
+			"ChiK",
 			"Chidananda Kampa",
 			"Kiranpoojary",
 			"Mahaveer Indra",
@@ -10,6 +11,8 @@
 			"Vishwanatha Badikana"
 		]
 	},
+	"vector-languages": "ಬಾಸೆಲು",
+	"vector-no-language-button-label": "ಬಾಸೆಲೆನ್ ಸೇರ್ಪಾಲೆ",
 	"vector-action-addsection": "ವಿಸಯೊ ಸೇರಾಲೆ",
 	"vector-action-delete": "ಮಾಜಾಲೆ",
 	"vector-action-move": "ಸ್ತಲಾಂತರೊ ಮಲ್ಪುಲೆ",
@@ -22,5 +25,8 @@
 	"vector-view-view": "ಓದ್‍ಲೆ",
 	"vector-view-viewsource": "ಮೂಲೊನು ತೂಲೆ",
 	"vector-more-actions": "ನನಾತ್",
-	"vector-searchsuggest-containing": "ಉಂದು<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ಇಪ್ಪುನ ಪುಟೊಕ್ಲೆನ್ ನಾಡ್‌ಲೆ"
+	"vector-searchsuggest-containing": "ಉಂದು<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ಇಪ್ಪುನ ಪುಟೊಕ್ಲೆನ್ ನಾಡ್‌ಲೆ",
+	"vector-toc-label": "ವಿಸಯೊಲು",
+	"vector-page-tools-general-label": "ಸಾಮಾನ್ಯೊ",
+	"vector-unpin-element-label": "ಅಡೆಂಗಾವು"
 }
