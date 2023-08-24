@@ -22,7 +22,9 @@
 			"علاء",
 			"محمد أحمد عبد الفتاح",
 			"MRidhaAJ",
-			"Alshamiri1"
+			"Alshamiri1",
+			"Hubaishan",
+			"أيوب"
 		]
 	},
 	"skinname-vector": "فكتور القديم (2010)",
@@ -74,7 +76,7 @@
 	"vector-limited-width-toggle": "تبديل عرض المحتوى المحدود",
 	"vector-page-tools-label": "أدوات",
 	"vector-page-tools-general-label": "عام",
-	"vector-page-tools-actions-label": "أفعال",
+	"vector-page-tools-actions-label": "إجراءات",
 	"vector-pin-element-label": "انقل للشريط الجانبي",
 	"vector-unpin-element-label": "أخف",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|نقاش]]",

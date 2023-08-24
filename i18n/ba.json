@@ -9,7 +9,7 @@
 		]
 	},
 	"skinname-vector": "Векторлы",
-	"vector-skin-desc": "Хәҙерге заман  «Векторлы» күренеше, биҙәлеш яүыртылған һәм яңы мөмкинлектәр файҙаланылған",
+	"vector-skin-desc": "Ике йүнәлешле биҙәлеш темаһын тәҡдим итә:\n* 2011 - Яңыртылып биҙәлгән һәм ҡулланыу өсөн уңайлаштырылған MonoBook-тың заманса өлгөһө.\n* 2022 - ВМФ проекты сиктәрендә эшләнгән [[mw:Desktop Improvements Эш өҫтәлен яҡшыртыу]] йүнәлеше.",
 	"vector-languages": "Телдәр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
 	"vector-no-language-button-label": "Тел өҫтәргә.",
@@ -22,7 +22,7 @@
 	"vector-view-create": "Яһау",
 	"vector-view-edit": "Үҙгәртергә",
 	"vector-view-history": "Тарихты ҡарау",
-	"vector-view-view": "Уҡыу",
+	"vector-view-view": "Уҡырға",
 	"vector-view-viewsource": "Сығанаҡты ҡарарға",
 	"vector-more-actions": "Тағы",
 	"vector-searchsuggest-containing": "Эстәлегендә <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> булған биттәрҙе эҙләргә",
