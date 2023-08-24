@@ -277,6 +277,26 @@ return [
 			]
 		);
 
+		// Feature: T343928: Feature Font Size.
+		// ================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				Constants::CONFIG_KEY_FONT_SIZE,
+				Constants::REQUIREMENT_FONT_SIZE
+			)
+		);
+
+		// Register 'custom-font-size' as the default requirement
+		$featureManager->registerFeature(
+			Constants::FEATURE_FONT_SIZE,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_FONT_SIZE
+			]
+		);
 		return $featureManager;
 	}
 ];
