@@ -6,7 +6,7 @@
 		]
 	},
 	"vector-languages": "Ñe'ẽnguéra",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|$1 ñe'ẽ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|ñe'ẽ}}",
 	"vector-no-language-button-label": "Emoĩve ñe'ẽnguéra",
 	"vector-view-create": "Emboypy",
 	"vector-view-edit": "Jehaijey",
