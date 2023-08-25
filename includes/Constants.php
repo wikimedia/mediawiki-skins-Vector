@@ -258,7 +258,7 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_FONT_SIZE = 'CustomFontSize';
+	public const FEATURE_FONT_SIZE = 'CustomFontSizeClientpref';
 
 	/**
 	 * @var string
