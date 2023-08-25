@@ -445,6 +445,7 @@
 			"+mediawiki.action.edit": "skinStyles/mediawiki.action.edit.less",
 			"+mediawiki.action.view.redirectPage": "skinStyles/mediawiki.action.view.redirectPage.less",
 			"+mediawiki.notification": "skinStyles/mediawiki.notification.less",
+			"+mediawiki.page.teleportTarget": "skinStyles/mediawiki.page.teleportTarget.less",
 			"+oojs-ui-core.styles": "skinStyles/ooui.less",
 			"mediawiki.special": "skinStyles/mediawiki.special.less",
 			"mediawiki.special.search.interwikiwidget.styles": "skinStyles/mediawiki.special.search.interwikiwidget.less",
