@@ -1,11 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Astahar",
 			"Chavash",
 			"Chuvash2014",
 			"FLAGELLVM DEI"
 		]
 	},
+	"vector-languages": "Чӗлхесем",
+	"vector-language-button-label": "{{PLURAL:$1|$1 чӗлхе}}",
+	"vector-no-language-button-label": "Чӗлхесем хуш",
 	"vector-action-addsection": "Тема хуш",
 	"vector-action-delete": "Кăларса пăрах",
 	"vector-action-move": "Ятне улăштар",
@@ -15,5 +19,11 @@
 	"vector-view-history": "Истори",
 	"vector-view-view": "Вула",
 	"vector-view-viewsource": "Кодне пăх",
-	"vector-more-actions": "Тата"
+	"vector-more-actions": "Тата",
+	"vector-searchsuggest-containing": "Текстра <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> пур страницӑсене шырасси.",
+	"vector-toc-label": "Тупмалли",
+	"vector-toc-beginning": "Пуҫламӑш",
+	"vector-page-tools-label": "Хатӗрсем",
+	"vector-page-tools-general-label": "Пӗтӗмӗшле",
+	"vector-unpin-element-label": "пытар"
 }
