@@ -34,38 +34,15 @@ function init() {
 	const settings = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-settings' ) );
 	const toggle = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle' ) );
 	const toggleIcon = /** @type {HTMLElement|null} */ ( document.querySelector( '.vector-limited-width-toggle .vector-icon' ) );
-	const cookie = mw.cookie.get( 'mwclientprefs' );
-	// @ts-ignore https://github.com/wikimedia/typescript-types/pull/42
-	const existingValue = mw.user.clientPrefs.get( 'vector-feature-limited-width' );
-	// On a cached page existingValue will return false.
-	// If the cookie is set then we need to add the appropriate class to the page
-	// so that the toggle works correctly.
-	if ( !existingValue ) {
-		document.documentElement.classList.add(
-			`vector-feature-limited-width-clientpref-${cookie ? '0' : '1'}`
-		);
-		document.documentElement.classList.remove(
-			'vector-feature-limited-width-disabled',
-			'vector-feature-limited-width-enabled'
-		);
-	}
-	// Sync cookie value with clientPrefs if the two are misaligned.
-	if ( cookie && existingValue === '1' ) {
-		// @ts-ignore https://github.com/wikimedia/typescript-types/pull/42
-		mw.user.clientPrefs.set( 'vector-feature-limited-width', '0' );
-		// Update the display.
-		document.documentElement.classList.remove(
-			'vector-feature-limited-width-clientpref-1',
-			'vector-feature-limited-width-enabled'
-		);
-		document.documentElement.classList.add(
-			'vector-feature-limited-width-clientpref-0'
-		);
-	}
 
 	if ( !settings || !toggle || !toggleIcon ) {
 		return;
 	}
+	// Remove any references to the old cookie.
+	// We retain this for longer than usual to make sure we remove this cookie from as
+	// many clients as possible.
+	// FIXME: This can be removed in November 2023.
+	mw.cookie.set( 'mwclientprefs', null );
 
 	setDataAttribute( toggle );
 
