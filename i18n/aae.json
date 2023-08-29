@@ -6,7 +6,7 @@
 		]
 	},
 	"vector-languages": "Gljuh",
-	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh|$1 gljuh}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 gljuh}}",
 	"vector-no-language-button-label": "Vu gnatrë gljuh",
 	"vector-action-addsection": "Jungir gnë argument",
 	"vector-action-delete": "Kançilar",
