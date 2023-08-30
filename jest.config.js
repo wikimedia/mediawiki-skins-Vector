@@ -25,7 +25,8 @@ module.exports = {
 
 	// An array of regexp pattern strings used to skip coverage collection
 	coveragePathIgnorePatterns: [
-		'/node_modules/'
+		'/node_modules/',
+		'/resources/skins.vector.typographySurvey/'
 	],
 
 	// An object that configures minimum threshold enforcement for coverage results

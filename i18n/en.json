@@ -72,5 +72,14 @@
 	"empty-language-selector-body": "Page contents not supported in other languages.",
 	"vector-toc-unpinned-popup": "The table of contents has been moved here.",
 	"vector-page-tools-unpinned-popup": "The tools menu has been moved here.",
-	"vector-main-menu-unpinned-popup": "The main menu has been moved here."
+	"vector-main-menu-unpinned-popup": "The main menu has been moved here.",
+	"vector-readability-survey-title": "Wikimedia reading tool",
+	"vector-readability-survey-description": "How does the text on Wikipedia look best for you? Use the sliders below to adjust the appearance. Learn more about [[metawiki:Reading/Web/Accessibility for reading|Accessibility for reading project]].",
+	"vector-readability-survey-fontSize": "Font size",
+	"vector-readability-survey-lineHeight": "Line height",
+	"vector-readability-survey-paragraphSpacing": "Paragraph spacing",
+	"vector-readability-survey-optout": "Press continue to send us your design and publish our feedback on the next page. Click [[#close-vector-survey|here]] to remove this tool.",
+	"vector-readability-survey-randomize": "randomize",
+	"vector-readability-survey-reset": "reset",
+	"vector-readability-survey-share": "continue"
 }

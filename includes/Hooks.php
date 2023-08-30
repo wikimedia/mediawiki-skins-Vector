@@ -637,7 +637,10 @@ class Hooks implements
 				'section' => 'rendering/skin/skin-prefs',
 				'help-message' => 'vector-prefs-limited-width-help',
 				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
-			]
+			],
+			Constants::PREF_KEY_TYPOGRAPHY_SURVEY => [
+				'type' => 'api'
+			],
 		];
 		$prefs += $vectorPrefs;
 	}
