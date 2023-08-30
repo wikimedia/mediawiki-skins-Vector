@@ -7,6 +7,7 @@
 			"FLAGELLVM DEI"
 		]
 	},
+	"vector-opt-out": "Кивӗ дизайна куҫ",
 	"vector-languages": "Чӗлхесем",
 	"vector-language-button-label": "{{PLURAL:$1|$1 чӗлхе}}",
 	"vector-no-language-button-label": "Чӗлхесем хуш",
