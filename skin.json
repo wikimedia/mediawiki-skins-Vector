@@ -170,11 +170,18 @@
 		"vector-toc-pinned": 1
 	},
 	"HookHandlers": {
+		"VectorCentralAuthHooks": {
+			"class": "MediaWiki\\Skins\\Vector\\CentralAuthHooks",
+			"services": [
+				"UserOptionsLookup"
+			]
+		},
 		"VectorHooks": {
 			"class": "MediaWiki\\Skins\\Vector\\Hooks"
 		}
 	},
 	"Hooks": {
+		"CentralAuthIsUIReloadRecommended": "VectorCentralAuthHooks",
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
 		"MakeGlobalVariablesScript": "VectorHooks",
