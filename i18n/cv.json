@@ -3,9 +3,12 @@
 		"authors": [
 			"Chavash",
 			"Chuvash2014",
-			"FLAGELLVM DEI"
+			"FLAGELLVM DEI",
+			"Astahar"
 		]
 	},
+	"vector-languages": "Чӗлхесем",
+	"vector-language-button-label": "{{PLURAL:$1|$1 чӗлхе}}",
 	"vector-action-addsection": "Тема хуш",
 	"vector-action-delete": "Кăларса пăрах",
 	"vector-action-move": "Ятне улăштар",

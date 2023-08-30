@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amikeco",
-			"Bouron"
+			"Bouron",
+			"Taamu",
+			"Таймураз"
 		]
 	},
+	"vector-languages": "Æвзæгтæ",
 	"vector-action-addsection": "Нæуæг ныхас бакæнын",
 	"vector-action-delete": "Схафын",
 	"vector-action-move": "Ном ивын",

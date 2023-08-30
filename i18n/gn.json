@@ -5,8 +5,10 @@
 			"P. S. F. Freitas"
 		]
 	},
+	"vector-opt-out": "Ehecha kuri guaréicha",
+	"vector-opt-out-tooltip": "Emoambue ne poravorã rehecha jey hag̃ua kuatia kuri guaréicha (Vector rembiejakue)",
 	"vector-languages": "Ñe'ẽnguéra",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|$1 ñe'ẽ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|ñe'ẽ}}",
 	"vector-view-create": "Emboypy",
 	"vector-view-edit": "Jehaijey",
 	"vector-view-history": "Tembiasakue",

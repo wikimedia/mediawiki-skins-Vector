@@ -7,16 +7,19 @@
 			"Moshtank"
 		]
 	},
-	"vector-action-addsection": "هور کتن عنوان",
-	"vector-action-delete": "زورگ",
-	"vector-action-move": "جاه په جاه",
-	"vector-action-protect": "حفاظت",
+	"vector-languages": "زبانان",
+	"vector-language-button-label": "{{PLURAL:$1|$1ءِ زبان}}",
+	"vector-action-addsection": "سرگالے ھۏر کنگ",
+	"vector-action-delete": "پاک کنگ",
+	"vector-action-move": "دگہ جاھے کنگ",
+	"vector-action-protect": "سمبالی",
 	"vector-action-undelete": "ترینگ",
 	"vector-action-unprotect": "پروتکشنء ٹگل بدئ",
-	"vector-view-create": "شرکتن",
+	"vector-view-create": "بنݔنگ",
 	"vector-view-edit": "ٹگلݔنگ",
 	"vector-view-history": "رمسءِ چارگ",
 	"vector-view-view": "وانگ",
 	"vector-view-viewsource": "سرچممگءِ سۏج",
-	"vector-more-actions": "گݔشتِر"
+	"vector-more-actions": "گݔشتِر",
+	"vector-main-menu-tooltip": "رݔدگݔن منو"
 }
