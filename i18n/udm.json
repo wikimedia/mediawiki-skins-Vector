@@ -16,8 +16,8 @@
 	"vector-no-language-button-label": "Кылъёсты ватсан",
 	"vector-action-addsection": "Выль тема ватсано",
 	"vector-action-delete": "Ӵушоно",
-	"vector-action-move": "Нимзэ воштыны",
-	"vector-action-protect": "Утьыны",
+	"vector-action-move": "Выжтоно",
+	"vector-action-protect": "Утёно",
 	"vector-view-create": "Кылдытоно",
 	"vector-view-edit": "Тупатоно",
 	"vector-view-history": "Историзэ учконо",
@@ -32,5 +32,5 @@
 	"vector-toc-beginning": "Кутскон",
 	"vector-page-tools-label": "Тӥрлык",
 	"vector-page-tools-general-label": "Огъя",
-	"vector-unpin-element-label": "ватыны"
+	"vector-unpin-element-label": "адсконтэм кароно"
 }
