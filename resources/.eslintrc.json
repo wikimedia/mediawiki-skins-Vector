@@ -1,0 +1,42 @@
+{
+	"root": true,
+	"plugins": [
+		"no-jquery"
+	],
+	"extends": [
+		"plugin:no-jquery/all",
+		"wikimedia/client-es6",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki"
+	],
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"exports": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"settings": {},
+	"rules": {
+		"no-jquery/no-other-utils": "error",
+		"no-jquery/no-trigger": "error",
+		"no-jquery/no-jquery-constructor": "error",
+		"no-jquery/no-find-collection": "error",
+		"no-jquery/no-attr": "error",
+		"no-jquery/no-class": "error",
+		"no-jquery/no-text": "error",
+		"no-jquery/no-css": "error",
+		"no-jquery/no-other-methods": "error",
+		"no-jquery/no-html": "error",
+		"no-jquery/no-class-state": "error",
+		"no-jquery/no-deferred": "error",
+		"no-jquery/no-when": "error",
+		"no-jquery/no-extend": "error",
+		"mediawiki/no-nodelist-unsupported-methods": "off",
+		"jsdoc/no-undefined-types": "off",
+		"compat/compat": "off",
+		"mediawiki/class-doc": "off"
+	}
+}
