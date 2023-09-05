@@ -12,6 +12,7 @@
 		]
 	},
 	"vector-languages": "ಬಾಸೆಲು",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ಬಾಸೆ|$1 ಬಾಸೆಲು}}",
 	"vector-no-language-button-label": "ಬಾಸೆಲೆನ್ ಸೇರ್ಪಾಲೆ",
 	"vector-action-addsection": "ವಿಸಯೊ ಸೇರಾಲೆ",
 	"vector-action-delete": "ಮಾಜಾಲೆ",

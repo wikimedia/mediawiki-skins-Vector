@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"FRANCIS5091",
-			"FRANELYA"
+			"FRANELYA",
+			"Meqqal"
 		]
 	},
 	"vector-action-addsection": "Ruhangai piboboroson",
@@ -15,5 +16,7 @@
 	"vector-view-edit": "Idito",
 	"vector-view-history": "Intaai susuyan",
 	"vector-view-view": "Basao",
-	"vector-view-viewsource": "Intaai wowonod"
+	"vector-view-viewsource": "Intaai wowonod",
+	"vector-more-actions": "Suai",
+	"vector-searchsuggest-containing": "Ihumo bolikan di haro <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
