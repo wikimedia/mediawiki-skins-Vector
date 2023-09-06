@@ -10,6 +10,7 @@
 	},
 	"skinname-vector": "Векторлы",
 	"vector-skin-desc": "Ике йүнәлешле биҙәлеш темаһын тәҡдим итә:\n* 2011 - Яңыртылып биҙәлгән һәм ҡулланыу өсөн уңайлаштырылған MonoBook-тың заманса өлгөһө.\n* 2022 - ВМФ проекты сиктәрендә эшләнгән [[mw:Desktop Improvements Эш өҫтәлен яҡшыртыу]] йүнәлеше.",
+	"vector-opt-out": "Элекке күренешенә кире ҡайтырға",
 	"vector-languages": "Телдәр",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
 	"vector-action-addsection": "Тема өҫтәргә",
