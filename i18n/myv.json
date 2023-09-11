@@ -2,18 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Botuzhaleny-sodamo",
-			"Rueter"
+			"Rueter",
+			"Сантяй"
 		]
 	},
-	"vector-action-addsection": "Поладомс мезде кортамс",
+	"vector-action-addsection": "Поладомс кортамодо теманть",
 	"vector-action-delete": "Нардамс",
 	"vector-action-move": "Печтевтемс",
 	"vector-action-protect": "Аравтомс ванстомас",
 	"vector-action-undelete": "Вельмевтемс нардазенть",
 	"vector-action-unprotect": "Полавтомс ванстоманзо",
-	"vector-view-create": "Теемс-Шкамс",
+	"vector-view-create": "Теемс",
 	"vector-view-edit": "Витнемс-петнемс",
-	"vector-view-history": "Ваномс юронзо-путовксонзо",
+	"vector-view-history": "Историянь ваннома",
 	"vector-view-view": "Ловномс",
 	"vector-view-viewsource": "Ваномс косто саезь",
 	"vector-more-actions": "Седе ламо"

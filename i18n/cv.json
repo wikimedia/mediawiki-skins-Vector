@@ -7,15 +7,23 @@
 			"Astahar"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Векторлӑ калӑплав темин малтанхи версипе усӑ кур",
+	"prefs-vector-enable-vector-1-help": "Малалли темиҫе ҫул хушшинче эсир «Векторлӑ» калӑплав темине майӗпен ҫӗнетсе пырӑпӑр. «Векторлӑ» калӑплав темин малтанхи версийӗ сире «Векторлӑ» калӑплав темин кивӗ версине пӑхма май парӗ (2019 ҫулхи раштав уйӑхӗнчипе пӗр килет). Ҫӗнетӳсем пирки ытларах пӗлес тесен  [[mw:Reading/Web/Desktop_Improvements|пирӗн проектӑн страници]] ҫине куҫӑр.",
 	"vector-opt-out": "Кивӗ дизайна куҫ",
+	"vector-opt-out-tooltip": "Кивӗ калӑплав теми (Кивӗ Векторлӑ) патне таврӑнма ӗнерлевсене улӑштарӑр",
+	"vector-action-toggle-sidebar": "Айккинчи панель курӑмлӑхне улӑштар",
 	"vector-action-addsection": "Тема хуш",
 	"vector-action-delete": "Кăларса пăрах",
 	"vector-action-move": "Ятне улăштар",
 	"vector-action-protect": "Хӳтĕле",
+	"vector-action-undelete": "Каялла тавӑр",
+	"vector-action-unprotect": "Хӳтӗлеве улӑштар",
 	"vector-view-create": "Çĕннине ту",
 	"vector-view-edit": "Тӳрлет",
 	"vector-view-history": "Истори",
 	"vector-view-view": "Вула",
 	"vector-view-viewsource": "Кодне пăх",
+	"vector-jumptonavigation": "Навигаци патне куҫ",
+	"vector-jumptosearch": "Шырав патне куҫ",
 	"vector-more-actions": "Тата"
 }

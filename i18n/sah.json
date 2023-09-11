@@ -1,10 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"HalanTul"
+			"HalanTul",
+			"MARKSDNW"
 		]
 	},
 	"vector-skin-desc": "Аныгы, саҥардыллыбыт, тупсарыллыбыт MonoBook",
+	"prefs-vector-enable-vector-1-label": "Эргэ Векторы тутун",
+	"prefs-vector-enable-vector-1-help": "Хас да сыл иһигэр «Векторнай» тас көстүүнү саҥардатыахпыт. Эргэ «Векторнай» тас көстүү урукку «Векторнай» барылын көрдөрүө (ахсынньы 2019 сыллааҕы). Сиһилии саҥардыылар туһунан [[mw:Reading/Web/Desktop_Improvements|биһиги бырайыакпыт сирэйигэр]].",
+	"vector-opt-out": "Эргэ көстүүтүгэр көс",
+	"vector-opt-out-tooltip": "Эргэ тас көстүүгэ төннөргө туруорууларгын уларыт (эргэ Векторнай)",
+	"vector-action-toggle-sidebar": "Ойоҕос талбаны уларыт",
 	"vector-action-addsection": "Тиэмэ эбии",
 	"vector-action-delete": "Сот",
 	"vector-action-move": "Аатын уларыт",
@@ -15,6 +21,8 @@
 	"vector-view-edit": "Уларыт",
 	"vector-view-history": "Устуоруйатын көрүү",
 	"vector-view-view": "Ааҕыы",
-	"vector-view-viewsource": "Бэлиэлэрин көрүү",
+	"vector-view-viewsource": "Төрүт куоду көрүү",
+	"vector-jumptonavigation": "Навигацияҕа көс",
+	"vector-jumptosearch": "Көрдөбүлгэ көс",
 	"vector-more-actions": "Эбии"
 }

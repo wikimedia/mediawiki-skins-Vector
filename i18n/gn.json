@@ -5,12 +5,23 @@
 			"P. S. F. Freitas"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Eipuru jehechauka oúva Vector rembiejágui",
+	"prefs-vector-enable-vector-1-help": "Durante los próximos años, actualizaremos gradualmente la piel Vector. La versión heredada de Vector te permitirá ver la versión anterior de Vector (a diciembre de 2019). Para obtener más información sobre las actualizaciones, ve a nuestra [[mw:Reading/Web/Desktop_Improvements|página del proyecto]].",
 	"vector-opt-out": "Ehecha kuri guaréicha",
 	"vector-opt-out-tooltip": "Emoambue ne poravorã rehecha jey hag̃ua kuatia kuri guaréicha (Vector rembiejakue)",
+	"vector-action-toggle-sidebar": "Ehecha/eñomi tendayke",
+	"vector-action-addsection": "Embojoapy téma",
+	"vector-action-delete": "Embogue",
 	"vector-action-move": "Eguerova",
+	"vector-action-protect": "Eñangareko",
+	"vector-action-undelete": "Emboguevi",
+	"vector-action-unprotect": "Emoambue kuatia ñangareko",
 	"vector-view-create": "Emboypy",
 	"vector-view-edit": "Jehaijey",
 	"vector-view-history": "Tembiasakue",
 	"vector-view-view": "Moñe'ẽ",
+	"vector-view-viewsource": "Ehecha kuatia reñoiha",
+	"vector-jumptonavigation": "Eho kundahararãme",
+	"vector-jumptosearch": "Eho eheka hag̃ua",
 	"vector-more-actions": "Ve"
 }

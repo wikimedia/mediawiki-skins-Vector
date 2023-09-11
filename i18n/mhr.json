@@ -6,20 +6,28 @@
 			"Сай",
 			"Санюн Вадик",
 			"Lifeway",
-			"Венина Наталья Константиновна"
+			"Венина Наталья Константиновна",
+			"Mansur",
+			"Валентина Семёнова"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Тошто Вектор темым кучылташ",
+	"prefs-vector-enable-vector-1-help": "Шушаш икмыняр ий жапыште «Векторан» темым эркын-эркын уэмдаш тӱҥалына. «Векторан» темын ончычсо сӧрастарыме версийже тыланда «Векторан» тошто версийжым (2019 ий декабрь почеш) ужаш пуа. Уэмдыме нерген утларак пален налшашлан тышке кусныза:[[mw:Reading/Web/Desktop_Improvements|project page]].",
 	"vector-opt-out": "Тошто тӱжвал тӱс деке уэш куснаш",
+	"vector-opt-out-tooltip": "Тоштемше сӧрастарыме теме деке пӧртылаш манын, настройкым вашталтыза (Тошто Вектор)",
+	"vector-action-toggle-sidebar": "Ӧрдыж панельым чӱкташ",
 	"vector-action-addsection": "Темым ешараш",
 	"vector-action-delete": "Кораҥдаш",
 	"vector-action-move": "Лӱмым вашталташ",
-	"vector-action-protect": "Тӧрлатымаш деч аралаш",
-	"vector-action-undelete": "Шӧрымым пӧртылаш",
+	"vector-action-protect": "Аралаш",
+	"vector-action-undelete": "Шӧрымым пӧртылташ",
 	"vector-action-unprotect": "Оролым вашталташ",
 	"vector-view-create": "Ышташ",
 	"vector-view-edit": "Тӧрлаташ",
 	"vector-view-history": "Историйым ончалаш",
 	"vector-view-view": "Лудаш",
 	"vector-view-viewsource": "Тӱҥалтыш текстым ончалаш",
+	"vector-jumptonavigation": "Навигаций деке куснаш",
+	"vector-jumptosearch": "Кычалмашыш куснаш",
 	"vector-more-actions": "Эше"
 }
