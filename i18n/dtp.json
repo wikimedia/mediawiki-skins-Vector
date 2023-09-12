@@ -6,6 +6,9 @@
 			"Meqqal"
 		]
 	},
+	"vector-languages": "Boros",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Boros|$1 boros}}",
+	"vector-no-language-button-label": "Ruhangai boros",
 	"vector-action-addsection": "Ruhangai piboboroson",
 	"vector-action-delete": "Pugaso",
 	"vector-action-move": "Poundoliho",
@@ -18,5 +21,6 @@
 	"vector-view-view": "Basao",
 	"vector-view-viewsource": "Intaai wowonod",
 	"vector-more-actions": "Suai",
-	"vector-searchsuggest-containing": "Ihumo bolikan di haro <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Ihumo bolikan di haro <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Kotimpuunan"
 }

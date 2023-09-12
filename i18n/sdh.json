@@ -1,17 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Paraw2"
+			"Paraw2",
+			"TerranBoy"
 		]
 	},
+	"vector-languages": "زوانەیل",
+	"vector-language-button-label": "{{PLURAL:$1|$1 زوان}}",
+	"vector-no-language-button-label": "زوان ئزافە بکە",
 	"vector-action-addsection": "بابەت تازە بدە سەری",
 	"vector-action-delete": "بسڕەوە",
 	"vector-action-move": "جیوەجی بکە",
 	"vector-action-protect": "بپیەرێزەێ",
 	"vector-view-create": "درسکردن",
-	"vector-view-edit": "وێراشتەێ بکە",
-	"vector-view-history": "دیرۆکەگەی بۊن",
+	"vector-view-edit": "دەسکاری بکە",
+	"vector-view-history": "دیرووکەگەی بۊن",
 	"vector-view-view": "بخوەنە",
 	"vector-view-viewsource": "سەرچاوەگەێ بۊن",
-	"vector-more-actions": "فرەتر"
+	"vector-more-actions": "فێشتر",
+	"vector-toc-beginning": "دەسپێک"
 }
