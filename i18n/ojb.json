@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aandeginini"
+			"Aandeginini",
+			"Nibi-zhimaaganish"
 		]
 	},
+	"vector-languages": "Inwewin",
+	"vector-language-button-label": "{{PLURAL:$1|$1 inwewin|$1 inwewined}}",
 	"vector-action-addsection": "Asigagindaaso dibaajimowin",
 	"vector-action-delete": "Gaasiibii'an",
 	"vector-action-move": "Mamaajii",

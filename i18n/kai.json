@@ -4,7 +4,13 @@
 			"Musaddam Idriss"
 		]
 	},
+	"vector-languages": "Boo",
 	"vector-language-button-label": "{{PLURAL:$1|$1 boo}}",
+	"vector-action-addsection": "Gàttu chacha",
+	"vector-action-delete": "Fàɗu",
+	"vector-action-move": "Yàwàlu",
+	"vector-action-protect": "kariya",
+	"vector-view-create": "Dàgoorìimà",
 	"vector-view-history": "Naa tarihi",
 	"vector-more-actions": "Gam"
 }

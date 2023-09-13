@@ -8,11 +8,19 @@
 			"З. ӘЙЛЕ"
 		]
 	},
-	"skinname-vector": "Векторлы",
-	"vector-skin-desc": "Ике йүнәлешле биҙәлеш темаһын тәҡдим итә:\n* 2011 - Яңыртылып биҙәлгән һәм ҡулланыу өсөн уңайлаштырылған MonoBook-тың заманса өлгөһө.\n* 2022 - ВМФ проекты сиктәрендә эшләнгән [[mw:Desktop Improvements Эш өҫтәлен яҡшыртыу]] йүнәлеше.",
+	"skinname-vector": "Векторлы иҫкергән (2010)",
+	"skinname-vector-2022": "Векторлы (2022)",
+	"vector-specialversion-name": "Вектор",
+	"vector-skin-desc": "Ике векторлы биҙәлеш темаһын тәҡдим ителә:\n* 2011 - Яңыртылып биҙәлгән һәм ҡулланыу өсөн уңайлаштырылған MonoBook-тың заманса өлгөһө.\n* 2022 - ВМФ проекты сиктәрендә эшләнгән [[mw:Desktop Improvements Эш өҫтәлен яҡшыртыу]] йүнәлеше.",
+	"prefs-vector-enable-vector-1-label": "Иҫке векторҙы ҡулланырға",
+	"prefs-vector-enable-vector-1-help": "Киләһе бер нисә йылда беҙ биҙәлештең «Вектор» темаһын яйлап яңыртасаҡбыҙ. Әлеге өлгө иҫке өлгөнө ҡарау мөмкинлеген бирә (2019 йылдың декабренә ҡарата). Яңыртыуҙар тураһында күберәк белергә теләһәгеҙ,  [[mw:Reading/Web/Desktop_Improvements|проектыбыҙҙың битенә]] күсегеҙ.",
 	"vector-opt-out": "Элекке күренешенә кире ҡайтырға",
+	"vector-opt-out-tooltip": "Биҙәлеш темаһының иҫке күренешенә кире ҡайтыу өсөн көйләүҙәрҙе үҙгәртегеҙ (иҫке Вектор)",
+	"vector-action-toggle-sidebar": "Ҡабырғалағы панелде күсерегеҙ",
 	"vector-languages": "Телдәр",
+	"vector-language-button-aria-label": "Икенсе телдәге мәҡәләгә күсегеҙ. {{PLURAL:$1|$1 телдә}} уҡырға була",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
+	"vector-language-variant-switcher-label": "Телде үҙгәртергә",
 	"vector-action-addsection": "Тема өҫтәргә",
 	"vector-action-delete": "Юйырға",
 	"vector-action-move": "Исемен үҙгәртергә",
@@ -24,5 +32,15 @@
 	"vector-view-history": "Тарихты ҡарау",
 	"vector-view-view": "Уҡырға",
 	"vector-view-viewsource": "Сығанаҡты ҡарарға",
-	"vector-more-actions": "Тағы"
+	"vector-jumptonavigation": "Навигацияға күсергә",
+	"vector-jumptosearch": "Эҙләүгә күсергә",
+	"vector-jumptocontent": "Эстәлеккә күсергә",
+	"vector-more-actions": "Тағы",
+	"vector-search-loader": "Эҙләү тексы йөкләнә",
+	"vector-intro-page": "Википедия:Инеш",
+	"vector-anon-user-menu-pages": "Танылмаған мөхәррирҙәр өсөн бит",
+	"vector-anon-user-menu-pages-learn": "Күберәк белергә",
+	"vector-anon-user-menu-pages-label": "Мөхәррирләү тураһында ентеклерәк",
+	"vector-main-menu-tooltip": "Төп меню",
+	"tooltip-vector-anon-user-menu-title": "Күберәк мөмкинлектәр"
 }

@@ -6,6 +6,8 @@
 			"Meqqal"
 		]
 	},
+	"vector-languages": "Boros",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Boros|$1 boros}}",
 	"vector-action-addsection": "Ruhangai piboboroson",
 	"vector-action-delete": "Pugaso",
 	"vector-action-move": "Poundoliho",
