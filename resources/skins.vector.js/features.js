@@ -12,6 +12,7 @@ const debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
 function save( feature, enabled ) {
 	if ( !mw.user.isNamed() ) {
 		switch ( feature ) {
+			case 'toc-pinned':
 			case 'limited-width':
 				// Save the setting under the new system
 				// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44

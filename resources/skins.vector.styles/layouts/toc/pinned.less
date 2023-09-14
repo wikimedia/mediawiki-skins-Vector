@@ -8,6 +8,8 @@
 }
 
 @media ( min-width: @min-width-desktop ) {
+	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+	&.vector-feature-toc-pinned-clientpref-1 #mw-panel-toc,
 	&.vector-feature-toc-pinned-enabled #mw-panel-toc {
 		// Support: Chrome
 		// Work around sticky-positioned layers disabling subpixel text rendering (T327460).
@@ -25,11 +27,15 @@
 		top: 0;
 	}
 
+	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+	&.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container,
 	&.vector-feature-toc-pinned-enabled #vector-toc-pinned-container {
 		// Default spacing separating the sidebar TOC from the main menu.
 		margin-top: 1.5em;
 	}
 
+	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+	&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container,
 	&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-enabled #vector-toc-pinned-container {
 		// Align TOC with bottom of title when main menu is not pinned but the TOC is
 		margin-top: @margin-top-pinned-toc;

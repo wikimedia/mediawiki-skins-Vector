@@ -140,6 +140,7 @@ class FeatureManager {
 
 			// Client side preferences
 			switch ( $featureClass ) {
+				case 'toc-pinned':
 				case 'limited-width':
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';

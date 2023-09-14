@@ -70,6 +70,8 @@
 		//
 		// TOC in page titlebar
 		//
+		// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+		&.vector-feature-toc-pinned-clientpref-0 body:not( .vector-sticky-header-visible ),
 		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ) {
 			.vector-page-titlebar-toc {
 				.mixin-toc-unpinned();
@@ -79,6 +81,8 @@
 		//
 		// TOC in page titlebar below page title
 		//
+		// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+		&.vector-feature-toc-pinned-clientpref-0 body:not( .vector-sticky-header-visible ).vector-below-page-title,
 		&.vector-feature-toc-pinned-disabled body:not( .vector-sticky-header-visible ).vector-below-page-title {
 			.vector-page-titlebar-toc {
 				.mixin-toc-below-page-title();
@@ -88,6 +92,8 @@
 		//
 		// TOC in sticky header
 		//
+		// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+		&.vector-feature-toc-pinned-clientpref-0 .vector-sticky-header-visible,
 		&.vector-feature-toc-pinned-disabled .vector-sticky-header-visible {
 			.vector-sticky-header-toc {
 				.mixin-toc-unpinned();
@@ -100,6 +106,8 @@
 	//
 	// No-JS TOC in page titlebar
 	//
+	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+	&.vector-feature-toc-pinned-clientpref-0,
 	&.vector-feature-toc-pinned-disabled {
 		.vector-page-titlebar-toc {
 			.mixin-toc-unpinned();
@@ -113,6 +121,8 @@
 		// Make the TOC appear in the page titlebar on small viewports
 		// even when the TOC location in the DOM is actually in the sidebar
 		// This case only happens for no-js anon users.
+		// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
+		&.vector-feature-toc-pinned-clientpref-1,
 		&.vector-feature-toc-pinned-enabled {
 			#vector-toc-collapsed-button {
 				display: block;
