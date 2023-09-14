@@ -5,7 +5,7 @@
 			"MARKSDNW"
 		]
 	},
-	"vector-skin-desc": "Икки тас көрүҥэ биэриллэр:\n* 2011: ''Аныгы'' — саҥардыллыбыт, тупсарыллыбыт MonoBook.\n* 2022: ''Векторнай'' — Бикимиэдьийэ Фонда «[[mw:Desktop Improvements]]» көмөтүнэн оҥоһуллубут .",
+	"vector-skin-desc": "Икки тас көрүҥэ биэриллэр:\n* 2011: ''Аныгы'' — саҥардыллыбыт, тупсарыллыбыт MonoBook.\n* 2022: ''Векторнай'' — Бикимиэдьийэ Пуонда «[[mw:Desktop Improvements]]» көмөтүнэн оҥоһуллубут .",
 	"prefs-vector-enable-vector-1-label": "Эргэ Векторы тутун",
 	"prefs-vector-enable-vector-1-help": "Хас да сыл иһигэр «Векторнай» тас көстүүнү саҥардатыахпыт. Эргэ «Векторнай» тас көстүү урукку «Векторнай» барылын көрдөрүө (ахсынньы 2019 сыллааҕы). Сиһилии саҥардыылар туһунан [[mw:Reading/Web/Desktop_Improvements|биһиги бырайыакпыт сирэйигэр]].",
 	"vector-opt-out": "Эргэ көстүүтүгэр көс",
@@ -32,7 +32,7 @@
 	"vector-jumptosearch": "Көрдөбүлгэ көс",
 	"vector-jumptocontent": "Иһинээҕитигэр көс",
 	"vector-more-actions": "Эбии",
-	"vector-search-loader": "Көрдөбүл булбута хачайдаана турар",
+	"vector-search-loader": "Көрдөбүл булбута хачайдана турар",
 	"vector-searchsuggest-containing": "Иһилэригэр <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> баар сирэйдэри көрдөөһүн",
 	"vector-intro-page": "Help:Киирии тыл",
 	"vector-toc-label": "Иһинээҕитэ",
@@ -50,7 +50,7 @@
 	"vector-page-tools-label": "Сэп-сэбиргэл",
 	"vector-page-tools-general-label": "Сүнньүнэн",
 	"vector-page-tools-actions-label": "Дьайыылар",
-	"vector-pin-element-label": "очоҕос талбаҕа көһөр",
+	"vector-pin-element-label": "ойоҕос талбаҕа көһөр",
 	"vector-unpin-element-label": "Кистээ",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Ырытыы сирэй]]",
 	"tooltip-vector-anon-user-menu-title": "Эбии туруоруулар",
