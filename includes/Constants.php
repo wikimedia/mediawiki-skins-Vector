@@ -266,6 +266,21 @@ final class Constants {
 	public const REQUIREMENT_FONT_SIZE = 'CustomFontSize';
 
 	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_CLIENT_PREFERENCES = 'VectorClientPreferences';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_CLIENT_PREFERENCES = 'ClientPreferences';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_CLIENT_PREFERENCES = 'ClientPreferences';
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never

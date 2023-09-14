@@ -297,6 +297,27 @@ return [
 				Constants::REQUIREMENT_FONT_SIZE
 			]
 		);
+
+		// Feature: T345363: Client preferences dialog
+		// ============================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$context->getRequest(),
+				Constants::CONFIG_KEY_CLIENT_PREFERENCES,
+				Constants::REQUIREMENT_CLIENT_PREFERENCES
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_CLIENT_PREFERENCES,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_CLIENT_PREFERENCES
+			]
+		);
+
 		return $featureManager;
 	}
 ];

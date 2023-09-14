@@ -397,6 +397,14 @@ class SkinVector22 extends SkinMustache {
 				$this->getTitle()->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
 			),
+			'data-client-prefs' => $featureManager->isFeatureEnabled(
+					Constants::FEATURE_CLIENT_PREFERENCES,
+				) ? new VectorComponentDropdown(
+					'vector-client-prefs',
+					'Site preferences',
+					'',
+					'settings'
+				) : null,
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,
 				$user,
@@ -482,7 +490,9 @@ class SkinVector22 extends SkinMustache {
 					) : null,
 				true
 			) : null,
-			'data-vector-settings-button' => new VectorComponentButton(
+			'data-vector-settings-button' => $featureManager->isFeatureEnabled(
+				Constants::FEATURE_CLIENT_PREFERENCES,
+			) ? null : new VectorComponentButton(
 				$this->msg( 'vector-limited-width-toggle' ),
 				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_LIMITED_WIDTH
