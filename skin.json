@@ -65,6 +65,7 @@
 						"skins.vector.icons"
 					],
 					"messages": [
+						"vector-client-preferences",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
 						"vector-opt-out",
@@ -354,6 +355,28 @@
 				"close"
 			]
 		},
+		"skins.vector.clientPreferences": {
+			"es6": true,
+			"packageFiles": [
+				"resources/skins.vector.clientPreferences/main.js",
+				"resources/skins.vector.clientPreferences/config.json",
+				"resources/skins.vector.clientPreferences/clientPreferences.js"
+			],
+			"messages": [
+				"vector-feature-limited-width-name",
+				"vector-feature-custom-font-size-name",
+				"vector-feature-limited-width-0-label",
+				"vector-feature-limited-width-1-label",
+				"vector-feature-custom-font-size-enabled-label",
+				"vector-feature-custom-font-size-disabled-label"
+			],
+			"dependencies": [
+				"mediawiki.user"
+			],
+			"styles": [
+				"resources/skins.vector.clientPreferences/clientPreferences.less"
+			]
+		},
 		"skins.vector.js": {
 			"es6": true,
 			"packageFiles": [
@@ -405,6 +428,7 @@
 				"resources/skins.vector.js/menuTabs.js"
 			],
 			"dependencies": [
+				"skins.vector.clientPreferences",
 				"mediawiki.user",
 				"mediawiki.page.watch.ajax",
 				"mediawiki.storage",
@@ -507,6 +531,13 @@
 		}
 	},
 	"config": {
+		"VectorClientPreferences": {
+			"value": {
+				"logged_in": true,
+				"logged_out": true
+			},
+			"description": "@var array enables a client preferences interface."
+		},
 		"VectorShareUserScripts": {
 			"value": true,
 			"description": "Temporary configuration flag that determines whether Vector skins should share user scripts and styles."
