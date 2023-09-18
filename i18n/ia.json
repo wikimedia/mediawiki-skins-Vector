@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Amire80"
 		]
 	},
 	"vector-skin-desc": "Version moderne de MonoBook con aspecto rejuvenescite e multe meliorationes de usabilitate.",
@@ -11,7 +12,7 @@
 	"vector-opt-out-tooltip": "Cambiar tu parametros pro retornar al ancian aspecto del apparentia (Vector historic)",
 	"vector.css": "/* Tote CSS hic essera cargate pro le usatores del apparentia Vector */",
 	"vector.js": "/* Tote JavaScript hic essera cargate pro le usatores del apparentia Vector */",
-	"vector-action-toggle-sidebar": "Alternar barra lateral",
+	"vector-action-toggle-sidebar": "Commutar barra lateral",
 	"vector-action-addsection": "Adder topico",
 	"vector-action-delete": "Deler",
 	"vector-action-move": "Renominar",

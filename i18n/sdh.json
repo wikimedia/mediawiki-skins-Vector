@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Paraw2"
+			"Paraw2",
+			"TerranBoy"
 		]
 	},
 	"vector-action-addsection": "بابەت تازە بدە سەری",
@@ -9,9 +10,9 @@
 	"vector-action-move": "جیوەجی بکە",
 	"vector-action-protect": "بپیەرێزەێ",
 	"vector-view-create": "درسکردن",
-	"vector-view-edit": "وێراشتەێ بکە",
-	"vector-view-history": "دیرۆکەگەی بۊن",
+	"vector-view-edit": "دەسکاری بکە",
+	"vector-view-history": "دیرووکەگەی بۊن",
 	"vector-view-view": "بخوەنە",
 	"vector-view-viewsource": "سەرچاوەگەێ بۊن",
-	"vector-more-actions": "فرەتر"
+	"vector-more-actions": "فێشتر"
 }
