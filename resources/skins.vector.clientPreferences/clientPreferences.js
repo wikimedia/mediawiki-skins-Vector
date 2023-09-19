@@ -105,6 +105,9 @@ function makeClientPreference( featureName ) {
  */
 function fillClientPreferencesDropdown() {
 	const dropdownContents = document.querySelectorAll( '#vector-client-prefs .vector-dropdown-content' )[ 0 ];
+	if ( !dropdownContents ) {
+		return;
+	}
 	getClientPreferences().forEach( ( pref ) => {
 		const prefNode = makeClientPreference( pref );
 		if ( prefNode ) {
