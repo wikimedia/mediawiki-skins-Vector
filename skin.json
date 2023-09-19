@@ -533,8 +533,8 @@
 	"config": {
 		"VectorClientPreferences": {
 			"value": {
-				"logged_in": true,
-				"logged_out": true
+				"logged_in": false,
+				"logged_out": false
 			},
 			"description": "@var array enables a client preferences interface."
 		},
