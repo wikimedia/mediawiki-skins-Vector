@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AdiJapan",
+			"Alesaru",
 			"Amire80",
 			"Danutz",
 			"Firilacroco",
@@ -40,6 +41,13 @@
 	"vector-jumptosearch": "Sari la căutare",
 	"vector-jumptocontent": "Sari la conținut",
 	"vector-more-actions": "Mai mult",
+	"vector-client-preferences": "Setări de citire",
+	"vector-feature-limited-width-name": "Lățimea coloanei",
+	"vector-feature-custom-font-size-name": "Mărimea tipului",
+	"vector-feature-limited-width-0-label": "Lățime maximă",
+	"vector-feature-limited-width-1-label": "Lățime limitată",
+	"vector-feature-custom-font-size-disabled-label": "Mic",
+	"vector-feature-custom-font-size-enabled-label": "Standard",
 	"vector-search-loader": "Se încarcă sugestiile de căutare",
 	"vector-searchsuggest-containing": "Căutați după pagini care conțin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Cuprins",

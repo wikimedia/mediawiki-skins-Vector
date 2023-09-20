@@ -5,6 +5,7 @@
 		]
 	},
 	"vector-languages": "Ebi kè Usem",
+	"vector-language-button-label": "{{PLURAL:$1|usem}}",
 	"vector-no-language-button-label": "Tap usem sọkọ",
 	"vector-action-addsection": "Tap Ibot-ikọ gbaalek",
 	"vector-action-delete": "Chọk",
