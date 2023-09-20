@@ -8,9 +8,7 @@
 }
 
 @media ( min-width: @min-width-desktop ) {
-	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
-	&.vector-feature-toc-pinned-clientpref-1 #mw-panel-toc,
-	&.vector-feature-toc-pinned-enabled #mw-panel-toc {
+	&.vector-feature-toc-pinned-clientpref-1 #mw-panel-toc {
 		// Support: Chrome
 		// Work around sticky-positioned layers disabling subpixel text rendering (T327460).
 		// NOTE: This property has an effect similar to 'overflow: hidden', and will prevent elements
@@ -27,9 +25,7 @@
 		top: 0;
 	}
 
-	// FIXME: Remove vector-feature-toc-pinned-(enabled|disabled) when cache allows.
-	&.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container,
-	&.vector-feature-toc-pinned-enabled #vector-toc-pinned-container {
+	&.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container {
 		// Default spacing separating the sidebar TOC from the main menu.
 		margin-top: 1.5em;
 	}
