@@ -1,4 +1,10 @@
-const config = /** @type {Record<string,string[]>} */( require( './config.json' ) );
+/**
+ * @typedef {Object} ClientPreference
+ * @property {string[]} options that are valid for this client preference
+ * @property {string} preferenceKey for registered users.
+ */
+const config = /** @type {Record<string,ClientPreference>} */( require( './config.json' ) );
+let /** @type {MwApi} */ api;
 /**
  * @typedef {Object} PreferenceOption
  * @property {string} label
@@ -18,10 +24,11 @@ function getClientPreferences() {
 /**
  * @param {Element} parent
  * @param {string} featureName
+ * @param {ClientPreference} pref
  * @param {string} value
  * @param {string} currentValue
  */
-function appendRadioToggle( parent, featureName, value, currentValue ) {
+function appendRadioToggle( parent, featureName, pref, value, currentValue ) {
 	const input = document.createElement( 'input' );
 	const name = `vector-client-pref-${featureName}-group`;
 	const id = `vector-client-pref-${featureName}-value-${value}`;
@@ -43,6 +50,12 @@ function appendRadioToggle( parent, featureName, value, currentValue ) {
 	input.addEventListener( 'change', () => {
 		// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 		mw.user.clientPrefs.set( featureName, value );
+		if ( mw.user.isNamed() ) {
+			mw.util.debounce( function () {
+				api = api || new mw.Api();
+				api.saveOption( pref.preferenceKey, value );
+			}, 100 )();
+		}
 	} );
 }
 
@@ -64,6 +77,10 @@ function createRow( className ) {
  * @return {Element|null}
  */
 function makeClientPreferenceBinaryToggle( featureName, label ) {
+	const pref = config[ featureName ];
+	if ( !pref ) {
+		return null;
+	}
 	// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 	const currentValue = mw.user.clientPrefs.get( featureName );
 	// The client preference was invalid. This shouldn't happen unless a gadget
@@ -77,8 +94,8 @@ function makeClientPreferenceBinaryToggle( featureName, label ) {
 	labelNode.textContent = label;
 	form.appendChild( labelNode );
 	const toggle = document.createElement( 'fieldset' );
-	( config[ featureName ] || [ '0', '1' ] ).forEach( ( value ) => {
-		appendRadioToggle( toggle, featureName, value, currentValue );
+	pref.options.forEach( ( value ) => {
+		appendRadioToggle( toggle, featureName, pref, value, currentValue );
 	} );
 	form.appendChild( toggle );
 	row.appendChild( form );
