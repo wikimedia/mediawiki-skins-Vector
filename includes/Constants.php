@@ -253,12 +253,12 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_FONT_SIZE = 'VectorCustomFontSize';
+	public const PREF_KEY_FONT_SIZE = 'vector-font-size';
 
 	/**
 	 * @var string
 	 */
-	public const FEATURE_FONT_SIZE = 'CustomFontSizeClientpref';
+	public const FEATURE_FONT_SIZE = 'CustomFontSize';
 
 	/**
 	 * @var string

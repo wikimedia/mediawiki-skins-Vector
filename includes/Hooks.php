@@ -619,6 +619,9 @@ class Hooks implements
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
 		$vectorPrefs = [
+			Constants::PREF_KEY_FONT_SIZE => [
+				'type' => 'api'
+			],
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
 				'type' => 'api'
 			],

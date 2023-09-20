@@ -280,12 +280,12 @@ return [
 		// Feature: T343928: Feature Font Size.
 		// ================================
 		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
+			new UserPreferenceRequirement(
 				$context->getUser(),
-				$context->getRequest(),
-				Constants::CONFIG_KEY_FONT_SIZE,
-				Constants::REQUIREMENT_FONT_SIZE
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_FONT_SIZE,
+				Constants::REQUIREMENT_FONT_SIZE,
+				$context->getTitle()
 			)
 		);
 

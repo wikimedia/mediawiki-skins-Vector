@@ -168,7 +168,8 @@
 		"vector-limited-width": 1,
 		"vector-page-tools-pinned": 1,
 		"vector-main-menu-pinned": 1,
-		"vector-toc-pinned": 1
+		"vector-toc-pinned": 1,
+		"vector-font-size": 0
 	},
 	"HookHandlers": {
 		"VectorCentralAuthHooks": {
@@ -639,13 +640,6 @@
 				"logged_out": false
 			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
-		},
-		"VectorCustomFontSize": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false
-			},
-			"description": "@var boolean feature flag that enables customizing the Vector font-size."
 		}
 	},
 	"ServiceWiringFiles": [

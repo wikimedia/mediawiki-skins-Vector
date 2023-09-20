@@ -145,6 +145,10 @@ class FeatureManager {
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
 					break;
+				case 'custom-font-size':
+					$suffixEnabled = 'clientpref-enabled';
+					$suffixDisabled = 'clientpref-disabled';
+					break;
 				default:
 					// FIXME: Eventually this should not be necessary.
 					$suffixEnabled = 'enabled';
