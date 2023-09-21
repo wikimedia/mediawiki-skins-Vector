@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Les Meloures",
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"skinname-vector": "Vector (Versioun vun 2010)",
@@ -37,6 +38,8 @@
 	"vector-jumptosearch": "Op d'Siche wiesselen",
 	"vector-jumptocontent": "Op den Inhalt sprangen",
 	"vector-more-actions": "Méi",
+	"vector-feature-custom-font-size-disabled-label": "Kleng",
+	"vector-feature-custom-font-size-enabled-label": "Standard",
 	"vector-search-loader": "Luede vun de Propose fir ze sichen",
 	"vector-searchsuggest-containing": "No Säite mat <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> sichen",
 	"vector-intro-page": "Help:Aféierung",
