@@ -10,7 +10,8 @@ const languageButton = require( './languageButton.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
-	menuTabs = require( './menuTabs.js' );
+	menuTabs = require( './menuTabs.js' ),
+	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
 
 /**
  * Wait for first paint before calling this function. That's its whole purpose.
@@ -97,6 +98,8 @@ function main( window ) {
 	pinnableElement.initPinnableElement();
 	// Initializes the TOC and sticky header, behaviour of which depend on scroll behaviour.
 	setupIntersectionObservers.main();
+	// Apply body styles to teleported elements
+	teleportTarget.classList.add( 'vector-body' );
 }
 
 /**
