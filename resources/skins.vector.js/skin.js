@@ -142,3 +142,10 @@ if ( document.readyState === 'interactive' || document.readyState === 'complete'
 		main( window );
 	} );
 }
+
+// Provider of skins.vector.js module:
+/**
+* skins.vector.js
+* @stable for use inside WikimediaEvents ONLY.
+*/
+module.exports = { pinnableElement };

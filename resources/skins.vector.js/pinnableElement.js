@@ -224,7 +224,22 @@ function initPinnableElement() {
 	} );
 }
 
+/**
+ * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
+ *
+ * @function
+ * @return {boolean} True if at least one pinned element is found, otherwise false.
+ */
+function hasPinnedElements() {
+	const suffixesToCheck = [ 'pinned-clientpref-1', 'pinned-enabled' ];
+	const htmlElement = document.documentElement;
+	return Array.from( htmlElement.classList ).some( ( className ) => {
+		return suffixesToCheck.some( ( suffix ) => className.endsWith( suffix ) );
+	} );
+}
+
 module.exports = {
+	hasPinnedElements,
 	initPinnableElement,
 	movePinnableElement,
 	setFocusAfterToggle,
