@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Hugo.arg",
 			"P. S. F. Freitas"
 		]
@@ -13,7 +14,7 @@
 	"vector-action-toggle-sidebar": "Ehecha/eñomi tendayke",
 	"vector-languages": "Ñe'ẽnguéra",
 	"vector-language-button-aria-label": "Ehecha peteĩ kuatia oĩva ambue ñe'ẽme. Ojeguereko {{PLURAL:$1|$1 ñe'ẽ}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ|ñe'ẽ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ñe'ẽ}}",
 	"vector-no-language-button-label": "Emoĩve ñe'ẽnguéra",
 	"vector-no-language-button-aria-label": "Ko kuatia oĩ ko ñe'ẽme añoite. Emoĩve ko kuatia ambue ñe'ẽme g̃uarã",
 	"vector-language-redirect-to-top": "Umi ñe'ẽ joajuha oĩ ko kuatia yvate gotyo pe héra rovái.",
