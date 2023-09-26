@@ -25,7 +25,8 @@
 			"Diegodlh",
 			"FlyingAce",
 			"Rodelar",
-			"Zapipedia (WMF)"
+			"Zapipedia (WMF)",
+			"MadriCR"
 		]
 	},
 	"skinname-vector": "Versión heredada de Vector (2010)",
@@ -48,7 +49,7 @@
 	"vector-language-variant-switcher-label": "Cambiar variante de idioma",
 	"vector-action-addsection": "Añadir tema",
 	"vector-action-delete": "Borrar",
-	"vector-action-move": "Mover",
+	"vector-action-move": "Trasladar",
 	"vector-action-protect": "Proteger",
 	"vector-action-undelete": "Restaurar",
 	"vector-action-unprotect": "Cambiar protección",

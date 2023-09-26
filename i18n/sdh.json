@@ -19,5 +19,7 @@
 	"vector-view-viewsource": "سەرچاوەگەێ بۊن",
 	"vector-more-actions": "فێشتر",
 	"vector-searchsuggest-containing": "مینەێ ئەو پەڕەیلە بکە ک «<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>» دێرن.",
-	"vector-toc-beginning": "دەسپێک"
+	"vector-toc-beginning": "دەسپێک",
+	"vector-main-menu-tooltip": "پێرست سەرەکی",
+	"vector-site-nav-label": "ماڵپەڕ"
 }
