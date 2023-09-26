@@ -9,7 +9,7 @@
 		]
 	},
 	"vector-languages": "Кывъяс",
-	"vector-language-button-label": "{{PLURAL:$1|$1 кыв}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 кыв|$1 кывъяс}}",
 	"vector-no-language-button-label": "Содтыны кывъяс",
 	"vector-action-addsection": "Содтыны тема",
 	"vector-action-move": "Ним вежны",
@@ -22,6 +22,6 @@
 	"vector-toc-label": "Юриндалысь",
 	"vector-toc-beginning": "Заводитчӧм",
 	"vector-page-tools-label": "Инструментъяс",
-	"vector-page-tools-general-label": "Ӧтувъя1",
+	"vector-page-tools-general-label": "Ӧтувъя",
 	"vector-unpin-element-label": "сайӧдны"
 }
