@@ -179,5 +179,9 @@
 // Grid
 @grid-row-gap: 24px;
 @grid-column-gap: 24px;
+/* Use of minmax is important to restrict the maximum grid column width more information: T314756 */
+@width-page-content: minmax(0, 1fr);
 @width-column-desktop: unit( 196px / @font-size-browser, rem ); // Total width including gap is 232px
 @width-column-desktop-wide: unit( 248px / @font-size-browser, rem ); // Total width including gap is 284px
+@grid-template-column-desktop: ~'@{width-column-desktop} @{width-page-content}';
+@grid-template-column-desktop-wide: ~'@{width-column-desktop-wide} @{width-page-content}';

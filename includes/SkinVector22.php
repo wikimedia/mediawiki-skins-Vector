@@ -78,6 +78,17 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
+	 * Whether or not toc data is available
+	 *
+	 * @return bool
+	 */
+	private function isTocAvailable(): bool {
+		$parentData = parent::getTemplateData();
+		$tocData = $parentData['data-toc'];
+		return !empty( $tocData ) && !empty( $tocData[ 'array-sections' ] );
+	}
+
+	/**
 	 * This should be upstreamed to the Skin class in core once the logic is finalized.
 	 * Returns false if the page is a special page without any languages, or if an action
 	 * other than view is being used.
@@ -330,12 +341,10 @@ class SkinVector22 extends SkinMustache {
 		$user = $this->getUser();
 		$localizer = $this->getContext();
 
-		$tocData = $parentData['data-toc'];
-		$tocComponents = [];
-
 		// If the table of contents has no items, we won't output it.
 		// empty array is interpreted by Mustache as falsey.
-		$isTocAvailable = !empty( $tocData ) && !empty( $tocData[ 'array-sections' ] );
+		$tocComponents = [];
+		$isTocAvailable = $this->isTocAvailable();
 		if ( $isTocAvailable ) {
 			// @phan-suppress-next-line SecurityCheck-XSS
 			$dataToc = new VectorComponentTableOfContents(
@@ -377,6 +386,9 @@ class SkinVector22 extends SkinMustache {
 					$dataToc->isPinned()
 				),
 			];
+			$this->getOutput()->addHtmlClasses( 'vector-toc-available' );
+		} else {
+			$this->getOutput()->addHtmlClasses( 'vector-toc-not-available' );
 		}
 
 		$isRegistered = $user->isRegistered();
