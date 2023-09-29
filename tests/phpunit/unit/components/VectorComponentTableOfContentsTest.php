@@ -176,6 +176,8 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
 			$msg = $this->createMock( Message::class );
 			$msg->method( '__toString' )->willReturn( $key );
+			$msg->method( 'escaped' )->willReturn( $key );
+			$msg->method( 'rawParams' )->will( $this->returnSelf() );
 			$msg->method( 'text' )->willReturn( $key );
 			return $msg;
 		} );
