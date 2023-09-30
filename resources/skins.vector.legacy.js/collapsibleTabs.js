@@ -77,7 +77,7 @@ function init() {
 				$collapsible.data( 'collapsibleTabsSettings', {
 					expandedContainer: settings.expandedContainer,
 					collapsedContainer: settings.collapsedContainer,
-					expandedWidth: $collapsible.width()
+					expandedWidth: $collapsible.outerWidth( true )
 				} );
 			}
 		},
@@ -193,7 +193,7 @@ function init() {
 							// change the tab's contents after the page load *gasp* (T71729). This
 							// doesn't prevent a tab from collapsing back and forth once, but at
 							// least it won't continue to do that forever.
-							data.expandedWidth = $moving.width() || 0;
+							data.expandedWidth = $moving.outerWidth( true ) || 0;
 							$moving.data( 'collapsibleTabsSettings', data );
 							expandedContainerSettings.shifting = false;
 							$.collapsibleTabs.handleResize();
