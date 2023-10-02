@@ -46,33 +46,6 @@ function enableCssAnimations( document ) {
 }
 
 /**
- * In https://phabricator.wikimedia.org/T313409 #p-namespaces was renamed to #p-associatedPages
- * This code maps items added by gadgets to the new menu.
- * This code can be removed in MediaWiki 1.40.
- */
-function addNamespacesGadgetSupport() {
-	// Set up hidden dummy portlet.
-	const dummyPortlet = document.createElement( 'div' );
-	dummyPortlet.setAttribute( 'id', 'p-namespaces' );
-	dummyPortlet.setAttribute( 'style', 'display: none;' );
-	dummyPortlet.appendChild( document.createElement( 'ul' ) );
-	document.body.appendChild( dummyPortlet );
-	mw.hook( 'util.addPortletLink' ).add( function ( /** @type {Element} */ node ) {
-		const namespaces = document.querySelector( '#p-namespaces' );
-		// If it was added to p-namespaces, show warning and move.
-		if ( namespaces && node.closest( '#p-namespaces' ) ) {
-			const list = document.querySelector( '#p-associated-pages ul' );
-			if ( list ) {
-				list.appendChild( node );
-			}
-			mw.log.warn( 'Please update call to mw.util.addPortletLink with ID p-namespaces. Use p-associatedPages instead.' );
-			// in case it was empty before:
-			mw.util.showPortlet( 'p-associated-pages' );
-		}
-	} );
-}
-
-/**
  * @param {Window} window
  * @return {void}
  */
@@ -86,7 +59,6 @@ function main( window ) {
 	// menuTabs should follow `dropdownMenus` as that can move menu items from a
 	// tab menu to a dropdown.
 	menuTabs();
-	addNamespacesGadgetSupport();
 	watchstar();
 	limitedWidthToggle();
 	// Initialize the search toggle for the main header only. The sticky header
