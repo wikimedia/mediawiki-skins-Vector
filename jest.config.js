@@ -5,6 +5,7 @@
 
 module.exports = {
 	moduleNameMapper: {
+		'@wikimedia/codex-search': '@wikimedia/codex',
 		'^./templates/(.*).mustache': '<rootDir>/includes/templates/$1.mustache'
 	},
 
