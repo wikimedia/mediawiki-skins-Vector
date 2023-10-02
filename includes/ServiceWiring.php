@@ -50,6 +50,7 @@ return [
 		);
 
 		$context = RequestContext::getMain();
+		$request = $context->getRequest();
 
 		// Feature: Languages in sidebar
 		// ================================
@@ -57,7 +58,7 @@ return [
 			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER
 			)
@@ -89,7 +90,7 @@ return [
 			new OverridableConfigRequirement(
 				$config,
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_KEY_LANGUAGE_IN_HEADER,
 				$requirementName
 			)
@@ -111,7 +112,7 @@ return [
 			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_LANGUAGE_IN_MAIN_PAGE_HEADER,
 				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_PAGE_HEADER
 			)
@@ -138,7 +139,7 @@ return [
 			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_STICKY_HEADER,
 				Constants::REQUIREMENT_STICKY_HEADER
 			)
@@ -167,6 +168,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_PAGE_TOOLS_PINNED,
 				Constants::REQUIREMENT_PAGE_TOOLS_PINNED,
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -188,6 +190,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_TOC_PINNED,
 				Constants::REQUIREMENT_TOC_PINNED,
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -208,6 +211,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_MAIN_MENU_PINNED,
 				Constants::REQUIREMENT_MAIN_MENU_PINNED,
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -229,6 +233,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_LIMITED_WIDTH,
 				Constants::REQUIREMENT_LIMITED_WIDTH,
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -245,7 +250,7 @@ return [
 		$featureManager->registerRequirement(
 			new LimitedWidthContentRequirement(
 				$services->getMainConfig(),
-				$context->getRequest(),
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -263,7 +268,7 @@ return [
 			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_ZEBRA_DESIGN,
 				Constants::REQUIREMENT_ZEBRA_DESIGN
 			)
@@ -285,6 +290,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_FONT_SIZE,
 				Constants::REQUIREMENT_FONT_SIZE,
+				$request,
 				$context->getTitle()
 			)
 		);
@@ -304,7 +310,7 @@ return [
 			new OverridableConfigRequirement(
 				$services->getMainConfig(),
 				$context->getUser(),
-				$context->getRequest(),
+				$request,
 				Constants::CONFIG_KEY_CLIENT_PREFERENCES,
 				Constants::REQUIREMENT_CLIENT_PREFERENCES
 			)
@@ -326,6 +332,7 @@ return [
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_TYPOGRAPHY_SURVEY,
 				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY,
+				$request,
 				$context->getTitle()
 			)
 		);

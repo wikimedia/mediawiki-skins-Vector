@@ -76,11 +76,6 @@ final class OverridableConfigRequirement implements Requirement {
 	private $user;
 
 	/**
-	 * @var WebRequest
-	 */
-	private $request;
-
-	/**
 	 * @var string
 	 */
 	private $configName;
@@ -91,9 +86,9 @@ final class OverridableConfigRequirement implements Requirement {
 	private $requirementName;
 
 	/**
-	 * @var string
+	 * @var OverrideableRequirementHelper
 	 */
-	private $overrideName;
+	private $helper;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
@@ -114,10 +109,9 @@ final class OverridableConfigRequirement implements Requirement {
 	) {
 		$this->config = $config;
 		$this->user = $user;
-		$this->request = $request;
 		$this->configName = $configName;
 		$this->requirementName = $requirementName;
-		$this->overrideName = strtolower( $configName );
+		$this->helper = new OverrideableRequirementHelper( $request, $requirementName );
 	}
 
 	/**
@@ -135,12 +129,9 @@ final class OverridableConfigRequirement implements Requirement {
 	 * @inheritDoc
 	 */
 	public function isMet(): bool {
-		// Check query parameter.
-		if ( $this->request->getCheck( $this->overrideName ) ) {
-			return $this->request->getBool( $this->overrideName );
-		}
-		if ( $this->request->getCheck( $this->configName ) ) {
-			return $this->request->getBool( $this->configName );
+		$isMet = $this->helper->isMet();
+		if ( $isMet !== null ) {
+			return $isMet;
 		}
 
 		// If AB test is not enabled, fallback to checking config state.

@@ -133,8 +133,7 @@ class OverridableConfigRequirementTest extends \MediaWikiUnitTestCase {
 			$user,
 			$request,
 			'VectorLanguageInHeader',
-			'LanguageInHeader',
-			'languageinheader'
+			'LanguageInHeader'
 		);
 
 		$this->assertSame( $expected, $requirement->isMet(), $msg );
