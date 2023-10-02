@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Medaho"
+		]
+	},
+	"vector-languages": "Egbewo",
+	"vector-language-button-label": "{{PLURAL:$1|$1 egbe|$1 egbewo}}",
+	"vector-page-tools-label": "Dɔwanuwo"
+}
