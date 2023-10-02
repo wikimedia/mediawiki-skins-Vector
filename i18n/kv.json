@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Comp1089",
-			"Enye Lav"
+			"Enye Lav",
+			"Amire80",
+			"Merrahtar",
+			"СерМар"
 		]
 	},
+	"vector-action-addsection": "Содтыны тема",
 	"vector-action-move": "Ним вежны",
 	"vector-view-create": "Лӧсьӧдны",
 	"vector-view-edit": "Вежны",
