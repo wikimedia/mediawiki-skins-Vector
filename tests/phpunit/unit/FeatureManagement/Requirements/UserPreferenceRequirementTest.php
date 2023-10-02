@@ -17,7 +17,7 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 		return [
 			[
 				// Is option enabled?
-				true,
+				1,
 				// Is title present?
 				true,
 				// Expected
@@ -26,7 +26,7 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 			],
 			[
 				// Is option enabled?
-				false,
+				0,
 				// Is title present?
 				true,
 				// Expected
@@ -35,12 +35,36 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 			],
 			[
 				// Is option enabled?
-				true,
+				'enabled',
 				// Is title present?
 				false,
 				// Expected
 				false,
 				'If enabled but title null, returns false'
+			],
+			[
+				'disabled',
+				// Is title present?
+				true,
+				// Expected
+				false,
+				'If disabled, returns false'
+			],
+			[
+				'0',
+				// Is title present?
+				true,
+				// Expected
+				false,
+				'If disabled, returns false'
+			],
+			[
+				'medium',
+				// Is title present?
+				true,
+				// Expected
+				true,
+				'If unrecognized string returns true'
 			],
 		];
 	}
@@ -64,7 +88,6 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 
 		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookup->method( 'getOption' )->willReturn( $isEnabled );
-		$userOptionsLookup->method( 'getBoolOption' )->willReturn( $isEnabled );
 
 		$requirement = new UserPreferenceRequirement(
 			$user,
