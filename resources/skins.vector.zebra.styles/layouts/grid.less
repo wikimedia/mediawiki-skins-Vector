@@ -6,12 +6,11 @@
 	.mw-page-container-inner {
 		display: grid;
 		column-gap: @grid-column-gap;
-		grid-template: ~'min-content min-content 1fr min-content / @{grid-template-column-desktop}';
+		grid-template: ~'min-content 1fr min-content / @{grid-template-column-desktop}';
 		// stylelint-disable-next-line stylistic/declaration-colon-space-after
 		grid-template-areas:
 			'siteNotice siteNotice'
-			'mainMenu pageContent'
-			'toc pageContent'
+			'columnStart pageContent'
 			'footer footer';
 	}
 
@@ -19,13 +18,8 @@
 		grid-area: siteNotice;
 	}
 
-	.mw-table-of-contents-container {
-		grid-area: toc;
-		overflow-anchor: none; // T330108
-	}
-
-	.vector-main-menu-container {
-		grid-area: mainMenu;
+	.vector-column-start {
+		grid-area: columnStart;
 		overflow-anchor: none; // T330108
 	}
 
@@ -67,12 +61,17 @@
 	}
 }
 
-// Horizontally center content when column start is empty (i.e. no pinned ToC or pinned main menu)
-&.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-content-container,
-&.vector-feature-main-menu-pinned-disabled .vector-sidebar-container-no-toc ~ .mw-content-container,
-&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-content-container {
-	grid-column: mainMenu / pageContent;
+// Single column grid when column start is empty (i.e. no pinned ToC or pinned main menu)
+&.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-page-container-inner,
+&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-page-container-inner {
+	grid-template-columns: @width-page-content;
+	// stylelint-disable-next-line stylistic/declaration-colon-space-after
+	grid-template-areas:
+		'siteNotice'
+		'pageContent'
+		'footer';
 
+	// Horizontally center content when single column
 	.mw-body {
 		justify-content: center;
 	}
