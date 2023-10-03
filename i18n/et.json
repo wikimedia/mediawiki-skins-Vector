@@ -4,7 +4,8 @@
 			"Amire80",
 			"Ker",
 			"Pikne",
-			"WikedKentaur"
+			"WikedKentaur",
+			"Cumbril"
 		]
 	},
 	"skinname-vector": "Vana Vektor (2010)",
@@ -45,11 +46,14 @@
 	"vector-toc-toggle-position-sidebar": "vii külgpaanile",
 	"vector-toc-toggle-position-title": "peida",
 	"vector-toc-beginning": "Algus",
+	"vector-toc-toggle-button-label": "Lülita ümber alaosa \"$1\"",
 	"vector-anon-user-menu-pages": "Sisse logimata kasutaja leheküljed",
 	"vector-anon-user-menu-pages-learn": "lisateave",
 	"vector-anon-user-menu-pages-label": "Loe veel muutmise kohta",
 	"vector-main-menu-tooltip": "Peamenüü",
 	"vector-toc-menu-tooltip": "Sisukord",
+	"vector-toc-collapsible-button-label": "Lülita sisukord ümber",
+	"vector-site-nav-label": "Sait",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|arutelu]]",
 	"tooltip-vector-anon-user-menu-title": "Veel valikuid"
 }
