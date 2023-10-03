@@ -72,5 +72,14 @@
 	"empty-language-selector-body": "Le contento del pagina non es supportate in altere linguas.",
 	"vector-toc-unpinned-popup": "Le tabula de contento ha essite displaciate hic.",
 	"vector-page-tools-unpinned-popup": "Le menu de utensiles ha essite displaciate hic.",
-	"vector-main-menu-unpinned-popup": "Le menu principal ha essite displaciate hic."
+	"vector-main-menu-unpinned-popup": "Le menu principal ha essite displaciate hic.",
+	"vector-readability-survey-title": "Instrumento de lectura de Wikimedia",
+	"vector-readability-survey-description": "Como appare le texto in Wikipedia le melior pro te? Usa le glissatores infra pro adjustar le apparentia. Discoperi plus sur le [[metawiki:Reading/Web/Accessibility for reading|projecto de accessibilitate pro le lectura]].",
+	"vector-readability-survey-fontSize": "Dimension del litteras",
+	"vector-readability-survey-lineHeight": "Altitude de lineas",
+	"vector-readability-survey-paragraphSpacing": "Distantia inter paragraphos",
+	"vector-readability-survey-optout": "Pulsa ‘Continuar’ pro transmitter nos tu designo e publicar nostre retroaction sur le proxime pagina. Clicca [[#close-vector-survey|hic]] pro remover iste utensile.",
+	"vector-readability-survey-randomize": "aleatori",
+	"vector-readability-survey-reset": "reinitialisar",
+	"vector-readability-survey-share": "continuar"
 }

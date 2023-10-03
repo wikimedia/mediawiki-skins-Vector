@@ -36,7 +36,7 @@
 	"vector-jumptosearch": "Лахарна тӀегӀо",
 	"vector-jumptocontent": "Чулацаман тӀегӀо",
 	"vector-more-actions": "Кхин а",
-	"vector-search-loader": "Чудохуш ду лахаран кховдинарш",
+	"vector-search-loader": "Чудохуш ду лахаран кховдийнарш",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> чулацам болу агӀонаш лахар",
 	"vector-intro-page": "Help:Хаам",
 	"vector-toc-label": "Чулацам",
@@ -58,6 +58,7 @@
 	"vector-unpin-element-label": "къайла",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Дискусси]]",
 	"tooltip-vector-anon-user-menu-title": "Дукха таронаш",
+	"vector-page-tools-nav-label": "ГӀирсаш агӀонашна",
 	"vector-prefs-limited-width": "Дихкина шораллин раж латаде",
 	"vector-prefs-limited-width-help": "Йешархойн зеделларг дика дан латаде дихкина шораллин раж.",
 	"empty-language-selector-body": "АгӀонан чулацам кхечу меттанашкахь тӀекхочуш бац."

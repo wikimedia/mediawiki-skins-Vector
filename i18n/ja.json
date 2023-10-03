@@ -90,5 +90,7 @@
 	"empty-language-selector-body": "ページのコンテンツが他言語でサポートされていません。",
 	"vector-toc-unpinned-popup": "目次はここに移動しました。",
 	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。",
-	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。"
+	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。",
+	"vector-readability-survey-reset": "リセット",
+	"vector-readability-survey-share": "続行"
 }

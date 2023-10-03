@@ -75,5 +75,14 @@
 	"empty-language-selector-body": "תוכן הדף אינו נתמך בשפות אחרות.",
 	"vector-toc-unpinned-popup": "תוכן העניינים הועבר לכאן.",
 	"vector-page-tools-unpinned-popup": "תפריט הכלים הועבר לכאן.",
-	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן."
+	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן.",
+	"vector-readability-survey-title": "כלי קריאה של ויקימדיה",
+	"vector-readability-survey-description": "איך הטקסט בוויקיפדיה נראה הכי טוב עבורך? נא להשתמש במחוונים למטה כדי להתאים את המראה. למידע נוסף על [[metawiki:Reading/Web/Accessibility for reading|מיזם נגישות הקריאה]].",
+	"vector-readability-survey-fontSize": "גודל גופן",
+	"vector-readability-survey-lineHeight": "גובה שורה",
+	"vector-readability-survey-paragraphSpacing": "מרווח בין פסקאות",
+	"vector-readability-survey-optout": "יש ללחוץ על \"המשך\" כדי לשלוח לנו את העיצוב שלך ולפרסם את המשוב שלנו בדף הבא. יש ללחוץ [[#close-vector-survey|כאן]] כדי להסיר את הכלי הזה.",
+	"vector-readability-survey-randomize": "סדר אקראי",
+	"vector-readability-survey-reset": "איפוס",
+	"vector-readability-survey-share": "המשך"
 }
