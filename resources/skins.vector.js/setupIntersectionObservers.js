@@ -223,6 +223,10 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 	} );
 	mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
 		tableOfContents.reloadTableOfContents( sections ).then( function () {
+			/**
+			 * @stable for use in gadgets and extensions
+			 * @since 1.40
+			 */
 			mw.hook( 'wikipage.tableOfContents.vector' ).fire( sections );
 			updateElements();
 		} );
