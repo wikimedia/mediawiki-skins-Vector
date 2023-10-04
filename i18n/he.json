@@ -81,7 +81,7 @@
 	"vector-readability-survey-fontSize": "גודל גופן",
 	"vector-readability-survey-lineHeight": "גובה שורה",
 	"vector-readability-survey-paragraphSpacing": "מרווח בין פסקאות",
-	"vector-readability-survey-optout": "יש ללחוץ על \"המשך\" כדי לשלוח לנו את העיצוב שלך ולפרסם את המשוב שלנו בדף הבא. יש ללחוץ [[#close-vector-survey|כאן]] כדי להסיר את הכלי הזה.",
+	"vector-readability-survey-optout": "יש ללחוץ על \"המשך\" כדי לשלוח לנו את העיצוב שלך ולפרסם את המשוב שלך בדף הבא. [[#close-vector-survey|הסרת הכלי הזה]].",
 	"vector-readability-survey-randomize": "סדר אקראי",
 	"vector-readability-survey-reset": "איפוס",
 	"vector-readability-survey-share": "המשך"

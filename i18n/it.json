@@ -82,5 +82,7 @@
 	"empty-language-selector-body": "Contenuti della pagina non supportati in altre lingue.",
 	"vector-toc-unpinned-popup": "L'indice è stato spostato qui.",
 	"vector-page-tools-unpinned-popup": "Il menu degli strumenti è stato spostato qui.",
-	"vector-main-menu-unpinned-popup": "Il menu principale è stato spostato qui."
+	"vector-main-menu-unpinned-popup": "Il menu principale è stato spostato qui.",
+	"vector-readability-survey-fontSize": "Dimensione carattere",
+	"vector-readability-survey-reset": "reimposta"
 }

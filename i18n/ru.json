@@ -21,6 +21,7 @@
 			"Sunpriat",
 			"Tanzun",
 			"Thothsum",
+			"Ukhant Erdemt",
 			"Александр Сигачёв",
 			"З. ӘЙЛЕ"
 		]
@@ -88,5 +89,7 @@
 	"empty-language-selector-body": "Содержимое страницы недоступно на других языках.",
 	"vector-toc-unpinned-popup": "Содержание перенесено сюда.",
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
-	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда."
+	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
+	"vector-readability-survey-fontSize": "Размер кегля",
+	"vector-readability-survey-paragraphSpacing": "Интервал между параграфами"
 }

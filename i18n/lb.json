@@ -69,5 +69,10 @@
 	"empty-language-selector-body": "Inhalter vun der Säit ginn an anere Sproochen net ënnerstëtzt.",
 	"vector-toc-unpinned-popup": "D'Inhaltsverzeechnes gouf heihi geréckelt.",
 	"vector-page-tools-unpinned-popup": "De Menü vun der Geschierkëscht gouf heihi geréckelt.",
-	"vector-main-menu-unpinned-popup": "Den Haaptmenü gouf hei hi geréckelt."
+	"vector-main-menu-unpinned-popup": "Den Haaptmenü gouf hei hi geréckelt.",
+	"vector-readability-survey-fontSize": "Schrëftgréisst",
+	"vector-readability-survey-lineHeight": "Zeilenhéicht",
+	"vector-readability-survey-paragraphSpacing": "Ofstand tëscht den Abschnitter",
+	"vector-readability-survey-randomize": "zoufälleg",
+	"vector-readability-survey-reset": "zrécksetzen"
 }

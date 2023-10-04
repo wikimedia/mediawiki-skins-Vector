@@ -75,5 +75,14 @@
 	"empty-language-selector-body": "Os contidos da páxina non están dispoñibles noutras linguas.",
 	"vector-toc-unpinned-popup": "O índice trasladouse aquí.",
 	"vector-page-tools-unpinned-popup": "O menú de ferramentas trasladouse aquí.",
-	"vector-main-menu-unpinned-popup": "O menú principal trasladouse aquí."
+	"vector-main-menu-unpinned-popup": "O menú principal trasladouse aquí.",
+	"vector-readability-survey-title": "Ferramenta de lectura da Wikimedia",
+	"vector-readability-survey-description": "Como cres que está mellor o texto da Wikipedia? Usa os controis deslizantes inferiores para axustar a aparencia. Máis información sobre o [[metawiki:Reading/Web/Accessibility for reading|proxecto de accesibilidade para a lectura]].",
+	"vector-readability-survey-fontSize": "Tamaño da letra",
+	"vector-readability-survey-lineHeight": "Altura da liña",
+	"vector-readability-survey-paragraphSpacing": "Espazado dos parágrafos",
+	"vector-readability-survey-optout": "Preme en \"continuar\" para enviarnos o teu deseño e publicar os teus comentarios na seguinte páxina. [[#close-vector-survey|Eliminar esta ferramenta]].",
+	"vector-readability-survey-randomize": "aleatorizar",
+	"vector-readability-survey-reset": "restablecer",
+	"vector-readability-survey-share": "continuar"
 }

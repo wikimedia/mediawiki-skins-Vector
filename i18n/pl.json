@@ -81,5 +81,14 @@
 	"empty-language-selector-body": "Treść strony nie jest dostępna w innych językach.",
 	"vector-toc-unpinned-popup": "Spis treści został przeniesiony tutaj.",
 	"vector-page-tools-unpinned-popup": "Menu z narzędziami zostało przeniesione tutaj.",
-	"vector-main-menu-unpinned-popup": "Główne menu zostało przeniesione tutaj."
+	"vector-main-menu-unpinned-popup": "Główne menu zostało przeniesione tutaj.",
+	"vector-readability-survey-title": "Narzędzie czytania na Wikimedii",
+	"vector-readability-survey-description": "Jak twoim zdaniem najlepiej wygląda tekst na Wikipedii? Użyj suwaków niżej, aby dostosować wygląd strony.\nDowiedz się więcej o [[metawiki:Reading/Web/Accessibility for reading|projekcie przystępnego tekstu]].",
+	"vector-readability-survey-fontSize": "Rozmiar czcionki",
+	"vector-readability-survey-lineHeight": "Wysokość linii",
+	"vector-readability-survey-paragraphSpacing": "Odstępy między akapitami",
+	"vector-readability-survey-optout": "Wciśnij „Kontynuuj”, aby wysłać nam swój design i opublikować feedback na następnej stronie. Kliknij [[#close-vector-survey|tutaj]], aby zamknąć to narzędzie.",
+	"vector-readability-survey-randomize": "losuj",
+	"vector-readability-survey-reset": "resetuj",
+	"vector-readability-survey-share": "kontynuuj"
 }
