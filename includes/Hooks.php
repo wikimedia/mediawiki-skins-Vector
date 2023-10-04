@@ -11,6 +11,7 @@ use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
+use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use OutputPage;
 use RuntimeException;
 use SkinTemplate;
@@ -101,10 +102,8 @@ class Hooks implements
 				VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() )
 		];
 
-		MediaWikiServices::getInstance()->getHookContainer()->run(
-			'VectorSearchResourceLoaderConfig',
-			[ &$vectorSearchConfig ]
-		);
+		$hookRunner = new HookRunner( MediaWikiServices::getInstance()->getHookContainer() );
+		$hookRunner->onVectorSearchResourceLoaderConfig( $vectorSearchConfig );
 
 		return array_merge( $config->get( 'VectorWvuiSearchOptions' ), $vectorSearchConfig );
 	}
