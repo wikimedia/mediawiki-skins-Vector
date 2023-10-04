@@ -93,6 +93,7 @@ module.exports = exports = {
 				[ 'preloadparams[]', this.lineHeight ],
 				[ 'preloadparams[]', this.verticalMargins ],
 				[ 'preloadparams[]', window.location.href ],
+				[ 'preloadparams[]', `${window.innerWidth} x ${window.innerHeight}` ],
 				[ 'preloadtitle', ( mw.user.getName() ) ? 'User: ' + mw.user.getName() : '' ]
 			] );
 			return "https://www.mediawiki.org/wiki/Reading/Web/Accessibility_for_reading/Community_Prototype_Testing/Feedback?" + feedbackUrlParams.toString();
