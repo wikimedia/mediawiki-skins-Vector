@@ -1,4 +1,4 @@
-@import '../resources/common/variables.less';
+@import 'mediawiki.skin.variables.less';
 
 .mixin-notification-badge() {
 	position: relative;
@@ -12,8 +12,8 @@
 		position: absolute;
 		left: 55%;
 		top: 43%;
-		font-size: unit( 12 / @font-size-browser, rem );
-		padding: 0 unit( 4 / @font-size-browser, rem );
+		font-size: unit( ( 12 / 16 ) * @font-size-base, rem );
+		padding: 0 unit( ( 4 / 16 ) * @font-size-base, rem );
 		border: 1px solid #fff;
 		border-radius: @border-radius-base;
 		background-color: #72777d;
