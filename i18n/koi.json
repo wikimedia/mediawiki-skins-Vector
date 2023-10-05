@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Enye Lav",
-			"Merrahtar"
+			"Merrahtar",
+			"Римма"
 		]
 	},
 	"vector-languages": "Кыввез",
 	"vector-action-delete": "Чышкыны",
-	"vector-view-view": "Лыддьöтны"
+	"vector-view-view": "Лыддьöтны",
+	"vector-readability-survey-optout": "Личкӧ одзлань,медбы ыстыны миянлӧ ассиныт дизайн и пыртны донтан гижӧт мӧд листбок вылӧ[ [ #пӧднавны векторнӧй снимайтӧм|Чышкыны этӧ инструментсӧ] ]"
 }

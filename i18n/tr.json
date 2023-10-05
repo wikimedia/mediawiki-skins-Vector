@@ -89,5 +89,10 @@
 	"empty-language-selector-body": "Sayfa içeriği diğer dillerde desteklenmemektedir.",
 	"vector-toc-unpinned-popup": "İçindekiler buraya taşındı.",
 	"vector-page-tools-unpinned-popup": "Araçlar menüsü buraya taşındı.",
-	"vector-main-menu-unpinned-popup": "Ana menü buraya taşındı."
+	"vector-main-menu-unpinned-popup": "Ana menü buraya taşındı.",
+	"vector-readability-survey-title": "Wikimedia okuma aracı",
+	"vector-readability-survey-fontSize": "Yazı tipi boyutu",
+	"vector-readability-survey-lineHeight": "Satır yüksekliği",
+	"vector-readability-survey-reset": "sıfırla",
+	"vector-readability-survey-share": "devam et"
 }

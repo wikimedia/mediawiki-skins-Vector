@@ -87,7 +87,7 @@
 	"vector-readability-survey-fontSize": "Rozmiar czcionki",
 	"vector-readability-survey-lineHeight": "Wysokość linii",
 	"vector-readability-survey-paragraphSpacing": "Odstępy między akapitami",
-	"vector-readability-survey-optout": "Wciśnij „Kontynuuj”, aby wysłać nam swój design i opublikować feedback na następnej stronie. Kliknij [[#close-vector-survey|tutaj]], aby zamknąć to narzędzie.",
+	"vector-readability-survey-optout": "Wciśnij „Kontynuuj”, aby wysłać nam swój design i opublikować feedback na następnej stronie. [[#close-vector-survey|Zamknij to narzędzie]].",
 	"vector-readability-survey-randomize": "losuj",
 	"vector-readability-survey-reset": "resetuj",
 	"vector-readability-survey-share": "kontynuuj"

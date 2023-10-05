@@ -72,5 +72,8 @@
 	"empty-language-selector-body": "Садржај странице није подржан на другим језицима",
 	"vector-toc-unpinned-popup": "Садржај је премештен овде.",
 	"vector-page-tools-unpinned-popup": "Мени са алаткама је премештен овде.",
-	"vector-main-menu-unpinned-popup": "Главни мени је премештен овде."
+	"vector-main-menu-unpinned-popup": "Главни мени је премештен овде.",
+	"vector-readability-survey-fontSize": "Величина фонта",
+	"vector-readability-survey-reset": "ресетуј",
+	"vector-readability-survey-share": "настави"
 }

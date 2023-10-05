@@ -29,6 +29,7 @@
 			"Wzl19371",
 			"Xiaomingyan",
 			"Xiplus",
+			"Xyb",
 			"Xzonn",
 			"Yfdyh000",
 			"Yining Chen",
@@ -98,5 +99,11 @@
 	"empty-language-selector-body": "页面内容不支持其他语言。",
 	"vector-toc-unpinned-popup": "目录已移至此处。",
 	"vector-page-tools-unpinned-popup": "工具菜单已移至此处。",
-	"vector-main-menu-unpinned-popup": "主菜单已移至此处。"
+	"vector-main-menu-unpinned-popup": "主菜单已移至此处。",
+	"vector-readability-survey-title": "维基媒体阅读工具",
+	"vector-readability-survey-fontSize": "字体大小",
+	"vector-readability-survey-lineHeight": "行高",
+	"vector-readability-survey-paragraphSpacing": "段落间距",
+	"vector-readability-survey-reset": "重置",
+	"vector-readability-survey-share": "继续"
 }

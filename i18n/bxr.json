@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bjargal",
-			"Elvonudinium"
+			"Elvonudinium",
+			"Баир Балданов"
 		]
 	},
 	"vector-action-addsection": "Һэдэб нэмэхэ",
@@ -12,5 +13,7 @@
 	"vector-view-edit": "Заһабарилха",
 	"vector-view-history": "Түүхые хараха",
 	"vector-view-view": "Уншаха",
-	"vector-view-viewsource": "эшэ үндэһэндэнь хандаха"
+	"vector-view-viewsource": "эшэ үндэһэндэнь хандаха",
+	"vector-more-actions": "Үшөө",
+	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бэшэгдэнхэй хуудаһануудые бэдэрэлгэ"
 }
