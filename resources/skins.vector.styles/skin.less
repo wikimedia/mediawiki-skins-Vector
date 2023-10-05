@@ -2,8 +2,8 @@
  * Vector modern stylesheets
  * See '../common/common.less' for common screen and print Vector stylesheets.
  */
-@import '../common/variables.less';
-@import '../common/mixins.less';
+@import './variables.less';
+@import './mixins.less';
 
 @media screen {
 	.vector-feature-zebra-design-disabled {
@@ -25,12 +25,17 @@
 }
 
 @media screen {
+	// Common styles
+	@import './normalize.less';
+	@import './typography.less';
+
 	// Components
 	@import './components/Button.less';
 	@import './components/LanguageDropdown.less';
 	@import './components/UserLinks.less';
 	@import './components/Header.less';
 	@import './components/Icon.less';
+	@import './components/Indicators.less';
 	@import './components/Footer.less';
 	@import './components/Menu.less';
 	@import './components/MenuTabs.less';
@@ -38,6 +43,7 @@
 	@import './components/PageToolbar.less';
 	@import './components/PopupNotification.less';
 	@import './components/SearchBox.less';
+	@import './components/SiteNotice.less';
 	@import './components/Watchstar.less';
 	@import './components/BottomDock.less';
 }
@@ -48,6 +54,7 @@
 }
 
 @media print {
+	@import './print.less';
 	@import './layouts/print.less';
 }
 
