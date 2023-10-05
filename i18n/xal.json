@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Huuchin"
+			"Huuchin",
+			"Ukhant Erdemt"
 		]
 	},
+	"vector-languages": "Келмүд",
+	"vector-language-button-label": "{{PLURAL:$1|$1 келн|$1 келмүд}}",
+	"vector-no-language-button-label": "Кел немх",
 	"vector-action-addsection": "Төриг немх",
 	"vector-action-delete": "Һарһх",
 	"vector-action-move": "Көндәх",
@@ -16,5 +20,11 @@
 	"vector-view-history": "Тууҗин хәләвр",
 	"vector-view-view": "Умшлһн",
 	"vector-view-viewsource": "Темдгллһнә хәләвр",
-	"vector-more-actions": "Нань"
+	"vector-more-actions": "Нань",
+	"vector-searchsuggest-containing": "Аһулсн халхсиг хәәх <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Аһулһ",
+	"vector-toc-beginning": "Эклц",
+	"vector-page-tools-label": "Кергсл",
+	"vector-page-tools-general-label": "Йирңкә",
+	"vector-unpin-element-label": "Бултулх"
 }
