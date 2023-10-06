@@ -78,11 +78,11 @@
 	"vector-page-tools-unpinned-popup": "Алатникот е преместен овде.",
 	"vector-main-menu-unpinned-popup": "Главното мени е преместено овде.",
 	"vector-readability-survey-title": "Алатка за читање на Викимедија",
-	"vector-readability-survey-description": "Каков текст ви изгледа најдобро на Викимедија? Послужете се со лизгачите подолу за да го прилагодите изгледот. Дознајте повеќе за [[metawiki:Reading/Web/Accessibility for reading|проектот за достапност при читање]].",
+	"vector-readability-survey-description": "Каков текст ви изгледа најдобро на Викимедија? Послужете се со лизгачите подолу за да го прилагодите изгледот. Дознајте повеќе за [[mw:Special\n:MyLanguage/Reading/Web/Accessibility for reading|проектот за достапност при читање]].",
 	"vector-readability-survey-fontSize": "Големина на фонтот",
 	"vector-readability-survey-lineHeight": "Висина на редот",
 	"vector-readability-survey-paragraphSpacing": "Растојание на пасусите",
-	"vector-readability-survey-optout": "Стиснете на „продолжи“ за да го испратите вашето обликување и објавете го мислењето на следната страница. Стиснете [[#close-vector-survey|тука]] за да ја отстраните оваа алатка.",
+	"vector-readability-survey-optout": "Стиснете на „продолжи“ за да го испратите вашето обликување и објавете го мислењето на следната страница. [[#close-vector-survey|Отстранете ја алаткава]].",
 	"vector-readability-survey-randomize": "дај произволно",
 	"vector-readability-survey-reset": "одново",
 	"vector-readability-survey-share": "продолжи"

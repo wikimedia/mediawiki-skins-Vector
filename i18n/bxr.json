@@ -6,6 +6,7 @@
 			"Баир Балданов"
 		]
 	},
+	"vector-no-language-button-label": "Хэлэнүүдые нэмэхэ",
 	"vector-action-addsection": "Һэдэб нэмэхэ",
 	"vector-action-delete": "Усадхаха",
 	"vector-action-move": "Зөөхэ",
@@ -15,5 +16,7 @@
 	"vector-view-view": "Уншаха",
 	"vector-view-viewsource": "эшэ үндэһэндэнь хандаха",
 	"vector-more-actions": "Үшөө",
-	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бэшэгдэнхэй хуудаһануудые бэдэрэлгэ"
+	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бэшэгдэнхэй хуудаһануудые бэдэрэлгэ",
+	"vector-page-tools-label": "Зэбсэг",
+	"vector-page-tools-general-label": "Хамтын"
 }
