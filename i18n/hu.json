@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bdamokos",
+			"Bean49",
 			"Dani",
 			"Dj",
 			"Hanna Tardos",
@@ -25,7 +26,7 @@
 	"vector-language-button-label": "$1 nyelv",
 	"vector-no-language-button-label": "Nyelvek hozzáadása",
 	"vector-no-language-button-aria-label": "Ez a szócikk nem érhető el más nyelven. Szócikkek hozzáadása más nyelveken",
-	"vector-language-redirect-to-top": "Ezen a {{SITENAME}} oldalon a nyelvközi hivatkozások a lap tetején, a címmel átellenben találhatók. [[#p-lang-btn|Ugrás a tetejére.]]",
+	"vector-language-redirect-to-top": "A nyelvközi hivatkozások a lap tetején, a címmel átellenben találhatók.",
 	"vector-language-variant-switcher-label": "Nyelvvariáns váltása",
 	"vector-action-addsection": "Új téma nyitása",
 	"vector-action-delete": "Törlés",

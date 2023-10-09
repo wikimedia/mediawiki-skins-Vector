@@ -85,5 +85,14 @@
 	"empty-language-selector-body": "পাতাটির বিষয়বস্তু অন্যান্য ভাষায় নেই।",
 	"vector-toc-unpinned-popup": "সূচিপত্র এখানে স্থানান্তরিত হয়েছে।",
 	"vector-page-tools-unpinned-popup": "সরঞ্জামের মেনু এখানে স্থানান্তরিত হয়েছে।",
-	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।"
+	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।",
+	"vector-readability-survey-title": "উইকিমিডিয়া পঠন সরঞ্জাম",
+	"vector-readability-survey-description": "উইকিপিডিয়ার কোন রূপের পাঠ্যটি আপনার সবচেয়ে ভালো লাগে? অবয়ব সামঞ্জস্য করতে নিচের স্লাইডার ব্যবহার করুন। [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|পঠন অভিগম্যতা প্রকল্প]] সম্পর্কে আরও জানুন।",
+	"vector-readability-survey-fontSize": "ফন্টের আকার",
+	"vector-readability-survey-lineHeight": "লাইনের উচ্চতা",
+	"vector-readability-survey-paragraphSpacing": "অনুচ্ছেদের মাঝে ব্যবধান",
+	"vector-readability-survey-optout": "আমাদের আপনার নকশা পাঠাতে অগ্রসর হোন ক্লিক করুন ও পরবর্তী পাতায় আপনার মতামত প্রকাশ করুন। [[#close-vector-survey|এই সরঞ্জামটি সরান]]।",
+	"vector-readability-survey-randomize": "অজানাক্রমে",
+	"vector-readability-survey-reset": "পুনঃস্থাপন করুন",
+	"vector-readability-survey-share": "অগ্রসর হোন"
 }
