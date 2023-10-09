@@ -2,19 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Sebranik",
-			"Игорь Бродский"
+			"Игорь Бродский",
+			"Лариса Чиркова"
 		]
 	},
 	"vector-action-addsection": "Ližada tem",
-	"vector-action-delete": "Čuta poiš",
-	"vector-action-move": "Udesnimitada",
-	"vector-action-protect": "Kaita",
+	"vector-action-delete": "Heitä",
+	"vector-action-move": "Sirdä",
+	"vector-action-protect": "Kaiče",
 	"vector-action-undelete": "Pördutada",
 	"vector-action-unprotect": "Toižetada kaičend",
-	"vector-view-create": "Säta",
+	"vector-view-create": "Tehta",
 	"vector-view-edit": "Redaktiruida",
-	"vector-view-history": "Kacta istorii",
+	"vector-view-history": "Istorijan kacund",
 	"vector-view-view": "Lugeda",
 	"vector-view-viewsource": "Kacta purtkehe",
-	"vector-more-actions": "Völ"
+	"vector-more-actions": "Enamba"
 }

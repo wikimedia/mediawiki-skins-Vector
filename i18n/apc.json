@@ -4,5 +4,11 @@
 			"FunLater"
 		]
 	},
-	"vector-action-addsection": "زيد موضوع"
+	"vector-action-addsection": "زيد موضوع",
+	"vector-action-delete": "حذف",
+	"vector-action-move": "غيّر الإسم",
+	"vector-action-protect": "حمي",
+	"vector-view-create": "عمول",
+	"vector-view-history": "تاريخ",
+	"vector-more-actions": "أكتر"
 }

@@ -9,7 +9,9 @@
 		]
 	},
 	"vector-action-addsection": "Содтыны тема",
+	"vector-action-delete": "Бырӧдны",
 	"vector-action-move": "Ним вежны",
+	"vector-action-protect": "Дорйыны",
 	"vector-view-create": "Лӧсьӧдны",
 	"vector-view-edit": "Вежны",
 	"vector-view-history": "История",
