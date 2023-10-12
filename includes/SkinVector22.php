@@ -200,6 +200,23 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
+	 * Check whether Visual Editor Tab Position is first
+	 *
+	 * @param array $dataViews
+	 * @return bool
+	 */
+	final protected function isVisualEditorTabPositionFirst( $dataViews ): bool {
+		$names = [ 've-edit', 'edit' ];
+		// find if under key 'name' 've-edit' or 'edit' is the before item in the array
+		for ( $i = 0; $i < count( $dataViews[ 'array-items' ] ); $i++ ) {
+			if ( in_array( $dataViews[ 'array-items' ][ $i ][ 'name' ], $names ) ) {
+				return $dataViews[ 'array-items' ][ $i ][ 'name' ] === $names[ 0 ];
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Show the ULS button if it's modern Vector, languages in header is enabled,
 	 * the ULS extension is enabled, and we are on a subect page. Hide it otherwise.
 	 * There is no point in showing the language button if ULS extension is unavailable
@@ -506,7 +523,7 @@ class SkinVector22 extends SkinMustache {
 						],
 						'quiet',
 					) : null,
-				true
+				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] )
 			) : null,
 			'data-vector-settings-button' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_CLIENT_PREFERENCES,
