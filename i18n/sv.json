@@ -9,7 +9,8 @@
 			"Sabelöga",
 			"Skalman",
 			"Sturban",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"JohanahoJ"
 		]
 	},
 	"skinname-vector": "Vector, äldre (2010)",
@@ -49,7 +50,7 @@
 	"vector-toc-label": "Innehåll",
 	"vector-toc-beginning": "Inledning",
 	"vector-toc-toggle-button-label": "Växla underavsnittet $1",
-	"vector-anon-user-menu-pages": "Sidor för utloggade redigerade",
+	"vector-anon-user-menu-pages": "Sidor för utloggade redigerare",
 	"vector-anon-user-menu-pages-learn": "läs mer",
 	"vector-anon-user-menu-pages-label": "Läs mer om redigering",
 	"vector-main-menu-tooltip": "Huvudmeny",

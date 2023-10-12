@@ -3,11 +3,12 @@
 		"authors": [
 			"Amire80",
 			"Huuchin",
-			"Ukhant Erdemt"
+			"Ukhant Erdemt",
+			"Алия"
 		]
 	},
 	"vector-languages": "Келмүд",
-	"vector-language-button-label": "{{PLURAL:$1|$1 келн|$1 келмүд}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 келәр}}",
 	"vector-no-language-button-label": "Кел немх",
 	"vector-action-addsection": "Төриг немх",
 	"vector-action-delete": "Һарһх",
@@ -21,8 +22,8 @@
 	"vector-view-view": "Умшлһн",
 	"vector-view-viewsource": "Темдгллһнә хәләвр",
 	"vector-more-actions": "Нань",
-	"vector-searchsuggest-containing": "Аһулсн халхсиг хәәх <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-label": "Аһулһ",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бичвриг аһулсн халхиг хәәх",
+	"vector-toc-label": "Һарчг",
 	"vector-toc-beginning": "Эклц",
 	"vector-page-tools-label": "Кергсл",
 	"vector-page-tools-general-label": "Йирңкә",
