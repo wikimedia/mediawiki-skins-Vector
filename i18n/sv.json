@@ -81,5 +81,11 @@
 	"empty-language-selector-body": "Sidans innehåll stöds inte på andra språk.",
 	"vector-toc-unpinned-popup": "Innehållsförteckningen har flyttats hit.",
 	"vector-page-tools-unpinned-popup": "Verktygsmenyn har flyttats hit.",
-	"vector-main-menu-unpinned-popup": "Huvudmenyn har flyttats hit."
+	"vector-main-menu-unpinned-popup": "Huvudmenyn har flyttats hit.",
+	"vector-readability-survey-fontSize": "Teckenstorlek",
+	"vector-readability-survey-lineHeight": "Radavstånd",
+	"vector-readability-survey-paragraphSpacing": "Styckeavstånd",
+	"vector-readability-survey-randomize": "slumpa",
+	"vector-readability-survey-reset": "återställ",
+	"vector-readability-survey-share": "fortsätt"
 }
