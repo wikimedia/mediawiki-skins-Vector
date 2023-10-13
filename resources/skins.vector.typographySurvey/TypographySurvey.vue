@@ -5,15 +5,15 @@
 		</summary>
 		<p v-i18n-html:vector-readability-survey-description></p>
 		<div class="reading-survey__options">
-			<label>Font size:</label>
+			<label>{{ $i18n( 'vector-readability-survey-fontSize' ).text() }}</label>
 			<input v-model="fontSize" type="range" min="12" max="24">
 			<span> {{ fontSize }} </span>
 
-			<label>Line height:</label>
+			<label>{{ $i18n( 'vector-readability-survey-lineHeight' ).text() }}</label>
 			<input v-model="lineHeight" type="range" min="16" max="42" step="1">
 			<span> {{ lineHeight }} </span>
 
-			<label>Paragraph spacing:</label>
+			<label>{{ $i18n( 'vector-readability-survey-paragraphSpacing' ).text() }}</label>
 			<input v-model="verticalMargins" type="range" min="6" max="36" step="1">
 			<span> {{ verticalMargins }} </span>
 		</div>

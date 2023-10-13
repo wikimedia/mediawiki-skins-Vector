@@ -659,6 +659,13 @@
 				"logged_out": false
 			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
+		},
+		"VectorTypographySurvey": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var boolean Temporary feature flag to enable a survey tool to gather feedback for typography changes in Vector. Note the user preference `vector-typography-survey` must also be set for the tool to be displayed."
 		}
 	},
 	"ServiceWiringFiles": [

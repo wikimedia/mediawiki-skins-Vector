@@ -331,9 +331,17 @@ return [
 				$context->getUser(),
 				$services->getUserOptionsLookup(),
 				Constants::PREF_KEY_TYPOGRAPHY_SURVEY,
-				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY,
+				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY_PREFERENCE,
 				$request,
 				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerRequirement(
+			new DynamicConfigRequirement(
+				$services->getMainConfig(),
+				Constants::TYPOGRAPHY_SURVEY_CONFIG_KEY,
+				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY_CONFIG
 			)
 		);
 
@@ -341,7 +349,8 @@ return [
 			Constants::FEATURE_TYPOGRAPHY_SURVEY,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY
+				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY_PREFERENCE,
+				Constants::REQUIREMENT_TYPOGRAPHY_SURVEY_CONFIG
 			]
 		);
 
