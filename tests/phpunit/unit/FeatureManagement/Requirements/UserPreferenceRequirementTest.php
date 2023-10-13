@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 
+use FauxRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
@@ -85,6 +86,7 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 	) {
 		$user = $this->createMock( User::class );
 		$title = $isTitlePresent ? $this->createMock( Title::class ) : null;
+		$request = new FauxRequest();
 
 		$userOptionsLookup = $this->createMock( UserOptionsLookup::class );
 		$userOptionsLookup->method( 'getOption' )->willReturn( $isEnabled );
@@ -94,6 +96,7 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 			$userOptionsLookup,
 			'userOption',
 			'userRequirement',
+			$request,
 			$title
 		);
 

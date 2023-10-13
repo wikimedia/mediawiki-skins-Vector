@@ -25,6 +25,7 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use User;
+use WebRequest;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
@@ -57,6 +58,11 @@ final class UserPreferenceRequirement implements Requirement {
 	private $title;
 
 	/**
+	 * @var OverrideableRequirementHelper
+	 */
+	private $helper;
+
+	/**
 	 * This constructor accepts all dependencies needed to determine whether
 	 * the overridable config is enabled for the current user and request.
 	 *
@@ -64,6 +70,7 @@ final class UserPreferenceRequirement implements Requirement {
 	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param string $optionName The name of the user preference.
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
+	 * @param WebRequest $request
 	 * @param Title|null $title
 	 */
 	public function __construct(
@@ -71,6 +78,7 @@ final class UserPreferenceRequirement implements Requirement {
 		UserOptionsLookup $userOptionsLookup,
 		string $optionName,
 		string $requirementName,
+		WebRequest $request,
 		$title = null
 	) {
 		$this->user = $user;
@@ -78,6 +86,7 @@ final class UserPreferenceRequirement implements Requirement {
 		$this->optionName = $optionName;
 		$this->requirementName = $requirementName;
 		$this->title = $title;
+		$this->helper = new OverrideableRequirementHelper( $request, $requirementName );
 	}
 
 	/**
@@ -113,6 +122,7 @@ final class UserPreferenceRequirement implements Requirement {
 	 * @inheritDoc
 	 */
 	public function isMet(): bool {
-		return $this->isPreferenceEnabled();
+		$override = $this->helper->isMet();
+		return $override ?? $this->isPreferenceEnabled();
 	}
 }
