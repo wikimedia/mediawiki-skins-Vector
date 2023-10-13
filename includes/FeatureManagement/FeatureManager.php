@@ -141,13 +141,10 @@ class FeatureManager {
 			// Client side preferences
 			switch ( $featureClass ) {
 				case 'toc-pinned':
+				case 'custom-font-size':
 				case 'limited-width':
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
-					break;
-				case 'custom-font-size':
-					$suffixEnabled = 'clientpref-enabled';
-					$suffixDisabled = 'clientpref-disabled';
 					break;
 				default:
 					// FIXME: Eventually this should not be necessary.
