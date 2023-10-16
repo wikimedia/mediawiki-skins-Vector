@@ -3,15 +3,17 @@
 		"authors": [
 			"Bjargal",
 			"Elvonudinium",
-			"Баир Балданов"
+			"Баир Балданов",
+			"Туяна Балданова"
 		]
 	},
-	"vector-action-addsection": "Һэдэб нэмэхэ",
+	"vector-action-addsection": "Сэдэб нэмэхэ",
 	"vector-action-delete": "Усадхаха",
-	"vector-action-move": "Зөөхэ",
-	"vector-view-create": "Үүдхэхэ",
+	"vector-action-move": "Ондоо нэрэ үгэхэ",
+	"vector-action-protect": "Хамгаалха",
+	"vector-view-create": "Зохёохо",
 	"vector-view-edit": "Заһабарилха",
-	"vector-view-history": "Түүхые хараха",
+	"vector-view-history": "Түүхэ",
 	"vector-view-view": "Уншаха",
 	"vector-view-viewsource": "эшэ үндэһэндэнь хандаха",
 	"vector-more-actions": "Үшөө"
