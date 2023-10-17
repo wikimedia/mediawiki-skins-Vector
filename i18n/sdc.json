@@ -6,6 +6,7 @@
 			"Jun Misugi"
 		]
 	},
+	"vector-languages": "Linghi",
 	"vector-language-button-label": "{{PLURAL:$1|$1 linga|$1 linghi}}",
 	"vector-action-addsection": "Aggiungì oggettu",
 	"vector-action-delete": "Canzella",
