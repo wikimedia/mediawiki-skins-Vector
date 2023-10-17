@@ -283,7 +283,17 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const REQUIREMENT_TYPOGRAPHY_SURVEY = 'TypographySurvey';
+	public const REQUIREMENT_TYPOGRAPHY_SURVEY_PREFERENCE = 'TypographySurvey';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_TYPOGRAPHY_SURVEY_CONFIG = 'TypographySurveyConfigRequirement';
+
+	/**
+	 * @var string
+	 */
+	public const TYPOGRAPHY_SURVEY_CONFIG_KEY = 'VectorTypographySurvey';
 
 	/**
 	 * @var string
