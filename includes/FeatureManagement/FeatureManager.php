@@ -22,7 +22,9 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
+use RequestContext;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -128,6 +130,26 @@ class FeatureManager {
 	}
 
 	/**
+	 * Gets font size user's preference value
+	 *
+	 * If user preference is not set or did not appear in config
+	 * set it to default value we go back to defualt suffix value 1
+	 * that will ensure that the feature will be enabled when requirements are met
+	 *
+	 * @return string
+	 */
+	public function getFontValueFromUserPreferenceForSuffix() {
+		$user = RequestContext::getMain()->getUser();
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		return $userOptionsLookup->getOption(
+			$user,
+			'vector-font-size'
+			// This should be the same as `preferenceKey` in clientPreferences config
+			// 'resources/skins.vector.clientPreferences/config.json'
+		);
+	}
+
+	/**
 	 * Return a list of classes that should be added to the body tag
 	 *
 	 * @return array
@@ -140,9 +162,12 @@ class FeatureManager {
 
 			// Client side preferences
 			switch ( $featureClass ) {
-				case 'toc-pinned':
 				case 'custom-font-size':
+					$suffixEnabled = 'clientpref-' . $featureManager->getFontValueFromUserPreferenceForSuffix();
+					$suffixDisabled = 'clientpref-0';
+					break;
 				case 'limited-width':
+				case 'toc-pinned':
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
 					break;
