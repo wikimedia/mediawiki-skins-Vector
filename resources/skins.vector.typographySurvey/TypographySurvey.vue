@@ -88,7 +88,7 @@ module.exports = exports = {
 			const feedbackUrlParams = new URLSearchParams( [
 				[ 'action', 'submit' ],
 				[ 'section', 'new' ],
-				[ 'preload', 'Reading/Web/Accessibility_for_reading/Community_Prototype_Testing/preload' ],
+				[ 'preload', 'Special:MyLanguage/Reading/Web/Accessibility_for_reading/Community_Prototype_Testing/preload' ],
 				[ 'preloadparams[]', this.fontSize ],
 				[ 'preloadparams[]', this.lineHeight ],
 				[ 'preloadparams[]', this.verticalMargins ],
