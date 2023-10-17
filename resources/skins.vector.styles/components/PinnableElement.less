@@ -8,24 +8,3 @@
 		padding-right: 0;
 	}
 }
-
-/**
- * At lower resolutions, we want to hide the pinned containers when JS is enabled since these
- * elements collapse (become unpinned) at this resolution via PinnableElement.js.
- * Although this is handled in JS, this rule prevents the pinned menu from
- * appearing on pageload, at low resolutions, before the JS kicks in.
- *
- * When JS is disabled, we still want to hide the pinned containers at lower resolutions
- * to fallback to the gradeC, single column layout.
- */
-@media ( max-width: @max-width-tablet ) {
-	// .client-js and .client-nojs selectors needed to increase specificity to override gradeC.less
-	// Prefered to using !important as this still needs to be overridable to handle
-	// the anon, no-js TOC case found in layouts/toc/unpinned.less
-	&.client-js,
-	&.client-nojs {
-		.vector-pinned-container {
-			display: none;
-		}
-	}
-}
