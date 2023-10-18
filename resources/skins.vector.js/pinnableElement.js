@@ -112,6 +112,7 @@ function pinnableElementClickHandler( header ) {
 		setSavedPinnableState( header );
 		const newContainerId = isPinnedElement ? pinnedContainerId : unpinnedContainerId;
 		movePinnableElement( pinnableElementId, newContainerId );
+		window.dispatchEvent( new Event( 'resize' ) );
 		setFocusAfterToggle( pinnableElementId );
 		if ( !isPinnedElement ) {
 			addPinnableElementIndicator( pinnableElementId );
