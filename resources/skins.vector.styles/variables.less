@@ -76,7 +76,6 @@
 @line-height-nav-personal: unit( 14 / @font-size-browser / @font-size-nav-personal ); // Equals `1.667`.
 
 // Tabs
-@font-size-tabs: unit( 13 / @font-size-browser, em ); // Equals `0.8125em`.
 @padding-horizontal-tabs: 8px;
 @padding-top-tabs: 12px;
 @padding-vertical-tabs: @padding-top-tabs 0 7px 0;
@@ -103,7 +102,7 @@
 
 // TOC
 @spacing-subsection-toggle: 22px; // @size-toc-subsection-toggle-icon @ 12
-@size-toc-subsection-toggle-icon: 1.834em;
+@size-toc-subsection-toggle-icon: unit( @font-size-large, rem);
 // Add the top padding of .mw-body element to @margin-top-pinned-page-tools
 // since it starts higher on the page.
 @margin-top-pinned-toc: @margin-top-pinned-page-tools + @padding-top-content;

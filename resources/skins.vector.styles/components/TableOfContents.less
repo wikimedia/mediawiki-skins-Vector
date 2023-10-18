@@ -29,13 +29,10 @@
 		display: none;
 		position: absolute;
 		top: 1px; // visually center icon
-		left: ~'calc( -1 * @{size-toc-subsection-toggle-icon} - 1px )'; // leaves 6px between icon + text
-		font-size: 0.75em; // reduces size of toggle icon to 12px @ 16
+		left: -@spacing-subsection-toggle; // leaves 6px between icon + text
 		transition: @transition-duration-base;
 		color: transparent;
 		cursor: pointer;
-		// Vertically center the icon with the text
-		margin-top: 2px;
 		// Reset <button> default browser styles
 		border: 0;
 		background: none;

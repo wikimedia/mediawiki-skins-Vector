@@ -14,14 +14,6 @@
 	box-sizing: border-box;
 }
 
-// Defines the arrow beside dropdown headings.
-.mixin-vector-legacy-menu-heading-arrow {
-	content: '';
-	background: url( ../skins.vector.styles/images/arrow-down.svg ) 100% 50% no-repeat;
-	width: unit( 16 / @font-size-tabs / @font-size-browser, em );
-	height: unit( 16 / @font-size-tabs / @font-size-browser, em );
-}
-
 .mixin-vector-arrowed-dropdown-toggle() {
 	display: inline-flex;
 	align-items: center;
@@ -29,8 +21,8 @@
 	&::after {
 		content: '';
 		background: url( ../skins.vector.styles/images/arrow-down.svg ) 100% 50% no-repeat;
-		width: unit( 16 / @font-size-tabs / @font-size-browser, em );
-		height: unit( 16 / @font-size-tabs / @font-size-browser, em );
+		width: unit( 16 / @font-size-browser, rem );
+		height: unit( 16 / @font-size-browser, rem );
 		// https://phabricator.wikimedia.org/T319070#8284272
 		margin-left: -1px;
 	}
