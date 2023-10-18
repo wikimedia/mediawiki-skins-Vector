@@ -190,7 +190,8 @@
 		"MakeGlobalVariablesScript": "VectorHooks",
 		"ResourceLoaderSiteModulePages": "VectorHooks",
 		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
-		"SkinPageReadyConfig": "VectorHooks"
+		"SkinPageReadyConfig": "VectorHooks",
+		"GetBetaFeaturePreferences": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
@@ -556,7 +557,8 @@
 		"VectorClientPreferences": {
 			"value": {
 				"logged_in": false,
-				"logged_out": false
+				"logged_out": false,
+				"beta": false
 			},
 			"description": "@var array enables a client preferences interface."
 		},
@@ -658,7 +660,8 @@
 		"VectorZebraDesign": {
 			"value": {
 				"logged_in": false,
-				"logged_out": false
+				"logged_out": false,
+				"beta": false
 			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
 		},

@@ -100,5 +100,7 @@
 	"vector-readability-survey-optout": "Text to provide feedback or opt-out of typography survey",
 	"vector-readability-survey-randomize": "label for readability survey randomize button",
 	"vector-readability-survey-reset": "label for readability survey reset button",
-	"vector-readability-survey-share": "label for readability survey share button"
+	"vector-readability-survey-share": "label for readability survey share button",
+	"vector-2022-beta-preview-label": "label for beta feature preview link in beta features under special preferences",
+	"vector-2022-beta-preview-description": "label for beta feature preview description in beta features under special preferences"
 }

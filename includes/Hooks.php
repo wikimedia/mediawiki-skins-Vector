@@ -13,6 +13,7 @@ use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use OutputPage;
+use RequestContext;
 use RuntimeException;
 use SkinTemplate;
 use User;
@@ -693,5 +694,42 @@ class Hooks implements
 	 */
 	private static function isSkinVersionLegacy( $skinName ): bool {
 		return $skinName === Constants::SKIN_NAME_LEGACY;
+	}
+
+	/**
+	 * Register Vector 2022 beta feature to the beta features list
+	 *
+	 * @param User $user User the preferences are for
+	 * @param array &$betaFeatures
+	 */
+	public function onGetBetaFeaturePreferences( User $user, array &$betaFeatures ) {
+		$skinName = RequestContext::getMain()->getSkin()->getSkinName();
+		// Only Vector 2022 is supported for beta features
+		if ( $skinName !== Constants::SKIN_NAME_MODERN ) {
+			return;
+		}
+		// Only add Vector 2022 beta feature if there is at least one beta feature present in config
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$configHasBeta = false;
+		foreach ( Constants::VECTOR_BETA_FEATURES as $featureName ) {
+			if ( $config->has( $featureName ) && $config->get( $featureName )[ 'beta' ] === true ) {
+				$configHasBeta = true;
+				break;
+			}
+		}
+		if ( !$configHasBeta ) {
+			return;
+		}
+		$betaFeatures[ Constants::VECTOR_2022_BETA_KEY ] = [
+			'label-message' => 'vector-2022-beta-preview-label',
+			'desc-message' => 'vector-2022-beta-preview-description',
+			'screenshot' => [
+				// follow up work to add images is required in T349321
+				'ltr' => '',
+				'rtl' => '',
+			],
+			'info-link' => 'https://www.mediawiki.org/wiki/Skin:Vector/2022',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements',
+		];
 	}
 }
