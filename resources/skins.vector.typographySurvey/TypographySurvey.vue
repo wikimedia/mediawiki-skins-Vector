@@ -85,10 +85,13 @@ module.exports = exports = {
 	},
 	computed: {
 		feedbackUrl: function () {
+			const contentLang = mw.config.get( 'wgContentLanguage' );
+			const preloadLangSuffix = (contentLang === 'en' ) ? '' : '/' + contentLang;
+
 			const feedbackUrlParams = new URLSearchParams( [
 				[ 'action', 'submit' ],
 				[ 'section', 'new' ],
-				[ 'preload', 'Special:MyLanguage/Reading/Web/Accessibility_for_reading/Community_Prototype_Testing/preload' ],
+				[ 'preload', 'Reading/Web/Accessibility_for_reading/Community_prototype_testing/preload' + preloadLangSuffix ],
 				[ 'preloadparams[]', this.fontSize ],
 				[ 'preloadparams[]', this.lineHeight ],
 				[ 'preloadparams[]', this.verticalMargins ],
@@ -96,7 +99,7 @@ module.exports = exports = {
 				[ 'preloadparams[]', `${window.innerWidth} x ${window.innerHeight}` ],
 				[ 'preloadtitle', ( mw.user.getName() ) ? 'User: ' + mw.user.getName() : '' ]
 			] );
-			return "https://www.mediawiki.org/wiki/Reading/Web/Accessibility_for_reading/Community_Prototype_Testing/Feedback?" + feedbackUrlParams.toString();
+			return "https://www.mediawiki.org/wiki/Reading/Web/Accessibility_for_reading/Community_prototype_testing/Feedback?" + feedbackUrlParams.toString();
 		}
 	},
 	methods: {
