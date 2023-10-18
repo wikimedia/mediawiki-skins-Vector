@@ -29,7 +29,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 língua|$1 línguas}}",
 	"vector-no-language-button-label": "Adicionar línguas",
 	"vector-no-language-button-aria-label": "Este artigo só existe nesta língua. Adicione o artigo noutras línguas",
-	"vector-language-redirect-to-top": "Na wiki {{SITENAME}} as hiperligações interlínguas estão localizadas no topo da página do lado oposto ao título. [[#p-lang-btn|Ir para o topo]].",
+	"vector-language-redirect-to-top": "Na wiki {{SITENAME}} as hiperligações interlínguas estão localizadas no topo da página ao lado oposto do título.",
 	"vector-language-variant-switcher-label": "Mudar a variante da língua",
 	"vector-action-addsection": "Adicionar tópico",
 	"vector-action-delete": "Eliminar",
