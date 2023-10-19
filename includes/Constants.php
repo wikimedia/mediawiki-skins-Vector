@@ -306,6 +306,19 @@ final class Constants {
 	public const REQUIREMENT_CLIENT_PREFERENCES = 'ClientPreferences';
 
 	/**
+	 * @var string
+	 */
+	public const VECTOR_2022_BETA_KEY = 'vector-2022-beta-feature';
+
+	/**
+	 * @var array
+	 */
+	public const VECTOR_BETA_FEATURES = [
+		self::CONFIG_ZEBRA_DESIGN,
+		self::CONFIG_KEY_CLIENT_PREFERENCES,
+	];
+
+	/**
 	 * This class is for namespacing constants only. Forbid construction.
 	 * @throws FatalError
 	 * @return never
