@@ -3,7 +3,8 @@
 		"authors": [
 			"Denö",
 			"Ilja.mos",
-			"Mashoi7"
+			"Mashoi7",
+			"Ruppijeva"
 		]
 	},
 	"vector-action-addsection": "Ližiä aihe",
@@ -16,5 +17,6 @@
 	"vector-view-history": "Kačo histourii",
 	"vector-view-view": "Luve",
 	"vector-view-viewsource": "Kačo algukoodu",
-	"vector-more-actions": "Vie"
+	"vector-more-actions": "Vie",
+	"vector-searchsuggest-containing": "Eči sivuloi, kudamis on <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
