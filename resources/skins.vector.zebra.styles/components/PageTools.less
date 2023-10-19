@@ -8,14 +8,14 @@
 .vector-page-tools .vector-more-collapsible-item {
 	display: block;
 
-	@media ( min-width: @min-width-tablet ) {
+	@media ( min-width: @min-width-breakpoint-tablet ) {
 		display: none;
 	}
 }
 
 // Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
 .vector-page-tools .vector-has-collapsible-items {
-	@media ( max-width: @max-width-mobile ) {
+	@media ( max-width: @max-width-breakpoint-mobile ) {
 		display: block;
 	}
 }

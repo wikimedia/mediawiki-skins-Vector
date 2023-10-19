@@ -27,7 +27,7 @@
 }
 
 &.client-js {
-	@media ( max-width: @max-width-tablet ) {
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		//
 		// TOC in page titlebar on narrow screens
 		//
@@ -43,7 +43,7 @@
 		}
 	}
 
-	@media ( min-width: @min-width-desktop ) {
+	@media ( min-width: @min-width-breakpoint-desktop ) {
 		//
 		// TOC in page titlebar
 		//
@@ -86,7 +86,7 @@
 	//
 	// Applies simplified TOC styles to No-JS pinned TOC on narrow viewports
 	//
-	@media ( max-width: @max-width-tablet ) {
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		&.vector-feature-toc-pinned-clientpref-1 {
 			.vector-sticky-pinned-container {
 				position: static;

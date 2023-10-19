@@ -2,7 +2,7 @@
 // Grid layout
 //
 
-@media ( min-width: @min-width-desktop ) {
+@media ( min-width: @min-width-breakpoint-desktop ) {
 	.mw-page-container-inner {
 		display: grid;
 		column-gap: @grid-column-gap;
@@ -38,7 +38,7 @@
 	}
 }
 
-@media ( min-width: @min-width-desktop-wide ) {
+@media ( min-width: @min-width-breakpoint-desktop-wide ) {
 	.mw-page-container-inner {
 		grid-template-columns: @grid-template-column-desktop-wide;
 	}
@@ -84,7 +84,7 @@
 	margin-right: auto;
 }
 
-@media ( min-width: @min-width-desktop ) {
+@media ( min-width: @min-width-breakpoint-desktop ) {
 	.mw-body {
 		display: grid;
 		grid-template: ~'min-content min-content min-content 1fr / minmax(0, @{max-width-content-container}) min-content';

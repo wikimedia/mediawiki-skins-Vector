@@ -17,7 +17,7 @@
 .vector-header .cdx-button.cdx-button--icon-only {
 	// Increase padding on small viewports
 	// FIXME: Replace with Codex solution i.e. `.cdx-button--size-large`
-	@media ( max-width: @max-width-tablet ) {
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		@min-size-interactive-touch: 44px;
 		min-width: @min-size-interactive-touch;
 		min-height: @min-size-interactive-touch;
@@ -32,21 +32,21 @@
 }
 
 .vector-button-flush-left {
-	@media ( min-width: @min-width-desktop ) {
+	@media ( min-width: @min-width-breakpoint-desktop ) {
 		.cdx-mixin-button-layout-flush( 'start', true );
 	}
 
-	@media ( max-width: @max-width-tablet ) {
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		.cdx-mixin-button-layout-flush( 'start', true, 'large' );
 	}
 }
 
 .vector-button-flush-right {
-	@media ( min-width: @min-width-desktop ) {
+	@media ( min-width: @min-width-breakpoint-desktop ) {
 		.cdx-mixin-button-layout-flush( 'end', true );
 	}
 
-	@media ( max-width: @max-width-tablet ) {
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		.cdx-mixin-button-layout-flush( 'end', true, 'large' );
 	}
 }

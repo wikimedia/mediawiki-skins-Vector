@@ -2,14 +2,14 @@
 
 //
 // == Media query breakpoints ==
+// See also https://doc.wikimedia.org/codex/latest/design-tokens/breakpoint.html
 //
-@min-width-mobile: @width-breakpoint-mobile; // Above 320px
-@max-width-mobile: @width-breakpoint-tablet - 1px; // Below 719px
-@min-width-tablet: @width-breakpoint-tablet; // Above 720px
-@max-width-tablet: @width-breakpoint-desktop - 1px; // Below 999px
-@min-width-desktop: @width-breakpoint-desktop; // Above 1000px
-@max-width-desktop: @width-breakpoint-desktop-wide - 1px; // Below 1199px
-@min-width-desktop-wide: @width-breakpoint-desktop-wide; // Above 1200px
+@max-width-breakpoint-mobile: 719px;
+@min-width-breakpoint-tablet: 720px; // In contrast to Codex `640px`.
+@max-width-breakpoint-tablet: 999px;
+@min-width-breakpoint-desktop: 1000px; // In contrast to Codex `1120px`.
+@max-width-breakpoint-desktop: 1199px;
+@min-width-breakpoint-desktop-wide: 1200px; // In contrast to Codex `1680px`.
 
 // Defines the minimum viewport width, at which point the layout will not get any
 // smaller and will start horizontal scrolling instead.
