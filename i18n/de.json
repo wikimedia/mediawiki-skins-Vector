@@ -90,5 +90,7 @@
 	"vector-readability-survey-optout": "Klicke auf Weiter, um uns dein Design zu senden und dein Feedback auf der nächsten Seite zu veröffentlichen. [[#close-vector-survey|Dieses Tool entfernen]].",
 	"vector-readability-survey-randomize": "zufällig",
 	"vector-readability-survey-reset": "zurücksetzen",
-	"vector-readability-survey-share": "Fortfahren"
+	"vector-readability-survey-share": "Fortfahren",
+	"vector-2022-beta-preview-label": "Vector 2022 Beta",
+	"vector-2022-beta-preview-description": "Erhalte frühzeitig eine Vorschau auf die neuen Funktionen von Vector 2022."
 }
