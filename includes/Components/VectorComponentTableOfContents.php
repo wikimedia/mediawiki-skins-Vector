@@ -69,7 +69,7 @@ class VectorComponentTableOfContents implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$sections = $this->tocData[ 'array-sections' ] ?? [];
-		if ( empty( $sections ) ) {
+		if ( !$sections ) {
 			return [];
 		}
 		// Populate button labels for collapsible TOC sections
