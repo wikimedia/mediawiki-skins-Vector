@@ -89,8 +89,7 @@ class SkinVector22 extends SkinMustache {
 	 */
 	private function isTocAvailable(): bool {
 		$parentData = parent::getTemplateData();
-		$tocData = $parentData['data-toc'];
-		return !empty( $tocData ) && !empty( $tocData[ 'array-sections' ] );
+		return !empty( $parentData['data-toc'][ 'array-sections' ] );
 	}
 
 	/**
