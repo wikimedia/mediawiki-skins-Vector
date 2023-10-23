@@ -4,3 +4,5 @@
 /node_modules/
 /vendor/
 /coverage/
+/resources/skins.vector.legacy.js/portlets.js
+/resources/skins.vector.js/portlets.js
