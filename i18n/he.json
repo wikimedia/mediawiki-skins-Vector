@@ -86,5 +86,7 @@
 	"vector-readability-survey-optout": "יש ללחוץ על \"המשך\" כדי לשלוח לנו את העיצוב שלך ולפרסם את המשוב שלך בדף הבא. [[#close-vector-survey|הסרת הכלי הזה]].",
 	"vector-readability-survey-randomize": "סדר אקראי",
 	"vector-readability-survey-reset": "איפוס",
-	"vector-readability-survey-share": "המשך"
+	"vector-readability-survey-share": "המשך",
+	"vector-2022-beta-preview-label": "וקטור 2022 בטא",
+	"vector-2022-beta-preview-description": "בדיקה מוקדמת של תכונות חדשות של וקטור 2022."
 }

@@ -81,5 +81,7 @@
 	"vector-readability-survey-optout": "بر دکمه «ادامه»‌ کلیک کنید تا بازخورد شما در صفحه بعد منتشر شود. [[#close-vector-survey|بر این پیوند کلیک کنید تا ابزار را حذف کنید]].",
 	"vector-readability-survey-randomize": "تصادفی",
 	"vector-readability-survey-reset": "ریست",
-	"vector-readability-survey-share": "ادامه دهید"
+	"vector-readability-survey-share": "ادامه دهید",
+	"vector-2022-beta-preview-label": "وکتور ۲۰۲۲ آزمایشی",
+	"vector-2022-beta-preview-description": "پیش‌نمایش‌های زودهنگام ویژگی‌های جدید وکتور ۲۰۲۲ را دریافت کنید."
 }

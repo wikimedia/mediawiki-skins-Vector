@@ -100,5 +100,7 @@
 	"vector-readability-survey-optout": "Bir sonraki sayfada, tasarımınızı bize göndermek ve geri bildiriminizi yayımlamak için devam et'e basın. [[#close-vector-survey|Bu aracı kaldır]].",
 	"vector-readability-survey-randomize": "rastgele yap",
 	"vector-readability-survey-reset": "sıfırla",
-	"vector-readability-survey-share": "devam et"
+	"vector-readability-survey-share": "devam et",
+	"vector-2022-beta-preview-label": "Vektör 2022 beta",
+	"vector-2022-beta-preview-description": "Yeni Vektör 2022 özelliklerinin erken önizlemelerini alın."
 }

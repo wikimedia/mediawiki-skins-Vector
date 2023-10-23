@@ -2,22 +2,25 @@
 	"@metadata": {
 		"authors": [
 			"AlexandrL714",
+			"Oxianboal",
 			"Андрей Саг."
 		]
 	},
 	"vector-languages": "Тіллер",
-	"vector-language-button-label": "{{PLURAL:$1|$1 тіл}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Тiл|$1 тiллер}}",
 	"vector-no-language-button-label": "Тіллер хос саларға",
-	"vector-action-addsection": "Тема хозыбзарға",
+	"vector-action-addsection": "Тема хозыбызарға",
 	"vector-action-delete": "Тастабызарға",
 	"vector-action-move": "Адын алыстырыбызарға",
 	"vector-action-protect": "Арачилирға",
-	"vector-view-create": "Идебзерге",
+	"vector-view-create": "Идерге",
 	"vector-view-edit": "Тӱзедерге",
-	"vector-view-history": "Кӧрігтердің тархыны",
+	"vector-view-history": "Тархынны кӧрерге",
 	"vector-view-view": "Хығырарға",
 	"vector-more-actions": "Хоза",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> страницаларны тілег",
+	"vector-toc-label": "Таптырғас",
+	"vector-toc-beginning": "Пасталғаны",
 	"vector-page-tools-label": "Тиріглер",
 	"vector-page-tools-general-label": "Пір тиксі",
 	"vector-unpin-element-label": "чазырарға"

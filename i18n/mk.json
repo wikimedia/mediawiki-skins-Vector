@@ -87,5 +87,7 @@
 	"vector-readability-survey-optout": "Стиснете на „продолжи“ за да го испратите вашето обликување и објавете го мислењето на следната страница. [[#close-vector-survey|Отстранете ја алаткава]].",
 	"vector-readability-survey-randomize": "дај произволно",
 	"vector-readability-survey-reset": "одново",
-	"vector-readability-survey-share": "продолжи"
+	"vector-readability-survey-share": "продолжи",
+	"vector-2022-beta-preview-label": "Векторско 2022 бета",
+	"vector-2022-beta-preview-description": "Добијте ран увид во новото руво „Векторско 2022“."
 }

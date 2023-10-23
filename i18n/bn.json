@@ -96,5 +96,7 @@
 	"vector-readability-survey-optout": "আমাদের আপনার নকশা পাঠাতে অগ্রসর হোন ক্লিক করুন ও পরবর্তী পাতায় আপনার মতামত প্রকাশ করুন। [[#close-vector-survey|এই সরঞ্জামটি সরান]]।",
 	"vector-readability-survey-randomize": "অজানাক্রমে",
 	"vector-readability-survey-reset": "পুনঃস্থাপন করুন",
-	"vector-readability-survey-share": "অগ্রসর হোন"
+	"vector-readability-survey-share": "অগ্রসর হোন",
+	"vector-2022-beta-preview-label": "ভেক্টর ২০২২ বেটা",
+	"vector-2022-beta-preview-description": "নতুন ভেক্টর ২০২২-এর বৈশিষ্ট্যগুলির প্রাকদর্শন সবার আগে পান।"
 }
