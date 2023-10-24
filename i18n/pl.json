@@ -52,6 +52,8 @@
 	"vector-feature-limited-width-1-label": "Ograniczona szerokość",
 	"vector-feature-custom-font-size-0-label": "Mały",
 	"vector-feature-custom-font-size-1-label": "Normalny",
+	"vector-feature-custom-font-size-2-label": "Duży",
+	"vector-feature-custom-font-size-3-label": "Bardzo duży",
 	"vector-search-loader": "Wczytywanie sugestii",
 	"vector-searchsuggest-containing": "Szukaj stron zawierających <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Pierwsze kroki",
@@ -91,5 +93,7 @@
 	"vector-readability-survey-optout": "Wciśnij „Kontynuuj”, aby wysłać nam swój układ i opublikować opinię na następnej stronie. [[#close-vector-survey|Zamknij to narzędzie]].",
 	"vector-readability-survey-randomize": "losuj",
 	"vector-readability-survey-reset": "resetuj",
-	"vector-readability-survey-share": "kontynuuj"
+	"vector-readability-survey-share": "kontynuuj",
+	"vector-2022-beta-preview-label": "Wersja beta Wektora 2022",
+	"vector-2022-beta-preview-description": "Uzyskaj wczesny dostęp do nowych funkcji Wektora 2022."
 }

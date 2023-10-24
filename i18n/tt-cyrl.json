@@ -3,6 +3,7 @@
 		"authors": [
 			"Derslek",
 			"Don Alessandro",
+			"Mansur",
 			"Rinatus",
 			"Ерней",
 			"З. ӘЙЛЕ",
@@ -48,5 +49,7 @@
 	"vector-page-tools-general-label": "Гомуми",
 	"vector-page-tools-actions-label": "Гамәлләр",
 	"vector-unpin-element-label": "яшерү",
-	"empty-language-selector-body": "Битнең эчтәлекләре башка телләрдә бирелми."
+	"empty-language-selector-body": "Битнең эчтәлекләре башка телләрдә бирелми.",
+	"vector-2022-beta-preview-label": "Vector 2022 бета",
+	"vector-2022-beta-preview-description": "Vector 2022 яңа мөмкинлекләрен алдан карап чыгу."
 }
