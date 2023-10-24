@@ -28,21 +28,10 @@
 //
 // == Typography ==
 //
-// Typography in Wikimedia Design Style Guide:;
-// https://design.wikimedia.org/style-guide/visual-style_typography.html
-// Historic overview and background information of fonts in Wikimedia software:
-// https://www.mediawiki.org/wiki/Wikimedia_User_Interface/Use_cases/Font_family_stack
-// Source of this font stack definition in WikimediaUI Base:
-// https://phabricator.wikimedia.org/source/wikimedia-ui-base/browse/master/wikimedia-ui-base.less$202
-@font-family-serif: 'Linux Libertine', 'Georgia', 'Times', serif;
-
-// Body content uses the user setting in browser / operating system default sans-serif font:
-// For example, Arial on Windows, Roboto on Android.
-// FIXME: Use WikimediaUI Base's OS specific default sans-serif fonts.
-// @font-family-sans is set in mediawiki.variables/variables.less
-
-// Fallback for headings, language: ja,he,ko. See T73240, T65817, T65843, T65844, T65827.
-@font-family-sans--fallback: sans-serif;
+// Font family stack is defined in Codex “WikimediaUI“ theme, available
+// through 'mediawiki.less/mediawiki.skin.variables.less' in MediaWiki core:
+// https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/heads/main/packages/codex-design-tokens/src/theme-wikimedia-ui.json#429
+// See also Vector's 'mediawiki.skin.variables.less' overrides.
 
 @font-size-base--trident-hack: calc( 1em ~'*' unit( @font-size-base ) );
 @font-size-reset: @font-size-root;
