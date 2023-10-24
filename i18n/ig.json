@@ -13,6 +13,7 @@
 			"Karen"
 		]
 	},
+	"vector-languages": "Asụsụ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ}}",
 	"vector-action-addsection": "Tinye isiokwu",
 	"vector-action-delete": "Kàcha",
@@ -30,5 +31,6 @@
 	"vector-toc-heading": "Ndịna",
 	"vector-toc-toggle-position-sidebar": "Ga na nootu akụkụ",
 	"vector-toc-toggle-position-title": "zoo",
+	"vector-toc-beginning": "Mmalite",
 	"vector-toc-toggle-button-label": "Chọba ndịnisiokwu $1"
 }
