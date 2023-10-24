@@ -81,25 +81,11 @@ pre,
 }
 
 .vector-body {
-	font-size: @font-size-base;
 	// Support IE 9-11, Trident cuts values 2 digits after decimal point.
 	// `calc` enables to set correct calculation in place again. See T102364.
 	font-size: @font-size-base--trident-hack;
+	font-size: var( --font-size-medium );
 	line-height: @line-height-base;
-
-	// FIXME: Migrate `enabled` to `1`.
-	.vector-feature-custom-font-size-clientpref-enabled,
-	.vector-feature-custom-font-size-clientpref-1 & {
-		font-size: 16px;
-	}
-
-	.vector-feature-custom-font-size-clientpref-2 & {
-		font-size: 24px;
-	}
-
-	.vector-feature-custom-font-size-clientpref-3 & {
-		font-size: 40px;
-	}
 
 	#siteSub {
 		font-size: 12.8px; // T311421
