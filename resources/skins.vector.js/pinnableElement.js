@@ -194,6 +194,29 @@ function isPinned( header ) {
 }
 
 /**
+ * Ensures the header classes are in sync with the pinnable headers state
+ * in the case that it's moved via movePinnableElement().
+ * @param {HTMLElement} pinnableElement
+ */
+function updatePinnableHeaderClass( pinnableElement ) {
+	const header = pinnableElement.querySelector( '.vector-pinnable-header' );
+
+	// Because Typescript
+	if ( !header || !( header instanceof HTMLElement ) ) {
+		return;
+	}
+
+	// Toggle header classes
+	if ( isPinned( header ) ) {
+		header.classList.add( PINNED_HEADER_CLASS );
+		header.classList.remove( UNPINNED_HEADER_CLASS );
+	} else {
+		header.classList.remove( PINNED_HEADER_CLASS );
+		header.classList.add( UNPINNED_HEADER_CLASS );
+	}
+}
+
+/**
  * @param {string} pinnableElementId
  * @param {string} newContainerId
  */
@@ -209,6 +232,7 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 	// Avoid moving element if unnecessary
 	if ( currContainer.id !== newContainerId ) {
 		newContainer.insertAdjacentElement( 'beforeend', pinnableElem );
+		updatePinnableHeaderClass( pinnableElem );
 	}
 
 	popupNotification.hideAll();
