@@ -39,6 +39,11 @@
 	"vector-jumptosearch": "Эҙләүгә күсергә",
 	"vector-jumptocontent": "Эстәлеккә күсергә",
 	"vector-more-actions": "Тағы",
+	"vector-client-preferences": "Уҡыу көйләүҙәре",
+	"vector-feature-limited-width-name": "Бағана киңлеге",
+	"vector-feature-custom-font-size-name": "Шрифт ҙурлығы",
+	"vector-feature-limited-width-0-label": "Сикләүһеҙ киңлек",
+	"vector-feature-limited-width-1-label": "Сикләнгән киңлек",
 	"vector-search-loader": "Эҙләү тексы йөкләнә",
 	"vector-searchsuggest-containing": "Эстәлегендә <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> булған биттәрҙе эҙләргә",
 	"vector-intro-page": "Википедия:Рәхим итегеҙ",
@@ -69,5 +74,14 @@
 	"empty-language-selector-body": "Башҡа телдәрҙә был бит юҡ",
 	"vector-toc-unpinned-popup": "Йөкмәтке бында күсерелгән.",
 	"vector-page-tools-unpinned-popup": "Ҡоралдар менюһы бында күсерелгән.",
-	"vector-main-menu-unpinned-popup": "Төп меню бында күсерелгән."
+	"vector-main-menu-unpinned-popup": "Төп меню бында күсерелгән.",
+	"vector-readability-survey-title": "Уҡыу мөмкинлеген үҙгәртеү прототибы",
+	"vector-readability-survey-description": "Һеҙгә Википедияла текст нисек булһа нығыраҡ оҡшай? Күренеште көйләү өсөн түбәндәге күсергестәрҙе файҙаланығыҙ. Проект тураһында күберәк белеү өсөн [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|«Уҡыу мөмкинлеге»]] менән танышығыҙ.",
+	"vector-readability-survey-fontSize": "Шрифт ҙурлығы",
+	"vector-readability-survey-lineHeight": "Бейеклеге",
+	"vector-readability-survey-paragraphSpacing": "Параграфтар арауығы",
+	"vector-readability-survey-optout": "Үҙегеҙҙең дизайнығыҙҙы беҙгә ебәреү һәм киләһе биттә фекер ҡалдырыу өсөн дауам итергә тигән төймәгә баҫығыҙ. [[#close-vector-survey|Ҡоралды юйҙырыу өсөн, бында баҫығыҙ]].",
+	"vector-readability-survey-randomize": "Осраҡлы һайлау эшләргә",
+	"vector-readability-survey-reset": "алып ташларға",
+	"vector-readability-survey-share": "Дауам итергә"
 }

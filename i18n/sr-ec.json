@@ -47,6 +47,7 @@
 	"vector-jumptocontent": "Пређи на садржај",
 	"vector-more-actions": "Више",
 	"vector-client-preferences": "Поставке за читање",
+	"vector-feature-limited-width-name": "Ширина колоне",
 	"vector-feature-custom-font-size-name": "Величина фонта",
 	"vector-feature-limited-width-0-label": "Пуна ширина",
 	"vector-feature-limited-width-1-label": "Ограничена ширина",
@@ -72,6 +73,7 @@
 	"vector-page-tools-actions-label": "Радње",
 	"vector-pin-element-label": "помери на страну",
 	"vector-unpin-element-label": "сакриј",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Дискусија]]",
 	"tooltip-vector-anon-user-menu-title": "Више опција",
 	"vector-prefs-limited-width": "Режим ограничене ширине",
 	"vector-prefs-limited-width-help": "Омогућава режим ограничене ширине за побољшано читачко искуство",
@@ -80,6 +82,7 @@
 	"vector-page-tools-unpinned-popup": "Мени са алаткама је премештен овде.",
 	"vector-main-menu-unpinned-popup": "Главни мени је премештен овде.",
 	"vector-readability-survey-fontSize": "Величина фонта",
+	"vector-readability-survey-lineHeight": "Висина линије",
 	"vector-readability-survey-reset": "ресетуј",
 	"vector-readability-survey-share": "настави"
 }
