@@ -8,6 +8,7 @@
 	},
 	"vector-opt-out": "Vultà à l'aspettu di nanzu",
 	"vector-languages": "Lingue",
+	"vector-no-language-button-label": "Aghjunghje lingue",
 	"vector-action-addsection": "Aghjunghje discussione",
 	"vector-action-delete": "Supprimà",
 	"vector-action-move": "Cullucà",
@@ -19,5 +20,9 @@
 	"vector-view-view": "Leghje",
 	"vector-view-viewsource": "Vede a surghjente",
 	"vector-more-actions": "Più",
+	"vector-toc-label": "Cuntenuti",
+	"vector-toc-beginning": "Principiu",
+	"vector-page-tools-label": "Strumenti",
+	"vector-page-tools-general-label": "Generali",
 	"vector-unpin-element-label": "piattà"
 }

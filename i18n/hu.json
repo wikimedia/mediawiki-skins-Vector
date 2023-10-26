@@ -9,10 +9,11 @@
 			"Mmarci72",
 			"Máté",
 			"Tacsipacsi",
-			"Tgr"
+			"Tgr",
+			"Bean49"
 		]
 	},
-	"vector-skin-desc": "A MonoBook felület modern változata frissebb kinézettel és sok használhatóságot javító fejlesztéssel",
+	"vector-skin-desc": "Két Vector felületet tartalmaz:\n* 2010 – a MonoBook felület modern változata frissebb kinézettel és sok használhatóságot javító fejlesztéssel\n* 2022 – a Wikimédia alapítvány [[mw:Desktop Improvements]] projektjének keretében készült felület",
 	"prefs-vector-enable-vector-1-label": "Hagyományos Vector használata",
 	"prefs-vector-enable-vector-1-help": "A következő pár évben fokozatosan frissíteni fogjuk a Vector felületet. A hagyományos Vector beállítással a Vector felület régi (2019. decemberi) változatát használhatod továbbra is. A frissítésekről további információk a [[mw:Reading/Web/Desktop_Improvements|projektlapunkon]] találhatók.",
 	"vector-opt-out": "Vissza a régi megjelenéshez",
@@ -44,6 +45,7 @@
 	"vector-more-actions": "Több",
 	"vector-search-loader": "Keresési javaslatok betöltése…",
 	"vector-searchsuggest-containing": "Olyan oldalak keresése, amelyek tartalmazzák a következőt: <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Help:Bevezetés",
 	"vector-toc-label": "Tartalomjegyzék",
 	"vector-toc-beginning": "Bevezető",
 	"vector-toc-toggle-button-label": "A(z) $1 alszakasz kinyitása/becsukása",
@@ -64,5 +66,5 @@
 	"tooltip-vector-anon-user-menu-title": "További lehetőségek",
 	"vector-prefs-limited-width": "Korlátozott szélességű mód bekapcsolása",
 	"vector-prefs-limited-width-help": "A tartalom szélességének korlátozása a kényelmesebb olvasás érdekében.",
-	"empty-language-selector-body": "Az oldal más nyelven nem elérhető."
+	"empty-language-selector-body": "Az oldal más nyelven nem érhető el."
 }
