@@ -2,16 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Андрей Саг.",
-			"AlexandrL714"
+			"AlexandrL714",
+			"Oxianboal"
 		]
 	},
-	"vector-action-addsection": "Тема хозыбзарға",
-	"vector-action-delete": "Тастабызарға",
+	"vector-action-addsection": "Тема хозыбызарға",
+	"vector-action-delete": "Чох идерге",
 	"vector-action-move": "Адын алыстырыбызарға",
 	"vector-action-protect": "Арачилирға",
-	"vector-view-create": "Идебзерге",
+	"vector-view-create": "Идерге",
 	"vector-view-edit": "Тӱзедерге",
-	"vector-view-history": "Кӧрігтердің тархыны",
+	"vector-view-history": "Тархынны кӧрерге",
 	"vector-view-view": "Хығырарға",
 	"vector-more-actions": "Хоза"
 }
