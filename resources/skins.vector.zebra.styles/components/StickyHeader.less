@@ -18,6 +18,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	border-bottom: @border-width-base @border-style-base @border-color-content-box;
 
 	//
 	// Layout
@@ -146,7 +147,7 @@
 		}
 
 		.vector-sticky-pinned-container {
-			top: ~'calc( @{height-header} + @{grid-row-gap})';
+			top: @height-header;
 		}
 
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers

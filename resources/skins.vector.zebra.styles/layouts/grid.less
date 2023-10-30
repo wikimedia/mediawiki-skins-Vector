@@ -34,6 +34,17 @@
 	&.vector-feature-page-tools-pinned-enabled .vector-column-end {
 		width: @width-column-desktop;
 	}
+
+	// Align the sidebar menus with the bottom-border of the
+	// toolbar (below the page title) by pushing down the sidebar content
+	// by the hieght of the page title (font-size+padding) + 1px border.
+	// NOTE: This alignment happens to work (when the title is on a single line)
+	// but could be broken by line-height.
+	.vector-column-start,
+	.vector-column-end {
+		margin-top: ~'calc(@{font-size-heading-1} + @{margin-top-pre-content})';
+		border-top: 1px solid transparent;
+	}
 }
 
 @media ( min-width: @min-width-breakpoint-desktop-wide ) {
@@ -69,6 +80,7 @@
 	grid-template-areas:
 		'siteNotice'
 		'pageContent'
+		'columnStart'
 		'footer';
 
 	// Horizontally center content when single column
