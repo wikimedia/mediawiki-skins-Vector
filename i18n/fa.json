@@ -13,6 +13,7 @@
 			"Ladsgroup",
 			"Mojtabakd",
 			"Reza1615",
+			"Rulebased",
 			"Tar Lócesilion",
 			"Zack90"
 		]
@@ -50,6 +51,7 @@
 	"vector-jumptosearch": "پرش به جستجو",
 	"vector-jumptocontent": "پرش به محتوا",
 	"vector-more-actions": "بیشتر",
+	"vector-feature-custom-font-size-2-label": "بزرگ",
 	"vector-search-loader": "بارگیری پیشنهادهای جستجو",
 	"vector-searchsuggest-containing": "جستجو برای صفحه‌های دارای <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:مقدمه",

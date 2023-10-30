@@ -48,6 +48,8 @@
 	"vector-feature-limited-width-1-label": "সীমিত প্ৰস্থ",
 	"vector-feature-custom-font-size-0-label": "সৰু",
 	"vector-feature-custom-font-size-1-label": "মানক",
+	"vector-feature-custom-font-size-2-label": "ডাঙৰ",
+	"vector-feature-custom-font-size-3-label": "বহুত ডাঙৰ",
 	"vector-search-loader": "সন্ধান পৰামৰ্শ লোড কৰা হৈছে",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থকা পৃষ্ঠাসমূহ সন্ধান কৰক",
 	"vector-intro-page": "Help:পৰিচয়",
@@ -87,5 +89,7 @@
 	"vector-readability-survey-optout": "আপোনাৰ ডিজাইন আমালৈ পঠিয়াবলৈ আৰু পৰৱৰ্তী পৃষ্ঠাত আপোনাৰ মতামত প্ৰকাশ কৰিবলৈ 'অব্যাহত ৰাখক' বুটামটো টিপক। [[#close-vector-survey|এই সঁজুলিটো বন্ধ কৰক]]।",
 	"vector-readability-survey-randomize": "যাদৃচ্ছিক",
 	"vector-readability-survey-reset": "পূৰ্ৱবত কৰক",
-	"vector-readability-survey-share": "অব্যাহত ৰাখক"
+	"vector-readability-survey-share": "অব্যাহত ৰাখক",
+	"vector-2022-beta-preview-label": "ভেক্টৰ ২০২২ বিটা",
+	"vector-2022-beta-preview-description": "নতুন ভেক্টৰ ২০২২ বৈশিষ্ট্যসমূহৰ আগতীয়া পূৰ্বদৰ্শন লাভ কৰক।"
 }
