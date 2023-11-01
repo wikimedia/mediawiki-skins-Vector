@@ -9,7 +9,6 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Module;
-use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
 use Wikimedia\DependencyStore\KeyValueDependencyStore;
@@ -81,7 +80,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	protected function prepareSkin( string $skinName ): \Skin {
 		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
 		$skin = $skinFactory->makeSkin( $skinName );
-		$title = Title::newFromText( 'Hello' );
+		$title = $this->getExistingTestPage()->getTitle();
 		$context = new DerivativeContext( RequestContext::getMain() );
 		$context->setTitle( $title );
 		$context->setSkin( $skin );
