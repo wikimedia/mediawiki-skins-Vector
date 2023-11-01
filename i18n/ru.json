@@ -24,11 +24,12 @@
 			"Ukhant Erdemt",
 			"Александр Сигачёв",
 			"З. ӘЙЛЕ",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Tucvbif"
 		]
 	},
-	"skinname-vector": "Векторная, устаревшая (2010)",
-	"skinname-vector-2022": "Векторная (2022)",
+	"skinname-vector": "Vector, устаревшая (2010)",
+	"skinname-vector-2022": "Vector (2022)",
 	"vector-specialversion-name": "Векторная",
 	"vector-skin-desc": "Предоставляет две векторные темы оформления:\n* 2011: ''Современная'' — версия MonoBook с обновлённым оформлением и многими улучшениями пользовательского опыта.\n* 2022: ''Векторная'' — созданная в рамках проекта Фонда Викимедиа «[[mw:Desktop Improvements]]».",
 	"prefs-vector-enable-vector-1-label": "Использовать Векторную тему оформления прежней версии",
