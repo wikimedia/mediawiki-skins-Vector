@@ -1,12 +1,12 @@
 {
 	"total": {
 		"vector-2022": {
-			"scripts": "68.1KB",
+			"scripts": "70.1KB",
 			"styles": "15KB"
 		},
 		"vector": {
 			"scripts": "57.3KB",
-			"styles": "8.3KB"
+			"styles": "8.6KB"
 		}
 	},
 	"modules": [
