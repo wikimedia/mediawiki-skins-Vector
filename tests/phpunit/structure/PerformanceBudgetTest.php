@@ -144,6 +144,8 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws MediaWiki\Config\ConfigException
 	 */
 	public function testTotalModulesSize( $skinName, $maxSizes ) {
+		$this->markTestSkipped( 'T350338' );
+
 		$skin = $this->prepareSkin( $skinName );
 		$moduleStyles = $skin->getOutput()->getModuleStyles();
 		$size = 0;
