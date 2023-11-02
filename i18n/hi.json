@@ -13,13 +13,14 @@
 			"रोहित रावत"
 		]
 	},
-	"skinname-vector": "Vector",
+	"skinname-vector": "Vector विरासती (2010)",
 	"vector-skin-desc": "दो Vector स्किन्स प्रदान करता है:\n* 2011 - MonoBook का आधुनिक संस्करण जिसमें एक ताज़ी दिखावट और उपयोग में सुधार हैं।\n* 2022 - Vector जिसे विकिमीडिया संस्थान के [[mw:Desktop Improvements|डेस्कटॉप उन्नति]] परियोजना के रूप में बनाया गया है।",
 	"prefs-vector-enable-vector-1-label": "लिगेसी Vector का उपयोग करें",
 	"prefs-vector-enable-vector-1-help": "अगले कुछ सालों में हम Vector स्किन को धीरे धीरे अपडेट करेंगे। लिगेसी Vector की मदद से आप Vector का पुराना संस्करण देख सकते हैं (दिसंबर 2019 के अनुसार)। अद्यतनों के बारे में अधिक जानने के लिए हमारे [[mw:Reading/Web/Desktop_Improvements|परियोजना पृष्ठ]] पर जाएँ।",
 	"vector-opt-out": "पुरानी दिखावट पर जाएँ",
 	"vector-opt-out-tooltip": "अपने सेटिंग्स को बदलकर स्किन के पुराने दिखावट (लिगेसी Vector) पर वापस जाएँ",
-	"vector.css": "/* सीएसएस यहाँ डालने से वेक्टर त्वचा चुने लोगों को प्रभावित करेगा */",
+	"vector.css": "/* यहाँ के CSS को Vector स्किन के उपयोगकर्ताओं के लिए लोड किया जाएगा */",
+	"vector.js": "/* यहाँ की जावास्क्रिप्ट को Vector स्किन के उपयोगकर्ताओं के लिए लोड किया जाएगा */",
 	"vector-action-toggle-sidebar": "साइडबार को टॉगल करें",
 	"vector-languages": "भाषाएँ",
 	"vector-language-button-aria-label": "दूसरे भाषा में लेख पर जाएँ। {{PLURAL:$1|$1 भाषा|$1 भाषाओं}} में उपलब्ध",
@@ -57,11 +58,15 @@
 	"vector-toc-collapsible-button-label": "विषयसूची को टॉगल करें",
 	"vector-site-nav-label": "साइट",
 	"vector-main-menu-label": "मुख्य मेन्यू",
+	"vector-limited-width-toggle": "सामग्री की सीमित चौड़ाई को टॉगल करें",
 	"vector-page-tools-label": "उपकरण",
 	"vector-page-tools-general-label": "सामान्य",
 	"vector-page-tools-actions-label": "क्रियाएँ",
 	"vector-pin-element-label": "साइडबार पर जाएँ",
 	"vector-unpin-element-label": "छुपाएँ",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|चर्चा]]",
-	"tooltip-vector-anon-user-menu-title": "अन्य विकल्प"
+	"tooltip-vector-anon-user-menu-title": "अन्य विकल्प",
+	"vector-prefs-limited-width": "सीमित चौड़ाई मोड सक्षम करें",
+	"vector-prefs-limited-width-help": "बेहतर पठन अनुभव के लिए सीमित चौड़ाई मोड सक्षम करें।",
+	"empty-language-selector-body": "पृष्ठ की सामग्री दूसरी भाषाओं में उपलब्ध नहीं है।"
 }
