@@ -152,9 +152,12 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
 		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] );
-		$message = "Performance budget for style in skin $skinName on main article namespace has been exceeded." .
-			" Total size of style modules is $size bytes is greater than budget size $stylesMaxSize bytes" .
-			" Reduce styles loaded on page load or talk to skin maintainer before modifying the budget.";
+		$message = "T346813: Performance budget for style in skin" .
+			" $skinName on main article namespace has been exceeded." .
+			" Total size of style modules is $size bytes is greater" .
+			" than the current budget size of $stylesMaxSize bytes" .
+			" Please reduce styles that you are loading on page load" .
+			" or talk to the skin maintainer about modifying the budget.";
 		$this->assertLessThanOrEqual( $stylesMaxSize, $size, $message );
 		$modulesScripts = $skin->getOutput()->getModules();
 		$size = 0;
@@ -162,9 +165,12 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
 		$scriptsMaxSize = $this->getSizeInBytes( $maxSizes[ 'scripts' ] );
-		$message = "Performance budget for scripts in skin $skinName on main article namespace has been exceeded." .
-			" Total size of script modules is $size bytes is greater than budget size $scriptsMaxSize bytes" .
-			" Reduce scripts loaded on page load or talk to skin maintainer before modifying the budget.";
+		$message = "T346813: Performance budget for scripts in skin" .
+			" $skinName on main article namespace has been exceeded." .
+			" Total size of script modules is $size bytes is greater" .
+			" than the current budget size of $scriptsMaxSize bytes" .
+			" Please reduce scripts that you are loading on page load" .
+			" or talk to the skin maintainer about modifying the budget.";
 		$this->assertLessThanOrEqual( $scriptsMaxSize, $size, $message );
 	}
 }
