@@ -78,6 +78,11 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws \SkinException
 	 */
 	protected function prepareSkin( string $skinName ): \Skin {
+		// FIXME: disable flagged revisions for purpose of this test by making
+		// sure the page is not "reviewable" until T350514 is resolved.
+		$this->overrideConfigValue( 'FlaggedRevsNamespaces', [] );
+		// END FIXME
+
 		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
 		$skin = $skinFactory->makeSkin( $skinName );
 		$title = $this->getExistingTestPage()->getTitle();
@@ -143,34 +148,36 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws MediaWiki\Config\ConfigException
 	 */
 	public function testTotalModulesSize( $skinName, $maxSizes ) {
-		$this->markTestSkipped( 'T350338' );
-
 		$skin = $this->prepareSkin( $skinName );
 		$moduleStyles = $skin->getOutput()->getModuleStyles();
 		$size = 0;
 		foreach ( $moduleStyles as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
+		$debugInformation = "The following modules are enabled on page load:\n" .
+			implode( "\n", $moduleStyles );
 		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] );
 		$message = "T346813: Performance budget for style in skin" .
 			" $skinName on main article namespace has been exceeded." .
 			" Total size of style modules is $size bytes is greater" .
 			" than the current budget size of $stylesMaxSize bytes" .
 			" Please reduce styles that you are loading on page load" .
-			" or talk to the skin maintainer about modifying the budget.";
+			" or talk to the skin maintainer about modifying the budget. $debugInformation";
 		$this->assertLessThanOrEqual( $stylesMaxSize, $size, $message );
 		$modulesScripts = $skin->getOutput()->getModules();
 		$size = 0;
 		foreach ( $modulesScripts as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
+		$debugInformation = "The following modules are enabled on page load:\n" .
+			implode( "\n", $modulesScripts );
 		$scriptsMaxSize = $this->getSizeInBytes( $maxSizes[ 'scripts' ] );
 		$message = "T346813: Performance budget for scripts in skin" .
 			" $skinName on main article namespace has been exceeded." .
 			" Total size of script modules is $size bytes is greater" .
 			" than the current budget size of $scriptsMaxSize bytes" .
 			" Please reduce scripts that you are loading on page load" .
-			" or talk to the skin maintainer about modifying the budget.";
+			" or talk to the skin maintainer about modifying the budget. $debugInformation";
 		$this->assertLessThanOrEqual( $scriptsMaxSize, $size, $message );
 	}
 }
