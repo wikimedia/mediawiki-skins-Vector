@@ -100,5 +100,7 @@
 	"vector-readability-survey-optout": "Натисніть «продовжити», щоб надіслати нам свій дизайн і опублікувати свій відгук на наступній сторінці. [[#close-vector-survey|Прибрати цей інструмент]].",
 	"vector-readability-survey-randomize": "рандомізувати",
 	"vector-readability-survey-reset": "скинути",
-	"vector-readability-survey-share": "продовжити"
+	"vector-readability-survey-share": "продовжити",
+	"vector-2022-beta-preview-label": "Вектор 2022 бета",
+	"vector-2022-beta-preview-description": "Отримайте ранній попередній перегляд нових функцій Вектора 2022."
 }
