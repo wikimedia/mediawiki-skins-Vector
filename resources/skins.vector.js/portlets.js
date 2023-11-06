@@ -25,7 +25,7 @@ function addDefaultPortlet( portlet, isDropdown ) {
 		const labelDiv = document.createElement( 'div' );
 		labelDiv.classList.add( 'vector-menu-heading' );
 		if ( !isDropdown ) {
-			labelDiv.innerHTML = label.textContent ?? '';
+			labelDiv.innerHTML = label.textContent || '';
 			portlet.insertBefore( labelDiv, label );
 			label.remove();
 		}
@@ -78,7 +78,7 @@ function makeDropdown( content ) {
 	checkbox.setAttribute( 'aria-haspopup', 'true' );
 	checkbox.setAttribute( 'data-event-name', `ui.dropdown-${id}-dropdown` );
 	checkbox.classList.add( 'vector-dropdown-checkbox' );
-	checkbox.setAttribute( 'aria-label', label.textContent ?? '' );
+	checkbox.setAttribute( 'aria-label', label.textContent || '' );
 	dropdown.id = `${id}-dropdown`;
 	dropdown.classList.add( 'vector-dropdown', `${id}-dropdown` );
 	dropdown.appendChild( checkbox );
@@ -110,7 +110,7 @@ function addPortletHandler( portlet, before ) {
 		const pageToolsMarker = pageToolsDropdown ? pageToolsDropdown.parentNode : null;
 		// Guard against unexpected changes to HTML.
 		if ( pageToolsMarker === null || !pageToolsMarker.parentNode ) {
-			throw new Error( `Vector 2022 addPortletLink: No #vector-page-tools-dropdown element in the DOM.` );
+			throw new Error( 'Vector 2022 addPortletLink: No #vector-page-tools-dropdown element in the DOM.' );
 		}
 		const dropdown = makeDropdown( transformedPortlet );
 		pageToolsMarker.parentNode.insertBefore( dropdown, pageToolsMarker );
@@ -127,7 +127,7 @@ function main() {
 	mw.hook( 'util.addPortlet' ).add( addPortletHandler );
 	// Update any portlets that were created prior to the hook being registered.
 	document.querySelectorAll( '.mw-portlet-js' ).forEach( ( node ) => {
-		const nextID = node && node.nextElementSibling && node.nextElementSibling.id; 
+		const nextID = node && node.nextElementSibling && node.nextElementSibling.id;
 		addPortletHandler( node, nextID ? `#${nextID}` : null );
 	} );
 	return {
