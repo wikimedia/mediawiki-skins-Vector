@@ -8,7 +8,9 @@
 			"ThisIsACreeper0101",
 			"AnupamM",
 			"Saurmandal",
-			"Abijeet Patro"
+			"Abijeet Patro",
+			"Amire80",
+			"भारत्पराक्रमि"
 		]
 	},
 	"skinname-vector": "वेक्टर",
@@ -17,7 +19,8 @@
 	"prefs-vector-enable-vector-1-help": "अगले कुछ सालों में हम Vector स्किन को धीरे धीरे अपडेट करेंगे। लिगेसी Vector की मदद से आप Vector का पुराना संस्करण देख सकते हैं (दिसंबर 2019 के अनुसार)। अद्यतनों के बारे में अधिक जानने के लिए हमारे [[mw:Reading/Web/Desktop_Improvements|परियोजना पृष्ठ]] पर जाएँ।",
 	"vector-opt-out": "पुरानी दिखावट पर जाएँ",
 	"vector-opt-out-tooltip": "अपने सेटिंग्स को बदलकर स्किन के पुराने दिखावट (लिगेसी Vector) पर वापस जाएँ",
-	"vector.css": "/* सीएसएस यहाँ डालने से वेक्टर त्वचा चुने लोगों को प्रभावित करेगा */",
+	"vector.css": "/* यहाँ के CSS को Vector स्किन के उपयोगकर्ताओं के लिए लोड किया जाएगा */",
+	"vector.js": "/* यहाँ की जावास्क्रिप्ट को Vector स्किन के उपयोगकर्ताओं के लिए लोड किया जाएगा */",
 	"vector-action-toggle-sidebar": "साइडबार को टॉगल करें",
 	"vector-action-addsection": "विषय जोड़ें",
 	"vector-action-delete": "हटाएँ",

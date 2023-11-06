@@ -3,12 +3,13 @@
 		"authors": [
 			"Denö",
 			"Ilja.mos",
-			"Mashoi7"
+			"Mashoi7",
+			"Ruppijeva"
 		]
 	},
 	"vector-action-addsection": "Ližiä aihe",
 	"vector-action-delete": "Ota iäre",
-	"vector-action-move": "Siirrä",
+	"vector-action-move": "Muuta nimi",
 	"vector-action-protect": "Suojua",
 	"vector-action-unprotect": "Vaihta suojavustu",
 	"vector-view-create": "Luaji",
