@@ -48,6 +48,8 @@
 	"vector-feature-limited-width-1-label": "Begrenset bredde",
 	"vector-feature-custom-font-size-0-label": "Liten",
 	"vector-feature-custom-font-size-1-label": "Standard",
+	"vector-feature-custom-font-size-2-label": "Stor",
+	"vector-feature-custom-font-size-3-label": "Ekstra stor",
 	"vector-search-loader": "Laster søkeforslag",
 	"vector-searchsuggest-containing": "Søk etter sider som inneholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduksjon",
@@ -87,5 +89,7 @@
 	"vector-readability-survey-optout": "Trykk fortsett for å sende oss ditt design og publiser tilbakemeldingen din på neste side. [[#close-vector-survey|Fjern dette verktøyet]].",
 	"vector-readability-survey-randomize": "gjør tilfeldig",
 	"vector-readability-survey-reset": "nullstill",
-	"vector-readability-survey-share": "fortsett"
+	"vector-readability-survey-share": "fortsett",
+	"vector-2022-beta-preview-label": "Vector 2022 beta",
+	"vector-2022-beta-preview-description": "Få tidlige smakebiter på nye funksjoner i Vector 2022."
 }
