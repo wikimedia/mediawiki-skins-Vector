@@ -249,6 +249,7 @@ function initPinnableElement() {
 	} );
 }
 
+// T349924: Remove hasPinnedElements after one cycle of analyticsPinnedState() merge.
 /**
  * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
  *
@@ -263,8 +264,22 @@ function hasPinnedElements() {
 	} );
 }
 
+/**
+ * @stable for use in WikimediaEvents only.
+ * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
+ *
+ * @function
+ * @return {boolean} True if at least one pinned element is found, otherwise false.
+ */
+function analyticsPinnedState() {
+	const htmlElement = document.documentElement;
+	return htmlElement.classList.contains( 'vector-feature-main-menu-pinned-enabled' ) || htmlElement.classList.contains( 'vector-feature-page-tools-pinned-enabled' );
+}
+
 module.exports = {
+	// T349924: Remove hasPinnedElements.
 	hasPinnedElements,
+	analyticsPinnedState,
 	initPinnableElement,
 	movePinnableElement,
 	setFocusAfterToggle,
