@@ -72,6 +72,16 @@ function main( window ) {
 	setupIntersectionObservers.main();
 	// Apply body styles to teleported elements
 	teleportTarget.classList.add( 'vector-body' );
+
+	// Load client preferences
+	const clientPreferenceSelector = '#vector-client-prefs .vector-dropdown-content';
+	const clientPreferenceExists = document.querySelectorAll( clientPreferenceSelector ).length > 0;
+	if ( clientPreferenceExists ) {
+		mw.loader.using( [ 'skins.vector.clientPreferences', 'codex-styles' ] ).then( () => {
+			const clientPreferences = require( /** @type {string} */ ( 'skins.vector.clientPreferences' ) );
+			clientPreferences.render( clientPreferenceSelector );
+		} );
+	}
 }
 
 /**

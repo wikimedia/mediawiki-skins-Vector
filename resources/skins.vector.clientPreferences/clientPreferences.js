@@ -36,15 +36,22 @@ function appendRadioToggle( parent, featureName, pref, value, currentValue ) {
 	input.id = id;
 	input.type = 'radio';
 	input.value = value;
+	input.classList.add( 'cdx-radio__input' );
 	if ( currentValue === value ) {
 		input.checked = true;
 	}
+	const icon = document.createElement( 'span' );
+	icon.classList.add( 'cdx-radio__icon' );
 	const label = document.createElement( 'label' );
+	label.classList.add( 'cdx-radio__label' );
 	// eslint-disable-next-line mediawiki/msg-doc
 	label.textContent = mw.msg( `${featureName}-${value}-label` );
 	label.setAttribute( 'for', id );
 	const container = document.createElement( 'div' );
+	container.classList.add( 'cdx-radio' );
+	container.setAttribute( 'data-event-name', id );
 	container.appendChild( input );
+	container.appendChild( icon );
 	container.appendChild( label );
 	parent.appendChild( container );
 	input.addEventListener( 'change', () => {
@@ -73,10 +80,9 @@ function createRow( className ) {
  * adds a toggle button
  *
  * @param {string} featureName
- * @param {string} label
  * @return {Element|null}
  */
-function makeClientPreferenceBinaryToggle( featureName, label ) {
+function makeClientPreferenceBinaryToggle( featureName ) {
 	const pref = config[ featureName ];
 	if ( !pref ) {
 		return null;
@@ -90,47 +96,103 @@ function makeClientPreferenceBinaryToggle( featureName, label ) {
 	}
 	const row = createRow( '' );
 	const form = document.createElement( 'form' );
-	const labelNode = document.createElement( 'label' );
-	labelNode.textContent = label;
-	form.appendChild( labelNode );
-	const toggle = document.createElement( 'fieldset' );
 	pref.options.forEach( ( value ) => {
-		appendRadioToggle( toggle, featureName, pref, value, currentValue );
+		appendRadioToggle( form, featureName, pref, value, currentValue );
 	} );
-	form.appendChild( toggle );
 	row.appendChild( form );
 	return row;
 }
 
 /**
+ * @param {Element} parent
  * @param {string} featureName
- * @return {Element|null}
  */
-function makeClientPreference( featureName ) {
+function makeClientPreference( parent, featureName ) {
 	// eslint-disable-next-line mediawiki/msg-doc
 	const labelMsg = mw.message( `${featureName}-name` );
 	// If the user is not debugging messages and no language exists exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
-		return null;
+		return;
 	} else {
-		return makeClientPreferenceBinaryToggle( featureName, labelMsg.text() );
+		const id = `vector-client-prefs-${featureName}`;
+		// @ts-ignore TODO: upstream patch URL
+		const portlet = mw.util.addPortlet( id, labelMsg.text() );
+		// eslint-disable-next-line mediawiki/msg-doc
+		const descriptionMsg = mw.message( `${featureName}-description` );
+		if ( descriptionMsg.exists() ) {
+			const desc = document.createElement( 'div' );
+			desc.classList.add( 'mw-portlet-description' );
+			desc.textContent = descriptionMsg.text();
+			const refNode = portlet.querySelector( 'label' );
+			if ( refNode && refNode.parentNode ) {
+				refNode.parentNode.insertBefore( desc, refNode.nextSibling );
+			}
+		}
+		const row = makeClientPreferenceBinaryToggle( featureName );
+		parent.appendChild( portlet );
+		if ( row ) {
+			const tmp = mw.util.addPortletLink( id, '', '' );
+			// create a dummy link
+			if ( tmp ) {
+				const link = tmp.querySelector( 'a' );
+				if ( link ) {
+					link.replaceWith( row );
+				}
+			}
+		}
 	}
 }
 
 /**
  * Fills the client side preference dropdown with controls.
+ * @param {string} selector of element to fill with client preferences
  */
-function fillClientPreferencesDropdown() {
-	const dropdownContents = document.querySelectorAll( '#vector-client-prefs .vector-dropdown-content' )[ 0 ];
-	if ( !dropdownContents ) {
+function render( selector ) {
+	const node = document.querySelector( selector );
+	if ( !node ) {
 		return;
 	}
+	// FIXME: Loading codex-styles is a performance problem. This is only acceptable for logged in users so guard
+	// against unexpected use.
+	if ( mw.user.isAnon() ) {
+		throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
+	}
 	getClientPreferences().forEach( ( pref ) => {
-		const prefNode = makeClientPreference( pref );
-		if ( prefNode ) {
-			dropdownContents.appendChild( prefNode );
-		}
+		node.innerHTML = '';
+		mw.loader.using( 'codex-styles' ).then( () => {
+			mw.requestIdleCallback( () => {
+				makeClientPreference( node, pref );
+			} );
+		} );
 	} );
 }
 
-module.exports = fillClientPreferencesDropdown;
+/**
+ * @param {string} clickSelector what to click
+ * @param {string} renderSelector where to render
+ */
+function bind( clickSelector, renderSelector ) {
+	let enhanced = false;
+	const chk = /** @type {HTMLInputElement} */ (
+		document.querySelector( clickSelector )
+	);
+	if ( !chk ) {
+		return;
+	}
+	if ( chk.checked ) {
+		render( renderSelector );
+		enhanced = true;
+	} else {
+		chk.addEventListener( 'input', () => {
+			if ( enhanced ) {
+				return;
+			}
+			render( renderSelector );
+			enhanced = true;
+		} );
+	}
+}
+module.exports = {
+	bind,
+	render
+};

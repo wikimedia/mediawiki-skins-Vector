@@ -359,9 +359,8 @@
 		"skins.vector.clientPreferences": {
 			"es6": true,
 			"packageFiles": [
-				"resources/skins.vector.clientPreferences/main.js",
-				"resources/skins.vector.clientPreferences/config.json",
-				"resources/skins.vector.clientPreferences/clientPreferences.js"
+				"resources/skins.vector.clientPreferences/clientPreferences.js",
+				"resources/skins.vector.clientPreferences/config.json"
 			],
 			"messages": [
 				"vector-feature-limited-width-name",
@@ -374,6 +373,7 @@
 				"vector-feature-custom-font-size-3-label"
 			],
 			"dependencies": [
+				"mediawiki.api",
 				"mediawiki.user"
 			],
 			"styles": [
