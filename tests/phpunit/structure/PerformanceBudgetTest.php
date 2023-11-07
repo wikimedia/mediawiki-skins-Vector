@@ -148,38 +148,58 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws MediaWiki\Config\ConfigException
 	 */
 	public function testTotalModulesSize( $skinName, $maxSizes ) {
-		$this->markTestSkipped( 'test unstable: T350338' );
-
 		$skin = $this->prepareSkin( $skinName );
 		$moduleStyles = $skin->getOutput()->getModuleStyles();
 		$size = 0;
 		foreach ( $moduleStyles as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
-		$debugInformation = "The following modules are enabled on page load:\n" .
-			implode( "\n", $moduleStyles );
 		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] );
-		$message = "T346813: Performance budget for style in skin" .
-			" $skinName on main article namespace has been exceeded." .
-			" Total size of style modules is $size bytes is greater" .
-			" than the current budget size of $stylesMaxSize bytes" .
-			" Please reduce styles that you are loading on page load" .
-			" or talk to the skin maintainer about modifying the budget. $debugInformation";
+		$message = $this->createMessage( $skinName, $size, $stylesMaxSize, $moduleStyles );
 		$this->assertLessThanOrEqual( $stylesMaxSize, $size, $message );
 		$modulesScripts = $skin->getOutput()->getModules();
 		$size = 0;
 		foreach ( $modulesScripts as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
-		$debugInformation = "The following modules are enabled on page load:\n" .
-			implode( "\n", $modulesScripts );
 		$scriptsMaxSize = $this->getSizeInBytes( $maxSizes[ 'scripts' ] );
-		$message = "T346813: Performance budget for scripts in skin" .
-			" $skinName on main article namespace has been exceeded." .
-			" Total size of script modules is $size bytes is greater" .
-			" than the current budget size of $scriptsMaxSize bytes" .
-			" Please reduce scripts that you are loading on page load" .
-			" or talk to the skin maintainer about modifying the budget. $debugInformation";
+		$message = $this->createMessage( $skinName, $size, $scriptsMaxSize, $modulesScripts, true );
 		$this->assertLessThanOrEqual( $scriptsMaxSize, $size, $message );
+	}
+
+	/**
+	 * Creates a message for the assertion
+	 *
+	 * @param string $skinName
+	 * @param int|float $size
+	 * @param int|float $maxSize
+	 * @param array $modules
+	 * @param bool $scripts
+	 *
+	 * @return string
+	 */
+	private function createMessage( $skinName, $size, $maxSize, $modules, $scripts = false ) {
+		$debugInformation = "The following modules are enabled on page load:\n" .
+			implode( "\n", $modules );
+		$moduleType = $scripts ? 'scripts' : 'styles';
+		return "T346813: Performance budget for $moduleType in skin" .
+			" $skinName on main article namespace has been exceeded." .
+			" Total size of $moduleType modules is " . $this->bytesToKbsRoundup( $size ) . " Kbs is greater" .
+			" than the current budget size of " . $this->bytesToKbsRoundup( $maxSize ) . " Kbs" .
+			" (see Vector/bundlesize.config.json).\n" .
+			"Please reduce $moduleType that you are loading on page load" .
+			" or talk to the skin maintainer about modifying the budget.\n" .
+			"$debugInformation";
+	}
+
+	/**
+	 * Converts bytes to Kbs and rounds up to the nearest 0.1
+	 *
+	 * @param int|float $sizeInBytes
+	 *
+	 * @return float
+	 */
+	private function bytesToKbsRoundup( $sizeInBytes ) {
+		return ceil( ( $sizeInBytes * 10 ) / 1024 ) / 10;
 	}
 }
