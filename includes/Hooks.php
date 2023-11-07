@@ -720,13 +720,15 @@ class Hooks implements
 		if ( !$configHasBeta ) {
 			return;
 		}
+		$skinsAssetsPath = $config->get( 'StylePath' );
+		$imagesDir = "$skinsAssetsPath/Vector/resources/images";
 		$betaFeatures[ Constants::VECTOR_2022_BETA_KEY ] = [
 			'label-message' => 'vector-2022-beta-preview-label',
 			'desc-message' => 'vector-2022-beta-preview-description',
 			'screenshot' => [
 				// follow up work to add images is required in T349321
-				'ltr' => '',
-				'rtl' => '',
+				'ltr' => "$imagesDir/vector-2022-beta-preview-ltr.svg",
+				'rtl' => "$imagesDir/vector-2022-beta-preview-rtl.svg",
 			],
 			'info-link' => 'https://www.mediawiki.org/wiki/Skin:Vector/2022',
 			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements',
