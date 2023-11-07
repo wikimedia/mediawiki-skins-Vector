@@ -15,12 +15,12 @@
 	"vector-action-protect": "Kaiče",
 	"vector-action-undelete": "Pördutada",
 	"vector-action-unprotect": "Toižetada kaičend",
-	"vector-view-create": "Tehta",
+	"vector-view-create": "Tege",
 	"vector-view-edit": "Redaktiruida",
-	"vector-view-history": "Istorijan kacund",
+	"vector-view-history": "Kacu istorii",
 	"vector-view-view": "Lugeda",
 	"vector-view-viewsource": "Kacta purtkehe",
 	"vector-more-actions": "Enamba",
-	"vector-searchsuggest-containing": "Ecind lehtpoliden südäimištod <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Eci lehtpoled, miččiš om <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Augotiž"
 }
