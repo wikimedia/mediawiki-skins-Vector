@@ -310,43 +310,19 @@ class Hooks implements
 	}
 
 	/**
-	 * Populates 'vector-user-menu-overflow' bucket for modern Vector with modified personal navigation (user links)
-	 * menu items, including 'notification', 'user-interface-preferences', 'user-page', 'vector-user-menu-overflow'
+	 * Echo has styles that control icons rendering in places we don't want them.
+	 * This code works around T343838.
 	 *
-	 * @internal used inside ::updateUserLinksItems
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
-	private static function updateUserLinksOverflowItems( $sk, &$content_navigation ) {
-		$overflow = 'vector-user-menu-overflow';
-		$content_navigation[$overflow] = [];
-		$featureManager = VectorServices::getFeatureManager();
-		// Logged in and logged out overflow items
-		foreach ( $content_navigation['user-interface-preferences'] ?? [] as $key => $item ) {
-			$content_navigation[$overflow][ $key ] = array_merge(
-				$content_navigation['user-interface-preferences'][ $key ], [
-				'collapsible' => true,
-			] );
-		}
-
-		// Logged in overflow items
-		if ( isset( $content_navigation['user-page']['userpage'] ) ) {
-			$content_navigation[$overflow]['userpage'] = array_merge(
-				$content_navigation['user-page']['userpage'], [
-				// T312157: Style the userpage link as a blue link rather than a quiet button.
-				'button' => false,
-				'collapsible' => true,
-				// Remove icon
-				'icon' => '',
-			] );
-		}
+	private static function fixEcho( $sk, &$content_navigation ) {
 		if ( isset( $content_navigation['notifications'] ) ) {
 			foreach ( $content_navigation['notifications'] as $key => $data ) {
-				$content_navigation[$overflow][$key] = $data;
 				$icon = $data['icon'] ?? null;
 				if ( $icon ) {
-					$linkClass = $content_navigation[$overflow][$key]['link-class'] ?? [];
-					$item = $content_navigation[$overflow][$key];
+					$linkClass = $content_navigation['notifications'][$key]['link-class'] ?? [];
+					$item = $content_navigation['notifications'][$key];
 					$newLinkClass = [
 						// Allows Echo to react to clicks
 						'mw-echo-notification-badge-nojs'
@@ -354,53 +330,11 @@ class Hooks implements
 					if ( in_array( 'mw-echo-unseen-notifications', $linkClass ) ) {
 						$newLinkClass[] = 'mw-echo-unseen-notifications';
 					}
-					$item['button'] = true;
-					$item['text-hidden'] = true;
 					$item['link-class'] = $newLinkClass;
-					$content_navigation[$overflow][$key] = $item;
+					$content_navigation['notifications'][$key] = $item;
 				}
 			}
 		}
-		if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
-			$content_navigation[$overflow]['watchlist'] = array_merge(
-				$content_navigation['user-menu']['watchlist'], [
-				'id' => 'pt-watchlist-2',
-				'button' => true,
-				'collapsible' => true,
-				'text-hidden' => true,
-			] );
-		}
-
-		// Anon/temp overflow items
-		if ( isset( $content_navigation['user-menu']['createaccount'] ) ) {
-			$content_navigation[$overflow]['createaccount'] = array_merge(
-				$content_navigation['user-menu']['createaccount'], [
-				'id' => 'pt-createaccount-2',
-				'collapsible' => true,
-				// Remove icon
-				'icon' => '',
-			] );
-		}
-		if ( isset( $content_navigation['user-menu']['login'] ) ) {
-			$content_navigation[$overflow]['login'] = array_merge(
-				$content_navigation['user-menu']['login'], [
-				'id' => 'pt-login-2',
-				'collapsible' => true,
-				// Remove icon
-				'icon' => '',
-			] );
-		}
-		if ( isset( $content_navigation['user-menu']['login-private'] ) ) {
-			$content_navigation[$overflow]['login-private'] = array_merge(
-				$content_navigation['user-menu']['login-private'], [
-				'id' => 'pt-login-private-2',
-				'collapsible' => true,
-				// Remove icon
-				'icon' => '',
-			] );
-		}
-
-		self::updateMenuItems( $content_navigation, $overflow );
 	}
 
 	/**
@@ -419,7 +353,7 @@ class Hooks implements
 			// users in legacy Vector.
 			unset( $content_navigation['user-page'] );
 		} else {
-			self::updateUserLinksOverflowItems( $sk, $content_navigation );
+			self::fixEcho( $sk, $content_navigation );
 			self::updateUserLinksDropdownItems( $sk, $content_navigation );
 		}
 	}

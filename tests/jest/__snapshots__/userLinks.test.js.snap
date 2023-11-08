@@ -2,6 +2,35 @@
 
 exports[`UserLinks renders 1`] = `
 "<nav class=\\"vector-user-links\\" aria-label=\\"\\" role=\\"navigation\\">
+	<div class=\\"vector-user-links-main\\">
+<div id=\\"p-personal-preferences\\" class=\\"vector-menu\\">
+<div class=\\"vector-menu-content\\">
+	
+	<ul class=\\"vector-menu-content-list\\">
+		<li id=\\"ca-uls\\" class=\\"user-links-collapsible-item mw-list-item active\\"><a href=\\"#\\" class=\\"uls-trigger cdx-button cdx-button--weight-quiet\\"><span class=\\"vector-icon mw-ui-icon-wikimedia-language\\"></span> <span>English</span></a></li>
+	</ul>
+	
+</div>
+</div>
+<div id=\\"p-personal-user-page\\" class=\\"vector-menu\\">
+<div class=\\"vector-menu-content\\">
+	
+	<ul class=\\"vector-menu-content-list\\">
+		<li id=\\"pt-userpage-2\\" class=\\"user-links-collapsible-item mw-list-item\\"><a href=\\"/wiki/User:Admin\\" class=\\"cdx-button cdx-button--weight-quiet\\" title=\\"Your user page [⌃⌥.]\\" accesskey=\\".\\"><span>Admin</span></a></li>
+	</ul>
+	
+</div>
+</div>
+<div id=\\"p-personal-notifications\\" class=\\"vector-menu\\">
+<div class=\\"vector-menu-content\\">
+	
+	<ul class=\\"vector-menu-content-list\\">
+		<li id=\\"pt-notifications-alert\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your alerts\\"><span>Alerts (0)</span></a></li>
+		<li id=\\"pt-notifications-notice\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your notices\\"><span>Notices (0)</span></a></li>
+	</ul>
+	
+</div>
+</div>
 <div id=\\"p-personal-more\\" class=\\"vector-menu mw-portlet mw-portlet-vector-user-menu-overflow vector-user-menu-overflow\\">
 	<div class=\\"vector-menu-heading\\">
 		Toggle sidebar
@@ -10,16 +39,13 @@ exports[`UserLinks renders 1`] = `
 	
 	<ul class=\\"vector-menu-content-list\\">
 		
-			<li id=\\"ca-uls\\" class=\\"user-links-collapsible-item mw-list-item active\\"><a href=\\"#\\" class=\\"uls-trigger cdx-button cdx-button--weight-quiet\\"><span class=\\"vector-icon mw-ui-icon-wikimedia-language\\"></span> <span>English</span></a></li>
-			<li id=\\"pt-userpage-2\\" class=\\"user-links-collapsible-item mw-list-item\\"><a href=\\"/wiki/User:Admin\\" class=\\"cdx-button cdx-button--weight-quiet\\" title=\\"Your user page [⌃⌥.]\\" accesskey=\\".\\"><span>Admin</span></a></li>
-			<li id=\\"pt-notifications-alert\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your alerts\\"><span>Alerts (0)</span></a></li>
-			<li id=\\"pt-notifications-notice\\" class=\\"mw-list-item\\"><a href=\\"/wiki/Special:Notifications\\" class=\\"mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray mw-echo-notifications-badge-all-read\\" data-counter-num=\\"0\\" data-counter-text=\\"0\\" title=\\"Your notices\\"><span>Notices (0)</span></a></li>
 			<li id=\\"pt-watchlist-2\\" class=\\"user-links-collapsible-item mw-list-item\\"><a href=\\"/wiki/Special:Watchlist\\" class=\\"cdx-button cdx-button--weight-quiet vector-icon cdx-button--icon-only mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist\\" title=\\"A list of pages you are monitoring for changes [⌃⌥l]\\" accesskey=\\"l\\"><span>Watchlist</span></a></li>
 		
 	</ul>
 	
 </div>
 </div>
+	</div>
 <div id=\\"vector-user-links-dropdown\\" class=\\"vector-dropdown vector-user-menu vector-user-menu-logged-in\\">
 	<input type=\\"checkbox\\" id=\\"vector-user-links-dropdown-checkbox\\" role=\\"button\\" aria-haspopup=\\"true\\" data-event-name=\\"ui.dropdown-vector-user-links-dropdown\\" class=\\"vector-dropdown-checkbox\\" aria-label=\\"Personal tools\\">
 	<label id=\\"vector-user-links-dropdown-label\\" for=\\"vector-user-links-dropdown-checkbox\\" class=\\"vector-dropdown-label\\" aria-hidden=\\"true\\"><span class=\\"vector-dropdown-label-text\\">Personal tools</span>

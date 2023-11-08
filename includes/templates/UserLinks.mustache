@@ -1,4 +1,9 @@
 <nav class="vector-user-links{{#is-wide}} vector-user-links-wide{{/is-wide}}" aria-label="{{msg-personaltools}}" role="navigation" >
-	{{#data-user-links-overflow-menu}}{{>Menu}}{{/data-user-links-overflow-menu}}
+	<div class="vector-user-links-main">
+	{{#data-user-links-preferences}}{{>Menu}}{{/data-user-links-preferences}}
+	{{#data-user-links-user-page}}{{>Menu}}{{/data-user-links-user-page}}
+	{{#data-user-links-notifications}}{{>Menu}}{{/data-user-links-notifications}}
+	{{#data-user-links-overflow}}{{>Menu}}{{/data-user-links-overflow}}
+	</div>
 	{{>UserLinksDropdown}}
 </nav>

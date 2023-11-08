@@ -16,15 +16,27 @@ const linkTemplate = fs.readFileSync( 'includes/templates/Link.mustache', 'utf8'
 
 const templateData = {
 	'is-wide': false,
-	'data-user-links-overflow-menu': {
+	'data-user-links-notifications': {
+		id: 'p-personal-notifications',
+		class: '',
+		'html-items': `<li id="pt-notifications-alert" class="mw-list-item"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read" data-counter-num="0" data-counter-text="0" title="Your alerts"><span>Alerts (0)</span></a></li>
+		<li id="pt-notifications-notice" class="mw-list-item"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray mw-echo-notifications-badge-all-read" data-counter-num="0" data-counter-text="0" title="Your notices"><span>Notices (0)</span></a></li>`
+	},
+	'data-user-links-preferences': {
+		id: 'p-personal-preferences',
+		class: '',
+		'html-items': '<li id="ca-uls" class="user-links-collapsible-item mw-list-item active"><a href="#" class="uls-trigger cdx-button cdx-button--weight-quiet"><span class="vector-icon mw-ui-icon-wikimedia-language"></span> <span>English</span></a></li>'
+	},
+	'data-user-links-user-page': {
+		id: 'p-personal-user-page',
+		class: '',
+		'html-items': '<li id="pt-userpage-2" class="user-links-collapsible-item mw-list-item"><a href="/wiki/User:Admin" class="cdx-button cdx-button--weight-quiet" title="Your user page [⌃⌥.]" accesskey="."><span>Admin</span></a></li>'
+	},
+	'data-user-links-overflow': {
 		id: 'p-personal-more',
 		class: 'mw-portlet mw-portlet-vector-user-menu-overflow vector-user-menu-overflow',
 		label: 'Toggle sidebar',
 		'html-items': `
-			<li id="ca-uls" class="user-links-collapsible-item mw-list-item active"><a href="#" class="uls-trigger cdx-button cdx-button--weight-quiet"><span class="vector-icon mw-ui-icon-wikimedia-language"></span> <span>English</span></a></li>
-			<li id="pt-userpage-2" class="user-links-collapsible-item mw-list-item"><a href="/wiki/User:Admin" class="cdx-button cdx-button--weight-quiet" title="Your user page [⌃⌥.]" accesskey="."><span>Admin</span></a></li>
-			<li id="pt-notifications-alert" class="mw-list-item"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-bell mw-echo-notifications-badge-all-read" data-counter-num="0" data-counter-text="0" title="Your alerts"><span>Alerts (0)</span></a></li>
-			<li id="pt-notifications-notice" class="mw-list-item"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge mw-echo-notification-badge-nojs oo-ui-icon-tray mw-echo-notifications-badge-all-read" data-counter-num="0" data-counter-text="0" title="Your notices"><span>Notices (0)</span></a></li>
 			<li id="pt-watchlist-2" class="user-links-collapsible-item mw-list-item"><a href="/wiki/Special:Watchlist" class="cdx-button cdx-button--weight-quiet vector-icon cdx-button--icon-only mw-ui-icon-watchlist mw-ui-icon-wikimedia-watchlist" title="A list of pages you are monitoring for changes [⌃⌥l]" accesskey="l"><span>Watchlist</span></a></li>
 		`
 	},
