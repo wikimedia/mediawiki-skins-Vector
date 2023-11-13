@@ -244,13 +244,6 @@ final class Constants {
 	public const CONFIG_ZEBRA_DESIGN = 'VectorZebraDesign';
 
 	/**
-	 * Requirement that checks the value of ABTestEnrollment.
-	 *
-	 * @var string
-	 */
-	public const REQUIREMENT_ZEBRA_AB_TEST = 'VectorZebraDesign';
-
-	/**
 	 * @var string
 	 */
 	public const PREF_KEY_FONT_SIZE = 'vector-font-size';

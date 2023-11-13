@@ -94,12 +94,6 @@ module.exports = function webABTest( props, token, forceInit ) {
 				return bucketName;
 			}
 		}
-		if ( props.name === 'skin-vector-zebra-experiment' ) {
-			return document.documentElement.classList.contains(
-				'vector-feature-zebra-design-enabled'
-			) ? 'treatment' : 'control';
-		}
-
 		return null;
 	}
 

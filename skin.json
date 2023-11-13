@@ -631,7 +631,7 @@
 		},
 		"VectorWebABTestEnrollment": {
 			"value": {
-				"name": "skin-vector-zebra-experiment",
+				"name": "skin-vector-unnamed",
 				"enabled": false,
 				"buckets": {
 					"unsampled": {
