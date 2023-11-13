@@ -1,9 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Enye Lav"
+			"Enye Lav",
+			"Merrahtar",
+			"Римма"
 		]
 	},
+	"vector-action-addsection": "Содтыны тема",
 	"vector-action-delete": "Чышкыны",
-	"vector-view-view": "Лыддьöтны"
+	"vector-action-move": "Вежны ним",
+	"vector-view-create": "Лöсьöтны",
+	"vector-view-history": "Синмалӧмлӧн история",
+	"vector-view-view": "Лыддьöтны",
+	"vector-more-actions": "Эшӧ"
 }

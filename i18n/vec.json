@@ -9,6 +9,8 @@
 			"Vajotwo"
 		]
 	},
+	"vector-opt-out": "Cambiar a come se vedéa prima",
+	"vector-action-toggle-sidebar": "Mostra o scondi el menù in parte",
 	"vector-action-addsection": "Xonta discusion",
 	"vector-action-delete": "Descançeła",
 	"vector-action-move": "Sposta",
@@ -20,5 +22,7 @@
 	"vector-view-history": "Varda l'istorego",
 	"vector-view-view": "Lexi",
 	"vector-view-viewsource": "Varda el testo",
+	"vector-jumptonavigation": "Salta a ła navigasion",
+	"vector-jumptosearch": "Salta a ła riserca",
 	"vector-more-actions": "Piasè"
 }
