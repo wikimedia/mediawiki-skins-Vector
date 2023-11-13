@@ -179,10 +179,14 @@ class VectorComponentUserLinks implements VectorComponent {
 	 *
 	 * @param array $arrayListItems
 	 * @param bool $iconOnlyButton whether label should be visible.
+	 * @param array $exceptions list of names of items that should not be converted.
 	 * @return array
 	 */
-	private static function makeLinksButtons( $arrayListItems, $iconOnlyButton = true ) {
-		return array_map( static function ( $item ) use ( $iconOnlyButton ) {
+	private static function makeLinksButtons( $arrayListItems, $iconOnlyButton = true, $exceptions = [] ) {
+		return array_map( static function ( $item ) use ( $iconOnlyButton, $exceptions ) {
+			if ( in_array( $item[ 'name'], $exceptions ) ) {
+				return $item;
+			}
 			$item['array-links'] = array_map( static function ( $link ) use ( $iconOnlyButton ) {
 				$link['array-attributes'] = array_map( static function ( $attribute ) use ( $iconOnlyButton ) {
 					if ( $attribute['key'] === 'class' ) {
@@ -247,7 +251,9 @@ class VectorComponentUserLinks implements VectorComponent {
 			$this->stripIcons( $portletData[ 'data-user-page' ]['array-items'] ?? [] )
 		);
 		$notifications = $this->makeLinksButtons(
-			$portletData[ 'data-notifications' ]['array-items'] ?? []
+			$portletData[ 'data-notifications' ]['array-items'] ?? [],
+			true,
+			[ 'talk-alert' ]
 		);
 
 		$overflow = $this->makeItemsCollapsible(
