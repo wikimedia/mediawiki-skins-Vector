@@ -3,7 +3,8 @@
 		"authors": [
 			"AlexandrL714",
 			"Oxianboal",
-			"Андрей Саг."
+			"Андрей Саг.",
+			"Матыр"
 		]
 	},
 	"vector-languages": "Тіллер",
@@ -21,6 +22,7 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> пар страницаларны тілеңер",
 	"vector-toc-label": "Таптырғас",
 	"vector-toc-beginning": "Пасталғаны",
+	"vector-main-menu-label": "Ӧӧн меню",
 	"vector-page-tools-label": "Тиріглер",
 	"vector-page-tools-general-label": "Пір тиксі",
 	"vector-unpin-element-label": "чазырарға"

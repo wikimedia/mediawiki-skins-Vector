@@ -92,5 +92,7 @@
 	"vector-readability-survey-optout": "請按「繼續」以向我們傳送您的設計，接著在下一頁提交回饋。[[#close-vector-survey|點選此處以移除此工具]]。",
 	"vector-readability-survey-randomize": "隨機",
 	"vector-readability-survey-reset": "重設",
-	"vector-readability-survey-share": "繼續"
+	"vector-readability-survey-share": "繼續",
+	"vector-2022-beta-preview-label": "Vector 2022測試版",
+	"vector-2022-beta-preview-description": "搶先試用Vector 2022的新功能。"
 }
