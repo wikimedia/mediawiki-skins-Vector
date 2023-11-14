@@ -78,11 +78,6 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws \SkinException
 	 */
 	protected function prepareSkin( string $skinName ): \Skin {
-		// FIXME: disable flagged revisions for purpose of this test by making
-		// sure the page is not "reviewable" until T350514 is resolved.
-		$this->overrideConfigValue( 'FlaggedRevsNamespaces', [] );
-		// END FIXME
-
 		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
 		$skin = $skinFactory->makeSkin( $skinName );
 		$title = $this->getExistingTestPage()->getTitle();
