@@ -155,3 +155,15 @@
 		max-width: unit( 200 / @font-size-browser / @font-size-user-links, em );
 	}
 }
+
+#vector-user-links-client-prefs-dropdown {
+	.vector-dropdown-content {
+		right: 0;
+		left: auto;
+	}
+
+	/* If JS is disabled the menu should not render at all */
+	.client-nojs & {
+		display: none;
+	}
+}
