@@ -9,7 +9,17 @@
 			"Vajotwo"
 		]
 	},
+	"skinname-vector": "Vector antigo (2010)",
+	"skinname-vector-2022": "Vector (2022)",
+	"vector-specialversion-name": "Vector",
+	"vector-opt-out": "Cambiar a come se vedéa prima",
+	"vector-action-toggle-sidebar": "Mostra o scondi el menù in parte",
+	"vector-languages": "Łéngue",
+	"vector-language-button-aria-label": "Varda sta pajina inte n'altra łengua. Xe disponibile in {{PLURAL:$1 }}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 łéngua|$1 łéngue}}",
+	"vector-no-language-button-label": "Xonta na lengua",
+	"vector-no-language-button-aria-label": "Sta pajina la ghe xe soło in sta łéngua. Xonta la pajina in st'altre łéngue",
+	"vector-language-variant-switcher-label": "Canbia ła variante de ła lengua",
 	"vector-action-addsection": "Xonta discusion",
 	"vector-action-delete": "Descançeła",
 	"vector-action-move": "Sposta",
@@ -21,5 +31,18 @@
 	"vector-view-history": "Varda l'istorego",
 	"vector-view-view": "Lexi",
 	"vector-view-viewsource": "Varda el testo",
-	"vector-more-actions": "Piasè"
+	"vector-jumptonavigation": "Salta a ła navigasion",
+	"vector-jumptosearch": "Salta a ła riserca",
+	"vector-jumptocontent": "Salta al contegnùo",
+	"vector-more-actions": "Piasè",
+	"vector-search-loader": "Carga sujerimenti de riserca",
+	"vector-toc-beginning": "Scuminsio",
+	"vector-toc-toggle-button-label": "Mostra o scondi la sesion $1",
+	"vector-anon-user-menu-pages-learn": "par savérghine de pì",
+	"vector-anon-user-menu-pages-label": "Inparà piassè su come modìfegar",
+	"vector-main-menu-tooltip": "Menù prinsipal",
+	"vector-toc-menu-tooltip": "Somario",
+	"vector-toc-collapsible-button-label": "Mostra o scondi el somario",
+	"vector-site-nav-label": "Sito",
+	"tooltip-vector-anon-user-menu-title": "Altre posibilità"
 }

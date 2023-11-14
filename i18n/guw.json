@@ -7,7 +7,8 @@
 			"Gadarawamo",
 			"Hunpatinjob",
 			"Misteld",
-			"Samatics"
+			"Samatics",
+			"Medaho"
 		]
 	},
 	"vector-languages": "Ogbè lẹ",
@@ -24,5 +25,6 @@
 	"vector-more-actions": "Dogọ",
 	"vector-searchsuggest-containing": "Dín weda he bẹ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> hẹn lẹ",
 	"vector-toc-heading": "Nuhe e bẹhẹn lẹ",
+	"vector-toc-beginning": "Bẹjẹeji",
 	"vector-anon-user-menu-pages-learn": "Plọnnu dogọ"
 }
