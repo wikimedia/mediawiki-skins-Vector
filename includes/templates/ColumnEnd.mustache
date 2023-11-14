@@ -1,4 +1,7 @@
 <div class="vector-column-end">
+	{{#data-client-prefs}}
+		{{>ClientPreferencesContainer}}
+	{{/data-client-prefs}}
 	<nav class="vector-page-tools-landmark vector-sticky-pinned-container" aria-label="{{msg-vector-page-tools-nav-label}}">
 		{{#data-page-tools}}
 		{{>PinnableContainer/Pinned/Open}}

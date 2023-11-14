@@ -74,7 +74,7 @@ function main( window ) {
 	teleportTarget.classList.add( 'vector-body' );
 
 	// Load client preferences
-	const clientPreferenceSelector = '#vector-client-prefs .vector-dropdown-content';
+	const clientPreferenceSelector = '#vector-client-prefs';
 	const clientPreferenceExists = document.querySelectorAll( clientPreferenceSelector ).length > 0;
 	if ( clientPreferenceExists ) {
 		mw.loader.using( [ 'skins.vector.clientPreferences', 'codex-styles' ] ).then( () => {
