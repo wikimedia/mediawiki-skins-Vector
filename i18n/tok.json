@@ -8,11 +8,12 @@
 			"LesVisages",
 			"Robin van der Vliet",
 			"Tbodt",
-			"שוקו מוקה"
+			"שוקו מוקה",
+			"Earldridge Jazzed Pineda"
 		]
 	},
 	"vector-languages": "toki",
-	"vector-language-button-label": "toki $1",
+	"vector-language-button-label": "{{PLURAL:$1|toki $1}}",
 	"vector-no-language-button-label": "o sin e lipu toki",
 	"vector-action-addsection": "o pana e ijo toki sin",
 	"vector-action-delete": "o weka",
