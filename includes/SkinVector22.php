@@ -30,6 +30,15 @@ class SkinVector22 extends SkinMustache {
 	private $languages;
 
 	/**
+	 * Returns true if the client preferences is pinned to the sidebar.
+	 * todo: Rather than a static return, make this persistent (T351141)
+	 * @return bool
+	 */
+	protected function isClientPreferencesPinned() {
+		return true;
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
@@ -414,6 +423,16 @@ class SkinVector22 extends SkinMustache {
 
 		$isRegistered = $user->isRegistered();
 		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
+		$isClientPreferencesPinned = $this->isClientPreferencesPinned();
+		$clientPrefsDropdown = $featureManager->isFeatureEnabled(
+			Constants::FEATURE_CLIENT_PREFERENCES,
+		) && !$isClientPreferencesPinned ? new VectorComponentDropdown(
+			'vector-user-links-client-prefs-dropdown',
+			$this->msg( 'vector-client-preferences' )->text(),
+			'',
+			// @todo: Use new theme icon (T351142)
+			'settings'
+		) : null;
 		$components = $tocComponents + [
 			'data-add-topic-button' => $hasAddTopicButton ? new VectorComponentButton(
 				$this->msg( [ 'vector-2022-action-addsection', 'skin-action-addsection' ] )->text(),
@@ -431,20 +450,17 @@ class SkinVector22 extends SkinMustache {
 				$this->getTitle()->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
 			),
-			'data-client-prefs' => $featureManager->isFeatureEnabled(
-					Constants::FEATURE_CLIENT_PREFERENCES,
-				) ? new VectorComponentDropdown(
-					'vector-client-prefs',
-					'Site preferences',
-					'',
-					'settings'
-				) : null,
+			'data-client-prefs' => new VectorComponentPinnableContainer(
+				'vector-client-prefs-sidebar-container',
+				$isClientPreferencesPinned
+			),
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,
 				$user,
 				$portlets,
 				$this->getOptions()['link'],
-				$userPage[ 'icon' ] ?? ''
+				$userPage[ 'icon' ] ?? '',
+				$clientPrefsDropdown
 			),
 			'data-lang-dropdown' => $langData ? new VectorComponentLanguageDropdown(
 				$ulsLabels['label'],
