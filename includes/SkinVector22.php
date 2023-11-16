@@ -424,9 +424,10 @@ class SkinVector22 extends SkinMustache {
 		$isRegistered = $user->isRegistered();
 		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
 		$isClientPreferencesPinned = $this->isClientPreferencesPinned();
-		$clientPrefsDropdown = $featureManager->isFeatureEnabled(
+		$isClientPreferencesEnabled = $featureManager->isFeatureEnabled(
 			Constants::FEATURE_CLIENT_PREFERENCES,
-		) && !$isClientPreferencesPinned ? new VectorComponentDropdown(
+		);
+		$clientPrefsDropdown = $isClientPreferencesEnabled && !$isClientPreferencesPinned ? new VectorComponentDropdown(
 			'vector-user-links-client-prefs-dropdown',
 			$this->msg( 'vector-client-preferences' )->text(),
 			'',
@@ -450,10 +451,10 @@ class SkinVector22 extends SkinMustache {
 				$this->getTitle()->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
 			),
-			'data-client-prefs' => new VectorComponentPinnableContainer(
+			'data-client-prefs' => $isClientPreferencesEnabled ? new VectorComponentPinnableContainer(
 				'vector-client-prefs-sidebar-container',
 				$isClientPreferencesPinned
-			),
+			) : null,
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,
 				$user,
