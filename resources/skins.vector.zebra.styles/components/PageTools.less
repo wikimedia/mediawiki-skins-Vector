@@ -4,6 +4,18 @@
 	display: none;
 }
 
+// Make an exception to above rule for client preferences.
+&.vector-feature-page-tools-pinned-disabled.vector-feature-client-preferences-enabled .vector-column-end .vector-page-tools-landmark {
+	display: block;
+}
+
+// FIXME: Remove styles after T350907 is merged.
+#vector-client-prefs-sidebar-container {
+	form {
+		padding-left: 0;
+	}
+}
+
 // Ensure collapsible items are visible on lower resolutions
 .vector-page-tools .vector-more-collapsible-item {
 	display: block;
