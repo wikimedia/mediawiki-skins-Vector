@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Joachim Yirkang",
 			"Linus Konkor",
 			"Yirkang",
 			"Zakaria Tunsung"
@@ -19,7 +20,10 @@
 	"vector-view-history": "Kaa dabaŋkoroŋ",
 	"vector-view-view": "Gane",
 	"vector-more-actions": "Yaga",
-	"vector-searchsuggest-containing": "Bɔ leɛre ama naŋ taa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Yelzure",
+	"vector-toc-beginning": "Piiloo",
+	"vector-main-menu-label": "A yɛlɛ zu zie",
 	"vector-page-tools-label": "Tɔtɔbomma",
 	"vector-page-tools-general-label": "Te zaa",
 	"vector-unpin-element-label": "Sɔgele"
