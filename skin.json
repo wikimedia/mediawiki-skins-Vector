@@ -549,6 +549,14 @@
 			"+ext.uls.interface": "skinStyles/ext.uls.interface.less"
 		}
 	},
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "Vector",
+		"dependencies": [ "skins.vector.clientPreferences" ],
+		"scripts": [
+			"tests/integration-qunit/integration.test.js"
+		]
+	},
 	"config": {
 		"VectorClientPreferences": {
 			"value": {

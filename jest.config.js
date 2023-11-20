@@ -47,6 +47,10 @@ module.exports = {
 		'vue'
 	],
 
+	modulePathIgnorePatterns: [
+		'<rootDir>/tests/integration-qunit/'
+	],
+
 	// The paths to modules that run some code to configure or
 	// set up the testing environment before each test
 	setupFiles: [

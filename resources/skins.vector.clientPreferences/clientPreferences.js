@@ -22,13 +22,39 @@ function getClientPreferences() {
 }
 
 /**
+ * @param {string} featureName
+ * @param {string} value
+ */
+function toggleDocClassAndSave( featureName, value ) {
+	const pref = config[ featureName ];
+	if ( mw.user.isNamed() ) {
+		// FIXME: Ideally this would be done in mw.user.clientprefs API.
+		// mw.user.clientPrefs.get is marked as being only stable for anonymous and temporary users.
+		// So instead we have to keep track of all the different possible values and remove them
+		// before adding the new class.
+		config[ featureName ].options.forEach( ( possibleValue ) => {
+			document.documentElement.classList.remove( `${featureName}-clientpref-${possibleValue}` );
+		} );
+		document.documentElement.classList.add( `${featureName}-clientpref-${value}` );
+		// Ideally this should be taken care of via a single core helper function.
+		mw.util.debounce( function () {
+			api = api || new mw.Api();
+			api.saveOption( pref.preferenceKey, value );
+		}, 100 )();
+		// END FIXME.
+	} else {
+		// This case is much simpler - the API  transparently takes care of classes as well as storage.
+		mw.user.clientPrefs.set( featureName, value );
+	}
+}
+
+/**
  * @param {Element} parent
  * @param {string} featureName
- * @param {ClientPreference} pref
  * @param {string} value
  * @param {string} currentValue
  */
-function appendRadioToggle( parent, featureName, pref, value, currentValue ) {
+function appendRadioToggle( parent, featureName, value, currentValue ) {
 	const input = document.createElement( 'input' );
 	const name = `vector-client-pref-${featureName}-group`;
 	const id = `vector-client-pref-${featureName}-value-${value}`;
@@ -55,14 +81,7 @@ function appendRadioToggle( parent, featureName, pref, value, currentValue ) {
 	container.appendChild( label );
 	parent.appendChild( container );
 	input.addEventListener( 'change', () => {
-		// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
-		mw.user.clientPrefs.set( featureName, value );
-		if ( mw.user.isNamed() ) {
-			mw.util.debounce( function () {
-				api = api || new mw.Api();
-				api.saveOption( pref.preferenceKey, value );
-			}, 100 )();
-		}
+		toggleDocClassAndSave( featureName, value );
 	} );
 }
 
@@ -87,17 +106,16 @@ function makeClientPreferenceBinaryToggle( featureName ) {
 	if ( !pref ) {
 		return null;
 	}
-	// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 	const currentValue = mw.user.clientPrefs.get( featureName );
 	// The client preference was invalid. This shouldn't happen unless a gadget
 	// or script has modified the documentElement.
-	if ( !currentValue ) {
+	if ( typeof currentValue === 'boolean' ) {
 		return null;
 	}
 	const row = createRow( '' );
 	const form = document.createElement( 'form' );
 	pref.options.forEach( ( value ) => {
-		appendRadioToggle( form, featureName, pref, value, currentValue );
+		appendRadioToggle( form, featureName, value, currentValue );
 	} );
 	row.appendChild( form );
 	return row;
@@ -194,5 +212,6 @@ function bind( clickSelector, renderSelector ) {
 }
 module.exports = {
 	bind,
+	toggleDocClassAndSave,
 	render
 };
