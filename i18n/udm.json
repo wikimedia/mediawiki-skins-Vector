@@ -12,7 +12,7 @@
 	"skinname-vector": "Вектор",
 	"prefs-vector-enable-vector-1-label": "Кутоно вужмем векторез",
 	"prefs-vector-enable-vector-1-help": "Азьланяз кӧня ке ар ӵоже ми калленэн выльдылом \nVector скинэз. Legacy Vector  тӥледлы луонлык сётоз Vector-лэсь вужзэ версизэ учкыны (2019 аре толсуре уж югдурез лыдэ басьтыса). \nВыльдонъёс сярысь тросгес тодон понна, выже милям [[mw:Reading/Web/Desktop_Improvements| ӵектос бамамы]].",
-	"vector-opt-out": "Вуж тусэ берытсконо",
+	"vector-opt-out": "Вужаз тусэ берытсконо",
 	"vector-opt-out-tooltip": "Скинлэн вуж тусаз берытскон понна (вужмем вектор)воштэ ладъянъёсты.",
 	"vector-action-toggle-sidebar": "Урдэс панелез переключить кароно",
 	"vector-action-addsection": "Выль тема ватсано",
@@ -26,7 +26,7 @@
 	"vector-view-history": "Историзэ учконо",
 	"vector-view-view": "Лыдӟоно",
 	"vector-view-viewsource": "Кылдэмез сярысь тодэтсэ учконо",
-	"vector-jumptonavigation": "Навигация доры потоно",
-	"vector-jumptosearch": "Утчан доры потоно",
+	"vector-jumptonavigation": "Навигаци вылэ выжоно",
+	"vector-jumptosearch": "Утчан вылэ выжоно",
 	"vector-more-actions": "Эшшо"
 }
