@@ -7,6 +7,10 @@
 			"Алия"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Хуучна Vector ашглх",
+	"vector-opt-out": "Хуучн хүвлврт шилҗх",
+	"vector-opt-out-tooltip": "Сайтын скиниг хуучн хүвлврт шилҗүлх (legacy Vector)",
+	"vector-action-toggle-sidebar": "Хаҗуһин цесиг нееҗ хаах",
 	"vector-languages": "Келмүд",
 	"vector-language-button-label": "{{PLURAL:$1|$1 келәр}}",
 	"vector-no-language-button-label": "Кел немх",
@@ -25,7 +29,7 @@
 	"vector-jumptosearch": "Хәәлтүр шилҗх",
 	"vector-jumptocontent": "Аһулһур шилҗх",
 	"vector-more-actions": "Делгрңгү",
-	"vector-client-preferences": "Умшхин тохрлһн",
+	"vector-client-preferences": "Седв",
 	"vector-feature-custom-font-size-name": "Үзг орулхин кемҗән",
 	"vector-feature-custom-font-size-2-label": "Ик",
 	"vector-feature-custom-font-size-3-label": "X-Ик",
