@@ -5,10 +5,6 @@
  * The rules here should only define the layout, not color or typography.
  */
 
-// Note this uses variables defined in mediawiki.skin.variables so that VisualEditor can read them
-// see T259331.
-@padding-content: @padding-top-content 0 1.5em;
-
 &html {
 	scroll-padding-top: @scroll-padding-top;
 }
@@ -21,11 +17,6 @@ body {
 .mw-body,
 .parsoid-body {
 	direction: ltr;
-}
-
-.mw-body {
-	// T315261 Remove horizontal padding, rely on .mw-page-container padding instead
-	padding: @padding-content;
 }
 
 .mw-body .firstHeading {
@@ -104,10 +95,6 @@ body {
 	width: auto;
 	// Visually separate #contentSub and #contentSub2 (T315639)
 	margin: @margin-top-pre-content 0 0;
-}
-
-.parsoid-body {
-	padding: @padding-content;
 }
 
 // Container logic.
