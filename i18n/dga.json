@@ -4,7 +4,8 @@
 			"Zakaria Tunsung",
 			"Yirkang",
 			"Linus Konkor",
-			"Amire80"
+			"Amire80",
+			"Joachim Yirkang"
 		]
 	},
 	"vector-languages": "Kɔkɔɛ",
@@ -18,6 +19,22 @@
 	"vector-view-edit": "Leɛre",
 	"vector-view-history": "Kaa dabaŋkoroŋ",
 	"vector-view-view": "Gane",
+	"vector-view-viewsource": "Kaa yelle yizie",
+	"vector-jumptonavigation": "Kpɛ a kyakya ŋmɛ poɔ",
+	"vector-jumptosearch": "Kpɛ a yɛlɛ boɔbo",
+	"vector-jumptocontent": "Kpɛ a yelzu poɔ",
 	"vector-more-actions": "Yaga",
-	"vector-searchsuggest-containing": "Bɔ leɛre ama naŋ taa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-search-loader": "Naŋ boɔrɔ a yɛlɛ",
+	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Soŋ:wuli meŋɛ",
+	"vector-toc-beginning": "Piiloo",
+	"vector-anon-user-menu-pages": "Kpa kyɛ yi gampɛlɛ",
+	"vector-anon-user-menu-pages-learn": "Zanne yɛlɛ yaga",
+	"vector-anon-user-menu-pages-label": "Zanne yɛlɛ yaga kyaare neŋ yɛlɛ maaloo",
+	"vector-main-menu-tooltip": "Gaŋpɛlɛ zu meŋɛ",
+	"vector-toc-menu-tooltip": "Yelzu",
+	"vector-toc-collapsible-button-label": "Leɔre a yelzuri",
+	"vector-site-nav-label": "Zie",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|yelyaga yelbu]]",
+	"tooltip-vector-anon-user-menu-title": "Mine naŋ Bebe la"
 }

@@ -7,7 +7,9 @@
 		]
 	},
 	"skinname-vector": "Вектор",
+	"vector-languages": "Тилле",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тил}}",
+	"vector-no-language-button-label": "Тилле къош",
 	"vector-action-addsection": "Джангы тема къош",
 	"vector-action-delete": "Кетер",
 	"vector-action-move": "Атын ауушдур",
@@ -20,5 +22,6 @@
 	"vector-view-view": "Окъу",
 	"vector-view-viewsource": "Кодха къара",
 	"vector-more-actions": "Энтда",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ичинде болгъан бетлени изле"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ичинде болгъан бетлени изле",
+	"vector-toc-beginning": "Башланыу"
 }
