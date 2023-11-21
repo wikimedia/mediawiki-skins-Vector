@@ -65,7 +65,6 @@
 						"skins.vector.icons"
 					],
 					"messages": [
-						"vector-client-preferences",
 						"tooltip-p-logo",
 						"vector-opt-out-tooltip",
 						"vector-opt-out",
@@ -94,7 +93,9 @@
 						"empty-language-selector-body",
 						"vector-toc-unpinned-popup",
 						"vector-page-tools-unpinned-popup",
-						"vector-main-menu-unpinned-popup"
+						"vector-main-menu-unpinned-popup",
+						"vector-client-prefs-unpinned-popup",
+						"vector-client-prefs-label"
 					]
 				}
 			]
@@ -169,6 +170,7 @@
 		"vector-page-tools-pinned": 1,
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1,
+		"vector-client-prefs-pinned": 1,
 		"vector-font-size": 0,
 		"vector-typography-survey": 0
 	},

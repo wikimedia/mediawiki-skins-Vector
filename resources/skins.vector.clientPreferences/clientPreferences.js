@@ -176,7 +176,6 @@ function render( selector ) {
 		throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
 	}
 	getClientPreferences().forEach( ( pref ) => {
-		node.innerHTML = '';
 		mw.loader.using( 'codex-styles' ).then( () => {
 			mw.requestIdleCallback( () => {
 				makeClientPreference( node, pref );

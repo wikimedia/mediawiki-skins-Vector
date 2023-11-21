@@ -28,8 +28,6 @@ class VectorComponentUserLinks implements VectorComponent {
 	private $linkOptions;
 	/** @var string */
 	private $userIcon;
-	/** @var null|VectorComponent */
-	private $clientPrefsDropdown;
 
 	/**
 	 * @param MessageLocalizer $localizer
@@ -37,22 +35,19 @@ class VectorComponentUserLinks implements VectorComponent {
 	 * @param array $portletData
 	 * @param array $linkOptions
 	 * @param string $userIcon that represents the current type of user
-	 * @param null|VectorComponent $clientPrefsDropdown
 	 */
 	public function __construct(
 		MessageLocalizer $localizer,
 		User $user,
 		array $portletData,
 		array $linkOptions,
-		string $userIcon = 'userAvatar',
-		$clientPrefsDropdown = null
+		string $userIcon = 'userAvatar'
 	) {
 		$this->localizer = $localizer;
 		$this->user = $user;
 		$this->portletData = $portletData;
 		$this->linkOptions = $linkOptions;
 		$this->userIcon = $userIcon;
-		$this->clientPrefsDropdown = $clientPrefsDropdown;
 	}
 
 	/**
@@ -332,8 +327,6 @@ class VectorComponentUserLinks implements VectorComponent {
 				},
 				0
 			),
-			'data-user-links-client-prefs' => $this->clientPrefsDropdown ?
-				$this->clientPrefsDropdown->getTemplateData() : null,
 			'data-user-links-notifications' => $notificationsMenu->getTemplateData(),
 			'data-user-links-overflow' => $overflowMenu->getTemplateData(),
 			'data-user-links-preferences' => $preferencesMenu->getTemplateData(),
