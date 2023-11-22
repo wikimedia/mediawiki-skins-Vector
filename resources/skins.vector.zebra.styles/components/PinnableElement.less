@@ -10,12 +10,7 @@
 
 .vector-pinned-container {
 	.mixin-vector-content-box();
-	.mixin-vector-scrollable-with-fade();
-	// Border-box changes the height calculation.
-	box-sizing: border-box;
 	padding: @padding-vertical-dropdown-menu @padding-horizontal-dropdown-menu;
-	// Height is viewport height - row gap above and below the container.
-	max-height: ~'calc( 100vh - (@{grid-row-gap} * 2) )';
 	display: none;
 
 	// If there is no display grid support we remove pinnable elements
@@ -25,9 +20,14 @@
 }
 
 .vector-sticky-pinned-container {
+	.mixin-vector-scrollable-with-fade();
 	// Applies styles for making a pinned element sticky
 	position: sticky;
 	top: @grid-row-gap;
+	// Border-box changes the height calculation.
+	box-sizing: border-box;
+	// Height is viewport height - row gap above and below the container.
+	max-height: ~'calc( 100vh - (@{grid-row-gap} * 2) )';
 }
 
 @media ( max-width: @max-width-breakpoint-tablet ) {
