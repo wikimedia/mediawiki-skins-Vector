@@ -94,10 +94,10 @@ class SkinVector22 extends SkinMustache {
 	/**
 	 * Whether or not toc data is available
 	 *
+	 * @param array $parentData Template data
 	 * @return bool
 	 */
-	private function isTocAvailable(): bool {
-		$parentData = parent::getTemplateData();
+	private function isTocAvailable( array $parentData ): bool {
 		return !empty( $parentData['data-toc'][ 'array-sections' ] );
 	}
 
@@ -352,7 +352,6 @@ class SkinVector22 extends SkinMustache {
 	public function getTemplateData(): array {
 		$featureManager = VectorServices::getFeatureManager();
 		$parentData = parent::getTemplateData();
-		$localizer = $this->getContext();
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
 		$portlets = $parentData['data-portlets'];
 
@@ -374,8 +373,7 @@ class SkinVector22 extends SkinMustache {
 		// If the table of contents has no items, we won't output it.
 		// empty array is interpreted by Mustache as falsey.
 		$tocComponents = [];
-		$isTocAvailable = $this->isTocAvailable();
-		if ( $isTocAvailable ) {
+		if ( $this->isTocAvailable( $parentData ) ) {
 			// @phan-suppress-next-line SecurityCheck-XSS
 			$dataToc = new VectorComponentTableOfContents(
 				$parentData['data-toc'],
