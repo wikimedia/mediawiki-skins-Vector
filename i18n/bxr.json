@@ -23,6 +23,7 @@
 	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бэшэгдэнхэй хуудаһануудые бэдэрэлгэ",
 	"vector-toc-label": "Гаршаг",
 	"vector-toc-beginning": "Эхин",
+	"vector-main-menu-label": "Гол меню",
 	"vector-page-tools-label": "Зэмсэг",
 	"vector-page-tools-general-label": "Хамтын",
 	"vector-unpin-element-label": "нюуха"
