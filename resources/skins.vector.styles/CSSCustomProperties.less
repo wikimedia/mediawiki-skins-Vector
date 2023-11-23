@@ -15,18 +15,15 @@
 
 :root {
 	--font-size-medium: unit( @font-size-small, rem );
+	--line-height-medium: @line-height-small;
 }
 
-// FIXME: Migrate `enabled` to `1`.
-.vector-feature-custom-font-size-clientpref-enabled,
 .vector-feature-custom-font-size-clientpref-1 {
 	--font-size-medium: unit( @font-size-medium, rem );
+	--line-height-medium: 1.5;
 }
 
 .vector-feature-custom-font-size-clientpref-2 {
 	--font-size-medium: unit( @font-size-large, rem );
-}
-
-.vector-feature-custom-font-size-clientpref-3 {
-	--font-size-medium: unit( @font-size-x-large, rem );
+	--line-height-medium: 1.3;
 }
