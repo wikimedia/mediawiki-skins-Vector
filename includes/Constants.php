@@ -266,6 +266,21 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_CLIENT_PREFS_PINNED = 'ClientPrefsPinned';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_CLIENT_PREFS_PINNED = 'ClientPrefsPinned';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_CLIENT_PREFS_PINNED = 'vector-client-prefs-pinned';
+
+	/**
+	 * @var string
+	 */
 	public const PREF_KEY_TYPOGRAPHY_SURVEY = 'vector-typography-survey';
 
 	/**

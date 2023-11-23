@@ -290,6 +290,28 @@ return [
 			]
 		);
 
+		// Feature: Client preference pinned
+		// ================================
+		$featureManager->registerRequirement(
+			new UserPreferenceRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_CLIENT_PREFS_PINNED,
+				Constants::REQUIREMENT_CLIENT_PREFS_PINNED,
+				$request,
+				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_CLIENT_PREFS_PINNED,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LOGGED_IN,
+				Constants::REQUIREMENT_CLIENT_PREFS_PINNED
+			]
+		);
+
 		// Feature: T347208: Web typography prototype survey (temporary)
 		// ============================================
 		$featureManager->registerRequirement(
