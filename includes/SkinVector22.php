@@ -496,7 +496,7 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( 'vector-client-prefs-label' )->text(),
 				'',
 				// @todo: Use new theme icon (T351142)
-				'settings'
+				'appearance'
 			) : null,
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
