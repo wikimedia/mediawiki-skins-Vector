@@ -4,7 +4,7 @@
 		"preferenceKey": "vector-font-size"
 	},
 	"vector-feature-limited-width": {
-		"options": [ "0", "1" ],
+		"options": [ "1", "0" ],
 		"preferenceKey": "vector-limited-width"
 	}
 }
