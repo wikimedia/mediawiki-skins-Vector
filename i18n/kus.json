@@ -2,16 +2,28 @@
 	"@metadata": {
 		"authors": [
 			"Bugirbiig",
-			"Amire80"
+			"Amire80",
+			"Agurwin Isaac",
+			"Mozanky"
 		]
 	},
-	"vector-action-addsection": "Pɛ'ɛsim pian'azug",
-	"vector-action-delete": "Yisim",
+	"prefs-vector-enable-vector-1-label": "Nɔkim laʋk kanɛ nar la tʋm",
+	"prefs-vector-enable-vector-1-help": "Yʋma banɛ kenna la, ti na tisid gbaʋŋ laʋk labaar bi'el-bi'el. Sida suor laʋk la na kɛ ka fʋ gɔs laʋk kʋdʋg la zi'esim (nwɛnnɛ samanpiid nwadig 2019). Azamis yɛla bɛdegʋ Kat wa'ae nɛ labapaala nii,kemi ti mw\n[[mw:Reading/Web/Desktop_Improvements|project page]].",
+	"vector-opt-out": "Yɔ'ɔgim keŋ gɔsʋg kʋdʋgin",
+	"vector-opt-out-tooltip": "Tiakimi fʋ zi'esim la n lɛb nya'aŋ keŋ gbaʋŋ kʋdir la nindaagin",
+	"vector-action-toggle-sidebar": "Yɔ'ɔgʋm kpikpɛŋ dɔbaanlig",
+	"vector-action-addsection": "Paasim pian'azug",
+	"vector-action-delete": "Yiisim",
 	"vector-action-move": "Vuugim",
 	"vector-action-protect": "Gur",
+	"vector-action-undelete": "Da yiisɛ",
+	"vector-action-unprotect": "Tiakim gu'ug bɛɛ ti'edʋg",
 	"vector-view-create": "Maalim",
 	"vector-view-edit": "Dɛmisim gbɛlima",
 	"vector-view-history": "Gɔsim linɛ dɛŋin maal",
 	"vector-view-view": "Karim",
+	"vector-view-viewsource": "Gɔsim din yi zin'isi'a na",
+	"vector-jumptonavigation": "Iankim keŋ maalʋgʋn la",
+	"vector-jumptosearch": "Iankim vɛɛns",
 	"vector-more-actions": "iem paas"
 }

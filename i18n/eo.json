@@ -6,12 +6,14 @@
 			"Objectivesea",
 			"Yekrats",
 			"Robin van der Vliet",
-			"Stefangrotz"
+			"Stefangrotz",
+			"Ziko"
 		]
 	},
 	"skinname-vector": "Vektoro",
 	"vector-skin-desc": "Moderna versio de MonoBook kun freŝa aspekto kaj plibonigo de uzebleco",
-	"prefs-vector-enable-vector-1-label": "Uzu Malnova Vector",
+	"prefs-vector-enable-vector-1-label": "Uzu Malnovan Vektoron",
+	"prefs-vector-enable-vector-1-help": "Dum la venontaj kelkaj jaroj, ni iom post iom ĝisdatigos la Vektoran etoson. Malnova Vektoro permesos al vi vidi la malnovan version de Vektoro (de decembro 2019). Por lerni pli pri la ĝisdatigoj, iru al nia [[mw:Reading/Web/Desktop_Improvements|projekta paĝo]].",
 	"vector-opt-out": "Reveni al la malnova aspekto",
 	"vector-opt-out-tooltip": "Ŝanĝu viajn agordojn por reveni al la malnova aspekto de la etoso (malnova Vector)",
 	"vector.css": "/* Ĉiu CSS ĉi tie estos ŝarĝitaj por uzantoj de la Vector etoso */",

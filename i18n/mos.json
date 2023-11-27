@@ -3,16 +3,27 @@
 		"authors": [
 			"Hasslaebetch",
 			"Abdul Fatawu 352",
-			"Amire80"
+			"Amire80",
+			"Soumaya"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Sebr- y sẽn yaa \" Legacy Vector \"",
+	"prefs-vector-enable-vector-1-help": "Yʋʋmd  sẽn wan pʋgdã pʋgẽ, d na n toeema Vɛktɛɛrã yĩn-kãnga bilf-bilfu. A Legacy Vector na n kɩtame tɩ y tõe n yã a Vector version sẽn da yaa pĩnd soabã (tõnd sẽn sɩng yʋʋmd 2019 yʋʋm-sar kiuugã). Y sã n dat n bãng bũmb ning sẽn be b sẽn na n le paasgã, bɩ y kẽng tõnd [[mw:Reading/Web/Desktop_Improvements|Project page]].",
+	"vector-opt-out": "Lebg kẽ gẽs kʋdgo",
+	"vector-opt-out-tooltip": "Yãk y sẽn datã n lebg n wa yɩ a meng n yã a meng (Wãk-y n ges a meng)",
+	"vector-action-toggle-sidebar": "Togglɛ bumb be yĩngr",
 	"vector-action-addsection": "Paase wɛɛbgẽ",
 	"vector-action-delete": "Yẽese",
 	"vector-action-move": "Kedme",
 	"vector-action-protect": "Kogle",
+	"vector-action-undelete": "yẽese",
+	"vector-action-unprotect": "Toeem koglgo",
 	"vector-view-create": "Naane",
 	"vector-view-edit": "Tekre",
 	"vector-view-history": "Gese kibare",
 	"vector-view-view": "Karme",
+	"vector-view-viewsource": "Gese sɩdgem",
+	"vector-jumptonavigation": "Yãk-y n kẽng n tɩ ges-y bũmbã",
+	"vector-jumptosearch": "Kẽng n bao n bãng-y",
 	"vector-more-actions": "Paase"
 }

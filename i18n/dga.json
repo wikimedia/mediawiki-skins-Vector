@@ -4,16 +4,27 @@
 			"Zakaria Tunsung",
 			"Yirkang",
 			"Linus Konkor",
-			"Amire80"
+			"Amire80",
+			"Joachim Yirkang"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "De legacy vector",
+	"prefs-vector-enable-vector-1-help": "Yuomo naŋ pare ,te naŋ soŋ vɛŋ ka vector eŋɛ baa.legacy victor naŋ vɛŋ la ka fo kaa o boŋ-kori s (Desegbare kyu 2019). Ka fooŋ boɔra ka fo zanne yɛllɛ ysga gas a [[mw:Reading/Web/Desktop_Improvements|project page]].",
+	"vector-opt-out": "Yuo zi-koraa",
+	"vector-opt-out-tooltip": "Leɛre a fo maaloŋ kyɛ gaa a zi koraa eŋɔ (legacy vector)",
+	"vector-action-toggle-sidebar": "Neɛ a kɔŋkore daa",
 	"vector-action-addsection": "Paali yɛlzu",
 	"vector-action-delete": "Iri bare",
 	"vector-action-move": "Kyɛne ane gaa",
 	"vector-action-protect": "Guubo",
+	"vector-action-undelete": "Ba tõɔ yi",
+	"vector-action-unprotect": "Leɛ maale taabu",
 	"vector-view-create": "Maale",
 	"vector-view-edit": "Leɛre",
 	"vector-view-history": "Kaa dabaŋkoroŋ",
 	"vector-view-view": "Gane",
+	"vector-view-viewsource": "Kaa yelle yizie",
+	"vector-jumptonavigation": "Kpɛ a kyakya ŋmɛ poɔ",
+	"vector-jumptosearch": "Kpɛ a yɛlɛ boɔbo",
 	"vector-more-actions": "Yaga"
 }

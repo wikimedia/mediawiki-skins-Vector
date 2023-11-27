@@ -6,16 +6,27 @@
 			"Amoramah",
 			"Ayire Adongo",
 			"Dnshitobu",
-			"Amire80"
+			"Amire80",
+			"Atalata Gumah"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Dikɛ Vector paalega tum",
+	"prefs-vector-enable-vector-1-help": "Yuunsi'a n kini na wa, tu wan tu wan tɛɛra Vector la ti di dɛna bumpaalega. Vector paalega la wam bɔ'ɔra fole ti fu bisera yelesi'a n boi Vector kɛka la puan (pɔsera Sapɔlɔgɔ 2019). Fu san bɔta ti tu zamesɛ teere la yele, kiŋɛ [[mw:Reading/Web/Desktop_Improvements|project page]].",
+	"vector-opt-out": "Tee lebe aŋa bunkɛka la",
+	"vector-opt-out-tooltip": "Tee fu  fu maalegɔ la lebe ankɛka la puan(vector paalega)",
+	"vector-action-toggle-sidebar": "Toggle kinkileŋa ba'a la",
 	"vector-action-addsection": "Pa’asɛ sɔsezure",
 	"vector-action-delete": "Saalum",
 	"vector-action-move": "Lɛgum",
 	"vector-action-protect": "Gu",
+	"vector-action-undelete": "La ka saalum",
+	"vector-action-unprotect": "Tee gu'a la",
 	"vector-view-create": "Maalɛ",
 	"vector-view-edit": "Demese",
 	"vector-view-history": "Tuusum bisega",
 	"vector-view-view": "Kãalɛ",
+	"vector-view-viewsource": "Bisɛ akɛ la",
+	"vector-jumptonavigation": "So'ose paɛ navigaasi la",
+	"vector-jumptosearch": "So'ose paɛ saasɛ",
 	"vector-more-actions": "Zo'ore"
 }

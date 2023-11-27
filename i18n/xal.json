@@ -7,6 +7,10 @@
 			"Алия"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Хуучна Vector ашглх",
+	"vector-opt-out": "Хуучн хүвлврт шилҗх",
+	"vector-opt-out-tooltip": "Сайтын скиниг хуучн хүвлврт шилҗүлх (legacy Vector)",
+	"vector-action-toggle-sidebar": "Хаҗуһин цесиг нееҗ хаах",
 	"vector-action-addsection": "Седв немх",
 	"vector-action-delete": "Уга кех",
 	"vector-action-move": "Зөөх",
