@@ -37,9 +37,13 @@
 	"vector-jumptosearch": "Njuikes ohcamii",
 	"vector-jumptocontent": "Njuikes sisdollui",
 	"vector-more-actions": "Eanet",
-	"vector-client-preferences": "Temá",
+	"vector-client-prefs-label": "Temá",
 	"vector-feature-limited-width-name": "Čuoldda govdodat",
+	"vector-feature-limited-width-0-label": "Govdat",
+	"vector-feature-limited-width-1-label": "Dábálaš",
 	"vector-feature-custom-font-size-0-label": "Unna",
+	"vector-feature-custom-font-size-1-label": "Dábálaš",
+	"vector-feature-custom-font-size-2-label": "Stuoris",
 	"vector-search-loader": "Viežžamin ohcanevttohusaid",
 	"vector-searchsuggest-containing": "Oza siidduid main lea <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Oahpisdeapmi",
@@ -74,5 +78,7 @@
 	"vector-readability-survey-title": "Wikimedia lohkanreaidu",
 	"vector-readability-survey-fontSize": "Čálussturrodat",
 	"vector-readability-survey-lineHeight": "Gurgadasa allodat",
-	"vector-readability-survey-share": "joatkke"
+	"vector-readability-survey-reset": "máhcat",
+	"vector-readability-survey-share": "joatkke",
+	"vector-2022-beta-preview-label": "Vector 2022 -betaveršuvdna"
 }

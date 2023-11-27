@@ -50,7 +50,7 @@
 	"vector-jumptosearch": "검색으로 이동",
 	"vector-jumptocontent": "본문으로 이동",
 	"vector-more-actions": "더 보기",
-	"vector-client-preferences": "읽기 설정",
+	"vector-client-prefs-label": "읽기 설정",
 	"vector-search-loader": "검색 제안을 불러오는 중",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 항목이 포함된 글을 검색",
 	"vector-intro-page": "Help:소개",

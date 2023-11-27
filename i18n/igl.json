@@ -26,7 +26,7 @@
 	"vector-jumptosearch": "Lo ti ugbo ke neke téné énwu",
 	"vector-jumptocontent": "Lotí ogba ogbolo",
 	"vector-more-actions": "Mànyú",
-	"vector-client-preferences": "Égbí settingsi",
+	"vector-client-prefs-label": "Égbí settingsi",
 	"vector-feature-custom-font-size-0-label": "Kéké",
 	"vector-searchsuggest-containing": "Téné amí ogbá kí gwonwú <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Èyo ùkóló",

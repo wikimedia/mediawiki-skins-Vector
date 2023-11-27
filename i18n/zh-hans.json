@@ -70,7 +70,7 @@
 	"vector-jumptosearch": "跳到搜索",
 	"vector-jumptocontent": "跳到内容",
 	"vector-more-actions": "更多",
-	"vector-client-preferences": "主题",
+	"vector-client-prefs-label": "主题",
 	"vector-feature-limited-width-0-label": "宽",
 	"vector-feature-limited-width-1-label": "标准",
 	"vector-search-loader": "正在加载搜索建议",

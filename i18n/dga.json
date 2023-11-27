@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ANTHONY DERY",
 			"Amire80",
 			"Joachim Yirkang",
 			"Linus Konkor",
@@ -36,7 +37,7 @@
 	"vector-jumptosearch": "Kpɛ a yɛlɛ boɔbo",
 	"vector-jumptocontent": "Kpɛ a yelzu poɔ",
 	"vector-more-actions": "Yaga",
-	"vector-client-preferences": "Yelnyɔgeraa",
+	"vector-client-prefs-label": "Yelnyɔgeraa",
 	"vector-feature-limited-width-name": "Fɔɔlaa yaloŋ",
 	"vector-feature-custom-font-size-name": "Sɛge yaloŋ",
 	"vector-feature-limited-width-0-label": "Yaloŋ",
@@ -76,6 +77,7 @@
 	"vector-toc-unpinned-popup": "A yɛlɛ yelzu tage gaa la a kyɛ.",
 	"vector-page-tools-unpinned-popup": "A tonton boma tage gaa la a kyɛ.",
 	"vector-main-menu-unpinned-popup": "A yɛlɛ yelzu tage gaa la a kyɛ.",
+	"vector-client-prefs-unpinned-popup": "A waaloŋ mɛnu la gaa la kyɛ.",
 	"vector-readability-survey-title": "Wikimedia kannoo boma",
 	"vector-readability-survey-description": "Wulɔ ka wikipiideɛ poɔ sɛgre was ko fo? De a puli bone a daa o eŋ. Zanne yɛlɛ yaga kyaare neŋ [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|Accessibility for reading project]].",
 	"vector-readability-survey-fontSize": "Niŋɛ gampɛlɛ",

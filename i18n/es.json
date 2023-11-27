@@ -64,7 +64,7 @@
 	"vector-jumptosearch": "Ir a la búsqueda",
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
-	"vector-client-preferences": "Tema",
+	"vector-client-prefs-label": "Tema",
 	"vector-search-loader": "Cargando sugerencias de búsqueda",
 	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducción",
