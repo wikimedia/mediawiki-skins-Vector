@@ -142,12 +142,9 @@
 			transform: translateY( 0 );
 		}
 
-		.vector-pinned-container {
-			max-height: ~'calc( 100vh - @{height-header} - (@{grid-row-gap} * 2) )';
-		}
-
 		.vector-sticky-pinned-container {
 			top: @height-header;
+			max-height: ~'calc( 100vh - @{height-header} - (@{grid-row-gap} * 2) )';
 		}
 
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
