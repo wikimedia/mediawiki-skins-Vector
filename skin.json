@@ -91,10 +91,6 @@
 						"views",
 						"vector-page-tools-nav-label",
 						"empty-language-selector-body",
-						"vector-toc-unpinned-popup",
-						"vector-page-tools-unpinned-popup",
-						"vector-main-menu-unpinned-popup",
-						"vector-client-prefs-unpinned-popup",
 						"vector-client-prefs-label"
 					]
 				}
@@ -452,7 +448,8 @@
 				"vector-unpin-element-label",
 				"vector-toc-unpinned-popup",
 				"vector-page-tools-unpinned-popup",
-				"vector-main-menu-unpinned-popup"
+				"vector-main-menu-unpinned-popup",
+				"vector-client-prefs-unpinned-popup"
 			]
 		},
 		"skins.vector.legacy.js": {
