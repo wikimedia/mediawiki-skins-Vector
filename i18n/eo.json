@@ -6,14 +6,16 @@
 			"Objectivesea",
 			"Robin van der Vliet",
 			"Yekrats",
-			"Stefangrotz"
+			"Stefangrotz",
+			"Ziko"
 		]
 	},
 	"skinname-vector": "Vector malnova (2010)",
 	"skinname-vector-2022": "Vector (2022)",
 	"vector-specialversion-name": "Vector",
-	"vector-skin-desc": "Disponigas 2 Vektorajn etosoj:\n* 2011 - La Moderna versio de MonoBook kun freŝa aspekto kaj multaj plibonigoj.\n* 2022 - La Vektoro konstruita kiel parto de la projekto WMF [[mw:Desktop Improvements]].",
-	"prefs-vector-enable-vector-1-label": "Uzu Malnova Vector",
+	"vector-skin-desc": "Disponigas 2 etosojn de Vektoro:\n* 2011 - La Moderna versio de MonoBook kun freŝa aspekto kaj multaj plibonigoj.\n* 2022 - La Vektoro konstruita kiel parto de la projekto WMF [[mw:Desktop Improvements]].",
+	"prefs-vector-enable-vector-1-label": "Uzu Malnovan Vektoron",
+	"prefs-vector-enable-vector-1-help": "Dum la venontaj kelkaj jaroj, ni iom post iom ĝisdatigos la Vektoran etoson. Malnova Vektoro permesos al vi vidi la malnovan version de Vektoro (de decembro 2019). Por lerni pli pri la ĝisdatigoj, iru al nia [[mw:Reading/Web/Desktop_Improvements|projekta paĝo]].",
 	"vector-opt-out": "Reveni al la malnova aspekto",
 	"vector-opt-out-tooltip": "Ŝanĝu viajn agordojn por reveni al la malnova aspekto de la etoso (malnova Vector)",
 	"vector.css": "/* Ĉiu CSS ĉi tie estos ŝarĝitaj por uzantoj de la Vector etoso */",
@@ -43,6 +45,7 @@
 	"vector-more-actions": "Pli",
 	"vector-search-loader": "Ŝarĝante serĉsugestojn",
 	"vector-searchsuggest-containing": "Serĉu paĝojn enhavantajn<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Help:Enkonduko",
 	"vector-toc-heading": "Enhavo",
 	"vector-toc-toggle-position-sidebar": "movigi al flanka panelo",
 	"vector-toc-toggle-position-title": "kaŝi",
@@ -54,5 +57,7 @@
 	"vector-main-menu-tooltip": "Ĉefa menuo",
 	"vector-toc-menu-tooltip": "Enhavtabelo",
 	"vector-toc-collapsible-button-label": "Ŝaltu la enhavtabelon",
+	"vector-site-nav-label": "Retejo",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskuto]]",
 	"tooltip-vector-anon-user-menu-title": "Pliaj agordoj"
 }
