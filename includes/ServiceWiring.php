@@ -308,6 +308,7 @@ return [
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_LOGGED_IN,
+				Constants::REQUIREMENT_CLIENT_PREFERENCES,
 				Constants::REQUIREMENT_CLIENT_PREFS_PINNED
 			]
 		);
