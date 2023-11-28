@@ -75,7 +75,7 @@ function appendRadioToggle( parent, featureName, value, currentValue ) {
 	label.setAttribute( 'for', id );
 	const container = document.createElement( 'div' );
 	container.classList.add( 'cdx-radio' );
-	container.setAttribute( 'data-event-name', id );
+	input.setAttribute( 'data-event-name', id );
 	container.appendChild( input );
 	container.appendChild( icon );
 	container.appendChild( label );
