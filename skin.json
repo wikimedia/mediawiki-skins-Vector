@@ -21,7 +21,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.41"
+		"MediaWiki": ">= 1.42.0"
 	},
 	"ValidSkinNames": {
 		"vector-2022": {
@@ -550,7 +550,9 @@
 	"QUnitTestModule": {
 		"localBasePath": "",
 		"remoteExtPath": "Vector",
-		"dependencies": [ "skins.vector.clientPreferences" ],
+		"dependencies": [
+			"skins.vector.clientPreferences"
+		],
 		"scripts": [
 			"tests/integration-qunit/integration.test.js"
 		]

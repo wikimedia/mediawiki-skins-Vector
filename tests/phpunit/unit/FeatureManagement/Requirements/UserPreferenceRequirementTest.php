@@ -5,7 +5,7 @@ namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 use FauxRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserOptionsLookup;
+use MediaWiki\User\Options\UserOptionsLookup;
 use User;
 
 /**

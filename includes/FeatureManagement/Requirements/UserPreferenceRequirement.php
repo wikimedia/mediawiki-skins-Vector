@@ -23,7 +23,7 @@ namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserOptionsLookup;
+use MediaWiki\User\Options\UserOptionsLookup;
 use User;
 use WebRequest;
 
