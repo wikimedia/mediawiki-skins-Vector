@@ -41,14 +41,13 @@
 	"vector-jumptocontent": "Saltar ao contido",
 	"vector-more-actions": "Máis",
 	"vector-client-prefs-label": "Tema",
-	"vector-feature-limited-width-name": "Ancho da columna",
-	"vector-feature-custom-font-size-name": "Tamaño do tipo",
+	"vector-feature-limited-width-name": "Ancho",
+	"vector-feature-custom-font-size-name": "Texto",
 	"vector-feature-limited-width-0-label": "Ancho",
 	"vector-feature-limited-width-1-label": "Estándar",
 	"vector-feature-custom-font-size-0-label": "Pequeno",
 	"vector-feature-custom-font-size-1-label": "Estándar",
 	"vector-feature-custom-font-size-2-label": "Grande",
-	"vector-feature-custom-font-size-3-label": "Moi grande",
 	"vector-search-loader": "Cargando as suxestións de busca",
 	"vector-searchsuggest-containing": "Procurar as páxinas que conteñan \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\"",
 	"vector-intro-page": "Help:Introdución",
@@ -90,6 +89,6 @@
 	"vector-readability-survey-randomize": "aleatorizar",
 	"vector-readability-survey-reset": "restablecer",
 	"vector-readability-survey-share": "continuar",
-	"vector-2022-beta-preview-label": "Beta de Vector 2022",
-	"vector-2022-beta-preview-description": "Obtén vistas previas das novas funcións de Vector 2022."
+	"vector-2022-beta-preview-label": "Accesibilidade para a lectura (Vector 2022)",
+	"vector-2022-beta-preview-description": "Obtén acceso anticipado ás novas funcións de accesibilidade para a lectura, como melloras na tipografía e o modo nocturno."
 }

@@ -61,6 +61,7 @@
 	"vector-jumptosearch": "Перейти к поиску",
 	"vector-jumptocontent": "Перейти к содержанию",
 	"vector-more-actions": "Ещё",
+	"vector-feature-custom-font-size-name": "Текст",
 	"vector-search-loader": "Загружаются поисковые предложения",
 	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",

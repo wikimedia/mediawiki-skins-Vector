@@ -39,14 +39,13 @@
 	"vector-jumptocontent": "לדלג לתוכן",
 	"vector-more-actions": "עוד",
 	"vector-client-prefs-label": "ערכת נושא",
-	"vector-feature-limited-width-name": "רוחב עמודה",
-	"vector-feature-custom-font-size-name": "גודל גופן",
+	"vector-feature-limited-width-name": "רוחב",
+	"vector-feature-custom-font-size-name": "טקסט",
 	"vector-feature-limited-width-0-label": "רחבה",
 	"vector-feature-limited-width-1-label": "רגילה",
 	"vector-feature-custom-font-size-0-label": "קטן",
 	"vector-feature-custom-font-size-1-label": "רגיל",
 	"vector-feature-custom-font-size-2-label": "גדול",
-	"vector-feature-custom-font-size-3-label": "גדול מאוד",
 	"vector-search-loader": "טעינת הצעות חיפוש",
 	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
@@ -88,6 +87,6 @@
 	"vector-readability-survey-randomize": "סדר אקראי",
 	"vector-readability-survey-reset": "איפוס",
 	"vector-readability-survey-share": "המשך",
-	"vector-2022-beta-preview-label": "וקטור 2022 בטא",
-	"vector-2022-beta-preview-description": "בדיקה מוקדמת של תכונות חדשות של וקטור 2022."
+	"vector-2022-beta-preview-label": "נגישות לקריאה (וקטור 2022)",
+	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב לילה."
 }

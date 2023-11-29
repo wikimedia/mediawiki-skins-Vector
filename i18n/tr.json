@@ -53,14 +53,13 @@
 	"vector-jumptocontent": "İçeriğe atla",
 	"vector-more-actions": "Daha fazla",
 	"vector-client-prefs-label": "Tema",
-	"vector-feature-limited-width-name": "Sütun genişliği",
-	"vector-feature-custom-font-size-name": "Tip boyutu",
+	"vector-feature-limited-width-name": "Genişlik",
+	"vector-feature-custom-font-size-name": "Metin",
 	"vector-feature-limited-width-0-label": "Geniş",
 	"vector-feature-limited-width-1-label": "Ölçünlü",
 	"vector-feature-custom-font-size-0-label": "Küçük",
 	"vector-feature-custom-font-size-1-label": "Ölçünlü",
 	"vector-feature-custom-font-size-2-label": "Büyük",
-	"vector-feature-custom-font-size-3-label": "Çok büyük",
 	"vector-search-loader": "Arama önerileri yükleniyor",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> içeren sayfaları ara",
 	"vector-intro-page": "Help:Giriş",
@@ -102,6 +101,6 @@
 	"vector-readability-survey-randomize": "rastgele yap",
 	"vector-readability-survey-reset": "sıfırla",
 	"vector-readability-survey-share": "devam et",
-	"vector-2022-beta-preview-label": "Vektör 2022 beta",
-	"vector-2022-beta-preview-description": "Yeni Vektör 2022 özelliklerinin erken önizlemelerini alın."
+	"vector-2022-beta-preview-label": "Okuma için Erişilebilirlik (Vektör 2022)",
+	"vector-2022-beta-preview-description": "Basım iyileştirmeleri ve gece kipi gibi yeni okuma erişilebilirlik özelliklerine erken erişim sağlayın."
 }

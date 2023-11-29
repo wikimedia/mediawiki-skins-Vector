@@ -71,8 +71,12 @@
 	"vector-jumptocontent": "跳到内容",
 	"vector-more-actions": "更多",
 	"vector-client-prefs-label": "主题",
+	"vector-feature-limited-width-name": "宽度",
+	"vector-feature-custom-font-size-name": "文本",
 	"vector-feature-limited-width-0-label": "宽",
 	"vector-feature-limited-width-1-label": "标准",
+	"vector-feature-custom-font-size-0-label": "小",
+	"vector-feature-custom-font-size-2-label": "大",
 	"vector-search-loader": "正在加载搜索建议",
 	"vector-searchsuggest-containing": "搜索包含<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>的页面",
 	"vector-intro-page": "Help:新手入门",
@@ -103,10 +107,13 @@
 	"vector-toc-unpinned-popup": "目录已移至此处。",
 	"vector-page-tools-unpinned-popup": "工具菜单已移至此处。",
 	"vector-main-menu-unpinned-popup": "主菜单已移至此处。",
+	"vector-client-prefs-unpinned-popup": "外观菜单已移至此处。",
 	"vector-readability-survey-title": "维基媒体阅读工具",
 	"vector-readability-survey-fontSize": "字体大小",
 	"vector-readability-survey-lineHeight": "行高",
 	"vector-readability-survey-paragraphSpacing": "段落间距",
 	"vector-readability-survey-reset": "重置",
-	"vector-readability-survey-share": "继续"
+	"vector-readability-survey-share": "继续",
+	"vector-2022-beta-preview-label": "阅读无障碍（Vector 2022）",
+	"vector-2022-beta-preview-description": "抢先使用新的阅读无障碍功能，例如排版改进和夜间模式。"
 }

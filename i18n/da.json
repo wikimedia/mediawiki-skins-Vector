@@ -12,7 +12,8 @@
 			"Sarrus",
 			"SiGNOUT",
 			"Steenth",
-			"Weblars"
+			"Weblars",
+			"Zakawer2"
 		]
 	},
 	"vector-skin-desc": "Der findes 2 Vector skins:\n\n* 2011 - Den moderne version af MonoBook med frisk udseende og mange forbedringer af brugervenligheden.\n* 2022 - Den version som er udviklet som en del af WMFs [[mw:Desktop Improvements]] project.",
@@ -43,6 +44,8 @@
 	"vector-jumptosearch": "Spring til søgning",
 	"vector-jumptocontent": "Spring til indhold",
 	"vector-more-actions": "Mere",
+	"vector-feature-custom-font-size-0-label": "Kompakt",
+	"vector-feature-custom-font-size-2-label": "Åbn",
 	"vector-search-loader": "Henter søgeforslag",
 	"vector-searchsuggest-containing": "Søgning for sider der indeholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
@@ -66,5 +69,6 @@
 	"tooltip-vector-anon-user-menu-title": "Flere mugligheder",
 	"vector-prefs-limited-width": "Aktiver begrænset breddetilstand",
 	"vector-prefs-limited-width-help": "Aktiver begrænset breddetilstand for forbedret læseoplevelse.",
-	"vector-main-menu-unpinned-popup": "Hovedmenuen er flyttet hertil."
+	"vector-main-menu-unpinned-popup": "Hovedmenuen er flyttet hertil.",
+	"vector-client-prefs-unpinned-popup": "Udseendemenuen er blevet flyttet hertil."
 }

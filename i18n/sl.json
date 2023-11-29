@@ -49,7 +49,6 @@
 	"vector-feature-custom-font-size-0-label": "Majhno",
 	"vector-feature-custom-font-size-1-label": "Standard",
 	"vector-feature-custom-font-size-2-label": "Velika",
-	"vector-feature-custom-font-size-3-label": "Zelo velika",
 	"vector-search-loader": "Nalaganje predlogov za iskanje",
 	"vector-searchsuggest-containing": "Poišči strani, ki vsebujejo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Uvod",

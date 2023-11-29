@@ -62,7 +62,6 @@
 	"vector-feature-custom-font-size-0-label": "小",
 	"vector-feature-custom-font-size-1-label": "標準",
 	"vector-feature-custom-font-size-2-label": "大",
-	"vector-feature-custom-font-size-3-label": "超大",
 	"vector-search-loader": "正在載入搜尋建議",
 	"vector-searchsuggest-containing": "搜尋包含 <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 的頁面",
 	"vector-intro-page": "Help:新手入門",
