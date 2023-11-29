@@ -14,7 +14,7 @@ use MediaWiki\Skins\Vector\Hooks;
 use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserOptionsManager;
+use MediaWiki\User\Options\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
