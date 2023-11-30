@@ -6,7 +6,8 @@
 			"David1010",
 			"გიორგიმელა",
 			"Გიო ოქრო",
-			"Იო ოქრო"
+			"Იო ოქრო",
+			"Tar Lócesilion"
 		]
 	},
 	"skinname-vector": "ვექტორული (2010)",
@@ -56,6 +57,7 @@
 	"vector-toc-collapsible-button-label": "სარჩევის დამალვა/ჩვენება",
 	"vector-site-nav-label": "საიტი",
 	"vector-main-menu-label": "მთავარი მენიუ",
+	"vector-limited-width-toggle": "შიგთავსის შეზღუდული სიგანის გადართვა",
 	"vector-page-tools-label": "ხელსაწყოები",
 	"vector-page-tools-general-label": "ძირითადი",
 	"vector-page-tools-actions-label": "მოქმედებები",
@@ -64,5 +66,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|დისკუსია]]",
 	"tooltip-vector-anon-user-menu-title": "მეტი შესაძლებლობა",
 	"vector-prefs-limited-width": "შეზღუდული სიგანის რეჟიმის ჩართვა",
-	"vector-prefs-limited-width-help": "ჩართეთ შეზღუდული სიგანის რეჟიმი გაუმჯობესებული კითხვის ხედის ცდისთვის."
+	"vector-prefs-limited-width-help": "ჩართეთ შეზღუდული სიგანის რეჟიმი გაუმჯობესებული კითხვის ხედის ცდისთვის.",
+	"empty-language-selector-body": "გვერდი სხვა ენებზე არ არის ხელმისაწვდომი."
 }
