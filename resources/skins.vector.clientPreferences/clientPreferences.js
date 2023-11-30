@@ -13,12 +13,25 @@ let /** @type {MwApi} */ api;
  */
 
 /**
+ * Get the list of client preferences that are active on the page, including hidden.
+ *
  * @return {string[]} of active client preferences
  */
 function getClientPreferences() {
 	return Array.from( document.documentElement.classList ).filter(
 		( className ) => className.match( /-clientpref-/ )
 	).map( ( className ) => className.split( '-clientpref-' )[ 0 ] );
+}
+
+/**
+ * Get the list of client preferences that are active on the page and not hidden.
+ *
+ * @return {string[]} of user facing client preferences
+ */
+function getVisibleClientPreferences() {
+	const active = getClientPreferences();
+	// Order should be based on key in config.json
+	return Object.keys( config ).filter( ( key ) => active.indexOf( key ) > -1 );
 }
 
 /**
@@ -175,7 +188,7 @@ function render( selector ) {
 	if ( mw.user.isAnon() ) {
 		throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
 	}
-	getClientPreferences().forEach( ( pref ) => {
+	getVisibleClientPreferences().forEach( ( pref ) => {
 		mw.loader.using( 'codex-styles' ).then( () => {
 			mw.requestIdleCallback( () => {
 				makeClientPreference( node, pref );
