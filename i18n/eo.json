@@ -44,13 +44,13 @@
 	"vector-jumptocontent": "Saltu al enhavo",
 	"vector-more-actions": "Pli",
 	"vector-client-prefs-label": "Etoso",
-	"vector-feature-limited-width-name": "Larĝeco de kolumno",
-	"vector-feature-custom-font-size-name": "Grandeco de tipoj",
+	"vector-feature-limited-width-name": "Larĝeco",
+	"vector-feature-custom-font-size-name": "Teksto",
 	"vector-feature-limited-width-0-label": "Larĝa",
 	"vector-feature-limited-width-1-label": "Norma",
-	"vector-feature-custom-font-size-0-label": "Kompakta",
+	"vector-feature-custom-font-size-0-label": "Malgranda",
 	"vector-feature-custom-font-size-1-label": "Norma",
-	"vector-feature-custom-font-size-2-label": "Malfermita",
+	"vector-feature-custom-font-size-2-label": "Granda",
 	"vector-search-loader": "Ŝarĝante serĉsugestojn",
 	"vector-searchsuggest-containing": "Serĉu paĝojn enhavantajn<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Enkonduko",
@@ -92,6 +92,6 @@
 	"vector-readability-survey-randomize": "hazardigi",
 	"vector-readability-survey-reset": "restarigi",
 	"vector-readability-survey-share": "Daŭrigi",
-	"vector-2022-beta-preview-label": "Vektoro 2022 'beta'",
-	"vector-2022-beta-preview-description": "Akiru fruajn antaŭprezentojn de novaj funkcioj de Vektoro 2022."
+	"vector-2022-beta-preview-label": "Alirebleco por Legado (Vektoro 2022)",
+	"vector-2022-beta-preview-description": "Akiru fruan aliron al la novaj lego-alireblecoj, kiel ekzemple tipografiaj plibonigoj kaj nokta modo."
 }
