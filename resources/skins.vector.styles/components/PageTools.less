@@ -5,12 +5,7 @@
 }
 
 .vector-column-end {
-	// T327460: Prevent subpixel rendering issues associated with the text and Chrome.
-	contain: paint;
-
 	.vector-page-tools-landmark {
-		position: sticky;
-		top: 0;
 		margin-top: @margin-top-pinned-page-tools;
 	}
 }
@@ -20,12 +15,7 @@
 	width: 140px;
 	// Match spacing of TOC and main menu
 	margin-left: @padding-horizontal-dropdown-menu-item;
-	max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
-	overflow-y: auto;
-	box-sizing: border-box;
 	padding-top: @padding-top-pinned-element;
-	// Add fade indicator.
-	.mixin-vector-scroll-indicator();
 }
 
 // Ensure collapsible items are visible on lower resolutions

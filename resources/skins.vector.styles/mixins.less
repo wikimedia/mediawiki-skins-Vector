@@ -49,22 +49,20 @@
 	}
 }
 
-// Scroll indicator used by TOC and page tools.
-.mixin-vector-scroll-indicator() {
-	// Add extra padding for the fade scrollable indicator.
-	padding-bottom: @height-scroll-indicator - @padding-vertical-dropdown-menu-item;
+.mixin-vector-scrollable-with-fade() {
+	overflow-x: hidden;
+	overflow-y: auto;
 
 	&::after {
 		content: '';
 		display: block;
-		position: absolute;
+		position: sticky;
 		bottom: 0;
 		left: 0;
 		right: 0;
-		height: @height-scroll-indicator;
+		height: 16px;
 		background: linear-gradient( rgba( 255, 255, 255, 0 ), @background-color-page-container );
 		background-repeat: no-repeat;
-		background-position: -12px; // T311436 Hacky way to prevent the fade from covering the scrollbar
 		pointer-events: none; // Make the link below the fade clickable
 	}
 }

@@ -10,7 +10,15 @@
 }
 
 .vector-sticky-pinned-container {
+	// Add fade indicator.
+	.mixin-vector-scrollable-with-fade();
 	// Applies styles for making a pinned element sticky
 	position: sticky;
-	top: @grid-row-gap;
+	top: 0;
+	// Support: Chrome
+	// Work around sticky-positioned layers disabling subpixel text rendering (T327460).
+	contain: paint;
+	// Border-box changes the height calculation.
+	box-sizing: border-box;
+	max-height: ~'calc( 100vh - @{max-height-bottom-spacing-scroll-indicator} )';
 }

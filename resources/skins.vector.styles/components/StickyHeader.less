@@ -141,15 +141,11 @@
 			transform: translateY( 0 );
 		}
 
-		// - T314330 `.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container`
-		//   Prevent ToC from jumping when sticky header is enabled.
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
 		//   to make their templates compatible with the Vector 2022 sticky header.
 		//   @stable See the Integration notes for developers section at
 		//   https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
 		// - `.charts-stickyhead th` makes chart and table headers appear below the sticky header.
-		&.vector-feature-toc-pinned-clientpref-1 #vector-toc-pinned-container,
-		&.vector-feature-page-tools-pinned-enabled .vector-page-tools-landmark,
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */
@@ -157,6 +153,7 @@
 		}
 
 		.vector-sticky-pinned-container {
+			top: @height-header;
 			max-height: ~'calc( 100vh - @{height-header} - @{max-height-bottom-spacing-scroll-indicator} )';
 		}
 	}
