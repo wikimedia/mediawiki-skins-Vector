@@ -5,14 +5,14 @@
 			"TerranBoy"
 		]
 	},
-	"vector-action-addsection": "بابەت تازە بدە سەری",
+	"vector-action-addsection": "باوەت تازە ئزافە بکە",
 	"vector-action-delete": "بسڕەوە",
 	"vector-action-move": "جیوەجی بکە",
 	"vector-action-protect": "بپیەرێزەێ",
-	"vector-view-create": "درسکردن",
+	"vector-view-create": "درس‌کردن",
 	"vector-view-edit": "دەسکاری بکە",
-	"vector-view-history": "دیرووکەگەی بۊن",
+	"vector-view-history": "بنووڕە پێشینەگەی",
 	"vector-view-view": "بخوەنە",
 	"vector-view-viewsource": "سەرچاوەگەێ بۊن",
-	"vector-more-actions": "فێشتر"
+	"vector-more-actions": "فرەتر"
 }
