@@ -24,6 +24,9 @@
 	// Applies styles for making a pinned element sticky
 	position: sticky;
 	top: @grid-row-gap;
+	// Support: Chrome
+	// Work around sticky-positioned layers disabling subpixel text rendering (T327460).
+	contain: paint;
 	// Border-box changes the height calculation.
 	box-sizing: border-box;
 	// Height is viewport height - row gap above and below the container.
