@@ -76,10 +76,6 @@ class SkinVector22 extends SkinMustache {
 			$modules['styles']['skin'][] = 'skins.vector.zebra.styles';
 		}
 
-		if ( $featureManager->isFeatureEnabled( Constants::FEATURE_TYPOGRAPHY_SURVEY ) ) {
-			$modules[] = 'skins.vector.typographySurvey';
-		}
-
 		return $modules;
 	}
 

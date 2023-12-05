@@ -281,31 +281,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const PREF_KEY_TYPOGRAPHY_SURVEY = 'vector-typography-survey';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_TYPOGRAPHY_SURVEY = 'TypographySurvey';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_TYPOGRAPHY_SURVEY_PREFERENCE = 'TypographySurvey';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_TYPOGRAPHY_SURVEY_CONFIG = 'TypographySurveyConfigRequirement';
-
-	/**
-	 * @var string
-	 */
-	public const TYPOGRAPHY_SURVEY_CONFIG_KEY = 'VectorTypographySurvey';
-
-	/**
-	 * @var string
-	 */
 	public const FEATURE_CLIENT_PREFERENCES = 'ClientPreferences';
 
 	/**
