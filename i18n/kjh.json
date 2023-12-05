@@ -3,21 +3,22 @@
 		"authors": [
 			"Андрей Саг.",
 			"AlexandrL714",
-			"Oxianboal"
+			"Oxianboal",
+			"Матыр"
 		]
 	},
 	"vector-languages": "Тіллер",
-	"vector-language-button-label": "{{PLURAL:$1|$1 Тiл|$1 тiл}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тiл}}",
 	"vector-no-language-button-label": "Тіллер хозарға",
 	"vector-action-addsection": "Тема хозыбызарға",
 	"vector-action-delete": "Чох идерге",
-	"vector-action-move": "Адын алыстырыбызарға",
+	"vector-action-move": "Адын алыстырарға",
 	"vector-action-protect": "Арачилирға",
 	"vector-view-create": "Идерге",
 	"vector-view-edit": "Тӱзедерге",
 	"vector-view-history": "Тархынны кӧрерге",
 	"vector-view-view": "Хығырарға",
-	"vector-more-actions": "Хоза",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> пар страницаларны тілеңер",
+	"vector-more-actions": "Паза пасхазы",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> пар страницаларны тілирi",
 	"vector-toc-beginning": "Пасталғаны"
 }
