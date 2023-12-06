@@ -667,8 +667,8 @@ class Hooks implements
 				'ltr' => "$imagesDir/vector-2022-beta-preview-ltr.svg",
 				'rtl' => "$imagesDir/vector-2022-beta-preview-rtl.svg",
 			],
-			'info-link' => 'https://www.mediawiki.org/wiki/Skin:Vector/2022',
-			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements',
+			'info-link' => 'https://www.mediawiki.org/wiki/Special:MyLanguage/Reading/Web/Accessibility_for_reading',
+			'discussion-link' => 'https://www.mediawiki.org/wiki/Talk:Reading/Web/Accessibility_for_reading',
 		];
 	}
 }
