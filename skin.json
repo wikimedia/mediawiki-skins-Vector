@@ -310,7 +310,8 @@
 				"history",
 				"speechBubbles",
 				"speechBubbleAdd",
-				"wikiText"
+				"wikiText",
+				"appearance"
 			]
 		},
 		"skins.vector.icons": {
