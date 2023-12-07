@@ -47,6 +47,13 @@
 	"vector-jumptosearch": "Naar zoeken springen",
 	"vector-jumptocontent": "Naar inhoud springen",
 	"vector-more-actions": "Meer",
+	"vector-client-prefs-label": "Thema",
+	"vector-feature-custom-font-size-name": "Tekst",
+	"vector-feature-limited-width-0-label": "Breed",
+	"vector-feature-limited-width-1-label": "Standaard",
+	"vector-feature-custom-font-size-0-label": "Klein",
+	"vector-feature-custom-font-size-1-label": "Standaard",
+	"vector-feature-custom-font-size-2-label": "Groot",
 	"vector-search-loader": "Zoeksuggesties worden geladen",
 	"vector-searchsuggest-containing": "Zoek naar pagina's die <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevatten",
 	"vector-intro-page": "Help:Inleiding",
@@ -73,5 +80,9 @@
 	"empty-language-selector-body": "Pagina-inhoud wordt niet ondersteund in andere talen.",
 	"vector-toc-unpinned-popup": "De inhoudsopgave is hierheen verplaatst.",
 	"vector-page-tools-unpinned-popup": "Het menu met hulpmiddelen is hierheen verplaatst.",
-	"vector-main-menu-unpinned-popup": "Het hoofdmenu is hierheen verplaatst."
+	"vector-main-menu-unpinned-popup": "Het hoofdmenu is hierheen verplaatst.",
+	"vector-readability-survey-fontSize": "Lettergrootte",
+	"vector-readability-survey-paragraphSpacing": "Alinea-afstand",
+	"vector-readability-survey-reset": "opnieuw instellen",
+	"vector-readability-survey-share": "doorgaan"
 }
