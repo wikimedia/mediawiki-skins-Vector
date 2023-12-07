@@ -92,15 +92,6 @@
 	"vector-page-tools-unpinned-popup": "Text to show in popup body when Page Tools ({{msg-mw|vector-page-tools-label}}) has been moved.",
 	"vector-main-menu-unpinned-popup": "Text to show in popup body when Main menu ({{msg-mw|vector-main-menu-label}}) has been moved.",
 	"vector-client-prefs-unpinned-popup": "Text to show in popup body when Appearance menu ({{msg-mw|vector-client-prefs-label}}) has been moved.",
-	"vector-readability-survey-title": "The title of the readability survey prototype",
-	"vector-readability-survey-description": "The description of the readability survery prototype",
-	"vector-readability-survey-fontSize": "Label for readability survey font size slider",
-	"vector-readability-survey-lineHeight": "Label for readability survey Font size slider line height slider",
-	"vector-readability-survey-paragraphSpacing": "Label for readability survey paragraph spacing slider",
-	"vector-readability-survey-optout": "Text to provide feedback or opt-out of typography survey",
-	"vector-readability-survey-randomize": "label for readability survey randomize button",
-	"vector-readability-survey-reset": "label for readability survey reset button",
-	"vector-readability-survey-share": "label for readability survey share button",
 	"vector-2022-beta-preview-label": "label for beta feature preview link in beta features under special preferences",
 	"vector-2022-beta-preview-description": "label for beta feature preview description in beta features under special preferences"
 }

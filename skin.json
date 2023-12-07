@@ -167,8 +167,7 @@
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1,
 		"vector-client-prefs-pinned": 1,
-		"vector-font-size": 0,
-		"vector-typography-survey": 0
+		"vector-font-size": 0
 	},
 	"HookHandlers": {
 		"VectorCentralAuthHooks": {
@@ -464,27 +463,6 @@
 				"mediawiki.page.ready",
 				"mediawiki.util"
 			]
-		},
-		"skins.vector.typographySurvey": {
-			"packageFiles": [
-				"resources/skins.vector.typographySurvey/index.js",
-				"resources/skins.vector.typographySurvey/TypographySurvey.vue"
-			],
-			"dependencies": [
-				"vue",
-				"mediawiki.storage"
-			],
-			"messages": [
-				"vector-readability-survey-title",
-				"vector-readability-survey-description",
-				"vector-readability-survey-fontSize",
-				"vector-readability-survey-lineHeight",
-				"vector-readability-survey-paragraphSpacing",
-				"vector-readability-survey-optout",
-				"vector-readability-survey-randomize",
-				"vector-readability-survey-reset",
-				"vector-readability-survey-share"
-			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -669,13 +647,6 @@
 				"beta": false
 			},
 			"description": "@var boolean Temporary feature flag that enables the zebra design for the Vector skin."
-		},
-		"VectorTypographySurvey": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false
-			},
-			"description": "@var boolean Temporary feature flag to enable a survey tool to gather feedback for typography changes in Vector. Note the user preference `vector-typography-survey` must also be set for the tool to be displayed."
 		}
 	},
 	"ServiceWiringFiles": [
