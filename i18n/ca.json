@@ -89,15 +89,6 @@
 	"vector-page-tools-unpinned-popup": "El menú d'eines s'ha traslladat aquí.",
 	"vector-main-menu-unpinned-popup": "El menú principal s'ha traslladat aquí.",
 	"vector-client-prefs-unpinned-popup": "El menú d'aparença s'ha traslladat aquí.",
-	"vector-readability-survey-title": "Eina de lectura de Wikimedia",
-	"vector-readability-survey-description": "Quina aparença de text preferiu a la Viquipèdia? Utilitzeu els botons lliscants a continuació per ajustar-lo a les vostres preferències. Llegiu-ne més sobre el [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|projecte d'accessibilitat en la lectura]].",
-	"vector-readability-survey-fontSize": "Mida del text",
-	"vector-readability-survey-lineHeight": "Alçada de la línia",
-	"vector-readability-survey-paragraphSpacing": "Espaiat del paràgraf",
-	"vector-readability-survey-optout": "Premeu «Continua» per tal d'enviar-nos el vostre disseny i publicar els vostres comentaris a la pàgina següent. [[#close-vector-survey|Elimina aquesta eina]].",
-	"vector-readability-survey-randomize": "Aleatoritza",
-	"vector-readability-survey-reset": "Reinicia",
-	"vector-readability-survey-share": "Continua",
 	"vector-2022-beta-preview-label": "Accessibilitat en la lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Aconseguiu accés anticipat a les noves funcions d'accessibilitat de lectura, com ara les millores de tipografia i el mode nocturn."
 }

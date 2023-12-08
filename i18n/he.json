@@ -78,15 +78,6 @@
 	"vector-page-tools-unpinned-popup": "תפריט הכלים הועבר לכאן.",
 	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן.",
 	"vector-client-prefs-unpinned-popup": "תפריט המראה הועבר לכאן.",
-	"vector-readability-survey-title": "כלי קריאה של ויקימדיה",
-	"vector-readability-survey-description": "איך הטקסט בוויקיפדיה נראה הכי טוב עבורך? נא להשתמש בסרגלי ההחלקה למטה כדי להתאים את המראה. אפשר לקרוא מידע נוסף על [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|מיזם נגישות הקריאה]].",
-	"vector-readability-survey-fontSize": "גודל גופן",
-	"vector-readability-survey-lineHeight": "גובה שורה",
-	"vector-readability-survey-paragraphSpacing": "מרווח בין פסקאות",
-	"vector-readability-survey-optout": "יש ללחוץ על \"המשך\" כדי לשלוח לנו את העיצוב שלך ולפרסם את המשוב שלך בדף הבא. [[#close-vector-survey|הסרת הכלי הזה]].",
-	"vector-readability-survey-randomize": "סדר אקראי",
-	"vector-readability-survey-reset": "איפוס",
-	"vector-readability-survey-share": "המשך",
 	"vector-2022-beta-preview-label": "נגישות לקריאה (וקטור 2022)",
 	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב לילה."
 }

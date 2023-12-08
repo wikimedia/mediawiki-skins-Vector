@@ -83,15 +83,6 @@
 	"vector-page-tools-unpinned-popup": "La menuo de iloj estis movita ĉi tien.",
 	"vector-main-menu-unpinned-popup": "La ĉefa menuo estis movita ĉi tien.",
 	"vector-client-prefs-unpinned-popup": "La aspekto-menuo estis movita ĉi tien.",
-	"vector-readability-survey-title": "Vikimedia lego-helpilo",
-	"vector-readability-survey-description": "Kiel la teksto en Vikipedio aspektas plej bone por vi? Uzu la glitilojn sube por ĝustigi la aspekton. Lernu pli pri la [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|projekto pri Alirebleco por legado]].",
-	"vector-readability-survey-fontSize": "Grandeco de tiparo",
-	"vector-readability-survey-lineHeight": "Linia alteco",
-	"vector-readability-survey-paragraphSpacing": "Alinea interspaco",
-	"vector-readability-survey-optout": "Premu 'daŭrigi' por sendi al ni vian dezajnon kaj publikigi viajn komentojn sur la sekva paĝo. [[#close-vector-survey|Forigu ĉi tiun ilon]].",
-	"vector-readability-survey-randomize": "hazardigi",
-	"vector-readability-survey-reset": "restarigi",
-	"vector-readability-survey-share": "Daŭrigi",
 	"vector-2022-beta-preview-label": "Alirebleco por Legado (Vektoro 2022)",
 	"vector-2022-beta-preview-description": "Akiru fruan aliron al la novaj lego-alireblecoj, kiel ekzemple tipografiaj plibonigoj kaj nokta modo."
 }

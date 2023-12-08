@@ -96,14 +96,5 @@
 	"empty-language-selector-body": "Le contenu de la page n’est pas pris en charge dans d’autres langues.",
 	"vector-toc-unpinned-popup": "La table des matières a été déplacée ici.",
 	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
-	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici.",
-	"vector-readability-survey-title": "outil de lecture Wikimedia",
-	"vector-readability-survey-description": "En quoi le texte de Wikipedia vous convient-il mieux ? Utilisez les curseurs ci-dessous pour ajuster l'apparence. En savoir plus sur le [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|projet d'accessibilité pour la lecture]].",
-	"vector-readability-survey-fontSize": "Taille de la police",
-	"vector-readability-survey-lineHeight": "Hauteur de ligne",
-	"vector-readability-survey-paragraphSpacing": "Espacement des paragraphes",
-	"vector-readability-survey-optout": "Appuyez sur 'Continuer' pour nous envoyer votre conception et publiez vos commentaires sur la page suivante. [[#close-vector-survey|Cliquez ici pour supprimer cet outil]].",
-	"vector-readability-survey-randomize": "Rendre aléatoire",
-	"vector-readability-survey-reset": "Réinitialiser",
-	"vector-readability-survey-share": "Continuer"
+	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici."
 }

@@ -74,15 +74,6 @@
 	"vector-toc-unpinned-popup": "Контента кунта куҫарнӑ.",
 	"vector-page-tools-unpinned-popup": "Хатӗр-хӗтӗрсен менюне ку вырӑна куҫартӑмӑр.",
 	"vector-main-menu-unpinned-popup": "Тӗп меню вырӑнне кунта куҫартӑмӑр.",
-	"vector-readability-survey-title": "Вуланмалӑха улӑштармалли прототип",
-	"vector-readability-survey-description": "Википедири текста мӗнле кӑтартсан аванрах? Аяларах вырнаҫнӑ переключательпе усӑ курса мӗнле курӑннине калӑплӑр. [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|«Ҫӑмӑл вуланасси»]] проект пирки тӗплӗрех паллашӑр.",
-	"vector-readability-survey-fontSize": "Шрифт виҫи",
-	"vector-readability-survey-lineHeight": "Йӗрке ҫӳллӗшӗ",
-	"vector-readability-survey-paragraphSpacing": "Параграфсем хушшинчи виҫе",
-	"vector-readability-survey-optout": "Хӑвӑрӑн дизайна пире ярса памашкӑн тата тепӗр страницӑра хӑвӑрӑн шухӑшӑра палӑртмашкӑн «малалла» ҫине пусӑр. [[#close-vector-survey|Ку хатӗр-хӗтӗре кӑларса пӑрахма кунта пусӑр]].",
-	"vector-readability-survey-randomize": "рандомла",
-	"vector-readability-survey-reset": "пӑрахӑҫла",
-	"vector-readability-survey-share": "малалла",
 	"vector-2022-beta-preview-label": "Vector 2022 beta",
 	"vector-2022-beta-preview-description": "Vector 2022-ӑн чи малтан тунӑ ҫӗнӗ функцисен тишкерӗвӗсемпе паллашӑр."
 }

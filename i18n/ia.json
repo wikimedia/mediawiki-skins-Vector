@@ -36,8 +36,8 @@
 	"vector-jumptocontent": "Saltar al contento",
 	"vector-more-actions": "Plus",
 	"vector-client-prefs-label": "Thema",
-	"vector-feature-limited-width-name": "Latitude de columna",
-	"vector-feature-custom-font-size-name": "Dimension de litteras",
+	"vector-feature-limited-width-name": "Latitude",
+	"vector-feature-custom-font-size-name": "Texto",
 	"vector-feature-limited-width-0-label": "Large",
 	"vector-feature-limited-width-1-label": "Normal",
 	"vector-feature-custom-font-size-0-label": "Micre",
@@ -75,15 +75,6 @@
 	"vector-page-tools-unpinned-popup": "Le menu de utensiles ha essite displaciate hic.",
 	"vector-main-menu-unpinned-popup": "Le menu principal ha essite displaciate hic.",
 	"vector-client-prefs-unpinned-popup": "Le menu de apparentia ha essite displaciate hic.",
-	"vector-readability-survey-title": "Instrumento de lectura de Wikimedia",
-	"vector-readability-survey-description": "Como appare le texto in Wikipedia le melior pro te? Usa le glissatores infra pro adjustar le apparentia. Discoperi plus sur le [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|projecto de accessibilitate pro le lectura]].",
-	"vector-readability-survey-fontSize": "Dimension del litteras",
-	"vector-readability-survey-lineHeight": "Altitude de lineas",
-	"vector-readability-survey-paragraphSpacing": "Distantia inter paragraphos",
-	"vector-readability-survey-optout": "Pulsa ‘Continuar’ pro transmitter nos tu designo e publicar tu retroaction sur le proxime pagina. [[#close-vector-survey|Remover iste utensile]].",
-	"vector-readability-survey-randomize": "aleatori",
-	"vector-readability-survey-reset": "reinitialisar",
-	"vector-readability-survey-share": "continuar",
-	"vector-2022-beta-preview-label": "Vector 2022 beta",
-	"vector-2022-beta-preview-description": "Obtene previsualisationes anticipate de nove functiones de Vector 2022."
+	"vector-2022-beta-preview-label": "Accessibilitate pro le lectura (Vector 2022)",
+	"vector-2022-beta-preview-description": "Obtene accesso anticipate al nove functiones de accessibilitate de lectura, como meliorationes de typographia e le modo nocturne."
 }

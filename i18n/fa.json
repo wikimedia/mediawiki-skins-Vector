@@ -75,15 +75,6 @@
 	"tooltip-vector-anon-user-menu-title": "گزینه‌های بیشتر",
 	"vector-prefs-limited-width": "فعال‌سازی حالت محدودیت عرض",
 	"vector-prefs-limited-width-help": "فعال‌سازی حالت محدودیت عرض برای بهبود تجربهٔ مطالعه.",
-	"vector-readability-survey-title": "تغییرات آزمایشی در خوانایی",
-	"vector-readability-survey-description": "به نظر شما، بهترین ظاهر برای متون ویکی‌پدیا چیست؟ برای تنظیم ظاهر از اسلایدر های زیر استفاده کنید. در مورد پروژه [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|بهبود خوانایی]] بیشتر بخوانید.",
-	"vector-readability-survey-fontSize": "اندازه فونت",
-	"vector-readability-survey-lineHeight": "ارتفاع خط",
-	"vector-readability-survey-paragraphSpacing": "فاصله بین بندها",
-	"vector-readability-survey-optout": "بر دکمه «ادامه»‌ کلیک کنید تا بازخورد شما در صفحه بعد منتشر شود. [[#close-vector-survey|بر این پیوند کلیک کنید تا ابزار را حذف کنید]].",
-	"vector-readability-survey-randomize": "تصادفی",
-	"vector-readability-survey-reset": "ریست",
-	"vector-readability-survey-share": "ادامه دهید",
 	"vector-2022-beta-preview-label": "وکتور ۲۰۲۲ آزمایشی",
 	"vector-2022-beta-preview-description": "پیش‌نمایش‌های زودهنگام ویژگی‌های جدید وکتور ۲۰۲۲ را دریافت کنید."
 }

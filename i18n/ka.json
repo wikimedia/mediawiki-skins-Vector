@@ -83,14 +83,5 @@
 	"vector-page-tools-unpinned-popup": "ხელსაწყოების მენიუ აქ გადმოვიდა.",
 	"vector-main-menu-unpinned-popup": "მთავარი მენიუ აქ გადმოვიდა.",
 	"vector-client-prefs-unpinned-popup": "იერსახის მენიუ აქ გადმოვიდა.",
-	"vector-readability-survey-title": "კითხვადობის ხარისხის გაზრდის პროტოტიპი",
-	"vector-readability-survey-description": "როგორ გამოიყურება თქვენთვის საუკეთესოდ ტექსტი ვიკიპედიაში? გამოიყენეთ ქვემოთ მოცემული გადამრთველები იერსახის დასარეგულირებლად. გაიგეთ მეტი [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|წაკითხვის ხელმისაწვდომობის პროექტის]] შესახებ.",
-	"vector-readability-survey-fontSize": "შრიფტის ზომა",
-	"vector-readability-survey-lineHeight": "ხაზის სიმაღლე",
-	"vector-readability-survey-paragraphSpacing": "აბზაცებს შორის დაშორება",
-	"vector-readability-survey-optout": "დააჭირეთ გაგრძელებას, რათა გამოგვიგზავნოთ თქვენი დიზაინი და გამოაქვეყნეთ თქვენი გამოხმაურება შემდეგ გვერდზე. [[#close-vector-survey|დააწკაპუნეთ აქ ამ ხელსაწყოს გამოსართავად]].",
-	"vector-readability-survey-randomize": "რანდომიზება",
-	"vector-readability-survey-reset": "გადატვირთვა",
-	"vector-readability-survey-share": "გაგრძელება",
 	"vector-2022-beta-preview-description": "ვექტორული იერსახის (2022) ახალი ფუნქციების ადრეული გამოყენება."
 }

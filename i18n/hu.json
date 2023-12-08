@@ -72,13 +72,5 @@
 	"tooltip-vector-anon-user-menu-title": "További lehetőségek",
 	"vector-prefs-limited-width": "Korlátozott szélességű mód bekapcsolása",
 	"vector-prefs-limited-width-help": "A tartalom szélességének korlátozása a kényelmesebb olvasás érdekében.",
-	"empty-language-selector-body": "Az oldal más nyelven nem érhető el.",
-	"vector-readability-survey-title": "Wikimedia olvasóeszköz",
-	"vector-readability-survey-fontSize": "Betűméret",
-	"vector-readability-survey-lineHeight": "Vonalmagasság",
-	"vector-readability-survey-paragraphSpacing": "Bekezdésköz",
-	"vector-readability-survey-optout": "Küldd el nekünk terved a Tovább gomb megnyomásával, a következő oldalon pedig tedd közzé visszajelzésed! [[#close-vector-survey|Eszköz eltávolítása]].",
-	"vector-readability-survey-randomize": "Találomra",
-	"vector-readability-survey-reset": "Alaphelyzet",
-	"vector-readability-survey-share": "folytatás"
+	"empty-language-selector-body": "Az oldal más nyelven nem érhető el."
 }

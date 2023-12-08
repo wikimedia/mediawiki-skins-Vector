@@ -89,14 +89,5 @@
 	"empty-language-selector-body": "محتويات الصفحة غير مدعومة بلغات أخرى.",
 	"vector-toc-unpinned-popup": "تم نقل جدول المحتويات هنا.",
 	"vector-page-tools-unpinned-popup": "تم نقل قائمة الأدوات هنا.",
-	"vector-main-menu-unpinned-popup": "تم نقل القائمة الرئيسية هنا.",
-	"vector-readability-survey-title": "تغييرات المقروئية النموذج المبدئي",
-	"vector-readability-survey-description": "كيف تفضّل مظهر النص الذي على ويكيبيديا؟ استخدم أشرطة التمرير أدناه لضبط المظهر. تعرف على المزيد حول [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|مشروع سهولة التصفح و المقروئية]].",
-	"vector-readability-survey-fontSize": "حجم الخط",
-	"vector-readability-survey-lineHeight": "ارتفاع الخط",
-	"vector-readability-survey-paragraphSpacing": "تباعد الفقرات",
-	"vector-readability-survey-optout": "استمر في إرسال تصميمك ونشر ملاحظاتك في الصفحة التالية، [[#close-vector-survey|انقر هنا لإزالة هذه الأداة]]",
-	"vector-readability-survey-randomize": "تخصيص عشوائي",
-	"vector-readability-survey-reset": "إعادة تعيين",
-	"vector-readability-survey-share": "استمر"
+	"vector-main-menu-unpinned-popup": "تم نقل القائمة الرئيسية هنا."
 }

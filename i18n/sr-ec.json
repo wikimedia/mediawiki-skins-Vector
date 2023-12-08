@@ -83,9 +83,5 @@
 	"vector-toc-unpinned-popup": "Садржај је премештен овде.",
 	"vector-page-tools-unpinned-popup": "Мени са алаткама је премештен овде.",
 	"vector-main-menu-unpinned-popup": "Главни мени је премештен овде.",
-	"vector-client-prefs-unpinned-popup": "Мени за приказ је премештен овде.",
-	"vector-readability-survey-fontSize": "Величина фонта",
-	"vector-readability-survey-lineHeight": "Висина линије",
-	"vector-readability-survey-reset": "ресетуј",
-	"vector-readability-survey-share": "настави"
+	"vector-client-prefs-unpinned-popup": "Мени за приказ је премештен овде."
 }

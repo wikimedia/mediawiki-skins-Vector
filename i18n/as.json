@@ -81,15 +81,6 @@
 	"vector-page-tools-unpinned-popup": "সঁজুলিৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-main-menu-unpinned-popup": "মুখ্য মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-client-prefs-unpinned-popup": "অৱয়বৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
-	"vector-readability-survey-title": "ৱিকিমিডিয়া পঠন সা-সঁজুলি",
-	"vector-readability-survey-description": "ৱিকিপিডিয়াৰ পাঠ্যৰ কি ৰূপ আপোনাৰ সবাতোতকৈ ভাল লাগে? ৰূপ সলনি কৰিবলৈ তলৰ স্লাইডাৰবোৰ ব্যৱহাৰ কৰক। পঠনৰ বাবে অভিগম্যতা প্ৰকল্পৰ বিষয়ে [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|এই লিংকত]] অধিক জানক।",
-	"vector-readability-survey-fontSize": "ফণ্টৰ আকাৰ",
-	"vector-readability-survey-lineHeight": "শাৰীৰ উচ্চতা",
-	"vector-readability-survey-paragraphSpacing": "অনুচ্ছেদৰ মাজৰ ব্যৱধান",
-	"vector-readability-survey-optout": "আপোনাৰ ডিজাইন আমালৈ পঠিয়াবলৈ আৰু পৰৱৰ্তী পৃষ্ঠাত আপোনাৰ মতামত প্ৰকাশ কৰিবলৈ 'অব্যাহত ৰাখক' বুটামটো টিপক। [[#close-vector-survey|এই সঁজুলিটো বন্ধ কৰক]]।",
-	"vector-readability-survey-randomize": "যাদৃচ্ছিক",
-	"vector-readability-survey-reset": "পূৰ্ৱবত কৰক",
-	"vector-readability-survey-share": "অব্যাহত ৰাখক",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টৰ ২০২২)",
 	"vector-2022-beta-preview-description": "নতুন পঠন অভিগম্যতা বৈশিষ্ট্যসমূহৰ, যেনে টাইপোগ্ৰাফীৰ উন্নতিসমূহ আৰু নাইট মোড, পূৰ্বদৰ্শন লাভ কৰক।"
 }

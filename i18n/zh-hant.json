@@ -94,15 +94,6 @@
 	"vector-page-tools-unpinned-popup": "工具選單已移至此處。",
 	"vector-main-menu-unpinned-popup": "主選單已移到此處。",
 	"vector-client-prefs-unpinned-popup": "外觀選單已移到此處。",
-	"vector-readability-survey-title": "閱讀體驗變更原型",
-	"vector-readability-survey-description": "維基百科採用什麼樣的文字樣式最舒適？請使用下方的滑塊調整外觀。進一步了解[[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|無障礙閱讀專案]]。",
-	"vector-readability-survey-fontSize": "字型大小",
-	"vector-readability-survey-lineHeight": "行高",
-	"vector-readability-survey-paragraphSpacing": "段落間距",
-	"vector-readability-survey-optout": "請按「繼續」以向我們傳送您的設計，接著在下一頁提交回饋。[[#close-vector-survey|點選此處以移除此工具]]。",
-	"vector-readability-survey-randomize": "隨機",
-	"vector-readability-survey-reset": "重設",
-	"vector-readability-survey-share": "繼續",
 	"vector-2022-beta-preview-label": "無障礙閱讀（Vector 2022）",
 	"vector-2022-beta-preview-description": "搶先取得新的無障礙閱讀功能，像是排版改善或夜間閱讀模式。"
 }

@@ -91,15 +91,6 @@
 	"vector-toc-unpinned-popup": "Зміст перенесено сюди.",
 	"vector-page-tools-unpinned-popup": "Меню інструментів переміщено сюди.",
 	"vector-main-menu-unpinned-popup": "Головне меню інструментів переміщено сюди.",
-	"vector-readability-survey-title": "Інструмент для читання Вікімедіа",
-	"vector-readability-survey-description": "Як для вас найкраще виглядає текст у Вікіпедії? Скористайтеся повзунками нижче, щоб налаштувати вигляд. Дізнайтеся більше про [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|проєкт «Доступність для читання»]].",
-	"vector-readability-survey-fontSize": "Розмір шрифту",
-	"vector-readability-survey-lineHeight": "Висота рядків",
-	"vector-readability-survey-paragraphSpacing": "Відступ між абзацами",
-	"vector-readability-survey-optout": "Натисніть «продовжити», щоб надіслати нам свій дизайн і опублікувати свій відгук на наступній сторінці. [[#close-vector-survey|Прибрати цей інструмент]].",
-	"vector-readability-survey-randomize": "рандомізувати",
-	"vector-readability-survey-reset": "скинути",
-	"vector-readability-survey-share": "продовжити",
 	"vector-2022-beta-preview-label": "Вектор 2022 бета",
 	"vector-2022-beta-preview-description": "Отримайте ранній попередній перегляд нових функцій Вектора 2022."
 }

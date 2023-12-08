@@ -9,6 +9,7 @@
 			"FRacco",
 			"Gianfranco",
 			"GpieroMW",
+			"Luca.favorido",
 			"Melos",
 			"Patafisik WMF",
 			"Pierpao",
@@ -84,6 +85,5 @@
 	"vector-toc-unpinned-popup": "L'indice è stato spostato qui.",
 	"vector-page-tools-unpinned-popup": "Il menu degli strumenti è stato spostato qui.",
 	"vector-main-menu-unpinned-popup": "Il menu principale è stato spostato qui.",
-	"vector-readability-survey-fontSize": "Dimensione carattere",
-	"vector-readability-survey-reset": "reimposta"
+	"vector-2022-beta-preview-label": "Accessibilità per la lettura (Vector 2022)"
 }

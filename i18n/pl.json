@@ -85,15 +85,6 @@
 	"vector-page-tools-unpinned-popup": "Menu z narzędziami przeniosło się tutaj.",
 	"vector-main-menu-unpinned-popup": "Główne menu zostało przeniesione tutaj.",
 	"vector-client-prefs-unpinned-popup": "Menu wyglądu strony przeniosło się tutaj.",
-	"vector-readability-survey-title": "Narzędzie do zmian czytelności",
-	"vector-readability-survey-description": "Jak twoim zdaniem najlepiej wygląda tekst na Wikipedii? Użyj suwaków niżej, aby dostosować wygląd strony.\nDowiedz się więcej o [[mw:Special:MyLanguage/Reading/Web/Accessibility for reading|projekcie \"Dostępność do czytania\"]].",
-	"vector-readability-survey-fontSize": "Rozmiar czcionki",
-	"vector-readability-survey-lineHeight": "Wielkość interlinii",
-	"vector-readability-survey-paragraphSpacing": "Odstępy między akapitami",
-	"vector-readability-survey-optout": "Wciśnij „Kontynuuj”, aby wysłać nam swój układ i opublikować opinię na następnej stronie. [[#close-vector-survey|Zamknij to narzędzie]].",
-	"vector-readability-survey-randomize": "losuj",
-	"vector-readability-survey-reset": "resetuj",
-	"vector-readability-survey-share": "kontynuuj",
 	"vector-2022-beta-preview-label": "Ułatwienia czytania (Wektor 2022)",
 	"vector-2022-beta-preview-description": "Uzyskaj wczesny dostęp do nowych ułatwień czytania, takich jak usprawnienia typografii oraz tryb nocny."
 }
