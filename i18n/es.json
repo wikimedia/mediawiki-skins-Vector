@@ -65,7 +65,14 @@
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
 	"vector-client-prefs-label": "Tema",
-	"vector-search-loader": "Cargando sugerencias de búsqueda",
+	"vector-feature-limited-width-name": "Anchura",
+	"vector-feature-custom-font-size-name": "Texto",
+	"vector-feature-limited-width-0-label": "Ancho",
+	"vector-feature-limited-width-1-label": "Estándar",
+	"vector-feature-custom-font-size-0-label": "Pequeño",
+	"vector-feature-custom-font-size-1-label": "Estándar",
+	"vector-feature-custom-font-size-2-label": "Grande",
+	"vector-search-loader": "Cargando las sugerencias de búsqueda",
 	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducción",
 	"vector-toc-label": "Contenidos",
@@ -95,5 +102,8 @@
 	"empty-language-selector-body": "Contenido de la página no disponible en otros idiomas.",
 	"vector-toc-unpinned-popup": "La tabla de contenidos se ha movido aquí.",
 	"vector-page-tools-unpinned-popup": "El menú de herramientas se ha movido aquí.",
-	"vector-main-menu-unpinned-popup": "El menú principal se ha movido aquí."
+	"vector-main-menu-unpinned-popup": "El menú principal se ha movido aquí.",
+	"vector-client-prefs-unpinned-popup": "El menú de apariencia se ha movido aquí.",
+	"vector-2022-beta-preview-label": "Accesibilidad para la lectura (Vector 2022)",
+	"vector-2022-beta-preview-description": "Obtén acceso anticipado a las nuevas funciones de accesibilidad de lectura, como mejoras tipográficas y modo oscuro."
 }

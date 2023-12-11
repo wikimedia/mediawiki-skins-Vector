@@ -24,6 +24,7 @@
 			"أيوب",
 			"ديفيد",
 			"زكريا",
+			"عبد الإله صديقي",
 			"علاء",
 			"محمد أحمد عبد الفتاح"
 		]
@@ -89,5 +90,7 @@
 	"empty-language-selector-body": "محتويات الصفحة غير مدعومة بلغات أخرى.",
 	"vector-toc-unpinned-popup": "تم نقل جدول المحتويات هنا.",
 	"vector-page-tools-unpinned-popup": "تم نقل قائمة الأدوات هنا.",
-	"vector-main-menu-unpinned-popup": "تم نقل القائمة الرئيسية هنا."
+	"vector-main-menu-unpinned-popup": "تم نقل القائمة الرئيسية هنا.",
+	"vector-2022-beta-preview-label": "ميزة القراءة المتاحة (فيكتور 2022)",
+	"vector-2022-beta-preview-description": "احصل على وصول مبكر إلى ميزات القراءة الجديدة، مثل الوضع الليلي وتحسينات الخط."
 }
