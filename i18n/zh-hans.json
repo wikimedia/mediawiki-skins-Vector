@@ -33,7 +33,9 @@
 			"Yining Chen",
 			50829,
 			"Kishinsagi",
-			"魔琴"
+			"魔琴",
+			"LittlePaw365",
+			"Xyb"
 		]
 	},
 	"skinname-vector": "Vector",
@@ -44,7 +46,7 @@
 	"vector-opt-out-tooltip": "更改您的设置来使用该皮肤的旧外观（旧版Vector）。",
 	"vector.css": "/* 此处所有CSS将为使用Vector皮肤的用户加载 */",
 	"vector.js": "/* 此处所有JavaScript将为使用Vector皮肤的用户加载 */",
-	"vector-action-toggle-sidebar": "折叠侧栏",
+	"vector-action-toggle-sidebar": "开关侧边栏",
 	"vector-action-addsection": "添加话题",
 	"vector-action-delete": "删除",
 	"vector-action-move": "移动",
@@ -56,7 +58,7 @@
 	"vector-view-history": "查看历史",
 	"vector-view-view": "阅读",
 	"vector-view-viewsource": "查看源代码",
-	"vector-jumptonavigation": "跳到导航",
-	"vector-jumptosearch": "跳到搜索",
+	"vector-jumptonavigation": "跳转到导航",
+	"vector-jumptosearch": "跳转到搜索",
 	"vector-more-actions": "更多"
 }
