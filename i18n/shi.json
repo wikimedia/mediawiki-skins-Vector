@@ -22,5 +22,6 @@
 	"vector-view-history": "Ẓr amzruy",
 	"vector-view-view": "Ɣr",
 	"vector-view-viewsource": "Ẓr aɣbalu",
-	"vector-more-actions": "Uggar"
+	"vector-more-actions": "Uggar",
+	"vector-searchsuggest-containing": "Siggl tasniwin ɣ illa <strong class=\"cdx-typeahead-search__search-footer__query\"></strong>"
 }

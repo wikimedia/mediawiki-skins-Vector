@@ -27,7 +27,8 @@
 			"Rodelar",
 			"Zapipedia (WMF)",
 			"MadriCR",
-			"No se"
+			"No se",
+			"Tar Lócesilion"
 		]
 	},
 	"skinname-vector": "Versión heredada de Vector (2010)",
@@ -63,7 +64,7 @@
 	"vector-jumptosearch": "Ir a la búsqueda",
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
-	"vector-search-loader": "Cargando sugerencias de búsqueda",
+	"vector-search-loader": "Cargando las sugerencias de búsqueda",
 	"vector-searchsuggest-containing": "Buscar páginas que contengan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducción",
 	"vector-toc-heading": "Contenidos",
