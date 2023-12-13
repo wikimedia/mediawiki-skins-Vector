@@ -44,13 +44,13 @@
 	"vector-jumptocontent": "შინაარსზე გადასვლა",
 	"vector-more-actions": "მეტი",
 	"vector-client-prefs-label": "თემა",
-	"vector-feature-limited-width-name": "სვეტის სიგანე",
-	"vector-feature-custom-font-size-name": "შრიფტის ზომა",
+	"vector-feature-limited-width-name": "სიგანე",
+	"vector-feature-custom-font-size-name": "ტექსტი",
 	"vector-feature-limited-width-0-label": "სიგანე",
 	"vector-feature-limited-width-1-label": "სტანდარტული",
-	"vector-feature-custom-font-size-0-label": "კომპაქტური",
+	"vector-feature-custom-font-size-0-label": "პატარა",
 	"vector-feature-custom-font-size-1-label": "სტანდარტული",
-	"vector-feature-custom-font-size-2-label": " გაშლილი",
+	"vector-feature-custom-font-size-2-label": " დიდი",
 	"vector-search-loader": "იტვირთვება ძიების შეთავაზებები",
 	"vector-searchsuggest-containing": "იმ გვერდების მოძებნა, რომლებიც შეიცავენ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>-ს",
 	"vector-intro-page": "ვიკიპედია:კეთილი იყოს თქვენი მობრძანება",
@@ -83,5 +83,6 @@
 	"vector-page-tools-unpinned-popup": "ხელსაწყოების მენიუ აქ გადმოვიდა.",
 	"vector-main-menu-unpinned-popup": "მთავარი მენიუ აქ გადმოვიდა.",
 	"vector-client-prefs-unpinned-popup": "იერსახის მენიუ აქ გადმოვიდა.",
-	"vector-2022-beta-preview-description": "ვექტორული იერსახის (2022) ახალი ფუნქციების ადრეული გამოყენება."
+	"vector-2022-beta-preview-label": "წაკითხვის ხელმისაწვდომობა (ვექტორული 2022)",
+	"vector-2022-beta-preview-description": "ვექტორული იერსახის (2022) წაკითხვის ხელმისაწვდომობის ახალ ფუნქციებზე ადრეული წვდომის მიღება. ამ ფუნქციებს შორისაა ტიპოგრაფიის გაუმჯობესებები და ბნელი რეჟიმი."
 }
