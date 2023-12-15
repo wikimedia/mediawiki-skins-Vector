@@ -61,6 +61,8 @@
 	"vector-jumptosearch": "Перейти к поиску",
 	"vector-jumptocontent": "Перейти к содержанию",
 	"vector-more-actions": "Ещё",
+	"vector-client-prefs-label": "Тема оформления",
+	"vector-feature-limited-width-name": "Ширина",
 	"vector-feature-custom-font-size-name": "Текст",
 	"vector-search-loader": "Загружаются поисковые предложения",
 	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
@@ -92,5 +94,6 @@
 	"empty-language-selector-body": "Содержимое страницы недоступно на других языках.",
 	"vector-toc-unpinned-popup": "Содержание перенесено сюда.",
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
-	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда."
+	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
+	"vector-client-prefs-unpinned-popup": "Меню оформления переехало сюда."
 }
