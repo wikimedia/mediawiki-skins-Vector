@@ -22,6 +22,7 @@
 			"Thibaut120094",
 			"Urhixidur",
 			"Verdy p",
+			"Vikoula5",
 			"Wladek92"
 		]
 	},
@@ -58,11 +59,11 @@
 	"vector-jumptosearch": "Aller à la recherche",
 	"vector-jumptocontent": "Aller au contenu",
 	"vector-more-actions": "Plus",
-	"vector-client-prefs-label": "Paramètres de lecture",
-	"vector-feature-limited-width-name": "Largeur de colonne",
+	"vector-client-prefs-label": "Thème",
+	"vector-feature-limited-width-name": "Largeur",
 	"vector-feature-custom-font-size-name": "Taille du texte",
-	"vector-feature-limited-width-0-label": "Largeur complète",
-	"vector-feature-limited-width-1-label": "Largeur limitée",
+	"vector-feature-limited-width-0-label": "Large",
+	"vector-feature-limited-width-1-label": "Standard",
 	"vector-feature-custom-font-size-0-label": "Petite",
 	"vector-feature-custom-font-size-1-label": "Standard",
 	"vector-feature-custom-font-size-2-label": "Grande",
@@ -96,5 +97,8 @@
 	"empty-language-selector-body": "Le contenu de la page n’est pas pris en charge dans d’autres langues.",
 	"vector-toc-unpinned-popup": "La table des matières a été déplacée ici.",
 	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
-	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici."
+	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici.",
+	"vector-client-prefs-unpinned-popup": "Le menu d'apparence a été déplacé ici.",
+	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vecteur 2022)",
+	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode nuit."
 }

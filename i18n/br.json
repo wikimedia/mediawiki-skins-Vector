@@ -64,6 +64,8 @@
 	"vector-site-nav-label": "Lec'hienn",
 	"vector-main-menu-label": "Meuziad pennañ",
 	"vector-limited-width-toggle": "Gwintañ mod ledander endalc’had bihanet",
+	"vector-limited-width-toggle-on-popup": "Kemmet ho peus hoc’h aozadur da ledander leun. Evit distreiñ da ledander harzet, pouezit war ar bounton-mañ.",
+	"vector-limited-width-toggle-off-popup": "Gallout a rit gwintañ etre ledander harzet ha ledander leun en ur glikañ war ar bounton-mañ.",
 	"vector-page-tools-label": "Ostilhoù",
 	"vector-page-tools-general-label": "Hollek",
 	"vector-page-tools-actions-label": "Oberoù",
@@ -78,5 +80,7 @@
 	"vector-toc-unpinned-popup": "Lakaet eo bet an daolenn amañ.",
 	"vector-page-tools-unpinned-popup": "Lakaet eo bet ar meuziad benvegoù amañ.",
 	"vector-main-menu-unpinned-popup": "Lakaet eo bet ar meuziad pennañ amañ.",
-	"vector-client-prefs-unpinned-popup": "Lakaet eo bet ar meuziad tres amañ."
+	"vector-client-prefs-unpinned-popup": "Lakaet eo bet ar meuziad tres amañ.",
+	"vector-2022-beta-preview-label": "Diraezusted evit Lenn (Vektor 2022)",
+	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod noz."
 }
