@@ -4,9 +4,17 @@
 			"Lloffiwr",
 			"Muddyb",
 			"Muddyb Blast Producer",
-			"Yasen igra"
+			"Yasen igra",
+			"Amire80",
+			"Edwingudfriend",
+			"Hussein m mmbaga",
+			"Kipala",
+			"Kisare",
+			"Wangombe"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Tumia Legacy Vector",
+	"vector-action-toggle-sidebar": "Geuza mwambaa upande",
 	"vector-action-addsection": "Weka mada",
 	"vector-action-delete": "Futa",
 	"vector-action-move": "Hamisha",
@@ -17,6 +25,8 @@
 	"vector-view-edit": "Hariri",
 	"vector-view-history": "Fungua historia",
 	"vector-view-view": "Soma",
-	"vector-view-viewsource": "Tazama msimbo",
+	"vector-view-viewsource": "Tazama chanzo",
+	"vector-jumptonavigation": "Nenda kwa urambazaji",
+	"vector-jumptosearch": "Nenda kwa kutafuta",
 	"vector-more-actions": "Zaidi"
 }
