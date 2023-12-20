@@ -12,7 +12,7 @@
 	"vector-no-language-button-label": "Хэлэнүүдые нэмэхэ",
 	"vector-action-addsection": "Сэдэб нэмэхэ",
 	"vector-action-delete": "Усадхаха",
-	"vector-action-move": "Ондоо нэрэ үгэхэ",
+	"vector-action-move": "Нэрыень һэлгэхэ",
 	"vector-action-protect": "Хамгаалха",
 	"vector-view-create": "Зохёохо",
 	"vector-view-edit": "Заһабарилха",
@@ -24,7 +24,7 @@
 	"vector-toc-label": "Гаршаг",
 	"vector-toc-beginning": "Эхин",
 	"vector-main-menu-label": "Гол меню",
-	"vector-page-tools-label": "Зэмсэг",
+	"vector-page-tools-label": "Зэмсэгүүд",
 	"vector-page-tools-general-label": "Хамтын",
 	"vector-unpin-element-label": "нюуха"
 }
