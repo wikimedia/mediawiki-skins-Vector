@@ -33,7 +33,7 @@
 	"vector-more-actions": "ပို၍",
 	"vector-search-loader": "ရှာဖွေမှုအကြံပြုချက်များကို ဝန်ဆွဲတင်နေပါသည်",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ပါဝင်သော စာမျက်နှာများ ရှာဖွေရန်",
-	"vector-intro-page": "အကူအညီ-နိဒါန်း",
+	"vector-intro-page": "အကူအညီ:မိတ်ဆက်",
 	"vector-toc-label": "မာတိကာ",
 	"vector-toc-beginning": "အစပိုင်း",
 	"vector-anon-user-menu-pages": "ထွက်ပြီးသား တည်းဖြတ်သူများအတွက် စာမျက်နှာများ",
@@ -48,7 +48,7 @@
 	"vector-page-tools-actions-label": "ဆောင်ရွက်ချက်များ",
 	"vector-pin-element-label": "ဘေးဘားသို့ရွှေ့ပါ",
 	"vector-unpin-element-label": "ဝှက်ရန်",
-	"vector-2022-prefs-talkpage": "[[mw:Talk-Reading/Web/Desktop_Improvements|ဆွေးနွေးချက်]]",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|ဆွေးနွေးချက်]]",
 	"tooltip-vector-anon-user-menu-title": "နောက်ထပ် ရွေးချယ်စရာများ",
 	"empty-language-selector-body": "အခြားဘာသာစကားများဖြင့် စာမျက်နှာအကြောင်းအရာများကို ပံ့ပိုးမထားပါ။"
 }
