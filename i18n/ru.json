@@ -16,6 +16,7 @@
 			"Okras",
 			"Ole Yves",
 			"Pacha Tchernof",
+			"Putnik",
 			"Serhio Magpie",
 			"Stjn",
 			"Sunpriat",
@@ -24,6 +25,7 @@
 			"Thothsum",
 			"Tucvbif",
 			"Ukhant Erdemt",
+			"Vlad5250",
 			"Александр Сигачёв",
 			"З. ӘЙЛЕ"
 		]
@@ -64,6 +66,11 @@
 	"vector-client-prefs-label": "Тема оформления",
 	"vector-feature-limited-width-name": "Ширина",
 	"vector-feature-custom-font-size-name": "Текст",
+	"vector-feature-limited-width-0-label": "Широко",
+	"vector-feature-limited-width-1-label": "Стандартно",
+	"vector-feature-custom-font-size-0-label": "Мелкий",
+	"vector-feature-custom-font-size-1-label": "Стандартный",
+	"vector-feature-custom-font-size-2-label": "Крупный",
 	"vector-search-loader": "Загружаются поисковые предложения",
 	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",
