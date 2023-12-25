@@ -3,7 +3,9 @@
 		"authors": [
 			"FRANCIS5091",
 			"FRANELYA",
-			"Meqqal"
+			"Meqqal",
+			"CorrelMoris38",
+			"Jilorisa"
 		]
 	},
 	"vector-action-addsection": "Ruhangai piboboroson",
@@ -14,8 +16,8 @@
 	"vector-action-unprotect": "Alanai tingolig",
 	"vector-view-create": "Pomonsoi",
 	"vector-view-edit": "Idito",
-	"vector-view-history": "Intaai susuyan",
+	"vector-view-history": "Intangai sajara",
 	"vector-view-view": "Basao",
 	"vector-view-viewsource": "Intaai wowonod",
-	"vector-more-actions": "Suai"
+	"vector-more-actions": "Lobi ogumu"
 }
