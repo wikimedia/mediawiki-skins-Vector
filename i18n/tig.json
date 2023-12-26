@@ -5,5 +5,8 @@
 		]
 	},
 	"vector-languages": "ሉቃት",
-	"vector-more-actions": "ዚያደት"
+	"vector-no-language-button-label": "ሉቃት ወስክ",
+	"vector-view-history": "ታሪኽ ራኣው",
+	"vector-more-actions": "ዚያደት",
+	"vector-unpin-element-label": "ሕብዖ"
 }
