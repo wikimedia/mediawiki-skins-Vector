@@ -4,9 +4,9 @@
 			"ऐक्टिवेटेड्"
 		]
 	},
-	"vector-languages": "भासा",
-	"vector-language-button-label": "{{PLURAL:$1|$1 भासा}}",
-	"vector-no-language-button-label": "भासा जोड़ी",
+	"vector-languages": "भाषा",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा}}",
+	"vector-no-language-button-label": "भाषा जोड़ी",
 	"vector-action-addsection": "बिषय जोड़ी",
 	"vector-action-delete": "हटावी",
 	"vector-action-move": "स्थानान्तरण",
@@ -16,9 +16,10 @@
 	"vector-view-history": "इतिहास देखी",
 	"vector-view-view": "पढ़ी",
 	"vector-more-actions": "आउ",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> बाला पन्ना खोजी",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> वाला पन्ना खोजी",
 	"vector-toc-label": "सामग्री",
 	"vector-toc-beginning": "प्रारम्भ",
+	"vector-main-menu-label": "मुख्य मेन्यू",
 	"vector-page-tools-label": "उपकरण",
 	"vector-page-tools-general-label": "सामान्य",
 	"vector-unpin-element-label": "लुकावी"
