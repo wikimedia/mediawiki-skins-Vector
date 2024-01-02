@@ -4,7 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Extension\CentralAuth\Hooks\CentralAuthIsUIReloadRecommendedHook;
 use MediaWiki\User\Options\UserOptionsLookup;
-use User;
+use MediaWiki\User\User;
 
 /**
  * @package Vector

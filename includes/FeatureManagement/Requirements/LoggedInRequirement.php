@@ -23,7 +23,7 @@
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
-use User;
+use MediaWiki\User\User;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements

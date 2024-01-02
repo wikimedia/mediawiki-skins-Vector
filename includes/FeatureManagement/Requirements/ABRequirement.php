@@ -22,9 +22,9 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
-use User;
+use MediaWiki\User\User;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements

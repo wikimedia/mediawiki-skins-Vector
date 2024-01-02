@@ -21,13 +21,13 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use Config;
 use ExtensionRegistry;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\BetaFeatures\BetaFeatures;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
-use User;
-use WebRequest;
+use MediaWiki\User\User;
 
 /**
  * The `OverridableConfigRequirement` allows us to define requirements that can override

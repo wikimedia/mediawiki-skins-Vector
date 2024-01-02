@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 
-use FauxRequest;
+use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
-use User;
+use MediaWiki\User\User;
 
 /**
  * @group Vector

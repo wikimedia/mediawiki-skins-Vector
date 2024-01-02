@@ -22,6 +22,7 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
+use MediaWiki\Config\Config;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 
 /**
@@ -67,7 +68,7 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 final class DynamicConfigRequirement implements Requirement {
 
 	/**
-	 * @var \Config
+	 * @var Config
 	 */
 	private $config;
 
@@ -82,14 +83,14 @@ final class DynamicConfigRequirement implements Requirement {
 	private $requirementName;
 
 	/**
-	 * @param \Config $config
+	 * @param Config $config
 	 * @param string $configName Any `Config` key. This name is used to query `$config` state. E.g.,
 	 *   `'DBname'`. See https://www.mediawiki.org/wiki/Manual:Configuration_settings
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
 	 *   This name _usually_ matches the `$configName` parameter for simplicity but allows for
 	 *   abstraction as needed. See `Requirement->getName()`.
 	 */
-	public function __construct( \Config $config, string $configName, string $requirementName ) {
+	public function __construct( Config $config, string $configName, string $requirementName ) {
 		$this->config = $config;
 		$this->configName = $configName;
 		$this->requirementName = $requirementName;

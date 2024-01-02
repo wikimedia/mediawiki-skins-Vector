@@ -21,11 +21,11 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
-use User;
-use WebRequest;
+use MediaWiki\User\User;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements

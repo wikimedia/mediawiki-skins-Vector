@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use Html;
+use MediaWiki\Html\Html;
 use Skin;
 
 /**

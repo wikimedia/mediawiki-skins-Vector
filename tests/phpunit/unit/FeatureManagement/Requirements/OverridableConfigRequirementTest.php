@@ -20,11 +20,11 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 
-use HashConfig;
+use MediaWiki\Config\HashConfig;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
-use User;
-use WebRequest;
+use MediaWiki\User\User;
 
 /**
  * @group Vector

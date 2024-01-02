@@ -23,9 +23,9 @@ namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\User\User;
 use Message;
 use MessageLocalizer;
-use User;
 
 /**
  * @group Vector

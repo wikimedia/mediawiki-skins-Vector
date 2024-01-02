@@ -20,7 +20,7 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use WebRequest;
+use MediaWiki\Request\WebRequest;
 
 /**
  * The `OverridableConfigRequirement` allows us to define requirements that can override

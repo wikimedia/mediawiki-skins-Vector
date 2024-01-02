@@ -1,13 +1,13 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use Linker;
-use MalformedTitleException;
+use MediaWiki\Linker\Linker;
 use MediaWiki\Skin\SkinComponentLink;
+use MediaWiki\Title\MalformedTitleException;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Message;
 use MessageLocalizer;
-use User;
 
 /**
  * VectorComponentUserLinks component

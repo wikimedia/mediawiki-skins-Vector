@@ -21,11 +21,11 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
-use Config;
+use MediaWiki\Config\Config;
+use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
-use WebRequest;
 
 /**
  * The `MaxWidthRequirement` for content.

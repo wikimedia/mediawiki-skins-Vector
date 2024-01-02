@@ -6,7 +6,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use HashConfig;
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\Skins\Vector\Constants;
@@ -16,11 +16,11 @@ use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsManager;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
 use RuntimeException;
-use User;
 
 /**
  * Integration tests for Vector Hooks.
