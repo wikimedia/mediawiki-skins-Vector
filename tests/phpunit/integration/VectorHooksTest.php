@@ -8,6 +8,7 @@ namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use HashConfig;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\ResourceLoader\Context;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
 use MediaWiki\Skins\Vector\Hooks;
@@ -18,7 +19,6 @@ use MediaWiki\User\Options\UserOptionsManager;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
 use RequestContext;
-use ResourceLoaderContext;
 use RuntimeException;
 use User;
 
@@ -341,7 +341,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testGetActiveABTest( $configData, $expected ) {
 		$config = new HashConfig( $configData );
 		$vectorConfig = Hooks::getActiveABTest(
-			$this->createMock( ResourceLoaderContext::class ),
+			$this->createMock( Context::class ),
 			$config
 		);
 
@@ -359,7 +359,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$config = new HashConfig( $configData );
 		$this->expectException( RuntimeException::class );
 		Hooks::getActiveABTest(
-			$this->createMock( ResourceLoaderContext::class ),
+			$this->createMock( Context::class ),
 			$config
 		);
 	}
