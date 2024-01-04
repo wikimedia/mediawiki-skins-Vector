@@ -22,7 +22,10 @@ class CentralAuthHooks implements CentralAuthIsUIReloadRecommendedHook {
 	 * @inheritDoc
 	 */
 	public function onCentralAuthIsUIReloadRecommended( User $user, bool &$recommendReload ) {
-		if ( $this->userOptionsLookup->getDefaultOption( 'skin' ) === Constants::SKIN_NAME_MODERN ) {
+		if (
+			$this->userOptionsLookup->getDefaultOption( 'skin', $user ) ===
+			Constants::SKIN_NAME_MODERN
+		) {
 			// Vector 2022 does not support updating the UI without reloading the page (T345112)
 			$recommendReload = true;
 		}
