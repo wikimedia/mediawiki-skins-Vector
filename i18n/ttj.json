@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahiise2"
+		]
+	},
+	"vector-languages": "Endimi",
+	"vector-language-button-label": "{{PLURAL:$1|Orulimi $1|Endimi $1}}",
+	"vector-no-language-button-label": "Taho endimi",
+	"vector-view-create": "Hanga",
+	"vector-view-history": "Rora ebyaira",
+	"vector-more-actions": "Emirimo muno",
+	"vector-searchsuggest-containing": "Serra orupapura oruhamu <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Ebirumu",
+	"vector-toc-beginning": "Okubanza",
+	"vector-main-menu-label": "Omusorongo gw'emirimo omukuru",
+	"vector-page-tools-label": "Ebikwato",
+	"vector-unpin-element-label": "sereka"
+}
