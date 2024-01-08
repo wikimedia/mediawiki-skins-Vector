@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ahiise2"
+		]
+	},
+	"vector-languages": "Endimi",
+	"vector-action-protect": "Semba",
+	"vector-view-create": "Hanga",
+	"vector-more-actions": "Muno",
+	"vector-searchsuggest-containing": "Serra empapura eziina <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Ebinyakurumu",
+	"vector-toc-beginning": "Embanza",
+	"vector-unpin-element-label": "sereka"
+}
