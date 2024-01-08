@@ -3,12 +3,15 @@
 		"authors": [
 			"Boulaur",
 			"Cedric31",
-			"Quentí"
+			"Quentí",
+			"Nicolas Eynaud"
 		]
 	},
 	"vector.css": "/* Lo CSS plaçat aicí afectarà los utilizaires de l’abilhatge Vector */",
 	"vector.js": "/* Tot JavaScript aicí serà cargat amb las paginas accedidas pels utilizaires de l’abilhatge Vector unicament. */",
+	"vector-languages": "Lengas",
 	"vector-language-button-label": "{{PLURAL:$1|$1 lenga|$1 lengas}}",
+	"vector-no-language-button-label": "Apondre una lenga",
 	"vector-action-addsection": "Apondre un subjècte",
 	"vector-action-delete": "Suprimir",
 	"vector-action-move": "Renomenar",
@@ -20,5 +23,7 @@
 	"vector-view-history": "Veire l'istoric",
 	"vector-view-view": "Legir",
 	"vector-view-viewsource": "Veire la font",
-	"vector-more-actions": "Mai"
+	"vector-more-actions": "Mai",
+	"vector-searchsuggest-containing": "Cercar lei paginas que contènon <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Començament"
 }
