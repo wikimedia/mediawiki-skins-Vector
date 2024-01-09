@@ -5,7 +5,6 @@
 }
 
 .vector-main-menu {
-	box-sizing: border-box;
 
 	// Hide #p-navigation label
 	#p-navigation .vector-menu-heading {
@@ -37,29 +36,5 @@
 		// Override default .mw-message-box styles
 		padding: 8px;
 		margin: 0;
-	}
-}
-
-// Main menu when pinned in the sidebar
-#vector-main-menu-pinned-container .vector-main-menu {
-	// Align the left edge of the text with the page container
-	margin-left: -@padding-horizontal-dropdown-menu-item;
-	// Align border under pinnable header with border under page title
-	margin-top: 11px;
-	padding: @padding-vertical-dropdown-menu-item @padding-horizontal-dropdown-menu-item;
-	background-color: @background-color-secondary--modern;
-
-	// Match styles of .mw-list-item a in PinnableElement.less
-	.vector-main-menu-action-opt-out a,
-	.vector-main-menu-action-lang-alert .vector-main-menu-action-content {
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
-// Main menu when unpinned in the dropdown
-#vector-main-menu-unpinned-container .vector-main-menu {
-	.vector-language-sidebar-alert {
-		margin-bottom: 6px;
 	}
 }

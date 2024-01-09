@@ -229,25 +229,6 @@ return [
 			]
 		);
 
-		// Feature: T332448: feature Zebra#9 design update
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$services->getMainConfig(),
-				$context->getUser(),
-				$request,
-				Constants::CONFIG_ZEBRA_DESIGN,
-				Constants::REQUIREMENT_ZEBRA_DESIGN
-			)
-		);
-		$featureManager->registerFeature(
-			Constants::FEATURE_ZEBRA_DESIGN,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_ZEBRA_DESIGN
-			]
-		);
-
 		// Feature: T343928: Feature Font Size.
 		// ================================
 		$featureManager->registerRequirement(

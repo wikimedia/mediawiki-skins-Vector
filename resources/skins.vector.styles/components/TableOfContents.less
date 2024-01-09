@@ -1,19 +1,6 @@
-/**
- * Checkbox hack used by collapsed TOC on narrow viewports for no JS users.
- * Although it's display:none, the :checked state is still affected when clicking
- * the associated label.
- */
-#vector-toc-collapsed-checkbox {
-	display: none;
-}
-
 .vector-toc {
-	background-color: @background-color-page-container;
-	font-size: @font-size-base;
-
-	.vector-pinnable-header-label {
-		// Override heading element styles in elements.less
-		overflow: unset;
+	.vector-pinnable-header {
+		margin-left: @toc-list-item-padding-start;
 	}
 
 	.vector-toc-numb {
@@ -23,25 +10,22 @@
 	.vector-toc-toggle {
 		// For no-js users, toggling is disabled and icon is hidden
 		display: none;
-		position: absolute;
-		top: 1px; // visually center icon
-		left: -@spacing-subsection-toggle; // leaves 6px between icon + text
 		transition: @transition-duration-base;
-		color: transparent;
-		cursor: pointer;
-		// Reset <button> default browser styles
-		border: 0;
-		background: none;
+		position: absolute;
+		left: -@size-toc-subsection-toggle/2;
+		// Visual centering.
+		top: 1px;
 		// Override .cdx-button styles
-		min-width: @spacing-subsection-toggle;
-		min-height: @spacing-subsection-toggle;
+		min-width: @size-toc-subsection-toggle; // ~22px @ 12
+		min-height: @size-toc-subsection-toggle;
 		padding: 0;
+		font-size: @size-toc-subsection-toggle-icon;
 	}
 
 	.vector-toc-link {
+		display: block;
 		word-break: break-word;
 		color: @color-link;
-		display: block;
 	}
 
 	// Highlight and bold active sections, active top sections that are unexpanded
@@ -57,7 +41,7 @@
 			.vector-toc-text {
 				// Increase width to prevent line wrapping due to bold text
 				// Avoid applying on link element to avoid focus indicator changing size
-				width: ~'calc( 100% + @{padding-horizontal-dropdown-menu-item} )';
+				width: ~'calc( 100% + @{padding-horizontal-dropdown-menu} )';
 			}
 		}
 	}
@@ -79,19 +63,10 @@
 	}
 
 	.vector-toc-list-item {
-		display: block;
 		position: relative;
 		list-style-type: none;
-		padding-left: 8px;
+		padding-left: @toc-list-item-padding-start;
 		margin: 0;
-
-		&.vector-toc-level-1 {
-			padding-left: 0;
-		}
-
-		a {
-			font-size: inherit;
-		}
 	}
 }
 
@@ -129,7 +104,7 @@
 
 &.vector-feature-toc-pinned-clientpref-0 body:not( .vector-sticky-header-visible ) .vector-page-titlebar,
 &.vector-feature-toc-pinned-clientpref-0 .vector-sticky-header-visible .vector-sticky-header-context-bar,
-&.vector-feature-toc-pinned-clientpref-1 .mw-page-container-inner {
+&.vector-feature-toc-pinned-clientpref-1 .vector-column-start {
 	.vector-toc-landmark {
 		display: block;
 	}

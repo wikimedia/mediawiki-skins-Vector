@@ -6,12 +6,11 @@
 	.mw-page-container-inner {
 		display: grid;
 		column-gap: @grid-column-gap;
-		grid-template: ~'min-content min-content 1fr min-content / @{grid-template-column-desktop}';
+		grid-template: ~'min-content 1fr min-content / @{grid-template-column-desktop}';
 		// stylelint-disable-next-line stylistic/declaration-colon-space-after
 		grid-template-areas:
 			'siteNotice siteNotice'
-			'mainMenu pageContent'
-			'toc pageContent'
+			'columnStart pageContent'
 			'footer footer';
 	}
 
@@ -19,13 +18,8 @@
 		grid-area: siteNotice;
 	}
 
-	.vector-main-menu-container {
-		grid-area: mainMenu;
-		overflow-anchor: none; // T330108
-	}
-
 	.vector-column-start {
-		grid-area: toc;
+		grid-area: columnStart;
 		overflow-anchor: none; // T330108
 	}
 
@@ -35,6 +29,22 @@
 
 	.mw-footer-container {
 		grid-area: footer;
+	}
+
+	&.vector-feature-page-tools-pinned-enabled .vector-column-end,
+	&.vector-feature-client-prefs-pinned-enabled .vector-column-end {
+		width: @width-column-desktop;
+	}
+
+	// Align the sidebar menus with the bottom-border of the
+	// toolbar (below the page title) by pushing down the sidebar content
+	// by the hieght of the page title.
+	// NOTE: This alignment happens to work when the title is on a single line
+	// but can be affected by H1 line-height.
+	.vector-column-start,
+	.vector-column-end {
+		margin-top: @font-size-heading-1;
+		border-top: 1px solid transparent;
 	}
 }
 
@@ -57,31 +67,28 @@
 			grid-area: headerEnd;
 		}
 	}
+
+	&.vector-feature-page-tools-pinned-enabled .vector-column-end,
+	&.vector-feature-client-prefs-pinned-enabled .vector-column-end {
+		width: @width-column-desktop-wide;
+	}
 }
 
-&.vector-feature-limited-width-clientpref-0 .mw-content-container,
-&.vector-feature-limited-width-clientpref-0 .mw-table-of-contents-container,
-&.vector-feature-limited-width-content-disabled .mw-content-container,
-&.vector-feature-limited-width-content-disabled .mw-table-of-contents-container {
-	// Allow the max-width of content on history/special pages to be wider than
-	// the max-width of content on article pages.
-	// Note, we don't disable the max-width on .vector-page-toolbar-container intentionally
-	// to support easier navigation between tabs.
-	// See T293441 for further information on that.
-	// Both rules are !important as they are final. Max-width on a page should be restored by removing the `skin-vector-disable-max-width`,
-	// preferably by modification to the feature flag VectorMaxWidthOptions. Code should never attempt to override this rule.
-	/* stylelint-disable-next-line declaration-no-important */
-	max-width: none !important;
-	/* stylelint-disable-next-line declaration-no-important */
-	width: 100% !important;
-}
+// Single column grid when column start is empty (i.e. no pinned ToC or pinned main menu)
+&.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-page-container-inner,
+&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-page-container-inner {
+	grid-template-columns: @width-page-content;
+	// stylelint-disable-next-line stylistic/declaration-colon-space-after
+	grid-template-areas:
+		'siteNotice'
+		'pageContent'
+		'columnStart'
+		'footer';
 
-// Horizontally center content when column start is empty (i.e. no pinned ToC or pinned main menu)
-&.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-content-container,
-&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-content-container {
-	grid-column: mainMenu / pageContent;
-	margin-left: auto;
-	margin-right: auto;
+	// Horizontally center content when single column
+	.mw-body {
+		justify-content: center;
+	}
 }
 
 @media ( min-width: @min-width-breakpoint-desktop ) {

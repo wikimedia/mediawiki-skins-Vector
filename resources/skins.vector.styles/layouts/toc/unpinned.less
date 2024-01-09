@@ -1,16 +1,6 @@
-@import '../../variables.less';
-@import '../../mixins.less';
-
-// TOC dropdown styles
-.vector-sticky-header-toc,
-.vector-page-titlebar-toc {
-	display: none;
-	margin-right: 8px;
-}
-
 // TOC styles when unpinned
 .mixin-toc-unpinned() {
-	display: block;
+	margin-right: 8px;
 
 	.vector-dropdown-content {
 		// Override default dropdown max width
@@ -24,16 +14,6 @@
 		min-width: 200px;
 		// Collapsed TOC should be smaller than 85% of the content container (51em) and 75vw
 		max-width: ~'min( 0.85 * @{max-width-content-container}, 75vw )'; // min( 51em, 75vw )
-
-		// Adjust TOC spacing when unpinned
-		.vector-pinnable-header {
-			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-		}
-
-		.vector-toc-contents {
-			padding-right: @padding-horizontal-dropdown-menu-item;
-			padding-left: @padding-horizontal-dropdown-menu-item + @spacing-subsection-toggle;
-		}
 	}
 }
 
@@ -112,7 +92,7 @@
 				position: static;
 			}
 
-			.vector-toc {
+			#vector-toc-pinned-container {
 				max-height: 200px;
 			}
 		}

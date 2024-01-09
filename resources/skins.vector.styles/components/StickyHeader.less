@@ -18,6 +18,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	border-bottom: @border-width-base @border-style-base @border-color-content-box;
 
 	//
 	// Layout
@@ -141,20 +142,22 @@
 			transform: translateY( 0 );
 		}
 
+		.vector-sticky-pinned-container {
+			top: @height-header;
+			max-height: ~'calc( 100vh - @{height-header} - (@{grid-row-gap} * 2) )';
+		}
+
 		// - T289817 `.mw-sticky-header-element` provides an API for template developers
 		//   to make their templates compatible with the Vector 2022 sticky header.
 		//   @stable See the Integration notes for developers section at
 		//   https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Sticky_Header
 		// - `.charts-stickyhead th` makes chart and table headers appear below the sticky header.
+		// - Unlike the rule above targeting toc & page tools, this does not need extra padding
+		//   for the context box, since these elements are inside the content container.
 		.mw-sticky-header-element,
 		.charts-stickyhead th {
 			/* stylelint-disable-next-line declaration-no-important */
 			top: @height-header !important;
-		}
-
-		.vector-sticky-pinned-container {
-			top: @height-header;
-			max-height: ~'calc( 100vh - @{height-header} - @{max-height-bottom-spacing-scroll-indicator} )';
 		}
 	}
 }

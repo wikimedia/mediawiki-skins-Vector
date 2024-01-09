@@ -68,13 +68,6 @@ class SkinVector22 extends SkinMustache {
 	public function getDefaultModules(): array {
 		$modules = parent::getDefaultModules();
 		$featureManager = VectorServices::getFeatureManager();
-		$zebraUpdate = $featureManager->isFeatureEnabled(
-			Constants::FEATURE_ZEBRA_DESIGN
-		);
-
-		if ( $zebraUpdate ) {
-			$modules['styles']['skin'][] = 'skins.vector.zebra.styles';
-		}
 
 		return $modules;
 	}
@@ -548,9 +541,6 @@ class SkinVector22 extends SkinMustache {
 		}
 
 		return array_merge( $parentData, [
-			'is-zebra-enabled' => $featureManager->isFeatureEnabled(
-				Constants::FEATURE_ZEBRA_DESIGN
-			),
 			'is-language-in-content' => $this->isLanguagesInContent(),
 			'has-buttons-in-content-top' => $this->isLanguagesInContentAt( 'top' ) || $hasAddTopicButton,
 			'is-language-in-content-bottom' => $this->isLanguagesInContentAt( 'bottom' ),

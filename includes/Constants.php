@@ -231,21 +231,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_ZEBRA_DESIGN = 'ZebraDesign';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_ZEBRA_DESIGN = 'ZebraDesign';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_ZEBRA_DESIGN = 'VectorZebraDesign';
-
-	/**
-	 * @var string
-	 */
 	public const PREF_KEY_FONT_SIZE = 'vector-font-size';
 
 	/**
@@ -297,7 +282,6 @@ final class Constants {
 	 * @var array
 	 */
 	public const VECTOR_BETA_FEATURES = [
-		self::CONFIG_ZEBRA_DESIGN,
 		self::CONFIG_KEY_CLIENT_PREFERENCES,
 	];
 
