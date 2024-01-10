@@ -85,5 +85,6 @@
 	"vector-toc-unpinned-popup": "목차가 여기로 이동되었습니다.",
 	"vector-page-tools-unpinned-popup": "도구 메뉴가 여기로 이동되었습니다.",
 	"vector-main-menu-unpinned-popup": "주 메뉴가 여기로 이동되었습니다.",
-	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)"
+	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)",
+	"vector-2022-beta-preview-description": "타이포그래피 개선 및 나이트 모드 등 새로운 읽기 접근 기능을 미리 사용합니다."
 }

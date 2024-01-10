@@ -8,6 +8,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|Orulimi $1|Endimi $1}}",
 	"vector-no-language-button-label": "Taho endimi zindi",
 	"vector-action-addsection": "Taho ekirukubazibwa",
+	"vector-action-delete": "Ita",
 	"vector-action-move": "Irizaayo",
 	"vector-action-protect": "Semba",
 	"vector-view-create": "Hanga",
