@@ -27,6 +27,7 @@
 			"しぃ",
 			"ひまり",
 			"春春眠眠",
+			"翻訳者a",
 			"青子守歌"
 		]
 	},
@@ -62,7 +63,7 @@
 	"vector-jumptosearch": "検索に移動",
 	"vector-jumptocontent": "コンテンツにスキップ",
 	"vector-more-actions": "その他",
-	"vector-client-prefs-label": "閲覧の設定",
+	"vector-client-prefs-label": "表示",
 	"vector-feature-custom-font-size-name": "テキスト",
 	"vector-feature-custom-font-size-0-label": "小",
 	"vector-feature-custom-font-size-1-label": "標準",
