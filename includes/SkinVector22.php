@@ -470,7 +470,6 @@ class SkinVector22 extends SkinMustache {
 			'data-page-tools' => new VectorComponentPageTools(
 				array_merge( [ $portlets['data-actions'] ?? [] ], $pageToolsMenu ),
 				$localizer,
-				$this->getUser(),
 				$featureManager
 			),
 			'data-page-tools-dropdown' => new VectorComponentDropdown(

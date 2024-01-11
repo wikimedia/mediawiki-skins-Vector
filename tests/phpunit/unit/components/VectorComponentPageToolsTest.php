@@ -23,7 +23,6 @@ namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
 use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
-use MediaWiki\User\User;
 use Message;
 use MessageLocalizer;
 
@@ -122,15 +121,12 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 			$msg->method( 'text' )->willReturn( $key );
 			return $msg;
 		} );
-		$user = $this->createMock( User::class );
-		$user->method( 'isRegistered' )->willReturn( $isRegistered );
 		$featureManager = $this->createMock( FeatureManager::class );
 		$featureManager->method( 'isFeatureEnabled' )->willReturn( $isPinned );
 
 		$pageTools = new VectorComponentPageTools(
 			$menus,
 			$localizer,
-			$user,
 			$featureManager
 		);
 		$this->assertEquals( $expected, $pageTools->getTemplateData() );

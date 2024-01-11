@@ -3,7 +3,6 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
-use MediaWiki\User\User;
 use MessageLocalizer;
 
 /**
@@ -35,13 +34,11 @@ class VectorComponentPageTools implements VectorComponent {
 	/**
 	 * @param array $menus
 	 * @param MessageLocalizer $localizer
-	 * @param User $user
 	 * @param FeatureManager $featureManager
 	 */
 	public function __construct(
 		array $menus,
 		MessageLocalizer $localizer,
-		User $user,
 		FeatureManager $featureManager
 	) {
 		$this->menus = $menus;
