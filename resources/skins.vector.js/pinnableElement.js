@@ -73,13 +73,13 @@ function togglePinnableClasses( header ) {
  * @param {string} pinnableElementId
  */
 function addPinnableElementIndicator( pinnableElementId ) {
-	const dropdownSelector = document.querySelector( `#${pinnableElementId}-dropdown` );
+	const dropdownSelector = document.querySelector( `#${ pinnableElementId }-dropdown` );
 	const container = dropdownSelector && dropdownSelector.parentElement;
 	if ( container ) {
 		// Possible messages include:
 		// * vector-page-tools-unpinned-popup
 		// * vector-main-menu-unpinned-popup
-		const message = mw.msg( `${pinnableElementId}-unpinned-popup` );
+		const message = mw.msg( `${ pinnableElementId }-unpinned-popup` );
 		popupNotification.add( container, message, pinnableElementId )
 			.then( ( popupWidget ) => {
 				if ( popupWidget ) {
@@ -253,7 +253,7 @@ function initPinnableElement() {
 /**
  * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
  *
- * @function
+ * @method
  * @return {boolean} True if at least one pinned element is found, otherwise false.
  */
 function hasPinnedElements() {
@@ -268,7 +268,7 @@ function hasPinnedElements() {
  * @stable for use in WikimediaEvents only.
  * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
  *
- * @function
+ * @method
  * @return {boolean} True if at least one pinned element is found, otherwise false.
  */
 function analyticsPinnedState() {

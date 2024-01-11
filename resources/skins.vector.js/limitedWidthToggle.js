@@ -62,8 +62,8 @@ function init() {
 
 		features.toggle( LIMITED_WIDTH_FEATURE_NAME );
 		setDataAttribute( toggle );
-		toggleIcon.classList.remove( `mw-ui-icon-wikimedia-${oldIcon}` );
-		toggleIcon.classList.add( `mw-ui-icon-wikimedia-${newIcon}` );
+		toggleIcon.classList.remove( `mw-ui-icon-wikimedia-${ oldIcon }` );
+		toggleIcon.classList.add( `mw-ui-icon-wikimedia-${ newIcon }` );
 		window.dispatchEvent( new Event( 'resize' ) );
 		if ( isLimitedWidth ) {
 			// Now is full width, show notification

@@ -11,7 +11,7 @@ QUnit.module( 'Vector (integration)', function () {
 	QUnit.test( 'Client preferences: Behaves same for all users', function ( assert ) {
 		const sandbox = this.sandbox;
 		const helper = ( feature, isNamedReturnValue ) => {
-			document.documentElement.setAttribute( 'class', `${feature}-clientpref-0` );
+			document.documentElement.setAttribute( 'class', `${ feature }-clientpref-0` );
 			const stub = sandbox.stub( mw.user, 'isNamed', () => isNamedReturnValue );
 			clientPreferences.toggleDocClassAndSave( feature, '1' );
 			stub.restore();

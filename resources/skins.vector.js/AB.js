@@ -90,7 +90,7 @@ module.exports = function webABTest( props, token, forceInit ) {
 	 */
 	function getBucketFromHTML() {
 		for ( const bucketName of getBucketNames() ) {
-			if ( document.body.classList.contains( `${props.name}-${bucketName}` ) ) {
+			if ( document.body.classList.contains( `${ props.name }-${ bucketName }` ) ) {
 				return bucketName;
 			}
 		}
@@ -168,7 +168,7 @@ module.exports = function webABTest( props, token, forceInit ) {
 	function isInTreatmentBucket( treatmentBucketName = '' ) {
 		const bucketLowerCase = getBucket().toLowerCase();
 		// Array.prototype.includes` is ES7
-		return bucketLowerCase.indexOf( `${TREATMENT_BUCKET_SUBSTRING}${treatmentBucketName}` ) > -1;
+		return bucketLowerCase.indexOf( `${ TREATMENT_BUCKET_SUBSTRING }${ treatmentBucketName }` ) > -1;
 	}
 
 	/**

@@ -59,8 +59,8 @@ function makeDropdown( content ) {
 	if ( !content.parentNode || !label ) {
 		return content;
 	}
-	label.id = `${id}-dropdown-label`;
-	label.setAttribute( 'for', `${id}-dropdown-checkbox` );
+	label.id = `${ id }-dropdown-label`;
+	label.setAttribute( 'for', `${ id }-dropdown-checkbox` );
 	label.classList.add( 'vector-dropdown-label' );
 	label.setAttribute( 'aria-hidden', 'true' );
 	const labelSpan = document.createElement( 'span' );
@@ -73,14 +73,14 @@ function makeDropdown( content ) {
 	const dropdownContent = document.createElement( 'div' );
 	dropdownContent.classList.add( 'vector-dropdown-content' );
 	checkbox.type = 'checkbox';
-	checkbox.id = `${id}-dropdown-checkbox`;
+	checkbox.id = `${ id }-dropdown-checkbox`;
 	checkbox.setAttribute( 'role', 'button' );
 	checkbox.setAttribute( 'aria-haspopup', 'true' );
-	checkbox.setAttribute( 'data-event-name', `ui.dropdown-${id}-dropdown` );
+	checkbox.setAttribute( 'data-event-name', `ui.dropdown-${ id }-dropdown` );
 	checkbox.classList.add( 'vector-dropdown-checkbox' );
 	checkbox.setAttribute( 'aria-label', label.textContent || '' );
-	dropdown.id = `${id}-dropdown`;
-	dropdown.classList.add( 'vector-dropdown', `${id}-dropdown` );
+	dropdown.id = `${ id }-dropdown`;
+	dropdown.classList.add( 'vector-dropdown', `${ id }-dropdown` );
 	dropdown.appendChild( checkbox );
 	dropdown.appendChild( label );
 	dropdown.appendChild( dropdownContent );
@@ -120,7 +120,6 @@ function addPortletHandler( portlet, before ) {
 }
 
 /**
- *
  * @return {{addPortletHandler: (function(Element, string): Element)}}
  */
 function main() {
@@ -128,7 +127,7 @@ function main() {
 	// Update any portlets that were created prior to the hook being registered.
 	document.querySelectorAll( '.mw-portlet-js' ).forEach( ( node ) => {
 		const nextID = node && node.nextElementSibling && node.nextElementSibling.id;
-		addPortletHandler( node, nextID ? `#${nextID}` : null );
+		addPortletHandler( node, nextID ? `#${ nextID }` : null );
 	} );
 	return {
 		addPortletHandler

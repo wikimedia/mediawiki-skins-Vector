@@ -39,7 +39,7 @@ describe( 'portlets', () => {
 		marker.id = 'vector-page-tools-dropdown';
 		document.body.appendChild( marker );
 		const dropdownHTML = mustache.render( dropdownOpen, {
-			id: `${id}-dropdown`,
+			id: `${ id }-dropdown`,
 			class: 'foo-dropdown',
 			label
 		}, {} ) + mustache.render( dropdownClose, {}, {} );

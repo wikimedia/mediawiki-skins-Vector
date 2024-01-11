@@ -37,6 +37,7 @@
 		"mediawiki/no-nodelist-unsupported-methods": "off",
 		"jsdoc/no-undefined-types": "off",
 		"compat/compat": "off",
-		"mediawiki/class-doc": "off"
+		"mediawiki/class-doc": "off",
+		"vue/dot-location": "off"
 	}
 }

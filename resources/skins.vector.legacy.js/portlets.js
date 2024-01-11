@@ -19,7 +19,7 @@ function addDefaultPortlet( portlet ) {
 	}
 	ul.classList.add( 'vector-menu-content-list' );
 	const label = portlet.querySelector( 'label' );
-	const labelId = `${portlet.id}-label`;
+	const labelId = `${ portlet.id }-label`;
 	if ( label ) {
 		const labelDiv = document.createElement( 'div' );
 		labelDiv.id = labelId;
@@ -66,12 +66,12 @@ function addPortletHandler( portlet ) {
 		portlet.classList.add( 'vector-menu-dropdown' );
 		const checkbox = document.createElement( 'input' );
 		checkbox.type = 'checkbox';
-		checkbox.id = `${id}-checkbox`;
+		checkbox.id = `${ id }-checkbox`;
 		checkbox.setAttribute( 'role', 'button' );
 		checkbox.setAttribute( 'aria-haspopup', 'true' );
-		checkbox.setAttribute( 'data-event-name', `ui.dropdown-${id}` );
+		checkbox.setAttribute( 'data-event-name', `ui.dropdown-${ id }` );
 		checkbox.setAttribute( 'class', 'vector-menu-checkbox' );
-		checkbox.setAttribute( 'aria-labelledby', `${id}-label` );
+		checkbox.setAttribute( 'aria-labelledby', `${ id }-label` );
 		portlet.prepend( checkbox );
 	}
 	portlet.classList.remove( 'mw-portlet-js' );
@@ -79,7 +79,6 @@ function addPortletHandler( portlet ) {
 }
 
 /**
- *
  * @return {{addPortletHandler: (function(Element): Element)}}
  */
 function main() {

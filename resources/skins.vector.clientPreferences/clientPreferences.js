@@ -46,9 +46,9 @@ function toggleDocClassAndSave( featureName, value ) {
 		// So instead we have to keep track of all the different possible values and remove them
 		// before adding the new class.
 		config[ featureName ].options.forEach( ( possibleValue ) => {
-			document.documentElement.classList.remove( `${featureName}-clientpref-${possibleValue}` );
+			document.documentElement.classList.remove( `${ featureName }-clientpref-${ possibleValue }` );
 		} );
-		document.documentElement.classList.add( `${featureName}-clientpref-${value}` );
+		document.documentElement.classList.add( `${ featureName }-clientpref-${ value }` );
 		// Ideally this should be taken care of via a single core helper function.
 		mw.util.debounce( function () {
 			api = api || new mw.Api();
@@ -69,8 +69,8 @@ function toggleDocClassAndSave( featureName, value ) {
  */
 function appendRadioToggle( parent, featureName, value, currentValue ) {
 	const input = document.createElement( 'input' );
-	const name = `vector-client-pref-${featureName}-group`;
-	const id = `vector-client-pref-${featureName}-value-${value}`;
+	const name = `vector-client-pref-${ featureName }-group`;
+	const id = `vector-client-pref-${ featureName }-value-${ value }`;
 	input.name = name;
 	input.id = id;
 	input.type = 'radio';
@@ -84,7 +84,7 @@ function appendRadioToggle( parent, featureName, value, currentValue ) {
 	const label = document.createElement( 'label' );
 	label.classList.add( 'cdx-radio__label' );
 	// eslint-disable-next-line mediawiki/msg-doc
-	label.textContent = mw.msg( `${featureName}-${value}-label` );
+	label.textContent = mw.msg( `${ featureName }-${ value }-label` );
 	label.setAttribute( 'for', id );
 	const container = document.createElement( 'div' );
 	container.classList.add( 'cdx-radio' );
@@ -140,16 +140,16 @@ function makeClientPreferenceBinaryToggle( featureName ) {
  */
 function makeClientPreference( parent, featureName ) {
 	// eslint-disable-next-line mediawiki/msg-doc
-	const labelMsg = mw.message( `${featureName}-name` );
+	const labelMsg = mw.message( `${ featureName }-name` );
 	// If the user is not debugging messages and no language exists exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
 		return;
 	} else {
-		const id = `vector-client-prefs-${featureName}`;
+		const id = `vector-client-prefs-${ featureName }`;
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
 		// eslint-disable-next-line mediawiki/msg-doc
-		const descriptionMsg = mw.message( `${featureName}-description` );
+		const descriptionMsg = mw.message( `${ featureName }-description` );
 		if ( descriptionMsg.exists() ) {
 			const desc = document.createElement( 'div' );
 			desc.classList.add( 'mw-portlet-description' );
