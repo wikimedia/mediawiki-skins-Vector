@@ -155,15 +155,14 @@ class FeatureManager {
 	 * @return array
 	 */
 	public function getFeatureBodyClass() {
-		$featureManager = $this;
-		return array_map( static function ( $featureName ) use ( $featureManager ) {
+		return array_map( function ( $featureName ) {
 			// switch to lower case and switch from camel case to hyphens
 			$featureClass = ltrim( strtolower( preg_replace( '/[A-Z]([A-Z](?![a-z]))*/', '-$0', $featureName ) ), '-' );
 
 			// Client side preferences
 			switch ( $featureClass ) {
 				case 'custom-font-size':
-					$suffixEnabled = 'clientpref-' . $featureManager->getFontValueFromUserPreferenceForSuffix();
+					$suffixEnabled = 'clientpref-' . $this->getFontValueFromUserPreferenceForSuffix();
 					$suffixDisabled = 'clientpref-0';
 					break;
 				case 'limited-width':
@@ -178,7 +177,7 @@ class FeatureManager {
 					break;
 			}
 			$prefix = 'vector-feature-' . $featureClass . '-';
-			return $featureManager->isFeatureEnabled( $featureName ) ?
+			return $this->isFeatureEnabled( $featureName ) ?
 				$prefix . $suffixEnabled : $prefix . $suffixDisabled;
 		}, array_keys( $this->features ) );
 	}
