@@ -11,7 +11,8 @@
 	display: inline-block;
 	vertical-align: middle;
 	font-size: @font-size-dropdown;
-	margin: 0 @size-50 0 0;
+	// Override h2 styles in the case of the TOC
+	margin: 0 @size-50 0 0 !important; /* stylelint-disable-line declaration-no-important */
 	padding: 0;
 	border: 0;
 	font-weight: bold;
