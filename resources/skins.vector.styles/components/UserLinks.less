@@ -77,44 +77,6 @@
 }
 
 /**
- * Horizontal links menu - logged in and logged out.
- * FIXME: for cached HTML.
- */
-.vector-user-links .mw-portlet-vector-user-menu-overflow {
-	font-size: @font-size-user-links;
-
-	.vector-menu-content-list {
-		display: flex;
-		align-items: center;
-	}
-
-	@media ( min-width: @min-width-breakpoint-desktop ) {
-		// Right margin to separate overflow menu from dropdown
-		margin-right: 8px;
-
-		// Separate menu items inside overflow menu
-		.vector-menu-content-list {
-			column-gap: 8px;
-		}
-	}
-
-	@media ( max-width: @max-width-breakpoint-tablet ) {
-		// Only apply 8px spacing to normal links (i.e. Create account, User page)
-		// Links with button classes will have a larger touch area
-		// and therefore dont need additional spacing
-		a:not( .mw-echo-notifications-badge  ):not( .cdx-button ) {
-			margin: 0 8px;
-		}
-	}
-
-	.user-links-collapsible-item {
-		@media ( max-width: @max-width-breakpoint-mobile ) {
-			display: none;
-		}
-	}
-}
-
-/**
  * Logged-in dropdown menu
  */
 .vector-user-menu-logged-in .vector-dropdown-label {
