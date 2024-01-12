@@ -165,10 +165,8 @@ class Hooks implements
 	 * @param bool $isLegacy is this the legacy Vector skin?
 	 */
 	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
-		$featureManager = VectorServices::getFeatureManager();
-
 		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
-		foreach ( $content_navigation['views'] as $key => $item ) {
+		foreach ( $content_navigation['views'] as &$item ) {
 			$icon = $item['icon'] ?? null;
 			if ( $icon ) {
 				if ( $isLegacy ) {
@@ -189,7 +187,6 @@ class Hooks implements
 					[ 'vector-tab-noicon' ]
 				);
 			}
-			$content_navigation['views'][$key] = $item;
 		}
 	}
 
@@ -200,19 +197,18 @@ class Hooks implements
 	 * @param array &$content_navigation
 	 */
 	private static function updateAssociatedPagesMenuIcons( &$content_navigation ) {
-		foreach ( $content_navigation['associated-pages'] as $key => $item ) {
+		foreach ( $content_navigation['associated-pages'] as &$item ) {
 			self::appendClassToItem(
 				$item['class'],
 				[ 'vector-tab-noicon' ]
 			);
-			$content_navigation['associated-pages'][$key] = $item;
 		}
 	}
 
 	/**
 	 * Adds class to a property
 	 *
-	 * @param array &$item to update
+	 * @param array|string &$item to update
 	 * @param array|string $classes to add to the item
 	 */
 	private static function appendClassToItem( &$item, $classes ) {
@@ -249,8 +245,7 @@ class Hooks implements
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
 		$user = $sk->getUser();
-		$isRegistered = $user->isRegistered();
-		if ( $isRegistered ) {
+		if ( $user->isRegistered() ) {
 			// Remove user page from personal menu dropdown for logged in use
 			$content_navigation['user-menu']['userpage']['collapsible'] = true;
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
@@ -270,9 +265,7 @@ class Hooks implements
 
 			self::updateMenuItems( $content_navigation, 'user-menu' );
 			self::updateMenuItems( $content_navigation, 'user-menu-logout' );
-		}
-
-		if ( !$isRegistered ) {
+		} else {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
 
@@ -315,11 +308,10 @@ class Hooks implements
 	 */
 	private static function fixEcho( $sk, &$content_navigation ) {
 		if ( isset( $content_navigation['notifications'] ) ) {
-			foreach ( $content_navigation['notifications'] as $key => $data ) {
-				$icon = $data['icon'] ?? null;
+			foreach ( $content_navigation['notifications'] as &$item ) {
+				$icon = $item['icon'] ?? null;
 				if ( $icon ) {
-					$linkClass = $content_navigation['notifications'][$key]['link-class'] ?? [];
-					$item = $content_navigation['notifications'][$key];
+					$linkClass = $item['link-class'] ?? [];
 					$newLinkClass = [
 						// Allows Echo to react to clicks
 						'mw-echo-notification-badge-nojs'
@@ -328,7 +320,6 @@ class Hooks implements
 						$newLinkClass[] = 'mw-echo-unseen-notifications';
 					}
 					$item['link-class'] = $newLinkClass;
-					$content_navigation['notifications'][$key] = $item;
 				}
 			}
 		}
@@ -363,8 +354,8 @@ class Hooks implements
 	 * @param string $prefix defaults to user-links-
 	 */
 	private static function makeMenuItemCollapsible( array &$item, string $prefix = 'user-links-' ) {
-		$COLLAPSE_MENU_ITEM_CLASS = $prefix . 'collapsible-item';
-		self::appendClassToItem( $item[ 'class' ], $COLLAPSE_MENU_ITEM_CLASS );
+		$collapseMenuItemClass = $prefix . 'collapsible-item';
+		self::appendClassToItem( $item[ 'class' ], $collapseMenuItemClass );
 	}
 
 	/**
@@ -446,8 +437,8 @@ class Hooks implements
 	 * @param string $menu identifier
 	 */
 	private static function updateMenuItems( &$content_navigation, $menu ) {
-		foreach ( $content_navigation[$menu] as $key => $item ) {
-			$content_navigation[$menu][$key] = self::updateMenuItemData( $item );
+		foreach ( $content_navigation[$menu] as &$item ) {
+			$item = self::updateMenuItemData( $item );
 		}
 	}
 
@@ -466,9 +457,8 @@ class Hooks implements
 	 */
 	private static function createMoreOverflowMenu( &$content_navigation ) {
 		$clonedViews = [];
-		foreach ( array_keys( $content_navigation['views'] ?? [] ) as $key ) {
-			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
-			$newItem = $content_navigation['views'][$key];
+		foreach ( $content_navigation['views'] ?? [] as $key => $item ) {
+			$newItem = $item;
 			self::makeMenuItemCollapsible(
 				$newItem,
 				'vector-more-'
@@ -490,14 +480,13 @@ class Hooks implements
 	 * @param array &$content_navigation
 	 */
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
-		$title = $sk->getRelevantTitle();
-
 		$skinName = $sk->getSkinName();
 		// These changes should only happen in Vector.
 		if ( !$skinName || !self::isVectorSkin( $skinName ) ) {
 			return;
 		}
 
+		$title = $sk->getRelevantTitle();
 		if (
 			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
 			$title && $title->canExist()
@@ -613,7 +602,7 @@ class Hooks implements
 	 * @param array &$betaFeatures
 	 */
 	public function onGetBetaFeaturePreferences( User $user, array &$betaFeatures ) {
-		$skinName = RequestContext::getMain()->getSkin()->getSkinName();
+		$skinName = RequestContext::getMain()->getSkinName();
 		// Only Vector 2022 is supported for beta features
 		if ( $skinName !== Constants::SKIN_NAME_MODERN ) {
 			return;
