@@ -79,7 +79,13 @@ function main( window ) {
 	if ( clientPreferenceExists ) {
 		mw.loader.using( [ 'skins.vector.clientPreferences', 'codex-styles' ] ).then( () => {
 			const clientPreferences = require( /** @type {string} */ ( 'skins.vector.clientPreferences' ) );
-			clientPreferences.render( clientPreferenceSelector );
+			const clientPreferenceConfig = ( require( './clientPreferences.json' ) );
+			// FIXME: Loading codex-styles is a performance problem. This is only acceptable for logged in users so guard
+			// against unexpected use.
+			if ( mw.user.isAnon() ) {
+				throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
+			}
+			clientPreferences.render( clientPreferenceSelector, clientPreferenceConfig );
 		} );
 	}
 }
