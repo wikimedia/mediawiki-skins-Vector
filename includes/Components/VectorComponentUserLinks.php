@@ -320,13 +320,9 @@ class VectorComponentUserLinks implements VectorComponent {
 		] );
 
 		return [
-			'is-wide' => array_reduce(
-				[ $overflow, $notifications, $userPage, $userInterfacePreferences ],
-				static function ( $carry, $list ) {
-					return count( $list ) + $carry;
-				},
-				0
-			),
+			'is-wide' => array_filter(
+				[ $overflow, $notifications, $userPage, $userInterfacePreferences ]
+			) !== [],
 			'data-user-links-notifications' => $notificationsMenu->getTemplateData(),
 			'data-user-links-overflow' => $overflowMenu->getTemplateData(),
 			'data-user-links-preferences' => $preferencesMenu->getTemplateData(),
