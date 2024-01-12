@@ -4,9 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Config\Config;
-use MediaWiki\Hook\MakeGlobalVariablesScriptHook;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
@@ -29,7 +27,6 @@ use SkinTemplate;
 class Hooks implements
 	GetPreferencesHook,
 	LocalUserCreatedHook,
-	MakeGlobalVariablesScriptHook,
 	ResourceLoaderSiteModulePagesHook,
 	ResourceLoaderSiteStylesModulePagesHook,
 	SkinPageReadyConfigHook
@@ -597,27 +594,6 @@ class Hooks implements
 					Constants::SKIN_NAME_LEGACY : Constants::SKIN_NAME_MODERN
 			);
 		}
-	}
-
-	/**
-	 * NOTE: Please use ResourceLoaderGetConfigVars hook instead if possible
-	 * for adding config to the page.
-	 * Adds config variables to JS that depend on current page/request.
-	 *
-	 * Adds a config flag that can disable saving the VectorSidebarVisible
-	 * user preference when the sidebar menu icon is clicked.
-	 *
-	 * @param array &$vars Array of variables to be added into the output.
-	 * @param OutputPage $out OutputPage instance calling the hook
-	 */
-	public function onMakeGlobalVariablesScript( &$vars, $out ): void {
-		$skin = $out->getSkin();
-		$skinName = $skin->getSkinName();
-		if ( !self::isVectorSkin( $skinName ) ) {
-			return;
-		}
-		$config = $out->getConfig();
-		$user = $out->getUser();
 	}
 
 	/**

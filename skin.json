@@ -184,7 +184,6 @@
 		"CentralAuthIsUIReloadRecommended": "VectorCentralAuthHooks",
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
-		"MakeGlobalVariablesScript": "VectorHooks",
 		"ResourceLoaderSiteModulePages": "VectorHooks",
 		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
 		"SkinPageReadyConfig": "VectorHooks",
