@@ -222,7 +222,7 @@
 			]
 		},
 		"skins.vector.styles.legacy": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"normalize": true,
 				"elements": true,
@@ -243,7 +243,7 @@
 			]
 		},
 		"skins.vector.styles": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": {
 				"normalize": true,
 				"elements": true,
@@ -279,7 +279,7 @@
 			"selectorWithoutVariant": ".vector-icon.mw-ui-icon-wikimedia-{name}",
 			"useDataURI": false,
 			"defaultColor": "#000",
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": {
 				"progressive": {
 					"color": "#36c",
@@ -304,7 +304,7 @@
 			"selectorWithoutVariant": ".vector-icon.mw-ui-icon-wikimedia-{name}",
 			"useDataURI": false,
 			"defaultColor": "#000",
-			"class": "ResourceLoaderOOUIIconPackModule",
+			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"variants": {
 				"progressive": {
 					"color": "#36c",
