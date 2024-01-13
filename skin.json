@@ -198,7 +198,6 @@
 			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
 		},
 		"skins.vector.search": {
-			"es6": true,
 			"dependencies": [
 				"mediawiki.Uri",
 				"mediawiki.util",
@@ -342,7 +341,6 @@
 			]
 		},
 		"skins.vector.clientPreferences": {
-			"es6": true,
 			"packageFiles": [
 				"resources/skins.vector.clientPreferences/clientPreferences.js",
 				"resources/skins.vector.clientPreferences/config.json"
@@ -365,7 +363,6 @@
 			]
 		},
 		"skins.vector.js": {
-			"es6": true,
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
 				"resources/skins.vector.js/setupIntersectionObservers.js",
