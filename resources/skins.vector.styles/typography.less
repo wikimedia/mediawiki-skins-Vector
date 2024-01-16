@@ -76,27 +76,6 @@ pre,
 	&-content .mw-heading1 {
 		font-size: @font-size-heading-1;
 	}
-}
-
-// T335625 - Move siteSub into common.less to prevent it from being feature-flagged
-// and overriding on-wiki modifications.
-#siteSub {
-	// By default the sitesub (i.e. tagline) is hidden as it was hidden in Vector legacy but site styles can reveal.
-	display: none;
-}
-
-.vector-body {
-	font-size: var( --font-size-medium );
-	line-height: var( --line-height-medium );
-
-	#siteSub {
-		font-size: unit( @font-size-small, rem ); // T311421
-	}
-
-	.mw-heading1,
-	h1 {
-		margin-top: 1em;
-	}
 
 	.mw-heading2,
 	h2 {
@@ -139,11 +118,6 @@ pre,
 		font-size: @font-size-reset; // Reset.
 	}
 
-	.toc h2 {
-		font-family: @font-family-sans;
-		font-size: @font-size-reset; // Reset.
-	}
-
 	p {
 		margin: 0.5em 0 1em 0;
 	}
@@ -161,6 +135,19 @@ pre,
 			margin-bottom: 0;
 		}
 	}
+}
+
+// T335625 - Move siteSub into common.less to prevent it from being feature-flagged
+// and overriding on-wiki modifications.
+#siteSub {
+	font-size: unit( @font-size-small, rem ); // T311421
+	// By default the sitesub (i.e. tagline) is hidden as it was hidden in Vector legacy but site styles can reveal.
+	display: none;
+}
+
+.vector-body {
+	font-size: var( --font-size-medium );
+	line-height: var( --line-height-medium );
 }
 
 // External links
