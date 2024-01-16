@@ -13,7 +13,7 @@
 	"vector-opt-out-tooltip": "Robah lu punya pengaturan èn balik ke roman lama deri ni kulit (Bèktor warisan)",
 	"vector-action-toggle-sidebar": "Cetèkin palang samping",
 	"vector-languages": "Basa",
-	"vector-language-button-aria-label": "Pegi ke makalah dalem laèn basa. Kesedia dalem {{PLURAL:$1|$1 basa}}",
+	"vector-language-button-aria-label": "Pegi ke makalah dalem laèn basa. Derak dalem {{PLURAL:$1|$1 basa}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 basa}}",
 	"vector-no-language-button-label": "Tambah basa",
 	"vector-no-language-button-aria-label": "Ni makalah cuman ada dalem ni basa. Tambah makalah bakal laèn-laèn basa",
