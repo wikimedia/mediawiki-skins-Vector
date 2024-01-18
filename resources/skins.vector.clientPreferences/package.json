@@ -1,0 +1,13 @@
+{
+	"name": "@wikimedia/mediawiki.skins.clientpreferences",
+	"version": "1.0.0",
+	"private": false,
+	"main": "clientPreferences.js",
+	"author": "Wikimedia Foundation",
+	"license": "GPL-2.0-or-later",
+	"description": "A library for rendering client preferences",
+	"repository": {
+		"type": "git",
+		"url": "https://gerrit.wikimedia.org/r/mediawiki/skins/Vector"
+	}
+}

@@ -13,7 +13,12 @@ QUnit.module( 'Vector (integration)', function () {
 		const helper = ( feature, isNamedReturnValue ) => {
 			document.documentElement.setAttribute( 'class', `${ feature }-clientpref-0` );
 			const stub = sandbox.stub( mw.user, 'isNamed', () => isNamedReturnValue );
-			clientPreferences.toggleDocClassAndSave( feature, '1' );
+			clientPreferences.toggleDocClassAndSave( feature, '1', {
+				'vector-feature-limited-width': {
+					options: [ '1', '0' ],
+					preferenceKey: 'vector-limited-width'
+				}
+			} );
 			stub.restore();
 			return document.documentElement.getAttribute( 'class' );
 		};

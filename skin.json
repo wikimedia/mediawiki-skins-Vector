@@ -342,8 +342,7 @@
 		},
 		"skins.vector.clientPreferences": {
 			"packageFiles": [
-				"resources/skins.vector.clientPreferences/clientPreferences.js",
-				"resources/skins.vector.clientPreferences/config.json"
+				"resources/skins.vector.clientPreferences/clientPreferences.js"
 			],
 			"messages": [
 				"vector-feature-limited-width-name",
@@ -377,6 +376,7 @@
 				"resources/skins.vector.js/features.js",
 				"resources/skins.vector.js/limitedWidthToggle.js",
 				"resources/skins.vector.js/popupNotification.js",
+				"resources/skins.vector.js/clientPreferences.json",
 				{
 					"name": "resources/skins.vector.js/activeABTest.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getActiveABTest"

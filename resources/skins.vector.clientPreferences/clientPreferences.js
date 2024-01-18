@@ -3,7 +3,6 @@
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
  */
-const config = /** @type {Record<string,ClientPreference>} */( require( './config.json' ) );
 let /** @type {MwApi} */ api;
 /**
  * @typedef {Object} PreferenceOption
@@ -26,9 +25,10 @@ function getClientPreferences() {
 /**
  * Get the list of client preferences that are active on the page and not hidden.
  *
+ * @param {Record<string,ClientPreference>} config
  * @return {string[]} of user facing client preferences
  */
-function getVisibleClientPreferences() {
+function getVisibleClientPreferences( config ) {
 	const active = getClientPreferences();
 	// Order should be based on key in config.json
 	return Object.keys( config ).filter( ( key ) => active.indexOf( key ) > -1 );
@@ -37,8 +37,9 @@ function getVisibleClientPreferences() {
 /**
  * @param {string} featureName
  * @param {string} value
+ * @param {Record<string,ClientPreference>} config
  */
-function toggleDocClassAndSave( featureName, value ) {
+function toggleDocClassAndSave( featureName, value, config ) {
 	const pref = config[ featureName ];
 	if ( mw.user.isNamed() ) {
 		// FIXME: Ideally this would be done in mw.user.clientprefs API.
@@ -66,11 +67,12 @@ function toggleDocClassAndSave( featureName, value ) {
  * @param {string} featureName
  * @param {string} value
  * @param {string} currentValue
+ * @param {Record<string,ClientPreference>} config
  */
-function appendRadioToggle( parent, featureName, value, currentValue ) {
+function appendRadioToggle( parent, featureName, value, currentValue, config ) {
 	const input = document.createElement( 'input' );
-	const name = `vector-client-pref-${ featureName }-group`;
-	const id = `vector-client-pref-${ featureName }-value-${ value }`;
+	const name = `skin-client-pref-${ featureName }-group`;
+	const id = `skin-client-pref-${ featureName }-value-${ value }`;
 	input.name = name;
 	input.id = id;
 	input.type = 'radio';
@@ -94,7 +96,7 @@ function appendRadioToggle( parent, featureName, value, currentValue ) {
 	container.appendChild( label );
 	parent.appendChild( container );
 	input.addEventListener( 'change', () => {
-		toggleDocClassAndSave( featureName, value );
+		toggleDocClassAndSave( featureName, value, config );
 	} );
 }
 
@@ -112,9 +114,10 @@ function createRow( className ) {
  * adds a toggle button
  *
  * @param {string} featureName
+ * @param {Record<string,ClientPreference>} config
  * @return {Element|null}
  */
-function makeClientPreferenceBinaryToggle( featureName ) {
+function makeClientPreferenceBinaryToggle( featureName, config ) {
 	const pref = config[ featureName ];
 	if ( !pref ) {
 		return null;
@@ -128,7 +131,7 @@ function makeClientPreferenceBinaryToggle( featureName ) {
 	const row = createRow( '' );
 	const form = document.createElement( 'form' );
 	pref.options.forEach( ( value ) => {
-		appendRadioToggle( form, featureName, value, currentValue );
+		appendRadioToggle( form, featureName, value, currentValue, config );
 	} );
 	row.appendChild( form );
 	return row;
@@ -137,15 +140,16 @@ function makeClientPreferenceBinaryToggle( featureName ) {
 /**
  * @param {Element} parent
  * @param {string} featureName
+ * @param {Record<string,ClientPreference>} config
  */
-function makeClientPreference( parent, featureName ) {
+function makeClientPreference( parent, featureName, config ) {
 	// eslint-disable-next-line mediawiki/msg-doc
 	const labelMsg = mw.message( `${ featureName }-name` );
 	// If the user is not debugging messages and no language exists exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
 		return;
 	} else {
-		const id = `vector-client-prefs-${ featureName }`;
+		const id = `skin-client-prefs-${ featureName }`;
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
 		// eslint-disable-next-line mediawiki/msg-doc
@@ -159,7 +163,7 @@ function makeClientPreference( parent, featureName ) {
 				refNode.parentNode.insertBefore( desc, refNode.nextSibling );
 			}
 		}
-		const row = makeClientPreferenceBinaryToggle( featureName );
+		const row = makeClientPreferenceBinaryToggle( featureName, config );
 		parent.appendChild( portlet );
 		if ( row ) {
 			const tmp = mw.util.addPortletLink( id, '', '' );
@@ -177,21 +181,21 @@ function makeClientPreference( parent, featureName ) {
 /**
  * Fills the client side preference dropdown with controls.
  * @param {string} selector of element to fill with client preferences
+ * @param {Record<string,ClientPreference>} config
+ * @return {Promise<Node>}
  */
-function render( selector ) {
+function render( selector, config ) {
 	const node = document.querySelector( selector );
 	if ( !node ) {
-		return;
+		return Promise.reject();
 	}
-	// FIXME: Loading codex-styles is a performance problem. This is only acceptable for logged in users so guard
-	// against unexpected use.
-	if ( mw.user.isAnon() ) {
-		throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
-	}
-	getVisibleClientPreferences().forEach( ( pref ) => {
+	return new Promise( ( resolve ) => {
 		mw.loader.using( 'codex-styles' ).then( () => {
+			getVisibleClientPreferences( config ).forEach( ( pref ) => {
+				makeClientPreference( node, pref, config );
+			} );
 			mw.requestIdleCallback( () => {
-				makeClientPreference( node, pref );
+				resolve( node );
 			} );
 		} );
 	} );
@@ -200,8 +204,9 @@ function render( selector ) {
 /**
  * @param {string} clickSelector what to click
  * @param {string} renderSelector where to render
+ * @param {Record<string,ClientPreference>} config
  */
-function bind( clickSelector, renderSelector ) {
+function bind( clickSelector, renderSelector, config ) {
 	let enhanced = false;
 	const chk = /** @type {HTMLInputElement} */ (
 		document.querySelector( clickSelector )
@@ -210,14 +215,14 @@ function bind( clickSelector, renderSelector ) {
 		return;
 	}
 	if ( chk.checked ) {
-		render( renderSelector );
+		render( renderSelector, config );
 		enhanced = true;
 	} else {
 		chk.addEventListener( 'input', () => {
 			if ( enhanced ) {
 				return;
 			}
-			render( renderSelector );
+			render( renderSelector, config );
 			enhanced = true;
 		} );
 	}
