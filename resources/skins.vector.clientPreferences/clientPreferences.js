@@ -2,6 +2,7 @@
  * @typedef {Object} ClientPreference
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
+ * @property {string} [type] defaults to radio. Supported: radio, switch
  */
 let /** @type {MwApi} */ api;
 /**
@@ -63,6 +64,48 @@ function toggleDocClassAndSave( featureName, value, config ) {
 }
 
 /**
+ * @param {string} featureName
+ * @param {string} value
+ * @return {string}
+ */
+const getInputId = ( featureName, value ) => `skin-client-pref-${ featureName }-value-${ value }`;
+
+/**
+ * @param {string} type
+ * @param {string} featureName
+ * @param {string} value
+ * @return {HTMLInputElement}
+ */
+function makeInputElement( type, featureName, value ) {
+	const input = document.createElement( 'input' );
+	const name = `skin-client-pref-${ featureName }-group`;
+	const id = getInputId( featureName, value );
+	input.name = name;
+	input.id = id;
+	input.type = type;
+	if ( type === 'checkbox' ) {
+		input.checked = value === '1';
+	} else {
+		input.value = value;
+	}
+	input.setAttribute( 'data-event-name', id );
+	return input;
+}
+
+/**
+ * @param {string} featureName
+ * @param {string} value
+ * @return {HTMLLabelElement}
+ */
+function makeLabelElement( featureName, value ) {
+	const label = document.createElement( 'label' );
+	// eslint-disable-next-line mediawiki/msg-doc
+	label.textContent = mw.msg( `${ featureName }-${ value }-label` );
+	label.setAttribute( 'for', getInputId( featureName, value ) );
+	return label;
+}
+
+/**
  * @param {Element} parent
  * @param {string} featureName
  * @param {string} value
@@ -70,27 +113,17 @@ function toggleDocClassAndSave( featureName, value, config ) {
  * @param {Record<string,ClientPreference>} config
  */
 function appendRadioToggle( parent, featureName, value, currentValue, config ) {
-	const input = document.createElement( 'input' );
-	const name = `skin-client-pref-${ featureName }-group`;
-	const id = `skin-client-pref-${ featureName }-value-${ value }`;
-	input.name = name;
-	input.id = id;
-	input.type = 'radio';
-	input.value = value;
+	const input = makeInputElement( 'radio', featureName, value );
 	input.classList.add( 'cdx-radio__input' );
 	if ( currentValue === value ) {
 		input.checked = true;
 	}
 	const icon = document.createElement( 'span' );
 	icon.classList.add( 'cdx-radio__icon' );
-	const label = document.createElement( 'label' );
+	const label = makeLabelElement( featureName, value );
 	label.classList.add( 'cdx-radio__label' );
-	// eslint-disable-next-line mediawiki/msg-doc
-	label.textContent = mw.msg( `${ featureName }-${ value }-label` );
-	label.setAttribute( 'for', id );
 	const container = document.createElement( 'div' );
 	container.classList.add( 'cdx-radio' );
-	input.setAttribute( 'data-event-name', id );
 	container.appendChild( input );
 	container.appendChild( icon );
 	container.appendChild( label );
@@ -98,6 +131,34 @@ function appendRadioToggle( parent, featureName, value, currentValue, config ) {
 	input.addEventListener( 'change', () => {
 		toggleDocClassAndSave( featureName, value, config );
 	} );
+}
+
+/**
+ * @param {Element} form
+ * @param {string} featureName
+ * @param {HTMLElement} labelElement
+ * @param {string} currentValue
+ * @param {Record<string,ClientPreference>} config
+ */
+function appendToggleSwitch( form, featureName, labelElement, currentValue, config ) {
+	const input = makeInputElement( 'checkbox', featureName, currentValue );
+	input.classList.add( 'cdx-toggle-switch__input' );
+	const switcher = document.createElement( 'span' );
+	switcher.classList.add( 'cdx-toggle-switch__switch' );
+	const grip = document.createElement( 'span' );
+	grip.classList.add( 'cdx-toggle-switch__switch__grip' );
+	switcher.appendChild( grip );
+	const label = labelElement || makeLabelElement( featureName, currentValue );
+	label.classList.add( 'cdx-toggle-switch__label' );
+	const toggleSwitch = document.createElement( 'span' );
+	toggleSwitch.classList.add( 'cdx-toggle-switch' );
+	toggleSwitch.appendChild( input );
+	toggleSwitch.appendChild( switcher );
+	toggleSwitch.appendChild( label );
+	input.addEventListener( 'change', () => {
+		toggleDocClassAndSave( featureName, input.checked ? '1' : '0', config );
+	} );
+	form.appendChild( toggleSwitch );
 }
 
 /**
@@ -111,13 +172,23 @@ function createRow( className ) {
 }
 
 /**
+ * Get the label for the feature.
+ *
+ * @param {string} featureName
+ * @return {MwMessage}
+ */
+const getFeatureLabelMsg = ( featureName ) =>
+	// eslint-disable-next-line mediawiki/msg-doc
+	mw.message( `${ featureName }-name` );
+
+/**
  * adds a toggle button
  *
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
  * @return {Element|null}
  */
-function makeClientPreferenceBinaryToggle( featureName, config ) {
+function makeControl( featureName, config ) {
 	const pref = config[ featureName ];
 	if ( !pref ) {
 		return null;
@@ -130,9 +201,21 @@ function makeClientPreferenceBinaryToggle( featureName, config ) {
 	}
 	const row = createRow( '' );
 	const form = document.createElement( 'form' );
-	pref.options.forEach( ( value ) => {
-		appendRadioToggle( form, featureName, value, currentValue, config );
-	} );
+	const type = pref.type || 'radio';
+	switch ( type ) {
+		case 'radio':
+			pref.options.forEach( ( value ) => {
+				appendRadioToggle( form, featureName, value, currentValue, config );
+			} );
+			break;
+		case 'switch': {
+			const labelElement = document.createElement( 'label' );
+			labelElement.textContent = getFeatureLabelMsg( featureName ).text();
+			appendToggleSwitch( form, featureName, labelElement, currentValue, config );
+			break;
+		} default:
+			throw new Error( 'Unknown client preference! Only switch or radio are supported.' );
+	}
 	row.appendChild( form );
 	return row;
 }
@@ -143,8 +226,7 @@ function makeClientPreferenceBinaryToggle( featureName, config ) {
  * @param {Record<string,ClientPreference>} config
  */
 function makeClientPreference( parent, featureName, config ) {
-	// eslint-disable-next-line mediawiki/msg-doc
-	const labelMsg = mw.message( `${ featureName }-name` );
+	const labelMsg = getFeatureLabelMsg( featureName );
 	// If the user is not debugging messages and no language exists exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
 		return;
@@ -152,18 +234,18 @@ function makeClientPreference( parent, featureName, config ) {
 		const id = `skin-client-prefs-${ featureName }`;
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
+		const labelElement = portlet.querySelector( 'label' );
 		// eslint-disable-next-line mediawiki/msg-doc
 		const descriptionMsg = mw.message( `${ featureName }-description` );
 		if ( descriptionMsg.exists() ) {
-			const desc = document.createElement( 'div' );
-			desc.classList.add( 'mw-portlet-description' );
+			const desc = document.createElement( 'span' );
+			desc.classList.add( 'skin-client-pref-description' );
 			desc.textContent = descriptionMsg.text();
-			const refNode = portlet.querySelector( 'label' );
-			if ( refNode && refNode.parentNode ) {
-				refNode.parentNode.insertBefore( desc, refNode.nextSibling );
+			if ( labelElement && labelElement.parentNode ) {
+				labelElement.appendChild( desc );
 			}
 		}
-		const row = makeClientPreferenceBinaryToggle( featureName, config );
+		const row = makeControl( featureName, config );
 		parent.appendChild( portlet );
 		if ( row ) {
 			const tmp = mw.util.addPortletLink( id, '', '' );
@@ -190,13 +272,11 @@ function render( selector, config ) {
 		return Promise.reject();
 	}
 	return new Promise( ( resolve ) => {
-		mw.loader.using( 'codex-styles' ).then( () => {
-			getVisibleClientPreferences( config ).forEach( ( pref ) => {
-				makeClientPreference( node, pref, config );
-			} );
-			mw.requestIdleCallback( () => {
-				resolve( node );
-			} );
+		getVisibleClientPreferences( config ).forEach( ( pref ) => {
+			makeClientPreference( node, pref, config );
+		} );
+		mw.requestIdleCallback( () => {
+			resolve( node );
 		} );
 	} );
 }
