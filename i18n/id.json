@@ -13,7 +13,8 @@
 			"Rex",
 			"Veracious",
 			"William Surya Permana",
-			"Agam Riyandana"
+			"Agam Riyandana",
+			"Robifr"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -53,11 +54,13 @@
 	"vector-toc-heading": "Daftar isi",
 	"vector-toc-toggle-position-title": "sembunyikan",
 	"vector-toc-beginning": "Awal",
+	"vector-toc-toggle-button-label": "Gulingkan subbagian $1",
 	"vector-anon-user-menu-pages": "Halaman penyunting yang telah keluar log",
 	"vector-anon-user-menu-pages-learn": "pelajari lebih lanjut",
 	"vector-anon-user-menu-pages-label": "Pelajari lebih lanjut tentang menyunting",
 	"vector-main-menu-tooltip": "Menu utama",
 	"vector-toc-menu-tooltip": "Daftar Isi",
+	"vector-toc-collapsible-button-label": "Gulingkan daftar isi",
 	"vector-article-tools-nav-label": "Perkakas",
 	"vector-site-nav-label": "Situs",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskusi]]",
