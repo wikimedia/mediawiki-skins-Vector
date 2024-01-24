@@ -4,6 +4,7 @@
 			"MthulisiNcube"
 		]
 	},
+	"vector-searchsuggest-containing": "Haka mapheji ana <strong class=\"cdx-typeahead-search_serach-footer_query\">$1</strong>",
 	"vector-pin-element-label": "sodzedza musayidi bha",
 	"vector-unpin-element-label": "sumbika"
 }
