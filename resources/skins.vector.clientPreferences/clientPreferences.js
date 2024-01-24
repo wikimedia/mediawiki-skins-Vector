@@ -58,7 +58,7 @@ function toggleDocClassAndSave( featureName, value, config ) {
 		}, 100 )();
 		// END FIXME.
 	} else {
-		// This case is much simpler - the API  transparently takes care of classes as well as storage.
+		// This case is much simpler, the API transparently takes care of classes as well as storage.
 		mw.user.clientPrefs.set( featureName, value );
 	}
 }
@@ -227,7 +227,8 @@ function makeControl( featureName, config ) {
  */
 function makeClientPreference( parent, featureName, config ) {
 	const labelMsg = getFeatureLabelMsg( featureName );
-	// If the user is not debugging messages and no language exists exit as its a hidden client preference.
+	// If the user is not debugging messages and no language exists,
+	// exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
 		return;
 	} else {
