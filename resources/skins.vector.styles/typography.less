@@ -40,12 +40,14 @@ pre,
 .mw-body {
 	// h1's can exist outside of `.mw-body-content` so some heading styles
 	// therefore need to be defined in `.mw-body` as well.
-	h1,
-	.mw-heading1,
+	& h1,
+	& .mw-heading1,
 	&-content h1,
 	&-content .mw-heading1,
 	&-content h2,
 	&-content .mw-heading2 {
+		margin-bottom: 0.25em;
+		padding: 0;
 		font-family: @font-family-serif;
 		line-height: @line-height-xx-small;
 
@@ -68,8 +70,8 @@ pre,
 		}
 	}
 
-	h1,
-	.mw-heading1,
+	& h1,
+	& .mw-heading1,
 	&-content h1,
 	&-content .mw-heading1 {
 		font-size: @font-size-heading-1;
@@ -77,6 +79,7 @@ pre,
 
 	.mw-heading2,
 	h2 {
+		margin-top: 1em;
 		font-size: @font-size-heading-2;
 	}
 
@@ -88,26 +91,10 @@ pre,
 	h5,
 	.mw-heading6,
 	h6 {
-		// Additional bottom padding isnt necessary because only the h2 has an underline
+		margin-top: 0.3em;
+		margin-bottom: 0;
 		padding-bottom: 0;
 		line-height: @line-height-base;
-	}
-
-	.mw-heading2,
-	h2,
-	.mw-heading3,
-	h3,
-	.mw-heading4,
-	h4,
-	.mw-heading5,
-	h5,
-	.mw-heading6,
-	h6 {
-		// Headings should have extra spacing from its siblings, which is a
-		// <p> element most of the time. In this case, spacing from the heading
-		// the <p> is sufficient. However, we to account for cases
-		// where the previous sibling element doesnt have any spacing
-		margin: 0.25em 0 0.25em 0;
 	}
 
 	.mw-heading3,
@@ -132,12 +119,7 @@ pre,
 	}
 
 	p {
-		// T351754 Use padding to avoid margin collapsing between adjacent <p> elements
-		// creating an effective margin-bottom: 1em
-		padding-bottom: 0.5em;
-		// Top margin is needed because many elements rely on adjacent <p> elements
-		// for extra spacing, i.e. lists and headings
-		margin: 0.5em 0 0 0;
+		margin: 0.5em 0 1em 0;
 	}
 
 	blockquote {
@@ -152,13 +134,6 @@ pre,
 		> :last-child {
 			margin-bottom: 0;
 		}
-	}
-
-	ul,
-	ol {
-		// Override default spacing so that lists entirely rely on adjacent sibling elements for spacing
-		// FIXME: Remove !important with T354975
-		margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
 	}
 }
 
