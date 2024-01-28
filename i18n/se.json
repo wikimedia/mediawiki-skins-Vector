@@ -37,12 +37,12 @@
 	"vector-jumptosearch": "Njuikes ohcamii",
 	"vector-jumptocontent": "Njuikes sisdollui",
 	"vector-more-actions": "Eanet",
-	"vector-client-prefs-label": "Temá",
+	"vector-client-prefs-label": "Olggosoaidnin",
 	"vector-feature-limited-width-name": "Govdodat",
 	"vector-feature-custom-font-size-name": "Teaksta",
 	"vector-feature-limited-width-0-label": "Govdat",
 	"vector-feature-limited-width-1-label": "Dábálaš",
-	"vector-feature-custom-font-size-0-label": "Unna",
+	"vector-feature-custom-font-size-0-label": "Unni",
 	"vector-feature-custom-font-size-1-label": "Dábálaš",
 	"vector-feature-custom-font-size-2-label": "Stuoris",
 	"vector-search-loader": "Viežžamin ohcanevttohusaid",
@@ -76,5 +76,6 @@
 	"vector-toc-unpinned-popup": "Sisdoallologahallan lea sirdon deike.",
 	"vector-page-tools-unpinned-popup": "Reaidofállu lea sirdon deike.",
 	"vector-main-menu-unpinned-popup": "Váldofállu lea sirdon deike.",
+	"vector-client-prefs-unpinned-popup": "Olggosoaidnin fállu lea sirdon deike.",
 	"vector-2022-beta-preview-label": "Vector 2022 -betaveršuvdna"
 }

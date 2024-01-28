@@ -7,13 +7,18 @@
 	"vector-languages": "Kanawi ləlang",
 	"vector-language-button-label": "{{PLURAL:$1|Ixt ləlang|$1 ləlang}}",
 	"vector-no-language-button-label": "Mamuk chxi ləlang",
+	"vector-action-addsection": "Mamuk chxi tayi-ikta.",
 	"vector-action-delete": "Mash ukuk",
 	"vector-action-move": "Mamuk-łatawa ukuk",
+	"vector-action-protect": "Mamuk-chako-skukum",
 	"vector-view-create": "Mamuk",
 	"vector-view-history": "Nanich ukuk pipa kakwa ulman yaka",
 	"vector-more-actions": "Wix̣t",
 	"vector-searchsuggest-containing": "Tlai łap pipa kanumakwst <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Kanawi ikta kopa ukuk",
 	"vector-toc-beginning": "Elip-ikta",
+	"vector-main-menu-label": "Tayi menu",
+	"vector-page-tools-label": "Wik-kəltəs ikta",
+	"vector-page-tools-general-label": "Wik ixt-ixt ikta",
 	"vector-unpin-element-label": "mamuk-chako-ipsut"
 }
