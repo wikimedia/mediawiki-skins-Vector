@@ -179,8 +179,9 @@ module.exports = function webABTest( props, token, forceInit ) {
 		// has been sampled into the experiment.
 		if ( isInSample() ) {
 			/**
+			 * For use by WikimediaEvents only
 			 * @event mediawiki.web_AB_test_enrollment
-			 * @internal for use by WikimediaEvents only.
+			 * @internal
 			 * @property {string} context
 			 * @property {string} action
 			 */
