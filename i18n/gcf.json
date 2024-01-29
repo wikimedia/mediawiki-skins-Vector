@@ -26,11 +26,14 @@
 	"vector-jumptocontent": "Ay a kontni",
 	"vector-more-actions": "Plis",
 	"vector-searchsuggest-containing": "Chèché paj ki ni <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Anmwé:Entrodiksyon",
 	"vector-toc-beginning": "Konmansman",
 	"vector-anon-user-menu-pages": "Paj pou kontribitè ki dékonnèkté",
 	"vector-anon-user-menu-pages-learn": "Aprann plis",
 	"vector-anon-user-menu-pages-label": "Aprann plis asi modifikasyon",
 	"vector-main-menu-tooltip": "Méni prensipal",
+	"vector-toc-menu-tooltip": "Andidanbway",
 	"vector-site-nav-label": "Sit",
+	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Bokantaj]]",
 	"tooltip-vector-anon-user-menu-title": "Plis opsyon"
 }

@@ -12,7 +12,8 @@
 			"Trisorn Triboon",
 			"Woraponboonkerd",
 			"Ekminarin",
-			"Kaoavi"
+			"Kaoavi",
+			"RidJasper"
 		]
 	},
 	"skinname-vector": "เวกเตอร์แบบเก่า (2553)",
@@ -49,7 +50,7 @@
 	"vector-more-actions": "เพิ่มเติม",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-intro-page": "วิธีใช้:สอนการใช้งาน",
+	"vector-intro-page": "Help:บทนำ",
 	"vector-toc-heading": "เนื้อหา",
 	"vector-toc-toggle-position-title": "ซ่อน",
 	"vector-toc-beginning": "บทนำ",
