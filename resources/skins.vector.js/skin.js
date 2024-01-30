@@ -55,10 +55,6 @@ function main( window ) {
 	languageButton();
 	echo();
 	portletsManager.main();
-	dropdownMenus();
-	// menuTabs should follow `dropdownMenus` as that can move menu items from a
-	// tab menu to a dropdown.
-	menuTabs();
 	watchstar();
 	limitedWidthToggle();
 	// Initialize the search toggle for the main header only. The sticky header
@@ -88,6 +84,11 @@ function main( window ) {
 			clientPreferences.render( clientPreferenceSelector, clientPreferenceConfig );
 		} );
 	}
+
+	dropdownMenus();
+	// menuTabs should follow `dropdownMenus` as that can move menu items from a
+	// tab menu to a dropdown.
+	menuTabs();
 }
 
 /**
