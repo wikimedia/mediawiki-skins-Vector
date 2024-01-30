@@ -345,6 +345,11 @@
 				"resources/skins.vector.clientPreferences/clientPreferences.js"
 			],
 			"messages": [
+				"skin-night-mode-description",
+				"skin-night-mode-name",
+				"skin-night-mode-0-label",
+				"skin-night-mode-1-label",
+				"skin-night-mode-2-label",
 				"vector-feature-limited-width-name",
 				"vector-feature-custom-font-size-name",
 				"vector-feature-limited-width-0-label",
