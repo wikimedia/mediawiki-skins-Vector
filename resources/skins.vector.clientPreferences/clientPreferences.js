@@ -3,6 +3,7 @@
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
  * @property {string} [type] defaults to radio. Supported: radio, switch
+ * @property {function} [callback] callback executed after a client preference has been modified.
  */
 let /** @type {MwApi} */ api;
 /**
@@ -42,6 +43,7 @@ function getVisibleClientPreferences( config ) {
  */
 function toggleDocClassAndSave( featureName, value, config ) {
 	const pref = config[ featureName ];
+	const callback = pref.callback || ( () => {} );
 	if ( mw.user.isNamed() ) {
 		// FIXME: Ideally this would be done in mw.user.clientprefs API.
 		// mw.user.clientPrefs.get is marked as being only stable for anonymous and temporary users.
@@ -55,11 +57,13 @@ function toggleDocClassAndSave( featureName, value, config ) {
 		mw.util.debounce( function () {
 			api = api || new mw.Api();
 			api.saveOption( pref.preferenceKey, value );
+			callback();
 		}, 100 )();
 		// END FIXME.
 	} else {
 		// This case is much simpler, the API transparently takes care of classes as well as storage.
 		mw.user.clientPrefs.set( featureName, value );
+		callback();
 	}
 }
 
