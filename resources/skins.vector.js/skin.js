@@ -81,6 +81,11 @@ function main( window ) {
 			if ( mw.user.isAnon() ) {
 				throw new Error( 'T335317: Unexpected state expected. This will cause a performance problem.' );
 			}
+			// Can be removed once wgVectorNightMode is removed.
+			if ( document.documentElement.classList.contains( 'vector-feature-night-mode-disabled' ) ) {
+				// @ts-ignore issues relating to delete operator are not relevant here.
+				delete clientPreferenceConfig[ 'skin-night-mode' ];
+			}
 			clientPreferences.render( clientPreferenceSelector, clientPreferenceConfig );
 		} );
 	}

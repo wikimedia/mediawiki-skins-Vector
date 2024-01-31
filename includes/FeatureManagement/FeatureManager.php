@@ -23,6 +23,7 @@
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
 use RequestContext;
 use Wikimedia\Assert\Assert;
@@ -130,22 +131,23 @@ class FeatureManager {
 	}
 
 	/**
-	 * Gets font size user's preference value
+	 * Gets user's preference value
 	 *
 	 * If user preference is not set or did not appear in config
-	 * set it to default value we go back to defualt suffix value 1
+	 * set it to default value we go back to defualt suffix value
 	 * that will ensure that the feature will be enabled when requirements are met
 	 *
+	 * @param string $preferenceKey User preference key
 	 * @return string
 	 */
-	public function getFontValueFromUserPreferenceForSuffix() {
+	public function getUserPreferenceValue( $preferenceKey ) {
 		$user = RequestContext::getMain()->getUser();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		return $userOptionsLookup->getOption(
 			$user,
-			'vector-font-size'
-			// This should be the same as `preferenceKey` in clientPreferences config
-			// 'resources/skins.vector.clientPreferences/config.json'
+			$preferenceKey
+			// For client preferences, this should be the same as `preferenceKey`
+			// in 'resources/skins.vector.js/clientPreferences.json'
 		);
 	}
 
@@ -158,15 +160,22 @@ class FeatureManager {
 		return array_map( function ( $featureName ) {
 			// switch to lower case and switch from camel case to hyphens
 			$featureClass = ltrim( strtolower( preg_replace( '/[A-Z]([A-Z](?![a-z]))*/', '-$0', $featureName ) ), '-' );
-
+			$prefix = 'vector-feature-' . $featureClass . '-';
 			// Client side preferences
-			switch ( $featureClass ) {
-				case 'custom-font-size':
-					$suffixEnabled = 'clientpref-' . $this->getFontValueFromUserPreferenceForSuffix();
+			switch ( $featureName ) {
+				case CONSTANTS::FEATURE_FONT_SIZE:
+					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_FONT_SIZE );
 					$suffixDisabled = 'clientpref-0';
 					break;
-				case 'limited-width':
-				case 'toc-pinned':
+				case CONSTANTS::PREF_NIGHT_MODE:
+					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
+					$suffixDisabled = 'clientpref-0';
+					// Must be hardcoded to 'skin-night-mode' to be consistent with Minerva
+					// So that editors can target the same class across skins
+					$prefix = 'skin-night-mode-';
+					break;
+				case CONSTANTS::FEATURE_LIMITED_WIDTH:
+				case CONSTANTS::FEATURE_TOC_PINNED:
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
 					break;
@@ -176,7 +185,6 @@ class FeatureManager {
 					$suffixDisabled = 'disabled';
 					break;
 			}
-			$prefix = 'vector-feature-' . $featureClass . '-';
 			return $this->isFeatureEnabled( $featureName ) ?
 				$prefix . $suffixEnabled : $prefix . $suffixDisabled;
 		}, array_keys( $this->features ) );

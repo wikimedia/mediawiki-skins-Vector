@@ -294,6 +294,48 @@ return [
 			]
 		);
 
+		// Feature: Night mode (T355065)
+		// ============================================
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$services->getMainConfig(),
+				$context->getUser(),
+				$request,
+				Constants::CONFIG_KEY_NIGHT_MODE,
+				Constants::REQUIREMENT_NIGHT_MODE
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_NIGHT_MODE,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_NIGHT_MODE
+			]
+		);
+
+		// Preference: Night mode (T355065)
+		// ============================================
+		$featureManager->registerRequirement(
+			new UserPreferenceRequirement(
+				$context->getUser(),
+				$services->getUserOptionsLookup(),
+				Constants::PREF_KEY_NIGHT_MODE,
+				Constants::REQUIREMENT_PREF_NIGHT_MODE,
+				$request,
+				$context->getTitle()
+			)
+		);
+
+		$featureManager->registerFeature(
+			Constants::PREF_NIGHT_MODE,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_NIGHT_MODE,
+				Constants::REQUIREMENT_PREF_NIGHT_MODE
+			]
+		);
+
 		return $featureManager;
 	}
 ];

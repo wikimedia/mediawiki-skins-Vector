@@ -167,7 +167,8 @@
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1,
 		"vector-client-prefs-pinned": 1,
-		"vector-font-size": 0
+		"vector-font-size": 0,
+		"vector-night-mode": 2
 	},
 	"HookHandlers": {
 		"VectorCentralAuthHooks": {
@@ -351,9 +352,9 @@
 				"skin-night-mode-1-label",
 				"skin-night-mode-2-label",
 				"vector-feature-limited-width-name",
-				"vector-feature-custom-font-size-name",
 				"vector-feature-limited-width-0-label",
 				"vector-feature-limited-width-1-label",
+				"vector-feature-custom-font-size-name",
 				"vector-feature-custom-font-size-0-label",
 				"vector-feature-custom-font-size-1-label",
 				"vector-feature-custom-font-size-2-label"
@@ -526,6 +527,14 @@
 		]
 	},
 	"config": {
+		"VectorNightMode": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false,
+				"beta": false
+			},
+			"description": "@var array enables night mode."
+		},
 		"VectorClientPreferences": {
 			"value": {
 				"logged_in": false,
@@ -544,6 +553,19 @@
 		},
 		"VectorUseIconWatch": {
 			"value": true
+		},
+		"VectorNightModePageOptions": {
+			"value": {
+				"mainpage": false,
+				"querystring": {
+					"action": "(history|edit|submit)",
+					"diff": ".+"
+				},
+				"namespaces": [
+					-1,
+					14
+				]
+			}
 		},
 		"VectorMaxWidthOptions": {
 			"value": {

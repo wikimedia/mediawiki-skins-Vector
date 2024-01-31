@@ -246,11 +246,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_CLIENT_PREFERENCES = 'VectorClientPreferences';
-
-	/**
-	 * @var string
-	 */
 	public const FEATURE_CLIENT_PREFS_PINNED = 'ClientPrefsPinned';
 
 	/**
@@ -266,12 +261,47 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const CONFIG_KEY_CLIENT_PREFERENCES = 'VectorClientPreferences';
+
+	/**
+	 * @var string
+	 */
 	public const FEATURE_CLIENT_PREFERENCES = 'ClientPreferences';
 
 	/**
 	 * @var string
 	 */
 	public const REQUIREMENT_CLIENT_PREFERENCES = 'ClientPreferences';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_NIGHT_MODE = 'VectorNightMode';
+
+	/**
+	 * @var string
+	 */
+	public const FEATURE_NIGHT_MODE = 'NightMode';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_NIGHT_MODE = 'NightMode';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_NIGHT_MODE = 'vector-night-mode';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_PREF_NIGHT_MODE = 'PrefNightMode';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_NIGHT_MODE = 'PrefNightMode';
 
 	/**
 	 * @var string

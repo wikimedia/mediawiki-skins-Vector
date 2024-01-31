@@ -561,6 +561,9 @@ class Hooks implements
 				'help-message' => 'vector-prefs-limited-width-help',
 				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			],
+			Constants::PREF_KEY_NIGHT_MODE => [
+				'type' => 'api'
+			],
 		];
 		$prefs += $vectorPrefs;
 	}
