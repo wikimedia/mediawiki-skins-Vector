@@ -12,7 +12,8 @@
 			"Octahedron80",
 			"Patsagorn Y.",
 			"Trisorn Triboon",
-			"Woraponboonkerd"
+			"Woraponboonkerd",
+			"RidJasper"
 		]
 	},
 	"skinname-vector": "เวกเตอร์แบบเก่า (2553)",
@@ -49,7 +50,7 @@
 	"vector-more-actions": "เพิ่มเติม",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-intro-page": "วิธีใช้:สอนการใช้งาน",
+	"vector-intro-page": "Help:บทนำ",
 	"vector-toc-label": "สารบัญ",
 	"vector-toc-beginning": "บทนำ",
 	"vector-anon-user-menu-pages": "หน้าสำหรับผู้แก้ไขที่ออกจากระบบ",
@@ -59,6 +60,8 @@
 	"vector-toc-menu-tooltip": "สารบัญ",
 	"vector-site-nav-label": "ไซต์",
 	"vector-main-menu-label": "เมนูหลัก",
+	"vector-limited-width-toggle-on-popup": "คุณได้เปลี่ยนเค้าโครงของคุณเป็นแบบเต็มความกว้าง หากต้องการกลับไปใช้ความกว้างที่จำกัด ให้กดปุ่มนี้",
+	"vector-limited-width-toggle-off-popup": "คุณสามารถสลับระหว่างความกว้างที่จำกัดและความกว้างเต็มได้โดยการคลิกปุ่มนี้",
 	"vector-page-tools-label": "เครื่องมือ",
 	"vector-page-tools-general-label": "ทั่วไป",
 	"vector-page-tools-actions-label": "การกระทำ",
