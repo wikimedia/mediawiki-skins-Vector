@@ -37,7 +37,7 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirem
 // @codeCoverageIgnoreStart
 
 return [
-	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ) {
+	Constants::SERVICE_FEATURE_MANAGER => static function ( MediaWikiServices $services ): FeatureManager {
 		$featureManager = new FeatureManager();
 
 		$featureManager->registerRequirement(
