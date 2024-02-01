@@ -98,9 +98,13 @@
 	}
 }
 
-//User-page link in personal (overflow) menu.
+/**
+ * User-page link in personal (overflow) menu.
+ */
 #pt-userpage-2 {
 	max-width: unit( 155 / @font-size-browser / @font-size-user-links, em );
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	a:not( .mw-selflink ) {
 		// T312157 Override redlink (.new) color for non-existant userpage
