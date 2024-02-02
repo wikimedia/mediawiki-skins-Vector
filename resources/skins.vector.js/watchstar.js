@@ -15,7 +15,7 @@ const updateWatchIcon = ( watchIcon, isWatched, expiry ) => {
 	);
 
 	if ( isWatched ) {
-		if ( expiry === 'infinity' ) {
+		if ( mw.util.isInfinity( expiry ) ) {
 			watchIcon.classList.add( 'mw-ui-icon-wikimedia-unStar' );
 		} else {
 			watchIcon.classList.add( 'mw-ui-icon-wikimedia-halfStar' );
