@@ -4,9 +4,12 @@
 			"Boulaur",
 			"Cedric31",
 			"Quentí",
-			"Nicolas Eynaud"
+			"Nicolas Eynaud",
+			"Lhanars"
 		]
 	},
+	"skinname-vector": "Vector (version 2010)",
+	"vector-opt-out": "Cambia a l'ancian aspècte",
 	"vector.css": "/* Lo CSS plaçat aicí afectarà los utilizaires de l’abilhatge Vector */",
 	"vector.js": "/* Tot JavaScript aicí serà cargat amb las paginas accedidas pels utilizaires de l’abilhatge Vector unicament. */",
 	"vector-languages": "Lengas",
@@ -20,10 +23,14 @@
 	"vector-action-unprotect": "Suprimir la proteccion",
 	"vector-view-create": "Crear",
 	"vector-view-edit": "Modificar",
-	"vector-view-history": "Veire l'istoric",
+	"vector-view-history": "Mostrar l'istoric",
 	"vector-view-view": "Legir",
-	"vector-view-viewsource": "Veire la font",
+	"vector-view-viewsource": "Mostrar lo còdi",
+	"vector-jumptonavigation": "Sautar la navigacion",
+	"vector-jumptosearch": "Sautar la recèrca",
+	"vector-jumptocontent": "Vejatz lo contengut",
 	"vector-more-actions": "Mai",
 	"vector-searchsuggest-containing": "Cercar lei paginas que contènon <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Començament"
+	"vector-toc-beginning": "Començament",
+	"vector-main-menu-tooltip": "Menut principal"
 }
