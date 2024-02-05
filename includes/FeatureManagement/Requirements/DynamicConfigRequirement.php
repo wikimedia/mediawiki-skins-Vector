@@ -67,20 +67,11 @@ use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
  */
 final class DynamicConfigRequirement implements Requirement {
 
-	/**
-	 * @var Config
-	 */
-	private $config;
+	private Config $config;
 
-	/**
-	 * @var string
-	 */
-	private $configName;
+	private string $configName;
 
-	/**
-	 * @var string
-	 */
-	private $requirementName;
+	private string $requirementName;
 
 	/**
 	 * @param Config $config

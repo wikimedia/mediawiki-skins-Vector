@@ -32,35 +32,17 @@ use MediaWiki\User\User;
  */
 final class UserPreferenceRequirement implements Requirement {
 
-	/**
-	 * @var User
-	 */
-	private $user;
+	private User $user;
 
-	/**
-	 * @var UserOptionsLookup
-	 */
-	 private $userOptionsLookup;
+	private UserOptionsLookup $userOptionsLookup;
 
-	/**
-	 * @var string
-	 */
-	private $optionName;
+	private string $optionName;
 
-	/**
-	 * @var string
-	 */
-	private $requirementName;
+	private string $requirementName;
 
-	/**
-	 * @var Title|null
-	 */
-	private $title;
+	private ?Title $title;
 
-	/**
-	 * @var OverrideableRequirementHelper
-	 */
-	private $helper;
+	private OverrideableRequirementHelper $helper;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
@@ -79,7 +61,7 @@ final class UserPreferenceRequirement implements Requirement {
 		string $optionName,
 		string $requirementName,
 		WebRequest $request,
-		$title = null
+		Title $title = null
 	) {
 		$this->user = $user;
 		$this->userOptionsLookup = $userOptionsLookup;
@@ -104,7 +86,7 @@ final class UserPreferenceRequirement implements Requirement {
 	 *
 	 * @return bool
 	 */
-	public function isPreferenceEnabled() {
+	public function isPreferenceEnabled(): bool {
 		$user = $this->user;
 		$userOptionsLookup = $this->userOptionsLookup;
 		$optionValue = $userOptionsLookup->getOption(
@@ -113,7 +95,7 @@ final class UserPreferenceRequirement implements Requirement {
 		);
 		// Check for 0, '0' or 'disabled'.
 		// Any other value will be handled as enabled.
-		$isEnabled = (bool)$optionValue && $optionValue !== 'disabled';
+		$isEnabled = $optionValue && $optionValue !== 'disabled';
 
 		return $this->title && $isEnabled;
 	}

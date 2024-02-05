@@ -68,30 +68,15 @@ use MediaWiki\User\User;
  */
 class OverridableConfigRequirement implements Requirement {
 
-	/**
-	 * @var Config
-	 */
-	private $config;
+	private Config $config;
 
-	/**
-	 * @var User
-	 */
-	private $user;
+	private User $user;
 
-	/**
-	 * @var string
-	 */
-	private $configName;
+	private string $configName;
 
-	/**
-	 * @var string
-	 */
-	private $requirementName;
+	private string $requirementName;
 
-	/**
-	 * @var OverrideableRequirementHelper
-	 */
-	private $helper;
+	private OverrideableRequirementHelper $helper;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
