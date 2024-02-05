@@ -56,6 +56,11 @@
 	"vector-feature-custom-font-size-0-label": "เล็ก",
 	"vector-feature-custom-font-size-1-label": "ปกติ",
 	"vector-feature-custom-font-size-2-label": "ใหญ่",
+	"skin-night-mode-name": "สี",
+	"skin-night-mode-description": "ลดแสงที่ออกมาจากหน้าจออุปกรณ์",
+	"skin-night-mode-0-label": "กลางวัน",
+	"skin-night-mode-1-label": "กลางคืน",
+	"skin-night-mode-2-label": "อัตโนมัติ",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:บทนำ",
@@ -84,5 +89,5 @@
 	"vector-toc-unpinned-popup": "ย้ายเมนูสารบัญมาที่นี่",
 	"vector-page-tools-unpinned-popup": "ย้ายเมนูเครื่องมือมาที่นี่",
 	"vector-main-menu-unpinned-popup": "ย้ายเมนูหลักมาที่นี่",
-	"vector-client-prefs-unpinned-popup": "ย้ายเมนูลักษณะมาที่นี่แล้ว"
+	"vector-client-prefs-unpinned-popup": "ย้ายเมนูลักษณะมาที่นี่"
 }

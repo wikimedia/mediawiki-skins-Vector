@@ -53,9 +53,14 @@
 	"vector-main-menu-tooltip": "Hlavné menu",
 	"vector-toc-menu-tooltip": "Obsah",
 	"vector-toc-collapsible-button-label": "Prepnúť obsah",
+	"vector-main-menu-label": "Hlavné menu",
 	"vector-page-tools-label": "Nástroje",
+	"vector-page-tools-general-label": "Všeobecné",
+	"vector-pin-element-label": "presunúť do postranného panelu",
 	"vector-unpin-element-label": "skryť",
 	"tooltip-vector-anon-user-menu-title": "Ďalšie možnosti",
 	"vector-prefs-limited-width": "Povoliť režim obmedzenej šírky",
-	"vector-prefs-limited-width-help": "Povoliť režim obmedzenej šírky pre lepšiu čitateľnosť."
+	"vector-prefs-limited-width-help": "Povoliť režim obmedzenej šírky pre lepšiu čitateľnosť.",
+	"vector-toc-unpinned-popup": "Obsah bol presunutý sem.",
+	"vector-main-menu-unpinned-popup": "Hlavné menu bolo presunuté sem."
 }
