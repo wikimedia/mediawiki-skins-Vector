@@ -32,20 +32,11 @@ use MediaWiki\Request\WebRequest;
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
  */
 class OverrideableRequirementHelper {
-	/**
-	 * @var WebRequest
-	 */
-	private $request;
+	private WebRequest $request;
 
-	/**
-	 * @var string
-	 */
-	private $requirementName;
+	private string $requirementName;
 
-	/**
-	 * @var string
-	 */
-	private $overrideName;
+	private string $overrideName;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
@@ -70,7 +61,7 @@ class OverrideableRequirementHelper {
 	 *
 	 * @return bool|null
 	 */
-	public function isMet() {
+	public function isMet(): ?bool {
 		// Check query parameter.
 		if ( $this->request->getCheck( $this->overrideName ) ) {
 			return $this->request->getBool( $this->overrideName );

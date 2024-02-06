@@ -31,15 +31,12 @@ use MediaWiki\User\User;
  */
 class LoggedInRequirement implements Requirement {
 
-	/**
-	 * @var User
-	 */
-	private $user;
+	private User $user;
 
 	/**
-	 * @var string The name of the requirement
+	 * The name of the requirement
 	 */
-	private $name;
+	private string $name;
 
 	/**
 	 * @param User $user

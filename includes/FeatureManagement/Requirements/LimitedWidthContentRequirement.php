@@ -32,20 +32,9 @@ use MediaWiki\Title\Title;
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
  */
 final class LimitedWidthContentRequirement implements Requirement {
-	/**
-	 * @var Config
-	 */
-	private $config;
-
-	/**
-	 * @var WebRequest
-	 */
-	private $request;
-
-	/**
-	 * @var Title
-	 */
-	private $title;
+	private Config $config;
+	private WebRequest $request;
+	private ?Title $title;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
@@ -58,7 +47,7 @@ final class LimitedWidthContentRequirement implements Requirement {
 	public function __construct(
 		Config $config,
 		WebRequest $request,
-		$title = null
+		Title $title = null
 	) {
 		$this->config = $config;
 		$this->title = $title;
@@ -91,7 +80,7 @@ final class LimitedWidthContentRequirement implements Requirement {
 	 * @param WebRequest $request
 	 * @return bool
 	 */
-	private static function shouldDisableMaxWidth( array $options, Title $title, WebRequest $request ) {
+	private static function shouldDisableMaxWidth( array $options, Title $title, WebRequest $request ): bool {
 		$canonicalTitle = $title->getRootTitle();
 
 		$inclusions = $options['include'] ?? [];

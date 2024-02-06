@@ -31,25 +31,19 @@ use MediaWiki\User\User;
  * @internal
  */
 class ABRequirement implements Requirement {
-	/**
-	 * @var Config
-	 */
-	private $config;
+	private Config $config;
+
+	private User $user;
 
 	/**
-	 * @var User
+	 * The name of the experiment
 	 */
-	private $user;
+	private string $experimentName;
 
 	/**
-	 * @var string The name of the experiment
+	 * The name of the requirement
 	 */
-	private $experimentName;
-
-	/**
-	 * @var string The name of the requirement
-	 */
-	private $name;
+	private string $name;
 
 	/**
 	 * @param Config $config
