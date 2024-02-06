@@ -4,9 +4,12 @@
 			"Boulaur",
 			"Cedric31",
 			"Quentí",
-			"Nicolas Eynaud"
+			"Nicolas Eynaud",
+			"Lhanars"
 		]
 	},
+	"skinname-vector": "Vector (version 2010)",
+	"vector-opt-out": "Cambia a l'ancian aspècte",
 	"vector.css": "/* Lo CSS plaçat aicí afectarà los utilizaires de l’abilhatge Vector */",
 	"vector.js": "/* Tot JavaScript aicí serà cargat amb las paginas accedidas pels utilizaires de l’abilhatge Vector unicament. */",
 	"vector-languages": "Lengas",
@@ -20,15 +23,21 @@
 	"vector-action-unprotect": "Suprimir la proteccion",
 	"vector-view-create": "Crear",
 	"vector-view-edit": "Modificar",
-	"vector-view-history": "Veire l'istoric",
+	"vector-view-history": "Mostrar l'istoric",
 	"vector-view-view": "Legir",
-	"vector-view-viewsource": "Veire la font",
+	"vector-view-viewsource": "Mostrar lo còdi",
+	"vector-jumptonavigation": "Sautar la navigacion",
+	"vector-jumptosearch": "Sautar la recèrca",
+	"vector-jumptocontent": "Vejatz lo contengut",
 	"vector-more-actions": "Mai",
 	"vector-searchsuggest-containing": "Cercar lei paginas que contènon <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Somari",
 	"vector-toc-beginning": "Començament",
+	"vector-main-menu-tooltip": "Menut principal",
 	"vector-main-menu-label": "Menut principau",
 	"vector-page-tools-label": "Aisinas",
 	"vector-page-tools-general-label": "Generau",
-	"vector-unpin-element-label": "Escondre"
+	"vector-pin-element-label": "mòu a la barra laterala",
+	"vector-unpin-element-label": "Escondre",
+	"empty-language-selector-body": "Lo contengut de la pagina non es disponibla dins una autra lenga."
 }
