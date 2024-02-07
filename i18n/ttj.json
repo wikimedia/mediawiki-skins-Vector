@@ -40,7 +40,12 @@
 	"vector-feature-custom-font-size-0-label": "Obutaito",
 	"vector-feature-custom-font-size-1-label": "Obutoosa",
 	"vector-feature-custom-font-size-2-label": "Obukooto",
-	"vector-search-loader": "Obuhanuuzi bw'okuserra nibwolekwa",
+	"skin-night-mode-name": "Erangi",
+	"skin-night-mode-description": "Kikeehya omusana ogwakibwa enyigamo z'ebikwato.",
+	"skin-night-mode-0-label": "Nyamusana",
+	"skin-night-mode-1-label": "Ekiro",
+	"skin-night-mode-2-label": "Enyikara",
+	"vector-search-loader": "Ebihaburo by'okuserra nibyolekwa",
 	"vector-searchsuggest-containing": "Serra empapura eziina <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Okutaahya",
 	"vector-toc-label": "Ebirumu",
@@ -73,5 +78,5 @@
 	"vector-main-menu-unpinned-popup": "Orukarra rw'emirimo orukuru rwihirwe hanu.",
 	"vector-client-prefs-unpinned-popup": "Orukarra rw'enzooka rwihirwe hanu.",
 	"vector-2022-beta-preview-label": "Obutungibwa bw'Okusoma (Vekitoli 2022)",
-	"vector-2022-beta-preview-description": "Tunga kara amasobozi amahyaka g'obutungibwa bw'okusoma, nk'enkiza z'okuhandiika n'omulingo gw'itumbi."
+	"vector-2022-beta-preview-description": "Tunga kara amasobozi amahyaka g'obutungibwa bw'okusoma, nk'enkiza z'okuhandiika n'omulingo gw'ekiro."
 }
