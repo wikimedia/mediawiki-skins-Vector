@@ -43,4 +43,14 @@
 	.client-js .vector-pinned-container {
 		display: none;
 	}
+
+	/**
+ 	 * T357022 Sticky pinned containers have an ::after psuedo-element used to indicate the
+	 * container is scrollable. On lower resolutions sticky pinned containers will always
+	 * be empty. We need to set the container to display: none to prevent the psuedo-element
+	 * height from affecting the layout
+ 	 */
+	.vector-sticky-pinned-container {
+		display: none;
+	}
 }
