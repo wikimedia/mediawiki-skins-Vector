@@ -75,7 +75,7 @@
 }
 
 // Collapse ToC sections by default, excluding no-js
-&.client-js .vector-toc {
+.client-js .vector-toc {
 	.vector-toc-level-1 .vector-toc-list-item {
 		display: none;
 	}
@@ -93,11 +93,11 @@
 	}
 }
 
-&.client-js body.ltr .vector-toc .vector-toc-toggle {
+.client-js body.ltr .vector-toc .vector-toc-toggle {
 	transform: rotate( -90deg );
 }
 
-&.client-js body.rtl .vector-toc .vector-toc-toggle {
+.client-js body.rtl .vector-toc .vector-toc-toggle {
 	transform: rotate( 90deg );
 }
 
@@ -106,9 +106,9 @@
 	display: none;
 }
 
-&.vector-feature-toc-pinned-clientpref-0 body:not( .vector-sticky-header-visible ) .vector-page-titlebar,
-&.vector-feature-toc-pinned-clientpref-0 .vector-sticky-header-visible .vector-sticky-header-context-bar,
-&.vector-feature-toc-pinned-clientpref-1 .vector-column-start {
+.vector-feature-toc-pinned-clientpref-0 body:not( .vector-sticky-header-visible ) .vector-page-titlebar,
+.vector-feature-toc-pinned-clientpref-0 .vector-sticky-header-visible .vector-sticky-header-context-bar,
+.vector-feature-toc-pinned-clientpref-1 .vector-column-start {
 	.vector-toc-landmark {
 		display: block;
 	}
@@ -117,11 +117,11 @@
 // On smaller viewports the TOC will always be moved to the page titlebar via JS
 // regardless of the TOC pinned classes
 @media ( max-width: @max-width-breakpoint-tablet ) {
-	&.client-js .vector-page-titlebar .vector-toc-landmark {
+	.client-js .vector-page-titlebar .vector-toc-landmark {
 		display: block;
 	}
 
-	&.client-js .mw-table-of-contents-container.vector-toc-landmark {
+	.client-js .mw-table-of-contents-container.vector-toc-landmark {
 		display: none;
 	}
 }

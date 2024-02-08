@@ -31,8 +31,8 @@
 		grid-area: footer;
 	}
 
-	&.vector-feature-page-tools-pinned-enabled .vector-column-end,
-	&.vector-feature-client-prefs-pinned-enabled .vector-column-end {
+	.vector-feature-page-tools-pinned-enabled .vector-column-end,
+	.vector-feature-client-prefs-pinned-enabled .vector-column-end {
 		width: @width-column-desktop;
 	}
 
@@ -68,15 +68,15 @@
 		}
 	}
 
-	&.vector-feature-page-tools-pinned-enabled .vector-column-end,
-	&.vector-feature-client-prefs-pinned-enabled .vector-column-end {
+	.vector-feature-page-tools-pinned-enabled .vector-column-end,
+	.vector-feature-client-prefs-pinned-enabled .vector-column-end {
 		width: @width-column-desktop-wide;
 	}
 }
 
 // Single column grid when column start is empty (i.e. no pinned ToC or pinned main menu)
-&.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-page-container-inner,
-&.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-page-container-inner {
+.vector-feature-main-menu-pinned-disabled.vector-toc-not-available .mw-page-container-inner,
+.vector-feature-main-menu-pinned-disabled.vector-feature-toc-pinned-clientpref-0 .mw-page-container-inner {
 	grid-template-columns: @width-page-content;
 	// stylelint-disable-next-line stylistic/declaration-colon-space-after
 	grid-template-areas:
@@ -125,13 +125,13 @@
 		}
 	}
 
-	&.vector-feature-page-tools-pinned-enabled .mw-body,
-	&.vector-feature-client-prefs-pinned-enabled .mw-body {
+	.vector-feature-page-tools-pinned-enabled .mw-body,
+	.vector-feature-client-prefs-pinned-enabled .mw-body {
 		column-gap: @grid-column-gap;
 	}
 
-	&.vector-feature-limited-width-clientpref-0 .mw-body,
-	&.vector-feature-limited-width-content-disabled .mw-body {
+	.vector-feature-limited-width-clientpref-0 .mw-body,
+	.vector-feature-limited-width-content-disabled .mw-body {
 		grid-template-columns: ~'minmax(0, 1fr) min-content';
 	}
 }
