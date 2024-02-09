@@ -27,7 +27,7 @@
 		"@wikimedia/codex": "0.1.0-alpha.8",
 		"@wikimedia/codex-icons": "0.1.0-alpha.8",
 		"@wikimedia/codex-search": "0.1.0-alpha.8",
-		"@wikimedia/mw-node-qunit": "6.4.0",
+		"@wikimedia/mw-node-qunit": "6.4.2",
 		"@wikimedia/types-wikimedia": "0.3.3",
 		"eslint-config-wikimedia": "0.22.1",
 		"grunt-banana-checker": "0.9.0",
