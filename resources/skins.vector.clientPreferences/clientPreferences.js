@@ -56,8 +56,9 @@ function toggleDocClassAndSave( featureName, value, config ) {
 		// Ideally this should be taken care of via a single core helper function.
 		mw.util.debounce( function () {
 			api = api || new mw.Api();
-			api.saveOption( pref.preferenceKey, value );
-			callback();
+			api.saveOption( pref.preferenceKey, value ).then( () => {
+				callback();
+			} );
 		}, 100 )();
 		// END FIXME.
 	} else {
