@@ -29,7 +29,7 @@
 		"@wikimedia/types-wikimedia": "0.4.2",
 		"eslint-config-wikimedia": "0.26.0",
 		"eslint-plugin-no-jquery": "2.7.0",
-		"grunt-banana-checker": "0.11.0",
+		"grunt-banana-checker": "0.11.1",
 		"jest": "27.4.7",
 		"jest-fetch-mock": "3.0.3",
 		"mustache": "3.0.1",
