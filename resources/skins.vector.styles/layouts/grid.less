@@ -36,14 +36,11 @@
 		width: @width-column-desktop;
 	}
 
-	// Align the sidebar menus with the bottom-border of the
+	// Align the pinnable header bottom border with the bottom-border of the
 	// toolbar (below the page title) by pushing down the sidebar content
-	// by the hieght of the page title.
-	// NOTE: This alignment happens to work when the title is on a single line
-	// but can be affected by H1 line-height.
 	.vector-column-start,
 	.vector-column-end {
-		margin-top: @font-size-heading-1;
+		margin-top: 2.8rem;
 		border-top: 1px solid transparent;
 	}
 }
