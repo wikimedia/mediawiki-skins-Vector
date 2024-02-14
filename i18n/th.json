@@ -60,6 +60,7 @@
 	"vector-toc-menu-tooltip": "สารบัญ",
 	"vector-site-nav-label": "ไซต์",
 	"vector-main-menu-label": "เมนูหลัก",
+	"vector-limited-width-toggle": "สลับความกว้างเนื้อหาจำกัด",
 	"vector-limited-width-toggle-on-popup": "คุณได้เปลี่ยนเค้าโครงของคุณเป็นแบบเต็มความกว้าง หากต้องการกลับไปใช้ความกว้างที่จำกัด ให้กดปุ่มนี้",
 	"vector-limited-width-toggle-off-popup": "คุณสามารถสลับระหว่างความกว้างที่จำกัดและความกว้างเต็มได้โดยการคลิกปุ่มนี้",
 	"vector-page-tools-label": "เครื่องมือ",
