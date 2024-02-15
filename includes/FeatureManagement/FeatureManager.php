@@ -168,7 +168,12 @@ class FeatureManager {
 					$suffixDisabled = 'clientpref-0';
 					break;
 				case CONSTANTS::PREF_NIGHT_MODE:
-					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
+					$request = RequestContext::getMain()->getRequest();
+					$valueRequest = $request->getText( 'vectornightmode' );
+					// If night mode query string is used, hardcode pref value to the night mode value
+					$value = $valueRequest !== '' ? $valueRequest :
+						$this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
+					$suffixEnabled = 'clientpref-' . $value;
 					$suffixDisabled = 'clientpref-0';
 					// Must be hardcoded to 'skin-night-mode' to be consistent with Minerva
 					// So that editors can target the same class across skins
