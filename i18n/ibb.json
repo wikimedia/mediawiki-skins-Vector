@@ -4,15 +4,22 @@
 			"Akpanufun",
 			"Anietie2",
 			"Uduakj",
-			"Okon Ibiono"
+			"Okon Ibiono",
+			"Effiong badi",
+			"Ekemini5",
+			"Uduakumana"
 		]
 	},
 	"vector-languages": "Ikọ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ikọ}‎}",
 	"vector-no-language-button-label": "Dian usem",
 	"vector-action-addsection": "Dian iwod nwed",
 	"vector-action-delete": "Sịññe",
+	"vector-action-move": "Saña",
 	"vector-action-protect": "Beem",
+	"vector-view-create": "Nam",
 	"vector-view-history": "Se mkpo ini edem",
 	"vector-more-actions": "afen",
-	"vector-searchsuggest-containing": "Yem ikpa nwed anieghe <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Yem ikpa nwed anieghe <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Ntak"
 }
