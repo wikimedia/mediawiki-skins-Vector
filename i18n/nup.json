@@ -4,5 +4,7 @@
 			"Misbahu umar"
 		]
 	},
-	"vector-more-actions": "ndocizhi"
+	"vector-view-history": "chin etan le",
+	"vector-more-actions": "ndocizhi",
+	"vector-searchsuggest-containing": " Wiwaza feregi nan fibo nan<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
