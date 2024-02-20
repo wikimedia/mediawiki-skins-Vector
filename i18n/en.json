@@ -5,7 +5,7 @@
 	"skinname-vector": "Vector legacy (2010)",
 	"skinname-vector-2022": "Vector (2022)",
 	"vector-specialversion-name": "Vector",
-	"vector-skin-desc": "Provides 2 Vector skins:\n* 2011 - The Modern version of MonoBook with fresh look and many usability improvements.\n* 2022 - The Vector built as part of the WMF [[mw:Desktop Improvements]] project.",
+	"vector-skin-desc": "Provides 2 Vector skins:\n* 2011 - The Modern version of MonoBook with fresh look and many usability improvements.\n* 2022 - The Vector built as part of the WMF [[mw:Desktop Improvements|Desktop Improvements]] project.",
 	"prefs-vector-enable-vector-1-label": "Use Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "Over the next few years, we will be gradually updating the Vector skin. Legacy Vector will allow you to view the old version of Vector (as of December 2019). To learn more about the updates, go to our [[mw:Reading/Web/Desktop_Improvements|project page]].",
 	"vector-opt-out": "Switch to old look",
