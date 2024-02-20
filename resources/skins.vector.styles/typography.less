@@ -131,6 +131,18 @@ pre,
 		font-size: @font-size-reset; // Reset.
 	}
 
+	// On Talk:Test?dtenable=0 h2 is inside mw-heading which results in larger than
+	// expected font size since @font-size-heading-2 is defined in ems (T357929).
+	// TODO: Consider switching font-sizes to rems instead of ems to remove these styles.
+	.mw-heading2 h2,
+	.mw-heading3 h3,
+	.mw-heading4 h4,
+	.mw-heading5 h5,
+	.mw-heading6 h6 {
+		margin-top: 0;
+		font-size: inherit;
+	}
+
 	p {
 		// T351754 Use padding to avoid margin collapsing between adjacent <p> elements
 		// creating an effective margin-bottom: 1em
