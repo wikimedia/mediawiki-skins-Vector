@@ -2,7 +2,9 @@
 	class="vector-toc-list-item vector-toc-level-{{toclevel}}{{#is-top-level-section}}{{^vector-is-collapse-sections-enabled}} vector-toc-list-item-expanded{{/vector-is-collapse-sections-enabled}}{{/is-top-level-section}}">
 	<a class="vector-toc-link" href="#{{linkAnchor}}">
 		<div class="vector-toc-text">
-		<span class="vector-toc-numb">{{number}}</span>{{{line}}}</div>
+			<span class="vector-toc-numb">{{number}}</span>
+			<span>{{{line}}}</span>
+		</div>
 	</a>
 	{{#extensionData.DiscussionTools-html-summary}}
 	{{{.}}}
