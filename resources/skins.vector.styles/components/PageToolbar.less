@@ -23,6 +23,9 @@
 		.cdx-mixin-css-icon-background( @size-icon-small );
 		.cdx-mixin-css-icon-size( @size-icon-small );
 		.cdx-mixin-css-icon-alignment( );
+
+		// Temporary fix for https://phabricator.wikimedia.org/T356540
+		background-size: ~'calc( max( @{size-icon-small}, @{min-size-icon-small} ) )';
 	}
 }
 
