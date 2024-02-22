@@ -56,11 +56,11 @@
 
 // Handle button styles in checkbox hack, copied from Codex
 // FIXME: Remove these styles when Codex supports the checkbox hack in T333394
-input:hover + .cdx-button:not( .cdx-button--action-progressive ) {
+input:hover + .cdx-button:not( .cdx-button--action-progressive ) + .cdx-button:not( .vector-page-titlebar-toc ) {
 	background-color: @background-color-button-quiet--hover;
 }
 
-input:active + .cdx-button:not( .cdx-button--action-progressive ) {
+input:active + .cdx-button:not( .cdx-button--action-progressive ) + .cdx-button:not( .vector-page-titlebar-toc ) {
 	background-color: @background-color-button-quiet--active;
 	color: @color-emphasized;
 	border-color: @border-color-interactive;
