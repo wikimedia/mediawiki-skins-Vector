@@ -1,10 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kiran sidam",
 			"Varaprasadsidam"
 		]
 	},
 	"vector-languages": "గోష్ఠింగ్",
+	"vector-no-language-button-label": "గోష్టంగ్ జోడి కింట్",
 	"vector-view-create": "నివిడి కీమ్",
-	"vector-toc-beginning": "మొఫ్"
+	"vector-view-history": "హితిహస్ తున్ దిహన్ కిం",
+	"vector-more-actions": "ఉండే గిర్",
+	"vector-toc-beginning": "మొఫ్",
+	"vector-main-menu-label": "మొదొడ మెనూ",
+	"vector-page-tools-label": "ఆరంగ్ ఆరంగ్",
+	"vector-page-tools-general-label": "సాదర్న",
+	"vector-unpin-element-label": "మాకుసా"
 }
