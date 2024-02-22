@@ -10,7 +10,8 @@
 
 .vector-pinned-container {
 	.mixin-vector-content-box();
-	padding: @padding-vertical-dropdown-menu @padding-horizontal-dropdown-menu;
+	padding: 0 @padding-horizontal-dropdown-menu;
+	margin-bottom: 2rem;
 	display: none;
 
 	// If there is no display grid support we remove pinnable elements
@@ -50,7 +51,7 @@
 	 * be empty. We need to set the container to display: none to prevent the psuedo-element
 	 * height from affecting the layout
  	 */
-	.vector-sticky-pinned-container {
+	.client-js .vector-sticky-pinned-container {
 		display: none;
 	}
 }

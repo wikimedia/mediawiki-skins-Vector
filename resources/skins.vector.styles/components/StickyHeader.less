@@ -143,7 +143,7 @@
 		}
 
 		.vector-sticky-pinned-container {
-			top: @height-header;
+			top: ~'calc( @{height-header} + @{grid-row-gap} )';
 			max-height: ~'calc( 100vh - @{height-header} - (@{grid-row-gap} * 2) )';
 		}
 
