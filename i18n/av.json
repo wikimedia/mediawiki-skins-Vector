@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Augustus A C",
 			"Gazimagomedov",
 			"Omarov M.",
 			"Умар"
@@ -20,6 +21,8 @@
 	"vector-view-edit": "Хисизабизе",
 	"vector-view-history": "Тарихалъухъ ралагьизе",
 	"vector-view-view": "ЦӀализе",
-	"vector-view-viewsource": "Кодалъухъ ралагьизе",
-	"vector-more-actions": "Жеги"
+	"vector-view-viewsource": "Иццухъ ралагьизе",
+	"vector-more-actions": "Жеги",
+	"vector-main-menu-tooltip": "БетӀераб меню",
+	"vector-main-menu-label": "БетӀераб меню"
 }
