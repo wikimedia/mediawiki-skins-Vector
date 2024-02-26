@@ -204,22 +204,6 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
-	 * Determines if the language switching alert box should be in the sidebar.
-	 *
-	 * @return bool
-	 */
-	private function shouldLanguageAlertBeInSidebar(): bool {
-		$featureManager = VectorServices::getFeatureManager();
-		$title = $this->getTitle();
-		$isMainPage = $title ? $title->isMainPage() : false;
-		$shouldShowOnMainPage = $isMainPage && $this->getLanguagesCached() !== [] &&
-			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER );
-		return ( $this->isLanguagesInContentAt( 'top' ) && !$isMainPage && !$this->shouldHideLanguages() &&
-			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_HEADER ) ) ||
-			$shouldShowOnMainPage;
-	}
-
-	/**
 	 * Merges the `view-overflow` menu into the `action` menu.
 	 * This ensures that the previous state of the menu e.g. emptyPortlet class
 	 * is preserved.
@@ -441,8 +425,6 @@ class SkinVector22 extends SkinMustache {
 			),
 			'data-main-menu' => new VectorComponentMainMenu(
 				$sidebar,
-				$this->shouldLanguageAlertBeInSidebar(),
-				count( $this->getLanguagesCached() ),
 				$portlets['data-languages'] ?? [],
 				$localizer,
 				$user,

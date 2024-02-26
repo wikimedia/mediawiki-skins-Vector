@@ -35,7 +35,6 @@
 	"vector-language-button-label": "Label for language button in modern Vector.\n\nArguments:\n* $1 number of languages, supports plural",
 	"vector-no-language-button-label": "Label for language button when article does not exist in any other language.",
 	"vector-no-language-button-aria-label": "Accessibility label for language button dropdown menu in modern Vector.",
-	"vector-language-redirect-to-top": "Explains language links location at top of page and provides link to top. See also [[:phab:T295555]].",
 	"vector-language-variant-switcher-label": "Label for the language variant switcher.",
 	"vector-action-addsection": "Used in the Vector skin. See for example {{canonicalurl:Talk:Main_Page|useskin=vector}}\n{{Identical|Add topic}}",
 	"vector-action-delete": "Used in the Vector skin, as the name of a tab at the top of the page. See for example {{canonicalurl:Translating:MediaWiki|useskin=vector}}\n\n{{Identical|Delete}}",

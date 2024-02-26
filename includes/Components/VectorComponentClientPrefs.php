@@ -6,7 +6,7 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MessageLocalizer;
 
 /**
- * VectorComponentMainMenu component
+ * VectorComponentClientPrefs component
  */
 class VectorComponentClientPrefs implements VectorComponent {
 

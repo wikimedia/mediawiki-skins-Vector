@@ -44,7 +44,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 	public function testConstruct() {
 		// Mock the sidebar data, number of languages, and language data
 		$sidebarData = [];
-		$numLanguages = 5;
 		$languageData = [];
 
 		// Mock the MessageLocalizer, User, FeatureManager, and Skin classes
@@ -56,8 +55,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		// Create a new VectorComponentMainMenu object
 		$mainMenu = new VectorComponentMainMenu(
 			$sidebarData,
-			true,
-			$numLanguages,
 			$languageData,
 			$localizerMock,
 			$userMock,
@@ -79,8 +76,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 					'data-portlets-first' => [],
 					'array-portlets-rest' => [],
 				],
-				'shouldLanguageAlertBeInSidebar' => false,
-				'numLanguages' => 2,
 				'languageData' => [],
 				'isPinned' => true,
 			],
@@ -89,8 +84,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 					'data-portlets-first' => [],
 					'array-portlets-rest' => [],
 				],
-				'shouldLanguageAlertBeInSidebar' => false,
-				'numLanguages' => 2,
 				'languageData' => [],
 				'isPinned' => false,
 			],
@@ -101,8 +94,7 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 	 * @covers ::getTemplateData
 	 * @dataProvider provideMainMenuScenarios
 	 */
-	public function testGetTemplateData( array $sidebarData, bool $shouldLanguageAlertBeInSidebar, int $numLanguages,
-		array $languageData, bool $isPinned ) {
+	public function testGetTemplateData( array $sidebarData, array $languageData, bool $isPinned ) {
 		// Mock the MessageLocalizer, User, FeatureManager, and Skin classes
 		$localizerMock = $this->createMock( MessageLocalizer::class );
 		$userMock = $this->createMock( User::class );
@@ -120,8 +112,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		// Create a new VectorComponentMainMenu object
 		$mainMenu = new VectorComponentMainMenu(
 			$sidebarData,
-			$shouldLanguageAlertBeInSidebar,
-			$numLanguages,
 			$languageData,
 			$localizerMock,
 			$userMock,
@@ -140,7 +130,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		$this->assertIsArray( $templateData['data-portlets-first'] );
 		$this->assertIsArray( $templateData['array-portlets-rest'] );
 		$this->assertNull( $templateData['data-main-menu-action'] );
-		$this->assertNull( $templateData['data-vector-language-switch-alert'] );
 
 		// Assert data-pinnable-header
 		$this->assertIsArray( $templateData['data-pinnable-header'] );
@@ -150,7 +139,6 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		$this->assertArrayHasKey( 'data-portlets-first', $templateData );
 		$this->assertArrayHasKey( 'array-portlets-rest', $templateData );
 		$this->assertArrayHasKey( 'data-main-menu-action', $templateData );
-		$this->assertArrayHasKey( 'data-vector-language-switch-alert', $templateData );
 		$this->assertArrayHasKey( 'data-pinnable-header', $templateData );
 		$this->assertArrayHasKey( 'data-languages', $templateData );
 	}

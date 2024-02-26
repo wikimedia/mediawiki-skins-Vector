@@ -18,7 +18,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-no-language-button-label": "Add languages",
 	"vector-no-language-button-aria-label": "This article exist only in this language. Add the article for other languages",
-	"vector-language-redirect-to-top": "Language links are at the top of the page across from the title.",
 	"vector-language-variant-switcher-label": "Change language variant",
 	"vector-action-addsection": "Add topic",
 	"vector-action-delete": "Delete",

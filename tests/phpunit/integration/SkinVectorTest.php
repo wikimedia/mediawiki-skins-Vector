@@ -1,16 +1,13 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use Exception;
 use LinkCache;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Vector\SkinVector22;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
 use MediaWiki\User\TalkPageNotificationManager;
 use MediaWikiIntegrationTestCase;
-use ReflectionMethod;
 use RequestContext;
 use Wikimedia\TestingAccessWrapper;
 
@@ -241,55 +238,5 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				[ 'fr', 'en', 'ko' ], true, false, true
 			],
 		];
-	}
-
-	/**
-	 * @dataProvider providerLanguageAlertRequirements
-	 * @covers \MediaWiki\Skins\Vector\SkinVector22::shouldLanguageAlertBeInSidebar
-	 * @param array $requirements
-	 * @param Title $title
-	 * @param array $getLanguagesCached
-	 * @param bool $isLanguagesInContentAt
-	 * @param bool $shouldHideLanguages
-	 * @param bool $expected
-	 * @throws Exception
-	 */
-	public function testShouldLanguageAlertBeInSidebar(
-		array $requirements,
-		Title $title,
-		array $getLanguagesCached,
-		bool $isLanguagesInContentAt,
-		bool $shouldHideLanguages,
-		bool $expected
-	) {
-		$this->overrideConfigValues( array_merge( $requirements, [
-			'DefaultSkin' => 'vector-2022',
-			'VectorDefaultSkinVersion' => '2',
-			'VectorSkinMigrationMode' => true,
-		] ) );
-
-		$mockSkinVector = $this->getMockBuilder( SkinVector22::class )
-			->disableOriginalConstructor()
-			->onlyMethods( [ 'getTitle', 'getLanguagesCached','isLanguagesInContentAt', 'shouldHideLanguages' ] )
-			->getMock();
-		$mockSkinVector->method( 'getTitle' )
-			->willReturn( $title );
-		$mockSkinVector->method( 'getLanguagesCached' )
-			->willReturn( $getLanguagesCached );
-		$mockSkinVector->method( 'isLanguagesInContentAt' )->with( 'top' )
-			->willReturn( $isLanguagesInContentAt );
-		$mockSkinVector->method( 'shouldHideLanguages' )
-			->willReturn( $shouldHideLanguages );
-
-		$shouldLanguageAlertBeInSidebarMethod = new ReflectionMethod(
-			SkinVector22::class,
-			'shouldLanguageAlertBeInSidebar'
-		);
-		$shouldLanguageAlertBeInSidebarMethod->setAccessible( true );
-
-		$this->assertSame(
-			$expected,
-			$shouldLanguageAlertBeInSidebarMethod->invoke( $mockSkinVector )
-		);
 	}
 }
