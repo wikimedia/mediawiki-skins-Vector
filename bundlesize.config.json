@@ -19,6 +19,10 @@
 			"maxSize": "4.2 kB"
 		},
 		{
+			"resourceModule": "skins.vector.search.codex.styles",
+			"maxSize": "5.4 kB"
+		},
+		{
 			"resourceModule": "skins.vector.styles",
 			"maxSize": "11.4 kB"
 		},
