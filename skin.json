@@ -198,6 +198,17 @@
 		"skins.vector.user.styles": {
 			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
 		},
+		"skins.vector.search.codex.styles": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxTypeaheadSearch",
+				"CdxSearchInput",
+				"CdxButton",
+				"CdxRadio",
+				"CdxMessage"
+			]
+		},
 		"skins.vector.search": {
 			"dependencies": [
 				"mediawiki.Uri",
