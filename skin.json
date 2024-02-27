@@ -184,7 +184,11 @@
 			]
 		},
 		"VectorHooks": {
-			"class": "MediaWiki\\Skins\\Vector\\Hooks"
+			"class": "MediaWiki\\Skins\\Vector\\Hooks",
+			"services": [
+				"MainConfig",
+				"UserOptionsManager"
+			]
 		}
 	},
 	"Hooks": {
