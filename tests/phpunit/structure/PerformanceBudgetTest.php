@@ -4,7 +4,6 @@ namespace MediaWiki\Skins\Vector\Tests\Structure;
 
 use DerivativeContext;
 use HashBagOStuff;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
@@ -43,7 +42,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 */
 	protected function getContentTransferSize( $moduleName, $skinName ) {
 		// Calculate Size
-		$resourceLoader = MediaWikiServices::getInstance()->getResourceLoader();
+		$resourceLoader = $this->getServiceContainer()->getResourceLoader();
 		$resourceLoader->setDependencyStore( new KeyValueDependencyStore( new HashBagOStuff() ) );
 		$request = new FauxRequest(
 			[
@@ -78,7 +77,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws \SkinException
 	 */
 	protected function prepareSkin( string $skinName ): \Skin {
-		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
+		$skinFactory = $this->getServiceContainer()->getSkinFactory();
 		$skin = $skinFactory->makeSkin( $skinName );
 		$title = $this->getExistingTestPage()->getTitle();
 		$context = new DerivativeContext( RequestContext::getMain() );
