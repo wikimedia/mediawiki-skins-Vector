@@ -98,7 +98,6 @@
 		},
 		"vector": {
 			"class": "MediaWiki\\Skins\\Vector\\SkinVectorLegacy",
-			"@args": "See SkinVector::__construct for more detail.",
 			"args": [
 				{
 					"name": "vector",
