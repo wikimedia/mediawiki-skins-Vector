@@ -2,7 +2,6 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use LinkCache;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
@@ -30,8 +29,8 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @return SkinVectorLegacy
 	 */
-	private static function provideVectorTemplateObject() {
-		$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
+	private function provideVectorTemplateObject() {
+		$skinFactory = $this->getServiceContainer()->getSkinFactory();
 		$template = $skinFactory->makeSkin( 'vector' );
 		return $template;
 	}
