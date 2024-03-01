@@ -19,7 +19,7 @@
 			"ValterVB"
 		]
 	},
-	"vector-skin-desc": "Fornisce 2 temi Vector\n* 2011 - La versione moderna del MonoBook con un aspetto rinnovato e molti miglioramenti dell'usabilità\n* 2022 - Vector realizzata nell'ambito del progetto WMF [[mw:Desktop Improvements|Migliorie all'IU desktop]]",
+	"vector-skin-desc": "Fornisce 2 temi Vector\n* 2011 - La versione moderna del MonoBook con un aspetto rinnovato e molti miglioramenti dell'usabilità\n* 2022 - Vector realizzata nell'ambito del progetto WMF [[mw:Desktop Improvements]]",
 	"prefs-vector-enable-vector-1-label": "Usa Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "Nei prossimi anni aggiorneremo gradualmente il tema Vector. Legacy Vector ti permetterà di visualizzare la vecchia versione di Vector (risalente al dicembre 2019). Per scoprirne di più sulle novità, visita la nostra [[mw:Reading/Web/Desktop_Improvements|pagina del progetto]].",
 	"vector-opt-out": "Torna al vecchio aspetto",
