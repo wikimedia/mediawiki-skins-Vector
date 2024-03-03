@@ -365,7 +365,7 @@ class Hooks implements
 	 * @param string $name
 	 * @return string of HTML
 	 */
-	public static function makeIcon( $name ) {
+	private static function makeIcon( $name ) {
 		// Html::makeLink will pass this through rawElement
 		return '<span class="vector-icon mw-ui-icon-' . $name . ' mw-ui-icon-wikimedia-' . $name . '"></span>';
 	}
@@ -424,7 +424,7 @@ class Hooks implements
 	 * @param bool $unsetIcon should the icon field be unset?
 	 * @return array $item Updated menu item data
 	 */
-	public static function updateMenuItemData( $item, $unsetIcon = true ) {
+	private static function updateMenuItemData( $item, $unsetIcon = true ) {
 		$buttonClassProp = 'link-class';
 		$iconHtmlProp = 'link-html';
 		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp, $unsetIcon );
