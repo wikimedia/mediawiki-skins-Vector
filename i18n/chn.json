@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"POSSUM chowg"
+			"POSSUM chowg",
+			"Amire80"
 		]
 	},
 	"vector-languages": "Kanawi ləlang",
@@ -9,11 +10,11 @@
 	"vector-no-language-button-label": "Mamuk chxi ləlang",
 	"vector-action-addsection": "Mamuk chxi tayi-ikta.",
 	"vector-action-delete": "Mash ukuk",
-	"vector-action-move": "Mamuk-łatawa ukuk",
+	"vector-action-move": "Mamuk-ɬatawa ukuk",
 	"vector-action-protect": "Mamuk-chako-skukum",
 	"vector-view-create": "Mamuk",
 	"vector-view-history": "Nanich ukuk pipa kakwa ulman yaka",
 	"vector-more-actions": "Wix̣t",
-	"vector-searchsuggest-containing": "Tlai łap pipa kanumakwst <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Tlai ɬap pipa kanumakwst <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Elip-ikta"
 }
