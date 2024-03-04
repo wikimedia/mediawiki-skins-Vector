@@ -35,7 +35,6 @@
 	"vector-language-button-label": "$1 dil",
 	"vector-no-language-button-label": "Dil ekle",
 	"vector-no-language-button-aria-label": "Bu madde yalnızca bu dilde mevcuttur. Maddeyi diğer dillere ekleyin",
-	"vector-language-redirect-to-top": "Dil bağlantıları, başlığın karşısında sayfanın en yukarısında yer alıyor.",
 	"vector-language-variant-switcher-label": "Dil varyantını değiştir",
 	"vector-action-addsection": "Konu ekle",
 	"vector-action-delete": "Sil",

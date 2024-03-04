@@ -27,7 +27,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazykov}}",
 	"vector-no-language-button-label": "Pridať jazyky",
 	"vector-no-language-button-aria-label": "Tento článok existuje iba v tomto jazyku. Pridajte článok v iných jazykoch",
-	"vector-language-redirect-to-top": "Tu na {{GRAMMAR:6sg|{{SITENAME}}}} sú jazykové odkazy vpravo hore vedľa názvu článku. [[#p-lang-btn|Ísť hore]].",
 	"vector-action-addsection": "Pridať tému",
 	"vector-action-delete": "Zmazať",
 	"vector-action-move": "Presunúť",

@@ -30,7 +30,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 språk}}",
 	"vector-no-language-button-label": "Lägg till språk",
 	"vector-no-language-button-aria-label": "Den här artikeln finns bara på det här språket. Lägg till artikeln på andra språk",
-	"vector-language-redirect-to-top": "Språklänkar finns längst upp på sidan mittemot titeln.",
 	"vector-language-variant-switcher-label": "Ändra språkvariant",
 	"vector-action-addsection": "Nytt ämne",
 	"vector-action-delete": "Radera",

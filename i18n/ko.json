@@ -34,7 +34,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1개 언어}}",
 	"vector-no-language-button-label": "언어 추가",
 	"vector-no-language-button-aria-label": "이 문서는 이 언어로만 존재합니다. 다른 언어로 문서를 추가하세요",
-	"vector-language-redirect-to-top": "이 {{SITENAME}}에서 언어 링크는 문서 제목 건너편의 문서 최상단에 있습니다. [[#p-lang-btn|최상단으로 이동합니다]].",
 	"vector-language-variant-switcher-label": "언어 변종 바꾸기",
 	"vector-action-addsection": "새 주제",
 	"vector-action-delete": "삭제",

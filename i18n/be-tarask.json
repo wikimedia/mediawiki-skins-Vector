@@ -24,7 +24,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мовы|$1 моваў}}",
 	"vector-no-language-button-label": "Дадаць мовы",
 	"vector-no-language-button-aria-label": "Гэты артыкул існуе толькі гэтай мовай. Дадайце артыкулы іншымі мовамі",
-	"vector-language-redirect-to-top": "У гэтым праекце {{SITENAME}} моўныя спасылкі знаходзяцца ўверсе старонкі насупраць назвы артыкулу. [[#p-lang-btn|Перайсьці ўгору]].",
 	"vector-language-variant-switcher-label": "Зьмяніць варыянт мовы",
 	"vector-action-addsection": "Дадаць тэму",
 	"vector-action-delete": "Выдаліць",

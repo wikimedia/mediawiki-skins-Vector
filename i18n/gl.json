@@ -23,7 +23,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingua|$1 linguas}}",
 	"vector-no-language-button-label": "Engadir linguas",
 	"vector-no-language-button-aria-label": "Este artigo só existe nesta lingua. Engade o artigo para outra linguas.",
-	"vector-language-redirect-to-top": "As ligazóns interlingüísticas están na parte superior da páxina, ao carón do título.",
 	"vector-language-variant-switcher-label": "Cambiar a variante de lingua",
 	"vector-action-addsection": "Nova sección",
 	"vector-action-delete": "Borrar",

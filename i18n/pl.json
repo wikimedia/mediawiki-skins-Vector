@@ -28,7 +28,6 @@
 	"vector-language-button-label": "$1 {{PLURAL:$1|język|języki|języków}}",
 	"vector-no-language-button-label": "Dodaj języki",
 	"vector-no-language-button-aria-label": "Ten artykuł istnieje tylko w tym języku. Dodaj artykuły w innych językach.",
-	"vector-language-redirect-to-top": "Linki pomiędzy różnymi wersjami językowymi znajdują się na górze strony, naprzeciw jej tytułu.",
 	"vector-language-variant-switcher-label": "Zmień wariant języka",
 	"vector-action-addsection": "Dodaj temat",
 	"vector-action-delete": "Usuń",

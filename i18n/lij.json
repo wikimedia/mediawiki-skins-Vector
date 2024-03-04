@@ -19,7 +19,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 léngoa|$1 léngoe}}",
 	"vector-no-language-button-label": "Azónzi léngoe",
 	"vector-no-language-button-aria-label": "St'artìcolo chi o l'exìste sôlo inte quésta léngoa. Azónzi l'artìcolo inte âtre léngoe",
-	"vector-language-redirect-to-top": "I ligàmmi a-e âtre léngoe són in çìmma a-a pàgina, da-arénte a-o sò tìtolo.",
 	"vector-language-variant-switcher-label": "Càngia variànte da léngoa",
 	"vector-action-addsection": "Azónzi discusción",
 	"vector-action-delete": "Scancélla",

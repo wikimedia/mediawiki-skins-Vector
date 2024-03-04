@@ -24,7 +24,6 @@
 	"vector-language-button-label": "Bi {{PLURAL:$1|zimanekî din|$1 zimanên din}}",
 	"vector-no-language-button-label": "Zimanekî lê zêde bike",
 	"vector-no-language-button-aria-label": "Ev gotar tenê bi vî zimanî heye. Gotarê ji bo zimanên din zêde bikin",
-	"vector-language-redirect-to-top": "Lînkên zimanî li serê rûpelê li hemberî sernavê gotarê ne.",
 	"vector-language-variant-switcher-label": "Varyanta zimanî biguhêre",
 	"vector-action-addsection": "Mijarekê lê zêde bike",
 	"vector-action-delete": "Jê bibe",

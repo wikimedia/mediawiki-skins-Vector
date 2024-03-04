@@ -26,7 +26,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 lingvo|$1 lingvoj}}",
 	"vector-no-language-button-label": "Aldoni lingvojn",
 	"vector-no-language-button-aria-label": "Ĉi tiu artikolo ekzistas nur en ĉi tiu lingvo. Aldonu la artikolon por aliaj lingvoj",
-	"vector-language-redirect-to-top": "Lingvaj ligiloj estas ĉe la supro de la paĝo aliflanke de la titolo.",
 	"vector-language-variant-switcher-label": "Ŝanĝi lingvan varianton",
 	"vector-action-addsection": "Aldoni temon",
 	"vector-action-delete": "Forigi",

@@ -44,7 +44,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|لا لغات|لغة واحدة|لغتان|$1 لغات|$1 لغة}}",
 	"vector-no-language-button-label": "أضف لغات",
 	"vector-no-language-button-aria-label": "هذه المقالة تتواجد فقط في هذه اللغة. أضفها إلى اللغات الأخرى.",
-	"vector-language-redirect-to-top": "وصلات اللغة توجد في الجزء العلوي من الصفحة مقابل العنوان.",
 	"vector-language-variant-switcher-label": "غيّر لهجة اللغة",
 	"vector-action-addsection": "أضف موضوعًا",
 	"vector-action-delete": "احذف",

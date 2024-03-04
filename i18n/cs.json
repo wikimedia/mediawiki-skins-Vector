@@ -31,7 +31,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 jazyk|$1 jazyky|$1 jazyků}}",
 	"vector-no-language-button-label": "Přidat jazyky",
 	"vector-no-language-button-aria-label": "Tento článek existuje jenom v tomto jazyce. Přidejte jej i v ostatních jazycích",
-	"vector-language-redirect-to-top": "Mezijazykové odkazy jsou nahoře na stránce, napravo od názvu článku.",
 	"vector-language-variant-switcher-label": "Změnit variantu jazyka",
 	"vector-action-addsection": "Přidat téma",
 	"vector-action-delete": "Smazat",

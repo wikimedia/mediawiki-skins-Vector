@@ -25,7 +25,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezik|$1 jezika}}",
 	"vector-no-language-button-label": "Dodajte druge jezike",
 	"vector-no-language-button-aria-label": "Članak je napisan samo na ovom jeziku. Dodajte druge jezike.",
-	"vector-language-redirect-to-top": "Poveznice na druge jezike nalaze se uz naslov članka, pri [[#p-lang-btn|vrhu stranice]].",
 	"vector-language-variant-switcher-label": "Promijeni jezičnu varijantu",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",

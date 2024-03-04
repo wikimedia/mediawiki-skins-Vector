@@ -27,7 +27,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 sprog}}",
 	"vector-no-language-button-label": "Tilføj sprog",
 	"vector-no-language-button-aria-label": "Denne artikel findes kun på dette sprog. Tilføj artiklen til andre sprog",
-	"vector-language-redirect-to-top": "På denne {{SITENAME}} er sproglinkene i toppen af siden overfor artiklens titel.\n[[#p-lang-btn|Gå til toppen]].",
 	"vector-language-variant-switcher-label": "Ændr sprogvariant",
 	"vector-action-addsection": "Tilføj emne",
 	"vector-action-delete": "Slet",

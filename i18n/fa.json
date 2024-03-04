@@ -35,7 +35,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 زبان}}",
 	"vector-no-language-button-label": "افزودن زبان‌ها",
 	"vector-no-language-button-aria-label": "این مقاله فقط به این زبان وجود دارد. مقاله را برای زبان‌های دیگر اضافه کنید.",
-	"vector-language-redirect-to-top": "در این {{SITENAME}} پیوندهای زبانی در بالای صفحه و هم‌تراز با عنوان مقاله قرار دارند. [[#p-lang-btn|رفتن به بالا]].",
 	"vector-language-variant-switcher-label": "تغییر گونهٔ زبان",
 	"vector-action-addsection": "افزودن مبحث",
 	"vector-action-delete": "حذف",

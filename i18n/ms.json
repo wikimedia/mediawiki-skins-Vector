@@ -27,7 +27,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|satu bahasa|$1 bahasa}}",
 	"vector-no-language-button-label": "Tambahkan bahasa",
 	"vector-no-language-button-aria-label": "Rencana ini hanya wujud dalam bahasa ini. Tambah rencana untuk bahasa lain",
-	"vector-language-redirect-to-top": "Pautan bahasa di atas laman melintang daripada rencana.",
 	"vector-language-variant-switcher-label": "Tukar kelainan bahasa",
 	"vector-action-addsection": "Tambah topik",
 	"vector-action-delete": "Hapus",

@@ -21,7 +21,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 кыл}}",
 	"vector-no-language-button-label": "Кылъёсты ватсан",
 	"vector-no-language-button-aria-label": "Таиз гожтос та кылын гинэ вань. Гожтосэз мукет кылъёслы ватсано.",
-	"vector-language-redirect-to-top": "Кылъя чӧлсконъёс бамлэн вылӥ люкетаз йыръян вадьсын интыямын.",
 	"vector-language-variant-switcher-label": "Кыл кабесэз воштоно",
 	"vector-action-addsection": "Выль тема ватсано",
 	"vector-action-delete": "Ӵушоно",

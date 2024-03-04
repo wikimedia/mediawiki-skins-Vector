@@ -19,7 +19,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 buudi pian'uk|$1 buudi pian'ad}}",
 	"vector-no-language-button-label": "Paasim Pian'ad nam",
 	"vector-no-language-button-aria-label": "Sɔb labaar kaŋa bɛnɛ pian'ʋk kaŋa ni ma'a.paasim sɔb labaar la bɛ buudi pian'ʋk kɔn'ɔb kɔn'ɔbin",
-	"vector-language-redirect-to-top": "Buudi pian'ʋk liŋnam bɛnɛ gɔl lakir linɛ puue yi pian'azugin la",
 	"vector-language-variant-switcher-label": "Tiakim buudi pian'ʋk nwɛnnim",
 	"vector-action-addsection": "Paasim pian'azug",
 	"vector-action-delete": "Yiisim",

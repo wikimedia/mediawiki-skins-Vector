@@ -19,7 +19,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 språk}}",
 	"vector-no-language-button-label": "Legg til språk",
 	"vector-no-language-button-aria-label": "Denne artikkelen finst berre på dette språket. Legg til artikkelen på andre språk",
-	"vector-language-redirect-to-top": "Språklenkjene er plasserte på toppen av sida, på motsett side av tittelen.",
 	"vector-language-variant-switcher-label": "Endre språkvariant",
 	"vector-action-addsection": "Nytt emne",
 	"vector-action-delete": "Slett",

@@ -16,7 +16,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 valodas|$1 valoda|$1 valodas}}",
 	"vector-no-language-button-label": "Pievienot valodas",
 	"vector-no-language-button-aria-label": "Šis raksts pastāv tikai šajā valodā. Pievienot rakstu citā valodā",
-	"vector-language-redirect-to-top": "Valodas saites atrodas lapas augšdaļā pretī nosaukumam.",
 	"vector-language-variant-switcher-label": "Mainīt valodas variantu",
 	"vector-action-addsection": "Jauna sadaļa",
 	"vector-action-delete": "Dzēst",

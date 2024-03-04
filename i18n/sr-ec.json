@@ -30,7 +30,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 језик|$1 језика}}",
 	"vector-no-language-button-label": "Додај језике",
 	"vector-no-language-button-aria-label": "Овај чланак постоји само на овом језику. Додајте друге језике.",
-	"vector-language-redirect-to-top": "Језичке везе се налазе на врху странице десно од наслова.",
 	"vector-language-variant-switcher-label": "Промени варијанту језика",
 	"vector-action-addsection": "Додај тему",
 	"vector-action-delete": "Избриши",

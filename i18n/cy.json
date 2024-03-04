@@ -18,7 +18,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 iaith}}",
 	"vector-no-language-button-label": "Ychwanegu ieithoedd",
 	"vector-no-language-button-aria-label": "Mae'r erthygl hon ar gael yn yr iaith hon yn unig. Ychwanegwch yr erthygl mewn ieithoedd eraill",
-	"vector-language-redirect-to-top": "Lleolir dolenni iaith ar frig y dudalen ar draws y teitl.",
 	"vector-language-variant-switcher-label": "Newid amrywiad iaith",
 	"vector-action-addsection": "Ychwanegu pwnc",
 	"vector-action-delete": "Dileu",

@@ -24,7 +24,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1টা ভাষা}}",
 	"vector-no-language-button-label": "ভাষা যোগ কৰক",
 	"vector-no-language-button-aria-label": "এই প্ৰবন্ধটো কেৱল এই ভাষাতহে আছে। অন্য ভাষাত প্ৰবন্ধটো যোগ কৰক",
-	"vector-language-redirect-to-top": "ভাষাৰ সংযোগসমূহ পৃষ্ঠাৰ ওপৰ অংশত প্ৰবন্ধৰ শিৰোনামৰ কাষত  আছে।",
 	"vector-language-variant-switcher-label": "ভাষাৰ প্ৰকাৰ সলনি কৰক",
 	"vector-action-addsection": "বিষয় যোগ",
 	"vector-action-delete": "বিলোপ কৰক",

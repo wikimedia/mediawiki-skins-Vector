@@ -26,7 +26,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 ენა}}",
 	"vector-no-language-button-label": "ენების დამატება",
 	"vector-no-language-button-aria-label": "ეს სტატია მხოლოდ ამ ენაზე არსებობს. დაამატეთ სტატია სხვა ენებისთვის",
-	"vector-language-redirect-to-top": "სხვა ენების ბმულები მოცემულია გვერდის დასაწყისში, სათაურის გასწვრივ.",
 	"vector-language-variant-switcher-label": "ენის ვარიანტის შეცვლა",
 	"vector-action-addsection": "თემის ჩამატება",
 	"vector-action-delete": "წაშლა",

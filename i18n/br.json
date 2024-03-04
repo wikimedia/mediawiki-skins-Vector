@@ -24,7 +24,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 yezh}}",
 	"vector-no-language-button-label": "Ouzhpennañ yezhoù",
 	"vector-no-language-button-aria-label": "N’eus eus ar pennad-mañ nemet er yezh-mañ. Ouzhpennit ar pennad e yezhoù all.",
-	"vector-language-redirect-to-top": "Er {{SITENAME}}-mañ emañ al liammoù yezh e laez ar bajenn a-dal d’an titl.",
 	"vector-language-variant-switcher-label": "Kemmañ adstumm yezh",
 	"vector-action-addsection": "Rannbennad nevez",
 	"vector-action-delete": "Diverkañ",

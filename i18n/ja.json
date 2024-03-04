@@ -46,7 +46,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1の言語版}}",
 	"vector-no-language-button-label": "言語を追加",
 	"vector-no-language-button-aria-label": "この記事はこの言語にのみ存在します。他の言語のための記事を追加",
-	"vector-language-redirect-to-top": "言語間リンクはページの先頭にあるページ名の向かい側に設置されています。",
 	"vector-language-variant-switcher-label": "別の言語に切り替える",
 	"vector-action-addsection": "話題追加",
 	"vector-action-delete": "削除",

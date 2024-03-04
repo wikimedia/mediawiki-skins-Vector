@@ -14,7 +14,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|ဘာသာစကား $1 ခု|$1 ဘာသာစကားများ $1 ခု}}",
 	"vector-no-language-button-label": "ဘာသာစကားများ ထည့်သွင်းရန်",
 	"vector-no-language-button-aria-label": "ဤဆောင်းပါးသည် ဤဘာသာစကားဖြင့်သာ တည်ရှိပါသည်။ အခြားဘာသာစကားများအတွက် ဆောင်းပါးကို ထည့်ပါ။",
-	"vector-language-redirect-to-top": "ဘာသာစကားလင့်ခ်များသည် ဆောင်းပါးခေါင်းစဉ်မှ စာမျက်နှာ၏ ထိပ်ဆုံးတွင် တည်ရှိကြသည်။",
 	"vector-language-variant-switcher-label": "ဘာသာစကား မူကွဲကို ပြောင်းရန်",
 	"vector-action-addsection": "အကြောင်းအရာအသစ် ထပ်ထည့်ရန်",
 	"vector-action-delete": "ဖျက်​ပါ​",

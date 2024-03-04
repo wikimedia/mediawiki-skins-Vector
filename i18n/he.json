@@ -21,7 +21,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|שפה אחת|$1 שפות}}",
 	"vector-no-language-button-label": "הוספת שפות",
 	"vector-no-language-button-aria-label": "הערך הזה קיים רק בשפה הזאת. {{GENDER:|הוסף|הוסיפי|מוזמנים להוסיף}} את הערך לשפות אחרות",
-	"vector-language-redirect-to-top": "קישורי שפה נמצאים בראש הדף מול הכותרת.",
 	"vector-language-variant-switcher-label": "שינוי הגוון השפה",
 	"vector-action-addsection": "פסקה חדשה",
 	"vector-action-delete": "מחיקה",

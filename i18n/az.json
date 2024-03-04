@@ -28,7 +28,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 dildə|$1 dildə}}",
 	"vector-no-language-button-label": "Dil əlavə et",
 	"vector-no-language-button-aria-label": "Bu məqalə yalnız bu dildə mövcuddur. Digər dillər üçün məqalə əlavə edin",
-	"vector-language-redirect-to-top": "Dil bağlantıları səhifənin yuxarısında başlığın qarşısında yerləşir.",
 	"vector-language-variant-switcher-label": "Dil variantını dəyişdirin",
 	"vector-action-addsection": "Mövzu əlavə et",
 	"vector-action-delete": "Sil",

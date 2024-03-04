@@ -35,7 +35,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мови|$1 мов}}",
 	"vector-no-language-button-label": "Додати мови",
 	"vector-no-language-button-aria-label": "Ця стаття існує лише цією мовою. Додайте статтю для інших мов",
-	"vector-language-redirect-to-top": "Посилання на мовні версії розташоване угорі сторінки, праворуч від назви.",
 	"vector-language-variant-switcher-label": "Змінити варіант мови",
 	"vector-action-addsection": "Додати тему",
 	"vector-action-delete": "Вилучити",

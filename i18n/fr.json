@@ -44,7 +44,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 langue|$1 langues}}",
 	"vector-no-language-button-label": "Ajouter des langues",
 	"vector-no-language-button-aria-label": "Cet article n’existe que dans cette langue. Ajouter l’article pour d’autres langues.",
-	"vector-language-redirect-to-top": "Les liens interlangues sont placés en haut à droite du titre.",
 	"vector-language-variant-switcher-label": "Modifier la variante de langue",
 	"vector-action-addsection": "Ajouter un sujet",
 	"vector-action-delete": "Supprimer",

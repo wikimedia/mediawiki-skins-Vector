@@ -22,7 +22,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 мотт}}",
 	"vector-no-language-button-label": "ТӀетоха меттанаш",
 	"vector-no-language-button-aria-label": "ХӀара йаззам кху маттахь бен бац. ТӀетоха йаззам кхечу маттана",
-	"vector-language-redirect-to-top": "ХӀокху сайтехь меттанийн хьажоргаш йу агӀонан йуьхьегехь, йаззаман цӀеран дуьхьала.",
 	"vector-language-variant-switcher-label": "Меттан вариант хийца",
 	"vector-action-addsection": "Тема тӀетоха",
 	"vector-action-delete": "ДӀайаккхар",

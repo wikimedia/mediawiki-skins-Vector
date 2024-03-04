@@ -28,7 +28,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 тіл}}",
 	"vector-no-language-button-label": "Тіл қосу",
 	"vector-no-language-button-aria-label": "Бұл мақала осы тілде ғана қолжетімді. Басқа тілдерге мақаланы қосыңыз",
-	"vector-language-redirect-to-top": "Бұл {{SITENAME}} сайтында тіл сілтемелері беттің жоғары жақында мақала атауына бойында орналасқан. [[#p-lang-btn|Жоғары көтерілу]].",
 	"vector-language-variant-switcher-label": "Тіл нұсқасын ауыстыру",
 	"vector-action-addsection": "Тақырып қосу",
 	"vector-action-delete": "Жою",

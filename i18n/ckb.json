@@ -25,7 +25,6 @@
 	"vector-language-button-label": "{{{{PLURAL:$1|$1 زمان|$1 زمان}}}}",
 	"vector-no-language-button-label": "زمانەکان زیاد بکە",
 	"vector-no-language-button-aria-label": "ئەم وتارە تەنیا بەم زمانە ھەیە. وتارەکە بۆ زمانەکانی تر زیاد بکە",
-	"vector-language-redirect-to-top": "لەسەر {{SITENAME}} بەستەرەکانی زمان لەسەرەوەی پەڕەکەدان بەرامبەر ناونیشانی وتارەکە. [[#p-lang-btn|بڕۆ بۆ سەرەوە]].",
 	"vector-action-addsection": "بابەت دابنێ",
 	"vector-action-delete": "سڕینەوە",
 	"vector-action-move": "گواستنەوە",

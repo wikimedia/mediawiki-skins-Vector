@@ -21,7 +21,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprooch|$1 Sproochen}}",
 	"vector-no-language-button-label": "Sproochen derbäisetzen",
 	"vector-no-language-button-aria-label": "Dësen Artikel gëtt et nëmmen an dëser Sprooch. Setzt den Artikel fir aner Sproochen derbäi",
-	"vector-language-redirect-to-top": "Op {{SITENAME}} stinn d'Linken an anere Sproochen uewen op der Säit riets niewent dem Titel vum Artikel. : [[#p-lang-btn|No uewe goen]]",
 	"vector-language-variant-switcher-label": "Sproochvariant änneren",
 	"vector-action-addsection": "Sujet derbäisetzen",
 	"vector-action-delete": "Läschen",

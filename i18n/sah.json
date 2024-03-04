@@ -16,7 +16,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 тыл|$1 тыллар}}",
 	"vector-no-language-button-label": "Тылы эбии",
 	"vector-no-language-button-aria-label": "Ыстатыйа бу тылынан эрэ баар. Ыстатыйаны атын тылларга эп",
-	"vector-language-redirect-to-top": "Бу ситим-сиргэ тыл сигэлэр сирэй саҕаланыытыгар, ыстатыйа аатын утары бааллар",
 	"vector-language-variant-switcher-label": "Тылы уларыт",
 	"vector-action-addsection": "Тиэмэ эбии",
 	"vector-action-delete": "Сот",

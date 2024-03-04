@@ -46,7 +46,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 язык|$1 языка|$1 языков}}",
 	"vector-no-language-button-label": "Добавить языки",
 	"vector-no-language-button-aria-label": "Данная статья существует только на этом языке. Добавьте статью для других языков",
-	"vector-language-redirect-to-top": "На этом сайте языковые ссылки находятся в начале страницы, напротив заголовка статьи.",
 	"vector-language-variant-switcher-label": "Изменить вариант языка",
 	"vector-action-addsection": "Добавить тему",
 	"vector-action-delete": "Удалить",

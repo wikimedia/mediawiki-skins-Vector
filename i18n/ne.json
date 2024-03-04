@@ -28,7 +28,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषाहरू}}",
 	"vector-no-language-button-label": "भाषाहरू थप्नुहोस्",
 	"vector-no-language-button-aria-label": "यो लेख यस भाषामा मात्र अवस्थित छ। अन्य भाषाहरूको लागि लेख थप्नुहोस्",
-	"vector-language-redirect-to-top": "यस {{SITENAME}}मा भाषा कडीहरू लेख शीर्षकबाट पृष्ठको शीर्षमा छन्। [[#p-lang-btn|शीर्षमा जानुहोस्]]।",
 	"vector-language-variant-switcher-label": "भाषा भिन्नता परिवर्तन गर्नुहोस्",
 	"vector-action-addsection": "विषय थप्नुहोस्",
 	"vector-action-delete": "हटाउने",

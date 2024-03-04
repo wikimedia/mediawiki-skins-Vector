@@ -24,7 +24,6 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 тел}}",
 	"vector-no-language-button-label": "Тел өҫтәргә.",
 	"vector-no-language-button-aria-label": "Был мәҡәлә ошо телдә генә бар. Башҡа телдәрҙә лә яҙығыҙ",
-	"vector-language-redirect-to-top": "Башҡа телдәргә һылтанмалар мәҡәләнең атамаһы эргәһендә тора",
 	"vector-language-variant-switcher-label": "Телде үҙгәртергә",
 	"vector-action-addsection": "Тема өҫтәү",
 	"vector-action-delete": "Юйырға",
