@@ -32,11 +32,6 @@ final class Constants {
 	 */
 	public const SKIN_VERSION_LATEST = '2';
 
-	/**
-	 * @var string
-	 */
-	public const SERVICE_FEATURE_MANAGER = 'Vector.FeatureManager';
-
 	// These are tightly coupled to skin.json's configs. See skin.json for documentation.
 	/**
 	 * @var string

@@ -16,6 +16,8 @@ use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
 use MediaWiki\Skins\Vector\Components\VectorComponentTableOfContents;
 use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
 use RuntimeException;
 use SkinMustache;
 use SkinTemplate;
@@ -29,6 +31,19 @@ class SkinVector22 extends SkinMustache {
 	private const STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled';
 	/** @var null|array for caching purposes */
 	private $languages;
+
+	private FeatureManagerFactory $featureManagerFactory;
+	private ?FeatureManager $featureManager = null;
+
+	public function __construct(
+		FeatureManagerFactory $featureManagerFactory,
+		array $options
+	) {
+		parent::__construct( $options );
+
+		// Cannot use the context in the constructor, setContext is called after construction
+		$this->featureManagerFactory = $featureManagerFactory;
+	}
 
 	/**
 	 * @inheritDoc
@@ -113,6 +128,13 @@ class SkinVector22 extends SkinMustache {
 		return $hasAddTopicButton;
 	}
 
+	private function getFeatureManager(): FeatureManager {
+		if ( $this->featureManager === null ) {
+			$this->featureManager = $this->featureManagerFactory->createFeatureManager( $this->getContext() );
+		}
+		return $this->featureManager;
+	}
+
 	/**
 	 * @param string $location Either 'top' or 'bottom' is accepted.
 	 * @return bool
@@ -121,7 +143,7 @@ class SkinVector22 extends SkinMustache {
 		if ( !$this->canHaveLanguages() ) {
 			return false;
 		}
-		$featureManager = VectorServices::getFeatureManager();
+		$featureManager = $this->getFeatureManager();
 		$inContent = $featureManager->isFeatureEnabled(
 			Constants::FEATURE_LANGUAGE_IN_HEADER
 		);
@@ -229,7 +251,7 @@ class SkinVector22 extends SkinMustache {
 	 */
 	public function getHtmlElementAttributes() {
 		$original = parent::getHtmlElementAttributes();
-		$featureManager = VectorServices::getFeatureManager();
+		$featureManager = $this->getFeatureManager();
 		$original['class'] .= ' ' . implode( ' ', $featureManager->getFeatureBodyClass() );
 
 		if ( $featureManager->isFeatureEnabled( Constants::FEATURE_STICKY_HEADER ) ) {
@@ -307,7 +329,7 @@ class SkinVector22 extends SkinMustache {
 
 		$langData = $portlets['data-languages'] ?? null;
 		$config = $this->getConfig();
-		$featureManager = VectorServices::getFeatureManager();
+		$featureManager = $this->getFeatureManager();
 
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 		$pageToolsMenu = [];
