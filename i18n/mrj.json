@@ -13,5 +13,7 @@
 	"vector-view-history": "Историм анжымаш",
 	"vector-view-view": "Лыдмаш",
 	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш",
-	"vector-feature-custom-font-size-2-label": "Кого"
+	"vector-more-actions": "Эче",
+	"vector-feature-custom-font-size-2-label": "Кого",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\"></strong> кычышы страницӓвлӓм кӹчӓлмӓш"
 }
