@@ -15,5 +15,5 @@
 	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш",
 	"vector-more-actions": "Эче",
 	"vector-feature-custom-font-size-2-label": "Кого",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\"></strong> кычышы страницӓвлӓм кӹчӓлмӓш"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш"
 }
