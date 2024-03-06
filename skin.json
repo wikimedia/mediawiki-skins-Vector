@@ -299,6 +299,7 @@
 				"toc": false
 			},
 			"styles": [
+				"resources/skins.vector.styles/CSSCustomProperties.less",
 				"resources/skins.vector.styles/skin.less"
 			],
 			"lessMessages": [
