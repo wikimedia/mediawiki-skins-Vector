@@ -368,8 +368,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLegacy() {
-		$this->setMwGlobals( [
-			'wgVectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
+		$this->overrideConfigValues( [
+			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
 		] );
 
 		$user = $this->createMock( User::class );
@@ -389,8 +389,8 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLatest() {
-		$this->setMwGlobals( [
-			'wgVectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
+		$this->overrideConfigValues( [
+			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
 		] );
 
 		$user = $this->createMock( User::class );
@@ -410,9 +410,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onSkinTemplateNavigation
 	 */
 	public function testOnSkinTemplateNavigation() {
-		$this->setMwGlobals( [
-			'wgVectorUseIconWatch' => true,
-		] );
+		$this->overrideConfigValue( 'VectorUseIconWatch', true );
 		$skin = new SkinVector22( [ 'name' => 'vector' ] );
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
