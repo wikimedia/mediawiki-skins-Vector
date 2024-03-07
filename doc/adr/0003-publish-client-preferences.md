@@ -1,4 +1,4 @@
-# 1. Use ADRs in Vector
+# 3. Publish client preferences
 
 Date: 2024-01-11
 
