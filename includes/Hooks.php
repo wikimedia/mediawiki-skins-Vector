@@ -11,6 +11,7 @@ use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
+use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use RequestContext;
 use RuntimeException;
@@ -31,6 +32,17 @@ class Hooks implements
 	ResourceLoaderSiteStylesModulePagesHook,
 	SkinPageReadyConfigHook
 {
+	private Config $config;
+	private UserOptionsManager $userOptionsManager;
+
+	public function __construct(
+		Config $config,
+		UserOptionsManager $userOptionsManager
+	) {
+		$this->config = $config;
+		$this->userOptionsManager = $userOptionsManager;
+	}
+
 	/**
 	 * Checks if the current skin is a variant of Vector
 	 *
@@ -512,8 +524,7 @@ class Hooks implements
 	 * @param array &$pages
 	 */
 	public function onResourceLoaderSiteStylesModulePages( $skin, &$pages ): void {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-		if ( $skin === Constants::SKIN_NAME_MODERN && $config->get( 'VectorShareUserScripts' ) ) {
+		if ( $skin === Constants::SKIN_NAME_MODERN && $this->config->get( 'VectorShareUserScripts' ) ) {
 			$pages['MediaWiki:Vector.css'] = [ 'type' => 'style' ];
 		}
 	}
@@ -525,8 +536,7 @@ class Hooks implements
 	 * @param array &$pages
 	 */
 	public function onResourceLoaderSiteModulePages( $skin, &$pages ): void {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-		if ( $skin === Constants::SKIN_NAME_MODERN && $config->get( 'VectorShareUserScripts' ) ) {
+		if ( $skin === Constants::SKIN_NAME_MODERN && $this->config->get( 'VectorShareUserScripts' ) ) {
 			$pages['MediaWiki:Vector.js'] = [ 'type' => 'script' ];
 		}
 	}
@@ -575,11 +585,9 @@ class Hooks implements
 	 * @param bool $isAutoCreated
 	 */
 	public function onLocalUserCreated( $user, $isAutoCreated ) {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-		$default = $config->get( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
+		$default = $this->config->get( Constants::CONFIG_KEY_DEFAULT_SKIN_VERSION_FOR_NEW_ACCOUNTS );
 		if ( $default ) {
-			$optionsManager = MediaWikiServices::getInstance()->getUserOptionsManager();
-			$optionsManager->setOption(
+			$this->userOptionsManager->setOption(
 				$user,
 				Constants::PREF_KEY_SKIN,
 				$default === Constants::SKIN_VERSION_LEGACY ?
@@ -611,10 +619,9 @@ class Hooks implements
 			return;
 		}
 		// Only add Vector 2022 beta feature if there is at least one beta feature present in config
-		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$configHasBeta = false;
 		foreach ( Constants::VECTOR_BETA_FEATURES as $featureName ) {
-			if ( $config->has( $featureName ) && $config->get( $featureName )[ 'beta' ] === true ) {
+			if ( $this->config->has( $featureName ) && $this->config->get( $featureName )[ 'beta' ] === true ) {
 				$configHasBeta = true;
 				break;
 			}
@@ -622,7 +629,7 @@ class Hooks implements
 		if ( !$configHasBeta ) {
 			return;
 		}
-		$skinsAssetsPath = $config->get( 'StylePath' );
+		$skinsAssetsPath = $this->config->get( 'StylePath' );
 		$imagesDir = "$skinsAssetsPath/Vector/resources/images";
 		$betaFeatures[ Constants::VECTOR_2022_BETA_KEY ] = [
 			'label-message' => 'vector-2022-beta-preview-label',

@@ -368,7 +368,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLegacy() {
-		$this->overrideConfigValues( [
+		$config = new HashConfig( [
 			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LEGACY,
 		] );
 
@@ -377,19 +377,21 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$userOptionsManager->expects( $this->once() )
 			->method( 'setOption' )
 			->with( $user, 'skin', Constants::SKIN_NAME_LEGACY );
-		$this->setService( 'UserOptionsManager', $userOptionsManager );
 
 		// NOTE: Using $this->getServiceContainer()->getHookContainer()->run( ... )
 		// will instead call Echo's legacy hook as that is already registered which
 		// will break this test. Use Vector's hook handler instead.
-		( new Hooks() )->onLocalUserCreated( $user, false );
+		( new Hooks(
+			$config,
+			$userOptionsManager
+		) )->onLocalUserCreated( $user, false );
 	}
 
 	/**
 	 * @covers ::onLocalUserCreated
 	 */
 	public function testOnLocalUserCreatedLatest() {
-		$this->overrideConfigValues( [
+		$config = new HashConfig( [
 			'VectorDefaultSkinVersionForNewAccounts' => Constants::SKIN_VERSION_LATEST,
 		] );
 
@@ -398,12 +400,14 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$userOptionsManager->expects( $this->once() )
 			->method( 'setOption' )
 			->with( $user, 'skin', Constants::SKIN_NAME_MODERN );
-		$this->setService( 'UserOptionsManager', $userOptionsManager );
 
 		// NOTE: Using $this->getServiceContainer()->getHookContainer()->run( ... )
 		// will instead call Echo's legacy hook as that is already registered which
 		// will break this test. Use Vector's hook handler instead.
-		( new Hooks() )->onLocalUserCreated( $user, false );
+		( new Hooks(
+			$config,
+			$userOptionsManager
+		) )->onLocalUserCreated( $user, false );
 	}
 
 	/**
