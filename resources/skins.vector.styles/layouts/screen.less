@@ -156,3 +156,11 @@ body {
 .skin--responsive .mw-page-container {
 	min-width: auto;
 }
+
+// Address issues with INP: T358380
+// This can be removed if Vector 2022 ever becomes responsive.
+// More information:
+// https://developer.chrome.com/blog/300ms-tap-delay-gone-away?hl=en
+html {
+	touch-action: manipulation;
+}
