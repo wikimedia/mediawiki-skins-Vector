@@ -157,13 +157,6 @@ Different projects have different needs, so some configuration on the site level
 
 * Allows site to specify an alternative API for search queries. If not set uses default MediaWiki search. Mostly used for development purposes.
 
-6. wgVectorNightModePageOptions
-
-   - Configures night mode options for the Vector skin.
-
-   - Defines exclusions and inclusions for specific pages.
-
-
 ## **User Preference Options Glossary**
 
 The following are interface elements or settings that users can customize within the Vector skin, such as toggling night mode, adjusting the width of the content area, or changing the font size.
