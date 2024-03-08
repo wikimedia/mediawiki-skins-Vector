@@ -575,19 +575,6 @@
 		"VectorUseIconWatch": {
 			"value": true
 		},
-		"VectorNightModePageOptions": {
-			"value": {
-				"mainpage": false,
-				"querystring": {
-					"action": "(history|edit|submit)",
-					"diff": ".+"
-				},
-				"namespaces": [
-					-1,
-					14
-				]
-			}
-		},
 		"VectorMaxWidthOptions": {
 			"value": {
 				"exclude": {
