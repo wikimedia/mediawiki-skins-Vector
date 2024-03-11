@@ -17,7 +17,7 @@
 		]
 	},
 	"skinname-vector": "Vector, oude versie (2010)",
-	"vector-skin-desc": "Bevat 2 Vector vormgevingen:\n* 2011 - De Moderne versie van MonoBook met een fris uiterlijk en veel verbeteringen op het gebied van gebruiksvriendelijkheid.\n* 2022 - De Vector versie als onderdeel van het WMF [[mw:Desktop Improvements]] project.",
+	"vector-skin-desc": "Bevat 2 Vector vormgevingen:\n* 2011 - De Moderne versie van MonoBook met een fris uiterlijk en veel verbeteringen op het gebied van gebruiksvriendelijkheid.\n* 2022 - De Vector versie als onderdeel van het WMF-project [[mw:Desktop Improvements|Desktopverbeteringen]].",
 	"prefs-vector-enable-vector-1-label": "Gebruik de Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "De komende jaren zullen we de Vector-skin geleidelijk bijwerken. Met Legacy Vector kunt u de oude versie van Vector bekijken (vanaf december 2019). Ga voor meer informatie over de updates naar onze [[mw:Reading/Web/Desktop_Improvements|projectpagina]].",
 	"vector-opt-out": "Naar oude vormgeving omschakelen",

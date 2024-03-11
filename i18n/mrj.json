@@ -5,6 +5,9 @@
 			"Nadezhda"
 		]
 	},
+	"vector-languages": "Йӹлмӹвлӓ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 йӹлмӹ|$1 йӹлмӹвлӓ}}",
+	"vector-no-language-button-label": "Йӹлмӹвлӓм уштараш",
 	"vector-action-delete": "Карангдаш",
 	"vector-action-move": "Кеӓш",
 	"vector-action-protect": "Ӹшӹклӓш",
@@ -15,5 +18,11 @@
 	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш",
 	"vector-more-actions": "Эче",
 	"vector-feature-custom-font-size-2-label": "Кого",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш",
+	"vector-toc-label": "Контент",
+	"vector-toc-beginning": "Тӹнгӓлтӹш",
+	"vector-main-menu-label": "Тӹнг меню",
+	"vector-page-tools-label": "Хӓдӹрвлӓ",
+	"vector-page-tools-general-label": "Цымыр",
+	"vector-unpin-element-label": "шӹлтӓш"
 }
