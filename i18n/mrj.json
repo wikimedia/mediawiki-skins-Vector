@@ -1,15 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amdf"
+			"Amdf",
+			"Nadezhda"
 		]
 	},
 	"vector-action-delete": "Карангдаш",
-	"vector-action-move": "Лӹмӹм вашталташ",
+	"vector-action-move": "Кеӓш",
 	"vector-action-protect": "Ӹшӹклӓш",
 	"vector-view-create": "Ӹштӓш",
 	"vector-view-edit": "Тӧрлӹмӓш",
 	"vector-view-history": "Историм анжымаш",
 	"vector-view-view": "Лыдмаш",
-	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш"
+	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш",
+	"vector-more-actions": "Эче",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш"
 }
