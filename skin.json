@@ -33,6 +33,9 @@
 	"ValidSkinNames": {
 		"vector-2022": {
 			"class": "MediaWiki\\Skins\\Vector\\SkinVector22",
+			"services": [
+				"Vector.FeatureManagerFactory"
+			],
 			"args": [
 				{
 					"name": "vector-2022",

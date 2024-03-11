@@ -415,7 +415,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testOnSkinTemplateNavigation() {
 		$this->overrideConfigValue( 'VectorUseIconWatch', true );
-		$skin = new SkinVector22( [ 'name' => 'vector' ] );
+		$skin = new SkinVector22(
+			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
+			[ 'name' => 'vector' ]
+		);
 		$skin->getContext()->setTitle( Title::newFromText( 'Foo' ) );
 		$contentNavWatch = [
 			'associated-pages' => [],
@@ -454,7 +457,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 * @covers ::updateUserLinksItems
 	 */
 	public function testUpdateUserLinksItems() {
-		$vector2022Skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
+		$vector2022Skin = new SkinVector22(
+			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
+			[ 'name' => 'vector-2022' ]
+		);
 		$contentNav = [
 			'associated-pages' => [],
 			'views' => [],
@@ -495,7 +501,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 		$updateUserLinksDropdownItems->setAccessible( true );
 
 		// Anon users
-		$skin = new SkinVector22( [ 'name' => 'vector-2022' ] );
+		$skin = new SkinVector22(
+			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
+			[ 'name' => 'vector-2022' ]
+		);
 		$contentAnon = [
 			'user-menu' => [
 				'anonuserpage' => [ 'class' => [], 'icon' => 'anonuserpage' ],
