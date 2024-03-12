@@ -177,7 +177,7 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 			$msg = $this->createMock( Message::class );
 			$msg->method( '__toString' )->willReturn( $key );
 			$msg->method( 'escaped' )->willReturn( $key );
-			$msg->method( 'rawParams' )->will( $this->returnSelf() );
+			$msg->method( 'rawParams' )->willReturnSelf();
 			$msg->method( 'text' )->willReturn( $key );
 			return $msg;
 		} );
