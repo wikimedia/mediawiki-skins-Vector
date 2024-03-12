@@ -15,12 +15,12 @@
 			"maxSize": "8.6 kB"
 		},
 		{
-			"resourceModule": "codex-search-styles",
-			"maxSize": "4.2 kB"
-		},
-		{
 			"resourceModule": "skins.vector.search.codex.styles",
 			"maxSize": "5.4 kB"
+		},
+		{
+			"resourceModule": "skins.vector.search.codex.scripts",
+			"maxSize": "14.2 kB"
 		},
 		{
 			"resourceModule": "skins.vector.styles",
