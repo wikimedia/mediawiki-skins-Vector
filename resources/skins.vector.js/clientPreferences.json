@@ -3,12 +3,12 @@
 		"options": [ "0", "1", "2" ],
 		"preferenceKey": "vector-font-size"
 	},
-	"vector-feature-limited-width": {
-		"options": [ "1", "0" ],
-		"preferenceKey": "vector-limited-width"
-	},
 	"skin-night-mode": {
 		"options": [ "2", "0", "1" ],
 		"preferenceKey": "vector-night-mode"
+	},
+	"vector-feature-limited-width": {
+		"options": [ "1", "0" ],
+		"preferenceKey": "vector-limited-width"
 	}
 }
