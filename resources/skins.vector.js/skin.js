@@ -73,7 +73,11 @@ function main( window ) {
 	const clientPreferenceSelector = '#vector-client-prefs';
 	const clientPreferenceExists = document.querySelectorAll( clientPreferenceSelector ).length > 0;
 	if ( clientPreferenceExists ) {
-		mw.loader.using( [ 'skins.vector.clientPreferences', 'skins.vector.search.codex.styles' ] ).then( () => {
+		mw.loader.using( [
+			'skins.vector.clientPreferences',
+			'skins.vector.search.codex.styles',
+			'skins.vector.search.codex.scripts'
+		] ).then( () => {
 			const clientPreferences = require( /** @type {string} */ ( 'skins.vector.clientPreferences' ) );
 			const clientPreferenceConfig = ( require( './clientPreferences.json' ) );
 			// Can be removed once wgVectorNightMode is removed.

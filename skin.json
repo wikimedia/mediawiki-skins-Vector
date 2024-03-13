@@ -69,7 +69,7 @@
 						"skins.vector.js"
 					],
 					"styles": [
-						"codex-search-styles",
+						"skins.vector.search.codex.styles",
 						"skins.vector.styles",
 						"skins.vector.user.styles",
 						"skins.vector.icons"
@@ -222,11 +222,21 @@
 				"CdxMessage"
 			]
 		},
+		"skins.vector.search.codex.scripts": {
+			"dependencies": [
+				"skins.vector.search.codex.styles"
+			],
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexScriptOnly": true,
+			"codexComponents": [
+				"CdxTypeaheadSearch"
+			]
+		},
 		"skins.vector.search": {
 			"dependencies": [
 				"mediawiki.Uri",
 				"mediawiki.util",
-				"@wikimedia/codex-search"
+				"skins.vector.search.codex.scripts"
 			],
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
@@ -280,7 +290,7 @@
 				"interface-category": true,
 				"interface-edit-section-links": true,
 				"interface-indicators": false,
-				"interface-message-box": true,
+				"interface-message-box": false,
 				"interface-site-notice": false,
 				"interface-subtitle": false,
 				"interface-user-message": true,
