@@ -5,7 +5,7 @@ use MediaWiki\Linker\Linker;
 use MediaWiki\Skin\SkinComponentLink;
 use MediaWiki\Title\MalformedTitleException;
 use MediaWiki\Title\Title;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use Message;
 use MessageLocalizer;
 
@@ -20,7 +20,7 @@ class VectorComponentUserLinks implements VectorComponent {
 
 	/** @var MessageLocalizer */
 	private $localizer;
-	/** @var User */
+	/** @var UserIdentity */
 	private $user;
 	/** @var array */
 	private $portletData;
@@ -31,14 +31,14 @@ class VectorComponentUserLinks implements VectorComponent {
 
 	/**
 	 * @param MessageLocalizer $localizer
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param array $portletData
 	 * @param array $linkOptions
 	 * @param string $userIcon that represents the current type of user
 	 */
 	public function __construct(
 		MessageLocalizer $localizer,
-		User $user,
+		UserIdentity $user,
 		array $portletData,
 		array $linkOptions,
 		string $userIcon = 'userAvatar'
@@ -286,7 +286,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		// Convert to buttons for logged in users.
 		// For anons these will remain as links.
 		// Note: This list is empty for temporary users currently.
-		if ( !$this->user->isAnon() ) {
+		if ( $this->user->isRegistered() ) {
 			$overflow = $this->makeLinksButtons( $overflow );
 		}
 

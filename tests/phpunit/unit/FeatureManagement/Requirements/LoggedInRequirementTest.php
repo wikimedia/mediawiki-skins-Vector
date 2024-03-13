@@ -23,7 +23,7 @@
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LoggedInRequirement;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -55,7 +55,7 @@ class LoggedInRequirementTest extends TestCase {
 	 */
 	public function testGetName() {
 		// Mock the User object
-		$userMock = $this->createMock( User::class );
+		$userMock = $this->createMock( UserIdentity::class );
 		$requirementName = 'mockedUserLoggedInRequirement';
 
 		// Instantiate the LoggedInRequirement with the mock User object and the requirement name
@@ -73,7 +73,7 @@ class LoggedInRequirementTest extends TestCase {
 	 */
 	public function testIsMet( bool $isUserLoggedIn, bool $expectedResult ) {
 		// Mock the User object
-		$userMock = $this->createMock( User::class );
+		$userMock = $this->createMock( UserIdentity::class );
 		// Setup the isRegistered method to return the login state
 		$userMock->method( 'isRegistered' )->willReturn( $isUserLoggedIn );
 

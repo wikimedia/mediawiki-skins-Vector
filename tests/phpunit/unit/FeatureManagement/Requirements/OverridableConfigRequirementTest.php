@@ -24,7 +24,7 @@ use MediaWiki\Config\HashConfig;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\OverridableConfigRequirement;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * @group Vector
@@ -141,7 +141,7 @@ class OverridableConfigRequirementTest extends \MediaWikiUnitTestCase {
 			Constants::CONFIG_KEY_LANGUAGE_IN_HEADER => $configValue,
 		] );
 
-		$user = $this->createMock( User::class );
+		$user = $this->createMock( UserIdentity::class );
 		$user->method( 'isRegistered' )->willReturn( $userId !== 0 );
 		$user->method( 'getID' )->willReturn( $userId );
 

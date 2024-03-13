@@ -25,14 +25,14 @@ use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
  */
 final class UserPreferenceRequirement implements Requirement {
 
-	private User $user;
+	private UserIdentity $user;
 
 	private UserOptionsLookup $userOptionsLookup;
 
@@ -48,7 +48,7 @@ final class UserPreferenceRequirement implements Requirement {
 	 * This constructor accepts all dependencies needed to determine whether
 	 * the overridable config is enabled for the current user and request.
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param UserOptionsLookup $userOptionsLookup
 	 * @param string $optionName The name of the user preference.
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
@@ -56,7 +56,7 @@ final class UserPreferenceRequirement implements Requirement {
 	 * @param Title|null $title
 	 */
 	public function __construct(
-		User $user,
+		UserIdentity $user,
 		UserOptionsLookup $userOptionsLookup,
 		string $optionName,
 		string $requirementName,
