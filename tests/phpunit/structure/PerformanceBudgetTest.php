@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Vector\Tests\Structure;
 
 use DerivativeContext;
+use ExtensionRegistry;
 use HashBagOStuff;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\FauxRequest;
@@ -142,8 +143,6 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @throws MediaWiki\Config\ConfigException
 	 */
 	public function testTotalModulesSize( $skinName, $maxSizes ) {
-		$this->markTestSkipped( 'test unstable: T350338' );
-
 		$skin = $this->prepareSkin( $skinName );
 		$moduleStyles = $skin->getOutput()->getModuleStyles();
 		$size = 0;
@@ -151,6 +150,14 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
 		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] );
+
+		// The flagged revisions extension is only loaded in certain environments.
+		// Since the environment is based on FlaggedRevs not being installed, extra budget is allocated.
+		// More context: https://phabricator.wikimedia.org/T360102#9632324
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'FlaggedRevs' ) ) {
+			$stylesMaxSize += 1000;
+		}
+
 		$message = $this->createMessage( $skinName, $size, $stylesMaxSize, $moduleStyles );
 		$this->assertLessThanOrEqual( $stylesMaxSize, $size, $message );
 		$modulesScripts = $skin->getOutput()->getModules();
@@ -175,7 +182,13 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	 * @return string
 	 */
 	private function createMessage( $skinName, $size, $maxSize, $modules, $scripts = false ) {
-		$debugInformation = "The following modules are enabled on page load:\n" .
+		$debugInformation = "[PLEASE DO NOT SKIP THIS TEST. If this is blocking a deploy this might " .
+			"signal a potential performance regression with the desktop site." .
+			"Instead of skipping the test you can increase the value in bundlesize.config.json " .
+			"and create a ticket to investigate this error. If the error is > 1kb please tag " .
+			"this as a train blocker." .
+			"Please tag the ticket #Web-Team-Backlog.\n\n" .
+			"The following modules are enabled on page load:\n" .
 			implode( "\n", $modules );
 		$moduleType = $scripts ? 'scripts' : 'styles';
 		return "T346813: Performance budget for $moduleType in skin" .
@@ -183,8 +196,12 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 			" Total size of $moduleType modules is " . $this->bytesToKbsRoundup( $size ) . " Kbs is greater" .
 			" than the current budget size of " . $this->bytesToKbsRoundup( $maxSize ) . " Kbs" .
 			" (see Vector/bundlesize.config.json).\n" .
-			"Please reduce $moduleType that you are loading on page load" .
-			" or talk to the skin maintainer about modifying the budget.\n" .
+			"If you are adding code on page load, please reduce $moduleType that you are loading on page load" .
+			" or talk to the web team about increasing the budget.\n" .
+			"If you are not adding code, and this seems to be an error, " .
+			"it is possible that something running without CI has bypassed this check and we " .
+			"can address this separately." .
+			"Please reach out to the web team to discuss this via Phabricator or #talk-to-web." .
 			"$debugInformation";
 	}
 
