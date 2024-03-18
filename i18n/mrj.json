@@ -5,6 +5,10 @@
 			"Nadezhda"
 		]
 	},
+	"vector-languages": "Йӹлмӹвлӓ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 йӹлмӹ|$1 йӹлмӹвлӓ}}",
+	"vector-no-language-button-label": "Йӹлмӹвлӓм уштараш",
+	"vector-action-addsection": "Темым уштараш",
 	"vector-action-delete": "Карангдаш",
 	"vector-action-move": "Кеӓш",
 	"vector-action-protect": "Ӹшӹклӓш",
@@ -14,5 +18,6 @@
 	"vector-view-view": "Лыдмаш",
 	"vector-view-viewsource": "Сек пӹтӓриш кодым анжалаш",
 	"vector-more-actions": "Эче",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> шамакан страницӓвлӓм кӹчӓлмӓш",
+	"vector-toc-beginning": "Тӹнгӓлтӹш"
 }
