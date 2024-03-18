@@ -3,7 +3,7 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MessageLocalizer;
 use Skin;
 
@@ -30,7 +30,7 @@ class VectorComponentMainMenu implements VectorComponent {
 	 * @param array $sidebarData
 	 * @param array $languageData
 	 * @param MessageLocalizer $localizer
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param FeatureManager $featureManager
 	 * @param Skin $skin
 	 */
@@ -38,7 +38,7 @@ class VectorComponentMainMenu implements VectorComponent {
 		array $sidebarData,
 		array $languageData,
 		MessageLocalizer $localizer,
-		User $user,
+		UserIdentity $user,
 		FeatureManager $featureManager,
 		Skin $skin
 	) {

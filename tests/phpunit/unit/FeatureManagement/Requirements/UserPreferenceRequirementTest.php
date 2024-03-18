@@ -6,7 +6,7 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\UserPreferenceRequirement;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * @group Vector
@@ -84,7 +84,7 @@ final class UserPreferenceRequirementTest extends \MediaWikiUnitTestCase {
 		$expected,
 		$msg
 	) {
-		$user = $this->createMock( User::class );
+		$user = $this->createMock( UserIdentity::class );
 		$title = $isTitlePresent ? $this->createMock( Title::class ) : null;
 		$request = new FauxRequest();
 

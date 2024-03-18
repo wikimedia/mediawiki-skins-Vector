@@ -24,7 +24,7 @@ namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement\Requirements;
 
 use MediaWiki\Config\HashConfig;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\ABRequirement;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
 class ABRequirementTest extends TestCase {
 
 	private function createUserMock( $userId ) {
-		$userMock = $this->createMock( User::class );
+		$userMock = $this->createMock( UserIdentity::class );
 		$userMock->method( 'getId' )->willReturn( $userId );
 		return $userMock;
 	}

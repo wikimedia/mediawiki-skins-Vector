@@ -24,7 +24,7 @@ namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * @package MediaWiki\Skins\Vector\FeatureManagement\Requirements
@@ -33,7 +33,7 @@ use MediaWiki\User\User;
 class ABRequirement implements Requirement {
 	private Config $config;
 
-	private User $user;
+	private UserIdentity $user;
 
 	/**
 	 * The name of the experiment
@@ -47,13 +47,13 @@ class ABRequirement implements Requirement {
 
 	/**
 	 * @param Config $config
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param string $experimentName The name of the experiment
 	 * @param string|null $name The name of the requirement
 	 */
 	public function __construct(
 		Config $config,
-		User $user,
+		UserIdentity $user,
 		string $experimentName,
 		?string $name = null
 	) {

@@ -27,7 +27,7 @@ use MediaWiki\Extension\BetaFeatures\BetaFeatures;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 
 /**
  * The `OverridableConfigRequirement` allows us to define requirements that can override
@@ -70,7 +70,7 @@ class OverridableConfigRequirement implements Requirement {
 
 	private Config $config;
 
-	private User $user;
+	private UserIdentity $user;
 
 	private string $configName;
 
@@ -83,14 +83,14 @@ class OverridableConfigRequirement implements Requirement {
 	 * the overridable config is enabled for the current user and request.
 	 *
 	 * @param Config $config
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param WebRequest $request
 	 * @param string $configName Any `Config` key. This name is used to query `$config` state.
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
 	 */
 	public function __construct(
 		Config $config,
-		User $user,
+		UserIdentity $user,
 		WebRequest $request,
 		string $configName,
 		string $requirementName

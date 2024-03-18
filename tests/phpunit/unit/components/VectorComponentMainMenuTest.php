@@ -25,7 +25,7 @@ use MediaWiki\Skins\Vector\Components\VectorComponent;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
-use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use MediaWikiUnitTestCase;
 use MessageLocalizer;
 use Skin;
@@ -46,9 +46,9 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		$sidebarData = [];
 		$languageData = [];
 
-		// Mock the MessageLocalizer, User, FeatureManager, and Skin classes
+		// Mock the MessageLocalizer, UserIdentity, FeatureManager, and Skin classes
 		$localizerMock = $this->createMock( MessageLocalizer::class );
-		$userMock = $this->createMock( User::class );
+		$userMock = $this->createMock( UserIdentity::class );
 		$featureManagerMock = $this->createMock( FeatureManager::class );
 		$skinMock = $this->createMock( Skin::class );
 
@@ -95,9 +95,9 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideMainMenuScenarios
 	 */
 	public function testGetTemplateData( array $sidebarData, array $languageData, bool $isPinned ) {
-		// Mock the MessageLocalizer, User, FeatureManager, and Skin classes
+		// Mock the MessageLocalizer, UserIdentity, FeatureManager, and Skin classes
 		$localizerMock = $this->createMock( MessageLocalizer::class );
-		$userMock = $this->createMock( User::class );
+		$userMock = $this->createMock( UserIdentity::class );
 		$featureManagerMock = $this->createMock( FeatureManager::class );
 
 		// Mock the isFeatureEnabled method
