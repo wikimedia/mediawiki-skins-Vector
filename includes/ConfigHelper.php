@@ -6,6 +6,10 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
 
+/**
+ * @stable for use inside Minerva as a soft dependency temporarily until T360452 is resolved.
+ * @see doc/adr/0004-code-sharing-between-vector-and-minerva.md
+ */
 class ConfigHelper {
 
 	/**
