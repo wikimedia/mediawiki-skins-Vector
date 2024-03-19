@@ -2,14 +2,31 @@
 	"@metadata": {
 		"authors": [
 			"Amara-Amaziɣ",
-			"MoubarikBelkasim"
+			"MoubarikBelkasim",
+			"AjellidnArif"
 		]
 	},
-	"vector-action-addsection": "ⵔⵏⵓ ⴰⵙⵏⵜⵍ",
-	"vector-action-delete": "ⴽⴽⵙ",
-	"vector-action-move": "ⵙⵎⵓⵜⵜⵉ",
-	"vector-view-create": "ⵙⵏⵓⵍⴼⵓ",
-	"vector-view-edit": "ⵙⵏⴼⵍ",
-	"vector-view-history": "ⴰⵎⵣⵔⵓⵢ",
-	"vector-view-view": "ⵖⵔ"
+	"vector-action-addsection": "Arni asentel",
+	"vector-action-delete": "Kkes",
+	"vector-action-move": "Smutti",
+	"vector-action-protect": "Ḥḍa",
+	"vector-action-undelete": "Arr-dd",
+	"vector-action-unprotect": "Beddeř ḥeṭṭu",
+	"vector-view-create": "Xřeq",
+	"vector-view-edit": "Beddeř",
+	"vector-view-history": "Ẓar amezruy",
+	"vector-view-view": "Ɣar",
+	"vector-view-viewsource": "Ẓar aɣbař",
+	"vector-jumptosearch": "Nḍu ɣar tarzzut",
+	"vector-jumptocontent": "Nḍu ɣar tarsit",
+	"vector-more-actions": "Arni",
+	"vector-search-loader": "yetɛemmar",
+	"vector-toc-label": "Tirsitin",
+	"vector-toc-beginning": "Amezwaru",
+	"vector-anon-user-menu-pages-learn": "Arni deg ařmad",
+	"vector-anon-user-menu-pages-label": "Řmed abeddeř n tasniwin",
+	"vector-page-tools-label": "Imassen",
+	"vector-page-tools-actions-label": "Tigawin",
+	"vector-pin-element-label": "smutti ɣar uɣezdis",
+	"vector-unpin-element-label": "snuffar"
 }
