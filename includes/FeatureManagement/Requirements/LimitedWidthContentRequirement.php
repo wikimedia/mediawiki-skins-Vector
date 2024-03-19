@@ -23,6 +23,7 @@ namespace MediaWiki\Skins\Vector\FeatureManagement\Requirements;
 
 use MediaWiki\Config\Config;
 use MediaWiki\Request\WebRequest;
+use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirement;
 use MediaWiki\Title\Title;
@@ -81,54 +82,7 @@ final class LimitedWidthContentRequirement implements Requirement {
 	 * @return bool
 	 */
 	private static function shouldDisableMaxWidth( array $options, Title $title, WebRequest $request ): bool {
-		$canonicalTitle = $title->getRootTitle();
-
-		$inclusions = $options['include'] ?? [];
-		$exclusions = $options['exclude'] ?? [];
-
-		if ( $title->isMainPage() ) {
-			// only one check to make
-			return $exclusions['mainpage'] ?? false;
-		} elseif ( $canonicalTitle->isSpecialPage() ) {
-			$canonicalTitle->fixSpecialName();
-		}
-
-		//
-		// Check the inclusions based on the canonical title
-		// The inclusions are checked first as these trump any exclusions.
-		//
-		// Now we have the canonical title and the inclusions link we look for any matches.
-		foreach ( $inclusions as $titleText ) {
-			$includedTitle = Title::newFromText( $titleText );
-
-			if ( $canonicalTitle->equals( $includedTitle ) ) {
-				return false;
-			}
-		}
-
-		//
-		// Check the exclusions
-		// If nothing matches the exclusions to determine what should happen
-		//
-		$excludeNamespaces = $exclusions['namespaces'] ?? [];
-		// Max width is disabled on certain namespaces
-		if ( $title->inNamespaces( $excludeNamespaces ) ) {
-			return true;
-		}
-		$excludeQueryString = $exclusions['querystring'] ?? [];
-
-		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
-			$paramValue = $request->getRawVal( $param );
-			if ( $paramValue !== null ) {
-				if ( $excludedParamPattern === '*' ) {
-					// Backwards compatibility for the '*' wildcard.
-					$excludedParamPattern = '.+';
-				}
-				return (bool)preg_match( "/$excludedParamPattern/", $paramValue );
-			}
-		}
-
-		return false;
+		return ConfigHelper::shouldDisable( $options, $request, $title );
 	}
 
 	/**
