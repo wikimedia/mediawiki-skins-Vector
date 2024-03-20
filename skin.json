@@ -177,7 +177,7 @@
 		"vector-toc-pinned": 1,
 		"vector-client-prefs-pinned": 1,
 		"vector-font-size": 0,
-		"vector-night-mode": 2
+		"vector-theme": "os"
 	},
 	"HookHandlers": {
 		"VectorCentralAuthHooks": {
@@ -380,11 +380,11 @@
 				"resources/skins.vector.clientPreferences/clientPreferences.js"
 			],
 			"messages": [
-				"skin-night-mode-description",
-				"skin-night-mode-name",
-				"skin-night-mode-0-label",
-				"skin-night-mode-1-label",
-				"skin-night-mode-2-label",
+				"skin-theme-name",
+				"skin-theme-description",
+				"skin-theme-day-label",
+				"skin-theme-night-label",
+				"skin-theme-os-label",
 				"vector-feature-limited-width-name",
 				"vector-feature-limited-width-0-label",
 				"vector-feature-limited-width-1-label",

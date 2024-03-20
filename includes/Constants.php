@@ -286,7 +286,7 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const PREF_KEY_NIGHT_MODE = 'vector-night-mode';
+	public const PREF_KEY_NIGHT_MODE = 'vector-theme';
 
 	/**
 	 * @var string

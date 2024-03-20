@@ -83,7 +83,7 @@ function main( window ) {
 			// Can be removed once wgVectorNightMode is removed.
 			if ( document.documentElement.classList.contains( 'vector-feature-night-mode-disabled' ) ) {
 				// @ts-ignore issues relating to delete operator are not relevant here.
-				delete clientPreferenceConfig[ 'skin-night-mode' ];
+				delete clientPreferenceConfig[ 'skin-theme' ];
 			}
 			clientPreferences.render( clientPreferenceSelector, clientPreferenceConfig );
 		} );
