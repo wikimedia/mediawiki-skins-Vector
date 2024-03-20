@@ -6,7 +6,7 @@
 		]
 	},
 	"vector-languages": "Йӹлмӹвлӓ",
-	"vector-language-button-label": "{{PLURAL:$1|$1 йӹлмӹ|$1 йӹлмӹвлӓ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 йӹлмӹ}}",
 	"vector-no-language-button-label": "Йӹлмӹвлӓм уштараш",
 	"vector-action-addsection": "Темым уштараш",
 	"vector-action-delete": "Карангдаш",
