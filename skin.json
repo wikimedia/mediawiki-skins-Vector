@@ -112,6 +112,7 @@
 				{
 					"name": "vector",
 					"template": "skin-legacy",
+					"clientPrefEnabled": true,
 					"templateDirectory": "includes/templates",
 					"responsive": false,
 					"link": {
