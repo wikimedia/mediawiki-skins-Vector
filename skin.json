@@ -402,8 +402,13 @@
 			]
 		},
 		"skins.vector.js": {
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
+			"features": [
+				"interface-message-box"
+			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
+				"resources/skins.vector.js/legacyMessageBoxStyles.js",
 				"resources/skins.vector.js/setupIntersectionObservers.js",
 				"resources/skins.vector.js/searchToggle.js",
 				"resources/skins.vector.js/stickyHeader.js",

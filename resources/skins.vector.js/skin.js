@@ -11,6 +11,7 @@ const languageButton = require( './languageButton.js' ),
 	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	menuTabs = require( './menuTabs.js' ),
+	legacyMessageBoxStyles = require( './legacyMessageBoxStyles.js' ),
 	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
 
 /**
@@ -101,6 +102,7 @@ function main( window ) {
  */
 function init( window ) {
 	const now = mw.now();
+	legacyMessageBoxStyles();
 	// This is the earliest time we can run JS for users (and bucket anonymous
 	// users for A/B tests).
 	// Where the browser supports it, for a 10% sample of users
