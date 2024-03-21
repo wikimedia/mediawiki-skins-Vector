@@ -3,9 +3,9 @@
 		"options": [ "0", "1", "2" ],
 		"preferenceKey": "vector-font-size"
 	},
-	"skin-night-mode": {
-		"options": [ "2", "0", "1" ],
-		"preferenceKey": "vector-night-mode"
+	"skin-theme": {
+		"options": [ "os", "day", "night" ],
+		"preferenceKey": "vector-theme"
 	},
 	"vector-feature-limited-width": {
 		"options": [ "1", "0" ],

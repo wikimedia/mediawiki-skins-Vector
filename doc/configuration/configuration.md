@@ -173,4 +173,4 @@ The following are interface elements or settings that users can customize within
 
 6. Vector Font Size (`vector-font-size`): Allows the user to select the preferred font size for the Vector. It can be set to 0 for regular, 1 for large, or 2 for x-large.
 
-7. Vector Night Mode (`vector-night-mode`): Specifies the preference for night mode in Vector. It can be set to 0 (disabled), 1 (enabled), or 2 (automatic based on system preferences). - NOTE: This is currently unavailable.
+7. Vector Night Mode (`vector-theme`): Specifies the preference for night mode in Vector. It can be set to 'day' for (disabled), 'night' (enabled), and 'os' (automatic based on system preferences). For logged in users this feature can be forced on via the ?vectornightmode=night or ?vectornightmode=1 query string parameter.

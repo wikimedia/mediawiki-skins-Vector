@@ -171,13 +171,15 @@ class FeatureManager {
 					$request = RequestContext::getMain()->getRequest();
 					$valueRequest = $request->getText( 'vectornightmode' );
 					// If night mode query string is used, hardcode pref value to the night mode value
-					$value = $valueRequest !== '' ? $valueRequest :
+					// NOTE: The query string parameter only works for logged in users.
+					// IF you have set a cookie locally this will be overriden.
+					$value = $valueRequest !== '' ? self::resolveNightModeQueryValue( $valueRequest ) :
 						$this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
 					$suffixEnabled = 'clientpref-' . $value;
-					$suffixDisabled = 'clientpref-0';
-					// Must be hardcoded to 'skin-night-mode' to be consistent with Minerva
+					$suffixDisabled = 'clientpref-day';
+					// Must be hardcoded to 'skin-theme-' to be consistent with Minerva
 					// So that editors can target the same class across skins
-					$prefix = 'skin-night-mode-';
+					$prefix = 'skin-theme-';
 					break;
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
 				case CONSTANTS::FEATURE_TOC_PINNED:
@@ -271,5 +273,25 @@ class FeatureManager {
 		}
 
 		return $this->requirements[$name]->isMet();
+	}
+
+	/**
+	 * Converts "1", "2", and "0" to equivalent values.
+	 *
+	 * @return string
+	 */
+	private static function resolveNightModeQueryValue( string $value ) {
+		switch ( $value ) {
+			case 'day':
+			case 'night':
+			case 'os':
+				return $value;
+			case '1':
+				return 'night';
+			case '2':
+				return 'os';
+			default:
+				return 'day';
+		}
 	}
 }
