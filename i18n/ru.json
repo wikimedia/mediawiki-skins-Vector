@@ -72,6 +72,7 @@
 	"vector-feature-custom-font-size-1-label": "Стандартный",
 	"vector-feature-custom-font-size-2-label": "Крупный",
 	"skin-theme-name": "Цвет",
+	"skin-theme-description": "[Экспериментальная версия, высокая вероятность возникновения проблем] Уменьшает свет, излучаемый экранами устройств.",
 	"skin-theme-day-label": "День",
 	"skin-theme-night-label": "Ночь",
 	"vector-search-loader": "Загружаются поисковые предложения",
