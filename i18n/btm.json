@@ -20,5 +20,6 @@
 	"vector-view-history": "Sise sejarah",
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Lainna",
-	"vector-searchsuggest-containing": "Jalaki tompat na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Jalaki tompat na marisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "lobi parjolo"
 }
