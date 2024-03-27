@@ -86,8 +86,8 @@ class ConfigHelper {
 		if ( $title != null && $title->inNamespaces( $excludeNamespaces ) ) {
 			return true;
 		}
-		$excludeQueryString = $exclusions[ 'querystring' ] ?? [];
 
+		$excludeQueryString = $exclusions[ 'querystring' ] ?? [];
 		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
 			$paramValue = $request->getRawVal( $param );
 			if ( $paramValue !== null ) {
