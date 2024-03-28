@@ -456,7 +456,8 @@
 				"mediawiki.experiments",
 				"skins.vector.icons.js",
 				"mediawiki.util",
-				"mediawiki.jqueryMsg"
+				"mediawiki.jqueryMsg",
+				"web2017-polyfills"
 			],
 			"messages": [
 				"vector-search-loader",
