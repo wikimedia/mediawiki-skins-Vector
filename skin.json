@@ -574,6 +574,18 @@
 			},
 			"description": "@var array enables night mode."
 		},
+		"VectorNightModeOptions": {
+			"value": {
+				"exclude": {
+					"mainpage": false,
+					"pagetitles": [],
+					"namespaces": [],
+					"querystring": {}
+				},
+				"include": []
+			},
+			"description": "@var array determines which pages are compatible with night mode"
+		},
 		"VectorClientPreferences": {
 			"value": {
 				"logged_in": false,

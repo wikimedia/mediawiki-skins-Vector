@@ -23,6 +23,7 @@
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
 use RequestContext;
@@ -161,6 +162,13 @@ class FeatureManager {
 			// switch to lower case and switch from camel case to hyphens
 			$featureClass = ltrim( strtolower( preg_replace( '/[A-Z]([A-Z](?![a-z]))*/', '-$0', $featureName ) ), '-' );
 			$prefix = 'vector-feature-' . $featureClass . '-';
+
+			// some features (eg night mode) will require request context to determine status
+			$context = RequestContext::getMain();
+			$request = $context->getRequest();
+			$config = $context->getConfig();
+			$title = $context->getTitle();
+
 			// Client side preferences
 			switch ( $featureName ) {
 				case CONSTANTS::FEATURE_FONT_SIZE:
@@ -168,7 +176,11 @@ class FeatureManager {
 					$suffixDisabled = 'clientpref-0';
 					break;
 				case CONSTANTS::PREF_NIGHT_MODE:
-					$request = RequestContext::getMain()->getRequest();
+					// if night mode is disabled for the page, add the disabled class instead and return early
+					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
+						return 'skin-night-mode-disabled';
+					}
+
 					$valueRequest = $request->getText( 'vectornightmode' );
 					// If night mode query string is used, hardcode pref value to the night mode value
 					// NOTE: The query string parameter only works for logged in users.
