@@ -557,7 +557,7 @@
 	},
 	"QUnitTestModule": {
 		"localBasePath": "",
-		"remoteExtPath": "Vector",
+		"remoteSkinPath": "Vector",
 		"dependencies": [
 			"skins.vector.clientPreferences"
 		],
