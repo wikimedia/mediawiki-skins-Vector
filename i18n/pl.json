@@ -9,6 +9,7 @@
 			"Rail",
 			"Sp5uhe",
 			"Tar Lócesilion",
+			"WaldiSt",
 			"Woytecr"
 		]
 	},
@@ -57,6 +58,8 @@
 	"skin-night-mode-0-label": "Dzienny",
 	"skin-night-mode-1-label": "Nocny",
 	"skin-night-mode-2-label": "Automatyczny",
+	"skin-theme-name": "Kolor",
+	"skin-theme-day-label": "Dzień",
 	"vector-search-loader": "Wczytywanie sugestii",
 	"vector-searchsuggest-containing": "Szukaj stron zawierających <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Pierwsze kroki",
