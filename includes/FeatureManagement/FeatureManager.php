@@ -195,6 +195,7 @@ class FeatureManager {
 					break;
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
 				case CONSTANTS::FEATURE_TOC_PINNED:
+				case CONSTANTS::FEATURE_CLIENT_PREFS_PINNED:
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
 					break;
