@@ -98,9 +98,8 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
 
 		$this->overrideConfigValues( [ 'VectorNightModeOptions' => [ 'exclude' => [ 'mainpage' => $disabled ] ] ] );
-
 		$this->assertEquals(
-			in_array( 'skin-night-mode-disabled', $featureManager->getFeatureBodyClass() ),
+			in_array( 'skin-theme-clientpref-excluded', $featureManager->getFeatureBodyClass() ),
 			$disabled
 		);
 	}

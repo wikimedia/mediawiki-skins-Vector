@@ -52,6 +52,7 @@
 	"skin-theme-day-label": "Day",
 	"skin-theme-night-label": "Night",
 	"skin-theme-os-label": "Automatic",
+	"skin-theme-exclusion-notice": "This page is always in day mode.",
 	"vector-search-loader": "Loading search suggestions",
 	"vector-searchsuggest-containing": "Search for pages containing <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",

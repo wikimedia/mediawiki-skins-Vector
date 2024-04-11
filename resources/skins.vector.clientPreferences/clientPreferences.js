@@ -25,6 +25,15 @@ function getClientPreferences() {
 }
 
 /**
+ * Check if the feature is excluded from the current page.
+ * @param {string} featureName
+ * @return {boolean}
+ */
+function isFeatureExcluded( featureName ) {
+	return document.documentElement.classList.contains( featureName + '-clientpref-excluded' );
+}
+
+/**
  * Get the list of client preferences that are active on the page and not hidden.
  *
  * @param {Record<string,ClientPreference>} config
@@ -111,6 +120,23 @@ function makeLabelElement( featureName, value ) {
 }
 
 /**
+ * Create an element that informs users that a feature is not functional
+ * on a given page. This message is hidden by default and made visible in
+ * CSS if a specific exclusion class exists.
+ *
+ * @param {string} featureName
+ * @return {HTMLElement}
+ */
+function makeExclusionNotice( featureName ) {
+	const p = document.createElement( 'p' );
+	// eslint-disable-next-line mediawiki/msg-doc
+	const noticeMessage = mw.message( `${ featureName }-exclusion-notice` );
+	p.classList.add( 'exclusion-notice', `${ featureName }-exclusion-notice` );
+	p.textContent = noticeMessage.text();
+	return p;
+}
+
+/**
  * @param {Element} parent
  * @param {string} featureName
  * @param {string} value
@@ -123,6 +149,11 @@ function appendRadioToggle( parent, featureName, value, currentValue, config ) {
 	if ( currentValue === value ) {
 		input.checked = true;
 	}
+
+	if ( isFeatureExcluded( featureName ) ) {
+		input.disabled = true;
+	}
+
 	const icon = document.createElement( 'span' );
 	icon.classList.add( 'cdx-radio__icon' );
 	const label = makeLabelElement( featureName, value );
@@ -222,6 +253,11 @@ function makeControl( featureName, config ) {
 			throw new Error( 'Unknown client preference! Only switch or radio are supported.' );
 	}
 	row.appendChild( form );
+
+	if ( isFeatureExcluded( featureName ) ) {
+		const exclusionNotice = makeExclusionNotice( featureName );
+		row.appendChild( exclusionNotice );
+	}
 	return row;
 }
 

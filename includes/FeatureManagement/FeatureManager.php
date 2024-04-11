@@ -176,9 +176,11 @@ class FeatureManager {
 					$suffixDisabled = 'clientpref-0';
 					break;
 				case CONSTANTS::PREF_NIGHT_MODE:
-					// if night mode is disabled for the page, add the disabled class instead and return early
+					// if night mode is disabled for the page, add the exclude class instead and return early
 					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
-						return 'skin-night-mode-disabled';
+						return 'skin-theme-clientpref-excluded';
+					} else {
+						$prefix = '';
 					}
 
 					$valueRequest = $request->getText( 'vectornightmode' );
@@ -191,7 +193,7 @@ class FeatureManager {
 					$suffixDisabled = 'clientpref-day';
 					// Must be hardcoded to 'skin-theme-' to be consistent with Minerva
 					// So that editors can target the same class across skins
-					$prefix = 'skin-theme-';
+					$prefix .= 'skin-theme-';
 					break;
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
 				case CONSTANTS::FEATURE_TOC_PINNED:
