@@ -21,7 +21,7 @@ exports[`UserLinks renders 1`] = `
 	
 </div>
 </div>
-	<nav class=\\"vector-client-prefs-landmark\\" aria-label=\\"\\">
+	<nav class=\\"vector-appearance-landmark\\" aria-label=\\"\\">
 	</nav>
 <div id=\\"p-personal-notifications\\" class=\\"vector-menu\\">
 <div class=\\"vector-menu-content\\">

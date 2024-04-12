@@ -561,7 +561,7 @@ class Hooks implements
 			Constants::PREF_KEY_TOC_PINNED => [
 				'type' => 'api'
 			],
-			Constants::PREF_KEY_CLIENT_PREFS_PINNED => [
+			Constants::PREF_KEY_APPEARANCE_PINNED => [
 				'type' => 'api'
 			],
 			Constants::PREF_KEY_LIMITED_WIDTH => [

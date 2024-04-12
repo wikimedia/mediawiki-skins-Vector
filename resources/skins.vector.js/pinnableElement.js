@@ -242,7 +242,7 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 
 /**
  * Update the pinnable element location in the DOM based off of whether its pinned or not.
- * This is only necessary with pinnable elements that use client preferences (i.e. appearances menu)
+ * This is only necessary with pinnable elements that use client preferences (i.e. appearance menu)
  * as all other pinnable elements should be serverside rendered in the correct location
  *
  * @param {HTMLElement} header

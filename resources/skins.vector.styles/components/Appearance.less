@@ -1,13 +1,10 @@
 // Ensure there is only 1 client prefs landmark at anytime
-// TODO: Remove old classes after has been in prod
-.vector-feature-client-prefs-pinned-enabled .vector-user-links .vector-client-prefs-landmark,
-.vector-feature-client-prefs-pinned-disabled .vector-column-end .vector-client-prefs-landmark,
-.vector-feature-client-prefs-pinned-clientpref-1 .vector-user-links .vector-client-prefs-landmark,
-.vector-feature-client-prefs-pinned-clientpref-0 .vector-column-end .vector-client-prefs-landmark {
+.vector-feature-appearance-pinned-clientpref-1 .vector-user-links .vector-appearance-landmark,
+.vector-feature-appearance-pinned-clientpref-0 .vector-column-end .vector-appearance-landmark {
 	display: none;
 }
 
-#vector-client-prefs-dropdown {
+#vector-appearance-dropdown {
 	.vector-dropdown-content {
 		.mixin-vector-dropdown-content-flip();
 	}
@@ -18,7 +15,7 @@
 }
 
 /* If JS is disabled the menu should not render at all */
-.client-nojs .vector-client-prefs-landmark {
+.client-nojs .vector-appearance-landmark {
 	display: none;
 }
 

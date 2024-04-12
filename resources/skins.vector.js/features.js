@@ -14,7 +14,7 @@ function save( feature, enabled ) {
 		switch ( feature ) {
 			case 'toc-pinned':
 			case 'limited-width':
-			case 'client-prefs-pinned':
+			case 'appearance-pinned':
 				// Save the setting under the new system
 				// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 				mw.user.clientPrefs.set( `vector-feature-${ feature }`, enabled ? '1' : '0' );

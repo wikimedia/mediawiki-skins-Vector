@@ -71,9 +71,9 @@ function main( window ) {
 	teleportTarget.classList.add( 'vector-body' );
 
 	// Load client preferences
-	const clientPreferenceSelector = '#vector-client-prefs';
-	const clientPreferenceExists = document.querySelectorAll( clientPreferenceSelector ).length > 0;
-	if ( clientPreferenceExists ) {
+	const appearanceMenuSelector = '#vector-appearance';
+	const appearanceMenuExists = document.querySelectorAll( appearanceMenuSelector ).length > 0;
+	if ( appearanceMenuExists ) {
 		mw.loader.using( [
 			'skins.vector.clientPreferences',
 			'skins.vector.search.codex.styles',
@@ -86,7 +86,7 @@ function main( window ) {
 				// @ts-ignore issues relating to delete operator are not relevant here.
 				delete clientPreferenceConfig[ 'skin-theme' ];
 			}
-			clientPreferences.render( clientPreferenceSelector, clientPreferenceConfig );
+			clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
 		} );
 	}
 
