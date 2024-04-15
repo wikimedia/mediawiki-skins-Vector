@@ -23,13 +23,6 @@
 	"requires": {
 		"MediaWiki": ">= 1.42.0"
 	},
-	"attributes": {
-		"DarkMode": {
-			"Disabled": [
-				"vector-2022"
-			]
-		}
-	},
 	"ValidSkinNames": {
 		"vector-2022": {
 			"class": "MediaWiki\\Skins\\Vector\\SkinVector22",
