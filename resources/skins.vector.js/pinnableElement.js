@@ -239,12 +239,29 @@ function movePinnableElement( pinnableElementId, newContainerId ) {
 	popupNotification.hideAll();
 }
 
+/**
+ * Update the pinnable element location in the DOM based off of whether its pinned or not.
+ * This is only necessary with pinnable elements that use client preferences (i.e. appearances menu)
+ * as all other pinnable elements should be serverside rendered in the correct location
+ *
+ * @param {HTMLElement} header
+ */
+function updatePinnableElementLocation( header ) {
+	const newContainerId = isPinned( header ) ?
+		header.dataset.pinnedContainerId :
+		header.dataset.unpinnedContainerId;
+	if ( header.dataset.pinnableElementId && newContainerId ) {
+		movePinnableElement( header.dataset.pinnableElementId, newContainerId );
+	}
+}
+
 function initPinnableElement() {
 	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
 	pinnableHeader.forEach( ( header ) => {
 		if ( header.dataset.featureName && header.dataset.pinnableElementId ) {
 			bindPinnableToggleButtons( header );
 			bindPinnableBreakpoint( header );
+			updatePinnableElementLocation( header );
 		}
 	} );
 }

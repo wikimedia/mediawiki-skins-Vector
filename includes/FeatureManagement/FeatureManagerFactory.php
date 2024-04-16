@@ -265,7 +265,7 @@ class FeatureManagerFactory {
 			]
 		);
 
-		// Feature: T345363: Client preferences dialog
+		// Feature: T345363: Client preferences menu
 		// ============================================
 		$featureManager->registerRequirement(
 			new OverridableConfigRequirement(
