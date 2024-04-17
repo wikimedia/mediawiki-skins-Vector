@@ -12,7 +12,7 @@
 	"vector-action-addsection": "نو گپ",
 	"vector-action-delete": "پاک هاکردن",
 	"vector-action-move": "دکش هاکردن",
-	"vector-action-protect": "زلفن بزوئن",
+	"vector-action-protect": "قلف",
 	"vector-action-undelete": "دباره بنویشته بیّن",
 	"vector-action-unprotect": "زلفن عوض هاکردن",
 	"vector-view-create": "بساتن",
@@ -28,5 +28,5 @@
 	"vector-main-menu-label": "اصلی رج",
 	"vector-page-tools-label": "ابزارون",
 	"vector-page-tools-general-label": "عمومی",
-	"vector-unpin-element-label": "پیتی"
+	"vector-unpin-element-label": "پٮتی"
 }
