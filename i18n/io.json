@@ -42,8 +42,10 @@
 	"vector-main-menu-tooltip": "Chef-menuo",
 	"vector-toc-menu-tooltip": "Kontenajo-tabelo",
 	"vector-main-menu-label": "Chef-menuo",
+	"vector-limited-width-toggle": "Modifikar la limito di larjeso di la kontenajo",
 	"vector-page-tools-label": "Utensili",
 	"vector-page-tools-general-label": "Ordinara",
+	"vector-pin-element-label": "movar a latera panelo",
 	"vector-unpin-element-label": "celez",
 	"tooltip-vector-anon-user-menu-title": "Plusa selekti"
 }
