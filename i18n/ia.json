@@ -52,6 +52,7 @@
 	"skin-theme-day-label": "Die",
 	"skin-theme-night-label": "Nocte",
 	"skin-theme-os-label": "Automatic",
+	"skin-theme-exclusion-notice": "Iste pagina es sempre in modo diari.",
 	"vector-search-loader": "Cargante suggestiones de recerca",
 	"vector-searchsuggest-containing": "Cercar paginas que contine <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",

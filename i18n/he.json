@@ -55,6 +55,7 @@
 	"skin-theme-day-label": "יום",
 	"skin-theme-night-label": "לילה",
 	"skin-theme-os-label": "אוטומטי",
+	"skin-theme-exclusion-notice": "הדף הזה תמיד במצב יום.",
 	"vector-search-loader": "טעינת הצעות חיפוש",
 	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
