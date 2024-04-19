@@ -80,6 +80,7 @@
 	"skin-theme-day-label": "День",
 	"skin-theme-night-label": "Ночь",
 	"skin-theme-os-label": "Автоматически",
+	"skin-theme-exclusion-notice": "Эта страница всегда находится в дневном режиме.",
 	"vector-search-loader": "Загружаются поисковые предложения",
 	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",

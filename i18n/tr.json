@@ -69,6 +69,7 @@
 	"skin-theme-day-label": "Gündüz",
 	"skin-theme-night-label": "Gece",
 	"skin-theme-os-label": "Otomatik",
+	"skin-theme-exclusion-notice": "Bu sayfa her zaman gündüz kipindedir.",
 	"vector-search-loader": "Arama önerileri yükleniyor",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> içeren sayfaları ara",
 	"vector-intro-page": "Help:Giriş",

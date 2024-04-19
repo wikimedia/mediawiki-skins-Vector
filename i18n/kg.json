@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bergerdias",
 			"Rkupsala"
 		]
 	},
@@ -10,5 +11,6 @@
 	"vector-view-create": "Tunga",
 	"vector-view-edit": "Soba",
 	"vector-view-history": "Tala bansoba",
-	"vector-view-view": "Tânga"
+	"vector-view-view": "Tânga",
+	"skin-theme-exclusion-notice": "Lutiti yai ke vandaka ntangu yonso na mutindu ya kilumbu."
 }

@@ -56,6 +56,7 @@
 	"skin-theme-day-label": "Ден",
 	"skin-theme-night-label": "Ноќ",
 	"skin-theme-os-label": "Автоматски",
+	"skin-theme-exclusion-notice": "Оваа страница секогаш е во дневен режим.",
 	"vector-search-loader": "Вчитувам предлози за пребарувањето",
 	"vector-searchsuggest-containing": "Пребарај страници кои го содржат <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вовед",
