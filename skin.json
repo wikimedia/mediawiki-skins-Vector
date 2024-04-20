@@ -112,6 +112,7 @@
 			"args": [
 				{
 					"name": "vector",
+					"supportsMwHeading": true,
 					"wrapSiteNotice": true,
 					"template": "skin-legacy",
 					"clientPrefEnabled": true,
