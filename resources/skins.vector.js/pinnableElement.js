@@ -197,6 +197,7 @@ function isPinned( header ) {
 /**
  * Ensures the header classes are in sync with the pinnable headers state
  * in the case that it's moved via movePinnableElement().
+ *
  * @param {HTMLElement} pinnableElement
  */
 function updatePinnableHeaderClass( pinnableElement ) {

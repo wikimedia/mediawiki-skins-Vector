@@ -469,7 +469,6 @@ module.exports = function tableOfContents( props ) {
 	 * Updates button styling for the TOC toggle button when scrolled below the page title
 	 *
 	 * @param {boolean} scrollBelow
-	 *
 	 */
 	function updateTocToggleStyles( scrollBelow ) {
 		const TOC_TITLEBAR_TOGGLE_ID = 'vector-page-titlebar-toc-label';

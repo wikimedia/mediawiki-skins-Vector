@@ -9,6 +9,7 @@ const
 
 /**
  * Enhance dropdownMenu functionality and accessibility using core's checkboxHack.
+ *
  * @param {HTMLElement[]|NodeList} [containers]
  */
 function dropdownMenus( containers ) {
