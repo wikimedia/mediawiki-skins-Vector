@@ -50,6 +50,7 @@
 	"skin-theme-day-label": "Diena",
 	"skin-theme-night-label": "Nakts",
 	"skin-theme-os-label": "Automātiski",
+	"skin-theme-exclusion-notice": "Šī lapa vienmēr ir dienas režīmā.",
 	"vector-search-loader": "Ielādē meklēšanas ieteikumus",
 	"vector-searchsuggest-containing": "Meklēt lapas, kas satur <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Vikipēdija:Ievads",
