@@ -141,6 +141,7 @@ if ( document.readyState === 'interactive' || document.readyState === 'complete'
 // Provider of skins.vector.js module:
 /**
  * skins.vector.js
+ *
  * @stable for use inside WikimediaEvents ONLY.
  */
 module.exports = { pinnableElement };

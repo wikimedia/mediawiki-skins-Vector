@@ -3,14 +3,13 @@
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
  * @property {string} [type] defaults to radio. Supported: radio, switch
- * @property {function} [callback] callback executed after a client preference has been modified.
+ * @property {Function} [callback] callback executed after a client preference has been modified.
  */
 let /** @type {MwApi} */ api;
 /**
  * @typedef {Object} PreferenceOption
  * @property {string} label
  * @property {string} value
- *
  */
 
 /**
@@ -26,6 +25,7 @@ function getClientPreferences() {
 
 /**
  * Check if the feature is excluded from the current page.
+ *
  * @param {string} featureName
  * @return {boolean}
  */
@@ -304,6 +304,7 @@ function makeClientPreference( parent, featureName, config ) {
 
 /**
  * Fills the client side preference dropdown with controls.
+ *
  * @param {string} selector of element to fill with client preferences
  * @param {Record<string,ClientPreference>} config
  * @return {Promise<Node>}
