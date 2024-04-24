@@ -369,7 +369,7 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 		array $sidebar,
 		bool $isFeatureEnabled,
 		string $snapshotName,
-		bool $isAddTopic = false
+		bool $hasAddTopic = false
 	) {
 		$localizer = $this->createMock( MessageLocalizer::class );
 		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
@@ -385,7 +385,7 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 			$featureManager,
 			$portletData,
 			$sidebar,
-			$isAddTopic
+			$hasAddTopic
 		);
 		$data = $vectorComponentPageToolbar->getTemplateData();
 		$this->assertEqualsSnapshot(

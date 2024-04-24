@@ -115,21 +115,19 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
-	 * Check if the add topic button should be promoted according to
-	 * existing site configuration.
+	 * Check if the add topic button is present.
 	 *
 	 * @param array &$parentData Template data
-	 * @return bool the add topic button is present and can be promoted.
+	 * @return bool The add topic button is present
 	 */
-	private function isAddTopicButtonPromotable( array &$parentData ): bool {
-		return $this->getConfig()->get( 'VectorPromoteAddTopic' ) &&
-			in_array(
-				'ca-addsection',
-				array_column(
-					$parentData['data-portlets']['data-views']['array-items'], 'id'
-				),
-				true
-			);
+	private function hasAddTopicButton( array &$parentData ): bool {
+		return in_array(
+			'ca-addsection',
+			array_column(
+				$parentData['data-portlets']['data-views']['array-items'], 'id'
+			),
+			true
+		);
 	}
 
 	private function getFeatureManager(): FeatureManager {
@@ -278,7 +276,7 @@ class SkinVector22 extends SkinMustache {
 
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
 
-		$hasAddTopicButton = $this->isAddTopicButtonPromotable( $parentData );
+		$hasAddTopicButton = $this->hasAddTopicButton( $parentData );
 
 		$langButtonClass = $langData['class'] ?? '';
 		$ulsLabels = $this->getULSLabels();

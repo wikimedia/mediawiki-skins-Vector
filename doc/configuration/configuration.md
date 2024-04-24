@@ -54,14 +54,6 @@ Do not rely on any of the feature flags documented here. They should not be cons
 
   - Removal ticket: [T428520](https://phabricator.wikimedia.org/T428520)
 
-- wgVectorPromoteAddTopic
-
-  - Determines whether the Add topic feature is promoted in discussions.
-
-  - Default: `false`
-
-  - Removal ticket: [https://phabricator.wikimedia.org/T331312](https://phabricator.wikimedia.org/T331312)
-
 - wgVectorLanguageInMainPageHeader
 
   - Shows language selector beside the main page title.

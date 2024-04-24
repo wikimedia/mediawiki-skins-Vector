@@ -29,7 +29,7 @@ class VectorComponentPageToolbar implements VectorComponent {
 		private readonly FeatureManager $featureManager,
 		private array $portletData,
 		private array $sidebar,
-		private readonly bool $isAddTopicPromoted = false
+		private readonly bool $hasAddTopicButton = false
 	) {
 	}
 
@@ -107,8 +107,8 @@ class VectorComponentPageToolbar implements VectorComponent {
 	 * ensuring only watch, wikilove and bookmark appear
 	 * with icons.
 	 *
-	 * If wgVectorPromoteAddTopic is set the add section item
-	 * is removed at it is being rendered outside the component.
+	 * If present the add section item is removed as it
+	 * is being rendered outside the component.
 	 *
 	 * @param array $viewsData
 	 * @return array
@@ -131,7 +131,7 @@ class VectorComponentPageToolbar implements VectorComponent {
 				'icon' => false,
 			],
 			[
-				'ca-addsection' => $this->isAddTopicPromoted ? false : null,
+				'ca-addsection' => $this->hasAddTopicButton ? false : null,
 				'ca-unwatch' => self::ICON_BUTTON,
 				'ca-watch' => self::ICON_BUTTON,
 				'ca-wikilove' => self::ICON_ONLY_BUTTON,

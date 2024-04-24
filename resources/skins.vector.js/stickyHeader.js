@@ -501,9 +501,8 @@ function makeStickyHeaderFunctional(
 		document.body.classList.remove( STICKY_HEADER_VISIBLE_CLASS );
 		stickyObserver.unobserve( stickyIntersection );
 	};
-	// When VectorPromoteAddTopic is set, #ca-addsection is the link itself
 	/** @type {HTMLElement|null} */
-	const addSection = document.querySelector( '#ca-addsection a' ) || document.querySelector( 'a#ca-addsection' );
+	const addSection = document.querySelector( 'a#ca-addsection' );
 
 	prepareEditIcons(
 		header,
