@@ -570,7 +570,7 @@
 				"logged_out": false,
 				"beta": false
 			},
-			"description": "@var array enables night mode."
+			"description": "@var array enables dark/night mode."
 		},
 		"VectorNightModeOptions": {
 			"value": {
