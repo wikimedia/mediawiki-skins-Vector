@@ -44,13 +44,13 @@
 	"vector-feature-custom-font-size-2-label": "Large",
 	"skin-night-mode-name": "Color",
 	"skin-night-mode-description": "[Experimental version, high likelihood of experiencing issues] Reduces the light emitted by device screens.",
-	"skin-night-mode-0-label": "Day",
-	"skin-night-mode-1-label": "Night",
+	"skin-night-mode-0-label": "Light",
+	"skin-night-mode-1-label": "Dark",
 	"skin-night-mode-2-label": "Automatic",
 	"skin-theme-name": "Color",
 	"skin-theme-description": "[Experimental version, high likelihood of experiencing issues] Reduces the light emitted by device screens.",
-	"skin-theme-day-label": "Day",
-	"skin-theme-night-label": "Night",
+	"skin-theme-day-label": "Light",
+	"skin-theme-night-label": "Dark",
 	"skin-theme-os-label": "Automatic",
 	"skin-theme-exclusion-notice": "This page is always in day mode.",
 	"vector-search-loader": "Loading search suggestions",
@@ -86,5 +86,5 @@
 	"vector-main-menu-unpinned-popup": "The main menu has moved here.",
 	"vector-client-prefs-unpinned-popup": "The appearance menu has moved here.",
 	"vector-2022-beta-preview-label": "Accessibility for Reading (Vector 2022)",
-	"vector-2022-beta-preview-description": "Get early access to the new reading accessibility features, such as typography improvements and night mode."
+	"vector-2022-beta-preview-description": "Get early access to the new reading accessibility features, such as typography improvements and dark mode."
 }
