@@ -58,6 +58,7 @@
 	"skin-theme-day-label": "Dag",
 	"skin-theme-night-label": "Natt",
 	"skin-theme-os-label": "Automatisk",
+	"skin-theme-exclusion-notice": "Denne siden er alltid i dagsmodus.",
 	"vector-search-loader": "Laster søkeforslag",
 	"vector-searchsuggest-containing": "Søk etter sider som inneholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduksjon",

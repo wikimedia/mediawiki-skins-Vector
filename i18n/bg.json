@@ -7,6 +7,7 @@
 			"ShockD",
 			"Spiritia",
 			"StanProg",
+			"Ted Masters",
 			"Termininja"
 		]
 	},
@@ -17,7 +18,7 @@
 	"vector-opt-out-tooltip": "Променете настройките си, за да се върнете към стария вид на облика (Vector legacy)",
 	"vector-action-toggle-sidebar": "Превключване на страничната лента",
 	"vector-languages": "Езици",
-	"vector-language-button-aria-label": "Към на статията на друг език. Налична на {{PLURAL:$1|$1 език|$1 езика}}",
+	"vector-language-button-aria-label": "Към статията на друг език. Налична на {{PLURAL:$1|$1 език|$1 езика}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 език|$1 езика}}",
 	"vector-no-language-button-label": "Добавяне на езици",
 	"vector-no-language-button-aria-label": "Тази статия съществува само на този език. Добавете статията за други езици",

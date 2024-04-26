@@ -72,6 +72,7 @@
 	"vector-feature-custom-font-size-1-label": "Стандартный",
 	"vector-feature-custom-font-size-2-label": "Крупный",
 	"skin-night-mode-name": "Цвет",
+	"skin-night-mode-description": "[Экспериментальная версия, высокая вероятность возникновения проблем] Уменьшает свет, излучаемый экранами устройств.",
 	"skin-night-mode-0-label": "День",
 	"skin-night-mode-1-label": "Ночь",
 	"skin-night-mode-2-label": "Автоматически",

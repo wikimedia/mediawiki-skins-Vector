@@ -3,6 +3,7 @@
 		"authors": [
 			"1233thehongkonger",
 			"Amire80",
+			"Cookai1205",
 			"Cwlin0416",
 			"Diskdance",
 			"Hello903hello",
@@ -63,13 +64,13 @@
 	"vector-feature-custom-font-size-2-label": "大",
 	"skin-night-mode-name": "色彩模式",
 	"skin-night-mode-description": "[實驗版本，遇到問題的可能性高]減少裝置螢幕散發出的光線。",
-	"skin-night-mode-0-label": "日間模式",
-	"skin-night-mode-1-label": "夜間模式",
+	"skin-night-mode-0-label": "淺色模式",
+	"skin-night-mode-1-label": "深色模式",
 	"skin-night-mode-2-label": "自動",
 	"skin-theme-name": "色彩",
 	"skin-theme-description": "[實驗版本，遇到問題的可能性高]減少裝置螢幕散發出的光線。",
-	"skin-theme-day-label": "日間",
-	"skin-theme-night-label": "夜間",
+	"skin-theme-day-label": "淺色",
+	"skin-theme-night-label": "暗黑",
 	"skin-theme-os-label": "自動",
 	"skin-theme-exclusion-notice": "此頁面始終處於日間模式。",
 	"vector-search-loader": "正在載入搜尋建議",
@@ -105,5 +106,5 @@
 	"vector-main-menu-unpinned-popup": "主選單已移到此處。",
 	"vector-client-prefs-unpinned-popup": "外觀選單已移到此處。",
 	"vector-2022-beta-preview-label": "無障礙閱讀（Vector 2022）",
-	"vector-2022-beta-preview-description": "搶先取得新的無障礙閱讀功能，像是排版改善或夜間閱讀模式。"
+	"vector-2022-beta-preview-description": "搶先取得新的無障礙閱讀功能，像是排版改善或深色閱讀模式。"
 }
