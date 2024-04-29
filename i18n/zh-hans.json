@@ -82,13 +82,13 @@
 	"vector-feature-custom-font-size-2-label": "大",
 	"skin-night-mode-name": "颜色模式",
 	"skin-night-mode-description": "[实验版本，遇到问题的可能性很高] 减少设备屏幕发出的光。",
-	"skin-night-mode-0-label": "白天模式",
-	"skin-night-mode-1-label": "夜间模式",
+	"skin-night-mode-0-label": "浅色模式",
+	"skin-night-mode-1-label": "深色模式",
 	"skin-night-mode-2-label": "自动",
 	"skin-theme-name": "颜色",
 	"skin-theme-description": "[实验版本，遇到问题的可能性很高] 减少设备屏幕发出的光。",
-	"skin-theme-day-label": "日间",
-	"skin-theme-night-label": "夜间",
+	"skin-theme-day-label": "浅色",
+	"skin-theme-night-label": "深色",
 	"skin-theme-os-label": "自动",
 	"skin-theme-exclusion-notice": "此页面始终处于日间模式。",
 	"vector-search-loader": "正在加载搜索建议",
@@ -124,5 +124,5 @@
 	"vector-main-menu-unpinned-popup": "主菜单已移至此处。",
 	"vector-client-prefs-unpinned-popup": "外观菜单已移至此处。",
 	"vector-2022-beta-preview-label": "阅读无障碍（Vector 2022）",
-	"vector-2022-beta-preview-description": "抢先使用新的阅读无障碍功能，例如排版改进和夜间模式。"
+	"vector-2022-beta-preview-description": "抢先使用新的阅读无障碍功能，例如排版改进和深色模式。"
 }

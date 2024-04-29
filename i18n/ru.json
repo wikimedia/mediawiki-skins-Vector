@@ -73,13 +73,13 @@
 	"vector-feature-custom-font-size-2-label": "Крупный",
 	"skin-night-mode-name": "Цвет",
 	"skin-night-mode-description": "[Экспериментальная версия, высокая вероятность возникновения проблем] Уменьшает свет, излучаемый экранами устройств.",
-	"skin-night-mode-0-label": "День",
-	"skin-night-mode-1-label": "Ночь",
+	"skin-night-mode-0-label": "Светлый",
+	"skin-night-mode-1-label": "Тёмный",
 	"skin-night-mode-2-label": "Автоматически",
 	"skin-theme-name": "Цвет",
 	"skin-theme-description": "[Экспериментальная версия, высокая вероятность возникновения проблем] Уменьшает свет, излучаемый экранами устройств.",
 	"skin-theme-day-label": "День",
-	"skin-theme-night-label": "Ночь",
+	"skin-theme-night-label": "Тёмный",
 	"skin-theme-os-label": "Автоматически",
 	"skin-theme-exclusion-notice": "Эта страница всегда находится в дневном режиме.",
 	"vector-search-loader": "Загружаются поисковые предложения",
@@ -114,5 +114,6 @@
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
 	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
 	"vector-client-prefs-unpinned-popup": "Меню оформления переехало сюда.",
-	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)"
+	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)",
+	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и темный режим."
 }

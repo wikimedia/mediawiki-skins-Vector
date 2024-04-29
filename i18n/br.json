@@ -50,13 +50,14 @@
 	"vector-feature-custom-font-size-2-label": "Bras",
 	"skin-night-mode-name": "Liv",
 	"skin-night-mode-description": "Bihanaat a ra ar goulou skignet gant skrammoù.",
-	"skin-night-mode-0-label": "Deiz",
-	"skin-night-mode-1-label": "Noz",
+	"skin-night-mode-0-label": "Sklaer",
+	"skin-night-mode-1-label": "Teñval",
 	"skin-night-mode-2-label": "Emgefre",
 	"skin-theme-name": "Liv",
-	"skin-theme-day-label": "Deiz",
-	"skin-theme-night-label": "Noz",
+	"skin-theme-day-label": "Sklaer",
+	"skin-theme-night-label": "Teñval",
 	"skin-theme-os-label": "Emgefreek",
+	"skin-theme-exclusion-notice": "E mod deiz e vez ar bajenn-mañ atav.",
 	"vector-search-loader": "O kargañ alioù klask",
 	"vector-searchsuggest-containing": "Klask pajennoù a zo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> enno",
 	"vector-intro-page": "Help:Introduction",
@@ -90,5 +91,5 @@
 	"vector-main-menu-unpinned-popup": "Lakaet eo bet ar meuziad pennañ amañ.",
 	"vector-client-prefs-unpinned-popup": "Lakaet eo bet ar meuziad tres amañ.",
 	"vector-2022-beta-preview-label": "Diraezusted evit Lenn (Vektor 2022)",
-	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod noz."
+	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod teñval."
 }

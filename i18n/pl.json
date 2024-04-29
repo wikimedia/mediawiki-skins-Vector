@@ -55,13 +55,13 @@
 	"vector-feature-custom-font-size-2-label": "Duży",
 	"skin-night-mode-name": "Motyw kolorystyczny",
 	"skin-night-mode-description": "[Wersja eksperymentalna, występuje duże ryzyko problemów] Redukuje ilość światła emitowaną przez ekran urządzenia.",
-	"skin-night-mode-0-label": "Dzienny",
-	"skin-night-mode-1-label": "Nocny",
+	"skin-night-mode-0-label": "Jasny",
+	"skin-night-mode-1-label": "Ciemny",
 	"skin-night-mode-2-label": "Automatyczny",
 	"skin-theme-name": "Kolor",
 	"skin-theme-description": "[Wersja eksperymentalna, występuje duże ryzyko problemów] Redukuje ilość światła emitowaną przez ekran urządzenia.",
-	"skin-theme-day-label": "Dzień",
-	"skin-theme-night-label": "Nocny",
+	"skin-theme-day-label": "Jasny",
+	"skin-theme-night-label": "Ciemny",
 	"skin-theme-os-label": "Automatyczny",
 	"skin-theme-exclusion-notice": "Ta strona zawsze jest wyświetlana w motywie dziennym.",
 	"vector-search-loader": "Wczytywanie sugestii",
@@ -97,5 +97,5 @@
 	"vector-main-menu-unpinned-popup": "Główne menu zostało przeniesione tutaj.",
 	"vector-client-prefs-unpinned-popup": "Menu wyglądu strony przeniosło się tutaj.",
 	"vector-2022-beta-preview-label": "Ułatwienia czytania (Wektor 2022)",
-	"vector-2022-beta-preview-description": "Uzyskaj wczesny dostęp do nowych ułatwień czytania, takich jak usprawnienia typografii oraz tryb nocny."
+	"vector-2022-beta-preview-description": "Uzyskaj wczesny dostęp do nowych ułatwień czytania, takich jak usprawnienia typografii oraz tryb ciemny."
 }
