@@ -34,7 +34,7 @@
 	"vector-jumptosearch": "Jump to search",
 	"vector-jumptocontent": "Jump to content",
 	"vector-more-actions": "More",
-	"vector-client-prefs-label": "Appearance",
+	"vector-appearance-label": "Appearance",
 	"vector-feature-limited-width-name": "Width",
 	"vector-feature-custom-font-size-name": "Text",
 	"vector-feature-limited-width-0-label": "Wide",
@@ -84,7 +84,7 @@
 	"vector-toc-unpinned-popup": "The table of contents has moved here.",
 	"vector-page-tools-unpinned-popup": "The tools menu has moved here.",
 	"vector-main-menu-unpinned-popup": "The main menu has moved here.",
-	"vector-client-prefs-unpinned-popup": "The appearance menu has moved here.",
+	"vector-appearance-unpinned-popup": "The appearance menu has moved here.",
 	"vector-2022-beta-preview-label": "Accessibility for Reading (Vector 2022)",
 	"vector-2022-beta-preview-description": "Get early access to the new reading accessibility features, such as typography improvements and dark mode."
 }

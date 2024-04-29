@@ -6,9 +6,9 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MessageLocalizer;
 
 /**
- * VectorComponentClientPrefs component
+ * VectorComponentAppearance component
  */
-class VectorComponentClientPrefs implements VectorComponent {
+class VectorComponentAppearance implements VectorComponent {
 
 	/** @var MessageLocalizer */
 	private $localizer;
@@ -17,7 +17,7 @@ class VectorComponentClientPrefs implements VectorComponent {
 	private $isPinned;
 
 	/** @var string */
-	public const ID = 'vector-client-prefs';
+	public const ID = 'vector-appearance';
 
 	/**
 	 * @param MessageLocalizer $localizer
@@ -29,7 +29,7 @@ class VectorComponentClientPrefs implements VectorComponent {
 	) {
 		$this->localizer = $localizer;
 		// FIXME: isPinned is no longer accurate because the appearance menu uses client preferences
-		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_CLIENT_PREFS_PINNED );
+		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_APPEARANCE_PINNED );
 	}
 
 	/**
@@ -44,7 +44,7 @@ class VectorComponentClientPrefs implements VectorComponent {
 			// Name
 			self::ID,
 			// Feature name
-			'client-prefs-pinned'
+			'appearance-pinned'
 		);
 
 		$data = $pinnableElement->getTemplateData() +

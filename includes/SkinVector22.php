@@ -4,8 +4,8 @@ namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Vector\Components\VectorComponentAppearance;
 use MediaWiki\Skins\Vector\Components\VectorComponentButton;
-use MediaWiki\Skins\Vector\Components\VectorComponentClientPrefs;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
@@ -396,8 +396,8 @@ class SkinVector22 extends SkinMustache {
 
 		$isRegistered = $user->isRegistered();
 		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
-		$isClientPreferencesEnabled = $featureManager->isFeatureEnabled(
-			Constants::FEATURE_CLIENT_PREFERENCES,
+		$isAppearanceEnabled = $featureManager->isFeatureEnabled(
+			Constants::FEATURE_APPEARANCE,
 		);
 
 		$components = $tocComponents + [
@@ -469,11 +469,11 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
 			),
-			'data-client-prefs' => $isClientPreferencesEnabled ?
-				new VectorComponentClientPrefs( $localizer, $featureManager ) : null,
-			'data-client-prefs-dropdown' => $isClientPreferencesEnabled ? new VectorComponentDropdown(
-				'vector-client-prefs-dropdown',
-				$this->msg( 'vector-client-prefs-label' )->text(),
+			'data-appearance' => $isAppearanceEnabled ?
+				new VectorComponentAppearance( $localizer, $featureManager ) : null,
+			'data-appearance-dropdown' => $isAppearanceEnabled ? new VectorComponentDropdown(
+				'vector-appearance-dropdown',
+				$this->msg( 'vector-appearance-label' )->text(),
 				'',
 				// @todo: Use new theme icon (T351142)
 				'appearance'
@@ -509,7 +509,7 @@ class SkinVector22 extends SkinMustache {
 				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] )
 			) : null,
 			'data-vector-settings-button' => $featureManager->isFeatureEnabled(
-				Constants::FEATURE_CLIENT_PREFERENCES,
+				Constants::FEATURE_APPEARANCE,
 			) ? null : new VectorComponentButton(
 				$this->msg( 'vector-limited-width-toggle' ),
 				$featureManager->isFeatureEnabled(

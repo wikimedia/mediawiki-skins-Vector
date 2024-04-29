@@ -169,7 +169,7 @@ The following are interface elements or settings that users can customize within
 
 4. Vector Table of Contents (TOC) Pinned (`vector-toc-pinned`): Determines if the user wants the table of contents on the left side to be pinned (visible) on desktop. It can be set to either 1 (pinned) or 0 (not pinned).
 
-5. Vector Client Preferences Pinned (`vector-client-prefs-pinned`): Indicates whether the user wants the client preferences menu to be pinned (visible) on desktop. It can be set to either 1 (pinned) or 0 (not pinned).
+5. Vector Appearance Pinned (`vector-appearance-pinned`): Indicates whether the user wants the appearance menu to be pinned (visible) on desktop. It can be set to either 1 (pinned) or 0 (not pinned).
 
 6. Vector Font Size (`vector-font-size`): Allows the user to select the preferred font size for the Vector. It can be set to 0 for regular, 1 for large, or 2 for x-large.
 

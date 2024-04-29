@@ -21,7 +21,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
-use MediaWiki\Skins\Vector\Components\VectorComponentClientPrefs;
+use MediaWiki\Skins\Vector\Components\VectorComponentAppearance;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWikiUnitTestCase;
 use MessageLocalizer;
@@ -29,9 +29,9 @@ use MessageLocalizer;
 /**
  * @group Vector
  * @group Components
- * @coversDefaultClass \MediaWiki\Skins\Vector\Components\VectorComponentClientPrefs
+ * @coversDefaultClass \MediaWiki\Skins\Vector\Components\VectorComponentAppearance
  */
-class VectorComponentClientPrefsTest extends MediaWikiUnitTestCase {
+class VectorComponentAppearanceTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers ::getTemplateData
@@ -44,15 +44,15 @@ class VectorComponentClientPrefsTest extends MediaWikiUnitTestCase {
 		$featureManager->method( 'isFeatureEnabled' )
 			->willReturn( true );
 
-		// Create a new VectorComponentClientPrefs object
-		$clientPrefs = new VectorComponentClientPrefs( $localizer, $featureManager );
+		// Create a new VectorComponentAppearance object
+		$appearanceMenu = new VectorComponentAppearance( $localizer, $featureManager );
 		// Call the getTemplateData method
-		$actualData = $clientPrefs->getTemplateData();
+		$actualData = $appearanceMenu->getTemplateData();
 
 		// The expected data
 		$expectedData = [
-			// The id is set to 'vector-client-prefs'
-			'id' => 'vector-client-prefs',
+			// The id is set to 'vector-appearance'
+			'id' => 'vector-appearance',
 			// The is-pinned value is true
 			'is-pinned' => true,
 			// The data-pinnable-header array
@@ -67,14 +67,14 @@ class VectorComponentClientPrefsTest extends MediaWikiUnitTestCase {
 				'pin-label' => null,
 				// The unpin-label is null
 				'unpin-label' => null,
-				// The data-pinnable-element-id is set to 'vector-client-prefs'
-				'data-pinnable-element-id' => 'vector-client-prefs',
-				// The data-feature-name is set to 'client-prefs-pinned'
-				'data-feature-name' => 'client-prefs-pinned',
-				// The data-unpinned-container-id is set to 'vector-client-prefs-unpinned-container'
-				'data-unpinned-container-id' => 'vector-client-prefs-unpinned-container',
-				// The data-pinned-container-id is set to 'vector-client-prefs-pinned-container'
-				'data-pinned-container-id' => 'vector-client-prefs-pinned-container',
+				// The data-pinnable-element-id is set to 'vector-appearance'
+				'data-pinnable-element-id' => 'vector-appearance',
+				// The data-feature-name is set to 'appearance-pinned'
+				'data-feature-name' => 'appearance-pinned',
+				// The data-unpinned-container-id is set to 'vector-appearance-unpinned-container'
+				'data-unpinned-container-id' => 'vector-appearance-unpinned-container',
+				// The data-pinned-container-id is set to 'vector-appearance-pinned-container'
+				'data-pinned-container-id' => 'vector-appearance-pinned-container',
 			]
 		];
 
@@ -95,15 +95,15 @@ class VectorComponentClientPrefsTest extends MediaWikiUnitTestCase {
 		$featureManager->method( 'isFeatureEnabled' )
 			->willReturn( false );
 
-		// Create a new VectorComponentClientPrefs object
-		$clientPrefs = new VectorComponentClientPrefs( $localizer, $featureManager );
+		// Create a new VectorComponentAppearance object
+		$clientPrefs = new VectorComponentAppearance( $localizer, $featureManager );
 		// Call the getTemplateData method
 		$actualData = $clientPrefs->getTemplateData();
 
 		// The expected data
 		$expectedData = [
-			// The id is set to 'vector-client-prefs'
-			'id' => 'vector-client-prefs',
+			// The id is set to 'vector-appearance'
+			'id' => 'vector-appearance',
 			// The is-pinned value is false
 			'is-pinned' => false,
 			// The data-pinnable-header array
@@ -118,14 +118,14 @@ class VectorComponentClientPrefsTest extends MediaWikiUnitTestCase {
 				'pin-label' => null,
 				// The unpin-label is null
 				'unpin-label' => null,
-				// The data-pinnable-element-id is set to 'vector-client-prefs'
-				'data-pinnable-element-id' => 'vector-client-prefs',
-				// The data-feature-name is set to 'client-prefs-pinned'
-				'data-feature-name' => 'client-prefs-pinned',
-				// The data-unpinned-container-id is set to 'vector-client-prefs-unpinned-container'
-				'data-unpinned-container-id' => 'vector-client-prefs-unpinned-container',
-				// The data-pinned-container-id is set to 'vector-client-prefs-pinned-container'
-				'data-pinned-container-id' => 'vector-client-prefs-pinned-container',
+				// The data-pinnable-element-id is set to 'vector-appearance'
+				'data-pinnable-element-id' => 'vector-appearance',
+				// The data-feature-name is set to 'appearance-pinned'
+				'data-feature-name' => 'appearance-pinned',
+				// The data-unpinned-container-id is set to 'vector-appearance-unpinned-container'
+				'data-unpinned-container-id' => 'vector-appearance-unpinned-container',
+				// The data-pinned-container-id is set to 'vector-appearance-pinned-container'
+				'data-pinned-container-id' => 'vector-appearance-pinned-container',
 			]
 		];
 

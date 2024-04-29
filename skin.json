@@ -102,7 +102,7 @@
 						"views",
 						"vector-page-tools-nav-label",
 						"empty-language-selector-body",
-						"vector-client-prefs-label"
+						"vector-appearance-label"
 					]
 				}
 			]
@@ -174,7 +174,7 @@
 		"vector-page-tools-pinned": 1,
 		"vector-main-menu-pinned": 1,
 		"vector-toc-pinned": 1,
-		"vector-client-prefs-pinned": 1,
+		"vector-appearance-pinned": 1,
 		"vector-font-size": 0,
 		"vector-theme": "os"
 	},
@@ -478,7 +478,7 @@
 				"vector-toc-unpinned-popup",
 				"vector-page-tools-unpinned-popup",
 				"vector-main-menu-unpinned-popup",
-				"vector-client-prefs-unpinned-popup"
+				"vector-appearance-unpinned-popup"
 			]
 		},
 		"skins.vector.legacy.js": {
@@ -586,7 +586,7 @@
 			},
 			"description": "@var array determines which pages are compatible with night mode"
 		},
-		"VectorClientPreferences": {
+		"VectorAppearance": {
 			"value": {
 				"logged_in": false,
 				"logged_out": false,
