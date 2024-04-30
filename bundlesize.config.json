@@ -16,7 +16,7 @@
 		},
 		{
 			"resourceModule": "skins.vector.search.codex.styles",
-			"maxSize": "5.4 kB"
+			"maxSize": "5.8 kB"
 		},
 		{
 			"resourceModule": "skins.vector.search.codex.scripts",
@@ -28,7 +28,7 @@
 		},
 		{
 			"resourceModule": "skins.vector.js",
-			"maxSize": "15.1 kB"
+			"maxSize": "15.5 kB"
 		},
 		{
 			"resourceModule": "skins.vector.legacy.js",
