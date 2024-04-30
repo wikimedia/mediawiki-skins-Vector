@@ -48,7 +48,7 @@
 	"vector-jumptosearch": "অনুসন্ধানে চলুন",
 	"vector-jumptocontent": "বিষয়বস্তুতে চলুন",
 	"vector-more-actions": "আরও",
-	"vector-client-prefs-label": "অবয়ব",
+	"vector-appearance-label": "অবয়ব",
 	"vector-feature-limited-width-name": "প্রস্থ",
 	"vector-feature-custom-font-size-name": "অক্ষর",
 	"vector-feature-limited-width-0-label": "চওড়া",
@@ -96,7 +96,7 @@
 	"vector-toc-unpinned-popup": "সূচিপত্র এখানে স্থানান্তরিত হয়েছে।",
 	"vector-page-tools-unpinned-popup": "সরঞ্জামের মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।",
-	"vector-client-prefs-unpinned-popup": "অবয়ব মেনু এখানে স্থানান্তরিত হয়েছে।",
+	"vector-appearance-unpinned-popup": "অবয়ব মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টর ২০২২)",
 	"vector-2022-beta-preview-description": "নতুন ভেক্টর ২০২২-এর বৈশিষ্ট্যগুলির প্রাকদর্শন সবার আগে পান।"
 }

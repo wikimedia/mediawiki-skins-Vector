@@ -35,7 +35,7 @@
 	"vector-jumptosearch": "Nenda kwa kutafuta",
 	"vector-jumptocontent": "Nenda kwa yaliyomo",
 	"vector-more-actions": "Zaidi",
-	"vector-client-prefs-label": "Mandhari",
+	"vector-appearance-label": "Mandhari",
 	"vector-feature-limited-width-name": "Upana",
 	"vector-feature-limited-width-0-label": "Pana",
 	"vector-feature-limited-width-1-label": "Kawaida",
@@ -63,5 +63,5 @@
 	"vector-toc-unpinned-popup": "Sehemu ya yaliyomo imehamia hapa.",
 	"vector-page-tools-unpinned-popup": "Menyu ya zana imehamia hapa.",
 	"vector-main-menu-unpinned-popup": "Menyu kuu imehamia hapa.",
-	"vector-client-prefs-unpinned-popup": "Menyu ya mandhari imehamia hapa."
+	"vector-appearance-unpinned-popup": "Menyu ya mandhari imehamia hapa."
 }

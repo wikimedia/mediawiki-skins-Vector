@@ -38,7 +38,7 @@
 	"vector-jumptosearch": "Прејди на пребарувањето",
 	"vector-jumptocontent": "Прејди на содржината",
 	"vector-more-actions": "Повеќе",
-	"vector-client-prefs-label": "Изглед",
+	"vector-appearance-label": "Изглед",
 	"vector-feature-limited-width-name": "Ширина",
 	"vector-feature-custom-font-size-name": "Текст",
 	"vector-feature-limited-width-0-label": "Ширина",
@@ -88,7 +88,7 @@
 	"vector-toc-unpinned-popup": "Прегледот на содржината е преместен овде.",
 	"vector-page-tools-unpinned-popup": "Алатникот е преместен овде.",
 	"vector-main-menu-unpinned-popup": "Главното мени е преместено овде.",
-	"vector-client-prefs-unpinned-popup": "Менито за изглед е преместено овде.",
+	"vector-appearance-unpinned-popup": "Менито за изглед е преместено овде.",
 	"vector-2022-beta-preview-label": "Олеснето читање (Векторско 2022)",
 	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и ноќен режим."
 }

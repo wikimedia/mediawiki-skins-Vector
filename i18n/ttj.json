@@ -31,7 +31,7 @@
 	"vector-jumptosearch": "Gurukira ekiserra",
 	"vector-jumptocontent": "Gurukira ebirumu",
 	"vector-more-actions": "Muno",
-	"vector-client-prefs-label": "Enzooka",
+	"vector-appearance-label": "Enzooka",
 	"vector-feature-limited-width-name": "Obugazi",
 	"vector-feature-custom-font-size-name": "Ebihandiikwa",
 	"vector-feature-limited-width-0-label": "Galihya",
@@ -79,7 +79,7 @@
 	"vector-toc-unpinned-popup": "Orukarra rw'ebirumu rwihirwe hanu.",
 	"vector-page-tools-unpinned-popup": "Orukarra rw'ebikwato rwihirwe hanu.",
 	"vector-main-menu-unpinned-popup": "Orukarra rw'emirimo orukuru rwihirwe hanu.",
-	"vector-client-prefs-unpinned-popup": "Orukarra rw'enzooka rwihirwe hanu.",
+	"vector-appearance-unpinned-popup": "Orukarra rw'enzooka rwihirwe hanu.",
 	"vector-2022-beta-preview-label": "Obutungibwa bw'Okusoma (Vekitoli 2022)",
 	"vector-2022-beta-preview-description": "Tunga kara amasobozi amahyaka g'obutungibwa bw'okusoma, nk'enkiza z'okuhandiika n'omulingo gw'ekiro."
 }

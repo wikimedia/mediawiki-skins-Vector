@@ -39,7 +39,7 @@
 	"vector-jumptosearch": "Saltar á procura",
 	"vector-jumptocontent": "Saltar ao contido",
 	"vector-more-actions": "Máis",
-	"vector-client-prefs-label": "Aparencia",
+	"vector-appearance-label": "Aparencia",
 	"vector-feature-limited-width-name": "Ancho",
 	"vector-feature-custom-font-size-name": "Texto",
 	"vector-feature-limited-width-0-label": "Ancho",
@@ -89,7 +89,7 @@
 	"vector-toc-unpinned-popup": "O índice trasladouse aquí.",
 	"vector-page-tools-unpinned-popup": "O menú de ferramentas trasladouse aquí.",
 	"vector-main-menu-unpinned-popup": "O menú principal trasladouse aquí.",
-	"vector-client-prefs-unpinned-popup": "O menú de aparencia trasladouse aquí.",
+	"vector-appearance-unpinned-popup": "O menú de aparencia trasladouse aquí.",
 	"vector-2022-beta-preview-label": "Accesibilidade para a lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtén acceso anticipado ás novas funcións de accesibilidade para a lectura, como melloras na tipografía e o modo nocturno."
 }

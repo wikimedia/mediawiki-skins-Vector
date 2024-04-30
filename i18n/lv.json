@@ -32,7 +32,7 @@
 	"vector-jumptosearch": "Pāriet uz meklēšanu",
 	"vector-jumptocontent": "Pāriet uz saturu",
 	"vector-more-actions": "Vairāk",
-	"vector-client-prefs-label": "Izskats",
+	"vector-appearance-label": "Izskats",
 	"vector-feature-limited-width-name": "Platums",
 	"vector-feature-custom-font-size-name": "Teksts",
 	"vector-feature-limited-width-0-label": "Plats",
@@ -80,5 +80,5 @@
 	"vector-toc-unpinned-popup": "Satura rādītājs ir pārvietots uz šejieni.",
 	"vector-page-tools-unpinned-popup": "Rīku izvēlne ir pārvietota šeit.",
 	"vector-main-menu-unpinned-popup": "Galvenā izvēlne ir pārvietota uz šejieni.",
-	"vector-client-prefs-unpinned-popup": "Izskata izvēlne ir pārvietota šeit."
+	"vector-appearance-unpinned-popup": "Izskata izvēlne ir pārvietota šeit."
 }

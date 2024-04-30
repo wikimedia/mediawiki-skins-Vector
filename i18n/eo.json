@@ -42,7 +42,7 @@
 	"vector-jumptosearch": "Salti al serĉilo",
 	"vector-jumptocontent": "Saltu al enhavo",
 	"vector-more-actions": "Pli",
-	"vector-client-prefs-label": "Etoso",
+	"vector-appearance-label": "Etoso",
 	"vector-feature-limited-width-name": "Larĝeco",
 	"vector-feature-custom-font-size-name": "Teksto",
 	"vector-feature-limited-width-0-label": "Larĝa",
@@ -81,7 +81,7 @@
 	"vector-toc-unpinned-popup": "La enhavotablo estis movita ĉi tien.",
 	"vector-page-tools-unpinned-popup": "La menuo de iloj estis movita ĉi tien.",
 	"vector-main-menu-unpinned-popup": "La ĉefa menuo estis movita ĉi tien.",
-	"vector-client-prefs-unpinned-popup": "La aspekto-menuo estis movita ĉi tien.",
+	"vector-appearance-unpinned-popup": "La aspekto-menuo estis movita ĉi tien.",
 	"vector-2022-beta-preview-label": "Alirebleco por Legado (Vektoro 2022)",
 	"vector-2022-beta-preview-description": "Akiru fruan aliron al la novaj lego-alireblecoj, kiel ekzemple tipografiaj plibonigoj kaj nokta modo."
 }

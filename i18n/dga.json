@@ -36,7 +36,7 @@
 	"vector-jumptosearch": "Vare le weɛre bɔ",
 	"vector-jumptocontent": "Vare le yelbulo",
 	"vector-more-actions": "Yaga",
-	"vector-client-prefs-label": "Yelnyɔgeraa",
+	"vector-appearance-label": "Yelnyɔgeraa",
 	"vector-feature-limited-width-name": "Fɔɔlaa yaloŋ",
 	"vector-feature-custom-font-size-name": "Sɛgere",
 	"vector-feature-limited-width-0-label": "Yaloŋ",
@@ -75,7 +75,7 @@
 	"vector-toc-unpinned-popup": "A yelbulo tabol tage wa la kyɛ.",
 	"vector-page-tools-unpinned-popup": "A tontoŋ boma mɛnu tage wa la kyɛ.",
 	"vector-main-menu-unpinned-popup": "A yelzu niŋe tage wa la kyɛ.",
-	"vector-client-prefs-unpinned-popup": "A mɛnu saanaa tage wa la kyɛ.",
+	"vector-appearance-unpinned-popup": "A mɛnu saanaa tage wa la kyɛ.",
 	"vector-2022-beta-preview-label": "Vuo nyaabo ko kannoo (Vector 2022)",
 	"vector-2022-beta-preview-description": "Nyɛ vuo wieoŋ ko a kannoo vuo nyɛraa paalaa nandaare, a seŋ topogyerefi baabo ane yinsoga moodi."
 }

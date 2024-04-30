@@ -50,7 +50,7 @@
 	"vector-jumptosearch": "검색으로 이동",
 	"vector-jumptocontent": "본문으로 이동",
 	"vector-more-actions": "더 보기",
-	"vector-client-prefs-label": "보이기",
+	"vector-appearance-label": "보이기",
 	"vector-feature-limited-width-name": "너비",
 	"vector-feature-custom-font-size-name": "텍스트",
 	"vector-feature-limited-width-0-label": "넓게",
@@ -100,7 +100,7 @@
 	"vector-toc-unpinned-popup": "목차가 여기로 이동되었습니다.",
 	"vector-page-tools-unpinned-popup": "도구 메뉴가 여기로 이동되었습니다.",
 	"vector-main-menu-unpinned-popup": "주 메뉴가 여기로 이동되었습니다.",
-	"vector-client-prefs-unpinned-popup": "보이기 메뉴는 이곳으로 이동되었습니다.",
+	"vector-appearance-unpinned-popup": "보이기 메뉴는 이곳으로 이동되었습니다.",
 	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)",
 	"vector-2022-beta-preview-description": "타이포그래피 개선 및 나이트 모드 등 새로운 읽기 접근 기능을 미리 사용합니다."
 }

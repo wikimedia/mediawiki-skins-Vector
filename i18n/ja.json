@@ -63,7 +63,7 @@
 	"vector-jumptosearch": "検索に移動",
 	"vector-jumptocontent": "コンテンツにスキップ",
 	"vector-more-actions": "その他",
-	"vector-client-prefs-label": "表示",
+	"vector-appearance-label": "表示",
 	"vector-feature-limited-width-name": "幅",
 	"vector-feature-custom-font-size-name": "テキスト",
 	"vector-feature-limited-width-0-label": "広め",
@@ -112,7 +112,7 @@
 	"vector-toc-unpinned-popup": "目次はここに移動しました。",
 	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。",
 	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。",
-	"vector-client-prefs-unpinned-popup": "外観メニューはこちらに移動しました。",
+	"vector-appearance-unpinned-popup": "外観メニューはこちらに移動しました。",
 	"vector-2022-beta-preview-label": "閲覧アクセス性の向上（2022年版ベクター）",
 	"vector-2022-beta-preview-description": "タイポグラフィの改善やナイトモードなど、新しい閲覧アクセス性向上機能を早期にご活用いただけます。"
 }

@@ -38,7 +38,7 @@
 	"vector-jumptosearch": "Излеуге кёч",
 	"vector-jumptocontent": "Контентге кёч",
 	"vector-more-actions": "Энтда",
-	"vector-client-prefs-label": "Кёрюнюую",
+	"vector-appearance-label": "Кёрюнюую",
 	"vector-feature-limited-width-name": "Кенглик",
 	"vector-feature-custom-font-size-name": "Текст",
 	"vector-feature-limited-width-0-label": "Кенг",
@@ -87,7 +87,7 @@
 	"vector-toc-unpinned-popup": "Ичиндегиле былайгъа ташылдыла",
 	"vector-page-tools-unpinned-popup": "Адырланы менюсу былайгъа ташылды",
 	"vector-main-menu-unpinned-popup": "Баш меню былайгъа ташылды",
-	"vector-client-prefs-unpinned-popup": "Кёрюнюмню джасау меню былайгъа кёчдю.",
+	"vector-appearance-unpinned-popup": "Кёрюнюмню джасау меню былайгъа кёчдю.",
 	"vector-2022-beta-preview-label": "Окъургъа таблыкълы (Вектор 2022)",
 	"vector-2022-beta-preview-description": "Окъургъа таблыкъланы берген, сёз ючюн басымны маджаллашдырыу эмда кечеги режим кибик, джангы функциялагъа эртде амал алыгъыз."
 }

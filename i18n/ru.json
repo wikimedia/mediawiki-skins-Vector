@@ -63,7 +63,7 @@
 	"vector-jumptosearch": "Перейти к поиску",
 	"vector-jumptocontent": "Перейти к содержанию",
 	"vector-more-actions": "Ещё",
-	"vector-client-prefs-label": "Внешний вид",
+	"vector-appearance-label": "Внешний вид",
 	"vector-feature-limited-width-name": "Ширина",
 	"vector-feature-custom-font-size-name": "Текст",
 	"vector-feature-limited-width-0-label": "Широко",
@@ -113,7 +113,7 @@
 	"vector-toc-unpinned-popup": "Содержание перенесено сюда.",
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
 	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
-	"vector-client-prefs-unpinned-popup": "Меню оформления переехало сюда.",
+	"vector-appearance-unpinned-popup": "Меню оформления переехало сюда.",
 	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)",
 	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и темный режим."
 }

@@ -42,7 +42,7 @@
 	"vector-jumptosearch": "ძიებაზე გადასვლა",
 	"vector-jumptocontent": "შინაარსზე გადასვლა",
 	"vector-more-actions": "მეტი",
-	"vector-client-prefs-label": "თემა",
+	"vector-appearance-label": "თემა",
 	"vector-feature-limited-width-name": "სიგანე",
 	"vector-feature-custom-font-size-name": "ტექსტი",
 	"vector-feature-limited-width-0-label": "განიერი",
@@ -81,7 +81,7 @@
 	"vector-toc-unpinned-popup": "სარჩევი აქ გადმოვიდა.",
 	"vector-page-tools-unpinned-popup": "ხელსაწყოების მენიუ აქ გადმოვიდა.",
 	"vector-main-menu-unpinned-popup": "მთავარი მენიუ აქ გადმოვიდა.",
-	"vector-client-prefs-unpinned-popup": "იერსახის მენიუ აქ გადმოვიდა.",
+	"vector-appearance-unpinned-popup": "იერსახის მენიუ აქ გადმოვიდა.",
 	"vector-2022-beta-preview-label": "წაკითხვის ხელმისაწვდომობა (ვექტორული 2022)",
 	"vector-2022-beta-preview-description": "ვექტორული იერსახის (2022) წაკითხვის ხელმისაწვდომობის ახალ ფუნქციებზე ადრეული წვდომის მიღება. ამ ფუნქციებს შორისაა ტიპოგრაფიის გაუმჯობესებები და ბნელი რეჟიმი."
 }

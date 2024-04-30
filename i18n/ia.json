@@ -34,7 +34,7 @@
 	"vector-jumptosearch": "Saltar al recerca",
 	"vector-jumptocontent": "Saltar al contento",
 	"vector-more-actions": "Plus",
-	"vector-client-prefs-label": "Apparentia",
+	"vector-appearance-label": "Apparentia",
 	"vector-feature-limited-width-name": "Latitude",
 	"vector-feature-custom-font-size-name": "Texto",
 	"vector-feature-limited-width-0-label": "Large",
@@ -84,7 +84,7 @@
 	"vector-toc-unpinned-popup": "Le tabula de contento ha essite displaciate hic.",
 	"vector-page-tools-unpinned-popup": "Le menu de utensiles ha essite displaciate hic.",
 	"vector-main-menu-unpinned-popup": "Le menu principal ha essite displaciate hic.",
-	"vector-client-prefs-unpinned-popup": "Le menu de apparentia ha essite displaciate hic.",
+	"vector-appearance-unpinned-popup": "Le menu de apparentia ha essite displaciate hic.",
 	"vector-2022-beta-preview-label": "Accessibilitate pro le lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtene accesso anticipate al nove functiones de accessibilitate de lectura, como meliorationes de typographia e le modo obscur."
 }

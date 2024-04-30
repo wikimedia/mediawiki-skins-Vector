@@ -46,7 +46,7 @@
 	"vector-jumptosearch": "Hoppa till sök",
 	"vector-jumptocontent": "Hoppa till innehållet",
 	"vector-more-actions": "Mer",
-	"vector-client-prefs-label": "Utseende",
+	"vector-appearance-label": "Utseende",
 	"vector-feature-limited-width-name": "Bredd",
 	"vector-feature-custom-font-size-name": "Text",
 	"vector-feature-limited-width-0-label": "Bred",
@@ -90,7 +90,7 @@
 	"vector-toc-unpinned-popup": "Innehållsförteckningen har flyttats hit.",
 	"vector-page-tools-unpinned-popup": "Verktygsmenyn har flyttats hit.",
 	"vector-main-menu-unpinned-popup": "Huvudmenyn har flyttats hit.",
-	"vector-client-prefs-unpinned-popup": "Utseendemenyn har flyttats hit.",
+	"vector-appearance-unpinned-popup": "Utseendemenyn har flyttats hit.",
 	"vector-2022-beta-preview-label": "Tillgänglighet för läsning (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Få tidig åtkomst till nya tillgänglighetsfunktioner, som typografiförbättringar och nattläge."
 }

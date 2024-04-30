@@ -41,7 +41,7 @@
 	"vector-jumptosearch": "Sari la căutare",
 	"vector-jumptocontent": "Sari la conținut",
 	"vector-more-actions": "Mai mult",
-	"vector-client-prefs-label": "Temă",
+	"vector-appearance-label": "Temă",
 	"vector-feature-limited-width-name": "Lățime",
 	"vector-feature-custom-font-size-name": "Text",
 	"vector-feature-limited-width-0-label": "Lat",
@@ -77,7 +77,7 @@
 	"vector-toc-unpinned-popup": "Cuprinsul a fost mutat aici.",
 	"vector-page-tools-unpinned-popup": "Meniul uneltelor a fost mutat aici.",
 	"vector-main-menu-unpinned-popup": "Meniul principal a fost mutat aici.",
-	"vector-client-prefs-unpinned-popup": "Meniul aspectului a fost mutat aici.",
+	"vector-appearance-unpinned-popup": "Meniul aspectului a fost mutat aici.",
 	"vector-2022-beta-preview-label": "Accesibilitate pentru lectură (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obțineți acces timpuri la noile funcții de accesibilitate a lecturii, precum îmbunătățiri ale tipografiei și mod de noapte."
 }

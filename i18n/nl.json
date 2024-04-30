@@ -46,7 +46,7 @@
 	"vector-jumptosearch": "Naar zoeken springen",
 	"vector-jumptocontent": "Naar inhoud springen",
 	"vector-more-actions": "Meer",
-	"vector-client-prefs-label": "Uiterlijk",
+	"vector-appearance-label": "Uiterlijk",
 	"vector-feature-limited-width-name": "Paginabreedte",
 	"vector-feature-custom-font-size-name": "Tekst",
 	"vector-feature-limited-width-0-label": "Breed",
@@ -83,7 +83,7 @@
 	"vector-toc-unpinned-popup": "De inhoudsopgave is hierheen verplaatst.",
 	"vector-page-tools-unpinned-popup": "Het menu met hulpmiddelen is hierheen verplaatst.",
 	"vector-main-menu-unpinned-popup": "Het hoofdmenu is hierheen verplaatst.",
-	"vector-client-prefs-unpinned-popup": "Het weergavemenu is hierheen verplaatst.",
+	"vector-appearance-unpinned-popup": "Het weergavemenu is hierheen verplaatst.",
 	"vector-2022-beta-preview-label": "Leestoegankelijkheid (Vector 2022)",
 	"vector-2022-beta-preview-description": "Krijg vroegtijdig toegang tot nieuwe leestoegankelijkheid-functies, zoals verbeteringen in de typografie en nachtmodus."
 }

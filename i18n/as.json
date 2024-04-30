@@ -40,7 +40,7 @@
 	"vector-jumptosearch": "সন্ধানলৈ যাওক",
 	"vector-jumptocontent": "সমললৈ যাওক",
 	"vector-more-actions": "অধিক",
-	"vector-client-prefs-label": "অৱয়ব",
+	"vector-appearance-label": "অৱয়ব",
 	"vector-feature-limited-width-name": "প্ৰস্থ",
 	"vector-feature-custom-font-size-name": "পাঠ্য",
 	"vector-feature-limited-width-0-label": "বহল",
@@ -88,7 +88,7 @@
 	"vector-toc-unpinned-popup": "সূচী ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-page-tools-unpinned-popup": "সঁজুলিৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-main-menu-unpinned-popup": "মুখ্য মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
-	"vector-client-prefs-unpinned-popup": "অৱয়বৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
+	"vector-appearance-unpinned-popup": "অৱয়বৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টৰ ২০২২)",
 	"vector-2022-beta-preview-description": "নতুন পঠন অভিগম্যতা বৈশিষ্ট্যসমূহৰ, যেনে টাইপোগ্ৰাফীৰ উন্নতিসমূহ আৰু নাইট মোড, পূৰ্বদৰ্শন লাভ কৰক।"
 }

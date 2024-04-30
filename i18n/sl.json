@@ -40,7 +40,7 @@
 	"vector-jumptosearch": "Pojdi na iskanje",
 	"vector-jumptocontent": "Pojdi na vsebino",
 	"vector-more-actions": "Več",
-	"vector-client-prefs-label": "Videz",
+	"vector-appearance-label": "Videz",
 	"vector-feature-limited-width-name": "Širina",
 	"vector-feature-custom-font-size-name": "Besedilo",
 	"vector-feature-limited-width-0-label": "Celotna širina",
@@ -80,7 +80,7 @@
 	"vector-toc-unpinned-popup": "Kazalo se je preselilo sem.",
 	"vector-page-tools-unpinned-popup": "Meni orodij se je preselil sem.",
 	"vector-main-menu-unpinned-popup": "Glavni meni se je preselil sem.",
-	"vector-client-prefs-unpinned-popup": "Meni videza se je preselil sem.",
+	"vector-appearance-unpinned-popup": "Meni videza se je preselil sem.",
 	"vector-2022-beta-preview-label": "Dostopnost za branje (Vector 2022)",
 	"vector-2022-beta-preview-description": "Pridobite zgodnji dostop do novih možnosti za bralno dostopnost, kot so izboljšave tipografije in nočni način."
 }

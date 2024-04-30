@@ -60,7 +60,7 @@
 	"vector-jumptosearch": "Aller à la recherche",
 	"vector-jumptocontent": "Aller au contenu",
 	"vector-more-actions": "Plus",
-	"vector-client-prefs-label": "Apparence",
+	"vector-appearance-label": "Apparence",
 	"vector-feature-limited-width-name": "Largeur",
 	"vector-feature-custom-font-size-name": "Taille du texte",
 	"vector-feature-limited-width-0-label": "Large",
@@ -109,7 +109,7 @@
 	"vector-toc-unpinned-popup": "La table des matières a été déplacée ici.",
 	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
 	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici.",
-	"vector-client-prefs-unpinned-popup": "Le menu d'apparence a été déplacé ici.",
+	"vector-appearance-unpinned-popup": "Le menu d'apparence a été déplacé ici.",
 	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vecteur 2022)",
 	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode sombre."
 }

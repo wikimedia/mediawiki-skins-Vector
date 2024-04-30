@@ -30,7 +30,7 @@
 	"vector-jumptosearch": "ရှာဖွေရန် ခုန်ကူးမည်",
 	"vector-jumptocontent": "မာတိကာသို့ ခုန်သွားရန်",
 	"vector-more-actions": "ပို၍",
-	"vector-client-prefs-label": "ပုံပန်းသွင်ပြင်",
+	"vector-appearance-label": "ပုံပန်းသွင်ပြင်",
 	"vector-feature-limited-width-name": "အလျား",
 	"vector-feature-custom-font-size-name": "စာသား",
 	"vector-feature-limited-width-1-label": "စံ",
@@ -65,5 +65,5 @@
 	"vector-toc-unpinned-popup": "မာတိကာကို ဤနေရာတွင် ရွှေ့ထားသည်။",
 	"vector-page-tools-unpinned-popup": "ကိရိယာမီနူးကို ဤနေရာတွင် ရွှေ့ထားသည်။",
 	"vector-main-menu-unpinned-popup": "ပင်မမီနူးကို ဤနေရာတွင် ရွှေ့ထားသည်။",
-	"vector-client-prefs-unpinned-popup": "အသွင်အပြင် မီနူးကို ဤနေရာတွင် ရွှေ့ထားသည်။"
+	"vector-appearance-unpinned-popup": "အသွင်အပြင် မီနူးကို ဤနေရာတွင် ရွှေ့ထားသည်။"
 }

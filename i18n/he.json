@@ -37,7 +37,7 @@
 	"vector-jumptosearch": "קפיצה לחיפוש",
 	"vector-jumptocontent": "לדלג לתוכן",
 	"vector-more-actions": "עוד",
-	"vector-client-prefs-label": "מראה",
+	"vector-appearance-label": "מראה",
 	"vector-feature-limited-width-name": "רוחב",
 	"vector-feature-custom-font-size-name": "טקסט",
 	"vector-feature-limited-width-0-label": "רחב",
@@ -87,7 +87,7 @@
 	"vector-toc-unpinned-popup": "תוכן העניינים הועבר לכאן.",
 	"vector-page-tools-unpinned-popup": "תפריט הכלים הועבר לכאן.",
 	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן.",
-	"vector-client-prefs-unpinned-popup": "תפריט המראה הועבר לכאן.",
+	"vector-appearance-unpinned-popup": "תפריט המראה הועבר לכאן.",
 	"vector-2022-beta-preview-label": "נגישות לקריאה (וקטור 2022)",
 	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב חשוך."
 }

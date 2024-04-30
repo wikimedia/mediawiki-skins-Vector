@@ -45,7 +45,7 @@
 	"vector-jumptosearch": "Axtarışa keç",
 	"vector-jumptocontent": "Məzmuna keç",
 	"vector-more-actions": "Daha çox",
-	"vector-client-prefs-label": "Görünüş",
+	"vector-appearance-label": "Görünüş",
 	"vector-feature-limited-width-name": "Genişlik",
 	"vector-feature-custom-font-size-name": "Mətn",
 	"vector-feature-limited-width-0-label": "Sıx",
@@ -95,7 +95,7 @@
 	"vector-toc-unpinned-popup": "Mündəricat bura köçürülüb.",
 	"vector-page-tools-unpinned-popup": "Alətlər menyusu bura köçürülüb.",
 	"vector-main-menu-unpinned-popup": "Əsas menyu bura köçürülüb.",
-	"vector-client-prefs-unpinned-popup": "Görünüş menyusu bura köçürülüb.",
+	"vector-appearance-unpinned-popup": "Görünüş menyusu bura köçürülüb.",
 	"vector-2022-beta-preview-label": "Oxumaq üçün əlçatanlıq (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Tipoqrafiya təkmilləşdirmələri və gecə rejimi kimi yeni əlçatanlıq xüsusiyyətlərinə erkən giriş əldə edin."
 }

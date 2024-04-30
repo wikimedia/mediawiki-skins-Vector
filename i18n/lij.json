@@ -35,7 +35,7 @@
 	"vector-jumptosearch": "Sâta a-a çèrchia",
 	"vector-jumptocontent": "Sâta a-o contegnûo",
 	"vector-more-actions": "Âtro",
-	"vector-client-prefs-label": "Câa",
+	"vector-appearance-label": "Câa",
 	"vector-feature-limited-width-name": "Larghéssa",
 	"vector-feature-custom-font-size-name": "Scrîto",
 	"vector-feature-limited-width-0-label": "Làrgo",
@@ -79,7 +79,7 @@
 	"vector-toc-unpinned-popup": "A tabélla di contegnûi a l'é stæta mesciâ chi.",
 	"vector-page-tools-unpinned-popup": "O menù di struménti o l'é stæto mesciòu chi.",
 	"vector-main-menu-unpinned-popup": "O menù prinçipâ o l'é stæto mesciòu chi.",
-	"vector-client-prefs-unpinned-popup": "O menù da câa o l'é stæto mesciòu chi.",
+	"vector-appearance-unpinned-popup": "O menù da câa o l'é stæto mesciòu chi.",
 	"vector-2022-beta-preview-label": "Acescibilitæ pi-â letûa (Vector 2022)",
 	"vector-2022-beta-preview-description": "Òtegnî in antìçipo e nêuve fonçionalitæ de acescibilitæ  a-a letûa, cómme i megioaménti tipogràfichi e a modalitæ néutte."
 }

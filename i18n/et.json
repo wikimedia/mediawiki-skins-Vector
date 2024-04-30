@@ -38,7 +38,7 @@
 	"vector-jumptosearch": "Mine otsikasti",
 	"vector-jumptocontent": "Mine sisu juurde",
 	"vector-more-actions": "Veel",
-	"vector-client-prefs-label": "Ilme",
+	"vector-appearance-label": "Ilme",
 	"vector-feature-limited-width-name": "Laius",
 	"vector-feature-custom-font-size-name": "Tekst",
 	"vector-feature-limited-width-0-label": "Lai",
@@ -81,7 +81,7 @@
 	"vector-toc-unpinned-popup": "Sisukord on liigutatud siia.",
 	"vector-page-tools-unpinned-popup": "Tööriistade menüü on liigutatud siia.",
 	"vector-main-menu-unpinned-popup": "Peamenüü on liigutatud siia.",
-	"vector-client-prefs-unpinned-popup": "Kujunduse menüü on liigutatud siia.",
+	"vector-appearance-unpinned-popup": "Kujunduse menüü on liigutatud siia.",
 	"vector-2022-beta-preview-label": "Lugemise hõlbustamine (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Ole esimeste seas, kes kasutavad uusi lugemise hõlbustamise vahendeid nagu täiustatud tüpograafiasätted ja öörežiim."
 }

@@ -43,7 +43,7 @@
 	"vector-jumptosearch": "ਸਰਚ ਤੇ ਜਾਓ",
 	"vector-jumptocontent": "ਸਮੱਗਰੀ 'ਤੇ ਜਾਓ",
 	"vector-more-actions": "ਹੋਰ",
-	"vector-client-prefs-label": "ਦਿੱਖ",
+	"vector-appearance-label": "ਦਿੱਖ",
 	"vector-feature-limited-width-name": "ਚੌੜਾਈ",
 	"vector-feature-custom-font-size-name": "ਲਿਖਤ",
 	"vector-feature-limited-width-0-label": "ਚੌੜਾ",
@@ -92,7 +92,7 @@
 	"vector-toc-unpinned-popup": "ਸਮੱਗਰੀ ਦੀ ਸਾਰਣੀ ਇੱਥੇ ਚਲੀ ਗਈ ਹੈ।",
 	"vector-page-tools-unpinned-popup": "ਟੂਲਸ ਮੇਨੂ ਇੱਥੇ ਚਲਾ ਗਿਆ ਹੈ।",
 	"vector-main-menu-unpinned-popup": "ਮੁੱਖ ਮੇਨੂ ਇੱਥੇ ਚਲਾ ਗਿਆ ਹੈ।",
-	"vector-client-prefs-unpinned-popup": "ਦਿੱਖ ਮੇਨੂ ਇੱਥੇ ਚਲਾ ਗਿਆ ਹੈ।",
+	"vector-appearance-unpinned-popup": "ਦਿੱਖ ਮੇਨੂ ਇੱਥੇ ਚਲਾ ਗਿਆ ਹੈ।",
 	"vector-2022-beta-preview-label": "ਪੜ੍ਹਨ ਲਈ ਪਹੁੰਚਯੋਗਤਾ (ਵੈਕਟਰ 2022)",
 	"vector-2022-beta-preview-description": "ਟਾਈਪੋਗ੍ਰਾਫੀ ਸੁਧਾਰ ਅਤੇ ਨਾਈਟ ਮੋਡ ਵਰਗੀਆਂ ਨਵੀਆਂ ਰੀਡਿੰਗ ਪਹੁੰਚਯੋਗਤਾ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਤੱਕ ਜਲਦੀ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰੋ।"
 }

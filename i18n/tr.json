@@ -51,7 +51,7 @@
 	"vector-jumptosearch": "Arama kısmına atla",
 	"vector-jumptocontent": "İçeriğe atla",
 	"vector-more-actions": "Daha fazla",
-	"vector-client-prefs-label": "Görünüm",
+	"vector-appearance-label": "Görünüm",
 	"vector-feature-limited-width-name": "Genişlik",
 	"vector-feature-custom-font-size-name": "Metin",
 	"vector-feature-limited-width-0-label": "Geniş",
@@ -101,7 +101,7 @@
 	"vector-toc-unpinned-popup": "İçindekiler buraya taşındı.",
 	"vector-page-tools-unpinned-popup": "Araçlar menüsü buraya taşındı.",
 	"vector-main-menu-unpinned-popup": "Ana menü buraya taşındı.",
-	"vector-client-prefs-unpinned-popup": "Görünüm menüsü buraya taşındı.",
+	"vector-appearance-unpinned-popup": "Görünüm menüsü buraya taşındı.",
 	"vector-2022-beta-preview-label": "Okuma için Erişilebilirlik (Vector 2022)",
 	"vector-2022-beta-preview-description": "Basım iyileştirmeleri ve koyu kip gibi yeni okuma erişilebilirlik özelliklerine erken erişim sağlayın."
 }

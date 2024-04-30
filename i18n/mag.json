@@ -31,7 +31,7 @@
 	"vector-jumptosearch": "खोज पर जायी",
 	"vector-jumptocontent": "सामग्री पर जायी",
 	"vector-more-actions": "आउ",
-	"vector-client-prefs-label": "स्वरूप",
+	"vector-appearance-label": "स्वरूप",
 	"vector-feature-limited-width-name": "चौड़ाई",
 	"vector-feature-custom-font-size-name": "पाठ",
 	"vector-feature-limited-width-0-label": "चौड़",
@@ -81,7 +81,7 @@
 	"vector-toc-unpinned-popup": "सामग्री तालिका हिँया स्थानान्तरित हो गेलहे ।",
 	"vector-page-tools-unpinned-popup": "उपकरण मेनू हिँया स्थानान्तरित हो गेलहे ।",
 	"vector-main-menu-unpinned-popup": "मुख्य मेनू हिँया स्थानान्तरित हो गेलहे ।",
-	"vector-client-prefs-unpinned-popup": "स्वरूप मेनू हिँया स्थानान्तरित हो गेलहे ।",
+	"vector-appearance-unpinned-popup": "स्वरूप मेनू हिँया स्थानान्तरित हो गेलहे ।",
 	"vector-2022-beta-preview-label": "पठन लागि सुलभता (भेक्टर् २०२२)",
 	"vector-2022-beta-preview-description": "नया पठन सुलभता सुबिधाके जल्दी पहुँच प्राप्त करी, जैसे कि टाइपोग्राफी मे सुधार आउ रात्रि मोड् ।"
 }

@@ -38,7 +38,7 @@
 	"vector-jumptosearch": "Idi na pretragu",
 	"vector-jumptocontent": "Idi na sadržaj",
 	"vector-more-actions": "Više",
-	"vector-client-prefs-label": "Izgled",
+	"vector-appearance-label": "Izgled",
 	"vector-feature-limited-width-name": "Širina",
 	"vector-feature-custom-font-size-name": "Tekst",
 	"vector-feature-limited-width-0-label": "Znatno šira",
@@ -74,5 +74,5 @@
 	"empty-language-selector-body": "Sadržaj stranice nije podržan na drugim jezicima.",
 	"vector-page-tools-unpinned-popup": "Alati su premješteni ovdje.",
 	"vector-main-menu-unpinned-popup": "Glavni meni premješten je ovdje.",
-	"vector-client-prefs-unpinned-popup": "Meni za izgled premješten je ovdje."
+	"vector-appearance-unpinned-popup": "Meni za izgled premješten je ovdje."
 }

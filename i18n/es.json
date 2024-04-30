@@ -64,7 +64,7 @@
 	"vector-jumptosearch": "Ir a la búsqueda",
 	"vector-jumptocontent": "Ir al contenido",
 	"vector-more-actions": "Más",
-	"vector-client-prefs-label": "Tema",
+	"vector-appearance-label": "Tema",
 	"vector-feature-limited-width-name": "Anchura",
 	"vector-feature-custom-font-size-name": "Texto",
 	"vector-feature-limited-width-0-label": "Ancho",
@@ -77,7 +77,7 @@
 	"skin-night-mode-1-label": "Oscuro",
 	"skin-theme-name": "Color",
 	"skin-theme-description": "[Versión experimental, alta probabilidad de experimentar problemas] Reduce la luz emitida por las pantallas de los dispositivos.",
-	"skin-theme-day-label": "Día",
+	"skin-theme-day-label": "Claro",
 	"skin-theme-night-label": "Noche",
 	"skin-theme-os-label": "Automática",
 	"skin-theme-exclusion-notice": "Esta página siempre está en modo diurno.",
@@ -112,7 +112,7 @@
 	"vector-toc-unpinned-popup": "La tabla de contenidos se ha movido aquí.",
 	"vector-page-tools-unpinned-popup": "El menú de herramientas se ha movido aquí.",
 	"vector-main-menu-unpinned-popup": "El menú principal se ha movido aquí.",
-	"vector-client-prefs-unpinned-popup": "El menú de apariencia se ha movido aquí.",
+	"vector-appearance-unpinned-popup": "El menú de apariencia se ha movido aquí.",
 	"vector-2022-beta-preview-label": "Accesibilidad para la lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtén acceso anticipado a las nuevas funciones de accesibilidad de lectura, como mejoras tipográficas y modo oscuro."
 }
