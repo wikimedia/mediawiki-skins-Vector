@@ -62,7 +62,7 @@
 	"skin-theme-name": "Боја",
 	"skin-theme-description": "[Експериментална верзија, велика могућност проблема] Смањује количину светлости коју емитује екран уређаја.",
 	"skin-theme-day-label": "Светло",
-	"skin-theme-night-label": "Ноћ",
+	"skin-theme-night-label": "Тамна",
 	"skin-theme-os-label": "Аутоматски",
 	"vector-search-loader": "Учитавам предлоге претраге",
 	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",

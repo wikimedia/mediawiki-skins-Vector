@@ -48,13 +48,13 @@
 	"vector-feature-custom-font-size-2-label": "Големи",
 	"skin-night-mode-name": "Боја",
 	"skin-night-mode-description": "[Експериментална верзија, голема веројатност за проблеми] Ја намалува светлината што ја емитуваат екраните на уредите.",
-	"skin-night-mode-0-label": "Ден",
-	"skin-night-mode-1-label": "Ноќ",
+	"skin-night-mode-0-label": "Светол",
+	"skin-night-mode-1-label": "Темен",
 	"skin-night-mode-2-label": "Автоматски",
 	"skin-theme-name": "Боја",
-	"skin-theme-description": "[Експериментална верзија, голема веројатност за проблеми] Ја намалува светлината што ја емитуваат екраните на уредите.",
-	"skin-theme-day-label": "Ден",
-	"skin-theme-night-label": "Ноќ",
+	"skin-theme-description": "[Пробна верзија, голема веројатност за проблеми] Ја намалува светлината што ја емитуваат екраните на уредите.",
+	"skin-theme-day-label": "Светол",
+	"skin-theme-night-label": "Темен",
 	"skin-theme-os-label": "Автоматски",
 	"skin-theme-exclusion-notice": "Оваа страница секогаш е во дневен режим.",
 	"vector-search-loader": "Вчитувам предлози за пребарувањето",
@@ -90,5 +90,5 @@
 	"vector-main-menu-unpinned-popup": "Главното мени е преместено овде.",
 	"vector-appearance-unpinned-popup": "Менито за изглед е преместено овде.",
 	"vector-2022-beta-preview-label": "Олеснето читање (Векторско 2022)",
-	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и ноќен режим."
+	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и темен режим."
 }

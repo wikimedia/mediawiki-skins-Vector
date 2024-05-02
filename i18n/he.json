@@ -48,12 +48,12 @@
 	"skin-night-mode-name": "צבע",
 	"skin-night-mode-description": "[גרסה ניסיונית, סיכוי גבוה לבעיות] הפחתת האור הנפלט ממסכי המכשירים.",
 	"skin-night-mode-0-label": "בהירה",
-	"skin-night-mode-1-label": "חשוכה",
+	"skin-night-mode-1-label": "כהה",
 	"skin-night-mode-2-label": "אוטומטי",
 	"skin-theme-name": "צבע",
 	"skin-theme-description": "[גרסה ניסיונית, סיכוי גבוה לבעיות] הפחתת האור הנפלט ממסכי המכשירים.",
 	"skin-theme-day-label": "בהירה",
-	"skin-theme-night-label": "חשוכה",
+	"skin-theme-night-label": "כהה",
 	"skin-theme-os-label": "אוטומטי",
 	"skin-theme-exclusion-notice": "הדף הזה תמיד במצב יום.",
 	"vector-search-loader": "טעינת הצעות חיפוש",
@@ -89,5 +89,5 @@
 	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן.",
 	"vector-appearance-unpinned-popup": "תפריט המראה הועבר לכאן.",
 	"vector-2022-beta-preview-label": "נגישות לקריאה (וקטור 2022)",
-	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב חשוך."
+	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב כהה."
 }
