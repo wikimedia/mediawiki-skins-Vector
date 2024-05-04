@@ -178,7 +178,8 @@ class FeatureManager {
 				case CONSTANTS::PREF_NIGHT_MODE:
 					// if night mode is disabled for the page, add the exclude class instead and return early
 					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
-						return 'skin-theme-clientpref-excluded';
+						// The additional "-" prefix, makes this an invalid client preference for anonymous users.
+						return 'skin-theme-clientpref--excluded';
 					} else {
 						$prefix = '';
 					}

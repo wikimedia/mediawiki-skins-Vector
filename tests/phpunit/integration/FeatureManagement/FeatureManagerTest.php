@@ -99,7 +99,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 
 		$this->overrideConfigValues( [ 'VectorNightModeOptions' => [ 'exclude' => [ 'mainpage' => $disabled ] ] ] );
 		$this->assertEquals(
-			in_array( 'skin-theme-clientpref-excluded', $featureManager->getFeatureBodyClass() ),
+			in_array( 'skin-theme-clientpref--excluded', $featureManager->getFeatureBodyClass() ),
 			$disabled
 		);
 	}

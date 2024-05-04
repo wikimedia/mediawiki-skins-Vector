@@ -30,7 +30,7 @@ function getClientPreferences() {
  * @return {boolean}
  */
 function isFeatureExcluded( featureName ) {
-	return document.documentElement.classList.contains( featureName + '-clientpref-excluded' );
+	return document.documentElement.classList.contains( featureName + '-clientpref--excluded' );
 }
 
 /**
@@ -226,13 +226,15 @@ const getFeatureLabelMsg = ( featureName ) =>
  */
 function makeControl( featureName, config ) {
 	const pref = config[ featureName ];
+	const isExcluded = isFeatureExcluded( featureName );
+
 	if ( !pref ) {
 		return null;
 	}
 	const currentValue = mw.user.clientPrefs.get( featureName );
 	// The client preference was invalid. This shouldn't happen unless a gadget
-	// or script has modified the documentElement.
-	if ( typeof currentValue === 'boolean' ) {
+	// or script has modified the documentElement or client preference is excluded.
+	if ( typeof currentValue === 'boolean' && !isExcluded ) {
 		return null;
 	}
 	const row = createRow( '' );
@@ -241,20 +243,20 @@ function makeControl( featureName, config ) {
 	switch ( type ) {
 		case 'radio':
 			pref.options.forEach( ( value ) => {
-				appendRadioToggle( form, featureName, value, currentValue, config );
+				appendRadioToggle( form, featureName, value, String( currentValue ), config );
 			} );
 			break;
 		case 'switch': {
 			const labelElement = document.createElement( 'label' );
 			labelElement.textContent = getFeatureLabelMsg( featureName ).text();
-			appendToggleSwitch( form, featureName, labelElement, currentValue, config );
+			appendToggleSwitch( form, featureName, labelElement, String( currentValue ), config );
 			break;
 		} default:
 			throw new Error( 'Unknown client preference! Only switch or radio are supported.' );
 	}
 	row.appendChild( form );
 
-	if ( isFeatureExcluded( featureName ) ) {
+	if ( isExcluded ) {
 		const exclusionNotice = makeExclusionNotice( featureName );
 		row.appendChild( exclusionNotice );
 	}
