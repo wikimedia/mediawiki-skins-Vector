@@ -70,6 +70,7 @@
 	"vector-limited-width-toggle": "Toggle limited content width",
 	"vector-limited-width-toggle-on-popup": "You have switched your layout to full width. To go back to limited width, press this button.",
 	"vector-limited-width-toggle-off-popup": "You can toggle between a limited width and full width by clicking this button.",
+	"vector-feature-limited-width-exclusion-notice": "This page is always wide",
 	"vector-page-tools-label": "Tools",
 	"vector-page-tools-general-label": "General",
 	"vector-page-tools-actions-label": "Actions",

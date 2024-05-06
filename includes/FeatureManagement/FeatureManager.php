@@ -188,10 +188,9 @@ class FeatureManager {
 					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
 						// The additional "-" prefix, makes this an invalid client preference for anonymous users.
 						return 'skin-theme-clientpref--excluded';
-					} else {
-						$prefix = '';
 					}
 
+					$prefix = '';
 					$valueRequest = $request->getText( 'vectornightmode' );
 					// If night mode query string is used, hardcode pref value to the night mode value
 					// NOTE: The query string parameter only works for logged in users.
@@ -205,6 +204,14 @@ class FeatureManager {
 					$prefix .= 'skin-theme-';
 					break;
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
+					if ( ConfigHelper::shouldDisable( $config->get( 'VectorMaxWidthOptions' ), $request, $title ) ) {
+						return 'vector-feature-limited-width-clientpref--excluded';
+					}
+
+					$suffixEnabled = 'clientpref-1';
+					$suffixDisabled = 'clientpref-0';
+
+					break;
 				case CONSTANTS::FEATURE_TOC_PINNED:
 				case CONSTANTS::FEATURE_APPEARANCE_PINNED:
 					$suffixEnabled = 'clientpref-1';
