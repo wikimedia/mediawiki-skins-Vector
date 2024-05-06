@@ -49,13 +49,13 @@
 	"vector-feature-custom-font-size-2-label": "Grande",
 	"skin-night-mode-name": "Cor",
 	"skin-night-mode-description": "[Versión experimental, con alta probabilidade de experimentar problemas] Reduce a luz emitida polas pantallas dos dispositivos.",
-	"skin-night-mode-0-label": "Día",
-	"skin-night-mode-1-label": "Noite",
+	"skin-night-mode-0-label": "Claro",
+	"skin-night-mode-1-label": "Escuro",
 	"skin-night-mode-2-label": "Automática",
 	"skin-theme-name": "Cor",
 	"skin-theme-description": "[Versión experimental, con alta probabilidade de experimentar problemas] Reduce a luz emitida polas pantallas dos dispositivos.",
-	"skin-theme-day-label": "Día",
-	"skin-theme-night-label": "Noite",
+	"skin-theme-day-label": "Claro",
+	"skin-theme-night-label": "Escuro",
 	"skin-theme-os-label": "Automática",
 	"skin-theme-exclusion-notice": "Esta páxina está sempre en modo claro.",
 	"vector-search-loader": "Cargando as suxestións de busca",
@@ -91,5 +91,5 @@
 	"vector-main-menu-unpinned-popup": "O menú principal trasladouse aquí.",
 	"vector-appearance-unpinned-popup": "O menú de aparencia trasladouse aquí.",
 	"vector-2022-beta-preview-label": "Accesibilidade para a lectura (Vector 2022)",
-	"vector-2022-beta-preview-description": "Obtén acceso anticipado ás novas funcións de accesibilidade para a lectura, como melloras na tipografía e o modo nocturno."
+	"vector-2022-beta-preview-description": "Obtén acceso anticipado ás novas funcións de accesibilidade para a lectura, como melloras na tipografía e modo escuro."
 }

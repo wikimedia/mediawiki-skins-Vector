@@ -50,13 +50,15 @@
 	"vector-feature-custom-font-size-2-label": "ডাঙৰ",
 	"skin-night-mode-name": "ৰং",
 	"skin-night-mode-description": "[পৰীক্ষামূলক সংস্কৰণ, সমস্যাৰ সন্মুখীন হোৱাৰ উচ্চ সম্ভাৱনা আছে] ডিভাইচ পৰ্দাৰ দ্বাৰা নিৰ্গত পোহৰ হ্ৰাস কৰে।",
-	"skin-night-mode-0-label": "দিন",
-	"skin-night-mode-1-label": "নিশা",
+	"skin-night-mode-0-label": "পোহৰ",
+	"skin-night-mode-1-label": "আন্ধাৰ",
 	"skin-night-mode-2-label": "স্বয়ংক্ৰিয়",
 	"skin-theme-name": "ৰং",
-	"skin-theme-day-label": "দিন",
-	"skin-theme-night-label": "ৰাতি",
+	"skin-theme-description": "[পৰীক্ষামূলক সংস্কৰণ, সমস্যাৰ সন্মুখীন হোৱাৰ উচ্চ সম্ভাৱনা আছে] ডিভাইচ পৰ্দাৰ দ্বাৰা নিৰ্গত পোহৰ হ্ৰাস কৰে।",
+	"skin-theme-day-label": "পোহৰ",
+	"skin-theme-night-label": "আন্ধাৰ",
 	"skin-theme-os-label": "স্বয়ংক্ৰিয়",
+	"skin-theme-exclusion-notice": "এই পৃষ্ঠাটো সদায় পোহৰ অৱস্থাত থাকে।",
 	"vector-search-loader": "সন্ধান পৰামৰ্শ লোড কৰা হৈছে",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থকা পৃষ্ঠাসমূহ সন্ধান কৰক",
 	"vector-intro-page": "Help:পৰিচয়",
@@ -90,5 +92,5 @@
 	"vector-main-menu-unpinned-popup": "মুখ্য মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-appearance-unpinned-popup": "অৱয়বৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টৰ ২০২২)",
-	"vector-2022-beta-preview-description": "নতুন পঠন অভিগম্যতা বৈশিষ্ট্যসমূহৰ, যেনে টাইপোগ্ৰাফীৰ উন্নতিসমূহ আৰু নাইট মোড, পূৰ্বদৰ্শন লাভ কৰক।"
+	"vector-2022-beta-preview-description": "নতুন পঠন অভিগম্যতা বৈশিষ্ট্যসমূহৰ, যেনে টাইপোগ্ৰাফীৰ উন্নতিসমূহ আৰু আন্ধাৰ অৱস্থা, পূৰ্বদৰ্শন লাভ কৰক।"
 }
