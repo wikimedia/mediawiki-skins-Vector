@@ -20,7 +20,6 @@
 	@import './components/PinnableElement.less';
 	@import './components/PinnableHeader.less';
 	@import './components/PageTools.less';
-	@import './components/StickyHeader.less';
 	@import './components/TableOfContents.less';
 	@import './components/Button.less';
 	@import './components/Appearance.less';
@@ -34,11 +33,16 @@
 	@import './components/MenuTabs.less';
 	@import './components/PageTitlebar.less';
 	@import './components/PageToolbar.less';
-	@import './components/PopupNotification.less';
 	@import './components/SearchBox.less';
 	@import './components/SiteNotice.less';
 	@import './components/Watchstar.less';
 	@import './components/BottomDock.less';
+
+	// JS only features. These should be hidden by default but will
+	// be displayed by skins.vector.js when loaded.
+	.vector-sticky-header-container {
+		display: none;
+	}
 }
 
 @media all {

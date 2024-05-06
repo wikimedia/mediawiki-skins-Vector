@@ -24,11 +24,11 @@
 		},
 		{
 			"resourceModule": "skins.vector.styles",
-			"maxSize": "11.8 kB"
+			"maxSize": "11.3 kB"
 		},
 		{
 			"resourceModule": "skins.vector.js",
-			"maxSize": "15.5 kB"
+			"maxSize": "16.4 kB"
 		},
 		{
 			"resourceModule": "skins.vector.legacy.js",
@@ -40,7 +40,7 @@
 		},
 		{
 			"resourceModule": "skins.vector.icons",
-			"maxSize": "1 kB"
+			"maxSize": "0.7 kB"
 		}
 	]
 }
