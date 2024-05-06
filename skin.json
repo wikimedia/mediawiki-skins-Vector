@@ -37,6 +37,9 @@
 				"LanguageConverterFactory",
 				"Vector.FeatureManagerFactory"
 			],
+			"optional_services": [
+				"MobileFrontend.Context"
+			],
 			"args": [
 				{
 					"name": "vector-2022",

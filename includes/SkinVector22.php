@@ -4,7 +4,6 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageConverterFactory;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
@@ -22,6 +21,7 @@ use MediaWiki\Skins\Vector\Components\VectorComponentUserLinks;
 use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
+use MobileContext;
 use RuntimeException;
 
 /**
@@ -39,6 +39,7 @@ class SkinVector22 extends SkinMustache {
 	public function __construct(
 		private readonly LanguageConverterFactory $languageConverterFactory,
 		private readonly FeatureManagerFactory $featureManagerFactory,
+		private readonly ?MobileContext $mobFrontContext,
 		array $options
 	) {
 		parent::__construct( $options );
@@ -68,11 +69,11 @@ class SkinVector22 extends SkinMustache {
 		// For historic reasons, the viewport is added when Vector is loaded on the mobile
 		// domain. This is only possible for 3rd parties or by useskin parameter as there is
 		// no preference for changing mobile skin. Only need to check if $responsive is falsey.
-		if ( !$responsive && ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobFrontContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			if ( $mobFrontContext->shouldDisplayMobileView() ) {
-				return true;
-			}
+		if ( !$responsive &&
+			$this->mobFrontContext &&
+			$this->mobFrontContext->shouldDisplayMobileView()
+		) {
+			return true;
 		}
 		return $responsive;
 	}
