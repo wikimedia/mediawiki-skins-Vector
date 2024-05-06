@@ -7,6 +7,12 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
  * @coversDefaultClass \MediaWiki\Skins\Vector\FeatureManagement\FeatureManager
  */
 class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
+	private function newFeatureManager(): FeatureManager {
+		return new FeatureManager(
+			$this->getServiceContainer()->getUserOptionsLookup()
+		);
+	}
+
 	public static function provideGetFeatureBodyClass() {
 		return [
 			[ CONSTANTS::FEATURE_LIMITED_WIDTH, false, 'vector-feature-limited-width-clientpref-0' ],
@@ -23,7 +29,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::getFeatureBodyClass basic usage
 	 */
 	public function testGetFeatureBodyClass( $feature, $enabled, $expected ) {
-		$featureManager = new FeatureManager();
+		$featureManager = $this->newFeatureManager();
 		$featureManager->registerSimpleRequirement( 'requirement', $enabled );
 		$featureManager->registerFeature( $feature, [ 'requirement' ] );
 
@@ -34,7 +40,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::getFeatureBodyClass returning multiple feature classes
 	 */
 	public function testGetFeatureBodyClassMultiple() {
-		$featureManager = new FeatureManager();
+		$featureManager = $this->newFeatureManager();
 		$featureManager->registerSimpleRequirement( 'requirement', true );
 		$featureManager->registerSimpleRequirement( 'disabled', false );
 		$featureManager->registerFeature( 'sticky-header', [ 'requirement' ] );
@@ -67,7 +73,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::getFeatureBodyClass pref night mode specifics - disabled pages
 	 */
 	public function testGetFeatureBodyClassNightModeQueryParam( $value, $expected ) {
-		$featureManager = new FeatureManager();
+		$featureManager = $this->newFeatureManager();
 		$featureManager->registerFeature( CONSTANTS::PREF_NIGHT_MODE, [] );
 
 		$context = RequestContext::getMain();
@@ -91,7 +97,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	 * @covers ::getFeatureBodyClass pref night mode specifics - disabled pages
 	 */
 	public function testGetFeatureBodyClassNightModeDisabled( $disabled ) {
-		$featureManager = new FeatureManager();
+		$featureManager = $this->newFeatureManager();
 		$featureManager->registerFeature( CONSTANTS::PREF_NIGHT_MODE, [] );
 
 		$context = RequestContext::getMain();
