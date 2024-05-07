@@ -22,10 +22,10 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
+use MediaWiki\User\Options\UserOptionsLookup;
 use RequestContext;
 use Wikimedia\Assert\Assert;
 
@@ -62,6 +62,14 @@ class FeatureManager {
 	 * @var Array<string,Requirement>
 	 */
 	private $requirements = [];
+
+	private UserOptionsLookup $userOptionsLookup;
+
+	public function __construct(
+		UserOptionsLookup $userOptionsLookup
+	) {
+		$this->userOptionsLookup = $userOptionsLookup;
+	}
 
 	/**
 	 * Register a feature and its requirements.
@@ -143,8 +151,7 @@ class FeatureManager {
 	 */
 	public function getUserPreferenceValue( $preferenceKey ) {
 		$user = RequestContext::getMain()->getUser();
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-		return $userOptionsLookup->getOption(
+		return $this->userOptionsLookup->getOption(
 			$user,
 			$preferenceKey
 			// For client preferences, this should be the same as `preferenceKey`
