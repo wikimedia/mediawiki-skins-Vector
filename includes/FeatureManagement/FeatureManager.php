@@ -191,11 +191,11 @@ class FeatureManager {
 					}
 
 					$prefix = '';
-					$valueRequest = $request->getText( 'vectornightmode' );
+					$valueRequest = $request->getRawVal( 'vectornightmode' );
 					// If night mode query string is used, hardcode pref value to the night mode value
 					// NOTE: The query string parameter only works for logged in users.
 					// IF you have set a cookie locally this will be overriden.
-					$value = $valueRequest !== '' ? self::resolveNightModeQueryValue( $valueRequest ) :
+					$value = $valueRequest !== null ? self::resolveNightModeQueryValue( $valueRequest ) :
 						$this->getUserPreferenceValue( CONSTANTS::PREF_KEY_NIGHT_MODE );
 					$suffixEnabled = 'clientpref-' . $value;
 					$suffixDisabled = 'clientpref-day';
