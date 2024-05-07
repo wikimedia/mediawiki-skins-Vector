@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 
@@ -9,7 +10,8 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	private function newFeatureManager(): FeatureManager {
 		return new FeatureManager(
-			$this->getServiceContainer()->getUserOptionsLookup()
+			$this->getServiceContainer()->getUserOptionsLookup(),
+			RequestContext::getMain()
 		);
 	}
 
