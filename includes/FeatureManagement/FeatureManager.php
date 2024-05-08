@@ -22,11 +22,11 @@
 
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
 use MediaWiki\User\Options\UserOptionsLookup;
-use RequestContext;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -64,11 +64,14 @@ class FeatureManager {
 	private $requirements = [];
 
 	private UserOptionsLookup $userOptionsLookup;
+	private IContextSource $context;
 
 	public function __construct(
-		UserOptionsLookup $userOptionsLookup
+		UserOptionsLookup $userOptionsLookup,
+		IContextSource $context
 	) {
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->context = $context;
 	}
 
 	/**
@@ -150,9 +153,8 @@ class FeatureManager {
 	 * @return string
 	 */
 	public function getUserPreferenceValue( $preferenceKey ) {
-		$user = RequestContext::getMain()->getUser();
 		return $this->userOptionsLookup->getOption(
-			$user,
+			$this->context->getUser(),
 			$preferenceKey
 			// For client preferences, this should be the same as `preferenceKey`
 			// in 'resources/skins.vector.js/clientPreferences.json'
@@ -171,10 +173,9 @@ class FeatureManager {
 			$prefix = 'vector-feature-' . $featureClass . '-';
 
 			// some features (eg night mode) will require request context to determine status
-			$context = RequestContext::getMain();
-			$request = $context->getRequest();
-			$config = $context->getConfig();
-			$title = $context->getTitle();
+			$request = $this->context->getRequest();
+			$config = $this->context->getConfig();
+			$title = $this->context->getTitle();
 
 			// Client side preferences
 			switch ( $featureName ) {

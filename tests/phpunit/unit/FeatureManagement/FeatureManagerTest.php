@@ -21,6 +21,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\FeatureManagement;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\User\Options\UserOptionsLookup;
 
@@ -39,7 +40,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->registerSimpleRequirement( 'requirementA', true );
 		$featureManager->registerSimpleRequirement( 'requirementA', true );
@@ -72,7 +74,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( $expectedExceptionType );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->registerSimpleRequirement( 'requirement', true );
 		$featureManager->registerFeature( 'feature', $config );
@@ -83,7 +86,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsRequirementMet() {
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->registerSimpleRequirement( 'enabled', true );
 		$featureManager->registerSimpleRequirement( 'disabled', false );
@@ -99,7 +103,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \InvalidArgumentException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->isRequirementMet( 'foo' );
 	}
@@ -111,7 +116,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \LogicException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->registerFeature( 'featureA', [] );
 		$featureManager->registerFeature( 'featureA', [] );
@@ -122,7 +128,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testIsFeatureEnabled() {
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->registerSimpleRequirement( 'foo', false );
 		$featureManager->registerFeature( 'requiresFoo', 'foo' );
@@ -155,7 +162,8 @@ class FeatureManagerTest extends \MediaWikiUnitTestCase {
 		$this->expectException( \InvalidArgumentException::class );
 
 		$featureManager = new FeatureManager(
-			$this->createMock( UserOptionsLookup::class )
+			$this->createMock( UserOptionsLookup::class ),
+			RequestContext::getMain()
 		);
 		$featureManager->isFeatureEnabled( 'foo' );
 	}

@@ -50,7 +50,7 @@ class FeatureManagerFactory {
 	}
 
 	public function createFeatureManager( IContextSource $context ): FeatureManager {
-		$featureManager = new FeatureManager( $this->userOptionsLookup );
+		$featureManager = new FeatureManager( $this->userOptionsLookup, $context );
 
 		$request = $context->getRequest();
 		$config = $context->getConfig();
