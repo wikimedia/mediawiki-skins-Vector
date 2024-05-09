@@ -34,7 +34,10 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 		$featureManager = $this->newFeatureManager();
 		$featureManager->registerSimpleRequirement( 'requirement', $enabled );
 		$featureManager->registerFeature( $feature, [ 'requirement' ] );
-
+		// Title is required for checking whether or not the feature is excluded
+		// based on page title.
+		$context = RequestContext::getMain();
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
 		$this->assertSame( [ $expected ], $featureManager->getFeatureBodyClass() );
 	}
 
@@ -88,26 +91,32 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	/** ensure the class is present when disabled and absent when not */
-	public static function provideGetFeatureBodyClassNightModeDisabled() {
+	public static function provideGetFeatureBodyClassExcluded() {
 		return [
 			[ true ], [ false ]
 		];
 	}
 
 	/**
-	 * @dataProvider provideGetFeatureBodyClassNightModeDisabled
+	 * @dataProvider provideGetFeatureBodyClassExcluded
 	 * @covers ::getFeatureBodyClass pref night mode specifics - disabled pages
 	 */
-	public function testGetFeatureBodyClassNightModeDisabled( $disabled ) {
+	public function testGetFeatureBodyClassExcluded( $disabled ) {
 		$featureManager = $this->newFeatureManager();
 		$featureManager->registerFeature( CONSTANTS::PREF_NIGHT_MODE, [] );
+		$featureManager->registerFeature( CONSTANTS::FEATURE_LIMITED_WIDTH, [] );
 
 		$context = RequestContext::getMain();
 		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
 
 		$this->overrideConfigValues( [ 'VectorNightModeOptions' => [ 'exclude' => [ 'mainpage' => $disabled ] ] ] );
+		$this->overrideConfigValues( [ 'VectorMaxWidthOptions' => [ 'exclude' => [ 'mainpage' => $disabled ] ] ] );
+
+		$bodyClasses = $featureManager->getFeatureBodyClass();
+
 		$this->assertEquals(
-			in_array( 'skin-theme-clientpref--excluded', $featureManager->getFeatureBodyClass() ),
+			in_array( 'skin-theme-clientpref--excluded', $bodyClasses ) &&
+			in_array( 'vector-feature-limited-width-clientpref--excluded', $bodyClasses ),
 			$disabled
 		);
 	}
