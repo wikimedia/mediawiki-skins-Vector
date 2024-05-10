@@ -610,7 +610,7 @@
 		"VectorMaxWidthOptions": {
 			"value": {
 				"exclude": {
-					"mainpage": false,
+					"mainpage": true,
 					"querystring": {
 						"action": "(history|edit|submit)",
 						"diff": ".+"

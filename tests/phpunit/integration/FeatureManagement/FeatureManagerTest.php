@@ -37,7 +37,7 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 		// Title is required for checking whether or not the feature is excluded
 		// based on page title.
 		$context = RequestContext::getMain();
-		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
+		$context->setTitle( Title::makeTitle( NS_MAIN, 'test' ) );
 		$this->assertSame( [ $expected ], $featureManager->getFeatureBodyClass() );
 	}
 
