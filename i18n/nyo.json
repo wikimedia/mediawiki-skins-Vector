@@ -21,7 +21,7 @@
 	"vector-action-move": "Irizaayo",
 	"vector-action-protect": "Semba",
 	"vector-action-undelete": "Garra",
-	"vector-action-unprotect": "Hindura obusembi",
+	"vector-action-unprotect": "Foora obusembi",
 	"vector-view-create": "Hanga",
 	"vector-view-edit": "Hindura",
 	"vector-view-history": "Rora ebyaira",
@@ -40,12 +40,12 @@
 	"vector-feature-custom-font-size-1-label": "Obutoosa",
 	"vector-feature-custom-font-size-2-label": "Obukooto",
 	"skin-night-mode-name": "Erangi",
-	"skin-night-mode-0-label": "Ihangwe",
-	"skin-night-mode-1-label": "Itumbi",
+	"skin-night-mode-0-label": "Ekyererezi",
+	"skin-night-mode-1-label": "Ekizima",
 	"skin-night-mode-2-label": "Enyikara",
 	"skin-theme-name": "Erangi",
-	"skin-theme-day-label": "Ihangwe",
-	"skin-theme-night-label": "Itumbi",
+	"skin-theme-day-label": "Ekyererezi",
+	"skin-theme-night-label": "Ekizima",
 	"skin-theme-os-label": "Enyikara",
 	"vector-search-loader": "Obuhanuuzi bw'okuserra nibwolekwa",
 	"vector-searchsuggest-containing": "Serra empapura eziina <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
@@ -80,5 +80,5 @@
 	"vector-main-menu-unpinned-popup": "Omusorongo gw'emirimo omukuru gwiriziibwe hanu.",
 	"vector-appearance-unpinned-popup": "Omusorongo gw'enzooka gwiriziibwe hanu.",
 	"vector-2022-beta-preview-label": "Obutungibwa bw'Okusoma (Vekitoli 2022)",
-	"vector-2022-beta-preview-description": "Tunga kara obusobozi obuhyaka bw'obutungibwa bw'okusoma, nk'enkiza z'okuhandiika n'ensisana y'itumbi."
+	"vector-2022-beta-preview-description": "Tunga kara obusobozi obuhyaka bw'obutungibwa bw'okusoma, nk'enkiza z'okuhandiika n'ensisana y'ekizima."
 }

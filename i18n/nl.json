@@ -54,6 +54,7 @@
 	"vector-feature-custom-font-size-0-label": "Klein",
 	"vector-feature-custom-font-size-1-label": "Standaard",
 	"vector-feature-custom-font-size-2-label": "Groot",
+	"skin-theme-name": "Kleur",
 	"vector-search-loader": "Zoeksuggesties worden geladen",
 	"vector-searchsuggest-containing": "Zoek naar pagina's die <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevatten",
 	"vector-intro-page": "Help:Inleiding",

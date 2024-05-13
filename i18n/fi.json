@@ -13,6 +13,7 @@
 			"Pxos",
 			"Pyscowicz",
 			"Rönttönen",
+			"Samoasambia",
 			"Stryn",
 			"SuperPete",
 			"Yupik"
@@ -49,6 +50,7 @@
 	"vector-jumptosearch": "Siirry hakuun",
 	"vector-jumptocontent": "Siirry sisältöön",
 	"vector-more-actions": "Muut",
+	"vector-appearance-label": "Ulkoasu",
 	"vector-feature-limited-width-name": "Leveys",
 	"vector-feature-custom-font-size-name": "Teksti",
 	"vector-feature-limited-width-0-label": "Leveä",

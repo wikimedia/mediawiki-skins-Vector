@@ -77,6 +77,7 @@
 	"vector-limited-width-toggle": "Umschalten der eingeschränkten Breite des Inhalts",
 	"vector-limited-width-toggle-on-popup": "Du hast dein Layout auf volle Breite umgestellt. Um zur begrenzten Breite zurückzukehren, drücke diese Schaltfläche.",
 	"vector-limited-width-toggle-off-popup": "Du kannst zwischen einer begrenzten Breite und der vollen Breite umschalten, indem du auf diese Schaltfläche klickst.",
+	"vector-feature-limited-width-exclusion-notice": "Diese Seite ist immer breit",
 	"vector-page-tools-label": "Werkzeuge",
 	"vector-page-tools-general-label": "Allgemein",
 	"vector-page-tools-actions-label": "Aktionen",

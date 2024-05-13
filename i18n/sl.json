@@ -66,6 +66,7 @@
 	"vector-limited-width-toggle": "Preklop omejene širine vsebine",
 	"vector-limited-width-toggle-on-popup": "Svojo postavitev ste preklopili na polno širino. Za vrnitev na omejeno širino pritisnite ta gumb.",
 	"vector-limited-width-toggle-off-popup": "S klikom tega gumba lahko preklapljate med omejeno širino in polno širino.",
+	"vector-feature-limited-width-exclusion-notice": "Ta stran je vedno široka",
 	"vector-page-tools-label": "Orodja",
 	"vector-page-tools-general-label": "Splošno",
 	"vector-page-tools-actions-label": "Dejanja",
