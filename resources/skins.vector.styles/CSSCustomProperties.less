@@ -3,6 +3,20 @@
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-reset.less';
 
 /**
+ * FIXME: Temporary Night-mode override classes
+ * Remove these once T363849 has been addressed.
+ *
+ * The following classes are meant to force OOUI interfaces
+ * into light-mode when night-mode is enabled. They should be
+ * grouped with the `.notheme` rulset as an alternative to
+ * using the `.notheme` class in multiple places.
+ *
+ * Note: These are wrapped in quotes to avoid dashed being interpreted as minus signs,
+ * along with a `~` to unwrap them when they are used as selectors.
+ */
+@OOUIOverrideSelectors: ~'.ve-ui-overlay-global';  // T363861 - VisualEditor Overlays
+
+/**
  * Light mode
  *
  * Applies the light mode color palette by default
@@ -10,7 +24,8 @@
  */
 :root,
 .skin-invert,
-.notheme {
+.notheme,
+@{OOUIOverrideSelectors} {
 	.cdx-mode-reset();
 }
 
@@ -34,7 +49,8 @@ html.skin-theme-clientpref-night .skin-invert {
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
-html.skin-theme-clientpref-night .notheme {
+html.skin-theme-clientpref-night .notheme,
+html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 	color-scheme: light;
 	color: var( --color-base );
 }
@@ -54,7 +70,8 @@ html.skin-theme-clientpref-night .notheme {
 		--color-link-red: #b97876;
 	}
 
-	html.skin-theme-clientpref-os .notheme {
+	html.skin-theme-clientpref-os .notheme,
+	html.skin-theme-clientpref-os @{OOUIOverrideSelectors} {
 		color-scheme: light;
 	}
 
