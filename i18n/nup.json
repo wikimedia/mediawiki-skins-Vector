@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Misbahu umar",
-			"Amire80"
+			"Amire80",
+			"Umar Ahmad2345"
 		]
 	},
 	"vector-languages": "Ezhimizhi",
@@ -10,5 +11,6 @@
 	"vector-no-language-button-label": "la ezhimizhi bebo",
 	"vector-view-history": "Chin etan le",
 	"vector-more-actions": "Ndocizhi",
-	"vector-searchsuggest-containing": " Wiwaza feregi nan fibo nan<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": " Wiwaza feregi nan fibo nan<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Chaba"
 }
