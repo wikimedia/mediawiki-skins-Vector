@@ -308,6 +308,7 @@ final class Constants {
 	 */
 	public const VECTOR_BETA_FEATURES = [
 		self::CONFIG_KEY_APPEARANCE,
+		self::CONFIG_KEY_NIGHT_MODE,
 	];
 
 	/**
