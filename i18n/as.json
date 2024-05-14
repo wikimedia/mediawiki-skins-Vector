@@ -76,6 +76,7 @@
 	"vector-limited-width-toggle": "সীমিত সমলৰ প্ৰস্থ টগ'ল কৰক",
 	"vector-limited-width-toggle-on-popup": "আপুনি আপোনাৰ আলেখ্য সম্পূৰ্ণ প্ৰস্থলৈ সলনি কৰিছে। সীমিত প্ৰস্থলৈ উভতি যাবলৈ, এই বুটামটো টিপক।",
 	"vector-limited-width-toggle-off-popup": "আপুনি এই বুটামটো টিপি কৰি এটা সীমিত প্ৰস্থ আৰু সম্পূৰ্ণ প্ৰস্থৰ মাজত টগ'ল কৰিব পাৰে।",
+	"vector-feature-limited-width-exclusion-notice": "এই পৃষ্ঠাটো সদায় বহল ৰূপত দেখা যায়",
 	"vector-page-tools-label": "সঁজুলি",
 	"vector-page-tools-general-label": "সাধাৰণ",
 	"vector-page-tools-actions-label": "কাৰ্যসমূহ",
