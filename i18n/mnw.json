@@ -22,7 +22,15 @@
 	"vector-searchsuggest-containing": "ဂၠာဲသွက်မုက်လိက်လုပ်အဝေါၚ် <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>ဂမၠိုၚ်",
 	"vector-toc-label": "မာတိကာ",
 	"vector-toc-beginning": "စနူကၠာ",
+	"vector-anon-user-menu-pages-learn": "ထပ်ဆက်လ္ၚတ်အာ",
+	"vector-main-menu-tooltip": "မဳနူ တံသ္ဇိုၚ်",
+	"vector-toc-menu-tooltip": "မာတိကာ",
+	"vector-site-nav-label": "ဂအာၚ်",
+	"vector-main-menu-label": "မဳနူ တံသ္ဇိုၚ်",
 	"vector-page-tools-label": "ကြိယာဂမၠိုၚ်",
 	"vector-page-tools-general-label": "နာနာ",
-	"vector-unpin-element-label": "ပၞုက်"
+	"vector-page-tools-actions-label": "တင်မကၠောန်ဂမၠိုၚ်",
+	"vector-pin-element-label": "မလဆုဲထောံနကဵုသာတ်ဗါ",
+	"vector-unpin-element-label": "ပၞုက်",
+	"tooltip-vector-anon-user-menu-title": "အရာမရုဲစှ် တၞဟ်"
 }
