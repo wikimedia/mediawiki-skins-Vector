@@ -7,8 +7,6 @@ use MediaWiki\Config\Config;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
-use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteModulePagesHook;
-use MediaWiki\ResourceLoader\Hook\ResourceLoaderSiteStylesModulePagesHook;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
@@ -28,8 +26,6 @@ use SkinTemplate;
 class Hooks implements
 	GetPreferencesHook,
 	LocalUserCreatedHook,
-	ResourceLoaderSiteModulePagesHook,
-	ResourceLoaderSiteStylesModulePagesHook,
 	SkinPageReadyConfigHook
 {
 	private Config $config;
@@ -515,30 +511,6 @@ class Hooks implements
 		// this avoids icons showing in the more overflow menu.
 		self::updateViewsMenuIcons( $content_navigation, self::isSkinVersionLegacy( $skinName ) );
 		self::updateAssociatedPagesMenuIcons( $content_navigation );
-	}
-
-	/**
-	 * Adds MediaWiki:Vector.css as the skin style that controls classic Vector.
-	 *
-	 * @param string $skin
-	 * @param array &$pages
-	 */
-	public function onResourceLoaderSiteStylesModulePages( $skin, &$pages ): void {
-		if ( $skin === Constants::SKIN_NAME_MODERN && $this->config->get( 'VectorShareUserScripts' ) ) {
-			$pages['MediaWiki:Vector.css'] = [ 'type' => 'style' ];
-		}
-	}
-
-	/**
-	 * Adds MediaWiki:Vector.css as the skin style that controls classic Vector.
-	 *
-	 * @param string $skin
-	 * @param array &$pages
-	 */
-	public function onResourceLoaderSiteModulePages( $skin, &$pages ): void {
-		if ( $skin === Constants::SKIN_NAME_MODERN && $this->config->get( 'VectorShareUserScripts' ) ) {
-			$pages['MediaWiki:Vector.js'] = [ 'type' => 'script' ];
-		}
 	}
 
 	/**

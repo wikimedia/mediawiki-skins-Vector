@@ -66,13 +66,11 @@
 						"associated-pages"
 					],
 					"scripts": [
-						"skins.vector.user",
 						"skins.vector.js"
 					],
 					"styles": [
 						"skins.vector.search.codex.styles",
 						"skins.vector.styles",
-						"skins.vector.user.styles",
 						"skins.vector.icons"
 					],
 					"messages": [
@@ -198,19 +196,11 @@
 		"CentralAuthIsUIReloadRecommended": "VectorCentralAuthHooks",
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
-		"ResourceLoaderSiteModulePages": "VectorHooks",
-		"ResourceLoaderSiteStylesModulePages": "VectorHooks",
 		"SkinPageReadyConfig": "VectorHooks",
 		"GetBetaFeaturePreferences": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
-		"skins.vector.user": {
-			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserModule"
-		},
-		"skins.vector.user.styles": {
-			"class": "MediaWiki\\Skins\\Vector\\ResourceLoader\\VectorResourceLoaderUserStylesModule"
-		},
 		"skins.vector.search.codex.styles": {
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"codexStyleOnly": true,
@@ -620,10 +610,6 @@
 				"beta": true
 			},
 			"description": "@var array enables a client preferences interface."
-		},
-		"VectorShareUserScripts": {
-			"value": true,
-			"description": "Temporary configuration flag that determines whether Vector skins should share user scripts and styles."
 		},
 		"VectorSearchApiUrl": {
 			"value": "",

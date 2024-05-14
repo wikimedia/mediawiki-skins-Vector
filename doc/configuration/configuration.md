@@ -46,12 +46,6 @@ Certain configuration is used by us during rollout of new features with the expe
 
 Do not rely on any of the feature flags documented here. They should not be considered stable.
 
-- wgVectorShareUserScripts
-
-  - Enables or disables sharing user scripts in the Vector skin.
-
-  - Removal ticket: [https://phabricator.wikimedia.org/T331679](https://phabricator.wikimedia.org/T331679)
-
 - wgVectorPromoteAddTopic
 
   - Determines whether the Add topic feature is promoted in discussions.
