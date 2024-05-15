@@ -79,6 +79,7 @@
 	"vector-limited-width-toggle": "Смањи ширину садржаја",
 	"vector-limited-width-toggle-on-popup": "Пребацили сте се на пуну ширину, за ограничену ширину притисните дугме.",
 	"vector-limited-width-toggle-off-popup": "Кликом на ово дугме мењате између пуне и мање ширине.",
+	"vector-feature-limited-width-exclusion-notice": "Ова страница је увек широка",
 	"vector-page-tools-label": "Алатке",
 	"vector-page-tools-general-label": "Опште",
 	"vector-page-tools-actions-label": "Радње",
