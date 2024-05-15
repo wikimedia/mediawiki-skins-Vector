@@ -87,6 +87,7 @@
 	"vector-limited-width-toggle": "Toggle for control to limit content width.",
 	"vector-limited-width-toggle-on-popup": "Hint that points out the limited width toggle control.",
 	"vector-limited-width-toggle-off-popup": "Hint that points out the limited width toggle control.",
+	"vector-feature-custom-font-size-exclusion-notice" : "Notice when custom font size option is disabled.",
 	"vector-feature-limited-width-exclusion-notice": "Notice when limited width option is disabled.",
 	"vector-page-tools-label": "Label for the page tools pinnable dropdown\n{{identical|Tools}}",
 	"vector-page-tools-general-label": "Label for the page tools 'General' menu\n{{identical|General}}",

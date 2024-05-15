@@ -180,6 +180,11 @@ class FeatureManager {
 			// Client side preferences
 			switch ( $featureName ) {
 				case CONSTANTS::FEATURE_FONT_SIZE:
+					if ( ConfigHelper::shouldDisable(
+						$config->get( 'VectorFontSizeConfigurableOptions' ), $request, $title
+					) ) {
+						return $prefix . 'clientpref--excluded';
+					}
 					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_FONT_SIZE );
 					$suffixDisabled = 'clientpref-0';
 					break;
