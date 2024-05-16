@@ -38,6 +38,18 @@ class ConfigHelper {
 		$exclusions = $options[ 'exclude' ] ?? [];
 		$inclusions = $options['include'] ?? [];
 
+		$excludeQueryString = $exclusions[ 'querystring' ] ?? [];
+		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
+			$paramValue = $request->getRawVal( $param );
+			if ( $paramValue !== null ) {
+				if ( $excludedParamPattern === '*' ) {
+					// Backwards compatibility for the '*' wildcard.
+					$excludedParamPattern = '.+';
+				}
+				return (bool)preg_match( "/$excludedParamPattern/", $paramValue );
+			}
+		}
+
 		if ( $title != null && $title->isMainPage() ) {
 			// only one check to make
 			return $exclusions[ 'mainpage' ] ?? false;
@@ -70,7 +82,6 @@ class ConfigHelper {
 		foreach ( $pageTitles as $titleText ) {
 			// use strtolower to make sure the config passed for special pages
 			// is case insensitive, so it does not generate a wrong special page title
-			$titleText = $canonicalTitle->isSpecialPage() ? strtolower( $titleText ) : $titleText;
 			$excludedTitle = Title::newFromText( $titleText );
 
 			if ( $canonicalTitle != null && $canonicalTitle->equals( $excludedTitle ) ) {
@@ -85,18 +96,6 @@ class ConfigHelper {
 		$excludeNamespaces = $exclusions[ 'namespaces' ] ?? [];
 		if ( $title != null && $title->inNamespaces( $excludeNamespaces ) ) {
 			return true;
-		}
-
-		$excludeQueryString = $exclusions[ 'querystring' ] ?? [];
-		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
-			$paramValue = $request->getRawVal( $param );
-			if ( $paramValue !== null ) {
-				if ( $excludedParamPattern === '*' ) {
-					// Backwards compatibility for the '*' wildcard.
-					$excludedParamPattern = '.+';
-				}
-				return (bool)preg_match( "/$excludedParamPattern/", $paramValue );
-			}
 		}
 
 		return false;

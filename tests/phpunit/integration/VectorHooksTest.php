@@ -283,7 +283,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				),
 				Title::makeTitle( NS_SPECIAL, 'Specialpages' ),
 				[ 'action' => 'history' ],
-				false
+				true
 			],
 			[
 				'Max width can be disabled on talk pages',
