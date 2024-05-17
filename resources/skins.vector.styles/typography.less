@@ -14,6 +14,12 @@ body {
 	font-family: @font-family-sans;
 }
 
+ul {
+	// Overrides default sublist styling due to lists being used in some talk pages (i.e. russian wiki)
+	// https://phabricator.wikimedia.org/T364865#9802562
+	list-style-type: disc;
+}
+
 pre,
 .mw-code {
 	line-height: @line-height-code;
