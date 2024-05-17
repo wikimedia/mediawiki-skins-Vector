@@ -5,9 +5,9 @@
 			"McDutchie"
 		]
 	},
-	"vector-skin-desc": "Forni duo apparentias Vector:\n* 2011 - Le version moderne de MonoBook con aspecto rejuvenescite e multe meliorationes de usabilitate.\n* 2022 - Le apparentia Vector construite como parte del projecto WMF [[mw:Desktop Improvements|Desktop Improvements]].",
+	"vector-skin-desc": "Forni duo apparentias Vector:\n* 2011 - Le version moderne de MonoBook con aspecto rejuvenescite e multe meliorationes de usabilitate.\n* 2022 - Le apparentia Vector construite como parte del projecto WMF [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements]",
 	"prefs-vector-enable-vector-1-label": "Usar le version ancian de Vector",
-	"prefs-vector-enable-vector-1-help": "In le proxime annos nos va actualisar gradualmente le apparentia Vector. Il continua a esser possibile usar le version ancian de Vector (illo de decembre 2019). Pro leger plus sur le actualisationes, va a nostre [[mw:Reading/Web/Desktop_Improvements|pagina de projecto]].",
+	"prefs-vector-enable-vector-1-help": "In le proxime annos nos va actualisar gradualmente le apparentia Vector. Il continua a esser possibile usar le version ancian de Vector (illo de decembre 2019). Pro leger plus sur le actualisationes, visita nostre [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements pagina de projecto].",
 	"vector-opt-out": "Cambiar al ancian apparentia",
 	"vector-opt-out-tooltip": "Cambiar tu parametros pro retornar al ancian aspecto del apparentia (Vector historic)",
 	"vector.css": "/* Tote CSS hic essera cargate pro le usatores del apparentia Vector */",
@@ -76,7 +76,7 @@
 	"vector-page-tools-actions-label": "Actiones",
 	"vector-pin-element-label": "displaciar verso le barra lateral",
 	"vector-unpin-element-label": "celar",
-	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussion]]",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Discussion]",
 	"tooltip-vector-anon-user-menu-title": "Plus optiones",
 	"vector-page-tools-nav-label": "Instrumentos pro paginas",
 	"vector-prefs-limited-width": "Activar le limitation de latitude",

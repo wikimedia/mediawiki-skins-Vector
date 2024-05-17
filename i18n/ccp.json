@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"BivutiChakma"
+		]
+	},
+	"vector-languages": "𑄞𑄌𑄴𑄳𑄦𑄚𑄩",
+	"vector-language-button-label": "{{PLURAL:$1|$1 𑄞𑄌𑄴|$1 𑄞𑄌𑄴𑄳𑄦𑄚𑄨}}",
+	"vector-no-language-button-label": "𑄞𑄌𑄴𑄳𑄦𑄚𑄩 𑄡𑄮𑄇𑄴 𑄉𑄧𑄢𑄴",
+	"vector-action-addsection": "topic 𑄡𑄮𑄇𑄴 𑄉𑄧𑄢𑄚",
+	"vector-view-create": "𑄝𑄚𑄚",
+	"vector-view-history": "𑄦𑄨𑄥𑄴𑄑𑄮𑄢𑄨 𑄘𑄬𑄊𑄚",
+	"vector-more-actions": "𑄃𑄢𑄧 𑄝𑄬𑄌𑄴𑄉𑄧𑄢𑄨",
+	"vector-searchsuggest-containing": "𑄛𑄘𑄖𑄴 𑄣𑄬𑄇𑄴𑄬 𑄣𑄬𑄊𑄚𑄨 𑄖𑄮𑄉𑄚 <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "𑄇𑄧𑄚𑄴𑄑𑄬𑄚𑄴𑄑𑄴𑄥𑄴",
+	"vector-toc-beginning": "𑄃𑄢𑄴𑄉𑄚𑄨",
+	"vector-main-menu-label": "𑄟𑄪𑄢𑄴 𑄟𑄬𑄚𑄪",
+	"vector-page-tools-label": "𑄦𑄌𑄴𑄖𑄬𑄢𑄚𑄩",
+	"vector-page-tools-general-label": "𑄎𑄬𑄚𑄢𑄬𑄣𑄴",
+	"vector-unpin-element-label": "𑄣𑄪𑄇𑄴𑄘𑄬"
+}

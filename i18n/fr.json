@@ -10,6 +10,7 @@
 			"DePlusJean",
 			"DreZhsh",
 			"Eneelk",
+			"Fugitron",
 			"Gomoko",
 			"Iketsi",
 			"Jean-Frédéric",
@@ -78,6 +79,7 @@
 	"skin-theme-day-label": "Clair",
 	"skin-theme-night-label": "Sombre",
 	"skin-theme-os-label": "Automatique",
+	"skin-theme-exclusion-notice": "Cette page est toujours en mode clair.",
 	"vector-search-loader": "Chargement des suggestions de recherche",
 	"vector-searchsuggest-containing": "Rechercher les pages contenant <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
@@ -95,6 +97,7 @@
 	"vector-limited-width-toggle": "Activer ou désactiver la limitation de largeur du contenu",
 	"vector-limited-width-toggle-on-popup": "Vous avez basculé votre mise en page en pleine largeur. Pour revenir à la largeur limitée, appuyez sur ce bouton.",
 	"vector-limited-width-toggle-off-popup": "Vous pouvez basculer entre une largeur limitée et une largeur totale en cliquant sur ce bouton.",
+	"vector-feature-custom-font-size-exclusion-notice": "Cette page utilise toujours une petite taille de police",
 	"vector-page-tools-label": "Outils",
 	"vector-page-tools-general-label": "Général",
 	"vector-page-tools-actions-label": "Actions",
@@ -110,6 +113,6 @@
 	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
 	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici.",
 	"vector-appearance-unpinned-popup": "Le menu d'apparence a été déplacé ici.",
-	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vecteur 2022)",
+	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vector 2022)",
 	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode sombre."
 }
