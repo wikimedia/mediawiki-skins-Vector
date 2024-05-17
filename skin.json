@@ -370,7 +370,6 @@
 				"logOut",
 				"imageGallery",
 				"userGroup",
-				"expand",
 				"listBullet",
 				"close"
 			]
@@ -408,6 +407,9 @@
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"features": [
 				"interface-message-box"
+			],
+			"styles": [
+				"resources/skins.vector.js/index.less"
 			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",

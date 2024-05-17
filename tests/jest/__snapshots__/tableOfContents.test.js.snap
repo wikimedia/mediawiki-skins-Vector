@@ -27,7 +27,7 @@ exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.ta
 		<span class=\\"vector-toc-numb\\">2</span>bar</div>
 	</a>
 		<button aria-controls=\\"toc-bar-sublist\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle\\" aria-expanded=\\"true\\">
-			<span class=\\"vector-icon vector-icon--x-small mw-ui-icon-wikimedia-expand\\"></span>
+			<span class=\\"vector-icon mw-ui-icon-wikimedia-expand\\"></span>
 			<span>Toggle bar subsection</span>
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"vector-toc-list\\">
@@ -95,7 +95,7 @@ exports[`Table of contents reloadTableOfContents re-renders toc when wikipage.ta
 		<span class=\\"vector-toc-numb\\">2</span>bar</div>
 	</a>
 		<button aria-controls=\\"toc-bar-sublist\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle\\" aria-expanded=\\"true\\">
-			<span class=\\"vector-icon vector-icon--x-small mw-ui-icon-wikimedia-expand\\"></span>
+			<span class=\\"vector-icon mw-ui-icon-wikimedia-expand\\"></span>
 			<span>Toggle bar subsection</span>
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"vector-toc-list\\">
@@ -167,7 +167,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 		<span class=\\"vector-toc-numb\\">2</span>bar</div>
 	</a>
 		<button aria-controls=\\"toc-bar-sublist\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle\\" aria-expanded=\\"true\\">
-			<span class=\\"vector-icon vector-icon--x-small mw-ui-icon-wikimedia-expand\\"></span>
+			<span class=\\"vector-icon mw-ui-icon-wikimedia-expand\\"></span>
 			<span>Toggle bar subsection</span>
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"vector-toc-list\\">
@@ -229,7 +229,7 @@ exports[`Table of contents renders when \`vector-is-collapse-sections-enabled\` 
 		<span class=\\"vector-toc-numb\\">2</span>bar</div>
 	</a>
 		<button aria-controls=\\"toc-bar-sublist\\" class=\\"cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle\\" aria-expanded=\\"false\\">
-			<span class=\\"vector-icon vector-icon--x-small mw-ui-icon-wikimedia-expand\\"></span>
+			<span class=\\"vector-icon mw-ui-icon-wikimedia-expand\\"></span>
 			<span>Toggle bar subsection</span>
 		</button>
 	<ul id=\\"toc-bar-sublist\\" class=\\"vector-toc-list\\">
