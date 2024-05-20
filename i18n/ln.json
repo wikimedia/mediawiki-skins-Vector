@@ -6,6 +6,8 @@
 		]
 	},
 	"vector-languages": "Nkótá",
+	"vector-language-button-label": "{{PLURAL:$1|$1 lokótá|$1 nkótá}}",
+	"vector-no-language-button-label": "Kobakisa nkótá",
 	"vector-action-addsection": "Kobakisa mpɔ̂",
 	"vector-action-delete": "Kolímwisa",
 	"vector-action-move": "Kobóngola nkómbó",

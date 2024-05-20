@@ -9,6 +9,7 @@
 	},
 	"vector-languages": "Bahasa",
 	"vector-language-button-label": "{{PLURAL:$1|Bahasa $1}}",
+	"vector-no-language-button-label": "Duhengi bahasa",
 	"vector-action-addsection": "Duhengi topik",
 	"vector-action-delete": "Luluta",
 	"vector-action-move": "Heyiya",
@@ -18,5 +19,6 @@
 	"vector-view-history": "Bilohi riwayati",
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Uweewo",
-	"vector-searchsuggest-containing": "Lolohe halaman otuwa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Lolohe halaman otuwa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Awali"
 }

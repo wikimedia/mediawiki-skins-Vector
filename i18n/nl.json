@@ -12,7 +12,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Troefkaart",
-			"Strepulah"
+			"Strepulah",
+			"DiGro"
 		]
 	},
 	"skinname-vector": "Vector, oude versie (2010)",
@@ -23,7 +24,7 @@
 	"vector-opt-out-tooltip": "Wijzig uw instellingen om terug te gaan naar het oude uiterlijk van de skin (Legacy Vector)",
 	"vector.css": "/* Alle hier geplaatste CSS-code wordt geladen voor gebruikers van de vormgeving Vector */",
 	"vector.js": "/* Alle hier geplaatste JavaScript-code wordt geladen voor gebruikers van de vormgeving Vector */",
-	"vector-action-toggle-sidebar": "Zijbalk in- of uitschakelen",
+	"vector-action-toggle-sidebar": "Zijbalk omschakelen",
 	"vector-languages": "Talen",
 	"vector-language-button-aria-label": "Ga naar een artikel in een andere taal. Beschikbaar in {{PLURAL:$1|$1 taal|$1 talen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 taal|$1 talen}}",
@@ -57,7 +58,7 @@
 	"vector-anon-user-menu-pages-label": "Meer leren over bewerken",
 	"vector-main-menu-tooltip": "Hoofdmenu",
 	"vector-toc-menu-tooltip": "Inhoudsopgave",
-	"vector-toc-collapsible-button-label": "Inhoudsopgave tonen of verbergen",
+	"vector-toc-collapsible-button-label": "Inhoudsopgave omschakelen",
 	"vector-article-tools-nav-label": "Hulpmiddelen",
 	"vector-site-nav-label": "Site",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Overleg]]",
