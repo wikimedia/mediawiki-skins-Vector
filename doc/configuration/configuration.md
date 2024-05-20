@@ -129,8 +129,6 @@ Different projects have different needs, so some configuration on the site level
 
   - Default: `28`
 
-  - `arwiki`, `cswiki`, and `huwiki` set to `true`.
-
 - wgVectorMaxWidthOptions
 
   - Configures maximum width options for the Vector skin.
