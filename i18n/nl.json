@@ -59,6 +59,8 @@
 	"skin-theme-name": "Kleur",
 	"skin-theme-day-label": "Licht",
 	"skin-theme-night-label": "Donker",
+	"skin-theme-os-label": "Automatisch",
+	"skin-theme-exclusion-notice": "Deze pagina is altijd in de lichte modus.",
 	"vector-search-loader": "Zoeksuggesties worden geladen",
 	"vector-searchsuggest-containing": "Zoek naar pagina's die <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevatten",
 	"vector-intro-page": "Help:Inleiding",
