@@ -86,9 +86,9 @@ Do not rely on any of the feature flags documented here. They should not be cons
 
   - Removal ticket: [https://phabricator.wikimedia.org/T332728](https://phabricator.wikimedia.org/T332728)
 
-- wgVectorClientPreferences
+- wgVectorAppearance
 
-  - Sets client preferences for the Vector skin.
+  - Display the appearance menu inside the Vector skin.
 
   - Removal ticket:  [https://phabricator.wikimedia.org/T345359](https://phabricator.wikimedia.org/T345359)
 
