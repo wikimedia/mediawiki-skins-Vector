@@ -33,10 +33,10 @@ class ConfigHelper {
 	 * @return bool
 	 */
 	public static function shouldDisable( array $options, WebRequest $request, Title $title = null ) {
-		$canonicalTitle = $title != null ? $title->getRootTitle() : null;
+		$canonicalTitle = $title ? $title->getRootTitle() : null;
 
 		$exclusions = $options[ 'exclude' ] ?? [];
-		$inclusions = $options['include'] ?? [];
+		$inclusions = $options[ 'include' ] ?? [];
 
 		$excludeQueryString = $exclusions[ 'querystring' ] ?? [];
 		foreach ( $excludeQueryString as $param => $excludedParamPattern ) {
@@ -50,10 +50,11 @@ class ConfigHelper {
 			}
 		}
 
-		if ( $title != null && $title->isMainPage() ) {
+		if ( $title && $title->isMainPage() ) {
 			// only one check to make
 			return $exclusions[ 'mainpage' ] ?? false;
-		} elseif ( $canonicalTitle != null && $canonicalTitle->isSpecialPage() ) {
+		}
+		if ( $canonicalTitle && $canonicalTitle->isSpecialPage() ) {
 			$spFactory = MediaWikiServices::getInstance()->getSpecialPageFactory();
 			[ $canonicalName, $par ] = $spFactory->resolveAlias( $canonicalTitle->getDBKey() );
 			if ( $canonicalName ) {
@@ -84,7 +85,7 @@ class ConfigHelper {
 			// is case insensitive, so it does not generate a wrong special page title
 			$excludedTitle = Title::newFromText( $titleText );
 
-			if ( $canonicalTitle != null && $canonicalTitle->equals( $excludedTitle ) ) {
+			if ( $canonicalTitle && $canonicalTitle->equals( $excludedTitle ) ) {
 				return true;
 			}
 		}
@@ -94,7 +95,7 @@ class ConfigHelper {
 		// If nothing matches the exclusions to determine what should happen
 		//
 		$excludeNamespaces = $exclusions[ 'namespaces' ] ?? [];
-		if ( $title != null && $title->inNamespaces( $excludeNamespaces ) ) {
+		if ( $title && $title->inNamespaces( $excludeNamespaces ) ) {
 			return true;
 		}
 
