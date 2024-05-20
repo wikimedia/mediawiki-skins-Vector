@@ -1,8 +1,8 @@
-# **Vector Configuration Options and User Preferences**
+# Vector Configuration Options and User Preferences
 
 For documentation on Minerva preferences and configuration options see [https://github.com/wikimedia/mediawiki-skins-MinervaNeue/blob/master/README.md](https://github.com/wikimedia/mediawiki-skins-MinervaNeue/blob/master/README.md)
 
-**Topics**
+## Topics
 
 [Using Query Parameters](#using-query-parameters)
 
@@ -14,7 +14,7 @@ For documentation on Minerva preferences and configuration options see [https://
 
 [User Preference Options Glossary](#user-preference-options-glossary)
 
-## **Using Query Parameters**
+## Using Query Parameters
 
 Query parameters can be used to override user preferences and/or configuration within Vector.  We typically use these during development to aid testing and perform community outreach. They are not intended to be used by standard users and should always be considered temporary.
 
@@ -33,14 +33,14 @@ In the URL:
 Note: There is currently a bug relating to certain querystring parameters which is documented in [https://phabricator.wikimedia.org/T347900](https://phabricator.wikimedia.org/T347900)
 
 
-## **Configuration Options Glossary**
+## Configuration Options Glossary
 
 Each option controls specific aspects of the Vector skin's behavior and appearance, and some are configurable per-wiki to accommodate diverse preferences and requirements.
 
 The following explains each configuration option in the `InitialiseSettings.php` file from the `mediawiki-config` repo:
 
 
-## **Developer-only Configuration (Temporary)**
+## Developer-only Configuration (Temporary)
 
 Certain configuration is used by us during rollout of new features with the expectation that they will later be removed. At times temporary configuration may become Site-level configuration if new requirements emerge post-deployment.
 
@@ -119,7 +119,7 @@ Do not rely on any of the feature flags documented here. They should not be cons
   - Note: The assumption is that A/B testing will always be occurring in this skin so would never be removed unlike the other flags.
 
 
-## **Site-level Configuration**
+## Site-level Configuration
 
 Different projects have different needs, so some configuration on the site level is necessary. Site level configuration should be considered permanent and removing configuration should be carefully managed and based on usage.
 
@@ -153,7 +153,7 @@ Different projects have different needs, so some configuration on the site level
 
   - Allows site to specify an alternative API for search queries. If not set uses default MediaWiki search. Mostly used for development purposes.
 
-## **User Preference Options Glossary**
+## User Preference Options Glossary
 
 The following are interface elements or settings that users can customize within the Vector skin, such as toggling night mode, adjusting the width of the content area, or changing the font size.
 
