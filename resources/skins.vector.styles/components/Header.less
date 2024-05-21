@@ -23,7 +23,7 @@
 		// Ensures the button has a font size of 16px
 		font-size: unit( 16 / @font-size-browser, rem );
 
-		@media ( min-width: @min-width-breakpoint-tablet ) {
+		@media ( min-width: @min-width-breakpoint-mobile ) {
 			float: right;
 		}
 
@@ -41,12 +41,14 @@
 		}
 	}
 
-	@media ( max-width: @max-width-breakpoint-tablet ) {
+	@media ( max-width: @max-width-breakpoint-mobile ) {
 		#p-search,
 		.vector-header-end {
 			.cdx-mixin-button-layout-flush( 'start', true );
 		}
+	}
 
+	@media ( max-width: @max-width-breakpoint-tablet ) {
 		/**
 	 	 * Toggles the visibility of the search box at lower resolutions.
 		 */
