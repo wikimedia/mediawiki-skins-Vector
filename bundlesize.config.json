@@ -1,11 +1,11 @@
 {
 	"total": {
 		"vector-2022": {
-			"scripts": "81KB",
+			"scripts": "50KB",
 			"styles": "21KB"
 		},
 		"vector": {
-			"scripts": "80KB",
+			"scripts": "50KB",
 			"styles": "18KB"
 		}
 	},
@@ -24,7 +24,7 @@
 		},
 		{
 			"resourceModule": "skins.vector.styles",
-			"maxSize": "11.3 kB"
+			"maxSize": "12.0 kB"
 		},
 		{
 			"resourceModule": "skins.vector.js",

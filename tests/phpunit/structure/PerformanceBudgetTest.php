@@ -130,6 +130,55 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @param string $key either styles or scripts.
+	 * @return bool
+	 */
+	private function getAdditionalBudgetForInstalledExtensions( $key = 'styles' ) {
+		/**
+		 * @todo: In future this should be defined in the extensions themselves via bundlesize.config.json
+		 */
+		$additional = [
+			'scripts' => [
+				// ext.echo.centralauth
+				'Echo' => 2000,
+				// ext.checkUser.clientHints
+				'CheckUser' => 1000,
+				// ext.popups
+				'Popups' => 2000,
+				// ext.flaggedRevs.advanced
+				'FlaggedRevs' => 2000,
+				// ext.growthExperiments.SuggestedEditSession
+				// Note this seems pretty high compared to other numbers,
+				// so we may want to work with Growth team to optimize this down.
+				'GrowthExperiments' => 5000,
+				// ext.wikimediaEvents
+				// Note this seems pretty high compared to other numbers,
+				// so we may want to optimize this in future when we attempt to add new schemas.
+				'WikimediaEvents' => 11000,
+				// wikibase.vector.searchClient and ext.wikimediaevents.wikibase and wikibase.client.data-bridge.init
+				'Wikibase' => 2000,
+				// ext.visualEditor.desktopArticleTarget.init and ext.visualEditor.targetLoader
+				// Note this seems pretty high compared to other numbers,
+				// so we may want to work with VisualEditor to optimize this down.
+				'VisualEditor' => 14000,
+			],
+			'styles' => [
+				'FlaggedRevs' => 1000,
+			],
+		];
+		$total = 0;
+		// The flagged revisions extension is only loaded in certain environments.
+		// Since the environment is based on FlaggedRevs not being installed, extra budget is allocated.
+		// More context: https://phabricator.wikimedia.org/T360102#9632324
+		foreach ( $additional[ $key ] ?? [] as $extension => $budget ) {
+			if ( ExtensionRegistry::getInstance()->isLoaded( $extension ) ) {
+				$total += $budget;
+			}
+		}
+		return $total;
+	}
+
+	/**
 	 * Tests the size of modules in allowed skins
 	 *
 	 * @param string $skinName
@@ -149,14 +198,8 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 		foreach ( $moduleStyles as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
-		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] );
-
-		// The flagged revisions extension is only loaded in certain environments.
-		// Since the environment is based on FlaggedRevs not being installed, extra budget is allocated.
-		// More context: https://phabricator.wikimedia.org/T360102#9632324
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'FlaggedRevs' ) ) {
-			$stylesMaxSize += 1000;
-		}
+		$stylesMaxSize = $this->getSizeInBytes( $maxSizes[ 'styles' ] ) +
+			$this->getAdditionalBudgetForInstalledExtensions( 'styles' );
 
 		$message = $this->createMessage( $skinName, $size, $stylesMaxSize, $moduleStyles );
 		$this->assertLessThanOrEqual( $stylesMaxSize, $size, $message );
@@ -165,7 +208,8 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 		foreach ( $modulesScripts as $moduleName ) {
 			$size += $this->getContentTransferSize( $moduleName, $skinName );
 		}
-		$scriptsMaxSize = $this->getSizeInBytes( $maxSizes[ 'scripts' ] );
+		$scriptsMaxSize = $this->getSizeInBytes( $maxSizes[ 'scripts' ] ) +
+			$this->getAdditionalBudgetForInstalledExtensions( 'scripts' );
 		$message = $this->createMessage( $skinName, $size, $scriptsMaxSize, $modulesScripts, true );
 		$this->assertLessThanOrEqual( $scriptsMaxSize, $size, $message );
 	}
