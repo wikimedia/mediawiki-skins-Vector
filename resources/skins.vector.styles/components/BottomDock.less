@@ -31,6 +31,12 @@
 	display: none;
 }
 
+// On pages that have $wgVectorMaxWidthOptions['exclude'] true,
+// the toggle should be hidden. This rule overrides the media query below.
+html.vector-feature-limited-width-clientpref--excluded .vector-limited-width-toggle.cdx-button {
+	display: none;
+}
+
 // Note on certain pages the control will have no effect e.g. Special:RecentChanges
 // Defining this at 1400px is a product decision so do not change it
 // (more context at https://phabricator.wikimedia.org/T326887#8540889)

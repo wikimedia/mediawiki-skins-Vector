@@ -209,14 +209,6 @@ class FeatureManager {
 					$prefix .= 'skin-theme-';
 					break;
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
-					if ( ConfigHelper::shouldDisable( $config->get( 'VectorMaxWidthOptions' ), $request, $title ) ) {
-						return 'vector-feature-limited-width-clientpref--excluded';
-					}
-
-					$suffixEnabled = 'clientpref-1';
-					$suffixDisabled = 'clientpref-0';
-
-					break;
 				case CONSTANTS::FEATURE_TOC_PINNED:
 				case CONSTANTS::FEATURE_APPEARANCE_PINNED:
 					$suffixEnabled = 'clientpref-1';
