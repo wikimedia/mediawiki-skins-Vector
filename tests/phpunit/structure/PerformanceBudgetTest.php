@@ -161,6 +161,12 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 				// Note this seems pretty high compared to other numbers,
 				// so we may want to work with VisualEditor to optimize this down.
 				'VisualEditor' => 14000,
+				// ext.eventLogging
+				'EventLogging' => 1000,
+				// ext.uls.interface
+				'UniversalLanguageSelector' => 4000,
+				// ext.wikilambda.languageselector
+				'WikiLambda' => 2000,
 			],
 			'styles' => [
 				'FlaggedRevs' => 1000,
