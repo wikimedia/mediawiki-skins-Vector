@@ -40,6 +40,7 @@
 			"args": [
 				{
 					"name": "vector-2022",
+					"supportsMwHeading": true,
 					"wrapSiteNotice": true,
 					"templateDirectory": "includes/templates",
 					"template": "skin",
