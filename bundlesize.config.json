@@ -12,7 +12,7 @@
 	"modules": [
 		{
 			"resourceModule": "skins.vector.styles.legacy",
-			"maxSize": "8.6 kB"
+			"maxSize": "8.9 kB"
 		},
 		{
 			"resourceModule": "skins.vector.search.codex.styles",
