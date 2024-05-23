@@ -25,7 +25,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Vikoula5",
-			"Wladek92"
+			"Wladek92",
+			"Fugitron"
 		]
 	},
 	"skinname-vector": "Vector (ancienne version 2010)",
@@ -110,6 +111,6 @@
 	"vector-page-tools-unpinned-popup": "Le menu des outils a été déplacé ici.",
 	"vector-main-menu-unpinned-popup": "Le menu principal a été déplacé ici.",
 	"vector-client-prefs-unpinned-popup": "Le menu d'apparence a été déplacé ici.",
-	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vecteur 2022)",
+	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vector 2022)",
 	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode nuit."
 }
