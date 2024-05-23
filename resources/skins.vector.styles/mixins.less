@@ -25,6 +25,21 @@
 		height: unit( 12 / @font-size-browser, rem );
 		// https://phabricator.wikimedia.org/T319070#8284272
 		margin-left: 7px;
+
+		html.skin-theme-clientpref-night & {
+			filter: invert( 1 );
+		}
+
+		/**
+		* Auto night mode.
+		*
+		* Applies the night mode color palette only in response to system settings.
+		*/
+		@media ( prefers-color-scheme: dark ) {
+			html.skin-theme-clientpref-os & {
+				filter: invert( 1 );
+			}
+		}
 	}
 }
 
