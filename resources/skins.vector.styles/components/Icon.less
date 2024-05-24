@@ -3,6 +3,14 @@
 	.cdx-mixin-css-icon-size( );
 	.cdx-mixin-css-icon-alignment( );
 	font-size: 14px;
+	// Since we use background-image for various icons instead of mask-image
+	// We need to fix the width and height for icons to avoid
+	// the container increasing with font size and the icons becoming
+	// repeated (as happened in T365731)
+	// FIXME: Remove after T363920 has been resolved (making sure to test
+	// different font sizes when doing that)
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 // FIXME: T363920 Remove when all icons are migrated from ResourceLoader to Codex
