@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tables doesnt wrap nested tables 1`] = `
+"
+			<section class=\\"mw-parser-output\\">
+				<div class=\\"noresize\\"><table>
+					<tbody>
+						<tr><th>table table table</th></tr>
+						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
+					</tbody>
+				</table></div>
+
+			</section>
+		"
+`;
+
+exports[`tables wraps multiple table with div 1`] = `
+"
+			<section class=\\"mw-parser-output\\">
+				<div class=\\"noresize\\"><table>
+					<tbody><tr><th>table table table</th></tr></tbody>
+				</table></div>
+				<div class=\\"noresize\\"><table>
+					<tbody><tr><th>table table table</th></tr></tbody>
+				</table></div>
+			</section>
+		"
+`;
+
+exports[`tables wraps table with div 1`] = `
+"
+			<section class=\\"mw-parser-output\\">
+				<div class=\\"noresize\\"><table>
+					<tbody><tr><th>table table table</th></tr></tbody>
+				</table></div>
+			</section>
+		"
+`;
