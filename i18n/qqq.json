@@ -67,7 +67,7 @@
 	"skin-theme-name": "Label for setting that allows you to change theme. A title of a list that includes the following items:\n* {{msg-mw|skin-theme-os-label}}\n* {{msg-mw|skin-theme-day-label}}\n* {{msg-mw|skin-theme-night-label}}",
 	"skin-theme-description": "Description for dark/night mode.",
 	"skin-theme-day-label": "Label for light theme (standard mode). A title of a list that has the title {{msg-mw|skin-theme-name}}, and that includes the following items:\n* {{msg-mw|skin-theme-os-label}}\n* {{msg-mw|skin-theme-day-label}}\n* {{msg-mw|skin-theme-night-label}}",
-	"skin-theme-night-label": "Label for night theme (dark/night mode).",
+	"skin-theme-night-label": "Label for night theme (dark/night mode). \"Dark\" should be translated consistently with {{msg-mw|Skin-minerva-night-mode-launch-subtitle}}.",
 	"skin-theme-os-label": "Label for night theme (automatic mode which respects any operating system setting).",
 	"skin-theme-exclusion-notice": "Text that informs you that the page is always in light mode. The word \"light\" should be consistent with {{msg-mw|Skin-theme-day-label}}.",
 	"vector-search-loader": "Text to display below search input while the search suggestion module is loading",
