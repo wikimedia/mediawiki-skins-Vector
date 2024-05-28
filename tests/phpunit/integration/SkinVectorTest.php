@@ -12,7 +12,6 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * Class VectorTemplateTest
- * @package MediaWiki\Skins\Vector\Tests\Unit
  * @group Vector
  * @group Skins
  */
