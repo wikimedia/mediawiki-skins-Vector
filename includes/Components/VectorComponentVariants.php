@@ -45,7 +45,7 @@ class VectorComponentVariants implements VectorComponent {
 	 */
 	private function getDropdownData() {
 		$dropdown = new VectorComponentDropdown(
-			$this->menuData[ 'id' ],
+			'vector-variants-dropdown',
 			$this->getDropdownLabel(),
 			// Hide dropdown if menu is empty
 			$this->menuData[ 'is-empty' ] ? 'emptyPortlet' : ''
