@@ -459,7 +459,8 @@
 				"resources/skins.vector.js/languageButton.js",
 				"resources/skins.vector.js/echo.js",
 				"resources/skins.vector.js/searchLoader.js",
-				"resources/skins.vector.js/menuTabs.js"
+				"resources/skins.vector.js/menuTabs.js",
+				"resources/skins.vector.js/disableNightModeIfGadget.js"
 			],
 			"dependencies": [
 				"skins.vector.clientPreferences",
@@ -469,7 +470,8 @@
 				"mediawiki.cookie",
 				"mediawiki.experiments",
 				"skins.vector.icons.js",
-				"mediawiki.util"
+				"mediawiki.util",
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"vector-limited-width-toggle-on-popup",
@@ -483,7 +485,9 @@
 				"vector-toc-unpinned-popup",
 				"vector-page-tools-unpinned-popup",
 				"vector-main-menu-unpinned-popup",
-				"vector-appearance-unpinned-popup"
+				"vector-appearance-unpinned-popup",
+				"vector-night-mode-gadget-names",
+				"vector-night-mode-gadget-warning"
 			]
 		},
 		"skins.vector.legacy.js": {

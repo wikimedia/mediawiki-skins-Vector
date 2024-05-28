@@ -13,6 +13,7 @@ const languageButton = require( './languageButton.js' ),
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	menuTabs = require( './menuTabs.js' ),
 	legacyMessageBoxStyles = require( './legacyMessageBoxStyles.js' ),
+	{ isNightModeGadgetEnabled, disableNightModeForGadget, alterExclusionMessage } = require( './disableNightModeIfGadget.js' ),
 	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
 
 /**
@@ -87,7 +88,16 @@ function main( window ) {
 				// @ts-ignore issues relating to delete operator are not relevant here.
 				delete clientPreferenceConfig[ 'skin-theme' ];
 			}
-			clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
+
+			// while we're in beta, temporarily check if the night mode gadget is installed and
+			// disable our night mode if so
+			if ( isNightModeGadgetEnabled() ) {
+				disableNightModeForGadget();
+				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
+				alterExclusionMessage();
+			} else {
+				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
+			}
 		} );
 	}
 
