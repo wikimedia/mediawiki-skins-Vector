@@ -79,7 +79,7 @@
 	"skin-theme-day-label": "فاتح",
 	"skin-theme-night-label": "داكن",
 	"skin-theme-os-label": "تلقائي",
-	"skin-theme-exclusion-notice": "هذه الصفحة دائمًا في الوضع النهاري.",
+	"skin-theme-exclusion-notice": "هذه الصفحة دائمًا في الوضع الفاتح.",
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-searchsuggest-containing": "ابحث عن صفحات تحتوي <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:مقدمة",
