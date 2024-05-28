@@ -515,7 +515,7 @@ class SkinVector22 extends SkinMustache {
 				$featureManager->isFeatureEnabled(
 					Constants::FEATURE_LIMITED_WIDTH
 				) ? 'fullScreen' : 'exitFullscreen',
-				'',
+				null,
 				'vector-limited-width-toggle',
 				[],
 				'normal',

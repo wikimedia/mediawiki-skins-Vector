@@ -156,7 +156,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 		return new VectorComponentButton(
 			$this->msg( 'search' ),
 			'search',
-			'',
+			null,
 			'vector-sticky-header-search-toggle',
 			[
 				'tabindex' => '-1',
