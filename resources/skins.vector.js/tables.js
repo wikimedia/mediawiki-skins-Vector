@@ -1,4 +1,8 @@
+const config = require( './config.json' );
 const init = () => {
+	if ( !config.VectorWrapTablesTemporary ) {
+		return;
+	}
 	const tables = document.querySelectorAll( '.mw-parser-output > table' );
 	Array.from( tables ).forEach( ( table ) => {
 		// Don't wrap tables within tables
