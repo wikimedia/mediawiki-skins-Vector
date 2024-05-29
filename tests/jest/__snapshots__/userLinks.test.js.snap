@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserLinks renders 1`] = `
-"<nav class=\\"vector-user-links\\" aria-label=\\"\\" role=\\"navigation\\">
+"<nav class=\\"vector-user-links\\" aria-label=\\"\\">
 	<div class=\\"vector-user-links-main\\">
 <div id=\\"p-personal-preferences\\" class=\\"vector-menu\\">
 <div class=\\"vector-menu-content\\">
