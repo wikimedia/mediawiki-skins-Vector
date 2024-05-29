@@ -4,7 +4,7 @@ describe( 'tables', () => {
 	test( 'wraps table with div', () => {
 		document.body.innerHTML = `
 			<section class="mw-parser-output">
-				<table>
+				<table class="wikitable">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table>
 			</section>
@@ -17,10 +17,10 @@ describe( 'tables', () => {
 	test( 'wraps multiple table with div', () => {
 		document.body.innerHTML = `
 			<section class="mw-parser-output">
-				<table>
+				<table class="wikitable">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table>
-				<table>
+				<table class="wikitable">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table>
 			</section>
@@ -33,7 +33,7 @@ describe( 'tables', () => {
 	test( 'doesnt wrap nested tables', () => {
 		document.body.innerHTML = `
 			<section class="mw-parser-output">
-				<table>
+				<table class="wikitable">
 					<tbody>
 						<tr><th>table table table</th></tr>
 						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
@@ -41,6 +41,38 @@ describe( 'tables', () => {
 				</table>
 
 			</section>
+		`;
+		tables();
+
+		expect( document.body.innerHTML ).toMatchSnapshot();
+	} );
+
+	test( 'doesnt wrap tables that are not wikitables', () => {
+		document.body.innerHTML = `
+			<table>
+				<tbody>
+					<tr><th>table table table</th></tr>
+					<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
+				</tbody>
+			</table>
+		`;
+		tables();
+
+		expect( document.body.innerHTML ).toMatchSnapshot();
+	} );
+
+	test( 'doesnt wrap tables that are already wrapped', () => {
+		document.body.innerHTML = `
+			<div class="mw-parser-output">
+				<div>
+					<table>
+						<tbody>
+							<tr><th>table table table</th></tr>
+							<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		`;
 		tables();
 
