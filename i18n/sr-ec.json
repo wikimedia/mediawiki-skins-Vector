@@ -58,6 +58,7 @@
 	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Садржај",
 	"vector-toc-beginning": "Почетак",
+	"vector-toc-toggle-button-label": "Садржај одељка $1",
 	"vector-anon-user-menu-pages": "Странице за одјављене уреднике",
 	"vector-anon-user-menu-pages-learn": "детаљније",
 	"vector-anon-user-menu-pages-label": "Детаљније о уређивању",

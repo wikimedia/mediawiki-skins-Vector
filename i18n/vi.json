@@ -20,7 +20,9 @@
 			"Trần Nguyễn Minh Huy",
 			"Vinhtantran",
 			"Withoutaname",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Doraemonluonbentoi",
+			"Hide on Rosé"
 		]
 	},
 	"skinname-vector": "Vectơ cũ (2010)",
@@ -71,6 +73,8 @@
 	"vector-site-nav-label": "Trang Web",
 	"vector-main-menu-label": "Trình đơn chính",
 	"vector-limited-width-toggle": "Chuyển đổi chiều rộng nội dung giới hạn",
+	"vector-limited-width-toggle-on-popup": "Bạn đã chuyển bố cục trang sang chiều rộng tối đa. Để quay lại chiều rộng giới hạn, hãy nhấn nút này.",
+	"vector-limited-width-toggle-off-popup": "Bạn có thể chuyển đổi giữa chiều rộng giới hạn và chiều rộng đầy đủ bằng cách nhấp vào nút này.",
 	"vector-page-tools-label": "Công cụ",
 	"vector-page-tools-general-label": "Chung",
 	"vector-page-tools-actions-label": "Tác vụ",
@@ -78,6 +82,7 @@
 	"vector-unpin-element-label": "ẩn",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Thảo luận]]",
 	"tooltip-vector-anon-user-menu-title": "Thêm tùy chọn",
+	"vector-page-tools-nav-label": "Công cụ trang",
 	"vector-prefs-limited-width": "Bật chế độ giới hạn chiều rộng nội dung",
 	"vector-prefs-limited-width-help": "Bật chế độ giới hạn chiều rộng nội dung để cải thiện trải nghiệm đọc.",
 	"empty-language-selector-body": "Nội dung trang không được hỗ trợ ở ngôn ngữ khác.",
