@@ -21,6 +21,10 @@ describe( 'tables', () => {
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table>
 				<table class="wikitable">
+				<table class="wikitable">
+					<tbody><tr><th>table table table</th></tr></tbody>
+				</table>
+				<table class="wikitable">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table>
 			</section>
@@ -36,10 +40,25 @@ describe( 'tables', () => {
 				<table class="wikitable">
 					<tbody>
 						<tr><th>table table table</th></tr>
+						<tr><td><table class="wikitable"><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
+					</tbody>
+				</table>
+			</section>
+		`;
+		tables();
+
+		expect( document.body.innerHTML ).toMatchSnapshot();
+	} );
+
+	test( 'only wraps wikitables', () => {
+		document.body.innerHTML = `
+			<section class="mw-parser-output">
+				<table>
+					<tbody>
+						<tr><th>table table table</th></tr>
 						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
 					</tbody>
 				</table>
-
 			</section>
 		`;
 		tables();

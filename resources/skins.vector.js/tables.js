@@ -3,7 +3,7 @@ const init = () => {
 	if ( !config.VectorWrapTablesTemporary ) {
 		return;
 	}
-	const tables = document.querySelectorAll( '.mw-parser-output > table' );
+	const tables = document.querySelectorAll( '.mw-parser-output table.wikitable:not(.floatright):not(.floatleft)' );
 	Array.from( tables ).forEach( ( table ) => {
 		// Don't wrap tables within tables
 		const parent = table.parentElement;

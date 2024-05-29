@@ -6,10 +6,9 @@ exports[`tables doesnt wrap nested tables 1`] = `
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody>
 						<tr><th>table table table</th></tr>
-						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
+						<tr><td><table class=\\"wikitable\\"><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
 					</tbody>
 				</table></div>
-
 			</section>
 		"
 `;
@@ -40,10 +39,27 @@ exports[`tables doesnt wrap tables that are not wikitables 1`] = `
 		"
 `;
 
+exports[`tables only wraps wikitables 1`] = `
+"
+			<section class=\\"mw-parser-output\\">
+				<table>
+					<tbody>
+						<tr><th>table table table</th></tr>
+						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
+					</tbody>
+				</table>
+			</section>
+		"
+`;
+
 exports[`tables wraps multiple table with div 1`] = `
 "
 			<section class=\\"mw-parser-output\\">
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
+					<tbody><tr><th>table table table</th></tr></tbody>
+				</table></div>
+				<div class=\\"noresize\\"><table class=\\"wikitable\\">
+				</table></div><div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table></div>
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
