@@ -52,7 +52,8 @@ function alterDisableLink( container ) {
 	link.style.display = 'inline';
 
 	link.addEventListener( 'click', () => {
-		const disableOptions = Object();
+		/** @type {Object.<string, number>} */
+		const disableOptions = {};
 
 		mw.msg( 'vector-night-mode-gadget-names' ).split( '|' ).forEach( ( gadgetName ) => {
 			disableOptions[ `gadget-${ gadgetName }` ] = 0;
