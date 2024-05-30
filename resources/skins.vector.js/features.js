@@ -16,7 +16,6 @@ function save( feature, enabled ) {
 			case 'limited-width':
 			case 'appearance-pinned':
 				// Save the setting under the new system
-				// @ts-ignore https://github.com/wikimedia/typescript-types/pull/44
 				mw.user.clientPrefs.set( `vector-feature-${ feature }`, enabled ? '1' : '0' );
 				break;
 			default:
