@@ -118,6 +118,10 @@ Do not rely on any of the feature flags documented here. They should not be cons
 
   - Note: The assumption is that A/B testing will always be occurring in this skin so would never be removed unlike the other flags.
 
+- wgVectorWrapTablesTemporary
+   - When enabled, certain tables will be wrapped in a div to make them horizontally scrollable when no
+     space is available.
+  - Removal ticket: [https://phabricator.wikimedia.org/T361737](https://phabricator.wikimedia.org/T361737)
 
 ## Site-level Configuration
 

@@ -433,7 +433,8 @@
 				{
 					"name": "resources/skins.vector.js/config.json",
 					"config": [
-						"VectorSearchApiUrl"
+						"VectorSearchApiUrl",
+						"VectorWrapTablesTemporary"
 					]
 				},
 				{
@@ -571,6 +572,10 @@
 		]
 	},
 	"config": {
+		"VectorWrapTablesTemporary": {
+			"value": false,
+			"description": "@var bool temporary config variable for controlling role out of tables. When enabled certain tables will be wrapped with a div"
+		},
 		"VectorNightMode": {
 			"value": {
 				"logged_in": false,
