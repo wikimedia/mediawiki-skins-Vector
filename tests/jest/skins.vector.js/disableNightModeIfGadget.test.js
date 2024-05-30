@@ -61,6 +61,26 @@ describe( 'disableNightModeForGadget', () => {
 } );
 
 describe( 'alterDisableLink', () => {
+	afterEach( () => {
+		jest.restoreAllMocks();
+	} );
+
+	it( 'should exit early if the gadget names are empty', () => {
+		jest.spyOn( mw, 'msg' ).mockImplementation( () => '' );
+
+		const p = document.createElement( 'p' );
+		const a = document.createElement( 'a' );
+		p.appendChild( a );
+
+		a.href = 'https://test.com/';
+		a.title = 'test';
+
+		alterDisableLink( p );
+
+		expect( a.href ).toBe( 'https://test.com/' );
+		expect( a.title ).toBe( 'test' );
+	} );
+
 	it( 'should leave the surrounding element unaltered', () => {
 		const p = document.createElement( 'p' );
 		const a = document.createElement( 'a' );

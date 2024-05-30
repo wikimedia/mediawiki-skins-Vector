@@ -26,8 +26,7 @@ function isNightModeGadgetEnabled() {
  * Manually mark the page we're on as excluded
  */
 function disableNightModeForGadget() {
-	document.documentElement.classList.remove( 'skin-theme-clientpref-night' );
-	document.documentElement.classList.remove( 'skin-theme-clientpref-os' );
+	document.documentElement.classList.remove( 'skin-theme-clientpref-night', 'skin-theme-clientpref-os' );
 
 	document.documentElement.classList.add( 'skin-theme-clientpref--excluded' );
 }
@@ -40,10 +39,12 @@ function disableNightModeForGadget() {
  * @param {Element} container an html element containing a link
  */
 function alterDisableLink( container ) {
+	const gadgetNames = mw.msg( 'vector-night-mode-gadget-names' );
 	const link = container.querySelector( 'a' );
 
-	// if we can't find a link, nothing we can do
-	if ( !link ) {
+	// if we can't disable the gadget, keep the link functional
+	// (if we can't find a link, not much we can do)
+	if ( !gadgetNames || !link ) {
 		return;
 	}
 
@@ -55,7 +56,7 @@ function alterDisableLink( container ) {
 		/** @type {Object.<string, number>} */
 		const disableOptions = {};
 
-		mw.msg( 'vector-night-mode-gadget-names' ).split( '|' ).forEach( ( gadgetName ) => {
+		gadgetNames.split( '|' ).forEach( ( gadgetName ) => {
 			disableOptions[ `gadget-${ gadgetName }` ] = 0;
 		} );
 
