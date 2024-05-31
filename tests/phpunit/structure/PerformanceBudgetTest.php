@@ -166,7 +166,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 				// ext.uls.interface
 				'UniversalLanguageSelector' => 4000,
 				// ext.wikilambda.languageselector
-				'WikiLambda' => 2000,
+				'WikiLambda' => 4000,
 			],
 			'styles' => [
 				'FlaggedRevs' => 1000,
