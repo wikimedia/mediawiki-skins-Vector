@@ -9,9 +9,9 @@
 	"skinname-vector": "Старо векторско (2010)",
 	"skinname-vector-2022": "Векторско (2022)",
 	"vector-specialversion-name": "Векторско",
-	"vector-skin-desc": "Дава две верзии на „Векторско“:\n\n* 2011 — Современа верзија на рувото „Монобук“ со свеж изглед и многу подобрувања на употребливоста.\n* 2022 — „Векторско“ изработено како дел од проектот „[[mw:Desktop Improvements|Столни подобрувања]]“ на Фондацијата Викимедија.",
+	"vector-skin-desc": "Дава две верзии на „Векторско“:\n\n* 2011 — Современа верзија на рувото „Монобук“ со свеж изглед и многу подобрувања на употребливоста.\n* 2022 — „Векторско“ изработено како дел од проектот „[https://www.mediawiki.org/wiki/Desktop_Improvements Столни подобрувања]“ на Фондацијата Викимедија.",
 	"prefs-vector-enable-vector-1-label": "Користи Векторско по старо",
-	"prefs-vector-enable-vector-1-help": "Во текот на следните неколку години постепено ќе го надградуваме рувото Векторско. Неговата употреба по старо ќе ви овозможува да ја гледате старата верзија (по податок од декември 2019 г.). За да дознаете повеќе за надградбите, појдете на нашата [[mw:Reading/Web/Desktop_Improvements|проектна страница]].",
+	"prefs-vector-enable-vector-1-help": "Во текот на следните неколку години постепено ќе го надградуваме рувото Векторско. Неговата употреба по старо ќе ви овозможува да ја гледате старата верзија (по податок од декември 2019 г.). За да дознаете повеќе за надградбите, појдете на нашата [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements проектна страница].",
 	"vector-opt-out": "Смени на стариот изглед",
 	"vector-opt-out-tooltip": "Сменете си ги нагодувањата за да се вратите на стариот изглед на рувото (поранешното Векторско)",
 	"vector.css": "/* Тука поставениот CSS се однесува на корисниците на рувото „Векторско“ */",
@@ -56,7 +56,7 @@
 	"skin-theme-day-label": "Светол",
 	"skin-theme-night-label": "Темен",
 	"skin-theme-os-label": "Автоматски",
-	"skin-theme-exclusion-notice": "Оваа страница секогаш е во дневен режим.",
+	"skin-theme-exclusion-notice": "Оваа страница секогаш е во светол режим.",
 	"vector-search-loader": "Вчитувам предлози за пребарувањето",
 	"vector-searchsuggest-containing": "Пребарај страници кои го содржат <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вовед",
@@ -81,7 +81,7 @@
 	"vector-page-tools-actions-label": "Дејства",
 	"vector-pin-element-label": "премести во страничникот",
 	"vector-unpin-element-label": "скриј",
-	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Разговор]]",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Разговор]",
 	"tooltip-vector-anon-user-menu-title": "Повеќе можности",
 	"vector-page-tools-nav-label": "Алатки за страници",
 	"vector-prefs-limited-width": "Овозможи режим со ограничена ширина",
@@ -92,5 +92,6 @@
 	"vector-main-menu-unpinned-popup": "Главното мени е преместено овде.",
 	"vector-appearance-unpinned-popup": "Менито за изглед е преместено овде.",
 	"vector-2022-beta-preview-label": "Олеснето читање (Векторско 2022)",
-	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и темен режим."
+	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и темен режим.",
+	"vector-night-mode-gadget-warning": "Користите алатка во темен режим која ја попречува оваа функција. [[Special:Preferences#mw-prefsection-gadgets|Оневозможете ја алатката]] за да користите темен режим."
 }
