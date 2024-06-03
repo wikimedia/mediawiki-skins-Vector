@@ -91,5 +91,6 @@
 	"vector-main-menu-unpinned-popup": "התפריט הראשי הועבר לכאן.",
 	"vector-appearance-unpinned-popup": "תפריט המראה הועבר לכאן.",
 	"vector-2022-beta-preview-label": "נגישות לקריאה (וקטור 2022)",
-	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב כהה."
+	"vector-2022-beta-preview-description": "אפשר לקבל גישה מוקדמת לאפשרויות חדשות של נגישות לקריאה, כגון שיפורים בשימוש בגופנים ומצב כהה.",
+	"vector-night-mode-gadget-warning": "{{GENDER:|אתה משתמש|את משתמשת}} בגאדג'ט מצב כהה שמפריע לתכונה הזאת. [[Special:Preferences#mw-prefsection-gadgets|יש לכבות את הגאדג'ט]] כדי להשתמש במצב כהה."
 }

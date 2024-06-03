@@ -16,9 +16,9 @@
 	"skinname-vector": "Köhnə Vektor (2010)",
 	"skinname-vector-2022": "Vektor (2022)",
 	"vector-specialversion-name": "Vektor",
-	"vector-skin-desc": "2 Vektor dizaynı təqdim edir:\n* 2011 - MonoBook-un təzə görünüşü və bir çox istifadəyə yararlılıq təkmilləşdirmələri ilə Modern versiyası.\n* 2022 - WMF [[mw:Desktop Improvements|İş masası Təkmilləşdirilmələri]] layihəsinin bir hissəsi kimi yaradılmış Vektor.",
+	"vector-skin-desc": "2 Vektor dizaynı təqdim edir:\n* 2011 - MonoBook-un təzə görünüşü və bir çox istifadəyə yararlılıq təkmilləşdirmələri ilə Modern versiyası.\n* 2022 - WMF [https://www.mediawiki.org/wiki/Desktop_Improvements İş masası Təkmilləşdirilmələri] layihəsinin bir hissəsi kimi yaradılmış Vektor.",
 	"prefs-vector-enable-vector-1-label": "Əvvəlki Vektoru istifadə et",
-	"prefs-vector-enable-vector-1-help": "Növbəti bir neçə il ərzində Vektor dizaynını tədricən yeniləyəcəyik. Köhnə Vektor, Vektorun köhnə versiyasına baxmağa imkan verəcəkdir (dekabr 2019-cu ildən etibarən). Yeniləmələr haqqında daha çox məlumat üçün  [[mw:Reading/Web/Desktop_Improvements|layihə səhifəmizə]] nəzər yetirin.",
+	"prefs-vector-enable-vector-1-help": "Növbəti bir neçə il ərzində Vektor dizaynını tədricən yeniləyəcəyik. Köhnə Vektor, Vektorun köhnə versiyasına baxmağa imkan verəcəkdir (dekabr 2019-cu ildən etibarən). Yeniləmələr haqqında daha çox məlumat üçün  [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements layihə səhifəmizə] nəzər yetirin.",
 	"vector-opt-out": "Əvvəlki dizayna qayıt",
 	"vector-opt-out-tooltip": "Köhnə dizayna qayıtmaq üçün parametrlərinizi dəyişdirin (köhnə Vektor)",
 	"vector.css": "/* Buradakı CSS kodu Vektor istifadəçiləri üçün yüklənəcək */",
@@ -88,7 +88,7 @@
 	"vector-page-tools-actions-label": "Fəaliyyətlər",
 	"vector-pin-element-label": "yan panelə köçür",
 	"vector-unpin-element-label": "gizlə",
-	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Müzakirə]]",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Müzakirə]",
 	"tooltip-vector-anon-user-menu-title": "Daha çox seçim",
 	"vector-page-tools-nav-label": "Səhifə alətləri",
 	"vector-prefs-limited-width": "Məhdud genişlik rejimini aktivləşdirin",
@@ -99,5 +99,6 @@
 	"vector-main-menu-unpinned-popup": "Əsas menyu bura köçürülüb.",
 	"vector-appearance-unpinned-popup": "Görünüş menyusu bura köçürülüb.",
 	"vector-2022-beta-preview-label": "Oxumaq üçün əlçatanlıq (Vektor 2022)",
-	"vector-2022-beta-preview-description": "Tipoqrafiya təkmilləşdirmələri və gecə rejimi kimi yeni əlçatanlıq xüsusiyyətlərinə erkən giriş əldə edin."
+	"vector-2022-beta-preview-description": "Tipoqrafiya təkmilləşdirmələri və gecə rejimi kimi yeni əlçatanlıq xüsusiyyətlərinə erkən giriş əldə edin.",
+	"vector-night-mode-gadget-warning": "Bu funksiyaya müdaxilə edən qaranlıq rejim qadcetindən istifadə edirsiniz. Qaranlıq rejimdən istifadə etmək üçün [[Special:Preferences#mw-prefsection-gadgets|qadceti deaktiv edin]]."
 }
