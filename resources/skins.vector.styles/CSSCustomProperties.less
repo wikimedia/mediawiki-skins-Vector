@@ -17,6 +17,13 @@
 @OOUIOverrideSelectors: ~'.ve-ui-overlay, .oo-ui-popupWidget-popup, .oo-ui-toolbar';  // T363861 - VisualEditor Overlays
 
 /**
+ * T365764 - OOUI Icon classes for inverted dark-mode icons.
+ * This includes OOUI icons that are not colored (progressive/destructive), checkbox icons, and
+ * indicator widgets.
+ */
+@OOUIIconSelectors: ~'.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ), .oo-ui-indicatorElement-indicator ';
+
+/**
  * Light mode
  *
  * Applies the light mode color palette by default
@@ -44,9 +51,14 @@ html.skin-theme-clientpref-night {
 	--color-link-red: #b97876;
 }
 
+/**
+ * Forced light mode.
+ * Also special treatment of inverted OOUI icons, see T365764.
+ */
 // T365102 invert class specifically for image related elements
 html.skin-theme-clientpref-night .skin-invert-image img,
-html.skin-theme-clientpref-night .skin-invert {
+html.skin-theme-clientpref-night .skin-invert,
+html.skin-theme-clientpref-night @{OOUIIconSelectors} {
 	color-scheme: light;
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
@@ -79,10 +91,25 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 
 	// T365102 invert class specifically for image related elements
 	html.skin-theme-clientpref-os .skin-invert-image img,
-	html.skin-theme-clientpref-os .skin-invert {
+	html.skin-theme-clientpref-os .skin-invert,
+	html.skin-theme-clientpref-os @{OOUIIconSelectors} {
 		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
+}
+
+/**
+ * Prevent double inversion.
+ * Do not apply invert to elements that are inside a notheme or a skin-invert class to avoid inversion in light theme or
+ * double inversion in an already inverted element
+ * - OOUI icons inside .notheme OOUI elements
+ * - OOUI icons inside elements with .skin-invert
+ * - OOUI icons inside elements with .notheme
+ */
+@{OOUIOverrideSelectors} @{OOUIIconSelectors},
+.skin-invert @{OOUIIconSelectors},
+.notheme @{OOUIIconSelectors} {
+	filter: none !important; /* stylelint-disable-line declaration-no-important */
 }
 
 /**
