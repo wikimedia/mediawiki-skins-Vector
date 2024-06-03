@@ -14,6 +14,7 @@
 	"skinname-vector": "ڤيكتور لقديم (2010)",
 	"skinname-vector-2022": "ڤيكتور (2022)",
 	"vector-opt-out": "رجع ل الشكل لقديم",
+	"vector-languages": "لوغات",
 	"vector-language-button-label": "{{PLURAL:$1|$1 لوغة|$1 لوغات}}",
 	"vector-no-language-button-label": "زيد لوغات",
 	"vector-language-redirect-to-top": "ف هاد لويكيپيديا ليانات د لوغات كاينين ف لفوق د صفحة حدا لعنوان. [[#p-lang-btn|سير لفوق]].",
@@ -29,5 +30,6 @@
 	"vector-view-view": "قرا",
 	"vector-view-viewsource": "شوف لمصدر",
 	"vector-more-actions": "كتر",
-	"vector-searchsuggest-containing": "قلب علا صفاحي فيهم <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "قلب علا صفاحي فيهم <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "بدية"
 }

@@ -8,7 +8,8 @@
 			"Sarchia",
 			"ئارام بکر",
 			"Halbast",
-			"TerranBoy"
+			"TerranBoy",
+			"Amire80"
 		]
 	},
 	"skinname-vector": "ڤێکتۆری کۆن (٢٠١٠)",
@@ -22,7 +23,7 @@
 	"vector-action-toggle-sidebar": "شریتەلا بگۆڕە",
 	"vector-languages": "زمانەکان",
 	"vector-language-button-aria-label": "بڕۆ بۆ وتارێک بە زمانێکی تر. بە $1 زمان بەردەستە",
-	"vector-language-button-label": "{{{{PLURAL:$1|$1 زمان|$1 زمان}}}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 زمان|$1 زمان}}",
 	"vector-no-language-button-label": "زمانەکان زیاد بکە",
 	"vector-no-language-button-aria-label": "ئەم وتارە تەنیا بەم زمانە ھەیە. وتارەکە بۆ زمانەکانی تر زیاد بکە",
 	"vector-language-redirect-to-top": "لەسەر {{SITENAME}} بەستەرەکانی زمان لەسەرەوەی پەڕەکەدان بەرامبەر ناونیشانی وتارەکە. [[#p-lang-btn|بڕۆ بۆ سەرەوە]].",
