@@ -51,6 +51,7 @@
 						}
 					},
 					"bodyClasses": [
+						"skin--responsive",
 						"skin-vector",
 						"skin-vector-search-vue"
 					],
