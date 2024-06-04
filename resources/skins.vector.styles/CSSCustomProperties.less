@@ -44,6 +44,8 @@ html.skin-theme-clientpref-night {
 	--color-link-red: #b97876;
 }
 
+// T365102 invert class specifically for image related elements
+html.skin-theme-clientpref-night .skin-invert-image img,
 html.skin-theme-clientpref-night .skin-invert {
 	color-scheme: light;
 	filter: invert( 1 ) hue-rotate( 180deg );
@@ -75,6 +77,8 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 		color-scheme: light;
 	}
 
+	// T365102 invert class specifically for image related elements
+	html.skin-theme-clientpref-os .skin-invert-image img,
 	html.skin-theme-clientpref-os .skin-invert {
 		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
