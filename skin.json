@@ -310,12 +310,7 @@
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
-			"variants": {
-				"progressive": {
-					"color": "#36c",
-					"global": true
-				}
-			},
+			"useMaskImage": true,
 			"icons": [
 				"article",
 				"edit",
@@ -335,12 +330,7 @@
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
-			"variants": {
-				"progressive": {
-					"color": "#36c",
-					"global": true
-				}
-			},
+			"useMaskImage": true,
 			"icons": [
 				"tray",
 				"bell",

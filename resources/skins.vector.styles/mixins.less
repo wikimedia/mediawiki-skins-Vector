@@ -1,6 +1,7 @@
 /**
  * Less mixins.
  */
+@import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins.less';
 
 .mixin-vector-page-container-sizing() {
@@ -20,31 +21,11 @@
 
 	&::after {
 		content: '';
-		background: url( ../skins.vector.styles/images/arrow-down.svg ) 100% 50% no-repeat;
+		.cdx-mixin-css-icon( @cdx-icon-expand, @param-size-icon: @size-icon-x-small );
 		width: unit( 12 / @font-size-browser, rem );
 		height: unit( 12 / @font-size-browser, rem );
 		// https://phabricator.wikimedia.org/T319070#8284272
 		margin-left: 7px;
-
-		html.skin-theme-clientpref-night & {
-			// For night-mode, invert icons so they go from black to white.
-			// Since invert( 1 ) changes the hue (e.g. from blue to orange)
-			// hue-rotate( 180deg ) changes the hue back to that of the original color.
-			// This slightly corrects progressive/destructive colored icons
-			// (although their lightness & saturation are still different, e.g. language button).
-			filter: invert( 1 ) hue-rotate( 180deg );
-		}
-
-		/**
-		* Auto night mode.
-		*
-		* Applies the night mode color palette only in response to system settings.
-		*/
-		@media ( prefers-color-scheme: dark ) {
-			html.skin-theme-clientpref-os & {
-				filter: invert( 1 ) hue-rotate( 180deg );
-			}
-		}
 	}
 }
 

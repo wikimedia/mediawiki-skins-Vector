@@ -40,6 +40,10 @@
 		},
 		{
 			"resourceModule": "skins.vector.icons",
+			"maxSize": "1.3 kB"
+		},
+		{
+			"resourceModule": "skins.vector.icons.js",
 			"maxSize": "0.7 kB"
 		}
 	]

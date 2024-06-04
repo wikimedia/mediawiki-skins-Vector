@@ -1,69 +1,17 @@
+@import 'mediawiki.skin.variables.less';
+
+@transparentPNG: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=);
+
 .vector-icon {
-	.cdx-mixin-css-icon-background( );
-	.cdx-mixin-css-icon-size( );
-	.cdx-mixin-css-icon-alignment( );
-	font-size: 14px;
-	// Since we use background-image for various icons instead of mask-image
-	// We need to fix the width and height for icons to avoid
-	// the container increasing with font size and the icons becoming
-	// repeated (as happened in T365731)
-	// FIXME: Remove after T363920 has been resolved (making sure to test
-	// different font sizes when doing that)
-	background-repeat: no-repeat;
-	background-position: center;
+	// By default use a transparent PNG. This is important for icons loaded via JavaScript, as without this
+	// the icon will appear as a black square until loaded.
+	-webkit-mask-image: @transparentPNG;
+	mask-image: @transparentPNG;
+	.cdx-mixin-css-icon( 'none' );
 }
 
-// FIXME: T363920 Remove when all icons are migrated from ResourceLoader to Codex
-//
-// enumerate full list of OOUI icons to be inverted rather than selecting on vector-icon alone
-// so as not to punish switching to codex
-.vector-icon.mw-ui-icon-wikimedia-article,
-.vector-icon.mw-ui-icon-wikimedia-edit,
-.vector-icon.mw-ui-icon-wikimedia-editLock,
-.vector-icon.mw-ui-icon-wikimedia-exitFullscreen,
-.vector-icon.mw-ui-icon-wikimedia-fullScreen,
-.vector-icon.mw-ui-icon-wikimedia-history,
-.vector-icon.mw-ui-icon-wikimedia-speechBubbles,
-.vector-icon.mw-ui-icon-wikimedia-speechBubbleAdd,
-.vector-icon.mw-ui-icon-wikimedia-wikiText,
-.vector-icon.mw-ui-icon-wikimedia-appearance,
-.vector-icon.mw-ui-icon-wikimedia-tray,
-.vector-icon.mw-ui-icon-wikimedia-bell,
-.vector-icon.mw-ui-icon-wikimedia-menu,
-.vector-icon.mw-ui-icon-wikimedia-heart,
-.vector-icon.mw-ui-icon-wikimedia-language,
-.vector-icon.mw-ui-icon-wikimedia-ellipsis,
-.vector-icon.mw-ui-icon-wikimedia-userAvatar,
-.vector-icon.mw-ui-icon-wikimedia-userAdd,
-.vector-icon.mw-ui-icon-wikimedia-userTemporary,
-.vector-icon.mw-ui-icon-wikimedia-userTalk,
-.vector-icon.mw-ui-icon-wikimedia-sandbox,
-.vector-icon.mw-ui-icon-wikimedia-search,
-.vector-icon.mw-ui-icon-wikimedia-settings,
-.vector-icon.mw-ui-icon-wikimedia-labFlask,
-.vector-icon.mw-ui-icon-wikimedia-star,
-.vector-icon.mw-ui-icon-wikimedia-halfStar,
-.vector-icon.mw-ui-icon-wikimedia-unStar,
-.vector-icon.mw-ui-icon-wikimedia-watchlist,
-.vector-icon.mw-ui-icon-wikimedia-userContributions,
-.vector-icon.mw-ui-icon-wikimedia-logIn,
-.vector-icon.mw-ui-icon-wikimedia-logOut,
-.vector-icon.mw-ui-icon-wikimedia-imageGallery,
-.vector-icon.mw-ui-icon-wikimedia-userGroup,
-.vector-icon.mw-ui-icon-wikimedia-listBullet,
-.vector-icon.mw-ui-icon-wikimedia-close {
-	html.skin-theme-clientpref-night & {
-		filter: invert( 1 );
-	}
-
-	/**
-	 * Auto night mode.
-	 *
-	 * Applies the night mode color palette only in response to system settings.
-	 */
-	@media ( prefers-color-scheme: dark ) {
-		html.skin-theme-clientpref-os & {
-			filter: invert( 1 );
-		}
-	}
+/* If the class contains the string -progressive convert to a progressive icon.
+This impacts language button and talk add topic. */
+.vector-icon[ class*='-progressive' ] {
+	background-color: @color-progressive;
 }
