@@ -279,6 +279,8 @@ function makeClientPreference( parent, featureName, config ) {
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
 		const labelElement = portlet.querySelector( 'label' );
+
+		// Add additional description for mobile
 		// eslint-disable-next-line mediawiki/msg-doc
 		const descriptionMsg = mw.message( `${ featureName }-description` );
 		if ( descriptionMsg.exists() ) {
@@ -289,8 +291,22 @@ function makeClientPreference( parent, featureName, config ) {
 				labelElement.appendChild( desc );
 			}
 		}
-		const row = makeControl( featureName, config );
+
+		// Add exclusion notice for desktop
+		// eslint-disable-next-line mediawiki/msg-doc
+		const exclusionNoticeMsg = mw.message( `${ featureName }-exclusion-notice` );
+		if ( exclusionNoticeMsg.exists() ) {
+			const content = portlet.querySelector( '.vector-menu-content' );
+			const notice = document.createElement( 'span' );
+			notice.classList.add( 'skin-client-pref-exclusion-notice' );
+			notice.textContent = exclusionNoticeMsg.text();
+			if ( content ) {
+				content.appendChild( notice );
+			}
+		}
+
 		parent.appendChild( portlet );
+		const row = makeControl( featureName, config );
 		if ( row ) {
 			const tmp = mw.util.addPortletLink( id, '', '' );
 			// create a dummy link
