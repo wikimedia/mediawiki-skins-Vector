@@ -12,7 +12,8 @@
 			"SiGNOUT",
 			"Steenth",
 			"Weblars",
-			"Dipsacus fullonum"
+			"Dipsacus fullonum",
+			"Zakawer2"
 		]
 	},
 	"vector-skin-desc": "Der findes 2 Vector skins:\n\n* 2011 - Den moderne version af MonoBook med frisk udseende og mange forbedringer af brugervenligheden.\n* 2022 - Den version som er udviklet som en del af WMFs [[mw:Desktop Improvements]] project.",
@@ -57,6 +58,9 @@
 	"vector-toc-collapsible-button-label": "Vis/skjul indholdsfortegnelsen",
 	"vector-site-nav-label": "Websted",
 	"vector-main-menu-label": "Hovedmenu",
+	"vector-limited-width-toggle": "Slå begrænset bredde for indholdet til/fra",
+	"vector-limited-width-toggle-on-popup": "Du har ændret dit layout til fuld bredde. Tryk på denne knap for at gå tilbage til begrænset bredde.",
+	"vector-limited-width-toggle-off-popup": "Du kan skifte mellem begrænset og fuld bredde ved at trykke på denne knap.",
 	"vector-page-tools-label": "Værktøjer",
 	"vector-page-tools-general-label": "Generelt",
 	"vector-page-tools-actions-label": "Handlinger",
@@ -64,7 +68,9 @@
 	"vector-unpin-element-label": "skjul",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
 	"tooltip-vector-anon-user-menu-title": "Flere mugligheder",
+	"vector-page-tools-nav-label": "Sideværktøjer",
 	"vector-prefs-limited-width": "Aktiver begrænset breddetilstand",
 	"vector-prefs-limited-width-help": "Aktiver begrænset breddetilstand for forbedret læseoplevelse.",
+	"empty-language-selector-body": "Sidens indhold er ikke tilgængeligt på andre sprog.",
 	"vector-main-menu-unpinned-popup": "Hovedmenuen er flyttet hertil."
 }
