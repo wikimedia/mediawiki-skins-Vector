@@ -27,7 +27,12 @@
 		margin-left: 7px;
 
 		html.skin-theme-clientpref-night & {
-			filter: invert( 1 );
+			// For night-mode, invert icons so they go from black to white.
+			// Since invert( 1 ) changes the hue (e.g. from blue to orange)
+			// hue-rotate( 180deg ) changes the hue back to that of the original color.
+			// This slightly corrects progressive/destructive colored icons
+			// (although their lightness & saturation are still different, e.g. language button).
+			filter: invert( 1 ) hue-rotate( 180deg );
 		}
 
 		/**
@@ -37,7 +42,7 @@
 		*/
 		@media ( prefers-color-scheme: dark ) {
 			html.skin-theme-clientpref-os & {
-				filter: invert( 1 );
+				filter: invert( 1 ) hue-rotate( 180deg );
 			}
 		}
 	}
