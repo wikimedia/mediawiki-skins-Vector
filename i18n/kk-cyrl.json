@@ -9,7 +9,8 @@
 			"Kaztrans",
 			"Nurlan",
 			"U.ayaao.p",
-			"СеніңШешең"
+			"СеніңШешең",
+			"Amankel'dy"
 		]
 	},
 	"skinname-vector": "Ескі Vector (2010)",
@@ -44,6 +45,7 @@
 	"vector-jumptosearch": "Іздеуге өту",
 	"vector-jumptocontent": "Мазмұнға өту",
 	"vector-more-actions": "Тағы",
+	"vector-feature-limited-width-0-label": "Кең",
 	"vector-search-loader": "Іздеу ұсыныстары жүктелуде",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">«$1»</strong> бар беттерді іздеу",
 	"vector-intro-page": "Жәрдем:Таныстыру",
