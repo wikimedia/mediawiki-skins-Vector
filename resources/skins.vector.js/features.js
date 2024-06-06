@@ -1,7 +1,7 @@
 /** @interface MwApi */
 
-let /** @type {MwApi} */ api;
 const debounce = require( /** @type {string} */ ( 'mediawiki.util' ) ).debounce;
+const userPreferences = require( './userPreferences.js' );
 
 /**
  * Saves preference to user preferences and/or cookies.
@@ -24,8 +24,9 @@ function save( feature, enabled ) {
 		}
 	} else {
 		debounce( () => {
-			api = api || new mw.Api();
-			api.saveOption( 'vector-' + feature, enabled ? 1 : 0 );
+			userPreferences.saveOptions( {
+				[ `vector-${ feature }` ]: enabled ? 1 : 0
+			} );
 		}, 500 )();
 	}
 }

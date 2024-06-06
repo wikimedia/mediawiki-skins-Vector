@@ -5,7 +5,11 @@
  * @property {string} [type] defaults to radio. Supported: radio, switch
  * @property {Function} [callback] callback executed after a client preference has been modified.
  */
-let /** @type {MwApi} */ api;
+
+/**
+ * @typedef {Object} UserPreferencesApi
+ * @property {Function} saveOptions
+ */
 /**
  * @typedef {Object} PreferenceOption
  * @property {string} label
@@ -49,8 +53,9 @@ function getVisibleClientPreferences( config ) {
  * @param {string} featureName
  * @param {string} value
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} [userPreferences]
  */
-function toggleDocClassAndSave( featureName, value, config ) {
+function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 	const pref = config[ featureName ];
 	const callback = pref.callback || ( () => {} );
 	if ( mw.user.isNamed() ) {
@@ -64,8 +69,8 @@ function toggleDocClassAndSave( featureName, value, config ) {
 		document.documentElement.classList.add( `${ featureName }-clientpref-${ value }` );
 		// Ideally this should be taken care of via a single core helper function.
 		mw.util.debounce( () => {
-			api = api || new mw.Api();
-			api.saveOption( pref.preferenceKey, value ).then( () => {
+			userPreferences = userPreferences || new mw.Api();
+			userPreferences.saveOptions( { [ pref.preferenceKey ]: value } ).then( () => {
 				callback();
 			} );
 		}, 100 )();
@@ -142,8 +147,9 @@ function makeExclusionNotice( featureName ) {
  * @param {string} value
  * @param {string} currentValue
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} userPreferences
  */
-function appendRadioToggle( parent, featureName, value, currentValue, config ) {
+function appendRadioToggle( parent, featureName, value, currentValue, config, userPreferences ) {
 	const input = makeInputElement( 'radio', featureName, value );
 	input.classList.add( 'cdx-radio__input' );
 	if ( currentValue === value ) {
@@ -165,7 +171,7 @@ function appendRadioToggle( parent, featureName, value, currentValue, config ) {
 	container.appendChild( label );
 	parent.appendChild( container );
 	input.addEventListener( 'change', () => {
-		toggleDocClassAndSave( featureName, value, config );
+		toggleDocClassAndSave( featureName, value, config, userPreferences );
 	} );
 }
 
@@ -175,8 +181,9 @@ function appendRadioToggle( parent, featureName, value, currentValue, config ) {
  * @param {HTMLElement} labelElement
  * @param {string} currentValue
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} userPreferences
  */
-function appendToggleSwitch( form, featureName, labelElement, currentValue, config ) {
+function appendToggleSwitch( form, featureName, labelElement, currentValue, config, userPreferences ) {
 	const input = makeInputElement( 'checkbox', featureName, currentValue );
 	input.classList.add( 'cdx-toggle-switch__input' );
 	const switcher = document.createElement( 'span' );
@@ -192,7 +199,7 @@ function appendToggleSwitch( form, featureName, labelElement, currentValue, conf
 	toggleSwitch.appendChild( switcher );
 	toggleSwitch.appendChild( label );
 	input.addEventListener( 'change', () => {
-		toggleDocClassAndSave( featureName, input.checked ? '1' : '0', config );
+		toggleDocClassAndSave( featureName, input.checked ? '1' : '0', config, userPreferences );
 	} );
 	form.appendChild( toggleSwitch );
 }
@@ -221,9 +228,10 @@ const getFeatureLabelMsg = ( featureName ) => mw.message( `${ featureName }-name
  *
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} userPreferences
  * @return {Element|null}
  */
-function makeControl( featureName, config ) {
+function makeControl( featureName, config, userPreferences ) {
 	const pref = config[ featureName ];
 	const isExcluded = isFeatureExcluded( featureName );
 
@@ -242,13 +250,13 @@ function makeControl( featureName, config ) {
 	switch ( type ) {
 		case 'radio':
 			pref.options.forEach( ( value ) => {
-				appendRadioToggle( form, featureName, value, String( currentValue ), config );
+				appendRadioToggle( form, featureName, value, String( currentValue ), config, userPreferences );
 			} );
 			break;
 		case 'switch': {
 			const labelElement = document.createElement( 'label' );
 			labelElement.textContent = getFeatureLabelMsg( featureName ).text();
-			appendToggleSwitch( form, featureName, labelElement, String( currentValue ), config );
+			appendToggleSwitch( form, featureName, labelElement, String( currentValue ), config, userPreferences );
 			break;
 		} default:
 			throw new Error( 'Unknown client preference! Only switch or radio are supported.' );
@@ -266,8 +274,9 @@ function makeControl( featureName, config ) {
  * @param {Element} parent
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} userPreferences
  */
-function makeClientPreference( parent, featureName, config ) {
+function makeClientPreference( parent, featureName, config, userPreferences ) {
 	const labelMsg = getFeatureLabelMsg( featureName );
 	// If the user is not debugging messages and no language exists,
 	// exit as its a hidden client preference.
@@ -305,7 +314,7 @@ function makeClientPreference( parent, featureName, config ) {
 		}
 
 		parent.appendChild( portlet );
-		const row = makeControl( featureName, config );
+		const row = makeControl( featureName, config, userPreferences );
 		if ( row ) {
 			const tmp = mw.util.addPortletLink( id, '', '' );
 			// create a dummy link
@@ -324,16 +333,18 @@ function makeClientPreference( parent, featureName, config ) {
  *
  * @param {string} selector of element to fill with client preferences
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} [userPreferences]
  * @return {Promise<Node>}
  */
-function render( selector, config ) {
+function render( selector, config, userPreferences ) {
 	const node = document.querySelector( selector );
 	if ( !node ) {
 		return Promise.reject();
 	}
 	return new Promise( ( resolve ) => {
 		getVisibleClientPreferences( config ).forEach( ( pref ) => {
-			makeClientPreference( node, pref, config );
+			userPreferences = userPreferences || new mw.Api();
+			makeClientPreference( node, pref, config, userPreferences );
 		} );
 		mw.requestIdleCallback( () => {
 			resolve( node );
@@ -345,8 +356,9 @@ function render( selector, config ) {
  * @param {string} clickSelector what to click
  * @param {string} renderSelector where to render
  * @param {Record<string,ClientPreference>} config
+ * @param {UserPreferencesApi} [userPreferences]
  */
-function bind( clickSelector, renderSelector, config ) {
+function bind( clickSelector, renderSelector, config, userPreferences ) {
 	let enhanced = false;
 	const chk = /** @type {HTMLInputElement} */ (
 		document.querySelector( clickSelector )
@@ -354,15 +366,18 @@ function bind( clickSelector, renderSelector, config ) {
 	if ( !chk ) {
 		return;
 	}
+	if ( !userPreferences ) {
+		userPreferences = new mw.Api();
+	}
 	if ( chk.checked ) {
-		render( renderSelector, config );
+		render( renderSelector, config, userPreferences );
 		enhanced = true;
 	} else {
 		chk.addEventListener( 'input', () => {
 			if ( enhanced ) {
 				return;
 			}
-			render( renderSelector, config );
+			render( renderSelector, config, userPreferences );
 			enhanced = true;
 		} );
 	}

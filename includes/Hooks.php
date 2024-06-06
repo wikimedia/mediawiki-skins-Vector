@@ -521,8 +521,23 @@ class Hooks implements
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
 		$vectorPrefs = [
+			Constants::PREF_KEY_LIMITED_WIDTH => [
+				'type' => 'toggle',
+				'label-message' => 'vector-prefs-limited-width',
+				'section' => 'rendering/skin/skin-prefs',
+				'help-message' => 'vector-prefs-limited-width-help',
+				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
+			],
 			Constants::PREF_KEY_FONT_SIZE => [
-				'type' => 'api'
+				'type' => 'select',
+				'label-message' => 'vector-feature-custom-font-size-name',
+				'section' => 'rendering/skin/skin-prefs',
+				'options-messages' => [
+					'vector-feature-custom-font-size-0-label' => '0',
+					'vector-feature-custom-font-size-1-label' => '1',
+					'vector-feature-custom-font-size-2-label' => '2',
+				],
+				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			],
 			Constants::PREF_KEY_PAGE_TOOLS_PINNED => [
 				'type' => 'api'
@@ -536,15 +551,17 @@ class Hooks implements
 			Constants::PREF_KEY_APPEARANCE_PINNED => [
 				'type' => 'api'
 			],
-			Constants::PREF_KEY_LIMITED_WIDTH => [
-				'type' => 'toggle',
-				'label-message' => 'vector-prefs-limited-width',
-				'section' => 'rendering/skin/skin-prefs',
-				'help-message' => 'vector-prefs-limited-width-help',
-				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
-			],
 			Constants::PREF_KEY_NIGHT_MODE => [
-				'type' => 'api'
+				'type' => 'select',
+				'label-message' => 'skin-theme-name',
+				'help-message' => 'skin-theme-description',
+				'section' => 'rendering/skin/skin-prefs',
+				'options-messages' => [
+					'skin-theme-day-label' => 'day',
+					'skin-theme-night-label' => 'night',
+					'skin-theme-os-label' => 'os',
+				],
+				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			],
 		];
 		$prefs += $vectorPrefs;

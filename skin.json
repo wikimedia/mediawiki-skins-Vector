@@ -415,6 +415,7 @@
 				"resources/skins.vector.js/sectionObserver.js",
 				"resources/skins.vector.js/deferUntilFrame.js",
 				"resources/skins.vector.js/pinnableElement.js",
+				"resources/skins.vector.js/userPreferences.js",
 				"resources/skins.vector.js/features.js",
 				"resources/skins.vector.js/limitedWidthToggle.js",
 				"resources/skins.vector.js/popupNotification.js",

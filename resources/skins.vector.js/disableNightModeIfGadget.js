@@ -1,3 +1,5 @@
+const userPreferences = require( './userPreferences.js' );
+
 /**
  * T365083 - Disable night mode if night mode gadget is enabled
  *
@@ -60,8 +62,7 @@ function alterDisableLink( container ) {
 			disableOptions[ `gadget-${ gadgetName }` ] = 0;
 		} );
 
-		const api = new mw.Api();
-		api.saveOptions( disableOptions ).then( () => {
+		userPreferences.saveOptions( disableOptions ).then( () => {
 			window.location.reload();
 		} );
 	} );
