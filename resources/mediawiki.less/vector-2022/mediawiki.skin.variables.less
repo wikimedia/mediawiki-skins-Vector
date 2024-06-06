@@ -35,12 +35,12 @@
 // Overrides for non-Codex variables:
 
 // Colors
-@color-link: @color-progressive;
-@color-link--visited: #795cb2;
-@color-link--active: #faa700;
+// ****IMPORTANT****
+// When defining these make sure if needed, a dark mode color has also been defined
+// in CSSCustomProperties.less
 // Link colors for a power user feature to highlight links to other projects.
 // In Vector 2022 we unify these colors by default for simpler orientation by average users.
 // It's still possible to overwrite the styles per user.
 @color-link-external: @color-progressive;
-@color-link-external--visited: #795cb2;
-@color-link-external--active: #faa700;
+@color-link-external--visited: @color-visited;
+@color-link-external--active: @color-progressive--active;
