@@ -126,9 +126,7 @@ module.exports = function tableOfContents( props ) {
 	 *
 	 * @return {boolean}
 	 */
-	const prefersReducedMotion = () => {
-		return window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
-	};
+	const prefersReducedMotion = () => window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
 
 	/**
 	 * Sets an `ACTIVE_SECTION_CLASS` on the element with an id that matches `id`.
@@ -301,7 +299,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function collapseSections( selectedIds ) {
 		const sectionIdsToCollapse = selectedIds || getExpandedSectionIds();
-		expandedSections = expandedSections.filter( function ( section ) {
+		expandedSections = expandedSections.filter( ( section ) => {
 			const isSelected = sectionIdsToCollapse.indexOf( section.id ) > -1;
 			const toggle = isSelected ? section.getElementsByClassName( TOGGLE_CLASS ) : undefined;
 			if ( isSelected && toggle && toggle.length > 0 ) {
@@ -383,7 +381,7 @@ module.exports = function tableOfContents( props ) {
 	 */
 	function bindPinnedToggleListeners() {
 		const toggleButtons = document.querySelectorAll( '.vector-toc-pinnable-header button' );
-		toggleButtons.forEach( function ( btn ) {
+		toggleButtons.forEach( ( btn ) => {
 			btn.addEventListener( 'click', () => {
 				props.onTogglePinned();
 			} );
@@ -394,7 +392,7 @@ module.exports = function tableOfContents( props ) {
 	 * Bind event listeners for clicking on section headings and toggle buttons.
 	 */
 	function bindSubsectionToggleListeners() {
-		props.container.addEventListener( 'click', function ( e ) {
+		props.container.addEventListener( 'click', ( e ) => {
 			if (
 				!( e.target instanceof HTMLElement )
 			) {

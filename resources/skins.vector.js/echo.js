@@ -7,7 +7,7 @@ function init() {
 		return;
 	}
 
-	mw.hook( 'ext.echo.NotificationBadgeWidget.onInitialize' ).add( function ( badge ) {
+	mw.hook( 'ext.echo.NotificationBadgeWidget.onInitialize' ).add( ( badge ) => {
 		const element = badge.$element[ 0 ];
 		element.classList.add( 'mw-list-item' );
 		const anchor = /** @type {HTMLElement} */ ( element.querySelector( 'a' ) );

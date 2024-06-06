@@ -124,7 +124,7 @@ function init( window ) {
 	// When EventLogging is not available this will reject.
 	// This code can be removed by the end of the Desktop improvements project.
 	// https://www.mediawiki.org/wiki/Desktop_improvements
-	mw.loader.using( 'ext.eventLogging' ).then( function () {
+	mw.loader.using( 'ext.eventLogging' ).then( () => {
 		if (
 			mw.eventLog &&
 			mw.eventLog.eventInSample( 100 /* 1 in 100 */ ) &&
@@ -145,7 +145,7 @@ if ( document.readyState === 'interactive' || document.readyState === 'complete'
 	main( window );
 } else {
 	// This is needed when document.readyState === 'loading'.
-	document.addEventListener( 'DOMContentLoaded', function () {
+	document.addEventListener( 'DOMContentLoaded', () => {
 		main( window );
 	} );
 }

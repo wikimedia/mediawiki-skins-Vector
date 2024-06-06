@@ -152,7 +152,7 @@ function setFocusAfterToggle( pinnableElementId ) {
  */
 function bindPinnableToggleButtons( header ) {
 	const toggleButtons = header.querySelectorAll( '.vector-pinnable-header-toggle-button' );
-	toggleButtons.forEach( function ( button ) {
+	toggleButtons.forEach( ( button ) => {
 		button.addEventListener( 'click', pinnableElementClickHandler.bind( null, header ) );
 	} );
 }
@@ -277,9 +277,9 @@ function initPinnableElement() {
 function hasPinnedElements() {
 	const suffixesToCheck = [ 'pinned-clientpref-1', 'pinned-enabled' ];
 	const htmlElement = document.documentElement;
-	return Array.from( htmlElement.classList ).some( ( className ) => {
-		return suffixesToCheck.some( ( suffix ) => className.endsWith( suffix ) );
-	} );
+	return Array.from( htmlElement.classList ).some(
+		( className ) => suffixesToCheck.some( ( suffix ) => className.endsWith( suffix ) )
+	);
 }
 
 /**

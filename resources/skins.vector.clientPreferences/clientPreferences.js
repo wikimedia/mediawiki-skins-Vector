@@ -63,7 +63,7 @@ function toggleDocClassAndSave( featureName, value, config ) {
 		} );
 		document.documentElement.classList.add( `${ featureName }-clientpref-${ value }` );
 		// Ideally this should be taken care of via a single core helper function.
-		mw.util.debounce( function () {
+		mw.util.debounce( () => {
 			api = api || new mw.Api();
 			api.saveOption( pref.preferenceKey, value ).then( () => {
 				callback();
@@ -213,9 +213,8 @@ function createRow( className ) {
  * @param {string} featureName
  * @return {MwMessage}
  */
-const getFeatureLabelMsg = ( featureName ) =>
-	// eslint-disable-next-line mediawiki/msg-doc
-	mw.message( `${ featureName }-name` );
+// eslint-disable-next-line mediawiki/msg-doc
+const getFeatureLabelMsg = ( featureName ) => mw.message( `${ featureName }-name` );
 
 /**
  * adds a toggle button

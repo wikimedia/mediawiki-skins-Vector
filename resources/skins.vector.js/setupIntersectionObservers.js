@@ -29,11 +29,12 @@ const belowDesktopMedia = window.matchMedia( '(max-width: 999px)' );
  * @param {Function} changeActiveSection
  * @return {OnIntersection}
  */
-const getHeadingIntersectionHandler = ( changeActiveSection ) => {
+const getHeadingIntersectionHandler = ( changeActiveSection ) =>
 	/**
 	 * @param {HTMLElement} section
 	 */
-	return ( section ) => {
+	// eslint-disable-next-line implicit-arrow-linebreak
+	( section ) => {
 		const headline = section.classList.contains( 'mw-body-content' ) ?
 			section :
 			section.querySelector( HEADLINE_SELECTOR );
@@ -41,7 +42,6 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) => {
 			changeActiveSection( `${ TOC_SECTION_ID_PREFIX }${ headline.id }` );
 		}
 	};
-};
 
 /**
  * Initialize sticky header AB tests and determine whether to show the sticky header
@@ -221,8 +221,8 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 	mw.hook( 've.activationStart' ).add( () => {
 		sectionObserver.pause();
 	} );
-	mw.hook( 'wikipage.tableOfContents' ).add( function ( sections ) {
-		tableOfContents.reloadTableOfContents( sections ).then( function () {
+	mw.hook( 'wikipage.tableOfContents' ).add( ( sections ) => {
+		tableOfContents.reloadTableOfContents( sections ).then( () => {
 			/**
 			 * @stable for use in gadgets and extensions
 			 * @since 1.40

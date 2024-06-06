@@ -32,11 +32,9 @@ describe( 'clientPreferences', () => {
 		} ) );
 	} );
 
-	test( 'render empty', () => {
-		return clientPreferences.render( '#cp', {} ).then( () => {
-			expect( cp.innerHTML ).toMatchSnapshot();
-		} );
-	} );
+	test( 'render empty', () => clientPreferences.render( '#cp', {} ).then( () => {
+		expect( cp.innerHTML ).toMatchSnapshot();
+	} ) );
 
 	test( 'render font size', () => {
 		document.documentElement.setAttribute( 'class', 'vector-feature-custom-font-size-clientpref-2' );
