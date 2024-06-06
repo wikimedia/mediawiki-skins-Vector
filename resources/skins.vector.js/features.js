@@ -23,7 +23,7 @@ function save( feature, enabled ) {
 				break;
 		}
 	} else {
-		debounce( function () {
+		debounce( () => {
 			api = api || new mw.Api();
 			api.saveOption( 'vector-' + feature, enabled ? 1 : 0 );
 		}, 500 )();

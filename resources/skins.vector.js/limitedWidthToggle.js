@@ -55,7 +55,7 @@ function init() {
 			} );
 	};
 
-	toggle.addEventListener( 'click', function () {
+	toggle.addEventListener( 'click', () => {
 		const isLimitedWidth = features.isEnabled( LIMITED_WIDTH_FEATURE_NAME );
 		const oldIcon = isLimitedWidth ? 'fullScreen' : 'exitFullscreen';
 		const newIcon = isLimitedWidth ? 'exitFullscreen' : 'fullScreen';

@@ -27,7 +27,7 @@ const updateWatchIcon = ( watchIcon, isWatched, expiry ) => {
 
 const init = () => {
 	mw.hook( 'wikipage.watchlistChange' ).add(
-		function ( /** @type {boolean} */ isWatched, /** @type {string} */ expiry ) {
+		( /** @type {boolean} */ isWatched, /** @type {string} */ expiry ) => {
 			const watchIcons = document.querySelectorAll( '.mw-watchlink .vector-icon' );
 			if ( !watchIcons ) {
 				return;

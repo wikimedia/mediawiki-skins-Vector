@@ -38,7 +38,7 @@ function firePageTitleScrollHook( direction ) {
  * @return {IntersectionObserver}
  */
 function initScrollObserver( show, hide ) {
-	return new IntersectionObserver( function ( entries ) {
+	return new IntersectionObserver( ( entries ) => {
 		if ( !entries[ 0 ].isIntersecting && entries[ 0 ].boundingClientRect.top < 0 ) {
 			// Viewport has crossed the bottom edge of the target element.
 			show();

@@ -90,9 +90,7 @@ describe( 'main.js', () => {
 						isInBucket: () => true,
 						isInSample: () => true,
 						getBucket: () => 'bucket',
-						isInTreatmentBucket: () => {
-							return isUserInTreatmentBucket;
-						}
+						isInTreatmentBucket: () => isUserInTreatmentBucket
 					} )
 				);
 				expect( result ).toMatchObject( expectedResult );
@@ -117,21 +115,18 @@ describe( 'Table of contents re-rendering', () => {
 	const mockMwHook = () => {
 		/** @type {Object.<string, Function>} */
 		const callback = {};
-		jest.spyOn( mw, 'hook' ).mockImplementation( ( name ) => {
+		jest.spyOn( mw, 'hook' ).mockImplementation( ( name ) => ( {
+			add: function ( fn ) {
+				callback[ name ] = fn;
 
-			return {
-				add: function ( fn ) {
-					callback[ name ] = fn;
-
-					return this;
-				},
-				fire: ( data ) => {
-					if ( callback[ name ] ) {
-						callback[ name ]( data );
-					}
+				return this;
+			},
+			fire: ( data ) => {
+				if ( callback[ name ] ) {
+					callback[ name ]( data );
 				}
-			};
-		} );
+			}
+		} ) );
 	};
 
 	afterEach( () => {
