@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`tables doesnt wrap floated tables 1`] = `
+"
+			<table class=\\"wikitable\\" style=\\"float:right\\">
+				<tbody>
+					<tr><th>table table table</th></tr>
+				</tbody>
+			</table>
+		"
+`;
+
 exports[`tables doesnt wrap nested tables 1`] = `
 "
 			<section class=\\"mw-parser-output\\">
@@ -16,11 +26,10 @@ exports[`tables doesnt wrap nested tables 1`] = `
 exports[`tables doesnt wrap tables that are already wrapped 1`] = `
 "
 			<div class=\\"mw-parser-output\\">
-				<div>
-					<table>
+				<div class=\\"noresize\\">
+					<table class=\\"wikitable\\">
 						<tbody>
 							<tr><th>table table table</th></tr>
-							<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -36,19 +45,6 @@ exports[`tables doesnt wrap tables that are not wikitables 1`] = `
 					<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
 				</tbody>
 			</table>
-		"
-`;
-
-exports[`tables only wraps wikitables 1`] = `
-"
-			<section class=\\"mw-parser-output\\">
-				<table>
-					<tbody>
-						<tr><th>table table table</th></tr>
-						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
-					</tbody>
-				</table>
-			</section>
 		"
 `;
 

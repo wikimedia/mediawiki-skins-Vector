@@ -50,22 +50,6 @@ describe( 'tables', () => {
 		expect( document.body.innerHTML ).toMatchSnapshot();
 	} );
 
-	test( 'only wraps wikitables', () => {
-		document.body.innerHTML = `
-			<section class="mw-parser-output">
-				<table>
-					<tbody>
-						<tr><th>table table table</th></tr>
-						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
-					</tbody>
-				</table>
-			</section>
-		`;
-		tables();
-
-		expect( document.body.innerHTML ).toMatchSnapshot();
-	} );
-
 	test( 'doesnt wrap tables that are not wikitables', () => {
 		document.body.innerHTML = `
 			<table>
@@ -83,15 +67,27 @@ describe( 'tables', () => {
 	test( 'doesnt wrap tables that are already wrapped', () => {
 		document.body.innerHTML = `
 			<div class="mw-parser-output">
-				<div>
-					<table>
+				<div class="noresize">
+					<table class="wikitable">
 						<tbody>
 							<tr><th>table table table</th></tr>
-							<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table><td></tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+		`;
+		tables();
+
+		expect( document.body.innerHTML ).toMatchSnapshot();
+	} );
+
+	test( 'doesnt wrap floated tables', () => {
+		document.body.innerHTML = `
+			<table class="wikitable" style="float:right">
+				<tbody>
+					<tr><th>table table table</th></tr>
+				</tbody>
+			</table>
 		`;
 		tables();
 
