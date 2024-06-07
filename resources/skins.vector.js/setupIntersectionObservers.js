@@ -17,7 +17,7 @@ const
 	TOC_SECTION_ID_PREFIX = 'toc-',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
 
-const belowDesktopMedia = window.matchMedia( '(max-width: 999px)' );
+const belowDesktopMedia = window.matchMedia( '(max-width: 1119px)' );
 
 /**
  * @callback OnIntersection

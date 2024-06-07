@@ -169,7 +169,7 @@ function bindPinnableBreakpoint( header ) {
 		return;
 	}
 
-	const pinnableBreakpoint = window.matchMedia( '(max-width: 999px)' );
+	const pinnableBreakpoint = window.matchMedia( '(max-width: 1119px)' );
 	// Set saved pinned state for narrow breakpoint behaviour.
 	setSavedPinnableState( header );
 	// Check the breakpoint in case an override is needed on pageload.
