@@ -1,5 +1,16 @@
 @import 'mediawiki.skin.variables.less';
 
+//
+// == Media query breakpoints ==
+// See also https://doc.wikimedia.org/codex/latest/design-tokens/breakpoint.html
+//
+@max-width-breakpoint-mobile: 719px;
+@min-width-breakpoint-tablet: 720px; // In contrast to Codex `640px`.
+@max-width-breakpoint-tablet: 999px;
+@min-width-breakpoint-desktop: 1000px; // In contrast to Codex `1120px`.
+@max-width-breakpoint-desktop: 1199px;
+@min-width-breakpoint-desktop-wide: 1200px; // In contrast to Codex `1680px`.
+
 // Defines the minimum viewport width, at which point the layout will not get any
 // smaller and will start horizontal scrolling instead.
 @min-width-supported: unit( 300px / @font-size-browser, em );
