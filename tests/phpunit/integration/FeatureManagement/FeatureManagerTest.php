@@ -3,6 +3,7 @@
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
+use MediaWiki\Title\Title;
 
 /**
  * @coversDefaultClass \MediaWiki\Skins\Vector\FeatureManagement\FeatureManager

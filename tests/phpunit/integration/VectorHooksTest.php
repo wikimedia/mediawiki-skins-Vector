@@ -7,6 +7,7 @@
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
 use MediaWiki\Config\HashConfig;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\Skins\Vector\Constants;
@@ -19,7 +20,6 @@ use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use ReflectionMethod;
-use RequestContext;
 use RuntimeException;
 
 /**

@@ -2,15 +2,15 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Structure;
 
-use DerivativeContext;
 use ExtensionRegistry;
 use HashBagOStuff;
+use MediaWiki\Context\DerivativeContext;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Module;
 use MediaWikiIntegrationTestCase;
-use RequestContext;
 use Wikimedia\DependencyStore\KeyValueDependencyStore;
 
 /**

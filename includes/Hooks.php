@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Auth\Hook\LocalUserCreatedHook;
 use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
@@ -11,7 +12,6 @@ use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
-use RequestContext;
 use RuntimeException;
 use SkinTemplate;
 

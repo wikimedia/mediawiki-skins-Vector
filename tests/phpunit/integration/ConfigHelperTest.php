@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Skins\Vector\ConfigHelper;
-use RequestContext;
-use Title;
+use MediaWiki\Title\Title;
 
 /**
  * @coversDefaultClass \MediaWiki\Skins\Vector\ConfigHelper

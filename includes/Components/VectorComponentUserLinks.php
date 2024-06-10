@@ -2,11 +2,11 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Linker\Linker;
+use MediaWiki\Message\Message;
 use MediaWiki\Skin\SkinComponentLink;
 use MediaWiki\Title\MalformedTitleException;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
-use Message;
 use MessageLocalizer;
 
 /**

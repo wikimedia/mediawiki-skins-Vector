@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Skins\Vector\Components;
 
-use Message;
+use MediaWiki\Message\Message;
 use MessageLocalizer;
 
 /**
