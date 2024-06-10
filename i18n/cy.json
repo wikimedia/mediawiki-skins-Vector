@@ -7,7 +7,7 @@
 			"Lloffiwr"
 		]
 	},
-	"vector-skin-desc": "Darperir 2 wedd Vector:\n* 2011 - Y fersiwn Modern o MonoBook gyda golwg newydd a llawer o welliannau hygyrchedd.\n* 2022 - Y Vector a adeiladwyd fel rhan o brosiect [[mw:Desktop Improvements]] yr WMF.",
+	"vector-skin-desc": "Darperir 2 wedd Vector:\n* 2011 - Y fersiwn Modern o MonoBook gyda golwg newydd a llawer o welliannau hygyrchedd.\n* 2022 - Y Vector a adeiladwyd fel rhan o brosiect [https://www.mediawiki.org/wiki/Desktop_Improvements Gwelliannau Bwrdd Gwaith] yr WMF.",
 	"prefs-vector-enable-vector-1-label": "Defnyddio Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "Dros y blynyddoedd nesaf, rydym yn mynd i ddiweddaru'r gwedd Vector. Bydd y gwedd Legacy Vector yn eich caniatáu i weld yr hen fersiwn o Vector (yn ôl Rhagfyr 2019). Os hoffech chi fwy o wybodaeth am y diweddariadau hyn, ewch i'r [[mw:Reading/Web/Desktop_Improvements|dudalen brosiect]].",
 	"vector-opt-out": "Defnyddio'r hen wedd",
@@ -61,7 +61,7 @@
 	"vector-prefs-limited-width": "Galluogi modd lled cyfyngedig",
 	"vector-prefs-limited-width-help": "Galluogi modd lled cyfyngedig i wella profiad darllen.",
 	"empty-language-selector-body": "Ni chefnogir cynnwys y dudalen mewn ieithoedd eraill.",
-	"vector-toc-unpinned-popup": "Mae'r tabl cynnwys wedi cael ei symud yma.",
-	"vector-page-tools-unpinned-popup": "Mae'r blwch offer wedi cael ei symud yma.",
-	"vector-main-menu-unpinned-popup": "Mae'r brif ddewislen wedi cael ei symud yma."
+	"vector-toc-unpinned-popup": "Mae'r tabl cynnwys wedi symud yma.",
+	"vector-page-tools-unpinned-popup": "Mae'r blwch offer wedi symud yma.",
+	"vector-main-menu-unpinned-popup": "Mae'r brif ddewislen wedi symud yma."
 }

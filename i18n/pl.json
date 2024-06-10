@@ -82,7 +82,7 @@
 	"vector-limited-width-toggle-on-popup": "Przełączono układ strony na tryb pełnej szerokości. Aby powrócić do trybu ograniczonej szerokości, naciśnij ten przycisk.",
 	"vector-limited-width-toggle-off-popup": "Możesz przełączać się pomiędzy trybem pełnej i ograniczonej szerokości strony, klikając ten przycisk.",
 	"vector-feature-custom-font-size-exclusion-notice": "Na tej stronie zawsze używany jest mały rozmiar czcionki",
-	"vector-feature-limited-width-exclusion-notice": "Ta strona jest zawsze szeroka",
+	"vector-feature-limited-width-exclusion-notice": "Ta strona jest tak szeroka jak to możliwe w Twoim oknie przeglądarki.",
 	"vector-page-tools-label": "Narzędzia",
 	"vector-page-tools-general-label": "Ogólne",
 	"vector-page-tools-actions-label": "Działania",

@@ -66,6 +66,7 @@
 	"skin-theme-day-label": "สว่าง",
 	"skin-theme-night-label": "มืด",
 	"skin-theme-os-label": "อัตโนมัติ",
+	"skin-theme-exclusion-notice": "หน้านี้อยู่ในโหมดสว่างเสมอ",
 	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:บทนำ",
@@ -81,6 +82,7 @@
 	"vector-limited-width-toggle": "สลับความกว้างเนื้อหาจำกัด",
 	"vector-limited-width-toggle-on-popup": "คุณได้เปลี่ยนเค้าโครงของคุณเป็นแบบเต็มความกว้าง หากต้องการกลับไปใช้ความกว้างที่จำกัด ให้กดปุ่มนี้",
 	"vector-limited-width-toggle-off-popup": "คุณสามารถสลับระหว่างความกว้างที่จำกัดและความกว้างเต็มได้โดยการคลิกปุ่มนี้",
+	"vector-feature-custom-font-size-exclusion-notice": "หน้านี้ใช้ขนาดตัวอักษรเล็กเสมอ",
 	"vector-page-tools-label": "เครื่องมือ",
 	"vector-page-tools-general-label": "ทั่วไป",
 	"vector-page-tools-actions-label": "การกระทำ",
@@ -95,5 +97,8 @@
 	"vector-toc-unpinned-popup": "ย้ายเมนูสารบัญมาที่นี่",
 	"vector-page-tools-unpinned-popup": "ย้ายเมนูเครื่องมือมาที่นี่",
 	"vector-main-menu-unpinned-popup": "ย้ายเมนูหลักมาที่นี่",
-	"vector-appearance-unpinned-popup": "ย้ายเมนูหน้าตามาที่นี่"
+	"vector-appearance-unpinned-popup": "ย้ายเมนูหน้าตามาที่นี่",
+	"vector-2022-beta-preview-label": "การเข้าถึงสำหรับการอ่าน (เวกเตอร์ 2565)",
+	"vector-2022-beta-preview-description": "รับสิทธิเข้าถึงคุณลักษณะการเข้าถึงการอ่านใหม่ ๆ ก่อนใคร เช่นการปรับปรุงตัวอักษรและโหมดมืด",
+	"vector-night-mode-gadget-warning": "คุณกำลังใช้แกดเจ็ตโหมดมืดที่รบกวนคุณลักษณะนี้[[Special:Preferences#mw-prefsection-gadgets|ปิดการใช้งานแกดเจ็ต]]เพื่อใช้โหมดมืด"
 }

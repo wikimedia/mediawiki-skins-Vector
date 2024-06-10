@@ -71,7 +71,7 @@
 	"vector-feature-custom-font-size-name": "テキスト",
 	"vector-feature-custom-font-size-0-label": "小",
 	"vector-feature-custom-font-size-1-label": "標準",
-	"vector-feature-custom-font-size-2-label": "大きい",
+	"vector-feature-custom-font-size-2-label": "大",
 	"skin-night-mode-name": "色",
 	"skin-night-mode-description": "[試験版、問題が発生する可能性が高い] デバイスの画面から発せられる光を減らします。",
 	"skin-night-mode-0-label": "ライト",
@@ -101,7 +101,7 @@
 	"vector-limited-width-toggle-on-popup": "レイアウトを全幅に切り替えました。制限された幅に戻すには、このボタンを押してください。",
 	"vector-limited-width-toggle-off-popup": "このボタンをクリックすることで、制限された幅と全幅を切り替えることができます。",
 	"vector-feature-custom-font-size-exclusion-notice": "このページは常に小さいフォントサイズを使用します",
-	"vector-feature-limited-width-exclusion-notice": "このページは常に広い幅です",
+	"vector-feature-limited-width-exclusion-notice": "コンテンツはブラウザウインドウに対して、できるだけ広くします。",
 	"vector-page-tools-label": "ツール",
 	"vector-page-tools-general-label": "全般",
 	"vector-page-tools-actions-label": "操作",
@@ -118,5 +118,6 @@
 	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。",
 	"vector-appearance-unpinned-popup": "外観メニューはこちらに移動しました。",
 	"vector-2022-beta-preview-label": "閲覧アクセス性の向上（2022年版ベクター）",
-	"vector-2022-beta-preview-description": "タイポグラフィの改善やダークモードなど、新しい閲覧アクセス性向上機能を早期にご活用いただけます。"
+	"vector-2022-beta-preview-description": "タイポグラフィの改善やダークモードなど、新しい閲覧アクセス性向上機能を早期にご活用いただけます。",
+	"vector-night-mode-gadget-warning": "この機能と干渉するダークモードガジェットを使用しています。ダークモードを使用するには[[Special:Preferences#mw-prefsection-gadgets|ガジェットを無効化]]してください。"
 }

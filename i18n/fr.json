@@ -98,6 +98,7 @@
 	"vector-limited-width-toggle-on-popup": "Vous avez basculé votre mise en page en pleine largeur. Pour revenir à la largeur limitée, appuyez sur ce bouton.",
 	"vector-limited-width-toggle-off-popup": "Vous pouvez basculer entre une largeur limitée et une largeur totale en cliquant sur ce bouton.",
 	"vector-feature-custom-font-size-exclusion-notice": "Cette page utilise toujours une petite taille de police",
+	"vector-feature-limited-width-exclusion-notice": "Le contenu est aussi large que possible pour la fenêtre de votre navigateur.",
 	"vector-page-tools-label": "Outils",
 	"vector-page-tools-general-label": "Général",
 	"vector-page-tools-actions-label": "Actions",
