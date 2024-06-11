@@ -14,8 +14,44 @@
 }
 
 // FIXME: T363920 Remove when all icons are migrated from ResourceLoader to Codex
-// Dont invert language icon because it is blue
-.vector-icon:not( .mw-ui-icon-wikimedia-language-progressive ) {
+//
+// enumerate full list of OOUI icons to be inverted rather than selecting on vector-icon alone
+// so as not to punish switching to codex
+.vector-icon.mw-ui-icon-wikimedia-article,
+.vector-icon.mw-ui-icon-wikimedia-edit,
+.vector-icon.mw-ui-icon-wikimedia-editLock,
+.vector-icon.mw-ui-icon-wikimedia-exitFullscreen,
+.vector-icon.mw-ui-icon-wikimedia-fullScreen,
+.vector-icon.mw-ui-icon-wikimedia-history,
+.vector-icon.mw-ui-icon-wikimedia-speechBubbles,
+.vector-icon.mw-ui-icon-wikimedia-speechBubbleAdd,
+.vector-icon.mw-ui-icon-wikimedia-wikiText,
+.vector-icon.mw-ui-icon-wikimedia-appearance,
+.vector-icon.mw-ui-icon-wikimedia-tray,
+.vector-icon.mw-ui-icon-wikimedia-bell,
+.vector-icon.mw-ui-icon-wikimedia-menu,
+.vector-icon.mw-ui-icon-wikimedia-heart,
+.vector-icon.mw-ui-icon-wikimedia-language,
+.vector-icon.mw-ui-icon-wikimedia-ellipsis,
+.vector-icon.mw-ui-icon-wikimedia-userAvatar,
+.vector-icon.mw-ui-icon-wikimedia-userAdd,
+.vector-icon.mw-ui-icon-wikimedia-userTemporary,
+.vector-icon.mw-ui-icon-wikimedia-userTalk,
+.vector-icon.mw-ui-icon-wikimedia-sandbox,
+.vector-icon.mw-ui-icon-wikimedia-search,
+.vector-icon.mw-ui-icon-wikimedia-settings,
+.vector-icon.mw-ui-icon-wikimedia-labFlask,
+.vector-icon.mw-ui-icon-wikimedia-star,
+.vector-icon.mw-ui-icon-wikimedia-halfStar,
+.vector-icon.mw-ui-icon-wikimedia-unStar,
+.vector-icon.mw-ui-icon-wikimedia-watchlist,
+.vector-icon.mw-ui-icon-wikimedia-userContributions,
+.vector-icon.mw-ui-icon-wikimedia-logIn,
+.vector-icon.mw-ui-icon-wikimedia-logOut,
+.vector-icon.mw-ui-icon-wikimedia-imageGallery,
+.vector-icon.mw-ui-icon-wikimedia-userGroup,
+.vector-icon.mw-ui-icon-wikimedia-listBullet,
+.vector-icon.mw-ui-icon-wikimedia-close {
 	html.skin-theme-clientpref-night & {
 		filter: invert( 1 );
 	}
