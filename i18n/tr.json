@@ -88,7 +88,7 @@
 	"vector-limited-width-toggle-on-popup": "Düzeninizi tam genişliğe değiştirdiniz. Sınırlı genişliğe geri dönmek için bu düğmeye basın.",
 	"vector-limited-width-toggle-off-popup": "Bu düğmeye tıklayarak sınırlı ve tam genişlik arasında geçiş yapabilirsiniz.",
 	"vector-feature-custom-font-size-exclusion-notice": "Bu sayfa her zaman küçük yazı tipi boyutu kullanır",
-	"vector-feature-limited-width-exclusion-notice": "Bu sayfa her zaman geniştir",
+	"vector-feature-limited-width-exclusion-notice": "İçerik, tarayıcı pencereniz için mümkün olduğunca geniştir.",
 	"vector-page-tools-label": "Araçlar",
 	"vector-page-tools-general-label": "Genel",
 	"vector-page-tools-actions-label": "Eylemler",

@@ -58,7 +58,7 @@
 	"skin-theme-day-label": "Lys",
 	"skin-theme-night-label": "Mørk",
 	"skin-theme-os-label": "Automatisk",
-	"skin-theme-exclusion-notice": "Denne siden er alltid i dagsmodus.",
+	"skin-theme-exclusion-notice": "Denne siden er alltid i lys modus.",
 	"vector-search-loader": "Laster søkeforslag",
 	"vector-searchsuggest-containing": "Søk etter sider som inneholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduksjon",
@@ -77,7 +77,7 @@
 	"vector-limited-width-toggle-on-popup": "Du har byttet til oppsett med full bredde. Trykk på denne knappen for å gå tilbake til begrenset bredde.",
 	"vector-limited-width-toggle-off-popup": "Du kan bytte mellom begrenset og full bredde ved å trykke på denne knappen.",
 	"vector-feature-custom-font-size-exclusion-notice": "Denne siden bruker alltid liten skriftstørrelse",
-	"vector-feature-limited-width-exclusion-notice": "Denne siden er alltid bred",
+	"vector-feature-limited-width-exclusion-notice": "Innholdet er så bredt som mulig for nettleservinduet ditt.",
 	"vector-page-tools-label": "Verktøy",
 	"vector-page-tools-general-label": "Generelt",
 	"vector-page-tools-actions-label": "Handlinger",
@@ -94,5 +94,6 @@
 	"vector-main-menu-unpinned-popup": "Hovedmenyen har flyttet hit.",
 	"vector-appearance-unpinned-popup": "Utseendemenyen har flyttet hit.",
 	"vector-2022-beta-preview-label": "Lesetilgjengelighet (Vector 2022)",
-	"vector-2022-beta-preview-description": "Få tidlig tilgang til nye funksjoner for lesetilgjengelighet, som typografiske forbedringer og mørk modus."
+	"vector-2022-beta-preview-description": "Få tidlig tilgang til nye funksjoner for lesetilgjengelighet, som typografiske forbedringer og mørk modus.",
+	"vector-night-mode-gadget-warning": "Du bruker en tilleggsfunksjon for mørk modus som forstyrrer denne funksjonen. [[Special:Preferences#mw-prefsection-gadgets|Deaktiver tilleggsfunksjonen]] for å bruke mørk modus."
 }
