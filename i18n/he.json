@@ -73,7 +73,7 @@
 	"vector-limited-width-toggle": "החלפת מצב רוחב תוכן מוגבל",
 	"vector-limited-width-toggle-on-popup": "העברת את העיצוב לרוחב מלא. כדי לחזור לרוחב מוגבל, יש ללחוץ על הכפתור הזה.",
 	"vector-limited-width-toggle-off-popup": "אפשר לעבור בין רוחב מוגבל לבין רוחב מלא באמצעות לחיצה על הכפתור הזה.",
-	"vector-feature-custom-font-size-exclusion-notice": "הדף הזה תמעד משתמש בגודל גופן קטן",
+	"vector-feature-custom-font-size-exclusion-notice": "הדף הזה תמיד משתמש בגודל גופן קטן",
 	"vector-feature-limited-width-exclusion-notice": "התוכן רחב ככל האפשר עבור חלון הדפדפן שלך.",
 	"vector-page-tools-label": "כלים",
 	"vector-page-tools-general-label": "כללי",

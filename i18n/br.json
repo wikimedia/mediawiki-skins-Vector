@@ -77,7 +77,7 @@
 	"vector-limited-width-toggle-on-popup": "Kemmet ho peus hoc’h aozadur da ledander leun. Evit distreiñ da ledander harzet, pouezit war ar bounton-mañ.",
 	"vector-limited-width-toggle-off-popup": "Gallout a rit gwintañ etre ledander harzet ha ledander leun en ur glikañ war ar bounton-mañ.",
 	"vector-feature-custom-font-size-exclusion-notice": "Ar bajenn-mañ a implij bepred ment an nodrezh bihan",
-	"vector-feature-limited-width-exclusion-notice": "Ledan e vez ar bajenn-mañ bepred",
+	"vector-feature-limited-width-exclusion-notice": "Ken ledan eo ar bajenn-mañ ha ma c’hall bezañ evit prenestr ho merdeer.",
 	"vector-page-tools-label": "Ostilhoù",
 	"vector-page-tools-general-label": "Hollek",
 	"vector-page-tools-actions-label": "Oberoù",
@@ -94,5 +94,6 @@
 	"vector-main-menu-unpinned-popup": "Lakaet eo bet ar meuziad pennañ amañ.",
 	"vector-appearance-unpinned-popup": "Lakaet eo bet ar meuziad tres amañ.",
 	"vector-2022-beta-preview-label": "Diraezusted evit Lenn (Vektor 2022)",
-	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod teñval."
+	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod teñval.",
+	"vector-night-mode-gadget-warning": "Ober a rit gant ur bitrak mod teñval a vir ouzh an arc’hweladur-mañ da vont en-dro. [[Special:Preferences#mw-prefsection-gadgets|Diweredekait ar bitrak]] evit ober gant ar mod teñval."
 }

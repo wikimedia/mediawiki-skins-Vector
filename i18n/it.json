@@ -16,6 +16,7 @@
 			"Pietrodn",
 			"Sakretsu",
 			"Scompo",
+			"Valepert",
 			"ValterVB"
 		]
 	},
@@ -97,5 +98,7 @@
 	"vector-toc-unpinned-popup": "L'indice è stato spostato qui.",
 	"vector-page-tools-unpinned-popup": "Il menu degli strumenti è stato spostato qui.",
 	"vector-main-menu-unpinned-popup": "Il menu principale è stato spostato qui.",
-	"vector-2022-beta-preview-label": "Accessibilità per la lettura (Vector 2022)"
+	"vector-appearance-unpinned-popup": "Il menu Aspetto è stato spostato qui.",
+	"vector-2022-beta-preview-label": "Accessibilità per la lettura (Vector 2022)",
+	"vector-night-mode-gadget-warning": "Stai utilizzando l'accessorio Modalità scusa che interferisce con questa funzionalità. [[Special:Preferences#mw-prefsection-gadgets|Disabilita l'accessario]] per utilizzare la modalità scura."
 }

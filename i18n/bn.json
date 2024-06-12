@@ -101,5 +101,6 @@
 	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-appearance-unpinned-popup": "অবয়ব মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টর ২০২২)",
-	"vector-2022-beta-preview-description": "নতুন ভেক্টর ২০২২-এর বৈশিষ্ট্যগুলির প্রাকদর্শন সবার আগে পান।"
+	"vector-2022-beta-preview-description": "নতুন ভেক্টর ২০২২-এর বৈশিষ্ট্যগুলির প্রাকদর্শন সবার আগে পান।",
+	"vector-night-mode-gadget-warning": "আপনি এমন একটি আঁধার মোড গ্যাজেট ব্যবহার করছেন যা এই বৈশিষ্ট্যটিতে হস্তক্ষেপ করে। আঁধার মোড ব্যবহার করতে [[Special:Preferences#mw-prefsection-gadgets|গ্যাজেটটি নিষ্ক্রিয় করুন]]।"
 }
