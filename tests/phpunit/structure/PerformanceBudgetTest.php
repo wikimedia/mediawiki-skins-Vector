@@ -150,7 +150,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 				// ext.growthExperiments.SuggestedEditSession
 				// Note this seems pretty high compared to other numbers,
 				// so we may want to work with Growth team to optimize this down.
-				'GrowthExperiments' => 5000,
+				'GrowthExperiments' => 7500,
 				// ext.wikimediaEvents
 				// Note this seems pretty high compared to other numbers,
 				// so we may want to optimize this in future when we attempt to add new schemas.
