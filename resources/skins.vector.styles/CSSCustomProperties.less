@@ -21,7 +21,8 @@
  * This includes OOUI icons that are not colored (progressive/destructive), checkbox icons, and
  * indicator widgets.
  */
-@OOUIIconSelectors: ~'.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon ), .oo-ui-indicatorElement-indicator ';
+@OOUIIconSelectors: ~'.oo-ui-iconElement-icon:not( .oo-ui-image-progressive ):not( .oo-ui-image-destructive ):not( .oo-ui-checkboxInputWidget-checkIcon )';
+@OOUIIndicatorSelectors: ~'.oo-ui-indicatorElement-indicator';
 
 /**
  * Light mode
@@ -58,13 +59,15 @@ html.skin-theme-clientpref-night {
 // T365102 invert class specifically for image related elements
 html.skin-theme-clientpref-night .skin-invert-image img,
 html.skin-theme-clientpref-night .skin-invert,
-html.skin-theme-clientpref-night @{OOUIIconSelectors} {
+html.skin-theme-clientpref-night @{OOUIIconSelectors},
+html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
 	color-scheme: light;
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
 html.skin-theme-clientpref-night .notheme,
-html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
+html.skin-theme-clientpref-night @{OOUIOverrideSelectors},
+html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
 	color-scheme: light;
 	color: var( --color-base );
 }
@@ -85,14 +88,16 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 	}
 
 	html.skin-theme-clientpref-os .notheme,
-	html.skin-theme-clientpref-os @{OOUIOverrideSelectors} {
+	html.skin-theme-clientpref-os @{OOUIOverrideSelectors},
+	html.skin-theme-clientpref-os @{OOUIIndicatorSelectors} {
 		color-scheme: light;
 	}
 
 	// T365102 invert class specifically for image related elements
 	html.skin-theme-clientpref-os .skin-invert-image img,
 	html.skin-theme-clientpref-os .skin-invert,
-	html.skin-theme-clientpref-os @{OOUIIconSelectors} {
+	html.skin-theme-clientpref-os @{OOUIIconSelectors},
+	html.skin-theme-clientpref-os @{OOUIIndicatorSelectors} {
 		color-scheme: light;
 		filter: invert( 1 ) hue-rotate( 180deg );
 	}
@@ -106,10 +111,13 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
  * - OOUI icons inside elements with .skin-invert
  * - OOUI icons inside elements with .notheme
  */
-@{OOUIOverrideSelectors} @{OOUIIconSelectors},
-.skin-invert @{OOUIIconSelectors},
-.notheme @{OOUIIconSelectors} {
-	filter: none !important; /* stylelint-disable-line declaration-no-important */
+@{OOUIOverrideSelectors},
+.skin-invert,
+.notheme {
+	@{OOUIIndicatorSelectors},
+	@{OOUIIconSelectors} {
+		filter: none !important; /* stylelint-disable-line declaration-no-important */
+	}
 }
 
 /**
