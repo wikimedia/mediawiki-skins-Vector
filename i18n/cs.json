@@ -12,7 +12,8 @@
 			"Matěj Suchánek",
 			"Mormegil",
 			"Patriccck",
-			"Patrik L."
+			"Patrik L.",
+			"Martin Urbanec"
 		]
 	},
 	"skinname-vector": "Starý Vektor (2010)",
@@ -47,6 +48,13 @@
 	"vector-jumptosearch": "Skočit na vyhledávání",
 	"vector-jumptocontent": "Přeskočit na obsah",
 	"vector-more-actions": "Další",
+	"vector-feature-custom-font-size-0-label": "Malé",
+	"vector-feature-custom-font-size-1-label": "Standardní",
+	"vector-feature-custom-font-size-2-label": "Velké",
+	"skin-night-mode-name": "Barva",
+	"skin-night-mode-2-label": "Automaticky",
+	"skin-theme-name": "Barva",
+	"skin-theme-os-label": "Automaticky",
 	"vector-search-loader": "Načítají se návrhy pro hledání",
 	"vector-searchsuggest-containing": "Vyhledat stránky obsahující „<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>“",
 	"vector-intro-page": "Help:Úvod",

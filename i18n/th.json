@@ -93,5 +93,6 @@
 	"vector-toc-unpinned-popup": "ย้ายเมนูสารบัญมาที่นี่",
 	"vector-page-tools-unpinned-popup": "ย้ายเมนูเครื่องมือมาที่นี่",
 	"vector-main-menu-unpinned-popup": "ย้ายเมนูหลักมาที่นี่",
-	"vector-client-prefs-unpinned-popup": "ย้ายเมนูลักษณะมาที่นี่"
+	"vector-client-prefs-unpinned-popup": "ย้ายเมนูลักษณะมาที่นี่",
+	"vector-2022-beta-preview-label": "การเข้าถึงสำหรับการอ่าน (เวกเตอร์ 2565)"
 }

@@ -5,6 +5,7 @@
 			"محک"
 		]
 	},
+	"vector-specialversion-name": "وکتور",
 	"vector-opt-out": "ویکیِ قبلی قیافه ره هارشین",
 	"vector-languages": "زوون",
 	"vector-language-button-label": "{{PLURAL:$1|$1 زوون}}",
@@ -21,6 +22,12 @@
 	"vector-view-view": "بخوندستن",
 	"vector-view-viewsource": "ونه منبع ره هارشائن",
 	"vector-more-actions": "ویشته",
+	"vector-feature-custom-font-size-name": "خط",
+	"vector-feature-custom-font-size-0-label": "پچوک",
+	"vector-feature-custom-font-size-1-label": "میونه",
+	"vector-feature-custom-font-size-2-label": "دِرِشت",
+	"skin-theme-name": "رنگ",
+	"skin-theme-os-label": "اۏتوماتیک",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> دار صفحه‌ئون دله چرخه‌تو هکردن",
 	"vector-toc-label": "فهرست",
 	"vector-toc-beginning": "لید",
