@@ -53,10 +53,15 @@ html.skin-theme-clientpref-night {
 }
 
 /**
- * Forced light mode.
- * Also special treatment of inverted OOUI icons, see T365764.
+ * Inverted Dark-mode
+ * Creates a dark-mode effect on elements by flipping their color,
+ * (usually from black to white).
+ * Applied as a last resort when using CSS variables is not possible.
+ * NOTE: `.skin-invert` is used in templates and user generated content.
+ *
+ * - T365102 invert class specifically for image related element
+ * - T365764 special treatment of inverted OOUI icons
  */
-// T365102 invert class specifically for image related elements
 html.skin-theme-clientpref-night .skin-invert-image img,
 html.skin-theme-clientpref-night .skin-invert,
 html.skin-theme-clientpref-night @{OOUIIconSelectors},
@@ -65,9 +70,13 @@ html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
 	filter: invert( 1 ) hue-rotate( 180deg );
 }
 
+/**
+ * Forced light mode.
+ * Makes elements appear in light-mode when dark-mode is enabled.
+ * NOTE: might be used in templates and user generated content.
+ */
 html.skin-theme-clientpref-night .notheme,
-html.skin-theme-clientpref-night @{OOUIOverrideSelectors},
-html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
+html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 	color-scheme: light;
 	color: var( --color-base );
 }
@@ -88,8 +97,7 @@ html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
 	}
 
 	html.skin-theme-clientpref-os .notheme,
-	html.skin-theme-clientpref-os @{OOUIOverrideSelectors},
-	html.skin-theme-clientpref-os @{OOUIIndicatorSelectors} {
+	html.skin-theme-clientpref-os @{OOUIOverrideSelectors} {
 		color-scheme: light;
 	}
 
