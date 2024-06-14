@@ -1,0 +1,45 @@
+.client-js .vector-settings {
+	display: block;
+	position: fixed;
+	bottom: 8px;
+	right: 8px;
+	z-index: @z-index-stacking-1;
+
+	ul {
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 8px 8px;
+	}
+}
+
+/**
+ * Limited width toggle - a button which lets users change the layout from
+ * a fixed-width content column to a layout where the content takes up the
+ * full window width.
+ *  FIXME: Can be removed when wgVectorAppearance has been removed.
+ */
+
+// By default, toggle should be hidden unless the breakpoint below is reached.
+.vector-limited-width-toggle.cdx-button,
+.vector-limited-width-popup {
+	display: none;
+}
+
+// On pages that have $wgVectorMaxWidthOptions['exclude'] true,
+// the toggle should be hidden. This rule overrides the media query below.
+html.vector-feature-limited-width-clientpref--excluded .vector-limited-width-toggle.cdx-button {
+	display: none;
+}
+
+// Note on certain pages the control will have no effect e.g. Special:RecentChanges
+// Defining this at 1400px is a product decision so do not change it
+// (more context at https://phabricator.wikimedia.org/T326887#8540889)
+@media ( min-width: 1400px ) {
+	.vector-limited-width-toggle.cdx-button,
+	.vector-limited-width-popup {
+		display: block;
+	}
+}
