@@ -34,6 +34,7 @@
 		"vector-2022": {
 			"class": "MediaWiki\\Skins\\Vector\\SkinVector22",
 			"services": [
+				"LanguageConverterFactory",
 				"Vector.FeatureManagerFactory"
 			],
 			"args": [
@@ -108,6 +109,9 @@
 		},
 		"vector": {
 			"class": "MediaWiki\\Skins\\Vector\\SkinVectorLegacy",
+			"services": [
+				"LanguageConverterFactory"
+			],
 			"args": [
 				{
 					"name": "vector",

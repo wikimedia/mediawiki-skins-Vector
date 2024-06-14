@@ -416,6 +416,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	public function testOnSkinTemplateNavigation() {
 		$this->overrideConfigValue( 'VectorUseIconWatch', true );
 		$skin = new SkinVector22(
+			$this->getServiceContainer()->getLanguageConverterFactory(),
 			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
 			[ 'name' => 'vector' ]
 		);
@@ -458,6 +459,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testUpdateUserLinksItems() {
 		$vector2022Skin = new SkinVector22(
+			$this->getServiceContainer()->getLanguageConverterFactory(),
 			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
 			[ 'name' => 'vector-2022' ]
 		);
@@ -471,7 +473,10 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 				'login' => [ 'class' => [], 'icon' => 'login' ],
 			]
 		];
-		$vectorLegacySkin = new SkinVectorLegacy( [ 'name' => 'vector' ] );
+		$vectorLegacySkin = new SkinVectorLegacy(
+			$this->getServiceContainer()->getLanguageConverterFactory(),
+			[ 'name' => 'vector' ]
+		);
 		$contentNavLegacy = [
 			'associated-pages' => [],
 			'views' => [],
@@ -502,6 +507,7 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 
 		// Anon users
 		$skin = new SkinVector22(
+			$this->getServiceContainer()->getLanguageConverterFactory(),
 			$this->getServiceContainer()->get( 'Vector.FeatureManagerFactory' ),
 			[ 'name' => 'vector-2022' ]
 		);
