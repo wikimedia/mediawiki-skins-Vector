@@ -31,16 +31,3 @@
 // Arial on Windows, Roboto on Android.
 // FIXME: Use Codex's OS specific default sans-serif fonts.
 @font-family-sans: @font-family-sans--fallback; // Codex: 'Helvetica Neue', 'Helvetica', 'Liberation Sans', 'Arial', sans-serif;
-
-// Overrides for non-Codex variables:
-
-// Colors
-// ****IMPORTANT****
-// When defining these make sure if needed, a dark mode color has also been defined
-// in CSSCustomProperties.less
-// Link colors for a power user feature to highlight links to other projects.
-// In Vector 2022 we unify these colors by default for simpler orientation by average users.
-// It's still possible to overwrite the styles per user.
-@color-link-external: @color-progressive;
-@color-link-external--visited: @color-visited;
-@color-link-external--active: @color-progressive--active;
