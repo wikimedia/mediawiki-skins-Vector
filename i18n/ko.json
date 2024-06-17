@@ -88,6 +88,7 @@
 	"vector-limited-width-toggle-on-popup": "레이아웃을 전체폭으로 전환하였습니다. 제한폭으로 돌아가려면 이 버튼을 누르십시오.",
 	"vector-limited-width-toggle-off-popup": "이 버튼을 클릭하여 제한폭과 전체폭을 오갈 수 있습니다.",
 	"vector-feature-custom-font-size-exclusion-notice": "이 페이지는 항상 작은 글꼴 크기를 사용합니다.",
+	"vector-feature-limited-width-exclusion-notice": "콘텐츠는 브라우저 창에 맞도록 최대한 넓게 맞춥니다.",
 	"vector-page-tools-label": "도구",
 	"vector-page-tools-general-label": "일반",
 	"vector-page-tools-actions-label": "동작",
