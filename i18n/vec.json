@@ -6,7 +6,8 @@
 			"Fierodelveneto",
 			"Frigotoni",
 			"GatoSelvadego",
-			"Vajotwo"
+			"Vajotwo",
+			"Iohanen"
 		]
 	},
 	"skinname-vector": "Vector antigo (2010)",
@@ -36,6 +37,7 @@
 	"vector-jumptocontent": "Salta al contegnùo",
 	"vector-more-actions": "Piasè",
 	"vector-search-loader": "Carga sujerimenti de riserca",
+	"vector-searchsuggest-containing": "Serca pàzine che i contien <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Scuminsio",
 	"vector-toc-toggle-button-label": "Mostra o scondi la sesion $1",
 	"vector-anon-user-menu-pages-learn": "par savérghine de pì",
