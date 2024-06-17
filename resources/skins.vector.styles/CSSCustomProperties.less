@@ -3,20 +3,6 @@
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-reset.less';
 
 /**
- * FIXME: Temporary Night-mode override classes
- * Remove these once T363849 has been addressed.
- *
- * The following classes are meant to force OOUI interfaces
- * into light-mode when night-mode is enabled. They should be
- * grouped with the `.notheme` rulset as an alternative to
- * using the `.notheme` class in multiple places.
- *
- * Note: These are wrapped in quotes to avoid dashed being interpreted as minus signs,
- * along with a `~` to unwrap them when they are used as selectors.
- */
-@OOUIOverrideSelectors: ~'.ve-ui-overlay, .oo-ui-popupWidget-popup, .oo-ui-toolbar';  // T363861 - VisualEditor Overlays
-
-/**
  * T365764 - OOUI Icon classes for inverted dark-mode icons.
  * This includes OOUI icons that are not colored (progressive/destructive), checkbox icons, and
  * indicator widgets.
@@ -32,8 +18,7 @@
  */
 :root,
 .skin-invert,
-.notheme,
-@{OOUIOverrideSelectors} {
+.notheme {
 	.cdx-mode-reset();
 }
 
@@ -71,8 +56,7 @@ html.skin-theme-clientpref-night @{OOUIIndicatorSelectors} {
  * Makes elements appear in light-mode when dark-mode is enabled.
  * NOTE: might be used in templates and user generated content.
  */
-html.skin-theme-clientpref-night .notheme,
-html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
+html.skin-theme-clientpref-night .notheme {
 	color-scheme: light;
 	color: var( --color-base );
 }
@@ -88,8 +72,7 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
 		.cdx-mode-dark();
 	}
 
-	html.skin-theme-clientpref-os .notheme,
-	html.skin-theme-clientpref-os @{OOUIOverrideSelectors} {
+	html.skin-theme-clientpref-os .notheme {
 		color-scheme: light;
 	}
 
@@ -111,7 +94,6 @@ html.skin-theme-clientpref-night @{OOUIOverrideSelectors} {
  * - OOUI icons inside elements with .skin-invert
  * - OOUI icons inside elements with .notheme
  */
-@{OOUIOverrideSelectors},
 .skin-invert,
 .notheme {
 	@{OOUIIndicatorSelectors},
