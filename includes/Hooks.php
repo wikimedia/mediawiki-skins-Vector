@@ -520,6 +520,12 @@ class Hooks implements
 	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
+		$services = MediaWikiServices::getInstance();
+		$featureManagerFactory = $services->getService( 'Vector.FeatureManagerFactory' );
+		$featureManager = $featureManagerFactory->createFeatureManager( RequestContext::getMain() );
+		$isVectorAppearanceEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_APPEARANCE );
+		$isNightModeEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_NIGHT_MODE );
+
 		$vectorPrefs = [
 			Constants::PREF_KEY_LIMITED_WIDTH => [
 				'type' => 'toggle',
@@ -529,7 +535,7 @@ class Hooks implements
 				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			],
 			Constants::PREF_KEY_FONT_SIZE => [
-				'type' => 'select',
+				'type' => $isVectorAppearanceEnabled ? 'select' : 'api',
 				'label-message' => 'vector-feature-custom-font-size-name',
 				'section' => 'rendering/skin/skin-prefs',
 				'options-messages' => [
@@ -552,7 +558,7 @@ class Hooks implements
 				'type' => 'api'
 			],
 			Constants::PREF_KEY_NIGHT_MODE => [
-				'type' => 'select',
+				'type' => $isNightModeEnabled ? 'select' : 'api',
 				'label-message' => 'skin-theme-name',
 				'help-message' => 'skin-theme-description',
 				'section' => 'rendering/skin/skin-prefs',
