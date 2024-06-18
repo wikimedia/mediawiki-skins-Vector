@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"IJzeren Jan"
 		]
 	},
+	"vector-languages": "Püks",
 	"vector-action-addsection": "Lüükön yegädi",
 	"vector-action-delete": "Moükön",
 	"vector-action-move": "Topätükön",

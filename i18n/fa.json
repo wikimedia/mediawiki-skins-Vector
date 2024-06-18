@@ -16,7 +16,9 @@
 			"Zack90",
 			"Rulebased",
 			"Tar Lócesilion",
-			"محک"
+			"محک",
+			"Darafsh",
+			"Ebrahim"
 		]
 	},
 	"skinname-vector": "وکتور قدیمی (۲۰۱۰)",
@@ -66,6 +68,7 @@
 	"vector-toc-collapsible-button-label": "تغییر وضعیت فهرست محتویات",
 	"vector-site-nav-label": "وبگاه",
 	"vector-main-menu-label": "منوی اصلی",
+	"vector-limited-width-toggle": "تغییر عرض محدود محتوا",
 	"vector-page-tools-label": "ابزارها",
 	"vector-page-tools-general-label": "عمومی",
 	"vector-page-tools-actions-label": "عمل‌ها",
@@ -74,5 +77,6 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|بحث]]",
 	"tooltip-vector-anon-user-menu-title": "گزینه‌های بیشتر",
 	"vector-prefs-limited-width": "فعال‌سازی حالت محدودیت عرض",
-	"vector-prefs-limited-width-help": "فعال‌سازی حالت محدودیت عرض برای بهبود تجربهٔ مطالعه."
+	"vector-prefs-limited-width-help": "فعال‌سازی حالت محدودیت عرض برای بهبود تجربهٔ مطالعه.",
+	"empty-language-selector-body": "محتوای صفحه در زبان‌های دیگر پشتیبانی نمی‌شود"
 }

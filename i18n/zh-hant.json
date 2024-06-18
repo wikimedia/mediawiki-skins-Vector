@@ -17,7 +17,10 @@
 			"Tranve",
 			"Winston Sung",
 			"Xiplus",
-			"捍粵者"
+			"捍粵者",
+			"Cookai1205",
+			"Tar Lócesilion",
+			"魔琴"
 		]
 	},
 	"skinname-vector": "舊版Vector（2010）",
@@ -42,7 +45,7 @@
 	"vector-action-move": "移動",
 	"vector-action-protect": "保護",
 	"vector-action-undelete": "取消刪除",
-	"vector-action-unprotect": "變更保護",
+	"vector-action-unprotect": "變更保護層級",
 	"vector-view-create": "建立",
 	"vector-view-edit": "編輯",
 	"vector-view-history": "檢視歷史",
@@ -63,7 +66,7 @@
 	"vector-anon-user-menu-pages-label": "了解更多有關編輯",
 	"vector-main-menu-tooltip": "主選單",
 	"vector-toc-menu-tooltip": "目次",
-	"vector-toc-collapsible-button-label": "切換目錄",
+	"vector-toc-collapsible-button-label": "切換目次",
 	"vector-site-nav-label": "站台",
 	"vector-main-menu-label": "主選單",
 	"vector-limited-width-toggle": "切換限制內容寬度",
