@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Song GK"
+		]
+	},
+	"vector-languages": "Jaku",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jaku}}",
+	"vector-no-language-button-label": "Tambah jaku",
+	"vector-action-addsection": "Tambah topik",
+	"vector-action-delete": "Buai",
+	"vector-action-move": "Kalih",
+	"vector-action-protect": "Jaga",
+	"vector-view-create": "Gaga",
+	"vector-view-history": "Peda sejarah",
+	"vector-more-actions": "Ke bukai",
+	"vector-toc-label": "Pengisi",
+	"vector-toc-beginning": "Pemungkal",
+	"vector-unpin-element-label": "lalaika"
+}
