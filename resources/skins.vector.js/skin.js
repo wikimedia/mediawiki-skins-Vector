@@ -12,6 +12,7 @@ const languageButton = require( './languageButton.js' ),
 	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	menuTabs = require( './menuTabs.js' ),
+	userPreferences = require( './userPreferences.js' ),
 	legacyMessageBoxStyles = require( './legacyMessageBoxStyles.js' ),
 	{ isNightModeGadgetEnabled, disableNightModeForGadget, alterExclusionMessage } = require( './disableNightModeIfGadget.js' ),
 	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
@@ -93,10 +94,10 @@ function main( window ) {
 			// disable our night mode if so
 			if ( isNightModeGadgetEnabled() ) {
 				disableNightModeForGadget();
-				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
+				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
 				alterExclusionMessage();
 			} else {
-				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig );
+				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
 			}
 		} );
 	}
