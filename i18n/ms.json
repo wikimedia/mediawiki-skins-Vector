@@ -51,11 +51,6 @@
 	"vector-feature-custom-font-size-0-label": "Kecil",
 	"vector-feature-custom-font-size-1-label": "Standard",
 	"vector-feature-custom-font-size-2-label": "Besar",
-	"skin-night-mode-name": "Warna",
-	"skin-night-mode-description": "[Versi eksperimen, kemungkinan tinggi akan menghadapi masalah] Kurangkan cahaya yang dikeluarkan oleh skrin peranti.",
-	"skin-night-mode-0-label": "Terang",
-	"skin-night-mode-1-label": "Gelap",
-	"skin-night-mode-2-label": "Automatik",
 	"skin-theme-name": "Warna",
 	"skin-theme-description": "[Versi eksperimen, kemungkinan tinggi akan menghadapi masalah] Kurangkan cahaya yang dikeluarkan oleh skrin peranti.",
 	"skin-theme-day-label": "Terang",
@@ -80,7 +75,7 @@
 	"vector-limited-width-toggle-on-popup": "Anda telah menukar bentangan kepada lebar penuh. Untuk kembali ke lebar terhad, tekan butang ini.",
 	"vector-limited-width-toggle-off-popup": "Anda boleh menogol antara lebar terhad dan lebar penuh dengan mengklik butang ini.",
 	"vector-feature-custom-font-size-exclusion-notice": "Laman ini sentiasa menggunakan saiz pasuan yang kecil",
-	"vector-feature-limited-width-exclusion-notice": "Laman ini sentiasa dipaparkan secara luas",
+	"vector-feature-limited-width-exclusion-notice": "Kandungannya seluas mungkin untuk tetingkap pelayar anda.",
 	"vector-page-tools-label": "Peralatan",
 	"vector-page-tools-general-label": "Umum",
 	"vector-page-tools-actions-label": "Tindakan",
@@ -97,5 +92,6 @@
 	"vector-main-menu-unpinned-popup": "Menu utama telah berpindah ke sini.",
 	"vector-appearance-unpinned-popup": "Menu penampilan telah berpindah ke sini.",
 	"vector-2022-beta-preview-label": "Kebolehcapaian untuk Membaca (Vektor 2022)",
-	"vector-2022-beta-preview-description": "Dapatkan akses awal ciri kebolehcapaian bacaan baharu, seperti penambahbaikan tipografi dan mod gelap."
+	"vector-2022-beta-preview-description": "Dapatkan akses awal ciri kebolehcapaian bacaan baharu, seperti penambahbaikan tipografi dan mod gelap.",
+	"vector-night-mode-gadget-warning": "Anda menggunakan gajet mod gelap yang mengganggu ciri ini. [[Special:Preferences#mw-prefsection-gadgets|Lumpuhkan alat ini]] untuk menggunakan mod gelap."
 }

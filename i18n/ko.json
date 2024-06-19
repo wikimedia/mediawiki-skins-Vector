@@ -59,11 +59,6 @@
 	"vector-feature-custom-font-size-0-label": "작음",
 	"vector-feature-custom-font-size-1-label": "표준",
 	"vector-feature-custom-font-size-2-label": "큼",
-	"skin-night-mode-name": "색",
-	"skin-night-mode-description": "[실험용 버전, 문제 발생 가능성 높음] 기기 화면에서 방출되는 빛을 줄입니다.",
-	"skin-night-mode-0-label": "라이트",
-	"skin-night-mode-1-label": "다크",
-	"skin-night-mode-2-label": "자동",
 	"skin-theme-name": "색",
 	"skin-theme-description": "[실험용 버전, 문제 발생 가능성 높음] 기기 화면에서 방출되는 빛을 줄입니다.",
 	"skin-theme-day-label": "라이트",
@@ -105,5 +100,6 @@
 	"vector-main-menu-unpinned-popup": "주 메뉴가 여기로 이동되었습니다.",
 	"vector-appearance-unpinned-popup": "보이기 메뉴는 이곳으로 이동되었습니다.",
 	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)",
-	"vector-2022-beta-preview-description": "타이포그래피 개선 및 다크 모드 등 새로운 읽기 접근성 기능을 미리 사용해보세요."
+	"vector-2022-beta-preview-description": "타이포그래피 개선 및 다크 모드 등 새로운 읽기 접근성 기능을 미리 사용해보세요.",
+	"vector-night-mode-gadget-warning": "이 기능에 방해를 주는 다크 모드 소도구를 사용하고 있습니다. 다크 모드를 사용하려면 [[Special:Preferences#mw-prefsection-gadgets|소도구를 비활성화]]하십시오."
 }
