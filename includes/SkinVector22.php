@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
+use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentAppearance;
 use MediaWiki\Skins\Vector\Components\VectorComponentButton;
@@ -32,15 +33,17 @@ class SkinVector22 extends SkinMustache {
 	/** @var null|array for caching purposes */
 	private $languages;
 
+	private LanguageConverterFactory $languageConverterFactory;
 	private FeatureManagerFactory $featureManagerFactory;
 	private ?FeatureManager $featureManager = null;
 
 	public function __construct(
+		LanguageConverterFactory $languageConverterFactory,
 		FeatureManagerFactory $featureManagerFactory,
 		array $options
 	) {
 		parent::__construct( $options );
-
+		$this->languageConverterFactory = $languageConverterFactory;
 		// Cannot use the context in the constructor, setContext is called after construction
 		$this->featureManagerFactory = $featureManagerFactory;
 	}
@@ -413,6 +416,7 @@ class SkinVector22 extends SkinMustache {
 				$title->getLocalURL( [ 'action' => 'edit', 'section' => 'new' ] )
 			) : null,
 			'data-variants' => new VectorComponentVariants(
+				$this->languageConverterFactory,
 				$portlets['data-variants'],
 				$title->getPageLanguage(),
 				$this->msg( 'vector-language-variant-switcher-label' )
