@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Qiorly"
+		]
+	},
+	"vector-languages": "Језыкы",
+	"vector-language-button-label": "{{PLURAL:$1|$1 језык|$1 језыков}}",
+	"vector-no-language-button-label": "Додати језыкы",
+	"vector-action-addsection": "Додати тему",
+	"vector-action-delete": "Одстранити",
+	"vector-action-move": "Прєименовати",
+	"vector-action-protect": "Зашчитити",
+	"vector-view-create": "Створити",
+	"vector-view-history": "Позрєти хисторију",
+	"vector-more-actions": "Вече",
+	"vector-searchsuggest-containing": "Искати странице содрживајуче <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Почеток"
+}

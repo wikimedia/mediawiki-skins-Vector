@@ -23,6 +23,7 @@
 	"vector-language-button-aria-label": "ڪنھن مضمون ڏانھن ڪنھن ٻي ٻوليءَ ۾ وڃو. {{PLURAL:$1|$1 ٻوليءَ|$1 ٻولين ۾}} موجود آھي",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ٻولي|$1 ٻوليون}}",
 	"vector-no-language-button-label": "ٻوليون شامل ڪريو",
+	"vector-no-language-button-aria-label": "ھي مضمون رڳو ھن ٻوليءَ ۾ موجود آھي. ٻين ٻولين لاء مضمون شامل ڪريو",
 	"vector-language-redirect-to-top": "ھن {{SITENAME}} تي ٻوليءَ جا ڳنڍڻا صفحي جي مٿان آھن، مضمون جي عنوان کان اڳتي. [[#p-lang-btn|مٿي وڃو]].",
 	"vector-language-variant-switcher-label": "ٻوليءَ جو ويرينٽ بدلايو",
 	"vector-action-addsection": "موضوع شامل ڪريو",
@@ -50,5 +51,8 @@
 	"vector-anon-user-menu-pages-learn": "وڌيڪ ڄاڻيو",
 	"vector-anon-user-menu-pages-label": "سنوارڻ بابت وڌيڪ ڄاڻيو",
 	"vector-main-menu-tooltip": "مک مينيو",
+	"vector-toc-menu-tooltip": "عنوانن جي فھرست",
+	"vector-toc-collapsible-button-label": "عنوانن جي فھرست کي ٽوگل ڪريو",
+	"vector-site-nav-label": "سائيٽ",
 	"tooltip-vector-anon-user-menu-title": "وڌيڪ چارا"
 }

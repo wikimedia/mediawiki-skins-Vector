@@ -5,7 +5,8 @@
 			"FRANELYA",
 			"Meqqal",
 			"CorrelMoris38",
-			"Jilorisa"
+			"Jilorisa",
+			"Rumandawi"
 		]
 	},
 	"vector-languages": "Boros",
@@ -24,5 +25,5 @@
 	"vector-view-viewsource": "Intaai wowonod",
 	"vector-more-actions": "Lobi ogumu",
 	"vector-searchsuggest-containing": "Ihumo bolikan di haro <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Kotimpuunan"
+	"vector-toc-beginning": "Kotimpuunon"
 }

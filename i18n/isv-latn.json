@@ -8,7 +8,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezyk|$1 jezykov}}",
 	"vector-no-language-button-label": "Dodati jezyky",
 	"vector-action-addsection": "Dodati temu",
-	"vector-action-delete": "Izčrknuti",
+	"vector-action-delete": "Odstraniti",
 	"vector-action-move": "Prěimenovati",
 	"vector-action-protect": "Zaščititi",
 	"vector-view-create": "Stvoriti",
