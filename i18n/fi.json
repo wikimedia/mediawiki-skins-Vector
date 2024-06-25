@@ -63,7 +63,7 @@
 	"skin-theme-day-label": "Vaalea",
 	"skin-theme-night-label": "Tumma",
 	"skin-theme-os-label": "Automaattinen",
-	"skin-theme-exclusion-notice": "Tämä sivu on aina päivätilassa.",
+	"skin-theme-exclusion-notice": "Tämä sivu on aina vaaleassa tilassa.",
 	"vector-search-loader": "Ladataan hakuehdotuksia",
 	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Sisällysluettelo",
