@@ -77,6 +77,7 @@
 	"vector-main-menu-label": "Päävalikko",
 	"vector-limited-width-toggle": "Vaihda rajoitettu sisällön leveys",
 	"vector-limited-width-toggle-on-popup": "Olet vaihtanut sivun asettelusi täyteen leveyteen. Voit palata rajoitettuun leveyteen painamalla tätä nappia.",
+	"vector-feature-custom-font-size-exclusion-notice": "Tällä sivulla käytetään aina pientä kirjasinkokoa",
 	"vector-page-tools-label": "Työkalut",
 	"vector-page-tools-general-label": "Yleinen",
 	"vector-page-tools-actions-label": "Toiminnot",
