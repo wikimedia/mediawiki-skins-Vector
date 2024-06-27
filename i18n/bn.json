@@ -79,7 +79,7 @@
 	"vector-limited-width-toggle-on-popup": "আপনি আপনার লেআউট পূর্ণ প্রস্থে পরিবর্তন করেছেন। সীমিত প্রস্থে ফিরে যেতে, এই বোতামটি টিপুন।",
 	"vector-limited-width-toggle-off-popup": "আপনি এই বোতামটিতে ক্লিক করে সীমিত প্রস্থ থেকে পূর্ণ প্রস্থে যেতে পারেন।",
 	"vector-feature-custom-font-size-exclusion-notice": "এই পাতাটি সর্বদা ছোট আকারের ফন্ট ব্যবহার করে",
-	"vector-feature-limited-width-exclusion-notice": "এই পাতাটি সর্বদা প্রশস্ত থাকে",
+	"vector-feature-limited-width-exclusion-notice": "আপনার ব্রাউজারের উইন্ডোর আকার অনুযায়ী বিষয়বস্তু যতটা সম্ভব প্রশস্ত থাকবে।",
 	"vector-page-tools-label": "সরঞ্জাম",
 	"vector-page-tools-general-label": "সাধারণ",
 	"vector-page-tools-actions-label": "কার্য",
