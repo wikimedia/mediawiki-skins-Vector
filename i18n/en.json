@@ -85,5 +85,11 @@
 	"vector-2022-beta-preview-label": "Accessibility for Reading (Vector 2022)",
 	"vector-2022-beta-preview-description": "Get early access to the new reading accessibility features, such as typography improvements and dark mode.",
 	"vector-night-mode-gadget-names": "dark-mode|dark-mode-toggle|dark-mode-toggle-pagestyles",
-	"vector-night-mode-gadget-warning": "You're using a dark mode gadget that interferes with this feature. [[Special:Preferences#mw-prefsection-gadgets|Disable the gadget]] to use dark mode."
+	"vector-night-mode-gadget-warning": "You're using a dark mode gadget that interferes with this feature. [[Special:Preferences#mw-prefsection-gadgets|Disable the gadget]] to use dark mode.",
+	"vector-night-mode-issue-reporting-notice-url": "https://www.mediawiki.org/wiki/Reading/Web/Accessibility_for_reading/Reporting/$1?section=new&action=submit&preloadtitle=$2&preload=MediaWiki:vector-night-mode-issue-reporting-preload-content",
+	"vector-night-mode-issue-reporting-link-label": "Report an issue with dark mode",
+	"vector-night-mode-issue-reporting-link-notification": "Report received!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 dark mode error",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Instructions'''\n\nPlease describe how the dark mode colors are making Wikipedia difficult to read. Please include the section of the article where you found the issue. \n</no<includeonly></includeonly>include> \n'''Issue Description'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }

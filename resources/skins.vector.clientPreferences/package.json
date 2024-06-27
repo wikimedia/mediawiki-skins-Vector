@@ -1,6 +1,6 @@
 {
 	"name": "@wikimedia/mediawiki.skins.clientpreferences",
-	"version": "1.1.1",
+	"version": "1.2.0",
 	"private": false,
 	"main": "clientPreferences.js",
 	"author": "Wikimedia Foundation",

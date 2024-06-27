@@ -102,5 +102,11 @@
 	"vector-2022-beta-preview-label": "label for beta feature preview link in beta features under special preferences",
 	"vector-2022-beta-preview-description": "label for beta feature preview description in beta features under special preferences",
 	"vector-night-mode-gadget-names": "pipe-separated list of gadget names associated with the night mode gadget",
-	"vector-night-mode-gadget-warning": "a notice that night mode has been disabled due to a conflicting gadget, with a link to the gadgets page to disable"
+	"vector-night-mode-gadget-warning": "a notice that night mode has been disabled due to a conflicting gadget, with a link to the gadgets page to disable",
+	"vector-night-mode-issue-reporting-link-label": "Label for a link to project-specific page where people can report issues with dark mode.",
+	"vector-night-mode-issue-reporting-link-notification": "Notification that shows after clicking link.",
+	"vector-night-mode-issue-reporting-notice-url": "A URL to be configured on the site-level {{notranslate}}",
+	"vector-night-mode-issue-reporting-preload-title": "The prefilled title of the form used to submit dark mode errors.",
+	"vector-night-mode-issue-reporting-preload-content": "The prefilled content of the form used to submit dark mode errors",
+	"vector-night-mode-beta-tag": "A tag appearing in the Appearance menu informing users that this feature is in beta."
 }

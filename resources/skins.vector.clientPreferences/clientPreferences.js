@@ -2,6 +2,7 @@
  * @typedef {Object} ClientPreference
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
+ * @property {string} betaMessage whether to show a notice indicating this feature is in beta.
  * @property {string} [type] defaults to radio. Supported: radio, switch
  * @property {Function} [callback] callback executed after a client preference has been modified.
  */
@@ -139,6 +140,18 @@ function makeExclusionNotice( featureName ) {
 	p.classList.add( 'exclusion-notice', `${ featureName }-exclusion-notice` );
 	p.textContent = noticeMessage.text();
 	return p;
+}
+
+/**
+ * @return {HTMLElement}
+ */
+function makeBetaInfoTag() {
+	const infoTag = document.createElement( 'span' );
+	// custom style to avoid moving heading bottom border.
+	const infoTagText = document.createElement( 'span' );
+	infoTagText.textContent = mw.message( 'vector-night-mode-beta-tag' ).text();
+	infoTag.appendChild( infoTagText );
+	return infoTag;
 }
 
 /**
@@ -286,6 +299,15 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 		const id = `skin-client-prefs-${ featureName }`;
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
+
+		if ( config[ featureName ].betaMessage ) {
+			const betaInfoTag = makeBetaInfoTag();
+			if ( !portlet.querySelector( '.vector-menu-heading span' ) ) {
+				portlet.querySelector( '.vector-menu-heading' ).textContent += ' ';
+				portlet.querySelector( '.vector-menu-heading' ).appendChild( betaInfoTag );
+			}
+		}
+
 		const labelElement = portlet.querySelector( 'label' );
 
 		// Add additional description for mobile
@@ -323,6 +345,26 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 				if ( link ) {
 					link.replaceWith( row );
 				}
+			}
+
+			if ( config[ featureName ].betaMessage ) {
+				const betaMessageElement = document.createElement( 'span' );
+				const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
+				const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
+				const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
+				const linkLabel = mw.message( 'vector-night-mode-issue-reporting-link-label' ).text();
+				const anchor = document.createElement( 'a' );
+				// per requirements: only logged in users can report errors.
+				if ( !mw.user.isAnon() ) {
+					anchor.setAttribute( 'href', link );
+					anchor.setAttribute( 'target', '_blank' );
+				}
+				anchor.textContent = linkLabel;
+				anchor.addEventListener( 'click', () => {
+					betaMessageElement.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
+				} );
+				betaMessageElement.appendChild( anchor );
+				row.appendChild( betaMessageElement );
 			}
 		}
 	}
