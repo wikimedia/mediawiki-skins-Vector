@@ -104,7 +104,7 @@
 	"vector-limited-width-toggle-on-popup": "您已将布局切换为全屏宽度。要切换回有限宽度，请点击此按钮。",
 	"vector-limited-width-toggle-off-popup": "您可通过单击此按钮，在有限宽度和全屏宽度间切换。",
 	"vector-feature-custom-font-size-exclusion-notice": "此页面永远使用小字号",
-	"vector-feature-limited-width-exclusion-notice": "此页面永远使用全宽模式",
+	"vector-feature-limited-width-exclusion-notice": "内容会尽可能占满您的浏览器窗口宽度。",
 	"vector-page-tools-label": "工具",
 	"vector-page-tools-general-label": "常规",
 	"vector-page-tools-actions-label": "操作",
