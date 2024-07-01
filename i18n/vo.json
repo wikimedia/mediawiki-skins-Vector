@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Malafaya",
-			"IJzeren Jan"
+			"IJzeren Jan",
+			"Morozof"
 		]
 	},
 	"vector-languages": "Püks",
+	"vector-language-button-label": "{{PLURAL:$1|$1 pük|$1 püks}}",
+	"vector-no-language-button-label": "Läükön pükis",
 	"vector-action-addsection": "Lüükön yegädi",
 	"vector-action-delete": "Moükön",
 	"vector-action-move": "Topätükön",
@@ -17,5 +20,7 @@
 	"vector-view-history": "Logön jenotemi",
 	"vector-view-view": "Reidön",
 	"vector-view-viewsource": "Logön fonäti",
-	"vector-more-actions": "Pluikos"
+	"vector-more-actions": "Pluikos",
+	"vector-searchsuggest-containing": "Suk pada ninädöl <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Primot"
 }

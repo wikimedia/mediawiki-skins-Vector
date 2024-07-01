@@ -5,7 +5,8 @@
 			"Aursani",
 			"Mehtab ahmed",
 			"Sindhu",
-			"Tweety"
+			"Tweety",
+			"Charoo"
 		]
 	},
 	"skinname-vector": "ويڪٽر ليگيسي (2010ع)",
@@ -25,7 +26,7 @@
 	"vector-no-language-button-label": "ٻوليون شامل ڪريو",
 	"vector-no-language-button-aria-label": "ھي مضمون رڳو ھن ٻوليءَ ۾ موجود آھي. ٻين ٻولين لاء مضمون شامل ڪريو",
 	"vector-language-redirect-to-top": "ھن {{SITENAME}} تي ٻوليءَ جا ڳنڍڻا صفحي جي مٿان آھن، مضمون جي عنوان کان اڳتي. [[#p-lang-btn|مٿي وڃو]].",
-	"vector-language-variant-switcher-label": "ٻوليءَ جو ويرينٽ بدلايو",
+	"vector-language-variant-switcher-label": "ٻولیء جو روپ بدلایو",
 	"vector-action-addsection": "موضوع شامل ڪريو",
 	"vector-action-delete": "ڊاھيو",
 	"vector-action-move": "چوريو",
@@ -39,7 +40,7 @@
 	"vector-view-viewsource": "ذريعو ڏسو",
 	"vector-jumptonavigation": "نيويگيشن ڏانھن ٽپ ڏيو",
 	"vector-jumptosearch": "ڳولا ڏانھن هلو",
-	"vector-jumptocontent": "مواد ڏانھن ٽپ ڏيو",
+	"vector-jumptocontent": "مواد ڏانھن هلو",
 	"vector-more-actions": "وڌيڪ",
 	"vector-search-loader": "ڳولا صلاحون لاھيندي",
 	"vector-searchsuggest-containing": "اھي صفحا ڳوليو جن ۾ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> آھي",
