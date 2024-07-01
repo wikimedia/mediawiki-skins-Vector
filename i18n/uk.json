@@ -9,6 +9,7 @@
 			"DDPAT",
 			"Dim Grits",
 			"Ice bulldog",
+			"Ignatgg",
 			"Movses",
 			"NickK",
 			"Piramidion",
@@ -64,7 +65,7 @@
 	"skin-theme-day-label": "Світла",
 	"skin-theme-night-label": "Темна",
 	"skin-theme-os-label": "Автоматична",
-	"skin-theme-exclusion-notice": "Ця сторінка завжди в денному режимі.",
+	"skin-theme-exclusion-notice": "Ця сторінка завжди в світловому режимі.",
 	"vector-search-loader": "Завантажуються підказки пошуку",
 	"vector-searchsuggest-containing": "Знайдіть сторінки, що містять <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вступ",
@@ -83,7 +84,7 @@
 	"vector-limited-width-toggle-on-popup": "Ви переключили макет на повну ширину. Щоб повернутися до обмеженої ширини, натисніть цю кнопку.",
 	"vector-limited-width-toggle-off-popup": "Ви можете перемикатися між обмеженою шириною та повною шириною, натискаючи цю кнопку.",
 	"vector-feature-custom-font-size-exclusion-notice": "На цій сторінці завжди використовується малий розмір шрифту",
-	"vector-feature-limited-width-exclusion-notice": "Ця сторінка завжди широка",
+	"vector-feature-limited-width-exclusion-notice": "Контент максимально широкий для вікна вашого браузера.",
 	"vector-page-tools-label": "Інструменти",
 	"vector-page-tools-general-label": "Загальний",
 	"vector-page-tools-actions-label": "Дії",
@@ -100,5 +101,6 @@
 	"vector-main-menu-unpinned-popup": "Головне меню інструментів перемістилося сюди.",
 	"vector-appearance-unpinned-popup": "Меню зовнішнього вигляду перемістилося сюди.",
 	"vector-2022-beta-preview-label": "Доступність для читання (Вектор 2022)",
-	"vector-2022-beta-preview-description": "Отримайте ранній доступ до нових можливостей доступного читання, таких як покращення типографіки та темний режим."
+	"vector-2022-beta-preview-description": "Отримайте ранній доступ до нових можливостей доступного читання, таких як покращення типографіки та темний режим.",
+	"vector-night-mode-gadget-warning": "Ви використовуєте гаджет темного режиму, який заважає цій функції. [[Special:Preferences#mw-prefsection-gadgets|Вимкніть гаджет]], щоб використовувати темний режим."
 }

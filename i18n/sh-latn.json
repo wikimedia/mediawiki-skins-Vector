@@ -52,6 +52,7 @@
 	"vector-limited-width-toggle": "Uključi/isključi ograničenu širinu sadržaja",
 	"vector-limited-width-toggle-on-popup": "Prebacili ste se na punu širinu teksta. Pritisnite dugme da se vratite na ograničenu širinu.",
 	"vector-limited-width-toggle-off-popup": "Ovom tipkom prebacujete se između ograničene i pune širine teksta.",
+	"vector-feature-custom-font-size-exclusion-notice": "Ova stranica uvijek se koristi malim fontom.",
 	"vector-page-tools-label": "Alati",
 	"vector-page-tools-general-label": "Opšte",
 	"vector-page-tools-actions-label": "Radnje",
