@@ -4,6 +4,7 @@
 			"IJzeren Jan"
 		]
 	},
+	"vector-opt-out": "Prěključiti na stary izgled",
 	"vector-languages": "Jezyky",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jezyk|$1 jezykov}}",
 	"vector-no-language-button-label": "Dodati jezyky",
