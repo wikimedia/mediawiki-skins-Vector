@@ -14,7 +14,7 @@ const languageButton = require( './languageButton.js' ),
 	menuTabs = require( './menuTabs.js' ),
 	userPreferences = require( './userPreferences.js' ),
 	legacyMessageBoxStyles = require( './legacyMessageBoxStyles.js' ),
-	{ isNightModeGadgetEnabled, disableNightModeForGadget, alterExclusionMessage } = require( './disableNightModeIfGadget.js' ),
+	{ isNightModeGadgetEnabled, disableNightModeForGadget, alterExclusionMessage, removeBetaNotice } = require( './disableNightModeIfGadget.js' ),
 	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
 
 /**
@@ -96,6 +96,7 @@ function main( window ) {
 				disableNightModeForGadget();
 				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
 				alterExclusionMessage();
+				removeBetaNotice();
 			} else {
 				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
 			}
