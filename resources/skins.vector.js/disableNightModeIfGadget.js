@@ -69,12 +69,21 @@ function alterDisableLink( container ) {
 }
 
 /**
+ * Removes the link that solicits user feedback for dark mode.
+ */
+function removeBetaNotice() {
+	const feedbackNoticeContainer = document.getElementById( 'skin-theme-beta-notice' );
+	if ( feedbackNoticeContainer ) {
+		feedbackNoticeContainer.remove();
+	}
+}
+
+/**
  * Modify the default exclusion message to indicate that we've disabled night mode on the page due
  * to a conflicting gadget, providing a link to disable the gadget in favor of our night mode
  */
 function alterExclusionMessage() {
 	const noticeContainer = document.querySelector( '.exclusion-notice' );
-
 	// if there's no exclusion notice, nothing we can do
 	if ( !noticeContainer ) {
 		return;
@@ -94,5 +103,6 @@ module.exports = {
 	isNightModeGadgetEnabled,
 	disableNightModeForGadget,
 	alterDisableLink,
-	alterExclusionMessage
+	alterExclusionMessage,
+	removeBetaNotice
 };

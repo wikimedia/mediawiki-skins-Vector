@@ -1,6 +1,17 @@
+@import 'mediawiki.skin.variables.less';
+
 #vector-appearance {
 	form {
 		font-size: 0.875rem;
 		padding: 6px 0;
 	}
+}
+
+.vector-icon.vector-icon--heart {
+	.cdx-mixin-css-icon( @cdx-icon-heart, @color-success );
+}
+
+.skin-theme-beta-notice-success {
+	color: @color-success;
+	pointer-events: none;
 }

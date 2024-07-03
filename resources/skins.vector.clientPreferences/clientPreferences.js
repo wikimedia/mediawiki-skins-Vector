@@ -347,8 +347,9 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 				}
 			}
 
-			if ( config[ featureName ].betaMessage ) {
+			if ( config[ featureName ].betaMessage && !isFeatureExcluded( featureName ) ) {
 				const betaMessageElement = document.createElement( 'span' );
+				betaMessageElement.id = `${ featureName }-beta-notice`;
 				const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
 				const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
 				const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
@@ -360,9 +361,15 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 					anchor.setAttribute( 'target', '_blank' );
 				}
 				anchor.textContent = linkLabel;
-				anchor.addEventListener( 'click', () => {
-					betaMessageElement.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
-				} );
+				const showSuccessFeedback = function () {
+					const icon = document.createElement( 'span' );
+					icon.classList.add( 'vector-icon', 'vector-icon--heart' );
+					anchor.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
+					anchor.classList.add( 'skin-theme-beta-notice-success' );
+					anchor.prepend( icon );
+					anchor.removeEventListener( 'click', showSuccessFeedback );
+				};
+				anchor.addEventListener( 'click', showSuccessFeedback );
 				betaMessageElement.appendChild( anchor );
 				row.appendChild( betaMessageElement );
 			}
