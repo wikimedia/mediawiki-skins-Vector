@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Valentine Badu"
+			"Valentine Badu",
+			"Elliot one"
 		]
 	},
 	"vector-action-addsection": "Fa tidwɛkɛ boka nwo",
@@ -10,6 +11,7 @@
 	"vector-action-protect": "Gyima",
 	"vector-view-create": "Buke",
 	"vector-view-edit": "Sa nu",
+	"vector-view-history": "Nea tete dwɛkɛ ne",
 	"vector-more-actions": "Kpondɛ dɔɔnwo",
 	"vector-unpin-element-label": "Fa fia"
 }
