@@ -4,9 +4,9 @@
 			"Ahiise2"
 		]
 	},
-	"vector-skin-desc": "Kiha empu 2 za Vekitoli:\n* 2011 - Omulingo omuhyaka gwa MonoBuki ogwina enzooka empyaka n'enkiza nyingi y'okukozesa.\n* 2022 - Vekitoli eyombeka omu kwekamba kwa WMF [[mw:Desktop Improvements|Desktop Improvements]].",
+	"vector-skin-desc": "Kiha empu 2 za Vekitoli:\n* 2011 - Omulingo omuhyaka gwa MonoBuki ogwina enzooka empyaka n'enkiza nyingi y'okukozesa.\n* 2022 - Vekitoli eyombeka omu kwekamba kwa WMF [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements].",
 	"prefs-vector-enable-vector-1-label": "Kozesa Vekitoli y'Ekirale",
-	"prefs-vector-enable-vector-1-help": "Omu myaka mitaito y'okwongeraho, tuliba nitukora oruhu rwa Vekitoli. Vekitoli y'Ekirale erikwikiriza kurora omulingo omukuru gwa Vekitoli (gw'Ogwa ikumi n'ebiri 2019). Kwega muno enkora, genda [[mw:Reading/Web/Desktop_Improvements|orupapura rw'okwekamba]] rwaitu.",
+	"prefs-vector-enable-vector-1-help": "Omu myaka mitaito y'okwongeraho, tuliba nitukora oruhu rwa Vekitoli. Vekitoli y'Ekirale erikwikiriza kurora omulingo omukuru gwa Vekitoli (gw'Ogwa ikumi n'ebiri 2019). Kwega muno enkora, genda [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements orupapura rw'okwekamba] rwaitu.",
 	"vector-opt-out": "Kozesa enzooka enkuru",
 	"vector-opt-out-tooltip": "Hingisa ebisemezibwa byawe kugaruka enzooka enkuru y'oruhu (Vekitoli y'ekirale)",
 	"vector-action-toggle-sidebar": "Hinduliza orukarra ha rubaju",
@@ -67,7 +67,7 @@
 	"vector-page-tools-actions-label": "Ebikorwa",
 	"vector-pin-element-label": "ihirayo orukarra harubaju",
 	"vector-unpin-element-label": "sereka",
-	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Okuhanuura]]",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Okuhanuura]",
 	"tooltip-vector-anon-user-menu-title": "Emirimo endi",
 	"vector-page-tools-nav-label": "Ebikwato by'orupapura",
 	"vector-prefs-limited-width": "Soboza omulingo gw'obugazi obutangwa",

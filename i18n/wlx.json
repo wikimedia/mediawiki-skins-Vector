@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fadia",
 			"Zakaria Tunsung"
 		]
 	},
+	"vector-view-history": "Kaaa sankonkoreyele",
 	"vector-more-actions": "mine meŋ",
 	"vector-searchsuggest-containing": "Bɔ peejihi aŋ tare <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>"
 }

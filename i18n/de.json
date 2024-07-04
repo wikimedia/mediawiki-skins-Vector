@@ -91,5 +91,9 @@
 	"vector-appearance-unpinned-popup": "Das Aussehenmenü wurde hierher verschoben.",
 	"vector-2022-beta-preview-label": "Barrierefreiheit zum Lesen (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Erhalte frühzeitigen Zugang zu den neuen Funktionen für barrierefreies Lesen, wie z. B. Verbesserungen der Typografie und des Dunkelmodus.",
-	"vector-night-mode-gadget-warning": "Du verwendest ein Helferlein für den Dunkelmodus, das diese Funktion beeinträchtigt. [[Special:Preferences#mw-prefsection-gadgets|Deaktiviere das Helferlein]], um den Dunkelmodus zu verwenden."
+	"vector-night-mode-gadget-warning": "Du verwendest ein Helferlein für den Dunkelmodus, das diese Funktion beeinträchtigt. [[Special:Preferences#mw-prefsection-gadgets|Deaktiviere das Helferlein]], um den Dunkelmodus zu verwenden.",
+	"vector-night-mode-issue-reporting-link-label": "Ein Problem mit dem Dunkelmodus melden",
+	"vector-night-mode-issue-reporting-link-notification": "Bericht erhalten!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 Dunkelmodus-Fehler",
+	"vector-night-mode-beta-tag": "(Beta)"
 }
