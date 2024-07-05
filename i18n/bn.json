@@ -57,6 +57,7 @@
 	"vector-feature-custom-font-size-1-label": "মানক",
 	"vector-feature-custom-font-size-2-label": "বড়",
 	"skin-theme-name": "রং",
+	"skin-theme-description": "[পরীক্ষামূলক সংস্করণ, সমস্যার সম্মুখীন হওয়ার উচ্চ সম্ভাবনা] ডিভাইসের পর্দা থেকে নির্গত আলো হ্রাস করে।",
 	"skin-theme-day-label": "উজ্জ্বল",
 	"skin-theme-night-label": "আঁধার",
 	"skin-theme-os-label": "স্বয়ংক্রিয়",
@@ -96,6 +97,11 @@
 	"vector-main-menu-unpinned-popup": "প্রধান মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-appearance-unpinned-popup": "অবয়ব মেনু এখানে স্থানান্তরিত হয়েছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টর ২০২২)",
-	"vector-2022-beta-preview-description": "নতুন ভেক্টর ২০২২-এর বৈশিষ্ট্যগুলির প্রাকদর্শন সবার আগে পান।",
-	"vector-night-mode-gadget-warning": "আপনি এমন একটি আঁধার মোড গ্যাজেট ব্যবহার করছেন যা এই বৈশিষ্ট্যটিতে হস্তক্ষেপ করে। আঁধার মোড ব্যবহার করতে [[Special:Preferences#mw-prefsection-gadgets|গ্যাজেটটি নিষ্ক্রিয় করুন]]।"
+	"vector-2022-beta-preview-description": "টাইপোগ্রাফির উন্নতি এবং আঁধার মোডের মতো নতুন পঠন অভিগম্য বৈশিষ্ট্যগুলি সবার আগে দ্রুত পান।",
+	"vector-night-mode-gadget-warning": "আপনি এমন একটি আঁধার মোড গ্যাজেট ব্যবহার করছেন যা এই বৈশিষ্ট্যটিতে হস্তক্ষেপ করে। আঁধার মোড ব্যবহার করতে [[Special:Preferences#mw-prefsection-gadgets|গ্যাজেটটি নিষ্ক্রিয় করুন]]।",
+	"vector-night-mode-issue-reporting-link-label": "আঁধার মোডের একটি সমস্যা রিপোর্ট করুন",
+	"vector-night-mode-issue-reporting-link-notification": "অভিযোগ পাঠানো হয়েছে!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 আঁধার মোড ত্রুটি",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''নির্দেশাবলী'''\n\nআঁধার মোডের রং কীভাবে উইকিপিডিয়া পড়া কঠিন করে তুলছে তা অনুগ্রহ করে বর্ণনা করুন। যেখানে আপনি সমস্যাটি পেয়েছেন অনুগ্রহ করে সেই নিবন্ধের অনুচ্ছেদটি অন্তর্ভুক্ত করুন।\n</no<includeonly></includeonly>include>\n'''সমস্যার বর্ণনা'''",
+	"vector-night-mode-beta-tag": "(বিটা)"
 }

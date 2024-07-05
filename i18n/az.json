@@ -77,7 +77,7 @@
 	"vector-limited-width-toggle-on-popup": "Siz tərtibatı tam genişliyə dəyişdiniz. Məhdud genişliyə qayıtmaq üçün bu düyməni basın.",
 	"vector-limited-width-toggle-off-popup": "Bu düyməni klikləməklə məhdud en və tam en arasında keçid edə bilərsiniz.",
 	"vector-feature-custom-font-size-exclusion-notice": "Bu səhifə həmişə kiçik şrift ölçüsündən istifadə edir",
-	"vector-feature-limited-width-exclusion-notice": "Bu səhifə həmişə genişdir",
+	"vector-feature-limited-width-exclusion-notice": "Məzmun, brauzerinizin pəncərəsi üçün mümkün qədər genişdir.",
 	"vector-page-tools-label": "Alətlər",
 	"vector-page-tools-general-label": "Ümumi",
 	"vector-page-tools-actions-label": "Fəaliyyətlər",
@@ -95,5 +95,9 @@
 	"vector-appearance-unpinned-popup": "Görünüş menyusu bura köçürülüb.",
 	"vector-2022-beta-preview-label": "Oxumaq üçün əlçatanlıq (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Tipoqrafiya təkmilləşdirmələri və gecə rejimi kimi yeni əlçatanlıq xüsusiyyətlərinə erkən giriş əldə edin.",
-	"vector-night-mode-gadget-warning": "Bu funksiyaya müdaxilə edən qaranlıq rejim qadcetindən istifadə edirsiniz. Qaranlıq rejimdən istifadə etmək üçün [[Special:Preferences#mw-prefsection-gadgets|qadceti deaktiv edin]]."
+	"vector-night-mode-gadget-warning": "Bu funksiyaya müdaxilə edən qaranlıq rejim qadcetindən istifadə edirsiniz. Qaranlıq rejimdən istifadə etmək üçün [[Special:Preferences#mw-prefsection-gadgets|qadceti deaktiv edin]].",
+	"vector-night-mode-issue-reporting-link-label": "Qaranlıq rejimlə bağlı problemi bildirin",
+	"vector-night-mode-issue-reporting-link-notification": "Göndərildi!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 qaranlıq rejim xətası",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include>\n'''Təlimatlar'''\n\nQaranlıq rejim rənglərinin Vikipediyanın oxunmasını necə çətinləşdirdiyini təsvir edin. Zəhmət olmasa məqalənin problemi tapdığınız bölməni daxil edin. \n</no<includeonly></includeonly>include> \n'''Problemin təsviri'''"
 }

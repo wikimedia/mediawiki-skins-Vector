@@ -104,5 +104,10 @@
 	"vector-appearance-unpinned-popup": "外觀選單已移至此處。",
 	"vector-2022-beta-preview-label": "無障礙閱讀（Vector 2022）",
 	"vector-2022-beta-preview-description": "搶先取得新的無障礙閱讀功能，像是排版改善或深色閱讀模式。",
-	"vector-night-mode-gadget-warning": "您使用的深色模式小工具會干擾此功能。[[Special:Preferences#mw-prefsection-gadgets|停用小工具]]來使用深色模式。"
+	"vector-night-mode-gadget-warning": "您使用的深色模式小工具會干擾此功能。[[Special:Preferences#mw-prefsection-gadgets|停用小工具]]來使用深色模式。",
+	"vector-night-mode-issue-reporting-link-label": "回報深色模式問題",
+	"vector-night-mode-issue-reporting-link-notification": "已收到回報！",
+	"vector-night-mode-issue-reporting-preload-title": "$1深色模式錯誤",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include>\n'''說明'''\n\n請描述深色模式的顏色如何使維基百科難以閱讀。請附上您發現問題的條目部分。\n</no<includeonly></includeonly>include>\n'''問題描述'''",
+	"vector-night-mode-beta-tag": "（測試）"
 }

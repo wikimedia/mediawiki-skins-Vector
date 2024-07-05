@@ -101,5 +101,9 @@
 	"vector-appearance-unpinned-popup": "Görünüm menüsü buraya taşındı.",
 	"vector-2022-beta-preview-label": "Okuma için Erişilebilirlik (Vector 2022)",
 	"vector-2022-beta-preview-description": "Basım iyileştirmeleri ve koyu kip gibi yeni okuma erişilebilirlik özelliklerine erken erişim sağlayın.",
-	"vector-night-mode-gadget-warning": "Bu özellikle çakışan bir karanlık kip küçük aracı {{#FORMAL:kullanıyorsun|kullanıyorsunuz}}. Karanlık kipi kullanmak için [[Special:Preferences#mw-prefsection-gadgets|küçük aracı devre dışı {{#FORMAL:bırak|bırakın}}]]."
+	"vector-night-mode-gadget-warning": "Bu özellikle çakışan bir karanlık kip küçük aracı {{#FORMAL:kullanıyorsun|kullanıyorsunuz}}. Karanlık kipi kullanmak için [[Special:Preferences#mw-prefsection-gadgets|küçük aracı devre dışı {{#FORMAL:bırak|bırakın}}]].",
+	"vector-night-mode-issue-reporting-link-label": "Karanlık kiple ilgili bir sorun bildirin",
+	"vector-night-mode-issue-reporting-link-notification": "Bildirim alındı!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 karanlık kip hatası",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Yönergeler'''\n\nLütfen karanlık kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın. Lütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n</no<includeonly></includeonly>include> \n'''Sorun Açıklaması'''"
 }
