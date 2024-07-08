@@ -88,5 +88,10 @@
 	"vector-appearance-unpinned-popup": "Менито за изглед е преместено овде.",
 	"vector-2022-beta-preview-label": "Олеснето читање (Векторско 2022)",
 	"vector-2022-beta-preview-description": "Добијте ран увид во новото новите функции за олеснување на читањето како типографските подобрувања и темен режим.",
-	"vector-night-mode-gadget-warning": "Користите алатка во темен режим која ја попречува оваа функција. [[Special:Preferences#mw-prefsection-gadgets|Оневозможете ја алатката]] за да користите темен режим."
+	"vector-night-mode-gadget-warning": "Користите алатка во темен режим која ја попречува оваа функција. [[Special:Preferences#mw-prefsection-gadgets|Оневозможете ја алатката]] за да користите темен режим.",
+	"vector-night-mode-issue-reporting-link-label": "Пријави проблем со темниот режим",
+	"vector-night-mode-issue-reporting-link-notification": "Пријавата е примена!",
+	"vector-night-mode-issue-reporting-preload-title": "Грешка во темниот режим на $1",
+	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Упатство'''\n\nОпишете како боите во темниот режим го отежнуваат читањето на Википедија. Вклучете го одделот од статијата каде што го најдовте проблемот. \n</no<includeonly></includeonly>include> \n'''Опис на проблемот'''",
+	"vector-night-mode-beta-tag": "(бета)"
 }

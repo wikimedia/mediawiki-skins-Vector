@@ -84,5 +84,10 @@
 	"vector-appearance-unpinned-popup": "Le menu de apparentia ha essite displaciate hic.",
 	"vector-2022-beta-preview-label": "Accessibilitate pro le lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtene accesso anticipate al nove functiones de accessibilitate de lectura, como meliorationes de typographia e le modo obscur.",
-	"vector-night-mode-gadget-warning": "Tu usa un gadget del modo obscur que interfere con iste function. [[Special:Preferences#mw-prefsection-gadgets|Disactiva le gadget]] pro usar le modo obscur."
+	"vector-night-mode-gadget-warning": "Tu usa un gadget del modo obscur que interfere con iste function. [[Special:Preferences#mw-prefsection-gadgets|Disactiva le gadget]] pro usar le modo obscur.",
+	"vector-night-mode-issue-reporting-link-label": "Signalar un problema con le modo obscur",
+	"vector-night-mode-issue-reporting-link-notification": "Reporto recipite!",
+	"vector-night-mode-issue-reporting-preload-title": "Error de modo obscur sur $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructiones\nPer favor describe como le colores del modo obscur rende Wikipedia difficile a leger.\nPer favor include le section del articulo ubi tu ha trovate le problema.\n-->\n'''Description del problema'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }

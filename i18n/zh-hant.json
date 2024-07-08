@@ -108,6 +108,6 @@
 	"vector-night-mode-issue-reporting-link-label": "回報深色模式問題",
 	"vector-night-mode-issue-reporting-link-notification": "已收到回報！",
 	"vector-night-mode-issue-reporting-preload-title": "$1深色模式錯誤",
-	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include>\n'''說明'''\n\n請描述深色模式的顏色如何使維基百科難以閱讀。請附上您發現問題的條目部分。\n</no<includeonly></includeonly>include>\n'''問題描述'''",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\n說明\n請描述深色模式的顏色如何使維基百科難以閱讀。請附上您發現問題的條目部分。\n-->\n'''問題描述'''",
 	"vector-night-mode-beta-tag": "（測試）"
 }

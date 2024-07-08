@@ -112,5 +112,8 @@
 	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
 	"vector-appearance-unpinned-popup": "Меню оформления переехало сюда.",
 	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)",
-	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и тёмный режим."
+	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и тёмный режим.",
+	"vector-night-mode-issue-reporting-link-label": "Сообщить о проблеме с темным режимом",
+	"vector-night-mode-issue-reporting-link-notification": "Отчет получен!",
+	"vector-night-mode-beta-tag": "(бета)"
 }

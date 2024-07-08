@@ -105,5 +105,5 @@
 	"vector-night-mode-issue-reporting-link-label": "Karanlık kiple ilgili bir sorun bildirin",
 	"vector-night-mode-issue-reporting-link-notification": "Bildirim alındı!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 karanlık kip hatası",
-	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Yönergeler'''\n\nLütfen karanlık kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın. Lütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n</no<includeonly></includeonly>include> \n'''Sorun Açıklaması'''"
+	"vector-night-mode-issue-reporting-preload-content": "<!-- \nYönergeler\nLütfen karanlık kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın.\nLütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n-->\n'''Sorun Açıklaması'''"
 }

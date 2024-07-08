@@ -91,5 +91,6 @@
 	"vector-night-mode-issue-reporting-link-label": "דיווח בעיה עם מצב כהה",
 	"vector-night-mode-issue-reporting-link-notification": "הדיווח התקבל!",
 	"vector-night-mode-issue-reporting-preload-title": "שגיאת מצב כהה בדף $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nהוראות\nנא לתאר איך הצבעים של המצב הכהה גורמים לוויקיפדיה להיות קשה יותר לקריאה. נא לכלול את הפרק של הערך שמצאת בו את הבעיה.\n-->\n'''תיאור הבעיה'''",
 	"vector-night-mode-beta-tag": "(בטא)"
 }

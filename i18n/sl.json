@@ -82,5 +82,10 @@
 	"vector-main-menu-unpinned-popup": "Glavni meni se je preselil sem.",
 	"vector-appearance-unpinned-popup": "Meni videza se je preselil sem.",
 	"vector-2022-beta-preview-label": "Dostopnost za branje (Vector 2022)",
-	"vector-2022-beta-preview-description": "Pridobite zgodnji dostop do novih možnosti za bralno dostopnost, kot so izboljšave tipografije in nočni način."
+	"vector-2022-beta-preview-description": "Pridobite zgodnji dostop do novih možnosti za bralno dostopnost, kot so izboljšave tipografije in nočni način.",
+	"vector-night-mode-issue-reporting-link-label": "Sporočite težavo s temnim načinom",
+	"vector-night-mode-issue-reporting-link-notification": "Poročilo prejeto!",
+	"vector-night-mode-issue-reporting-preload-title": "Napaka temnega načina $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nNavodila\nProsimo, opišite, kako temne barve otežujejo branje Wikipedije.\nNavedite razdelek članka, v katerem ste ugotovili težavo.\n--> \n'''Opis težave'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }
