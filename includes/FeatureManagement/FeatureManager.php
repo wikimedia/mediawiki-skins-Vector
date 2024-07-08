@@ -27,6 +27,7 @@ use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\SimpleRequirement;
 use MediaWiki\User\Options\UserOptionsLookup;
+use RuntimeException;
 use Wikimedia\Assert\Assert;
 
 /**
@@ -179,6 +180,8 @@ class FeatureManager {
 
 			// Client side preferences
 			switch ( $featureName ) {
+				// This feature has 3 possible states: 0, 1, 2 and -excluded.
+				// It persists for all users.
 				case CONSTANTS::FEATURE_FONT_SIZE:
 					if ( ConfigHelper::shouldDisable(
 						$config->get( 'VectorFontSizeConfigurableOptions' ), $request, $title
@@ -188,6 +191,8 @@ class FeatureManager {
 					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_FONT_SIZE );
 					$suffixDisabled = 'clientpref-0';
 					break;
+				// This feature has 4 possible states: day, night, os and -excluded.
+				// It persists for all users.
 				case CONSTANTS::PREF_NIGHT_MODE:
 					// if night mode is disabled for the page, add the exclude class instead and return early
 					if ( ConfigHelper::shouldDisable( $config->get( 'VectorNightModeOptions' ), $request, $title ) ) {
@@ -208,17 +213,32 @@ class FeatureManager {
 					// So that editors can target the same class across skins
 					$prefix .= 'skin-theme-';
 					break;
+				// These features persist for all users and have two valid states: 0 and 1.
 				case CONSTANTS::FEATURE_LIMITED_WIDTH:
 				case CONSTANTS::FEATURE_TOC_PINNED:
 				case CONSTANTS::FEATURE_APPEARANCE_PINNED:
 					$suffixEnabled = 'clientpref-1';
 					$suffixDisabled = 'clientpref-0';
 					break;
-				default:
-					// FIXME: Eventually this should not be necessary.
+				// These features only persist for logged in users so do not contain the clientpref suffix.
+				// These features have two valid states: enabled and disabled. In future it would be nice if these
+				// were 0 and 1 so that the features.js module cannot be applied to server side only flags.
+				case CONSTANTS::FEATURE_MAIN_MENU_PINNED:
+				case CONSTANTS::FEATURE_PAGE_TOOLS_PINNED:
+				// Server side only feature flags.
+				// Note these classes are fixed and cannot be changed at runtime by JavaScript,
+				// only via modification to LocalSettings.php.
+				case Constants::FEATURE_NIGHT_MODE:
+				case Constants::FEATURE_APPEARANCE:
+				case Constants::FEATURE_LIMITED_WIDTH_CONTENT:
+				case Constants::FEATURE_LANGUAGE_IN_HEADER:
+				case Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER:
+				case Constants::FEATURE_STICKY_HEADER:
 					$suffixEnabled = 'enabled';
 					$suffixDisabled = 'disabled';
 					break;
+				default:
+					throw new RuntimeException( "Feature $featureName has no associated feature class." );
 			}
 			return $this->isFeatureEnabled( $featureName ) ?
 				$prefix . $suffixEnabled : $prefix . $suffixDisabled;
