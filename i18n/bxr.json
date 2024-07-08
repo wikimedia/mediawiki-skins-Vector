@@ -7,6 +7,7 @@
 			"Туяна Балданова"
 		]
 	},
+	"vector-opt-out": "Хуушан харагдасада шэлжэхэ",
 	"vector-languages": "Хэлэнүүд",
 	"vector-language-button-label": "{{PLURAL:$1|$1 хэлэн|$1 хэлые $1 хэлэнүүдые}}",
 	"vector-no-language-button-label": "Хэлэнүүдые нэмэхэ",
