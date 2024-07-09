@@ -90,5 +90,9 @@
 	"vector-appearance-unpinned-popup": "Lakaet eo bet ar meuziad tres amañ.",
 	"vector-2022-beta-preview-label": "Diraezusted evit Lenn (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Grit abred gant an arc’hwladurioù diraezusted nevez, evel araokadennoù lizherennañ ha mod teñval.",
-	"vector-night-mode-gadget-warning": "Ober a rit gant ur bitrak mod teñval a vir ouzh an arc’hweladur-mañ da vont en-dro. [[Special:Preferences#mw-prefsection-gadgets|Diweredekait ar bitrak]] evit ober gant ar mod teñval."
+	"vector-night-mode-gadget-warning": "Ober a rit gant ur bitrak mod teñval a vir ouzh an arc’hweladur-mañ da vont en-dro. [[Special:Preferences#mw-prefsection-gadgets|Diweredekait ar bitrak]] evit ober gant ar mod teñval.",
+	"vector-night-mode-issue-reporting-link-label": "Roit ur gudenn da c’houzout gant ar mod teñval",
+	"vector-night-mode-issue-reporting-link-notification": "Danevell resevetǃ",
+	"vector-night-mode-issue-reporting-preload-title": "Fazi mod teñval $1",
+	"vector-night-mode-beta-tag": "(beta)"
 }
