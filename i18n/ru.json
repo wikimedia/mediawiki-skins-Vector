@@ -13,6 +13,7 @@
 			"Kaganer",
 			"Kareyac",
 			"Megakott",
+			"Mehman (WMF)",
 			"Nemo bis",
 			"Okras",
 			"Ole Yves",
@@ -95,7 +96,7 @@
 	"vector-limited-width-toggle-on-popup": "Вы переключили макет на полную ширину. Чтобы вернуться к ограниченной ширине, нажмите эту кнопку.",
 	"vector-limited-width-toggle-off-popup": "Вы можете переключаться между ограниченной шириной и полной шириной, нажав эту кнопку.",
 	"vector-feature-custom-font-size-exclusion-notice": "На этой странице всегда используется мелкий размер шрифта.",
-	"vector-feature-limited-width-exclusion-notice": "Эта страница всегда широкая",
+	"vector-feature-limited-width-exclusion-notice": "Контент широк настолько, насколько это возможно для окна вашего браузера.",
 	"vector-page-tools-label": "Инструменты",
 	"vector-page-tools-general-label": "Общие",
 	"vector-page-tools-actions-label": "Действия",
@@ -113,7 +114,10 @@
 	"vector-appearance-unpinned-popup": "Меню оформления переехало сюда.",
 	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)",
 	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и тёмный режим.",
+	"vector-night-mode-gadget-warning": "Вы используете устройство в темном режиме, которое мешает работе этой функции. [[Special:Preferences#mw-prefsection-gadgets|Отключите устройство]] для использования темного режима.",
 	"vector-night-mode-issue-reporting-link-label": "Сообщить о проблеме с темным режимом",
 	"vector-night-mode-issue-reporting-link-notification": "Отчет получен!",
+	"vector-night-mode-issue-reporting-preload-title": "Ошибка темного режима $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nИнструкции\nПожалуйста, опишите нам, как цвета в темном режиме затрудняют чтение Википедии.\nПожалуйста, укажите раздел статьи, в котором вы обнаружили эту проблему.\n-->\n'''Описание проблемы'''",
 	"vector-night-mode-beta-tag": "(бета)"
 }
