@@ -83,7 +83,7 @@ function removeBetaNotice() {
  * to a conflicting gadget, providing a link to disable the gadget in favor of our night mode
  */
 function alterExclusionMessage() {
-	const noticeContainer = document.querySelector( '.exclusion-notice' );
+	const noticeContainer = document.querySelector( '#skin-client-prefs-skin-theme .exclusion-notice' );
 	// if there's no exclusion notice, nothing we can do
 	if ( !noticeContainer ) {
 		return;
