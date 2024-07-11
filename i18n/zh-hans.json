@@ -13,6 +13,7 @@
 			"Func",
 			"Googology",
 			"GuoPC",
+			"Huajing",
 			"Hydra",
 			"Irati",
 			"Kishinsagi",
@@ -126,5 +127,6 @@
 	"vector-night-mode-issue-reporting-link-label": "报告深色模式问题",
 	"vector-night-mode-issue-reporting-link-notification": "已收到报告！",
 	"vector-night-mode-issue-reporting-preload-title": "$1的深色模式错误",
-	"vector-night-mode-issue-reporting-preload-content": "<!--\n说明\n请描述深色模式的颜色出现何种问题，导致维基百科难以阅读。\n请附上您发现问题的条目章节。\n-->\n'''问题描述'''"
+	"vector-night-mode-issue-reporting-preload-content": "<!--\n说明\n请描述深色模式的颜色出现何种问题，导致维基百科难以阅读。\n请附上您发现问题的条目章节。\n-->\n'''问题描述'''",
+	"vector-night-mode-beta-tag": "（测试版）"
 }

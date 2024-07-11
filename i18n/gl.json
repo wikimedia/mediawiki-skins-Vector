@@ -89,5 +89,10 @@
 	"vector-appearance-unpinned-popup": "O menú de aparencia trasladouse aquí.",
 	"vector-2022-beta-preview-label": "Accesibilidade para a lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtén acceso anticipado ás novas funcións de accesibilidade para a lectura, como melloras na tipografía e modo escuro.",
-	"vector-night-mode-gadget-warning": "Estás utilizando un trebello en modo escuro que interfire con esta característica. [[Special:Preferences#mw-prefsection-gadgets|Desactiva o trebello]] para usar o modo escuro."
+	"vector-night-mode-gadget-warning": "Estás utilizando un trebello en modo escuro que interfire con esta característica. [[Special:Preferences#mw-prefsection-gadgets|Desactiva o trebello]] para usar o modo escuro.",
+	"vector-night-mode-issue-reporting-link-label": "Informar dun problema co modo escuro",
+	"vector-night-mode-issue-reporting-link-notification": "Informe recibido!",
+	"vector-night-mode-issue-reporting-preload-title": "Erro do modo escuro en $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrucións\nDescribe as dificultades que xeran para a lectura da Wikipedia as cores do modo escuro.\nInclúe a sección do artigo na que atopaches o problema.\n-->\n'''Descrición do problema'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }
