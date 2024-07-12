@@ -110,5 +110,6 @@
 	"vector-main-menu-unpinned-popup": "نُقلت القائمة الرئيسية إلى هنا.",
 	"vector-appearance-unpinned-popup": "نُقلت قائمة المظهر هنا.",
 	"vector-2022-beta-preview-label": "ميزة القراءة المتاحة (فيكتور 2022)",
-	"vector-2022-beta-preview-description": "احصل على وصولٍ مبكر إلى ميزات إمكانية الوصول الجديدة للقراءة، مثل تحسينات الطباعة والوضع المظلم"
+	"vector-2022-beta-preview-description": "احصل على وصولٍ مبكر إلى ميزات إمكانية الوصول الجديدة للقراءة، مثل تحسينات الطباعة والوضع المظلم",
+	"vector-night-mode-issue-reporting-link-label": "الإبلاغ عن مشكلة في الوضع الداكن"
 }

@@ -94,5 +94,7 @@
 	"vector-appearance-unpinned-popup": "Het weergavemenu is hierheen verplaatst.",
 	"vector-2022-beta-preview-label": "Leestoegankelijkheid (Vector 2022)",
 	"vector-2022-beta-preview-description": "Krijg vroegtijdig toegang tot nieuwe leestoegankelijkheidsfuncties, zoals verbeteringen in de typografie en de donkere modus.",
-	"vector-night-mode-issue-reporting-link-label": "Probleem met donkere modus melden"
+	"vector-night-mode-issue-reporting-link-label": "Probleem met donkere modus melden",
+	"vector-night-mode-issue-reporting-link-notification": "Melding ontvangen!",
+	"vector-night-mode-issue-reporting-preload-title": "Fout in de donkere modus op $1"
 }

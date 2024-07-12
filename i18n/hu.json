@@ -90,5 +90,7 @@
 	"vector-main-menu-unpinned-popup": "A főmenü ide került.",
 	"vector-appearance-unpinned-popup": "A megjelenés menü ide került.",
 	"vector-2022-beta-preview-label": "Akadálymentes az olvasáshoz (Vector 2022)",
-	"vector-2022-beta-preview-description": "Korán hozzáférhetsz az új olvasási akadálymentesítési funkciókhoz, például a tipográfiai fejlesztésekhez és az éjszakai módhoz."
+	"vector-2022-beta-preview-description": "Korán hozzáférhetsz az új olvasási akadálymentesítési funkciókhoz, például a tipográfiai fejlesztésekhez és az éjszakai módhoz.",
+	"vector-night-mode-issue-reporting-link-label": "A sötét móddal kapcsolatos problémák jelzése",
+	"vector-night-mode-beta-tag": "(béta)"
 }
