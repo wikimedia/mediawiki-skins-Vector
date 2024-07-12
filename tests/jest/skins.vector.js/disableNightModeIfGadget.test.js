@@ -139,13 +139,32 @@ describe( 'alterExclusionMessage', () => {
 	} );
 
 	it( 'should remove the existing text from the notice', () => {
+		const div = document.createElement( 'div' );
 		const p = document.createElement( 'p' );
-		document.documentElement.appendChild( p );
+		document.documentElement.appendChild( div );
+		div.appendChild( p );
+
+		div.id = 'skin-client-prefs-skin-theme';
 		p.className = 'exclusion-notice';
 		p.textContent = 'test';
 
 		alterExclusionMessage();
 
 		expect( p.textContent ).toBe( '' );
+	} );
+
+	it( 'should not target other client prefs', () => {
+		const div = document.createElement( 'div' );
+		const p = document.createElement( 'p' );
+		document.documentElement.appendChild( div );
+		div.appendChild( p );
+
+		div.id = 'skin-client-prefs-vector-feature-custom-font-size';
+		p.className = 'exclusion-notice';
+		p.textContent = 'test';
+
+		alterExclusionMessage();
+
+		expect( p.textContent ).toBe( 'test' );
 	} );
 } );
