@@ -90,5 +90,8 @@
 	"vector-main-menu-unpinned-popup": "Peamenüü on liigutatud siia.",
 	"vector-appearance-unpinned-popup": "Ilme menüü on siia liigutatud.",
 	"vector-2022-beta-preview-label": "Lugemise hõlbustamine (Vektor 2022)",
-	"vector-2022-beta-preview-description": "Ole esimeste seas, kes kasutavad uusi lugemise hõlbustamise vahendeid nagu täiustatud tüpograafiasätted ja öörežiim."
+	"vector-2022-beta-preview-description": "Ole esimeste seas, kes kasutavad uusi lugemise hõlbustamise vahendeid nagu täiustatud tüpograafiasätted ja öörežiim.",
+	"vector-night-mode-issue-reporting-link-label": "Anna teada probleemist tumeda režiimiga",
+	"vector-night-mode-issue-reporting-link-notification": "Teade vastu võetud!",
+	"vector-night-mode-beta-tag": "(beeta)"
 }

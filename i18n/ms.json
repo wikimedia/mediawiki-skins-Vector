@@ -90,8 +90,13 @@
 	"vector-toc-unpinned-popup": "Jadual kandungan telah berpindah ke sini.",
 	"vector-page-tools-unpinned-popup": "Menu alatan telah berpindah ke sini.",
 	"vector-main-menu-unpinned-popup": "Menu utama telah berpindah ke sini.",
-	"vector-appearance-unpinned-popup": "Menu penampilan telah berpindah ke sini.",
+	"vector-appearance-unpinned-popup": "Menu paparan telah berpindah ke sini.",
 	"vector-2022-beta-preview-label": "Kebolehcapaian untuk Membaca (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Dapatkan akses awal ciri kebolehcapaian bacaan baharu, seperti penambahbaikan tipografi dan mod gelap.",
-	"vector-night-mode-gadget-warning": "Anda menggunakan gajet mod gelap yang mengganggu ciri ini. [[Special:Preferences#mw-prefsection-gadgets|Lumpuhkan alat ini]] untuk menggunakan mod gelap."
+	"vector-night-mode-gadget-warning": "Anda menggunakan gajet mod gelap yang mengganggu ciri ini. [[Special:Preferences#mw-prefsection-gadgets|Lumpuhkan alat ini]] untuk menggunakan mod gelap.",
+	"vector-night-mode-issue-reporting-link-label": "Laporkan masalah berkaitan mod gelap",
+	"vector-night-mode-issue-reporting-link-notification": "Laporan diterima!",
+	"vector-night-mode-issue-reporting-preload-title": "Ralat mod gelap $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nPanduan\nSila terangkan bagaimana warna mod gelap menjadikan Wikipedia semakin sukar untuk dibaca.\nSila sertakan bahagian rencana yang anda temui isu tersebut.\n--> \n'''Huraian Isu'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }

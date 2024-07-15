@@ -90,5 +90,10 @@
 	"vector-appearance-unpinned-popup": "অৱয়বৰ মেনু ইয়ালৈ স্থানান্তৰ কৰা হৈছে।",
 	"vector-2022-beta-preview-label": "পঠন অভিগম্যতা (ভেক্টৰ ২০২২)",
 	"vector-2022-beta-preview-description": "নতুন পঠন অভিগম্যতা বৈশিষ্ট্যসমূহৰ, যেনে টাইপোগ্ৰাফীৰ উন্নতিসমূহ আৰু আন্ধাৰ অৱস্থা, পূৰ্বদৰ্শন লাভ কৰক।",
-	"vector-night-mode-gadget-warning": "আপুনি এটা ডাৰ্ক মোড গেজেট ব্যৱহাৰ কৰিছে যি এই বৈশিষ্ট্যৰ সৈতে হস্তক্ষেপ কৰে। ডাৰ্ক মোড ব্যৱহাৰ কৰিবলে সেই [[Special:Preferences#mw-prefsection-gadgets|গেজেট নিষ্ক্ৰিয় কৰক]]।"
+	"vector-night-mode-gadget-warning": "আপুনি এটা ডাৰ্ক মোড গেজেট ব্যৱহাৰ কৰিছে যি এই বৈশিষ্ট্যৰ সৈতে হস্তক্ষেপ কৰে। ডাৰ্ক মোড ব্যৱহাৰ কৰিবলে সেই [[Special:Preferences#mw-prefsection-gadgets|গেজেট নিষ্ক্ৰিয় কৰক]]।",
+	"vector-night-mode-issue-reporting-link-label": "ডাৰ্ক মোডত হোৱা এক সমস্যাৰ প্ৰতিবেদন কৰক",
+	"vector-night-mode-issue-reporting-link-notification": "প্ৰতিবেদন প্ৰেৰণ কৰা হ'ল!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 ডাৰ্ক মোড ত্ৰুটি",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nনিৰ্দেশনা\nডাৰ্ক মোডৰ ৰঙে কেনেকৈ ৱিকিপিডিয়া পঢ়িবলৈ কঠিন কৰি তুলিছে সেই বিষয়ে বৰ্ণনা কৰক।\nঅনুগ্ৰহ কৰি প্ৰবন্ধটোৰ সেই অংশটোক অন্তৰ্ভুক্ত কৰক য'ত আপুনি সমস্যাটো পাইছে।\n-->\n'''সমস্যাৰ বিৱৰণ'''",
+	"vector-night-mode-beta-tag": "(বিটা)"
 }

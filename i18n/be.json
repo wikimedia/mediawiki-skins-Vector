@@ -50,6 +50,11 @@
 	"vector-feature-custom-font-size-0-label": "Дробны",
 	"vector-feature-custom-font-size-1-label": "Стандартны",
 	"vector-feature-custom-font-size-2-label": "Буйны",
+	"skin-theme-name": "Колер",
+	"skin-theme-day-label": "Светлая",
+	"skin-theme-night-label": "Цёмная",
+	"skin-theme-os-label": "Аўтаматычна",
+	"skin-theme-exclusion-notice": "Гэта старонка заўсёды знаходзіцца ў светлым рэжыме.",
 	"vector-search-loader": "Загрузка прапаноў пошуку",
 	"vector-searchsuggest-containing": "Шукаць старонкі, якія змяшчаюць <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Даведка",
@@ -82,5 +87,6 @@
 	"vector-main-menu-unpinned-popup": "Галоўнае меню перанесена сюды.",
 	"vector-appearance-unpinned-popup": "Меню афармлення пераехала сюды.",
 	"vector-2022-beta-preview-description": "Атрымайце ранні доступ да новых функцый чытання, такіх як паляпшэнне тыпаграфікі і цёмны рэжым.",
-	"vector-night-mode-gadget-warning": "Вы ўжываеце гаджэт цёмнай тэмы, які замінае гэтай магчымасці. [[Special:Preferences#mw-prefsection-gadgets|Адключыце гаджэт]], каб прымяніць цёмную тэму."
+	"vector-night-mode-gadget-warning": "Вы ўжываеце гаджэт цёмнай тэмы, які замінае гэтай магчымасці. [[Special:Preferences#mw-prefsection-gadgets|Адключыце гаджэт]], каб прымяніць цёмную тэму.",
+	"vector-night-mode-beta-tag": "(бэта)"
 }
