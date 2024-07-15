@@ -6,7 +6,9 @@
 			"David1010",
 			"გიორგიმელა",
 			"Გიო ოქრო",
-			"Იო ოქრო"
+			"Იო ოქრო",
+			"Mehman (WMF)",
+			"Tar Lócesilion"
 		]
 	},
 	"skinname-vector": "ვექტორული (2010)",
@@ -44,7 +46,7 @@
 	"vector-more-actions": "მეტი",
 	"vector-search-loader": "იტვირთვება ძიების შეთავაზებები",
 	"vector-searchsuggest-containing": "იმ გვერდების მოძებნა, რომლებიც შეიცავენ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>-ს",
-	"vector-intro-page": "ვიკიპედია:კეთილი იყოს თქვენი მობრძანება",
+	"vector-intro-page": "ვიკიპედია:დახმარება",
 	"vector-toc-heading": "სარჩევი",
 	"vector-toc-toggle-position-sidebar": "გადატანა გვერდით ზოლზე",
 	"vector-toc-toggle-position-title": "დამალვა",

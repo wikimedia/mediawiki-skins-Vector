@@ -4,10 +4,13 @@
 			"Amire80",
 			"Anjoeli9806",
 			"Kai theos en ho logos",
-			"Redhotchili23"
+			"Redhotchili23",
+			"Billie bb"
 		]
 	},
+	"vector-languages": "Mga Lenguahe",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ka pinulongan|$1 ka mga pinulongan}}",
+	"vector-no-language-button-label": "Magdugang sang mga lenguahe",
 	"vector-action-addsection": "Magdugang sing topiko",
 	"vector-action-delete": "Panason",
 	"vector-action-move": "Saylohon",

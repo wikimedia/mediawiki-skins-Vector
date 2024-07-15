@@ -3,11 +3,12 @@
 		"authors": [
 			"Sebranik",
 			"Игорь Бродский",
-			"Лариса Чиркова"
+			"Лариса Чиркова",
+			"Ростислав Мельников"
 		]
 	},
 	"vector-languages": "Keled",
-	"vector-language-button-label": "{{PLURAL:$1|$1 kel'|$1 keled}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 kel’|$1 keled}}",
 	"vector-no-language-button-label": "Ližada keled",
 	"vector-action-addsection": "Ližada tem",
 	"vector-action-delete": "Heitä",

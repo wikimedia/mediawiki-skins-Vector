@@ -28,7 +28,7 @@
 	"vector-language-button-aria-label": "Başqa dildəki məqaləyə keçin. {{PLURAL:$1|$1 dildə}} mövcuddur.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 dildə}}",
 	"vector-no-language-button-label": "Dil əlavə et",
-	"vector-no-language-button-aria-label": "Bu məqalə yalnız bu dildə mövcuddur. Digər dillər üçün məqalə əlavə edin",
+	"vector-no-language-button-aria-label": "Bu məqalə yalnız bu dildə mövcuddur. Məqaləni digər dillərə əlavə edin",
 	"vector-language-redirect-to-top": "Bu {{SITENAME}} layihəsində dil keçidləri məqalənin başlıq hissəsində verilmişdir. [[#p-lang-btn|Yuxarı get]].",
 	"vector-language-variant-switcher-label": "Dil variantını dəyişdirin",
 	"vector-action-addsection": "Mövzu əlavə et",

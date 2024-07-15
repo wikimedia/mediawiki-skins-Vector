@@ -5,7 +5,13 @@
 			"Zakaria Tunsung"
 		]
 	},
-	"vector-view-history": "Kaaa sankonkoreyele",
+	"vector-languages": "Kɔkɔɛ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 kɔkɔre|$1 kɔkɔɛ}}",
+	"vector-no-language-button-label": "Paahi kɔkɔɛ",
+	"vector-action-addsection": "Paahi yeliju",
+	"vector-view-create": "Maali",
+	"vector-view-history": "Kaa yelikori",
 	"vector-more-actions": "mine meŋ",
-	"vector-searchsuggest-containing": "Bɔ peejihi aŋ tare <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Bɔ peejihi aŋ tare <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Piilee"
 }
