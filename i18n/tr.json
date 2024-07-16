@@ -82,7 +82,7 @@
 	"vector-limited-width-toggle": "Sınırlı içerik genişliğini değiştir",
 	"vector-limited-width-toggle-on-popup": "Düzeninizi tam genişliğe değiştirdiniz. Sınırlı genişliğe geri dönmek için bu düğmeye basın.",
 	"vector-limited-width-toggle-off-popup": "Bu düğmeye tıklayarak sınırlı ve tam genişlik arasında geçiş yapabilirsiniz.",
-	"vector-feature-custom-font-size-exclusion-notice": "Bu sayfa her zaman küçük yazı tipi boyutu kullanır",
+	"vector-feature-custom-font-size-exclusion-notice": "Bu sayfa her zaman küçük yazı boyutunu kullanır",
 	"vector-feature-limited-width-exclusion-notice": "İçerik, tarayıcı pencereniz için mümkün olduğunca geniştir.",
 	"vector-page-tools-label": "Araçlar",
 	"vector-page-tools-general-label": "Genel",
@@ -101,10 +101,10 @@
 	"vector-appearance-unpinned-popup": "Görünüm menüsü buraya taşındı.",
 	"vector-2022-beta-preview-label": "Okuma için Erişilebilirlik (Vector 2022)",
 	"vector-2022-beta-preview-description": "Basım iyileştirmeleri ve koyu kip gibi yeni okuma erişilebilirlik özelliklerine erken erişim sağlayın.",
-	"vector-night-mode-gadget-warning": "Bu özellikle çakışan bir karanlık kip küçük aracı {{#FORMAL:kullanıyorsun|kullanıyorsunuz}}. Karanlık kipi kullanmak için [[Special:Preferences#mw-prefsection-gadgets|küçük aracı devre dışı {{#FORMAL:bırak|bırakın}}]].",
-	"vector-night-mode-issue-reporting-link-label": "Karanlık kiple ilgili bir sorun bildirin",
+	"vector-night-mode-gadget-warning": "Bu özellikle çakışan bir koyu kip küçük aracı {{#FORMAL:kullanıyorsun|kullanıyorsunuz}}. Koyu kipi kullanmak için [[Special:Preferences#mw-prefsection-gadgets|küçük aracı devre dışı {{#FORMAL:bırak|bırakın}}]].",
+	"vector-night-mode-issue-reporting-link-label": "Koyu kipe dair bir sorun bildirin",
 	"vector-night-mode-issue-reporting-link-notification": "Bildirim alındı!",
-	"vector-night-mode-issue-reporting-preload-title": "$1 karanlık kip hatası",
-	"vector-night-mode-issue-reporting-preload-content": "<!-- \nYönergeler\nLütfen karanlık kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın.\nLütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n-->\n'''Sorun Açıklaması'''",
+	"vector-night-mode-issue-reporting-preload-title": "$1 koyu kip hatası",
+	"vector-night-mode-issue-reporting-preload-content": "<!-- \nYönergeler\nLütfen koyu kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın.\nLütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n-->\n'''Sorun Açıklaması'''",
 	"vector-night-mode-beta-tag": "(beta)"
 }

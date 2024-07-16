@@ -8,6 +8,7 @@
 			"Avengium",
 			"Crazymadlover",
 			"Dalton2",
+			"Danielyepezgarces",
 			"DarkGames26",
 			"Dgstranz",
 			"DiegoAmbrocio",
@@ -119,5 +120,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "¡Reporte recibido!",
 	"vector-night-mode-issue-reporting-preload-title": "Error de modo oscuro $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrucciones\nPor favor, describe cómo los colores del modo oscuro dificultan la lectura de Wikipedia.\nPor favor, incluye la sección del artículo donde encontraste el problema.\n-->\n'''Descripción del problema'''",
-	"vector-night-mode-beta-tag": "(beta"
+	"vector-night-mode-beta-tag": "(beta)"
 }
