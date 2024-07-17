@@ -7,7 +7,8 @@
 			"გიორგიმელა",
 			"Გიო ოქრო",
 			"Იო ოქრო",
-			"Tar Lócesilion"
+			"Tar Lócesilion",
+			"Mehman (WMF)"
 		]
 	},
 	"skinname-vector": "ვექტორული (2010)",
@@ -45,7 +46,7 @@
 	"vector-more-actions": "მეტი",
 	"vector-search-loader": "იტვირთვება ძიების შეთავაზებები",
 	"vector-searchsuggest-containing": "იმ გვერდების მოძებნა, რომლებიც შეიცავენ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>-ს",
-	"vector-intro-page": "ვიკიპედია:კეთილი იყოს თქვენი მობრძანება",
+	"vector-intro-page": "ვიკიპედია:დახმარება",
 	"vector-toc-label": "სარჩევი",
 	"vector-toc-beginning": "შესავალი",
 	"vector-toc-toggle-button-label": "სექცია „$1“-ის გაშლა/ჩაკეცვა",

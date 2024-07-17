@@ -5,6 +5,10 @@
 			"Thadh"
 		]
 	},
+	"vector-languages": "Keelet",
+	"vector-no-language-button-label": "Lisätä keelet",
 	"vector-action-protect": "Hoitaa",
-	"vector-view-view": "Lukkiia"
+	"vector-view-history": "Tarkastaa istoriaa",
+	"vector-view-view": "Lukkia",
+	"vector-more-actions": "Enemp"
 }
