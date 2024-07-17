@@ -99,6 +99,6 @@
 	"vector-night-mode-issue-reporting-link-label": "Zgłoś problem z trybem ciemnym",
 	"vector-night-mode-issue-reporting-link-notification": "Raport otrzymany!",
 	"vector-night-mode-issue-reporting-preload-title": "Błąd trybu ciemnego na stronie $1",
-	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Instrukcje'''\n\nOpisz, jak kolory w trybie ciemnym utrudniają czytanie Wikipedii. Podaj, w której sekcji artykułu występuje problem. \n</no<includeonly></includeonly>include> \n'''Opis problemu'''",
+	"vector-night-mode-issue-reporting-preload-content": "<!-- \nInstrukcje\n\nOpisz, jak kolory w trybie ciemnym utrudniają czytanie Wikipedii.\nPodaj, w której sekcji artykułu występuje problem. \n-->\n'''Opis problemu'''",
 	"vector-night-mode-beta-tag": "(beta)"
 }

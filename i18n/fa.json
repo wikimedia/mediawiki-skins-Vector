@@ -104,5 +104,9 @@
 	"vector-2022-beta-preview-label": "دسترسی‌پذیری برای مطالعه (وکتور ۲۰۲۲)",
 	"vector-2022-beta-preview-description": "پیش از دیگران به ویژگی‌های جدید دسترسی‌پذیری مطالعه نظیر بهبودهای تایپوگرافی و حالت تاریک دسترسی داشته باشید.",
 	"vector-night-mode-gadget-warning": "شما در حال استفاده از یک ابزار حالت تاریک هستید که با این ویژگی تداخل دارد. برای استفاده از حالت تاریک، [[Special:Preferences#mw-prefsection-gadgets|آن ابزار را غیر فعال کنید]].",
+	"vector-night-mode-issue-reporting-link-label": "گزارش خطا دربارهٔ حالت تاریک",
+	"vector-night-mode-issue-reporting-link-notification": "گزارش دریافت شد!",
+	"vector-night-mode-issue-reporting-preload-title": "خطای $1 حالت تاریک",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nدستورالعمل‌ها\nلطفاً توضیح دهید که چگونه رنگ‌های حالت تاریک ویکی‌پدیا خواندن مطالب را دشوار می‌کنند.\nلطفاً بخش مقاله‌ای که در آن با این مشکل مواجه شده‌اید را نیز شامل کنید.\n-->\n'''توضیح خطا'''",
 	"vector-night-mode-beta-tag": "(آزمایشی)"
 }

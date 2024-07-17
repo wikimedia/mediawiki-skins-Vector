@@ -90,5 +90,10 @@
 	"vector-appearance-unpinned-popup": "Utseendemenyen har flyttet hit.",
 	"vector-2022-beta-preview-label": "Lesetilgjengelighet (Vector 2022)",
 	"vector-2022-beta-preview-description": "Få tidlig tilgang til nye funksjoner for lesetilgjengelighet, som typografiske forbedringer og mørk modus.",
-	"vector-night-mode-gadget-warning": "Du bruker en tilleggsfunksjon for mørk modus som forstyrrer denne funksjonen. [[Special:Preferences#mw-prefsection-gadgets|Deaktiver tilleggsfunksjonen]] for å bruke mørk modus."
+	"vector-night-mode-gadget-warning": "Du bruker en tilleggsfunksjon for mørk modus som forstyrrer denne funksjonen. [[Special:Preferences#mw-prefsection-gadgets|Deaktiver tilleggsfunksjonen]] for å bruke mørk modus.",
+	"vector-night-mode-issue-reporting-link-label": "Rapporter et problem med mørk modus",
+	"vector-night-mode-issue-reporting-link-notification": "Rapport mottatt!",
+	"vector-night-mode-issue-reporting-preload-title": "Feil med mørk modus på $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstruksjoner\nBeskriv hvordan fargene i mørk modus gjør det vanskelig å lese Wikipedia.\nInkluder seksjonen av artikkelen der du fant problemet.\n-->\n'''Problembeskrivelse'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }
