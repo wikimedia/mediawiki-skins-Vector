@@ -32,9 +32,9 @@
 	"skinname-vector": "Vector (ancienne version 2010)",
 	"skinname-vector-2022": "Vector (2022)",
 	"vector-specialversion-name": "Vector",
-	"vector-skin-desc": "Fournit 2 versions de l’habillage Vector :\n* 2011 – la version « Moderne » de MonoBook avec un aspect rajeuni et beaucoup d’améliorations ergonomiques ;\n* 2022 – la version « Vector » actuelle, construite comme partie du projet [[mw:Desktop Improvements|Améliorations du bureau]] de la Fondation Wikimedia.",
+	"vector-skin-desc": "Fournit 2 versions de l’habillage Vector :\n* 2011 – la version « Moderne » de MonoBook avec un aspect rajeuni et beaucoup d’améliorations ergonomiques ;\n* 2022 – la version « Vector » actuelle, construite comme partie du projet [https://www.mediawiki.org/wiki/Desktop_Improvements Améliorations du bureau] de la Fondation Wikimedia.",
 	"prefs-vector-enable-vector-1-label": "Utiliser l’ancienne version de Vector",
-	"prefs-vector-enable-vector-1-help": "Dans les années à venir, nous mettrons progressivement à jour l’habillage Vector. La version historique de Vector vous permet de voir l’ancien habillage de Vector (tel qu’il était en décembre 2019). Pour en savoir plus, rendez-vous sur la [[mw:Reading/Web/Desktop_Improvements|page du projet]].",
+	"prefs-vector-enable-vector-1-help": "Dans les années à venir, nous mettrons progressivement à jour l’habillage Vector. La version historique de Vector vous permet de voir l’ancien habillage de Vector (tel qu’il était en décembre 2019). Pour en savoir plus, rendez-vous sur la [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements page du projet].",
 	"vector-opt-out": "Basculer vers l’ancien habillage",
 	"vector-opt-out-tooltip": "Modifier vos paramètres pour revenir à l’ancien aspect de l’habillage (Vector historique)",
 	"vector.css": "/* Tout CSS placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Vector */",
@@ -99,7 +99,7 @@
 	"vector-page-tools-actions-label": "Actions",
 	"vector-pin-element-label": "déplacer vers la barre latérale",
 	"vector-unpin-element-label": "masquer",
-	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Discussion]]",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Discussion]",
 	"tooltip-vector-anon-user-menu-title": "Plus d’options",
 	"vector-page-tools-nav-label": "Outils de la page",
 	"vector-prefs-limited-width": "Activer le mode de largeur limitée",
@@ -112,5 +112,8 @@
 	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vector 2022)",
 	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode sombre.",
 	"vector-night-mode-gadget-warning": "Vous utilisez un gadget de mode sombre qui interfère avec cette fonctionnalité. [[Special:Preferences#mw-prefsection-gadgets|Désactivez le gadget]] pour utiliser le mode sombre.",
-	"vector-night-mode-issue-reporting-preload-title": "Erreur de mode sombre $1"
+	"vector-night-mode-issue-reporting-link-label": "Signalez un problème avec le mode sombre",
+	"vector-night-mode-issue-reporting-link-notification": "Rapport reçu !",
+	"vector-night-mode-issue-reporting-preload-title": "Erreur de mode sombre $1",
+	"vector-night-mode-beta-tag": "(bêta)"
 }

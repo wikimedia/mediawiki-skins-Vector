@@ -48,7 +48,7 @@
 	"vector-more-actions": "Meer",
 	"vector-appearance-label": "Uiterlijk",
 	"vector-feature-limited-width-name": "Paginabreedte",
-	"vector-feature-limited-width-0-label": "Breed",
+	"vector-feature-limited-width-0-label": "Volle breedte",
 	"vector-feature-limited-width-1-label": "Standaard",
 	"vector-feature-custom-font-size-name": "Tekst",
 	"vector-feature-custom-font-size-0-label": "Klein",
@@ -65,6 +65,7 @@
 	"vector-intro-page": "Help:Inleiding",
 	"vector-toc-label": "Inhoud",
 	"vector-toc-beginning": "Top",
+	"vector-toc-toggle-button-label": "$1-subkopje inklappen",
 	"vector-anon-user-menu-pages": "Pagina's voor uitgelogde redacteuren",
 	"vector-anon-user-menu-pages-learn": "meer lezen",
 	"vector-anon-user-menu-pages-label": "Meer leren over bewerken",
@@ -75,6 +76,7 @@
 	"vector-main-menu-label": "Hoofdmenu",
 	"vector-limited-width-toggle": "Beperkte inhoudsbreedte omschakelen",
 	"vector-limited-width-toggle-on-popup": "U heeft uw lay-out op volledige breedte gezet. Om terug te gaan naar de beperkte breedte, drukt u op deze knop.",
+	"vector-limited-width-toggle-off-popup": "U kan wisselen tussen de standaard en volle breedte door op deze knop te drukken.",
 	"vector-feature-custom-font-size-exclusion-notice": "Deze pagina gebruikt altijd kleine tekst.",
 	"vector-feature-limited-width-exclusion-notice": "De inhoud is zo breed als mogelijk in uw browserscherm.",
 	"vector-page-tools-label": "Hulpmiddelen",
@@ -94,7 +96,10 @@
 	"vector-appearance-unpinned-popup": "Het weergavemenu is hierheen verplaatst.",
 	"vector-2022-beta-preview-label": "Leestoegankelijkheid (Vector 2022)",
 	"vector-2022-beta-preview-description": "Krijg vroegtijdig toegang tot nieuwe leestoegankelijkheidsfuncties, zoals verbeteringen in de typografie en de donkere modus.",
+	"vector-night-mode-gadget-warning": "U gebruikt een gadget voor een donkere modus die een conflict oplevert met deze functie. [[Special:Preferences#mw-prefsection-gadgets|Schakel de gadget uit]] om de donkere modus te gebruiken.",
 	"vector-night-mode-issue-reporting-link-label": "Probleem met donkere modus melden",
 	"vector-night-mode-issue-reporting-link-notification": "Melding ontvangen!",
-	"vector-night-mode-issue-reporting-preload-title": "Fout in de donkere modus op $1"
+	"vector-night-mode-issue-reporting-preload-title": "Fout in de donkere modus op $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructies\nBeschrijf hoe de donkere kleuren het lezen van Wikipedia moeilijker maakt.\nGraag ook aangeven welk onderdeel van het artikel het probleem zich opdoet.\n-->\n'''Beschrijving van probleem'''",
+	"vector-night-mode-beta-tag": "(bèta)"
 }

@@ -89,5 +89,7 @@
 	"vector-toc-unpinned-popup": "Efnisyfirlitið færðist hingað.",
 	"vector-page-tools-unpinned-popup": "Verkfærastikan færðist hingað.",
 	"vector-main-menu-unpinned-popup": "Aðalvalmyndin færðist hingað.",
-	"vector-appearance-unpinned-popup": "Útlitsvalmyndin færðist hingað."
+	"vector-appearance-unpinned-popup": "Útlitsvalmyndin færðist hingað.",
+	"vector-night-mode-issue-reporting-link-label": "Tilkynna um vandamál í dökka viðmótinu",
+	"vector-night-mode-issue-reporting-link-notification": "Tilkynning send!"
 }
