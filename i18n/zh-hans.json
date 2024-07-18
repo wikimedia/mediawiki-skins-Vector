@@ -37,7 +37,9 @@
 			"Yining Chen",
 			"落花有意12138",
 			"魔琴",
-			50829
+			50829,
+			"Huajing",
+			"沈澄心"
 		]
 	},
 	"skinname-vector": "旧版Vector（2010）",
@@ -85,7 +87,7 @@
 	"skin-night-mode-1-label": "夜间模式",
 	"skin-night-mode-2-label": "自动",
 	"skin-theme-name": "颜色",
-	"skin-theme-description": "[实验版本，遇到问题的可能性很高] 减少设备屏幕发出的光。",
+	"skin-theme-description": "[实验版本，遇到问题的可能性较高] 减少设备屏幕发出的光线。",
 	"skin-theme-day-label": "日间",
 	"skin-theme-night-label": "夜间",
 	"skin-theme-os-label": "自动",

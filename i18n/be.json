@@ -49,6 +49,8 @@
 	"vector-feature-custom-font-size-0-label": "Дробны",
 	"vector-feature-custom-font-size-1-label": "Стандартны",
 	"vector-feature-custom-font-size-2-label": "Буйны",
+	"skin-theme-name": "Колер",
+	"skin-theme-os-label": "Аўтаматычна",
 	"vector-search-loader": "Загрузка прапаноў пошуку",
 	"vector-searchsuggest-containing": "Шукаць старонкі, якія змяшчаюць <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Даведка",

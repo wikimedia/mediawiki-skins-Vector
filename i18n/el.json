@@ -13,7 +13,8 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Αντιγόνη"
+			"Αντιγόνη",
+			"KonVog"
 		]
 	},
 	"vector-skin-desc": "Παρέχει 2 Vector θέματα:\n* 2011 - Τη σύγχρονη έκδοση του MonoBook με φρέσκια εμφάνιση και πολλές βελτιώσεις στη χρηστικότητα.\n* 2022 - Το Vector που δημιουργήθηκε ως μέρος του έργου [[mw:Desktop Improvements]] του WMF.",
@@ -45,6 +46,14 @@
 	"vector-jumptosearch": "Πήδηση στην αναζήτηση",
 	"vector-jumptocontent": "Μετάβαση στο περιεχόμενο",
 	"vector-more-actions": "Περισσότερα",
+	"vector-feature-limited-width-name": "Πλάτος",
+	"vector-feature-custom-font-size-name": "Κείμενο",
+	"vector-feature-limited-width-0-label": "Πλατύ",
+	"vector-feature-limited-width-1-label": "Κανονικό",
+	"vector-feature-custom-font-size-0-label": "Μικρό",
+	"vector-feature-custom-font-size-1-label": "Κανονικό",
+	"vector-feature-custom-font-size-2-label": "Μεγάλο",
+	"skin-theme-name": "Χρώμα",
 	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης",
 	"vector-searchsuggest-containing": "Αναζητήστε σελίδες που περιέχουν <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Εισαγωγή",
