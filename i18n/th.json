@@ -21,7 +21,7 @@
 	"vector-specialversion-name": "เวกเตอร์",
 	"vector-skin-desc": "Provides 2 Vector skins:\n* 2011 - The Modern version of MonoBook with fresh look and many usability improvements.\n* 2022 - The Vector built as part of the WMF [[mw:Desktop Improvements]] project.",
 	"prefs-vector-enable-vector-1-label": "ใช้สกินเวกเตอร์แบบเก่า",
-	"prefs-vector-enable-vector-1-help": "ในอีกไม่กี่ปีข้างหน้า เราจะปรับปรุงสกินเวกเตอร์ ส่วนมุมมองดั้งเดิมนั้นยังสามารถให้คุณใช้งานได้อยู่ (รุ่น ณ เดือนธันวาคม พ.ศ. 2562) เรียนรู้เพิ่มเติมเกี่ยวกับการปรับปรุงนี้ได้ที่[[mw:Reading/Web/Desktop_Improvements|หน้าโครงการ]]",
+	"prefs-vector-enable-vector-1-help": "ในอีกไม่กี่ปีข้างหน้า เราจะปรับปรุงสกินเวกเตอร์ ส่วนมุมมองดั้งเดิมนั้นยังสามารถให้คุณใช้งานได้อยู่ (รุ่น ณ เดือนธันวาคม 2562) เรียนรู้เพิ่มเติมเกี่ยวกับการปรับปรุงนี้ได้ที่[https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements หน้าโครงการ]",
 	"vector-opt-out": "สลับกลับมุมมองดั้งเดิม",
 	"vector-opt-out-tooltip": "เปลี่ยนแปลงการตั้งค่าเพื่อกลับไปยังมุมมองแบบเดิม (เวกเตอร์ดั้งเดิม)",
 	"vector.css": "/* สไตล์ชีตในหน้านี้จะส่งผลแก่ผู้ใช้ที่ใช้สกินเวกเตอร์ */",
@@ -97,5 +97,9 @@
 	"vector-2022-beta-preview-label": "การเข้าถึงสำหรับการอ่าน (เวกเตอร์ 2565)",
 	"vector-2022-beta-preview-description": "รับสิทธิเข้าถึงคุณลักษณะการเข้าถึงการอ่านใหม่ ๆ ก่อนใคร เช่นการปรับปรุงตัวอักษรและโหมดมืด",
 	"vector-night-mode-gadget-warning": "คุณกำลังใช้แกดเจ็ตโหมดมืดที่รบกวนคุณลักษณะนี้[[Special:Preferences#mw-prefsection-gadgets|ปิดการใช้งานแกดเจ็ต]]เพื่อใช้โหมดมืด",
-	"vector-night-mode-issue-reporting-link-label": "แจ้งปัญหาเกี่ยวกับโหมดมืด"
+	"vector-night-mode-issue-reporting-link-label": "แจ้งปัญหาเกี่ยวกับโหมดมืด",
+	"vector-night-mode-issue-reporting-link-notification": "ได้รับรายงานแล้ว!",
+	"vector-night-mode-issue-reporting-preload-title": "เกิดข้อผิดพลาดโหมดมืด $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nวิธีการแจ้งปัญหาใหม่\nโปรดระบุด้านล่างนี้ว่าโหมดมืดทำให้วิกิพีเดียอ่านยากขึ้นอย่างไรบ้าง\nและอย่าลืมระบุว่าพบปัญหาที่หัวข้อไหน\n-->\n'''คำอธิบายปัญหา/Issue Description''':",
+	"vector-night-mode-beta-tag": "(เบตา)"
 }

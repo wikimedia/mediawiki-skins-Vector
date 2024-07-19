@@ -68,6 +68,7 @@
 	"vector-limited-width-toggle": "Comută lățimea limitată a conținutului",
 	"vector-limited-width-toggle-on-popup": "V-ați comutat aspectul la lățime maximă. Pentru a comuta la loc la lățime limitată, apăsați acest buton.",
 	"vector-limited-width-toggle-off-popup": "Puteți comuta între o lățime limitată și o lățime maximă prin apăsarea acestui buton.",
+	"vector-feature-custom-font-size-exclusion-notice": "Această pagină folosește mereu mărime mică pentru font",
 	"vector-page-tools-label": "Unelte",
 	"vector-page-tools-actions-label": "Acțiuni",
 	"vector-pin-element-label": "mută în bara laterală",
@@ -82,5 +83,6 @@
 	"vector-main-menu-unpinned-popup": "Meniul principal a fost mutat aici.",
 	"vector-appearance-unpinned-popup": "Meniul aspectului a fost mutat aici.",
 	"vector-2022-beta-preview-label": "Accesibilitate pentru lectură (Vector 2022)",
-	"vector-2022-beta-preview-description": "Obțineți acces timpuri la noile funcții de accesibilitate a lecturii, precum îmbunătățiri ale tipografiei și mod de noapte."
+	"vector-2022-beta-preview-description": "Obțineți acces timpuri la noile funcții de accesibilitate a lecturii, precum îmbunătățiri ale tipografiei și mod de noapte.",
+	"vector-night-mode-issue-reporting-link-label": "Raportați o problemă cu modul întunecat"
 }
