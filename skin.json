@@ -495,6 +495,28 @@
 				"vector-night-mode-gadget-warning"
 			]
 		},
+		"skins.vector.DarkModeLaunchBanner": {
+			"packageFiles": [
+				"resources/skins.vector.DarkModeLaunchBanner/DarkModeLaunchBanner.js"
+			],
+			"styles": [
+				"resources/skins.vector.DarkModeLaunchBanner/DarkModeLaunchBanner.less"
+			],
+			"dependencies": [ "skins.vector.DarkModeLaunchBanner.codexModules" ],
+			"messages": [
+				"vector-night-mode-launch-title",
+				"vector-night-mode-launch-subtitle",
+				"vector-night-mode-launch-description-day",
+				"vector-night-mode-launch-close-label"
+			]
+		},
+		"skins.vector.DarkModeLaunchBanner.codexModules": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": true,
+			"codexComponents": [
+				"CdxDialog"
+			]
+		},
 		"skins.vector.legacy.js": {
 			"packageFiles": [
 				"resources/skins.vector.legacy.js/skin-legacy.js",

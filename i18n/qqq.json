@@ -108,5 +108,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "Notification that shows after clicking link.",
 	"vector-night-mode-issue-reporting-preload-title": "The prefilled title of the form used to submit dark mode errors. $1 is a link to the current page, formatted as a wikitext external link, for example \"<nowiki>[https://en.wikipedia.org/wiki/Songhai_Empire Songhai Empire]</nowiki>\".",
 	"vector-night-mode-issue-reporting-preload-content": "The prefilled content of the form used to submit dark mode errors",
-	"vector-night-mode-beta-tag": "A tag appearing in the Appearance menu informing users that this feature is in beta."
+	"vector-night-mode-beta-tag": "A tag appearing in the Appearance menu informing users that this feature is in beta.",
+	"vector-night-mode-launch-title": "Title of a modal that appears informing users of the new dark mode feature",
+	"vector-night-mode-launch-subtitle": "Subtitle of a modal that appears informing users of the new dark mode feature. \"Dark\" should be translated consistently with {{msg-mw|Skin-theme-night-label}}.",
+	"vector-night-mode-launch-description-day": "Text in the dark mode launch modal describing the dark mode feature, when dark mode is disabled. \"Settings\" is {{msg-mw|Mobile-frontend-main-menu-settings-heading}}.",
+	"vector-night-mode-launch-close-label": "Label for button to close the dark-mode launch modal"
 }
