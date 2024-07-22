@@ -3,7 +3,8 @@
 		"authors": [
 			"Atabek",
 			"Nurlan",
-			"Ajiniyaz Nurniyazov"
+			"Ajiniyaz Nurniyazov",
+			"Inabat Allanova"
 		]
 	},
 	"skinname-vector": "Vektor, eski (2010)",
@@ -12,10 +13,14 @@
 	"prefs-vector-enable-vector-1-label": "Eski Vektordan paydalanıw",
 	"vector-opt-out": "Eski kóriniske almastırıw",
 	"vector-opt-out-tooltip": "Skinniń burınǵı kórinisine (eski Vectorǵa) qaytıw ushın sazlamalardı ózgertiw",
+	"vector-action-toggle-sidebar": "Qaptal qutını ashıw/jabıw",
 	"vector-languages": "Tiller",
+	"vector-language-button-aria-label": "Basqa tildegi maqalaǵa ótiń. {{PLURAL:$1|$1 tilde}} bar",
 	"vector-language-button-label": "{{PLURAL:$1|$1 til}}",
 	"vector-no-language-button-label": "Tillerdi qosıw",
+	"vector-no-language-button-aria-label": "Bul maqala tek usı tilde bar. Maqalanı basqa tillerge de kirgiziń",
 	"vector-language-redirect-to-top": "Bul {{SITENAME}}da til siltemeleri bettiń joqarǵı bóleginde, maqala atınıń oń tárepinde jaylasqan. [[#p-lang-btn|Joqarıǵa ótiw]].",
+	"vector-language-variant-switcher-label": "Til variantın ózgertiw",
 	"vector-action-addsection": "Tema qosıw",
 	"vector-action-delete": "Óshiriw",
 	"vector-action-move": "Kóshiriw",
@@ -33,11 +38,16 @@
 	"vector-more-actions": "Jáne",
 	"vector-search-loader": "Izlew usınısları júklenbekte",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> tekstin óz ishine alǵan betlerdi izlew",
-	"vector-intro-page": "Járdem:Xosh keldińiz",
+	"vector-intro-page": "Járdem:Kirisiw",
 	"vector-toc-beginning": "Kirisiw",
+	"vector-toc-toggle-button-label": "$1 kishi bólimdi ashıw/jabıw",
 	"vector-anon-user-menu-pages": "Sistemadan shıqqan paydalanıwshılar ushın betler",
 	"vector-anon-user-menu-pages-learn": "tolıq maǵlıwmat",
+	"vector-anon-user-menu-pages-label": "Redaktorlaw haqqında tolıq maǵlıwmat",
+	"vector-main-menu-tooltip": "Bas menyu",
 	"vector-toc-menu-tooltip": "Mazmunı",
+	"vector-toc-collapsible-button-label": "Mazmunlar dizimin ashıw/jabıw",
+	"vector-site-nav-label": "Sayt",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Talqılaw]]",
 	"tooltip-vector-anon-user-menu-title": "Kóbirek opciyalar"
 }
