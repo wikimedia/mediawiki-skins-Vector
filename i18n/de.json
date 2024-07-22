@@ -7,6 +7,7 @@
 			"Metalhead64",
 			"Schniggendiller",
 			"The Evil IP address",
+			"Tkarcher",
 			"Umherirrender"
 		]
 	},
@@ -73,7 +74,7 @@
 	"vector-limited-width-toggle-on-popup": "Du hast dein Layout auf volle Breite umgestellt. Um zur begrenzten Breite zurückzukehren, drücke diese Schaltfläche.",
 	"vector-limited-width-toggle-off-popup": "Du kannst zwischen einer begrenzten Breite und der vollen Breite umschalten, indem du auf diese Schaltfläche klickst.",
 	"vector-feature-custom-font-size-exclusion-notice": "Diese Seite verwendet immer eine kleine Schriftgröße",
-	"vector-feature-limited-width-exclusion-notice": "Der Inhalt ist für {{#FORMAL|dein|Ihr}} Browserfenster so breit wie möglich.",
+	"vector-feature-limited-width-exclusion-notice": "Der Inhalt ist so breit wie für das Browserfenster möglich.",
 	"vector-page-tools-label": "Werkzeuge",
 	"vector-page-tools-general-label": "Allgemein",
 	"vector-page-tools-actions-label": "Aktionen",

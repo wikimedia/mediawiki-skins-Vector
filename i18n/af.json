@@ -67,5 +67,6 @@
 	"vector-unpin-element-label": "versteek",
 	"tooltip-vector-anon-user-menu-title": "Meer opsies",
 	"vector-prefs-limited-width": "Aktiveer beperkte breedte-modus",
-	"vector-prefs-limited-width-help": "Aktiveer beperkte wydte-modus vir 'n verbeterde lees ervaring."
+	"vector-prefs-limited-width-help": "Aktiveer beperkte wydte-modus vir 'n verbeterde lees ervaring.",
+	"vector-night-mode-issue-reporting-link-label": "Rapporteer 'n probleem met donker modus"
 }

@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"vector-languages": "Bahasa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa}}",
+	"vector-no-language-button-label": "Tambah bahasa",
+	"vector-action-delete": "Padam",
+	"vector-action-move": "Pindah",
+	"vector-view-create": "Buat",
+	"vector-view-history": "Nampak sajarah",
+	"vector-more-actions": "Lagi",
+	"vector-feature-limited-width-0-label": "Luas",
+	"vector-feature-limited-width-1-label": "Biasa",
+	"vector-feature-custom-font-size-name": "Tulisan",
+	"vector-feature-custom-font-size-0-label": "Kicil",
+	"vector-feature-custom-font-size-1-label": "Biasa",
+	"vector-feature-custom-font-size-2-label": "Basar",
+	"skin-theme-name": "Warna",
+	"skin-theme-day-label": "Tarang",
+	"skin-theme-night-label": "Galap",
+	"skin-theme-os-label": "Sendiri",
+	"vector-toc-label": "Isi",
+	"vector-toc-beginning": "Mula",
+	"vector-main-menu-label": "Menu basar",
+	"vector-page-tools-label": "Alat",
+	"vector-unpin-element-label": "tapuk"
+}
