@@ -361,7 +361,16 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 					anchor.setAttribute( 'target', '_blank' );
 				}
 				anchor.textContent = linkLabel;
-				const showSuccessFeedback = function () {
+
+				/**
+				 * Shows the success message after clicking the beta feedback link.
+				 * Note: event.stopPropagation(); is required to show the success message
+				 * without closing the Appearance menu when it's in a dropdown.
+				 *
+				 * @param {Event} event
+				 */
+				const showSuccessFeedback = function ( event ) {
+					event.stopPropagation();
 					const icon = document.createElement( 'span' );
 					icon.classList.add( 'vector-icon', 'vector-icon--heart' );
 					anchor.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
@@ -369,7 +378,7 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 					anchor.prepend( icon );
 					anchor.removeEventListener( 'click', showSuccessFeedback );
 				};
-				anchor.addEventListener( 'click', showSuccessFeedback );
+				anchor.addEventListener( 'click', ( event ) => showSuccessFeedback( event ) );
 				betaMessageElement.appendChild( anchor );
 				row.appendChild( betaMessageElement );
 			}

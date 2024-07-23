@@ -15,3 +15,19 @@
 		.cdx-mixin-css-icon( @cdx-icon-heart, @color-success, @size-icon-small );
 	}
 }
+
+// Only display feedback notice in dark mode.
+// https://phabricator.wikimedia.org/T367871#10003064
+#skin-theme-beta-notice {
+	display: none;
+}
+
+@media screen and ( prefers-color-scheme: dark ) {
+	html.skin-theme-clientpref-os #skin-theme-beta-notice {
+		display: block;
+	}
+}
+
+html.skin-theme-clientpref-night #skin-theme-beta-notice {
+	display: block;
+}
