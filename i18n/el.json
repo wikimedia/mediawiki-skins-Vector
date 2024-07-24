@@ -55,6 +55,9 @@
 	"vector-feature-custom-font-size-1-label": "Κανονικό",
 	"vector-feature-custom-font-size-2-label": "Μεγάλο",
 	"skin-theme-name": "Χρώμα",
+	"skin-theme-day-label": "Φωτεινό",
+	"skin-theme-night-label": "Σκοτεινό",
+	"skin-theme-os-label": "Αυτόματο",
 	"skin-theme-exclusion-notice": "Αυτή η σελίδα χρησιμοποιεί πάντα φωτεινό θέμα.",
 	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης",
 	"vector-searchsuggest-containing": "Αναζητήστε σελίδες που περιέχουν <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
@@ -86,5 +89,6 @@
 	"empty-language-selector-body": "Τα περιεχόμενα της σελίδας δεν υποστηρίζονται σε άλλες γλώσσες.",
 	"vector-toc-unpinned-popup": "Ο πίνακας περιεχομένων έχει μεταφερθεί εδώ.",
 	"vector-page-tools-unpinned-popup": "Το μενού εργαλείων έχει μεταφερθεί εδώ.",
-	"vector-main-menu-unpinned-popup": "Το κύριο μενού έχει μεταφερθεί εδώ."
+	"vector-main-menu-unpinned-popup": "Το κύριο μενού έχει μεταφερθεί εδώ.",
+	"vector-night-mode-issue-reporting-link-label": "Αναφέρετε ένα πρόβλημα με τη σκοτεινή λειτουργία"
 }
