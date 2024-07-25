@@ -54,6 +54,7 @@
 	"vector-feature-custom-font-size-1-label": "Κανονικό",
 	"vector-feature-custom-font-size-2-label": "Μεγάλο",
 	"skin-theme-name": "Χρώμα",
+	"skin-theme-os-label": "Αυτόματο",
 	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης",
 	"vector-searchsuggest-containing": "Αναζητήστε σελίδες που περιέχουν <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Εισαγωγή",
