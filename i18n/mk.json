@@ -49,7 +49,7 @@
 	"skin-theme-name": "Боја",
 	"skin-theme-description": "[Пробна верзија, голема веројатност за проблеми] Ја намалува светлината што ја емитуваат екраните на уредите.",
 	"skin-theme-day-label": "Светол",
-	"skin-theme-night-label": "Темен",
+	"skin-theme-night-label": "Темна",
 	"skin-theme-os-label": "Автоматски",
 	"skin-theme-exclusion-notice": "Оваа страница секогаш е во светол режим.",
 	"vector-search-loader": "Вчитувам предлози за пребарувањето",
@@ -92,6 +92,10 @@
 	"vector-night-mode-issue-reporting-link-label": "Пријави проблем со темниот режим",
 	"vector-night-mode-issue-reporting-link-notification": "Пријавата е примена!",
 	"vector-night-mode-issue-reporting-preload-title": "Грешка во темниот режим на $1",
-	"vector-night-mode-issue-reporting-preload-content": "<no<includeonly></includeonly>include> \n'''Упатство'''\n\nОпишете како боите во темниот режим го отежнуваат читањето на Википедија. Вклучете го одделот од статијата каде што го најдовте проблемот. \n</no<includeonly></includeonly>include> \n'''Опис на проблемот'''",
-	"vector-night-mode-beta-tag": "(бета)"
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nУпатство\nОпишете како боите во темниот режим го отежнуваат читањето на Википедија.\nВклучете го одделот од статијата каде што го најдовте проблемот.\n-->\n'''Опис на проблемот'''",
+	"vector-night-mode-beta-tag": "(бета)",
+	"vector-night-mode-launch-title": "Новите бои на Википедија",
+	"vector-night-mode-launch-subtitle": "Пробајте го темниот режим денес",
+	"vector-night-mode-launch-description-day": "Википедија сега е достапна во темен режим. Пробајте го стискајќи на „Темна“ во одделот „Боја“ на менито Изглед од десно.",
+	"vector-night-mode-launch-close-label": "Затвори"
 }

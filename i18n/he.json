@@ -92,5 +92,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "הדיווח התקבל!",
 	"vector-night-mode-issue-reporting-preload-title": "שגיאת מצב כהה בדף $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nהוראות\nנא לתאר איך הצבעים של המצב הכהה גורמים לוויקיפדיה להיות קשה יותר לקריאה. נא לכלול את הפרק של הערך שמצאת בו את הבעיה.\n-->\n'''תיאור הבעיה'''",
-	"vector-night-mode-beta-tag": "(בטא)"
+	"vector-night-mode-beta-tag": "(בטא)",
+	"vector-night-mode-launch-title": "הצבעים החדשים של ויקיפדיה",
+	"vector-night-mode-launch-subtitle": "לנסות את המצב הכהה היום",
+	"vector-night-mode-launch-description-day": "ויקיפדיה זמינה כעת במצב כהה. אפשר לנסות את זה על־ידי לחיצה על \"כהה\" תחת \"צבע\" בתפריט \"מראה\" בצד שמאל.",
+	"vector-night-mode-launch-close-label": "סגירה"
 }

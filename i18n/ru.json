@@ -119,5 +119,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "Отчет получен!",
 	"vector-night-mode-issue-reporting-preload-title": "Ошибка темного режима $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nИнструкции\nПожалуйста, опишите нам, как цвета в темном режиме затрудняют чтение Википедии.\nПожалуйста, укажите раздел статьи, в котором вы обнаружили эту проблему.\n-->\n'''Описание проблемы'''",
-	"vector-night-mode-beta-tag": "(бета)"
+	"vector-night-mode-beta-tag": "(бета)",
+	"vector-night-mode-launch-subtitle": "Попробуйте темный режим сегодня",
+	"vector-night-mode-launch-close-label": "Закрыть"
 }

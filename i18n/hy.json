@@ -52,5 +52,6 @@
 	"vector-pin-element-label": "տեղափոխել կողագոտի",
 	"vector-unpin-element-label": "թաքցնել",
 	"tooltip-vector-anon-user-menu-title": "Այլ ընտրանքներ",
-	"vector-night-mode-beta-tag": "(բետա)"
+	"vector-night-mode-beta-tag": "(բետա)",
+	"vector-night-mode-launch-close-label": "Փակել"
 }

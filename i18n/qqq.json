@@ -111,6 +111,6 @@
 	"vector-night-mode-beta-tag": "A tag appearing in the Appearance menu informing users that this feature is in beta.",
 	"vector-night-mode-launch-title": "Title of a modal that appears informing users of the new dark mode feature",
 	"vector-night-mode-launch-subtitle": "Subtitle of a modal that appears informing users of the new dark mode feature. \"Dark\" should be translated consistently with {{msg-mw|Skin-theme-night-label}}.",
-	"vector-night-mode-launch-description-day": "Text in the dark mode launch modal describing the dark mode feature, when dark mode is disabled. \"Settings\" is {{msg-mw|Mobile-frontend-main-menu-settings-heading}}.",
+	"vector-night-mode-launch-description-day": "Text in the dark mode launch modal describing the dark mode feature, when dark mode is disabled.\n\n'''In right to left languages, translate \"on the right\" as \"on the left\".'''\n\n* \"Dark\" must be consistent with {{msg-mw|skin-theme-night-label}}\n* \"Color\" must be consistent with {{msg-mw|skin-theme-name}}\n* \"Appearance\" must be consistent with {{msg-mw|vector-appearance-label}}",
 	"vector-night-mode-launch-close-label": "Label for button to close the dark-mode launch modal"
 }
