@@ -97,8 +97,15 @@
 	"vector-page-tools-unpinned-popup": "Työkaluvalikko on siirretty tänne.",
 	"vector-main-menu-unpinned-popup": "Päävalikko on siirretty tänne.",
 	"vector-appearance-unpinned-popup": "Ulkoasuvalikko on siirretty tänne.",
+	"vector-2022-beta-preview-label": "Lukemisen saavutettavuus (Vektori 2022)",
 	"vector-night-mode-gadget-warning": "Käytät tumman tilan pienoisohjelmaa, joka häiritsee tämän ominaisuuden toimintaa. [[Special:Preferences#mw-prefsection-gadgets|Poista pienoisohjelma käytöstä]] käyttääksesi tummaa tilaa.",
 	"vector-night-mode-issue-reporting-link-label": "Ilmoita ongelmasta tummassa tilassa",
 	"vector-night-mode-issue-reporting-link-notification": "Ilmoitus vastaanotettu!",
-	"vector-night-mode-beta-tag": "(beeta)"
+	"vector-night-mode-issue-reporting-preload-title": "virhe tummassa tilassa sivulla $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nOhjeet\nKuvaile, miten värit tumman tilassa tekevät Wikipediasta hankalasti luettavan.\nKerro myös, minkä artikkelin osiosta löysit kyseisen ongelman.\n-->\n'''Ongelman kuvaus'''",
+	"vector-night-mode-beta-tag": "(beeta)",
+	"vector-night-mode-launch-title": "Wikipedian uudet värit",
+	"vector-night-mode-launch-subtitle": "Kokeile tummaa tilaa",
+	"vector-night-mode-launch-description-day": "Wikipedia on nyt saatavilla tummassa tilassa. Kokeile sitä napsauttamalla ulkoasuvalikon ”Väri”-osion vaihtoehtoa ”Tumma”.",
+	"vector-night-mode-launch-close-label": "Sulje"
 }

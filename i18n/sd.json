@@ -96,5 +96,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "آگاھي موڪلي وئي!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 گَھِري رنگ جا مسئلا",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nھدايتون\nمھرباني ڪري ٻڌايو تہ گَھِري رنگ سبب وڪيپيڊيا پرھڻ ۾ ڪھڙيون دشواريون پيش اچي رھيون آھن. \nمھرباني ڪري مضمون جو اھو حصو داخل ڪيو، جتي اوھان کي دشواري پيش اچي پئي.\n-->\n'''مسئلي بابت وضاحت'''",
-	"vector-night-mode-beta-tag": "(تجرباتي)"
+	"vector-night-mode-beta-tag": "(تجرباتي)",
+	"vector-night-mode-launch-title": "وڪيپيڊيا جا نوان رنگ",
+	"vector-night-mode-launch-subtitle": "اڄ ئي گِھرو موڊ استعمال ڪيو",
+	"vector-night-mode-launch-description-day": "وڪيپيڊيا ھاڻي گَھري رنگ ۾ ميسر آھي. کاٻي پاسي ڏنل ڏيک مينيو جي \"رنگ\" واري حصي ۾ \"گَھرو\" کي ڪلڪ ڪري اڄ ئي استعمال ڪري سگهو ٿا.",
+	"vector-night-mode-launch-close-label": "بند ڪريو"
 }
