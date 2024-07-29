@@ -15,7 +15,8 @@
 			"Rönttönen",
 			"SuperPete",
 			"Stryn",
-			"Yupik"
+			"Yupik",
+			"Samoasambia"
 		]
 	},
 	"skinname-vector": "Vanha Vektori (2010)",
@@ -35,6 +36,7 @@
 	"vector-no-language-button-label": "Lisää kieliä",
 	"vector-no-language-button-aria-label": "Tämä artikkeli on olemassa vain tällä kielellä. Lisää artikkeli muille kielille",
 	"vector-language-redirect-to-top": "Tällä sivustolla ({{SITENAME}}) kielilinkit ovat artikkelin yläosassa otsikon vieressä. [[#p-lang-btn|Sivun yläosaan]].",
+	"vector-language-variant-switcher-label": "Valitse kieliversio",
 	"vector-action-addsection": "Lisää aihe",
 	"vector-action-delete": "Poista",
 	"vector-action-move": "Siirrä",
@@ -52,6 +54,7 @@
 	"vector-more-actions": "Muut",
 	"vector-search-loader": "Ladataan hakuehdotuksia",
 	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Wikipedia:Tervetuloa Wikipediaan",
 	"vector-toc-heading": "Sisällysluettelo",
 	"vector-toc-beginning": "Johdanto",
 	"vector-anon-user-menu-pages": "Sivut kirjautumattomille muokkaajille",

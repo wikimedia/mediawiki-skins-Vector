@@ -4,13 +4,19 @@
 			"Amire80",
 			"Gustave London",
 			"Tšepo",
-			"Coldfact"
+			"Coldfact",
+			"Maryam AlAkini"
 		]
 	},
+	"vector-languages": "Lipuo",
 	"vector-language-button-label": "{{PLURAL:$1|$1 puo|$1 lipuo}}",
+	"vector-no-language-button-label": "Kenya lipuo",
+	"vector-action-addsection": "Eketsa sehlooho",
+	"vector-view-create": "Theha",
 	"vector-view-edit": "Fetola",
 	"vector-view-history": "Sheba histori",
 	"vector-view-view": "Bala",
 	"vector-more-actions": "Tse ling",
-	"vector-searchsuggest-containing": "Batla maqephe a nang le <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Batla maqephe a nang le <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Ho qala"
 }

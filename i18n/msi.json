@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"vector-languages": "Bahasa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa}}",
+	"vector-no-language-button-label": "Tambah bahasa",
+	"vector-action-delete": "Padam",
+	"vector-action-move": "Pindah",
+	"vector-view-create": "Buat",
+	"vector-view-history": "Nampak sajarah",
+	"vector-more-actions": "Lagi",
+	"vector-toc-beginning": "Mula"
+}
