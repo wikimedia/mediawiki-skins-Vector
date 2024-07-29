@@ -101,5 +101,14 @@
 	"vector-appearance-unpinned-popup": "보이기 메뉴는 이곳으로 이동되었습니다.",
 	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)",
 	"vector-2022-beta-preview-description": "타이포그래피 개선 및 다크 모드 등 새로운 읽기 접근성 기능을 미리 사용해보세요.",
-	"vector-night-mode-gadget-warning": "이 기능에 방해를 주는 다크 모드 소도구를 사용하고 있습니다. 다크 모드를 사용하려면 [[Special:Preferences#mw-prefsection-gadgets|소도구를 비활성화]]하십시오."
+	"vector-night-mode-gadget-warning": "이 기능에 방해를 주는 다크 모드 소도구를 사용하고 있습니다. 다크 모드를 사용하려면 [[Special:Preferences#mw-prefsection-gadgets|소도구를 비활성화]]하십시오.",
+	"vector-night-mode-issue-reporting-link-label": "다크 모드 문제 보고하기",
+	"vector-night-mode-issue-reporting-link-notification": "보고를 받았습니다!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 다크 모드 오류",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\n안내\n다크 모드 색이 위키백과를 읽기 어렵게 만드는 이유를 설명해 주세요.\n문제를 발견한 문서의 문단을 포함시켜 주세요.\n-->\n'''문제 설명'''",
+	"vector-night-mode-beta-tag": "(베타)",
+	"vector-night-mode-launch-title": "위키백과의 새로운 색",
+	"vector-night-mode-launch-subtitle": "오늘 다크 모드를 사용해보세요",
+	"vector-night-mode-launch-description-day": "위키백과는 이제 다크 모드를 제공합니다. 오른쪽의 보이기 메뉴의 \"색\" 섹션에서 \"다크\"를 클릭하여 사용해 보세요.",
+	"vector-night-mode-launch-close-label": "닫기"
 }

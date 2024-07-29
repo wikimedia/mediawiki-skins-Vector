@@ -12,6 +12,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 puo|$1 lipuo}}",
 	"vector-no-language-button-label": "Kenya lipuo",
 	"vector-action-addsection": "Eketsa sehlooho",
+	"vector-action-move": "Sutha",
 	"vector-view-create": "Theha",
 	"vector-view-edit": "Fetola",
 	"vector-view-history": "Sheba histori",

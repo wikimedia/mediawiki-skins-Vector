@@ -115,5 +115,9 @@
 	"vector-night-mode-issue-reporting-link-label": "Signaler un problème avec le mode sombre",
 	"vector-night-mode-issue-reporting-link-notification": "Rapport reçu !",
 	"vector-night-mode-issue-reporting-preload-title": "Erreur de mode sombre $1",
-	"vector-night-mode-beta-tag": "(bêta)"
+	"vector-night-mode-beta-tag": "(bêta)",
+	"vector-night-mode-launch-title": "Les nouvelles couleurs de Wikipédia",
+	"vector-night-mode-launch-subtitle": "Essayez le mode sombre aujourd’hui",
+	"vector-night-mode-launch-description-day": "Wikipédia est désormais disponible en mode sombre. Essayez-le en cliquant sur « Sombre » dans la section « Couleur » du menu Apparence à droite.",
+	"vector-night-mode-launch-close-label": "Fermer"
 }

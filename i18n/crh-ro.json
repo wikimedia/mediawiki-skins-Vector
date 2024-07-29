@@ -18,5 +18,6 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ĭşergen betlerdĭ qıdır",
 	"vector-page-tools-label": "Aletler",
 	"vector-page-tools-general-label": "Genel",
-	"vector-unpin-element-label": "saqlaw"
+	"vector-unpin-element-label": "saqlaw",
+	"vector-night-mode-launch-close-label": "Cap"
 }

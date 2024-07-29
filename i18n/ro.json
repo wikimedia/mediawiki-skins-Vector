@@ -84,5 +84,8 @@
 	"vector-appearance-unpinned-popup": "Meniul aspectului a fost mutat aici.",
 	"vector-2022-beta-preview-label": "Accesibilitate pentru lectură (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obțineți acces timpuri la noile funcții de accesibilitate a lecturii, precum îmbunătățiri ale tipografiei și mod de noapte.",
-	"vector-night-mode-issue-reporting-link-label": "Raportați o problemă cu modul întunecat"
+	"vector-night-mode-issue-reporting-link-label": "Raportați o problemă cu modul întunecat",
+	"vector-night-mode-launch-title": "Noile culori ale Wikipediei",
+	"vector-night-mode-launch-subtitle": "Încercați modul întunecat astăzi",
+	"vector-night-mode-launch-description-day": "Wikipedia este acum disponibilă în modul întunecat. Încercați-l apăsând pe „Întunecat” din secțiunea „Culoare” a meniului Aspect din dreapta."
 }

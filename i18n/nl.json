@@ -101,5 +101,6 @@
 	"vector-night-mode-issue-reporting-link-notification": "Melding ontvangen!",
 	"vector-night-mode-issue-reporting-preload-title": "Fout in de donkere modus op $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructies\nBeschrijf hoe de donkere kleuren het lezen van Wikipedia moeilijker maakt.\nGraag ook aangeven welk onderdeel van het artikel het probleem zich opdoet.\n-->\n'''Beschrijving van probleem'''",
-	"vector-night-mode-beta-tag": "(bèta)"
+	"vector-night-mode-beta-tag": "(bèta)",
+	"vector-night-mode-launch-close-label": "Sluiten"
 }
