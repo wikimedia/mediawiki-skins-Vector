@@ -256,11 +256,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const CONFIG_KEY_APPEARANCE = 'VectorAppearance';
-
-	/**
-	 * @var string
-	 */
 	public const FEATURE_APPEARANCE = 'Appearance';
 
 	/**
@@ -307,7 +302,6 @@ final class Constants {
 	 * @var array
 	 */
 	public const VECTOR_BETA_FEATURES = [
-		self::CONFIG_KEY_APPEARANCE,
 		self::CONFIG_KEY_NIGHT_MODE,
 	];
 

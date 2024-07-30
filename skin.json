@@ -416,7 +416,6 @@
 				"resources/skins.vector.js/pinnableElement.js",
 				"resources/skins.vector.js/userPreferences.js",
 				"resources/skins.vector.js/features.js",
-				"resources/skins.vector.js/limitedWidthToggle.js",
 				"resources/skins.vector.js/popupNotification.js",
 				"resources/skins.vector.js/clientPreferences.json",
 				{
@@ -628,14 +627,6 @@
 				"include": []
 			},
 			"description": "@var array determines which pages are compatible with night mode"
-		},
-		"VectorAppearance": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false,
-				"beta": true
-			},
-			"description": "@var array enables a client preferences interface."
 		},
 		"VectorSearchApiUrl": {
 			"value": "",

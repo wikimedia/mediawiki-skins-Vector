@@ -523,7 +523,6 @@ class Hooks implements
 		$services = MediaWikiServices::getInstance();
 		$featureManagerFactory = $services->getService( 'Vector.FeatureManagerFactory' );
 		$featureManager = $featureManagerFactory->createFeatureManager( RequestContext::getMain() );
-		$isVectorAppearanceEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_APPEARANCE );
 		$isNightModeEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_NIGHT_MODE );
 
 		$vectorPrefs = [
@@ -535,7 +534,7 @@ class Hooks implements
 				'hide-if' => [ '!==', 'skin', Constants::SKIN_NAME_MODERN ],
 			],
 			Constants::PREF_KEY_FONT_SIZE => [
-				'type' => $isVectorAppearanceEnabled ? 'select' : 'api',
+				'type' => 'select',
 				'label-message' => 'vector-feature-custom-font-size-name',
 				'section' => 'rendering/skin/skin-prefs',
 				'options-messages' => [

@@ -400,9 +400,6 @@ class SkinVector22 extends SkinMustache {
 
 		$isRegistered = $user->isRegistered();
 		$userPage = $isRegistered ? $this->buildPersonalPageItem() : [];
-		$isAppearanceEnabled = $featureManager->isFeatureEnabled(
-			Constants::FEATURE_APPEARANCE,
-		);
 
 		$components = $tocComponents + [
 			'data-add-topic-button' => $hasAddTopicButton ? new VectorComponentButton(
@@ -474,9 +471,8 @@ class SkinVector22 extends SkinMustache {
 				$this->msg( 'toolbox' )->text(),
 				VectorComponentPageTools::ID . '-dropdown',
 			),
-			'data-appearance' => $isAppearanceEnabled ?
-				new VectorComponentAppearance( $localizer, $featureManager ) : null,
-			'data-appearance-dropdown' => $isAppearanceEnabled ? new VectorComponentDropdown(
+			'data-appearance' => new VectorComponentAppearance( $localizer, $featureManager ),
+			'data-appearance-dropdown' => new VectorComponentDropdown(
 				'vector-appearance-dropdown',
 				$this->msg( 'vector-appearance-label' )->text(),
 				'',
@@ -484,7 +480,7 @@ class SkinVector22 extends SkinMustache {
 				Html::expandAttributes( [
 					'title' => $this->msg( 'vector-appearance-tooltip' ),
 				] )
-			) : null,
+			),
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
 			) ? new VectorComponentStickyHeader(
@@ -515,20 +511,6 @@ class SkinVector22 extends SkinMustache {
 					) : null,
 				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] )
 			) : null,
-			'data-vector-settings-button' => $featureManager->isFeatureEnabled(
-				Constants::FEATURE_APPEARANCE,
-			) ? null : new VectorComponentButton(
-				$this->msg( 'vector-limited-width-toggle' ),
-				$featureManager->isFeatureEnabled(
-					Constants::FEATURE_LIMITED_WIDTH
-				) ? 'fullScreen' : 'exitFullscreen',
-				null,
-				'vector-limited-width-toggle',
-				[],
-				'normal',
-				'default',
-				true
-			)
 		];
 
 		foreach ( $components as $key => $component ) {

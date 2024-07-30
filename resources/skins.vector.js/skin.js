@@ -1,5 +1,4 @@
 const languageButton = require( './languageButton.js' ),
-	limitedWidthToggle = require( './limitedWidthToggle.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
 	searchToggle = require( './searchToggle.js' ),
 	echo = require( './echo.js' ),
@@ -60,7 +59,6 @@ function main( window ) {
 	echo();
 	portletsManager.main();
 	watchstar();
-	limitedWidthToggle();
 	// Initialize the search toggle for the main header only. The sticky header
 	// toggle is initialized after Codex search loads.
 	const searchToggleElement = document.querySelector( '.mw-header .search-toggle' );

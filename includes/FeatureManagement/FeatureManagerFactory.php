@@ -265,26 +265,6 @@ class FeatureManagerFactory {
 			]
 		);
 
-		// Feature: T345363: Appearance menu
-		// ============================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$config,
-				$user,
-				$request,
-				Constants::CONFIG_KEY_APPEARANCE,
-				Constants::REQUIREMENT_APPEARANCE
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_APPEARANCE,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_APPEARANCE
-			]
-		);
-
 		// Feature: Appearance menu pinned
 		// ================================
 		$featureManager->registerRequirement(
@@ -302,7 +282,6 @@ class FeatureManagerFactory {
 			Constants::FEATURE_APPEARANCE_PINNED,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_APPEARANCE,
 				Constants::REQUIREMENT_APPEARANCE_PINNED
 			]
 		);
