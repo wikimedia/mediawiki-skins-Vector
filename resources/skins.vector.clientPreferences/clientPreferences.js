@@ -359,6 +359,9 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 				if ( !mw.user.isAnon() ) {
 					anchor.setAttribute( 'href', link );
 					anchor.setAttribute( 'target', '_blank' );
+				} else {
+					anchor.setAttribute( 'role', 'button' );
+					anchor.setAttribute( 'tabindex', '0' );
 				}
 				anchor.textContent = linkLabel;
 
