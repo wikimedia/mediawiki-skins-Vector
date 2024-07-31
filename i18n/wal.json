@@ -26,7 +26,7 @@
 	"vector-jumptocontent": "Kesuwaakko xaalla",
 	"vector-more-actions": "Aaruwassi",
 	"vector-search-loader": "Koshshaa zoreta ehiidi de'ees",
-	"vector-searchsuggest-containing": "Oyqqida sinttata koyya <strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong> oyqqida sinttata koyya",
 	"vector-intro-page": "Help:Geluwaa",
 	"vector-toc-label": "Kesota",
 	"vector-toc-beginning": "Doomettaa",

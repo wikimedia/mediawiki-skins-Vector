@@ -23,6 +23,10 @@
 	"vector-view-viewsource": "Menba kodunı köster",
 	"vector-more-actions": "Başqa areketler",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> içeren saifelerni qıdır",
+	"vector-toc-label": "Münderice",
+	"vector-toc-beginning": "Kiriş",
+	"vector-main-menu-label": "Esas menü",
 	"vector-page-tools-label": "Aletler",
+	"vector-page-tools-general-label": "Umumiy",
 	"vector-unpin-element-label": "gizle"
 }

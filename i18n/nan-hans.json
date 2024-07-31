@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"SupaplexTW"
+		]
+	},
+	"vector-languages": "语言",
+	"vector-no-language-button-label": "加添语言",
+	"vector-view-history": "看历史",
+	"vector-more-actions": "阁看",
+	"vector-searchsuggest-containing": "搜揣有<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>的页",
+	"vector-page-tools-label": "家私",
+	"vector-page-tools-general-label": "一般"
+}

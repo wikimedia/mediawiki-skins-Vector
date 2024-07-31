@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"SupaplexTW"
+		]
+	},
+	"vector-languages": "Gú-giân",
+	"vector-no-language-button-label": "Ka-thiam gú-giân",
+	"vector-view-history": "khuànn li̍k-sú",
+	"vector-more-actions": "Koh khuànn",
+	"vector-searchsuggest-containing": "Tshiau-tshē ū <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ê ia̍h",
+	"vector-toc-label": "Bo̍k-lo̍k",
+	"vector-toc-beginning": "Sū-giân",
+	"vector-main-menu-label": "Tsú-suán-tuann",
+	"vector-page-tools-label": "Ke-si",
+	"vector-page-tools-general-label": "It-puann",
+	"vector-unpin-element-label": "Bih"
+}
