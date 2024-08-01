@@ -86,5 +86,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "Uvědomjenje prijeto!",
 	"vector-night-mode-issue-reporting-preload-title": "Pogrěška temnogo režima na stranici $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrukcije\nProsimo, opišite, kakym sposobom kolory temnogo režimu otegčajut čitanje Vikipedije. \nProsimo, vključite razděl članka, v ktorom jeste našli toj problem.\n-->\n'''Opis problema'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-night-mode-launch-title": "Nove kolory Vikipedije",
+	"vector-night-mode-launch-subtitle": "Poprobujte temny režim dnes",
+	"vector-night-mode-launch-description-day": "Vikipedija tutčas jest dostupna v temnom režimu. Izprobujte go, naklikajuči «Temny» v sekciji «Kolor» v menju izgleda po pravoj straně.",
+	"vector-night-mode-launch-close-label": "Zatvoriti"
 }
