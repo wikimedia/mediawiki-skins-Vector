@@ -20,5 +20,8 @@
 	"skin-theme-day-label": "Tarang",
 	"skin-theme-night-label": "Galap",
 	"skin-theme-os-label": "Otomatis",
-	"vector-feature-custom-font-size-exclusion-notice": "Ni halaman ini jaga pake tulisan ukuran kacili"
+	"vector-main-menu-label": "Menu utama",
+	"vector-feature-custom-font-size-exclusion-notice": "Ni halaman ini jaga pake tulisan ukuran kacili",
+	"vector-page-tools-label": "Alat-alat",
+	"vector-page-tools-general-label": "Umum"
 }
