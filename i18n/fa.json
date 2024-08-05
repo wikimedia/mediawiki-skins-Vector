@@ -108,5 +108,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "گزارش دریافت شد!",
 	"vector-night-mode-issue-reporting-preload-title": "خطای $1 حالت تاریک",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nدستورالعمل‌ها\nلطفاً توضیح دهید که چگونه رنگ‌های حالت تاریک ویکی‌پدیا خواندن مطالب را دشوار می‌کنند.\nلطفاً بخش مقاله‌ای که در آن با این مشکل مواجه شده‌اید را نیز شامل کنید.\n-->\n'''توضیح خطا'''",
-	"vector-night-mode-beta-tag": "(آزمایشی)"
+	"vector-night-mode-beta-tag": "(آزمایشی)",
+	"vector-night-mode-launch-title": "رنگ‌های جدید ویکی‌پدیا",
+	"vector-night-mode-launch-subtitle": "حالت تاریک را الان بیازمایید",
+	"vector-night-mode-launch-description-day": "ویکی‌پدیا هم‌اکنون در حالت تاریک موجود است. با ضربه زدن بر روی «تاریک» در قسمت «رنگ» منوی ظاهر در سمت چپ آن را بیازمایید.",
+	"vector-night-mode-launch-close-label": "بستن"
 }

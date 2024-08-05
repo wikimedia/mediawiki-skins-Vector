@@ -44,10 +44,12 @@
 	"vector-site-nav-label": "Retopagino",
 	"vector-main-menu-label": "Chef-menuo",
 	"vector-limited-width-toggle": "Modifikar la limito di larjeso di la kontenajo",
+	"vector-feature-custom-font-size-exclusion-notice": "Ca pagino sempre uzas fonti kun mikra grandeso",
 	"vector-page-tools-label": "Utensili",
 	"vector-page-tools-general-label": "Ordinara",
 	"vector-pin-element-label": "movar a latera panelo",
 	"vector-unpin-element-label": "celez",
 	"tooltip-vector-anon-user-menu-title": "Plusa selekti",
-	"vector-page-tools-nav-label": "Utensili por pagini"
+	"vector-page-tools-nav-label": "Utensili por pagini",
+	"vector-prefs-limited-width-help": "Kapabligar la limitizo di larjeso, por plubonigar la lektebleso."
 }

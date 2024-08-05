@@ -20,10 +20,12 @@
 	"skin-theme-day-label": "Tshiò-sik",
 	"skin-theme-night-label": "Àm-sik",
 	"skin-theme-os-label": "Tsū-tōng",
+	"skin-theme-exclusion-notice": "Tsit ia̍h thong-siông sī tshián-sik bôo-sik.",
 	"vector-searchsuggest-containing": "Tshiau-tshē ū <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ê ia̍h",
 	"vector-toc-label": "Bo̍k-lo̍k",
 	"vector-toc-beginning": "Sū-giân",
 	"vector-main-menu-label": "Tsú-suán-tuann",
+	"vector-feature-custom-font-size-exclusion-notice": "Tsit ia̍h thong-siông sú-iōng sió jī-hîng tuā-suè",
 	"vector-page-tools-label": "Ke-si",
 	"vector-page-tools-general-label": "It-puann",
 	"vector-unpin-element-label": "Bih"

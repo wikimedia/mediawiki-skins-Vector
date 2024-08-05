@@ -8,7 +8,8 @@
 			"Rocky 734",
 			"Samar88",
 			"Srabony90",
-			"ᱢᱩᱨᱢᱩ"
+			"ᱢᱩᱨᱢᱩ",
+			"ᱤᱧ ᱢᱟᱛᱟᱞ"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᱯᱟᱹᱨᱥᱤ|$1 ᱯᱟᱹᱨᱥᱤ ᱠᱚ}}",
@@ -36,5 +37,7 @@
 	"skin-theme-name": "ᱨᱚᱝ",
 	"skin-theme-day-label": "ᱢᱟᱨᱥᱟᱞ",
 	"vector-feature-custom-font-size-exclusion-notice": "ᱱᱚᱶᱟ ᱥᱟᱦᱴᱟ ᱨᱮ ᱦᱩᱰᱤᱧ ᱪᱤᱠᱤ ᱵᱮᱵᱷᱟᱨᱚᱜ-ᱟ",
+	"vector-page-tools-label": "ᱥᱟᱯᱟᱯᱠᱚ",
+	"vector-page-tools-general-label": "ᱥᱟᱫᱷᱟᱨᱚᱱ",
 	"vector-unpin-element-label": "ᱫᱟᱱᱟᱝ"
 }
