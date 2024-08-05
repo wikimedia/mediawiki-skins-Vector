@@ -9,7 +9,10 @@
 	"vector-no-language-button-label": "ܐܘܣܦ ܠܫܢ̈ܐ",
 	"vector-action-addsection": "ܐܘܣܦ ܡܠܘܐܐ",
 	"vector-action-move": "ܫܢܝ",
+	"vector-action-protect": "ܢܛܘܪ",
 	"vector-view-create": "ܒܪܝ",
 	"vector-view-history": "ܚܙܝ ܬܫܥܝܬܐ",
-	"vector-more-actions": "ܝܬܝܪ"
+	"vector-more-actions": "ܝܬܝܪ",
+	"vector-searchsuggest-containing": "ܒܨܝ ܠܦܬܘܬ̈ܐ ܕܐܝܬ ܒܗܘܢ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "ܫܘܪܝܐ"
 }

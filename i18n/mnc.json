@@ -6,9 +6,13 @@
 			"Minggantu",
 			"Obonggi",
 			"Араси",
-			"Amire80"
+			"Amire80",
+			"Nikki"
 		]
 	},
+	"vector-languages": "gisun",
+	"vector-language-button-label": "{{PLURAL:$1|$1 gisun}}",
+	"vector-no-language-button-label": "gisun be nonggimbi",
 	"vector-action-addsection": "Nogila joringga",
 	"vector-action-delete": "Dabgire",
 	"vector-action-move": "Guribure",
@@ -18,5 +22,7 @@
 	"vector-view-history": "Ere xu fiyelen i suduri be baicara",
 	"vector-view-view": "Hvlara",
 	"vector-view-viewsource": "Da šu wen be baicara",
-	"vector-more-actions": "Ele lbdu tuwanaki"
+	"vector-more-actions": "Ele lbdu tuwanaki",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> be baktara justan be tuwambi",
+	"vector-toc-beginning": "deribun"
 }
