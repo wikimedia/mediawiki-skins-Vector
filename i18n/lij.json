@@ -90,5 +90,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "Segnalaçión reçevûaǃ",
 	"vector-night-mode-issue-reporting-preload-title": "Erô da modalitæ néutte $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstruçioìn\nPe piâxéi, scrîvi cómme i coî da modalitæ néutte réndan a Wikipedia conpricâ da lêze.\nPe piâxéi, inclùddi a seçión da pàgina dónde ti t'æ trovòu o problêma ascì.\n-->\n'''Descriçión do problêma'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-night-mode-launch-title": "I nêuvi coî de Wikipedia",
+	"vector-night-mode-launch-subtitle": "Prêuva òua a modalitæ néutte",
+	"vector-night-mode-launch-description-day": "Wikipedia a l'é òua disponìbile inta modalitæ néutte. Se peu ativâ sciacàndo in sce \"Néutte\" inta seçión \"Cô\" do menù \"Câa\", in sciâ drîta.",
+	"vector-night-mode-launch-close-label": "Særa"
 }
