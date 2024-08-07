@@ -13,7 +13,8 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Αντιγόνη"
+			"Αντιγόνη",
+			"KonVog"
 		]
 	},
 	"vector-skin-desc": "Παρέχει 2 Vector θέματα:\n* 2011 - Τη σύγχρονη έκδοση του MonoBook με φρέσκια εμφάνιση και πολλές βελτιώσεις στη χρηστικότητα.\n* 2022 - Το Vector που δημιουργήθηκε ως μέρος του έργου [[mw:Desktop Improvements]] του WMF.",
@@ -70,6 +71,7 @@
 	"vector-unpin-element-label": "απόκρυψη",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Συζήτηση]]",
 	"tooltip-vector-anon-user-menu-title": "Περισσότερες επιλογές",
+	"vector-page-tools-nav-label": "Εργαλεία σελίδων",
 	"vector-prefs-limited-width": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους",
 	"vector-prefs-limited-width-help": "Ενεργοποίηση λειτουργίας περιορισμένου πλάτους για βελτιωμένη εμπειρία ανάγνωσης.",
 	"empty-language-selector-body": "Τα περιεχόμενα της σελίδας δεν υποστηρίζονται σε άλλες γλώσσες.",

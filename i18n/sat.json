@@ -8,7 +8,8 @@
 			"Rocky 734",
 			"Samar88",
 			"Srabony90",
-			"ᱢᱩᱨᱢᱩ"
+			"ᱢᱩᱨᱢᱩ",
+			"ᱤᱧ ᱢᱟᱛᱟᱞ"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᱯᱟᱹᱨᱥᱤ|$1 ᱯᱟᱹᱨᱥᱤ ᱠᱚ}}",
@@ -25,5 +26,7 @@
 	"vector-view-view": "ᱯᱟᱲᱦᱟᱣᱢᱮ",
 	"vector-view-viewsource": "ᱯᱷᱮᱰᱟᱛ ᱧᱮᱞᱢᱮ",
 	"vector-more-actions": "ᱵᱟᱹᱲᱛᱤ",
+	"vector-page-tools-label": "ᱥᱟᱯᱟᱯᱠᱚ",
+	"vector-page-tools-general-label": "ᱥᱟᱫᱷᱟᱨᱚᱱ",
 	"vector-unpin-element-label": "ᱫᱟᱱᱟᱝ"
 }

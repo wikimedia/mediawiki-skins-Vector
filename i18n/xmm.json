@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mbee-wiki"
+		]
+	},
+	"vector-languages": "Bahasa",
+	"vector-action-delete": "Kase hapus",
+	"vector-action-move": "Kase pinda",
+	"vector-view-create": "Beking",
+	"vector-more-actions": "Yang laeng lagi",
+	"vector-main-menu-label": "Menu utama",
+	"vector-page-tools-label": "Alat-alat",
+	"vector-page-tools-general-label": "Umum"
+}

@@ -10,6 +10,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 ezhimi|$1 ezhimizhi}}",
 	"vector-no-language-button-label": "la ezhimizhi bebo",
 	"vector-action-addsection": "La eganti bebo",
+	"vector-action-delete": "[Nuwan]",
 	"vector-action-move": "Yelo",
 	"vector-view-create": "Te",
 	"vector-view-history": "Chin etan le",
