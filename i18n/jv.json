@@ -64,5 +64,8 @@
 	"vector-pin-element-label": "lih menyang wilah sisih",
 	"vector-unpin-element-label": "dhelikaké",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Parembugan]]",
-	"tooltip-vector-anon-user-menu-title": "Pilihan liya"
+	"tooltip-vector-anon-user-menu-title": "Pilihan liya",
+	"vector-toc-unpinned-popup": "Pratélaning isi dilih mréné.",
+	"vector-page-tools-unpinned-popup": "Menu piranti dilih mréné.",
+	"vector-main-menu-unpinned-popup": "Menu utama dilih mréné."
 }
