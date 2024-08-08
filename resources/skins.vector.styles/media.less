@@ -22,11 +22,13 @@
 	}
 }
 
-html.skin-theme-clientpref-night {
-	.dark-mode-image-styles();
+@media screen {
+	html.skin-theme-clientpref-night {
+		.dark-mode-image-styles();
+	}
 }
 
-@media ( prefers-color-scheme: dark ) {
+@media screen and ( prefers-color-scheme: dark ) {
 	html.skin-theme-clientpref-os {
 		.dark-mode-image-styles();
 	}
