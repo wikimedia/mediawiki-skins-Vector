@@ -85,8 +85,11 @@
 	"vector-page-tools-unpinned-popup": "De Menü vun der Geschierkëscht gouf heihi geréckelt.",
 	"vector-main-menu-unpinned-popup": "Den Haaptmenü gouf heihi geréckelt.",
 	"vector-appearance-unpinned-popup": "De Menü vum Ausgesinn gouf heihi geréckelt.",
-	"vector-2022-beta-preview-label": "Vector 2022 Beta",
+	"vector-2022-beta-preview-label": "Zougänglechkeet fir ze Liesen (Vector 2022)",
+	"vector-night-mode-issue-reporting-link-label": "E Problem mam donkele Modus mellen",
+	"vector-night-mode-issue-reporting-preload-title": "$1 donkele Modus Feeler",
 	"vector-night-mode-beta-tag": "(Beta)",
 	"vector-night-mode-launch-title": "Déi nei Faarwe vu Wikipedia",
+	"vector-night-mode-launch-subtitle": "Probéiert den donkele Modus haut",
 	"vector-night-mode-launch-close-label": "Zoumaachen"
 }
