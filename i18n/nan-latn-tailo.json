@@ -5,7 +5,10 @@
 		]
 	},
 	"vector-languages": "Gú-giân",
+	"vector-language-button-label": "{{PLURAL:$1|$1 tsióng gú-giân}}",
 	"vector-no-language-button-label": "Ka-thiam gú-giân",
+	"vector-action-addsection": "Ke tsi̍t-ê tuān-lo̍h",
+	"vector-view-create": "Khai-sí siá",
 	"vector-view-history": "khuànn li̍k-sú",
 	"vector-more-actions": "Koh khuànn",
 	"vector-searchsuggest-containing": "Tshiau-tshē ū <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ê ia̍h",

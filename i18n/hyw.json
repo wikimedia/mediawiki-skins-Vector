@@ -5,10 +5,13 @@
 			"Azniv Stepanian",
 			"Rajemian",
 			"Դավիթ Սարոյան",
-			"Սերգեյ Սաֆարյան"
+			"Սերգեյ Սաֆարյան",
+			"Շահէն"
 		]
 	},
+	"vector-languages": "Լեզուներ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 լեզու}}",
+	"vector-no-language-button-label": "Աւելցնել լեզուներ",
 	"vector-action-addsection": "Աւելցնել քննարկում",
 	"vector-action-delete": "Ջնջել",
 	"vector-action-move": "Տեղափոխել այս էջը",
@@ -17,5 +20,7 @@
 	"vector-view-edit": "Խմբագրել",
 	"vector-view-history": "Տեսնել պատմութիւնը",
 	"vector-view-view": "Կարդալ",
-	"vector-more-actions": "Աւելի"
+	"vector-more-actions": "Աւելի",
+	"vector-searchsuggest-containing": "Որոնել էջեր որ կը ներառեն <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Սկսիլ"
 }
