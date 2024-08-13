@@ -6,16 +6,14 @@ html.ve-activated {
 	}
 
 	// T367822
-	@media screen {
-		&.skin-theme-clientpref-night {
-			.ve-ce-branchNode-blockSlug,
-			body p.ve-ce-branchNode-newSlug {
-				background-color: rgba( 241, 247, 251, 0.1 );
-			}
+	&.skin-theme-clientpref-night {
+		.ve-ce-branchNode-blockSlug,
+		body p.ve-ce-branchNode-newSlug {
+			background-color: rgba( 241, 247, 251, 0.1 );
 		}
 	}
 
-	@media screen and ( prefers-color-scheme: dark ) {
+	@media ( prefers-color-scheme: dark ) {
 		&.skin-theme-clientpref-os {
 			.ve-ce-branchNode-blockSlug,
 			body p.ve-ce-branchNode-newSlug {
