@@ -52,10 +52,8 @@
 .vector-icon.mw-ui-icon-wikimedia-userGroup,
 .vector-icon.mw-ui-icon-wikimedia-listBullet,
 .vector-icon.mw-ui-icon-wikimedia-close {
-	@media screen {
-		html.skin-theme-clientpref-night & {
-			filter: invert( 1 );
-		}
+	html.skin-theme-clientpref-night & {
+		filter: invert( 1 );
 	}
 
 	/**
@@ -63,7 +61,7 @@
 	 *
 	 * Applies the night mode color palette only in response to system settings.
 	 */
-	@media screen and ( prefers-color-scheme: dark ) {
+	@media ( prefers-color-scheme: dark ) {
 		html.skin-theme-clientpref-os & {
 			filter: invert( 1 );
 		}

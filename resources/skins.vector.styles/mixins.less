@@ -26,15 +26,13 @@
 		// https://phabricator.wikimedia.org/T319070#8284272
 		margin-left: 7px;
 
-		@media screen {
-			html.skin-theme-clientpref-night & {
-				// For night-mode, invert icons so they go from black to white.
-				// Since invert( 1 ) changes the hue (e.g. from blue to orange)
-				// hue-rotate( 180deg ) changes the hue back to that of the original color.
-				// This slightly corrects progressive/destructive colored icons
-				// (although their lightness & saturation are still different, e.g. language button).
-				filter: invert( 1 ) hue-rotate( 180deg );
-			}
+		html.skin-theme-clientpref-night & {
+			// For night-mode, invert icons so they go from black to white.
+			// Since invert( 1 ) changes the hue (e.g. from blue to orange)
+			// hue-rotate( 180deg ) changes the hue back to that of the original color.
+			// This slightly corrects progressive/destructive colored icons
+			// (although their lightness & saturation are still different, e.g. language button).
+			filter: invert( 1 ) hue-rotate( 180deg );
 		}
 
 		/**
@@ -42,7 +40,7 @@
 		*
 		* Applies the night mode color palette only in response to system settings.
 		*/
-		@media screen and ( prefers-color-scheme: dark ) {
+		@media ( prefers-color-scheme: dark ) {
 			html.skin-theme-clientpref-os & {
 				filter: invert( 1 ) hue-rotate( 180deg );
 			}
