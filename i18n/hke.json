@@ -4,6 +4,16 @@
 			"Muisha wiki hke"
 		]
 	},
+	"vector-languages": "Mineenere",
+	"vector-language-button-label": "{{PLURAL:$1|$1 muneenere|$1 mineenere}}",
+	"vector-no-language-button-label": "Ongerera mineenere",
+	"vector-view-create": "Hanga",
+	"vector-view-history": "Lola ku byobyakindire ikolwa",
 	"vector-more-actions": "Nakandi",
-	"vector-searchsuggest-containing": "Xonda tushashali totuli ko <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Xonda tushashali totuli ko <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Byobirimo",
+	"vector-toc-beginning": "Ndangiro",
+	"vector-main-menu-label": "Ndangiriro",
+	"vector-page-tools-label": "Bindu bye kolesa",
+	"vector-unpin-element-label": "bisha"
 }
