@@ -48,6 +48,7 @@
 	"vector-feature-custom-font-size-0-label": "Majhna",
 	"vector-feature-custom-font-size-1-label": "Standard",
 	"vector-feature-custom-font-size-2-label": "Velika",
+	"skin-theme-night-label": "Temno",
 	"vector-search-loader": "Nalaganje predlogov za iskanje",
 	"vector-searchsuggest-containing": "Poišči strani, ki vsebujejo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Uvod",
@@ -83,9 +84,12 @@
 	"vector-appearance-unpinned-popup": "Meni videza se je preselil sem.",
 	"vector-2022-beta-preview-label": "Dostopnost za branje (Vector 2022)",
 	"vector-2022-beta-preview-description": "Pridobite zgodnji dostop do novih možnosti za bralno dostopnost, kot so izboljšave tipografije in nočni način.",
+	"vector-night-mode-gadget-warning": "Uporabljate pripomoček za temni način, ki ovira to možnost.  [[Special:Preferences#mw-prefsection-gadgets|Izključite pripomoček]] za uporabo temnega načina.",
 	"vector-night-mode-issue-reporting-link-label": "Sporočite težavo s temnim načinom",
 	"vector-night-mode-issue-reporting-link-notification": "Poročilo prejeto!",
 	"vector-night-mode-issue-reporting-preload-title": "Napaka temnega načina $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nNavodila\nProsimo, opišite, kako temne barve otežujejo branje Wikipedije.\nNavedite razdelek članka, v katerem ste ugotovili težavo.\n--> \n'''Opis težave'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-night-mode-launch-subtitle": "Preizkusite temni način še danes",
+	"vector-night-mode-launch-description-day": "Wikipedija je zdaj na voljo v temnem načinu. Preizkusite ga tako, da kliknete »Temno« v razdelku »Barva« menija Videz na desni."
 }

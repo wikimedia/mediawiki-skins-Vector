@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alicia Agyeiwaa",
 			"Obed554",
 			"Yaw tuba"
 		]
@@ -8,6 +9,8 @@
 	"vector-languages": "kasa ahodoɔ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
 	"vector-no-language-button-label": "Fa kasa ahodoɔ ka ho",
+	"vector-action-addsection": "Fa asɛnti ka ho",
+	"vector-view-create": "Yɛ anaa bɔ",
 	"vector-view-history": "Hwɛ abakɔsɛm",
 	"vector-more-actions": "Bebree",
 	"vector-appearance-label": "deɛ wohu",
@@ -17,9 +20,11 @@
 	"vector-feature-custom-font-size-name": "atwerɛ",
 	"vector-feature-custom-font-size-0-label": "ketewa",
 	"vector-feature-custom-font-size-1-label": "yɛagye atom",
+	"vector-feature-custom-font-size-2-label": "Kɛseɛ,deɛ ɔbae, deɛ ɔtrɛ",
 	"skin-theme-name": "ahosuo",
 	"skin-theme-day-label": "hann",
 	"skin-theme-night-label": "sum",
+	"skin-theme-os-label": "Afidie a ɔno ara tim yɔ adwuma\nAdeɛ a ɔsi toatoa mu a ɔnyɛ anidaho",
 	"skin-theme-exclusion-notice": "Daa, simpie yi wɔ hann mu",
 	"vector-searchsuggest-containing": "Hwehwɛ nkratafa ahorow a ɛwɔ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Emu nsɛm ahodoɔ",
