@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alicia Agyeiwaa",
+			"Obed554",
+			"Yaw tuba"
+		]
+	},
+	"vector-languages": "kasa ahodoɔ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 language|$1 languages}}",
+	"vector-no-language-button-label": "Fa kasa ahodoɔ ka ho",
+	"vector-action-addsection": "Fa asɛnti ka ho",
+	"vector-view-create": "Yɛ anaa bɔ",
+	"vector-view-history": "Hwɛ abakɔsɛm",
+	"vector-more-actions": "Bebree",
+	"vector-searchsuggest-containing": "Hwehwɛ nkratafa ahorow a ɛwɔ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Ahyɛaseɛ"
+}
