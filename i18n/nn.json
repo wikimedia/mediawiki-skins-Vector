@@ -60,6 +60,7 @@
 	"vector-limited-width-toggle": "Slå av/på avgrensa breidd på innhaldet",
 	"vector-limited-width-toggle-on-popup": "Du har bytt til oppsettet med full breidd. Trykk på denne knappen for å gå attende til avgrensa breidd.",
 	"vector-limited-width-toggle-off-popup": "Du kan byta mellom avgrensa breidd og full breidd ved å trykkja på denne knappen.",
+	"vector-feature-custom-font-size-exclusion-notice": "Denne sida nyttar alltid liten skriftstorleik",
 	"vector-page-tools-label": "Verktøy",
 	"vector-page-tools-general-label": "Ålment",
 	"vector-page-tools-actions-label": "Handlingar",

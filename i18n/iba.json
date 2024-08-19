@@ -11,7 +11,7 @@
 	"vector-opt-out-tooltip": "Ubah setting nuan ngambika pulai ngagai gamal kulit ti lama (Vektor Legasi)",
 	"vector-action-toggle-sidebar": "Togal batang tisi",
 	"vector-languages": "Jaku",
-	"vector-language-button-aria-label": "Pegi ngagai artikel dalam jaku bukai. Bisi dalam {{{{PLURAL:$1|$1 jaku}}",
+	"vector-language-button-aria-label": "Pegi ngagai artikel dalam jaku bukai. Bisi dalam {{PLURAL:$1|$1 jaku}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 jaku}}",
 	"vector-no-language-button-label": "Tambah jaku",
 	"vector-no-language-button-aria-label": "Artikel tu mina bisi dalam jaku tu. Tambah artikel dalam jaku bukai.",

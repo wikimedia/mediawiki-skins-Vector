@@ -102,7 +102,6 @@
 	"vector-appearance-unpinned-popup": "Меню зовнішнього вигляду перемістилося сюди.",
 	"vector-2022-beta-preview-label": "Доступність для читання (Вектор 2022)",
 	"vector-2022-beta-preview-description": "Отримайте ранній доступ до нових можливостей доступного читання, таких як покращення типографіки та темний режим.",
-	"vector-night-mode-gadget-warning": "Ви використовуєте гаджет темного режиму, який заважає цій функції. [[Special:Preferences#mw-prefsection-gadgets|Вимкніть гаджет]], щоб використовувати темний режим.",
 	"vector-night-mode-issue-reporting-link-label": "Повідомити про проблему з темним режимом",
 	"vector-night-mode-issue-reporting-link-notification": "Звіт отримано!",
 	"vector-night-mode-issue-reporting-preload-title": "Помилка темного режиму ($1)",

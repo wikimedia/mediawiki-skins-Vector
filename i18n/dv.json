@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Glacious",
 			"Glaisher",
 			"MAL MALDIVE",
 			"Ushau97"
@@ -21,6 +22,8 @@
 	"vector-more-actions": "އިތުރަށް",
 	"vector-feature-limited-width-name": "ފުޅާމިން",
 	"vector-feature-limited-width-0-label": "ފޮރުވާ",
+	"vector-feature-custom-font-size-name": "ލިޔުން",
+	"vector-feature-custom-font-size-0-label": "ކުޑަ",
 	"skin-theme-name": "ކުލަ",
 	"skin-theme-day-label": "އަލި",
 	"skin-theme-night-label": "އަނދިރި",
