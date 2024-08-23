@@ -98,5 +98,9 @@
 	"vector-night-mode-issue-reporting-link-notification": "Laporan diterima!",
 	"vector-night-mode-issue-reporting-preload-title": "Ralat mod gelap $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nPanduan\nSila terangkan bagaimana warna mod gelap menjadikan Wikipedia semakin sukar untuk dibaca.\nSila sertakan bahagian rencana yang anda temui isu tersebut.\n--> \n'''Huraian Isu'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-night-mode-launch-title": "Warna baharu Wikipedia",
+	"vector-night-mode-launch-subtitle": "Cubalah mod gelap hari ini",
+	"vector-night-mode-launch-description-day": "Wikipedia kini tersedia dalam mod gelap. Cubalah dengan mengklik \"Gelap\" dalam bahagian \"Warna\" pada menu Penampilan di sebelah kanan.",
+	"vector-night-mode-launch-close-label": "Tutup"
 }
