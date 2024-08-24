@@ -21,7 +21,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.42.0"
+		"MediaWiki": ">= 1.43"
 	},
 	"attributes": {
 		"DarkMode": {
@@ -500,7 +500,9 @@
 			"styles": [
 				"resources/skins.vector.DarkModeLaunchBanner/DarkModeLaunchBanner.less"
 			],
-			"dependencies": [ "skins.vector.DarkModeLaunchBanner.codexModules" ],
+			"dependencies": [
+				"skins.vector.DarkModeLaunchBanner.codexModules"
+			],
 			"messages": [
 				"vector-night-mode-launch-title",
 				"vector-night-mode-launch-subtitle",
