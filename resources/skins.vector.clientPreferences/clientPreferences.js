@@ -199,6 +199,7 @@ function makeFeedbackLink( betaMessageElement ) {
 	const anchor = document.createElement( 'a' );
 	anchor.setAttribute( 'href', link );
 	anchor.setAttribute( 'target', '_blank' );
+	anchor.setAttribute( 'title', mw.msg( 'vector-night-mode-issue-reporting-notice-tooltip' ) );
 	anchor.textContent = linkLabel;
 
 	/**
