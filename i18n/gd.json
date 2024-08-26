@@ -6,6 +6,9 @@
 		]
 	},
 	"vector-skin-desc": "Tionndadh ùr-nodha de MonoBook le dreach ùr air 's iomadh leasachadh air a sho-chleachdachd",
+	"vector-languages": "Cànain",
+	"vector-language-button-label": "{{PLURAL:$1|$1 chànan|$1 chànan|$1 cànain|$1 cànan}}",
+	"vector-no-language-button-label": "Cuir cànain ris",
 	"vector-action-addsection": "Cuir ris cuspair",
 	"vector-action-delete": "Sguab às",
 	"vector-action-move": "Gluais",
@@ -17,5 +20,6 @@
 	"vector-view-history": "Seall an eachdraidh",
 	"vector-view-view": "Leugh",
 	"vector-view-viewsource": "Seall an tùs",
-	"vector-more-actions": "Barrachd"
+	"vector-more-actions": "Barrachd",
+	"vector-searchsuggest-containing": "Lorg duilleagan sa bheil <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }
