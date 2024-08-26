@@ -102,5 +102,8 @@
 	"vector-night-mode-issue-reporting-preload-title": "Fout in de donkere modus op $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructies\nBeschrijf hoe de donkere kleuren het lezen van Wikipedia moeilijker maakt.\nGraag ook aangeven welk onderdeel van het artikel het probleem zich opdoet.\n-->\n'''Beschrijving van probleem'''",
 	"vector-night-mode-beta-tag": "(bèta)",
+	"vector-night-mode-launch-title": "Wikipedia’s nieuwe kleuren",
+	"vector-night-mode-launch-subtitle": "Probeer de donkere modus vandaag nog",
+	"vector-night-mode-launch-description-day": "Wikipedia is nu beschikbaar in een donkere modus. Probeer het uit door op “Donker” te klikken in het gedeelte “Kleur” van het menu Uiterlijk aan de rechterkant.",
 	"vector-night-mode-launch-close-label": "Sluiten"
 }
