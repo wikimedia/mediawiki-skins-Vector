@@ -189,6 +189,39 @@ function appendRadioToggle( parent, featureName, value, currentValue, config, us
 }
 
 /**
+ * @param {HTMLElement} betaMessageElement
+ */
+function makeFeedbackLink( betaMessageElement ) {
+	const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
+	const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
+	const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
+	const linkLabel = mw.message( 'vector-night-mode-issue-reporting-link-label' ).text();
+	const anchor = document.createElement( 'a' );
+	anchor.setAttribute( 'href', link );
+	anchor.setAttribute( 'target', '_blank' );
+	anchor.textContent = linkLabel;
+
+	/**
+	 * Shows the success message after clicking the beta feedback link.
+	 * Note: event.stopPropagation(); is required to show the success message
+	 * without closing the Appearance menu when it's in a dropdown.
+	 *
+	 * @param {Event} event
+	 */
+	const showSuccessFeedback = function ( event ) {
+		event.stopPropagation();
+		const icon = document.createElement( 'span' );
+		icon.classList.add( 'vector-icon', 'vector-icon--heart' );
+		anchor.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
+		anchor.classList.add( 'skin-theme-beta-notice-success' );
+		anchor.prepend( icon );
+		anchor.removeEventListener( 'click', showSuccessFeedback );
+	};
+	anchor.addEventListener( 'click', ( event ) => showSuccessFeedback( event ) );
+	betaMessageElement.appendChild( anchor );
+}
+
+/**
  * @param {Element} form
  * @param {string} featureName
  * @param {HTMLElement} labelElement
@@ -350,39 +383,10 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 			if ( config[ featureName ].betaMessage && !isFeatureExcluded( featureName ) ) {
 				const betaMessageElement = document.createElement( 'span' );
 				betaMessageElement.id = `${ featureName }-beta-notice`;
-				const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
-				const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
-				const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
-				const linkLabel = mw.message( 'vector-night-mode-issue-reporting-link-label' ).text();
-				const anchor = document.createElement( 'a' );
-				// per requirements: only logged in users can report errors.
+				// per requirements: only logged in users can report errors (T372754)
 				if ( !mw.user.isAnon() ) {
-					anchor.setAttribute( 'href', link );
-					anchor.setAttribute( 'target', '_blank' );
-				} else {
-					anchor.setAttribute( 'role', 'button' );
-					anchor.setAttribute( 'tabindex', '0' );
+					makeFeedbackLink( betaMessageElement );
 				}
-				anchor.textContent = linkLabel;
-
-				/**
-				 * Shows the success message after clicking the beta feedback link.
-				 * Note: event.stopPropagation(); is required to show the success message
-				 * without closing the Appearance menu when it's in a dropdown.
-				 *
-				 * @param {Event} event
-				 */
-				const showSuccessFeedback = function ( event ) {
-					event.stopPropagation();
-					const icon = document.createElement( 'span' );
-					icon.classList.add( 'vector-icon', 'vector-icon--heart' );
-					anchor.textContent = mw.msg( 'vector-night-mode-issue-reporting-link-notification' );
-					anchor.classList.add( 'skin-theme-beta-notice-success' );
-					anchor.prepend( icon );
-					anchor.removeEventListener( 'click', showSuccessFeedback );
-				};
-				anchor.addEventListener( 'click', ( event ) => showSuccessFeedback( event ) );
-				betaMessageElement.appendChild( anchor );
 				row.appendChild( betaMessageElement );
 			}
 		}
