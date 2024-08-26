@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Vector;
 
 use ExtensionRegistry;
+use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Vector\Components\VectorComponentAppearance;
@@ -479,8 +480,10 @@ class SkinVector22 extends SkinMustache {
 				'vector-appearance-dropdown',
 				$this->msg( 'vector-appearance-label' )->text(),
 				'',
-				// @todo: Use new theme icon (T351142)
-				'appearance'
+				'appearance',
+				Html::expandAttributes( [
+					'title' => $this->msg( 'vector-appearance-tooltip' ),
+				] )
 			) : null,
 			'data-vector-sticky-header' => $featureManager->isFeatureEnabled(
 				Constants::FEATURE_STICKY_HEADER
