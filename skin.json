@@ -262,7 +262,6 @@
 				"content-links": true,
 				"content-links-external": false,
 				"interface": true,
-				"interface-message-box": true,
 				"interface-category": true,
 				"content-tables": true,
 				"i18n-ordered-lists": true,
@@ -285,7 +284,6 @@
 				"interface-category": true,
 				"interface-edit-section-links": true,
 				"interface-indicators": false,
-				"interface-message-box": false,
 				"interface-site-notice": false,
 				"interface-subtitle": false,
 				"interface-user-message": true,
@@ -396,15 +394,11 @@
 		},
 		"skins.vector.js": {
 			"class": "MediaWiki\\ResourceLoader\\SkinModule",
-			"features": [
-				"interface-message-box"
-			],
 			"styles": [
 				"resources/skins.vector.js/index.less"
 			],
 			"packageFiles": [
 				"resources/skins.vector.js/skin.js",
-				"resources/skins.vector.js/legacyMessageBoxStyles.js",
 				"resources/skins.vector.js/setupIntersectionObservers.js",
 				"resources/skins.vector.js/searchToggle.js",
 				"resources/skins.vector.js/stickyHeader.js",
