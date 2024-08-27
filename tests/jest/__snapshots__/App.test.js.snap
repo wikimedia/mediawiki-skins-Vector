@@ -18,9 +18,6 @@ exports[`App renders a typeahead search component 1`] = `
   show-thumbnail="true"
   title="search"
 >
-  <div>
-    empty
-  </div>
   <input
     name="title"
     type="hidden"
