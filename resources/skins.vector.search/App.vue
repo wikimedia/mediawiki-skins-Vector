@@ -27,7 +27,6 @@
 		@blur="onBlur"
 	>
 		<template #default>
-			<div ref="emptyState">empty</div>
 			<input
 				type="hidden"
 				name="title"
@@ -186,7 +185,6 @@ module.exports = exports = defineComponent( {
 				restClient.fetchByTitle( query, 10, this.showDescription ),
 				true
 			);
-			this.$refs.emptyState.innerHTML = '';
 		},
 
 		/**
@@ -271,9 +269,6 @@ module.exports = exports = defineComponent( {
 			nextTick( () => {
 				this.disableTransitions = false;
 			} );
-		}
-		if ( this.$refs.emptyState ) {
-			mw.hook( 'search.display' ).fire( this.$refs.emptyState );
 		}
 	}
 } );
