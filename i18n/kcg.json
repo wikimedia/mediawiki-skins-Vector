@@ -18,10 +18,13 @@
 	"vector-view-view": "Fang",
 	"vector-more-actions": "Nkyang njhyang",
 	"vector-searchsuggest-containing": "Zop ngwat na̱ byia̱ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Nkyangmami",
+	"vector-toc-beginning": "A̱tsan",
 	"vector-anon-user-menu-pages-learn": "myiam nkyang jhyang",
 	"vector-anon-user-menu-pages-label": "Myiam nkyang jhyang tazwa jhyuk",
 	"vector-main-menu-tooltip": "A̱tsak meniu",
 	"vector-toc-menu-tooltip": "A̱tyii Nkyangmami",
+	"vector-main-menu-label": "A̱tsak meniu",
 	"vector-page-tools-label": "Nkyangta̱m",
 	"vector-page-tools-general-label": "Kuzangka̱i",
 	"vector-unpin-element-label": "ta̱kup"
