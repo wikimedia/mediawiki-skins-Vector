@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bergerdias",
+			"CapitainAfrika",
 			"Cgmbo",
 			"Rkupsala"
 		]
@@ -17,6 +18,7 @@
 	"vector-view-history": "Tala bansoba",
 	"vector-view-view": "Tânga",
 	"vector-more-actions": "Ya nkaka",
+	"skin-theme-name": "Lângi",
 	"skin-theme-exclusion-notice": "Lutiti yai ke vandaka ntangu yonso na mutindu ya kilumbu.",
 	"vector-searchsuggest-containing": "Sosa balutiti ya kele ti <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-page-tools-label": "Bisadilu",
