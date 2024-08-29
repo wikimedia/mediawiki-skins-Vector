@@ -7,6 +7,8 @@
 	"vector-languages": "Mineenere",
 	"vector-language-button-label": "{{PLURAL:$1|$1 muneenere|$1 mineenere}}",
 	"vector-no-language-button-label": "Ongerera mineenere",
+	"vector-action-addsection": "Ongerera mushambalo",
+	"vector-action-move": "Hira byo handi",
 	"vector-view-create": "Hanga",
 	"vector-view-history": "Lola ku byobyakindire ikolwa",
 	"vector-more-actions": "Nakandi",

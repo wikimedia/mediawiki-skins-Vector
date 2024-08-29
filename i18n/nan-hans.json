@@ -7,6 +7,7 @@
 	"vector-languages": "语言",
 	"vector-language-button-label": "{{PLURAL:$1|$1 种语言}}",
 	"vector-no-language-button-label": "加添语言",
+	"vector-action-addsection": "加一个段落",
 	"vector-view-create": "开新页",
 	"vector-view-history": "看历史",
 	"vector-more-actions": "阁看",
