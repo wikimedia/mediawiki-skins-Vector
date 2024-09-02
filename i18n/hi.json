@@ -44,6 +44,7 @@
 	"vector-jumptocontent": "सामग्री पर जाएँ",
 	"vector-more-actions": "अधिक",
 	"vector-appearance-label": "पठन सेटिंग्स",
+	"vector-appearance-tooltip": "पृष्ठ के फ़ॉन्ट का आकार, चौड़ाई और रंग बदलें",
 	"vector-feature-limited-width-name": "कॉलम की चौड़ाई",
 	"vector-feature-limited-width-0-label": "पूरी चौड़ाई",
 	"vector-feature-limited-width-1-label": "सीमित चौड़ाई",
@@ -87,5 +88,6 @@
 	"vector-main-menu-unpinned-popup": "मुख्य मेन्यू अब यहाँ पर है।",
 	"vector-2022-beta-preview-label": "Vector 2022 बीटा",
 	"vector-2022-beta-preview-description": "Vector 2022 की नई सुविधाओं का शीघ्र पूर्वावलोकन पाएँ।",
+	"vector-night-mode-issue-reporting-notice-tooltip": "जब डार्क मोड के रंगों के कारण चीज़ें पढ़ने में मुश्किल हो जाए तो रिपोर्ट करें।",
 	"vector-night-mode-launch-close-label": "बंद करें"
 }
