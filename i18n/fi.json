@@ -52,6 +52,7 @@
 	"vector-jumptocontent": "Siirry sisältöön",
 	"vector-more-actions": "Muut",
 	"vector-appearance-label": "Ulkoasu",
+	"vector-appearance-tooltip": "Muuta sivun kirjainkokoa, leveyttä ja väriä",
 	"vector-feature-limited-width-name": "Leveys",
 	"vector-feature-limited-width-0-label": "Leveä",
 	"vector-feature-limited-width-1-label": "Perinteinen",

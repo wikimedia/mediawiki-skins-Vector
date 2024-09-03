@@ -6,6 +6,7 @@
 		]
 	},
 	"vector-languages": "Miakulu",
+	"vector-language-button-label": "{{PLURAL:$1|$1muakulu|\n$1miakulu}}",
 	"vector-no-language-button-label": "Kukumbaja miakulu",
 	"vector-action-delete": "Kumbusha",
 	"vector-action-protect": "kulama",
@@ -24,6 +25,7 @@
 	"skin-theme-night-label": "Bufika Anyi miidima",
 	"skin-theme-os-label": "bienzeka ngaya",
 	"skin-theme-exclusion-notice": "Dibeji edi Didi anu ditoka",
+	"vector-searchsuggest-containing": "Kukebulula mabeji adi ne<strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
 	"vector-toc-label": "Bidi munda",
 	"vector-toc-beginning": "Bangilu anyi ntuadijilu",
 	"vector-main-menu-label": "Bulongolodi bua kumpala Anyi bua mushinga",
