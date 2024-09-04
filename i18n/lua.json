@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrisdanielkazadi",
+			"Shayi ngolu"
+		]
+	},
+	"vector-languages": "Miakulu",
+	"vector-language-button-label": "{{PLURAL:$1|$1muakulu|\n$1miakulu}}",
+	"vector-no-language-button-label": "Kukumbaja miakulu",
+	"vector-action-delete": "Kumbusha",
+	"vector-action-protect": "kulama",
+	"vector-view-history": "Kumona maalu aa kala",
+	"vector-more-actions": "Malu makuabu",
+	"vector-searchsuggest-containing": "Kukebulula mabeji adi ne<strong class=\"cdx-typeahead-search_search-footer_query\">$1</strong>",
+	"vector-toc-label": "Bidi munda",
+	"vector-toc-beginning": "Bangilu anyi ntuadijilu",
+	"vector-main-menu-label": "Bulongolodi bua kumpala Anyi bua mushinga",
+	"vector-page-tools-label": "Bia ku kuata nabi mudimu",
+	"vector-page-tools-general-label": "Mu tshibunyi",
+	"vector-unpin-element-label": "Kusokoka"
+}

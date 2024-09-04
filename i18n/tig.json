@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bbeshir"
+			"Bbeshir",
+			"IdrisSeid"
 		]
 	},
 	"vector-languages": "ሉቃት",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
 	"vector-view-history": "ታሪኽ ራኣው",
 	"vector-more-actions": "ዚያደት",
+	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-unpin-element-label": "ሕብዖ"
 }

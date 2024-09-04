@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Olivier Moukodi"
+			"Olivier Moukodi",
+			"EbelleMarcel"
 		]
 	},
-	"vector-searchsuggest-containing": "Wasa la mapapa ma alidi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-languages": "Bwambo",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Bwambo}}",
+	"vector-no-language-button-label": "Bata bwambo",
+	"vector-view-history": "jènè la kwaṅ",
+	"vector-more-actions": "pètè",
+	"vector-searchsuggest-containing": "Wasa la mapapa ma alidi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Bebotedi",
+	"vector-main-menu-label": "Dipapà la tobotobo",
+	"vector-page-tools-label": "Belongisan",
+	"vector-unpin-element-label": "Wuta"
 }
