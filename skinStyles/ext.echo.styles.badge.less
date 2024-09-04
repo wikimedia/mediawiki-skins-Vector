@@ -49,6 +49,13 @@
 	display: inline-flex;
 	margin: 0;
 	opacity: 1;
+	// Workaround T343838.
+	// The OOUI icon uses the ::after pseudo element so will not work with mask image.
+	// Because of this we disable the mask image rule.
+	/* stylelint-disable declaration-no-important */
+	-webkit-mask-image: none !important;
+	mask-image: none !important;
+	/* stylelint-enable declaration-no-important */
 	// T341490 We are incorrectly applying Codex icon and button styles on the
 	// same element because ULS frequently overwrites the contents of the element
 	// so it is too difficult to maintain the correct markup. Because we are mixing
