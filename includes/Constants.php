@@ -256,16 +256,6 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const FEATURE_APPEARANCE = 'Appearance';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_APPEARANCE = 'Appearance';
-
-	/**
-	 * @var string
-	 */
 	public const CONFIG_KEY_NIGHT_MODE = 'VectorNightMode';
 
 	/**

@@ -467,10 +467,7 @@
 				"mediawiki.jqueryMsg"
 			],
 			"messages": [
-				"vector-limited-width-toggle-on-popup",
-				"vector-limited-width-toggle-off-popup",
 				"vector-search-loader",
-				"vector-limited-width-toggle",
 				"vector-toc-beginning",
 				"vector-toc-label",
 				"vector-pin-element-label",
