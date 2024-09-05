@@ -4,7 +4,8 @@
 			"Aguve",
 			"Amuzujoe",
 			"Azorbli",
-			"Natsubee"
+			"Natsubee",
+			"E4Esau"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 gbe|$1 gbeawo}}",
@@ -17,5 +18,6 @@
 	"vector-view-history": "Kpɔ xoxoawo",
 	"vector-view-view": "Xlẽ",
 	"vector-view-viewsource": "Kpɔ alesi woŋlɔe",
-	"vector-more-actions": "Bubuwo"
+	"vector-more-actions": "Bubuwo",
+	"vector-searchsuggest-containing": "Di axa siwo me<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> le"
 }
