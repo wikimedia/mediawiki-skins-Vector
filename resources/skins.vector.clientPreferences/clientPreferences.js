@@ -68,6 +68,7 @@ function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 			document.documentElement.classList.remove( `${ featureName }-clientpref-${ possibleValue }` );
 		} );
 		document.documentElement.classList.add( `${ featureName }-clientpref-${ value }` );
+		window.dispatchEvent( new Event( 'resize' ) );
 		// Ideally this should be taken care of via a single core helper function.
 		mw.util.debounce( () => {
 			userPreferences = userPreferences || new mw.Api();
