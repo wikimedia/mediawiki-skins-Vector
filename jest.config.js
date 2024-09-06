@@ -26,8 +26,7 @@ module.exports = {
 
 	// An array of regexp pattern strings used to skip coverage collection
 	coveragePathIgnorePatterns: [
-		'/node_modules/',
-		'DarkModeLaunchBanner.js'
+		'/node_modules/'
 	],
 
 	// An object that configures minimum threshold enforcement for coverage results

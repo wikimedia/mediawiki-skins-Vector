@@ -93,9 +93,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Report received!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 dark mode error",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructions\nPlease describe how the dark mode colors are making Wikipedia difficult to read.\nPlease include the section of the article where you found the issue.\n-->\n'''Issue Description'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Wikipedia's new colors",
-	"vector-night-mode-launch-subtitle": "Try dark mode today",
-	"vector-night-mode-launch-description-day": "Wikipedia is now available in dark mode. Try it out by clicking \"Dark\" in the \"Color\" section of the Appearance menu on the right.",
-	"vector-night-mode-launch-close-label": "Close"
+	"vector-night-mode-beta-tag": "(beta)"
 }
