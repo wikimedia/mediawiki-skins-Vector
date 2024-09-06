@@ -68,6 +68,8 @@ function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 			document.documentElement.classList.remove( `${ featureName }-clientpref-${ possibleValue }` );
 		} );
 		document.documentElement.classList.add( `${ featureName }-clientpref-${ value }` );
+		// Client preferences often change the layout of the page significantly, so emit
+		// a window resize event for other apps that need to update (T374092).
 		window.dispatchEvent( new Event( 'resize' ) );
 		// Ideally this should be taken care of via a single core helper function.
 		mw.util.debounce( () => {
