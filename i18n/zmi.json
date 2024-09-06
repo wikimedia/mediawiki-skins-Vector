@@ -4,6 +4,9 @@
 			"Zahirulnukman"
 		]
 	},
+	"vector-languages": "Bahaso",
+	"vector-language-button-label": "{{PLURAL:$1|bahaso-bahaso $1}}",
+	"vector-no-language-button-label": "Tambah bahaso",
 	"vector-view-create": "Buek",
 	"skin-theme-exclusion-notice": "Muko ini solalu dalam mod toghang",
 	"vector-main-menu-label": "Menu utamo",
