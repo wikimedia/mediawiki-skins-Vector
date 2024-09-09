@@ -109,9 +109,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Звіт отримано!",
 	"vector-night-mode-issue-reporting-preload-title": "Помилка темного режиму ($1)",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nІнструкція\nБудь ласка, опишіть, як саме кольори темного режиму ускладнюють читання Вікіпедії.\nБудь ласка, вкажіть розділ статті, у якому ви зіткнулися з проблемою.\n-->\n'''Опис проблеми'''",
-	"vector-night-mode-beta-tag": "(бета)",
-	"vector-night-mode-launch-title": "Нові кольори Вікіпедії",
-	"vector-night-mode-launch-subtitle": "Спробуйте темний режим сьогодні",
-	"vector-night-mode-launch-description-day": "У Вікіпедії тепер можна увімкнути темну тему. Щоб спробувати її, відкрийте меню «Зовнішній вигляд» праворуч і в розділі «Кольорова тема» виберіть «Темна».",
-	"vector-night-mode-launch-close-label": "Закрити"
+	"vector-night-mode-beta-tag": "(бета)"
 }

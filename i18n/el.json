@@ -101,9 +101,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Η αναφορά παραλήφθηκε!",
 	"vector-night-mode-issue-reporting-preload-title": "Σφάλμα με τη σκοτεινή λειτουργία στη $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nΟδηγίες\nΠεριγράψτε πώς τα χρώματα της σκοτεινής λειτουργίας καθιστούν δύσκολη την ανάγνωση της Βικιπαίδειας.\nΣυμπεριλάβετε την ενότητα του λήμματος όπου βρήκατε το πρόβλημα.\n-->\n'''Περιγραφή προβλήματος'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Τα νέα χρώματα της Wikipedia",
-	"vector-night-mode-launch-subtitle": "Δοκιμάστε σήμερα τη σκοτεινή λειτουργία.",
-	"vector-night-mode-launch-description-day": "Η Wikipedia είναι πλέον διαθέσιμη σε σκοτεινή λειτουργία. Δοκίμασέ την κάνοντας κλικ στο \"Σκοτεινό\" στο τμήμα «Χρώμα» του μενού Εμφάνιση στα δεξιά.",
-	"vector-night-mode-launch-close-label": "Κλείσιμο"
+	"vector-night-mode-beta-tag": "(beta)"
 }

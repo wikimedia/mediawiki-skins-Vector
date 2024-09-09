@@ -65,6 +65,7 @@
 	"vector-jumptocontent": "コンテンツにスキップ",
 	"vector-more-actions": "その他",
 	"vector-appearance-label": "表示",
+	"vector-appearance-tooltip": "ページのフォントサイズ、幅、色の外観を変更する",
 	"vector-feature-limited-width-name": "幅",
 	"vector-feature-limited-width-0-label": "広め",
 	"vector-feature-limited-width-1-label": "標準",
@@ -115,7 +116,10 @@
 	"vector-2022-beta-preview-label": "閲覧アクセス性の向上（2022年版ベクター）",
 	"vector-2022-beta-preview-description": "タイポグラフィの改善やダークモードなど、新しい閲覧アクセス性向上機能を早期にご活用いただけます。",
 	"vector-night-mode-gadget-warning": "この機能と干渉するダークモードガジェットを使用しています。ダークモードを使用するには[[Special:Preferences#mw-prefsection-gadgets|ガジェットを無効化]]してください。",
+	"vector-night-mode-issue-reporting-notice-tooltip": "ダークモードの色で読みにくくなっている場合に報告します。",
 	"vector-night-mode-issue-reporting-link-label": "ダークモードの問題を報告",
-	"vector-night-mode-beta-tag": "(ベータ)",
-	"vector-night-mode-launch-close-label": "閉じる"
+	"vector-night-mode-issue-reporting-link-notification": "報告を受け取りました!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 ダークモードエラー",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\n案内\nダークモードの色でウィキペディアがどのように読みにくくなっているのかを説明してください。\n問題を発見した記事の節を付記してください。\n-->\n'''問題の説明'''",
+	"vector-night-mode-beta-tag": "(ベータ)"
 }

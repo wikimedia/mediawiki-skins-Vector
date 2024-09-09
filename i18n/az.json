@@ -101,9 +101,5 @@
 	"vector-night-mode-issue-reporting-link-label": "Qaranlıq rejimlə bağlı problemi bildirin",
 	"vector-night-mode-issue-reporting-link-notification": "Göndərildi!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 qaranlıq rejim xətası",
-	"vector-night-mode-issue-reporting-preload-content": "<!--\nTəlimatlar\n\nQaranlıq rejim rənglərinin Vikipediyanın oxunmasını necə çətinləşdirdiyini təsvir edin. \nZəhmət olmasa məqalənin problemi tapdığınız bölməni daxil edin. \n-->\n'''Problemin təsviri'''",
-	"vector-night-mode-launch-title": "Vikipediyanın yeni rəngləri",
-	"vector-night-mode-launch-subtitle": "Tünd rejimi indi sınaqdan keçirin",
-	"vector-night-mode-launch-description-day": "Vikipediya artıq tünd rejim əlçatandır. Sağdakı Görünüş menyusunun Rənglər bölməsindəki \"Tünd\"-ə klikləyərək yoxlayın.",
-	"vector-night-mode-launch-close-label": "Bağla"
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nTəlimatlar\n\nQaranlıq rejim rənglərinin Vikipediyanın oxunmasını necə çətinləşdirdiyini təsvir edin. \nZəhmət olmasa məqalənin problemi tapdığınız bölməni daxil edin. \n-->\n'''Problemin təsviri'''"
 }

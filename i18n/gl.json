@@ -96,9 +96,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Informe recibido!",
 	"vector-night-mode-issue-reporting-preload-title": "Erro do modo escuro en $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrucións\nDescribe as dificultades que xeran para a lectura da Wikipedia as cores do modo escuro.\nInclúe a sección do artigo na que atopaches o problema.\n-->\n'''Descrición do problema'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "As novas cores da Wikipedia",
-	"vector-night-mode-launch-subtitle": "Proba agora o modo escuro",
-	"vector-night-mode-launch-description-day": "A Wikipedia está dispoñible en modo escuro. Próbao seleccionando a opción \"Escuro\" na sección \"Cor\" do menú de aparencia que está á dereita.",
-	"vector-night-mode-launch-close-label": "Pechar"
+	"vector-night-mode-beta-tag": "(beta)"
 }

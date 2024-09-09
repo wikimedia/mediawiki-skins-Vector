@@ -89,9 +89,5 @@
 	"vector-night-mode-issue-reporting-link-label": "Adrodd gwall gyda modd tywyll",
 	"vector-night-mode-issue-reporting-link-notification": "Derbyniwyd yr adroddiad!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 gwall modd tywyll",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Lliwiau newydd Wicipedia",
-	"vector-night-mode-launch-subtitle": "Ceisiwch fodd tywyll heddiw",
-	"vector-night-mode-launch-description-day": "Mae Wicipedia bellach ar gael ym modd tywyll. Rhowch gynnig arni trwy glicio \"Tywyll\" yn yr adran \"Lliw\" ar ddewislen Gwedd ar y dde.",
-	"vector-night-mode-launch-close-label": "Cau"
+	"vector-night-mode-beta-tag": "(beta)"
 }

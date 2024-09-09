@@ -93,9 +93,5 @@
 	"vector-2022-beta-preview-description": "Ole esimeste seas, kes kasutavad uusi lugemise hõlbustamise vahendeid nagu täiustatud tüpograafiasätted ja öörežiim.",
 	"vector-night-mode-issue-reporting-link-label": "Anna teada probleemist tumeda režiimiga",
 	"vector-night-mode-issue-reporting-link-notification": "Teade vastu võetud!",
-	"vector-night-mode-beta-tag": "(beeta)",
-	"vector-night-mode-launch-title": "Vikipeedia uued värvused",
-	"vector-night-mode-launch-subtitle": "Proovi tumedat režiimi juba täna",
-	"vector-night-mode-launch-description-day": "Vikipeedia on nüüd saadaval tumedas režiimis. Proovimiseks klõpsa paremal ilme menüüs värvuse alaosas sätet \"Tume\".",
-	"vector-night-mode-launch-close-label": "Sule"
+	"vector-night-mode-beta-tag": "(beeta)"
 }

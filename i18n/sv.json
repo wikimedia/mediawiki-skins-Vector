@@ -105,9 +105,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Rapport mottagen!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 fel med mörkt läge",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstruktioner\nBeskriv hur färgerna i mörkt läge gör Wikipedia svårare att läsa.\nInkludera avsnittet i artikeln där du stötte på problemet.\n-->\n'''Problembeskrivning'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Wikipedias nya färger",
-	"vector-night-mode-launch-subtitle": "Testa mörkt läge idag",
-	"vector-night-mode-launch-description-day": "Wikipedia är nu tillgängligt i mörkt läge. Testa det genom att klicka på \"Mörk\" i \"Färg\"-avdelningen i Utseende-menyn till höger.",
-	"vector-night-mode-launch-close-label": "Stäng"
+	"vector-night-mode-beta-tag": "(beta)"
 }

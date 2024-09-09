@@ -102,9 +102,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Raport otrzymany!",
 	"vector-night-mode-issue-reporting-preload-title": "Błąd trybu ciemnego na stronie $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!-- \nInstrukcje\n\nOpisz, jak kolory w trybie ciemnym utrudniają czytanie Wikipedii.\nPodaj, w której sekcji artykułu występuje problem. \n-->\n'''Opis problemu'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Nowe odcienie Wikipedii",
-	"vector-night-mode-launch-subtitle": "Wypróbuj tryb ciemny",
-	"vector-night-mode-launch-description-day": "Wikipedia jest od teraz dostępna w ciemnym motywie kolorystycznym. Wypróbuj go, klikając opcję „Ciemny” w sekcji „Kolor” menu wyglądu strony po prawej stronie.",
-	"vector-night-mode-launch-close-label": "Zamknij"
+	"vector-night-mode-beta-tag": "(beta)"
 }

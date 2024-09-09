@@ -81,9 +81,5 @@
 	"vector-appearance-unpinned-popup": "Il-menu tad-dehra mexa għal hawnhekk.",
 	"vector-night-mode-issue-reporting-link-label": "Irrapporta problema bil-modalità skura",
 	"vector-night-mode-issue-reporting-link-notification": "Ir-rapport intbagħat!",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Il-kuluri l-ġodda tal-Wikipedija",
-	"vector-night-mode-launch-subtitle": "Ipprova l-modalità skura illum",
-	"vector-night-mode-launch-description-day": "Il-Wikipedija hija disponibbli wkoll bil-modalità skura. Ippruvaha billi tagħfas fuq \"Skur\" fis-sezzjoni tal-\"Kulur\" taħt il-menu tad-Dehra fuq il-lemin.",
-	"vector-night-mode-launch-close-label": "Agħlaq"
+	"vector-night-mode-beta-tag": "(beta)"
 }

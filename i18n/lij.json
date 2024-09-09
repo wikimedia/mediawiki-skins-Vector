@@ -36,6 +36,7 @@
 	"vector-jumptocontent": "Sâta a-o contegnûo",
 	"vector-more-actions": "Âtro",
 	"vector-appearance-label": "Câa",
+	"vector-appearance-tooltip": "Cangiâ a dimesción tésto, larghéssa e cô da pàgina",
 	"vector-feature-limited-width-name": "Larghéssa",
 	"vector-feature-limited-width-0-label": "Làrgo",
 	"vector-feature-limited-width-1-label": "Stàndard",
@@ -86,13 +87,10 @@
 	"vector-2022-beta-preview-label": "Acescibilitæ pi-â letûa (Vector 2022)",
 	"vector-2022-beta-preview-description": "Òtegnî in antìçipo e nêuve fonçionalitæ de acescibilitæ a-a letûa, cómme i megioaménti tipogràfichi e a modalitæ néutte.",
 	"vector-night-mode-gadget-warning": "Ti ti dêuvi 'n gadget in modalitæ néutte ch'o l'interferìsce con sta fonçión chi. [[Special:Preferences#mw-prefsection-gadgets|Dizatîva o gadget]] pe dêuviâ a modalitæ néutte.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Segnalâ quànde i coî da modalitæ néutte réndan conplicâ a letûa.",
 	"vector-night-mode-issue-reporting-link-label": "Segnalâ di problêmi co-a modalitæ néutte",
 	"vector-night-mode-issue-reporting-link-notification": "Segnalaçión reçevûaǃ",
 	"vector-night-mode-issue-reporting-preload-title": "Erô da modalitæ néutte $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstruçioìn\nPe piâxéi, scrîvi cómme i coî da modalitæ néutte réndan a Wikipedia conpricâ da lêze.\nPe piâxéi, inclùddi a seçión da pàgina dónde ti t'æ trovòu o problêma ascì.\n-->\n'''Descriçión do problêma'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "I nêuvi coî de Wikipedia",
-	"vector-night-mode-launch-subtitle": "Prêuva òua a modalitæ néutte",
-	"vector-night-mode-launch-description-day": "Wikipedia a l'é òua disponìbile inta modalitæ néutte. Se peu ativâ sciacàndo in sce \"Néutte\" inta seçión \"Cô\" do menù \"Câa\", in sciâ drîta.",
-	"vector-night-mode-launch-close-label": "Særa"
+	"vector-night-mode-beta-tag": "(beta)"
 }

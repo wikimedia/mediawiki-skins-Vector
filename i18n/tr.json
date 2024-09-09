@@ -108,9 +108,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Bildirim alındı!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 koyu kip hatası",
 	"vector-night-mode-issue-reporting-preload-content": "<!-- \nYönergeler\nLütfen koyu kip renklerinin Vikipedi'nin okunmasını nasıl zorlaştırdığını açıklayın.\nLütfen sorunu bulduğunuz maddenin bölümünü ekleyin. \n-->\n'''Sorun Açıklaması'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Vikipedi'nin yeni renkleri",
-	"vector-night-mode-launch-subtitle": "Koyu kipi bugün deneyin",
-	"vector-night-mode-launch-description-day": "Vikipedi artık koyu kipte kullanılabilir. Sağdaki Görünüm menüsünün \"Renk\" bölümünde \"Koyu\"ya tıklayarak deneyin.",
-	"vector-night-mode-launch-close-label": "Kapat"
+	"vector-night-mode-beta-tag": "(beta)"
 }

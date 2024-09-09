@@ -100,9 +100,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Bericht erhalten!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 Dunkelmodus-Fehler",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nAnweisungen\n\nBitte {{#FORMAL:beschreibe|beschreiben Sie}}, wie die Farben im Dunkelmodus das Lesen von Wikipedia erschweren.\nBitte {{#FORMAL:gib|geben Sie}} den Abschnitt des Artikels an, in dem {{#FORMAL:du das Problem festgestellt hast|Sie das Problem festgestellt haben}}. \n-->\n'''Problembeschreibung'''",
-	"vector-night-mode-beta-tag": "(Beta)",
-	"vector-night-mode-launch-title": "Die neuen Farben von Wikipedia",
-	"vector-night-mode-launch-subtitle": "Probiere noch heute den Dunkelmodus aus",
-	"vector-night-mode-launch-description-day": "Wikipedia ist jetzt im Dunkelmodus verfügbar. Probiere es aus, indem du auf „Dunkel“ im Abschnitt „Farbe“ des Menüs „Erscheinungsbild“ auf der rechten Seite klickst.",
-	"vector-night-mode-launch-close-label": "Schließen"
+	"vector-night-mode-beta-tag": "(Beta)"
 }

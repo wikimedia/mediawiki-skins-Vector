@@ -105,9 +105,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "অভিযোগ পাঠানো হয়েছে!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 আঁধার মোড ত্রুটি",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nনির্দেশাবলী\nআঁধার মোডের রং কীভাবে উইকিপিডিয়া পড়া কঠিন করে তুলছে তা অনুগ্রহ করে বর্ণনা করুন।\nযেখানে আপনি সমস্যাটি পেয়েছেন অনুগ্রহ করে সেই নিবন্ধের অনুচ্ছেদটি অন্তর্ভুক্ত করুন।\n-->\n'''সমস্যার বর্ণনা'''",
-	"vector-night-mode-beta-tag": "(বিটা)",
-	"vector-night-mode-launch-title": "উইকিপিডিয়ার নতুন রং",
-	"vector-night-mode-launch-subtitle": "আজই আঁধার মোড ব্যবহার করে দেখুন",
-	"vector-night-mode-launch-description-day": "উইকিপিডিয়া এখন আঁধার মোডে উপলব্ধ। ডান দিকের অবয়ব মেনুর \"রং\" অনুচ্ছেদে থাকা \"আঁধার\" লেখায় ক্লিক করে এটি ব্যবহার করে দেখুন।",
-	"vector-night-mode-launch-close-label": "বন্ধ করুন"
+	"vector-night-mode-beta-tag": "(বিটা)"
 }

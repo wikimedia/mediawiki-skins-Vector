@@ -89,7 +89,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Poročilo prejeto!",
 	"vector-night-mode-issue-reporting-preload-title": "Napaka temnega načina $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nNavodila\nProsimo, opišite, kako temne barve otežujejo branje Wikipedije.\nNavedite razdelek članka, v katerem ste ugotovili težavo.\n--> \n'''Opis težave'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-subtitle": "Preizkusite temni način še danes",
-	"vector-night-mode-launch-description-day": "Wikipedija je zdaj na voljo v temnem načinu. Preizkusite ga tako, da kliknete »Temno« v razdelku »Barva« menija Videz na desni."
+	"vector-night-mode-beta-tag": "(beta)"
 }

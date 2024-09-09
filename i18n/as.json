@@ -97,9 +97,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "প্ৰতিবেদন প্ৰেৰণ কৰা হ'ল!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 ডাৰ্ক মোড ত্ৰুটি",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nনিৰ্দেশনা\nডাৰ্ক মোডৰ ৰঙে কেনেকৈ ৱিকিপিডিয়া পঢ়িবলৈ কঠিন কৰি তুলিছে সেই বিষয়ে বৰ্ণনা কৰক।\nঅনুগ্ৰহ কৰি প্ৰবন্ধটোৰ সেই অংশটোক অন্তৰ্ভুক্ত কৰক য'ত আপুনি সমস্যাটো পাইছে।\n-->\n'''সমস্যাৰ বিৱৰণ'''",
-	"vector-night-mode-beta-tag": "(বিটা)",
-	"vector-night-mode-launch-title": "নতুন বৰণত ৱিকিপিডিয়া",
-	"vector-night-mode-launch-subtitle": "ডাৰ্ক মোড ব্যৱহাৰ কৰি চাওক",
-	"vector-night-mode-launch-description-day": "ৱিকিপিডিয়া এতিয়া ডাৰ্ক মোডত উপলব্ধ। সোঁফালে থকা অৱয়ব মেনুৰ \"ৰং\" অংশত \"আন্ধাৰ\" ক্লিক ডাৰ্ক মোড সক্ষম কৰক।",
-	"vector-night-mode-launch-close-label": "বন্ধ কৰক"
+	"vector-night-mode-beta-tag": "(বিটা)"
 }

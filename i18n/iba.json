@@ -86,9 +86,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "Riput diterima!",
 	"vector-night-mode-issue-reporting-preload-title": "Penanggul mod petang $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nJaku padah\nTulung nerangka baka ni chura mod chelum ngasuh Wikipedia tusah dibacha.\nMinta nuan nyengkaum bagi artikel ke alai nuan tetemuka isu nya.\n-->\n'''Penerang Isu'''",
-	"vector-night-mode-beta-tag": "(beta)",
-	"vector-night-mode-launch-title": "Chura baru Wikipedia",
-	"vector-night-mode-launch-subtitle": "Uji meh mod petang sehari tu",
-	"vector-night-mode-launch-description-day": "Wikipedia diatu bisi dalam mod petang. Uji enggau klik \"Petang\" ba bagi \"Chura\" ba menu Pengayan ba sepiak kanan.",
-	"vector-night-mode-launch-close-label": "Tutup"
+	"vector-night-mode-beta-tag": "(beta)"
 }

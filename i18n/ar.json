@@ -121,9 +121,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "اُستلم التقرير!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 خطأ في الوضع الداكن",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nتعليمات\nفضلًا، أوصِف كيف تؤّثر ألوان الوضع الداكن على قراءة ويكيبيديا وتجعلها صعبة.\nيُرجى تضمين قسم المقالة الذي وجدت فيه المشكلة.\n-->\n'''وصف المشكلة'''",
-	"vector-night-mode-beta-tag": "(تجريبية)",
-	"vector-night-mode-launch-title": "ألوان ويكيبيديا الجديدة",
-	"vector-night-mode-launch-subtitle": "جرّب الوضع الداكن اليوم",
-	"vector-night-mode-launch-description-day": "أصبحت ويكيبيديا الآن متاحة بالوضع الداكن. جرّبه بالنقر فوق «داكن» في قسم «اللون» بقائمة المظهر على اليسار.",
-	"vector-night-mode-launch-close-label": "أغلق"
+	"vector-night-mode-beta-tag": "(تجريبية)"
 }
