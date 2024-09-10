@@ -230,7 +230,7 @@
 		},
 		"skins.vector.search": {
 			"dependencies": [
-				"mediawiki.Uri",
+				"web2017-polyfills",
 				"mediawiki.util",
 				"skins.vector.search.codex.scripts"
 			],
