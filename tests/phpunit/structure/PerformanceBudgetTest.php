@@ -3,7 +3,6 @@
 namespace MediaWiki\Skins\Vector\Tests\Structure;
 
 use ExtensionRegistry;
-use HashBagOStuff;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Output\OutputPage;
@@ -11,7 +10,6 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\ResourceLoader\Context;
 use MediaWiki\ResourceLoader\Module;
 use MediaWikiIntegrationTestCase;
-use Wikimedia\DependencyStore\KeyValueDependencyStore;
 
 /**
  * @group Database
@@ -44,7 +42,6 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 	protected function getContentTransferSize( $moduleName, $skinName ) {
 		// Calculate Size
 		$resourceLoader = $this->getServiceContainer()->getResourceLoader();
-		$resourceLoader->setDependencyStore( new KeyValueDependencyStore( new HashBagOStuff() ) );
 		$request = new FauxRequest(
 			[
 				'lang' => 'en',
