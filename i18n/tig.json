@@ -6,9 +6,13 @@
 		]
 	},
 	"vector-languages": "ሉቃት",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ህግያ|$1 ሀገጊት}}",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
 	"vector-view-history": "ታሪኽ ራኣው",
 	"vector-more-actions": "ዚያደት",
 	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-main-menu-label": "አግዳ መሐበሪ",
+	"vector-page-tools-label": "መሻቀዪ",
+	"vector-page-tools-general-label": "ዕሙማይ",
 	"vector-unpin-element-label": "ሕብዖ"
 }
