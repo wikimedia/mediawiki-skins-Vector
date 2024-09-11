@@ -610,8 +610,8 @@
 				"exclude": {
 					"mainpage": false,
 					"pagetitles": [],
-					"namespaces": [],
-					"querystring": {}
+					"namespaces": [ -1, 6, 14, 100, 710 ],
+					"querystring": { "action": "info|protect|delete|undelete|action|history" }
 				},
 				"include": []
 			},
