@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kambai Akau"
+		]
+	},
+	"vector-language-button-label": "{{PLURAL:$1|diryem $1|na̱ryem $1}}"
+}
