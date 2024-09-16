@@ -9,6 +9,8 @@
 		]
 	},
 	"skinname-vector": "Veicteoir",
+	"vector-languages": "Teangacha",
+	"vector-no-language-button-label": "Cuir teangacha leis",
 	"vector-action-addsection": "Cuir topaic leis",
 	"vector-action-delete": "Scrios",
 	"vector-action-move": "Athainmnigh",
@@ -21,5 +23,6 @@
 	"vector-view-view": "Léigh",
 	"vector-view-viewsource": "Féach ar fhoinse",
 	"vector-more-actions": "Tuilleadh",
-	"vector-searchsuggest-containing": "Cuardaigh leathanaigh ina bhfuil <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Cuardaigh leathanaigh ina bhfuil <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Tús"
 }
