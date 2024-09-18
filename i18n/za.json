@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Biŋhai",
-			"唐吉訶德的侍從"
+			"唐吉訶德的侍從",
+			"Midleading"
 		]
 	},
+	"vector-languages": "Vah",
 	"vector-action-delete": "Ca",
 	"vector-action-move": "Daen",
 	"vector-action-protect": "Bauj",
