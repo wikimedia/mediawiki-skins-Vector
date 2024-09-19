@@ -2,14 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Biŋhai",
-			"唐吉訶德的侍從"
+			"唐吉訶德的侍從",
+			"Midleading"
 		]
 	},
+	"vector-languages": "Vah",
 	"vector-action-delete": "Ca",
 	"vector-action-move": "Daen",
 	"vector-action-protect": "Bauj",
 	"vector-view-create": "Laeb",
 	"vector-view-edit": "gaij",
 	"vector-view-history": "Cazyawj lizsij",
-	"vector-view-view": "Doeg"
+	"vector-view-view": "Doeg",
+	"skin-theme-name": "Saek"
 }

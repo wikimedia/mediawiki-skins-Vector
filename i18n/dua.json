@@ -8,6 +8,8 @@
 	"vector-languages": "Bwambo",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Bwambo}}",
 	"vector-no-language-button-label": "Bata bwambo",
+	"vector-action-addsection": "báta tótí",
+	"vector-view-create": "Béwékédi",
 	"vector-view-history": "jènè la kwaṅ",
 	"vector-more-actions": "pètè",
 	"vector-feature-custom-font-size-name": "Bwabá bá byala",
@@ -17,9 +19,11 @@
 	"vector-feature-custom-font-size-1-label": "Di ma tukwè",
 	"vector-feature-custom-font-size-2-label": "Minde̱ne̱",
 	"skin-theme-name": "Muso̱no̱",
+	"skin-theme-os-label": "Dí malɛ momɛnɛ",
 	"vector-searchsuggest-containing": "Wasa la mapapa ma alidi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Bebotedi",
 	"vector-main-menu-label": "Dipapà la tobotobo",
 	"vector-page-tools-label": "Belongisan",
+	"vector-page-tools-general-label": "elóɲgísán lɛsɛ",
 	"vector-unpin-element-label": "Wuta"
 }
