@@ -28,6 +28,7 @@
 	"skin-theme-os-label": "እብ ኖሱ",
 	"skin-theme-exclusion-notice": "እሊ ገጽ ክልዶል ዲብ ባርህ ሓለት ልትረከብ።",
 	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "ጽበጥ",
 	"vector-toc-beginning": "ኣንበቶት",
 	"vector-main-menu-label": "አግዳ መሐበሪ",
 	"vector-feature-custom-font-size-exclusion-notice": "እሊ ገጽ ክልዶል ንኡሽ ከጥ ልትነፈዕ",
