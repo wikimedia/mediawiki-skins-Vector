@@ -8,6 +8,7 @@
 	"vector-languages": "ሉቃት",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ህግያ|$1 ሀገጊት}}",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
+	"vector-action-addsection": "አርእስ ወስክ",
 	"vector-action-delete": "ምሳሕ",
 	"vector-action-move": "ነውክ",
 	"vector-action-protect": "ዕቀብ",
