@@ -1,8 +1,8 @@
-@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-base, em );
+@border-base-ems: unit( @border-width-base / @font-size-browser / @font-size-small, em );
 
 .vector-page-toolbar-container {
 	display: flex;
-	font-size: unit( @font-size-small, rem );
+	font-size: @font-size-small;
 	// Use box-shadow instead of border to allow border collapsing between titlebar and toolbar
 	box-shadow: 0 1px @border-color-subtle;
 	// Add bottom margin to account for box-shadow
