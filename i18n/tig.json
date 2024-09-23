@@ -8,7 +8,13 @@
 	"vector-languages": "ሉቃት",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ህግያ|$1 ሀገጊት}}",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
+	"vector-action-addsection": "አርእስ ወስክ",
+	"vector-action-delete": "ምሳሕ",
+	"vector-action-move": "ነውክ",
+	"vector-action-protect": "ዕቀብ",
+	"vector-view-create": "ኽለቅ",
 	"vector-view-history": "ታሪኽ ራኣው",
 	"vector-more-actions": "ዚያደት",
-	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "ኣንበቶት"
 }

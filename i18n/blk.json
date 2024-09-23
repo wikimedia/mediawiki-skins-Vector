@@ -7,6 +7,7 @@
 			"ခွန်ဖန်ဒွဲ့"
 		]
 	},
+	"vector-opt-out": "ခြုဲင်းချာပုင်ႏစံႏအလီꩻ",
 	"vector-languages": "ဘာႏသာႏငဝ်းငွါဖုံႏ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ဘာႏသာႏငဝ်းငွါ|$1 ဘာႏသာႏငဝ်းငွါဖိုင်ႏ}}",
 	"vector-no-language-button-label": "ထဲမ်သော့ꩻဘာႏသာႏငဝ်းငွါဖိုင်ႏ",
@@ -27,5 +28,6 @@
 	"vector-toc-beginning": "အစ",
 	"vector-anon-user-menu-pages-learn": "လွူꩻထွားထဲင်းအသွုပ်",
 	"vector-anon-user-menu-pages-label": "လွူꩻထွားထဲင်း မွဉ်းဖျင်ခရာႏအထဲင်း",
+	"vector-toc-menu-tooltip": "ဟော်ꩻထွားရီးတာႏ",
 	"tooltip-vector-anon-user-menu-title": "လွိုက်ခရာႏအထဲင်းဖိုင်ႏ"
 }
