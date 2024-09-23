@@ -166,7 +166,8 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 				'WikiLambda' => 4000,
 			],
 			'styles' => [
-				'FlaggedRevs' => 1000,
+				// Codex styles
+				'FlaggedRevs' => 3200,
 				'GrowthExperiments' => 1000,
 			],
 		];
