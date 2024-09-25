@@ -10,11 +10,13 @@
 			"Timzy D'Great",
 			"Tochiprecious",
 			"Ukabia",
-			"Uzoma Ozurumba"
+			"Uzoma Ozurumba",
+			"Goodymeraj"
 		]
 	},
 	"vector-languages": "Asụsụ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ}}",
+	"vector-no-language-button-label": "Tinye asụsụ gasị",
 	"vector-action-addsection": "Tinye isiokwu",
 	"vector-action-delete": "Kàcha",
 	"vector-action-move": "Papụ̀",
@@ -31,6 +33,8 @@
 	"vector-toc-label": "Ndịna",
 	"vector-toc-beginning": "Mmalite",
 	"vector-toc-toggle-button-label": "Chọba ndịnisiokwu $1",
+	"vector-main-menu-label": "Isi menu",
+	"vector-page-tools-label": "Ngwaọrụ gasị",
 	"vector-page-tools-general-label": "Izugbe",
 	"vector-pin-element-label": "Ga na nootu akụkụ",
 	"vector-unpin-element-label": "zoo"

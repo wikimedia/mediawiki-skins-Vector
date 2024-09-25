@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kambai Akau"
+			"Kambai Akau",
+			"Kuzayet"
 		]
 	},
-	"vector-language-button-label": "{{PLURAL:$1|diryem $1|na̱ryem $1}}"
+	"vector-languages": "A̱ru̱ryem",
+	"vector-language-button-label": "{{PLURAL:$1|duryem $1|a̱ruryem $1}}",
+	"vector-no-language-button-label": "mbrang nwap",
+	"vector-view-history": "Tyyei nkkang",
+	"vector-more-actions": "Mbrang",
+	"vector-searchsuggest-containing": "Zop u̱ nazzu̱ na a̱kok ni for <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-main-menu-label": "A̱gbadang a̱mainu",
+	"vector-page-tools-label": "Nkyang pfwong",
+	"vector-page-tools-general-label": "Sarei kozankyai",
+	"vector-unpin-element-label": "Nyyat"
 }

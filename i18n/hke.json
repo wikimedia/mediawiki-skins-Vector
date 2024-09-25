@@ -8,7 +8,9 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 muneenere|$1 mineenere}}",
 	"vector-no-language-button-label": "Ongerera mineenere",
 	"vector-action-addsection": "Ongerera mushambalo",
+	"vector-action-delete": "Tsimya",
 	"vector-action-move": "Hira byo handi",
+	"vector-action-protect": "Kikiritsa",
 	"vector-view-create": "Hanga",
 	"vector-view-history": "Lola ku byobyakindire ikolwa",
 	"vector-more-actions": "Nakandi",
@@ -17,5 +19,6 @@
 	"vector-toc-beginning": "Ndangiro",
 	"vector-main-menu-label": "Ndangiriro",
 	"vector-page-tools-label": "Bindu bye kolesa",
+	"vector-page-tools-general-label": "Ngulukulu",
 	"vector-unpin-element-label": "bisha"
 }
