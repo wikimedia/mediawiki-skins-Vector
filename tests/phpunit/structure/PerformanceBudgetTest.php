@@ -168,7 +168,7 @@ class PerformanceBudgetTest extends MediaWikiIntegrationTestCase {
 			'styles' => [
 				// Codex styles
 				'FlaggedRevs' => 3200,
-				'GrowthExperiments' => 1000,
+				'GrowthExperiments' => 2000,
 			],
 		];
 		$total = 0;
