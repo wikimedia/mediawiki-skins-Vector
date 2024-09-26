@@ -91,11 +91,15 @@ function main( window ) {
 			// disable our night mode if so
 			if ( isNightModeGadgetEnabled() ) {
 				disableNightModeForGadget();
-				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
+				clientPreferences.render(
+					appearanceMenuSelector, clientPreferenceConfig, userPreferences
+				);
 				alterExclusionMessage();
 				removeBetaNotice();
 			} else {
-				clientPreferences.render( appearanceMenuSelector, clientPreferenceConfig, userPreferences );
+				clientPreferences.render(
+					appearanceMenuSelector, clientPreferenceConfig, userPreferences
+				);
 			}
 		} );
 	}

@@ -233,7 +233,9 @@ function makeFeedbackLink( betaMessageElement ) {
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} userPreferences
  */
-function appendToggleSwitch( form, featureName, labelElement, currentValue, config, userPreferences ) {
+function appendToggleSwitch(
+	form, featureName, labelElement, currentValue, config, userPreferences
+) {
 	const input = makeInputElement( 'checkbox', featureName, currentValue );
 	input.classList.add( 'cdx-toggle-switch__input' );
 	const switcher = document.createElement( 'span' );
@@ -300,13 +302,17 @@ function makeControl( featureName, config, userPreferences ) {
 	switch ( type ) {
 		case 'radio':
 			pref.options.forEach( ( value ) => {
-				appendRadioToggle( form, featureName, value, String( currentValue ), config, userPreferences );
+				appendRadioToggle(
+					form, featureName, value, String( currentValue ), config, userPreferences
+				);
 			} );
 			break;
 		case 'switch': {
 			const labelElement = document.createElement( 'label' );
 			labelElement.textContent = getFeatureLabelMsg( featureName ).text();
-			appendToggleSwitch( form, featureName, labelElement, String( currentValue ), config, userPreferences );
+			appendToggleSwitch(
+				form, featureName, labelElement, String( currentValue ), config, userPreferences
+			);
 			break;
 		} default:
 			throw new Error( 'Unknown client preference! Only switch or radio are supported.' );
