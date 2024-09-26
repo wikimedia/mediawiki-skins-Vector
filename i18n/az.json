@@ -10,7 +10,8 @@
 			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Əkrəm Cəfər"
 		]
 	},
 	"skinname-vector": "Köhnə Vektor (2010)",
@@ -48,7 +49,7 @@
 	"vector-appearance-label": "Görünüş",
 	"vector-appearance-tooltip": "Səhifənin şrift ölçüsünün, eninin və rənginin görünüşünü dəyişdirin",
 	"vector-feature-limited-width-name": "Genişlik",
-	"vector-feature-limited-width-0-label": "Sıx",
+	"vector-feature-limited-width-0-label": "Enli",
 	"vector-feature-limited-width-1-label": "Standart",
 	"vector-feature-custom-font-size-name": "Mətn",
 	"vector-feature-custom-font-size-0-label": "Kiçik",
