@@ -10,11 +10,13 @@
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba",
-			"Karen"
+			"Karen",
+			"Goodymeraj"
 		]
 	},
 	"vector-languages": "Asụsụ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ}}",
+	"vector-no-language-button-label": "Tinye asụsụ gasị",
 	"vector-action-addsection": "Tinye isiokwu",
 	"vector-action-delete": "Kàcha",
 	"vector-action-move": "Papụ̀",

@@ -10,7 +10,7 @@
 	"vector-action-toggle-sidebar": "Prěključiti bočny panel",
 	"vector-languages": "Jezyky",
 	"vector-language-button-aria-label": "Prějdti k članku na drugom jezyku. Dostupny na {{PLURAL:$1|$1 jezyku|$1 jezykah}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 jezyk|$1 jezykov}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 jezyk|$1 jezyky|$1 jezykov}}",
 	"vector-no-language-button-label": "Dodati jezyky",
 	"vector-no-language-button-aria-label": "Tutoj članok jestvuje samo na tutym jezyku. Dodajte članok za druge jezyky",
 	"vector-language-variant-switcher-label": "Izměniti jezyčny variant",
