@@ -2,18 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Bbeshir",
-			"IdrisSeid"
+			"IdrisSeid",
+			"Kassala"
 		]
 	},
 	"vector-languages": "ሉቃት",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ህግያ|$1 ሀገጊት}}",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
 	"vector-action-addsection": "አርእስ ወስክ",
-	"vector-action-delete": "ምሳሕ",
-	"vector-action-move": "ነውክ",
+	"vector-action-delete": "ምሰሕ",
+	"vector-action-move": "ኣግዕዝ",
 	"vector-action-protect": "ዕቀብ",
-	"vector-view-create": "ኽለቅ",
+	"vector-view-create": "ምኔ",
 	"vector-view-history": "ታሪኽ ራኣው",
+	"vector-view-view": "ቅራእ",
 	"vector-more-actions": "ዚያደት",
 	"vector-appearance-label": "ትምሳል",
 	"vector-feature-limited-width-name": "ፍይሔ",
@@ -30,7 +32,7 @@
 	"skin-theme-exclusion-notice": "እሊ ገጽ ክልዶል ዲብ ባርህ ሓለት ልትረከብ።",
 	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "ጽበጥ",
-	"vector-toc-beginning": "ኣንበቶት",
+	"vector-toc-beginning": "ሰልፍ",
 	"vector-main-menu-label": "አግዳ መሐበሪ",
 	"vector-feature-custom-font-size-exclusion-notice": "እሊ ገጽ ክልዶል ንኡሽ ከጥ ልትነፈዕ",
 	"vector-page-tools-label": "መሻቀዪ",
