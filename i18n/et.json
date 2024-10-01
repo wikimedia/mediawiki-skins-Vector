@@ -42,6 +42,7 @@
 	"vector-jumptocontent": "Mine sisu juurde",
 	"vector-more-actions": "Veel",
 	"vector-appearance-label": "Ilme",
+	"vector-appearance-tooltip": "Muuda lehekülje kirjasuurust, laiust ja värvust",
 	"vector-feature-limited-width-name": "Laius",
 	"vector-feature-limited-width-0-label": "Lai",
 	"vector-feature-limited-width-1-label": "Harilik",
@@ -88,6 +89,7 @@
 	"vector-appearance-unpinned-popup": "Ilme menüü on siia liigutatud.",
 	"vector-2022-beta-preview-label": "Lugemise hõlbustamine (Vektor 2022)",
 	"vector-2022-beta-preview-description": "Ole esimeste seas, kes kasutavad uusi lugemise hõlbustamise vahendeid nagu täiustatud tüpograafiasätted ja öörežiim.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Anna teada, kui tumeda režiimi värvused raskendavad lugemist.",
 	"vector-night-mode-issue-reporting-link-label": "Anna teada probleemist tumeda režiimiga",
 	"vector-night-mode-issue-reporting-link-notification": "Teade vastu võetud!",
 	"vector-night-mode-beta-tag": "(beeta)"
