@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"EbelleMarcel",
 			"Olivier Moukodi"
 		]
@@ -9,8 +10,9 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 Bwambo}}",
 	"vector-no-language-button-label": "Bata bwambo",
 	"vector-action-addsection": "báta tótí",
-	"vector-action-delete": "sumwa",
+	"vector-action-delete": "Sumwa",
 	"vector-action-move": "Dina lá peńa",
+	"vector-action-protect": "Tata",
 	"vector-view-create": "Béwékédi",
 	"vector-view-history": "jènè la kwaṅ",
 	"vector-more-actions": "pètè",
@@ -34,5 +36,6 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Nín dipapá lá bolane̱ nde̱ matila masadi ponda ye̱se̱",
 	"vector-page-tools-label": "Belongisan",
 	"vector-page-tools-general-label": "elóɲgísán lɛsɛ",
+	"vector-page-tools-actions-label": "Ɓeɓolédi",
 	"vector-unpin-element-label": "Wuta"
 }
