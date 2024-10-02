@@ -3,7 +3,7 @@ const init = () => {
 	if ( !config.VectorWrapTablesTemporary ) {
 		return;
 	}
-	const tables = document.querySelectorAll( '.mw-parser-output table.wikitable' );
+	const tables = document.querySelectorAll( '.mw-parser-output > table.wikitable' );
 	let numberBigTables = 0;
 	Array.from( tables ).forEach( ( table ) => {
 		const styles = window.getComputedStyle( table );

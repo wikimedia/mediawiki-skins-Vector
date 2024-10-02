@@ -2,28 +2,30 @@
 
 exports[`tables doesnt wrap floated tables 1`] = `
 "
-			<table class=\\"wikitable\\" style=\\"float:right\\">
-				<tbody>
-					<tr><th>table table table</th></tr>
-				</tbody>
-			</table>
-		"
+			<div class=\\"mw-parser-output\\">
+				<table class=\\"wikitable\\" style=\\"float:right\\">
+					<tbody>
+						<tr><th>table table table</th></tr>
+					</tbody>
+				</table>
+			<div>
+		</div></div>"
 `;
 
 exports[`tables doesnt wrap nested tables 1`] = `
 "
-			<section class=\\"mw-parser-output\\">
+			<div class=\\"mw-parser-output\\">
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody>
 						<tr><th>table table table</th></tr>
 						<tr><td><table class=\\"wikitable\\"><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
 					</tbody>
 				</table></div>
-			</section>
+			</div>
 		"
 `;
 
-exports[`tables doesnt wrap tables that are already wrapped 1`] = `
+exports[`tables doesnt wrap tables that already have noresize 1`] = `
 "
 			<div class=\\"mw-parser-output\\">
 				<div class=\\"noresize\\">
@@ -37,20 +39,36 @@ exports[`tables doesnt wrap tables that are already wrapped 1`] = `
 		"
 `;
 
+exports[`tables doesnt wrap tables that are already wrapped 1`] = `
+"
+			<div class=\\"mw-parser-output\\">
+				<div>
+					<table class=\\"wikitable\\">
+						<tbody>
+							<tr><th>table table table</th></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		"
+`;
+
 exports[`tables doesnt wrap tables that are not wikitables 1`] = `
 "
-			<table>
-				<tbody>
-					<tr><th>table table table</th></tr>
-					<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
-				</tbody>
-			</table>
-		"
+			<div class=\\"mw-parser-output\\">
+				<table>
+					<tbody>
+						<tr><th>table table table</th></tr>
+						<tr><td><table><tbody><tr><th>table table table</th></tr></tbody></table></td><td></td></tr>
+					</tbody>
+				</table>
+			<div>
+		</div></div>"
 `;
 
 exports[`tables wraps multiple table with div 1`] = `
 "
-			<section class=\\"mw-parser-output\\">
+			<div class=\\"mw-parser-output\\">
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table></div>
@@ -61,16 +79,16 @@ exports[`tables wraps multiple table with div 1`] = `
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table></div>
-			</section>
+			</div>
 		"
 `;
 
 exports[`tables wraps table with div 1`] = `
 "
-			<section class=\\"mw-parser-output\\">
+			<div class=\\"mw-parser-output\\">
 				<div class=\\"noresize\\"><table class=\\"wikitable\\">
 					<tbody><tr><th>table table table</th></tr></tbody>
 				</table></div>
-			</section>
+			</div>
 		"
 `;
