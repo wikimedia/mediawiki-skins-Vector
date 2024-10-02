@@ -56,9 +56,12 @@
 	"vector-main-menu-label": "Hlavné menu",
 	"vector-page-tools-label": "Nástroje",
 	"vector-page-tools-general-label": "Všeobecné",
+	"vector-page-tools-actions-label": "Akcie",
 	"vector-pin-element-label": "presunúť do postranného panelu",
 	"vector-unpin-element-label": "skryť",
 	"tooltip-vector-anon-user-menu-title": "Ďalšie možnosti",
+	"vector-page-tools-nav-label": "Nástroje stránky",
 	"vector-prefs-limited-width": "Povoliť režim obmedzenej šírky",
-	"vector-prefs-limited-width-help": "Povoliť režim obmedzenej šírky pre lepšiu čitateľnosť."
+	"vector-prefs-limited-width-help": "Povoliť režim obmedzenej šírky pre lepšiu čitateľnosť.",
+	"empty-language-selector-body": "Obsah stránky nie je podporovaný v iných jazykoch."
 }
