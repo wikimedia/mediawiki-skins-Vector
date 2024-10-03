@@ -8,6 +8,8 @@
 	"vector-languages": "A̱ru̱ryem",
 	"vector-language-button-label": "{{PLURAL:$1|duryem $1|a̱ruryem $1}}",
 	"vector-no-language-button-label": "mbrang nwap",
+	"vector-action-addsection": "mbrang du̱ccu̱ ba̱ryat",
+	"vector-action-move": "Shek a̱u shyei",
 	"vector-view-create": "yya",
 	"vector-view-history": "Tyyei nkkang",
 	"vector-more-actions": "Mbrang",
@@ -26,5 +28,6 @@
 	"vector-main-menu-label": "A̱gbadang a̱mainu",
 	"vector-page-tools-label": "Nkyang pfwong",
 	"vector-page-tools-general-label": "Sarei kozankyai",
+	"vector-page-tools-actions-label": "Pfwong, yya kyang yaan, kutyak.",
 	"vector-unpin-element-label": "Nyyat"
 }
