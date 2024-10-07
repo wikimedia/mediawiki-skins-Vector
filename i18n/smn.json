@@ -39,7 +39,7 @@
 	"skin-theme-night-label": "Tevkkâd",
 	"skin-theme-os-label": "Automaatlâš",
 	"skin-theme-exclusion-notice": "Taat siijđo lii ain kuovgâd.",
-	"vector-searchsuggest-containing": "Uusâ siijđoid, moh siskáldeh <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Uusâ siijđoid, moh siskeldeh <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Siskáldâslisto",
 	"vector-toc-beginning": "Algâttâs",
 	"vector-anon-user-menu-pages": "Siijđoh hämmejeijeid kiäh iä lah čáládâttâm siisâ",
@@ -49,6 +49,7 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Taan siijđost lii ain uccâ fonttâ",
 	"vector-page-tools-label": "Tyejiniävuh",
 	"vector-page-tools-general-label": "Almolâš",
+	"vector-page-tools-actions-label": "Tooimah",
 	"vector-pin-element-label": "sirde siijđo roobdân",
 	"vector-unpin-element-label": "čievâ",
 	"tooltip-vector-anon-user-menu-title": "Lase valjiimeh"
