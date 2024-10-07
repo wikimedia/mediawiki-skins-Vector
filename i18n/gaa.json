@@ -5,11 +5,13 @@
 			"Flixtey",
 			"Gkbediako",
 			"Mybluberet",
-			"Owula kpakpo"
+			"Owula kpakpo",
+			"NanaYawBotar"
 		]
 	},
 	"vector-languages": "Wiemɔi",
 	"vector-language-button-label": "{{PLURAL:$1|$1 wiemɔ|$1 wiemɔi}}",
+	"vector-no-language-button-label": "Okɛ wiemɔi afata he",
 	"vector-action-addsection": "Kɛ mlijaa yitso afata he",
 	"vector-action-delete": "Jiemɔ",
 	"vector-action-move": "Tsi",
@@ -18,5 +20,7 @@
 	"vector-view-edit": "Tsakemɔ",
 	"vector-view-history": "Kwɛmɔ nibii ni eho",
 	"vector-view-view": "Kanemɔ",
-	"vector-more-actions": "Pii"
+	"vector-more-actions": "Pii",
+	"vector-searchsuggest-containing": "Taomɔ baafai ni yɔɔ<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Shishijee"
 }
