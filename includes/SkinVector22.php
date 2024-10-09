@@ -102,11 +102,9 @@ class SkinVector22 extends SkinMustache {
 		}
 
 		$title = $this->getTitle();
-		// Defensive programming - if a special page has added languages explicitly, best to show it.
-		if ( $title && $title->isSpecialPage() && $this->getLanguagesCached() === [] ) {
-			return false;
-		}
-		return true;
+		return !$title || !$title->isSpecialPage()
+			// Defensive programming - if a special page has added languages explicitly, best to show it.
+			|| $this->getLanguagesCached();
 	}
 
 	/**
