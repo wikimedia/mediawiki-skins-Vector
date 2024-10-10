@@ -34,6 +34,7 @@
 	"vector-jumptocontent": "Và al contegnud",
 	"vector-more-actions": "An'mò",
 	"vector-appearance-label": "Aspet",
+	"vector-appearance-tooltip": "\nCambia la larghezza de la pagina e la grandezza del test.",
 	"vector-feature-limited-width-name": "Larghezza",
 	"vector-feature-custom-font-size-name": "Test",
 	"vector-feature-custom-font-size-0-label": "Piscinin",
@@ -57,5 +58,6 @@
 	"vector-page-tools-actions-label": "Azzion",
 	"vector-pin-element-label": "sposta de fianch",
 	"vector-unpin-element-label": "scond",
-	"tooltip-vector-anon-user-menu-title": "Pussee de opzion"
+	"tooltip-vector-anon-user-menu-title": "Pussee de opzion",
+	"vector-appearance-unpinned-popup": "El menù de l'aspet l'è stad mitud chichinscì."
 }

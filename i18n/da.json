@@ -21,6 +21,7 @@
 	"prefs-vector-enable-vector-1-help": "I løbet af de næste år vil vi gradvis opdatere Vector-udseendet. Klassisk Vector vil vise den gamle version af Vector (per december 2019). For at læse mere om opdateringen, se [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements vores projektside].",
 	"vector-opt-out": "Skift til det gamle udseende",
 	"vector-opt-out-tooltip": "Ændr indstillingerne for at gå tilbage til det gamle udseende (klassisk Vector)",
+	"vector.css": "/* Al CSS her vil blive indlæst for brugere af Vector skin */",
 	"vector-action-toggle-sidebar": "Vis/skjul venstremenuen",
 	"vector-languages": "Sprog",
 	"vector-language-button-aria-label": "Gå til en artikel på et andet sprog. Tilgængelig på {{PLURAL:$1|$1 sprog}}",
@@ -44,6 +45,7 @@
 	"vector-jumptocontent": "Spring til indhold",
 	"vector-more-actions": "Mere",
 	"vector-appearance-label": "Udseende",
+	"vector-appearance-tooltip": "Skift udseendet af sidens skriftstørrelse, -bredde og -farve",
 	"vector-feature-limited-width-name": "Bredde",
 	"vector-feature-limited-width-0-label": "Bred",
 	"vector-feature-limited-width-1-label": "Standard",
@@ -72,7 +74,7 @@
 	"vector-site-nav-label": "Websted",
 	"vector-main-menu-label": "Hovedmenu",
 	"vector-feature-custom-font-size-exclusion-notice": "Denne side bruger altid lille skriftstørrelse",
-	"vector-feature-limited-width-exclusion-notice": "Denne side er altid bred",
+	"vector-feature-limited-width-exclusion-notice": "Indholdet er så bredt som muligt for dit browservindue.",
 	"vector-page-tools-label": "Værktøjer",
 	"vector-page-tools-general-label": "Generelt",
 	"vector-page-tools-actions-label": "Handlinger",
@@ -89,5 +91,10 @@
 	"vector-main-menu-unpinned-popup": "Hovedmenuen er flyttet hertil.",
 	"vector-appearance-unpinned-popup": "Udseendemenuen er flyttet hertil.",
 	"vector-2022-beta-preview-label": "Læsetilgængelighed (Vector 2022)",
-	"vector-2022-beta-preview-description": "Få tidlig adgang til nye funktioner for læsetilgængelighed, som typografiske forbedringer og mørk tilstand."
+	"vector-2022-beta-preview-description": "Få tidlig adgang til nye funktioner for læsetilgængelighed, som typografiske forbedringer og mørk tilstand.",
+	"vector-night-mode-gadget-warning": "Du bruger en gadget i mørk tilstand, der forstyrrer denne funktion. [[Special:Preferences#mw-prefsection-gadgets|Deaktiver gadgetten]] for at bruge mørk tilstand.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Rapportér, når mørke tilstandsfarver gør tingene svære at læse.",
+	"vector-night-mode-issue-reporting-link-label": "Rapporter et problem med mørk tilstand",
+	"vector-night-mode-issue-reporting-link-notification": "Rapport modtaget!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 mørk tilstandsfejl"
 }
