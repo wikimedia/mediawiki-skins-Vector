@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Constraque",
 			"Gazeb",
 			"Gramo Džukić",
 			"KHMELNYTSKYIA",
@@ -33,7 +34,7 @@
 	"vector-feature-limited-width-1-label": "Стандардно",
 	"vector-feature-custom-font-size-name": "Текст",
 	"vector-feature-custom-font-size-0-label": "Друбный",
-	"vector-feature-custom-font-size-1-label": "Стандардный",
+	"vector-feature-custom-font-size-1-label": "Штандартный",
 	"vector-feature-custom-font-size-2-label": "Грубый",
 	"skin-theme-name": "Цвіт",
 	"skin-theme-day-label": "Світлый",
