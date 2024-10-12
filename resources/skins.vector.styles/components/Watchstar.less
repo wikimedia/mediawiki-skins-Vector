@@ -10,11 +10,13 @@
 		transition: transform 500ms;
 	}
 
-	[ dir='ltr' ] & .mw-ui-icon-wikimedia-unStar {
-		transform: rotate( 72deg );
-	}
+	.mw-ui-icon-wikimedia-unStar {
+		[ dir='ltr' ] & {
+			transform: rotate( 72deg );
+		}
 
-	[ dir='rtl' ] & .mw-ui-icon-wikimedia-unStar {
-		transform: rotate( -72deg );
+		[ dir='rtl' ] & {
+			transform: rotate( -72deg );
+		}
 	}
 }
