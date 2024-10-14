@@ -2,15 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Kambai Akau",
-			"Kuzayet"
+			"Kuzayet",
+			"Jjnzamah"
 		]
 	},
 	"vector-languages": "A̱ru̱ryem",
 	"vector-language-button-label": "{{PLURAL:$1|duryem $1|a̱ruryem $1}}",
 	"vector-no-language-button-label": "mbrang nwap",
-	"vector-action-addsection": "mbrang du̱ccu̱ ba̱ryat",
+	"vector-action-addsection": "Mbrang du̱ccu̱ ba̱ryat",
 	"vector-action-move": "Shek a̱u shyei",
-	"vector-view-create": "yya",
+	"vector-view-create": "Yya",
 	"vector-view-history": "Tyyei nkkang",
 	"vector-more-actions": "Mbrang",
 	"vector-searchsuggest-containing": "Zop u̱ nazzu̱ na a̱kok ni for <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
