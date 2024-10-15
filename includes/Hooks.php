@@ -287,6 +287,9 @@ class Hooks implements
 			if ( isset( $content_navigation['user-menu']['createaccount'] ) ) {
 				$content_navigation['user-menu']['createaccount']['collapsible'] = true;
 			}
+			if ( isset( $content_navigation['user-menu']['sitesupport'] ) ) {
+				$content_navigation['user-menu']['sitesupport']['collapsible'] = true;
+			}
 
 			// Anon editor links handled manually in new anon editor menu
 			$anonEditorMenu = [];

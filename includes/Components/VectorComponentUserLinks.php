@@ -237,7 +237,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	public function getTemplateData(): array {
 		$portletData = $this->portletData;
 
-		$isDefaultAnonUserLinks = count( $portletData['data-user-menu']['array-items'] ) === 2;
+		$isDefaultAnonUserLinks = count( $portletData['data-user-menu']['array-items'] ) === 3;
 		$isAnonEditorLinksEnabled = isset( $portletData['data-user-menu-anon-editor']['is-empty'] )
 			&& !$portletData['data-user-menu-anon-editor']['is-empty'];
 
@@ -277,7 +277,13 @@ class VectorComponentUserLinks implements VectorComponent {
 							// * login
 							// * create account
 							$name = $item['name'];
-							return in_array( $name, [ 'watchlist', 'createaccount', 'login', 'login-private' ] );
+							return in_array( $name, [
+								'watchlist',
+								'createaccount',
+								'login',
+								'login-private',
+								'sitesupport'
+							] );
 						}
 					)
 				)
