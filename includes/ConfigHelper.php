@@ -95,10 +95,6 @@ class ConfigHelper {
 		// If nothing matches the exclusions to determine what should happen
 		//
 		$excludeNamespaces = $exclusions[ 'namespaces' ] ?? [];
-		if ( $title && $title->inNamespaces( $excludeNamespaces ) ) {
-			return true;
-		}
-
-		return false;
+		return $title && $title->inNamespaces( $excludeNamespaces );
 	}
 }
