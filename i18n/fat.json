@@ -4,7 +4,8 @@
 			"Amire80",
 			"Ebenoffen1",
 			"Leonard Nketsia",
-			"Gregorynelsonmensah1"
+			"Gregorynelsonmensah1",
+			"Assilidjoe"
 		]
 	},
 	"vector-languages": "Kasahorow",
@@ -22,7 +23,9 @@
 	"vector-searchsuggest-containing": "Hwehwɛ nkrataafa a <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> wɔ mu",
 	"vector-toc-label": "Dza ɔwɔ mu",
 	"vector-toc-beginning": "Ahyɛase",
+	"vector-main-menu-label": "Krataafa tsitsir",
 	"vector-page-tools-label": "Edwumadze",
 	"vector-page-tools-general-label": "Kɛsemu",
+	"vector-page-tools-actions-label": "Ndzeyɛɛ",
 	"vector-unpin-element-label": "fa suma"
 }
