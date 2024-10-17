@@ -16,6 +16,7 @@
 			"Pietrodn",
 			"Sakretsu",
 			"Scompo",
+			"ValeJappo",
 			"Valepert",
 			"ValterVB",
 			"ZandDev"
@@ -51,6 +52,7 @@
 	"vector-jumptocontent": "Vai al contenuto",
 	"vector-more-actions": "Altro",
 	"vector-appearance-label": "Aspetto",
+	"vector-appearance-tooltip": "Modifica la dimensione, la larghezza e il colore del testo",
 	"vector-feature-limited-width-name": "Larghezza",
 	"vector-feature-limited-width-0-label": "Largo",
 	"vector-feature-limited-width-1-label": "Standard",
@@ -72,8 +74,10 @@
 	"vector-toc-toggle-button-label": "Attiva/disattiva la sottosezione $1",
 	"vector-anon-user-menu-pages": "Pagine per utenti anonimi",
 	"vector-anon-user-menu-pages-learn": "ulteriori informazioni",
+	"vector-anon-user-menu-pages-label": "Ulteriori informazioni sulla contribuzione",
 	"vector-main-menu-tooltip": "Menu principale",
 	"vector-toc-menu-tooltip": "Indice",
+	"vector-toc-collapsible-button-label": "Mostra/Nascondi l'indice",
 	"vector-site-nav-label": "Sito",
 	"vector-main-menu-label": "Menu principale",
 	"vector-feature-custom-font-size-exclusion-notice": "Questa pagina utilizza sempre caratteri di piccole dimensioni",
@@ -94,7 +98,12 @@
 	"vector-main-menu-unpinned-popup": "Il menu principale è stato spostato qui.",
 	"vector-appearance-unpinned-popup": "Il menu Aspetto è stato spostato qui.",
 	"vector-2022-beta-preview-label": "Accessibilità per la lettura (Vector 2022)",
+	"vector-2022-beta-preview-description": "Ottieni accesso anticipato alle nuove funzionalità di lettura, come miglioramenti tipografici e modalità scura.",
 	"vector-night-mode-gadget-warning": "Stai utilizzando l'accessorio Modalità scura che interferisce con questa funzionalità. [[Special:Preferences#mw-prefsection-gadgets|Disabilita l'accessorio]] per utilizzare la modalità scura.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Segnala quando i colori della modalità scura rendono difficile la lettura.",
-	"vector-night-mode-issue-reporting-link-label": "Segnala un problema con la modalità scura"
+	"vector-night-mode-issue-reporting-link-label": "Segnala un problema con la modalità scura",
+	"vector-night-mode-issue-reporting-link-notification": "Segnalazione ricevuta!",
+	"vector-night-mode-issue-reporting-preload-title": "Errore modalità scura in $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nIstruzioni\nDescrivi come i colori della modalità scura rendono Wikipedia difficile da leggere.\nRicorda di indicare la sezione della pagina dove hai riscontrato il problema.\n-->\n'''Descrizione del problema'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }
