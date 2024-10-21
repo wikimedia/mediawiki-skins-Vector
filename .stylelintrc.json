@@ -8,6 +8,13 @@
 		"declaration-property-unit-disallowed-list": null,
 		"no-descending-specificity": null,
 		"selector-class-pattern": null,
-		"selector-max-id": null
-	}
+		"selector-max-id": null,
+		"selector-max-specificity": "1,4,2"
+	},
+	"overrides": [ {
+		"files": [ "resources/skins.vector.styles/links.less" ],
+		"rules": {
+			"selector-max-specificity": "0,0,1"
+		}
+	} ]
 }
