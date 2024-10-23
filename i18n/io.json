@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Joao Xavier",
 			"Lakaoso",
 			"Malafaya"
@@ -47,6 +46,7 @@
 	"vector-limited-width-toggle": "Modifikar la limito di larjeso di la kontenajo",
 	"vector-page-tools-label": "Utensili",
 	"vector-page-tools-general-label": "Ordinara",
+	"vector-page-tools-actions-label": "Agadi",
 	"vector-pin-element-label": "movar a latera panelo",
 	"vector-unpin-element-label": "celez",
 	"tooltip-vector-anon-user-menu-title": "Plusa selekti",

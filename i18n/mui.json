@@ -3,15 +3,29 @@
 		"authors": [
 			"Jawadywn",
 			"Mahali syarifuddin",
-			"Masjawad99"
+			"Masjawad99",
+			"Es Krim 5 Juta Rasa"
 		]
 	},
-	"vector-action-addsection": "Imboke topik",
+	"vector-languages": "Baso",
+	"vector-language-button-label": "{{PLURAL:$1|baso}}",
+	"vector-no-language-button-label": "Tambake baso laén",
+	"vector-action-addsection": "Bagian anyar",
+	"vector-action-delete": "Apus",
 	"vector-action-move": "Pindahke",
-	"vector-view-create": "Ngawék",
+	"vector-action-protect": "Alingi",
+	"vector-view-create": "Ngawé'",
 	"vector-view-edit": "Robah",
-	"vector-view-history": "Selék riwayat",
+	"vector-view-history": "Seli' wayat",
 	"vector-view-view": "Baco",
 	"vector-view-viewsource": "Jingok sumber",
-	"vector-more-actions": "Laénnyo"
+	"vector-more-actions": "Laénnyo",
+	"vector-searchsuggest-containing": "Cari laman yang di jerûnyo ado <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Lis isi",
+	"vector-toc-beginning": "Mulo",
+	"vector-main-menu-label": "Menu utamo",
+	"vector-page-tools-label": "Peranti",
+	"vector-page-tools-general-label": "Awam",
+	"vector-page-tools-actions-label": "Gawî",
+	"vector-unpin-element-label": "singitke"
 }

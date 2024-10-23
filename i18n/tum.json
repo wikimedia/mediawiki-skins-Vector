@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Tumbuka Arch"
 		]
 	},
@@ -17,7 +16,11 @@
 	"vector-view-view": "Ŵelenga",
 	"vector-more-actions": "Vinandi",
 	"vector-searchsuggest-containing": "Fufuza ma jani agho muli <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Vyamukati",
+	"vector-toc-beginning": "Kumayambililo",
+	"vector-main-menu-label": "Menyu yikuru",
 	"vector-page-tools-label": "Vilwelo",
 	"vector-page-tools-general-label": "Vya masiku ghose",
+	"vector-page-tools-actions-label": "Vyakuchita",
 	"vector-unpin-element-label": "kubisa"
 }
