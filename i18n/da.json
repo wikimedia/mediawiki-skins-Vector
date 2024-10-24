@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Antonla",
 			"Byrial",
 			"Christian List",
@@ -80,7 +79,7 @@
 	"vector-pin-element-label": "flyt til sidebjælken",
 	"vector-unpin-element-label": "skjul",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Diskussion]]",
-	"tooltip-vector-anon-user-menu-title": "Flere mugligheder",
+	"tooltip-vector-anon-user-menu-title": "Flere muligheder",
 	"vector-page-tools-nav-label": "Sideværktøjer",
 	"vector-prefs-limited-width": "Aktiver begrænset breddetilstand",
 	"vector-prefs-limited-width-help": "Aktiver begrænset breddetilstand for forbedret læseoplevelse.",
