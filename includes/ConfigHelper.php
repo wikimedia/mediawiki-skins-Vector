@@ -32,7 +32,7 @@ class ConfigHelper {
 	 *
 	 * @return bool
 	 */
-	public static function shouldDisable( array $options, WebRequest $request, Title $title = null ) {
+	public static function shouldDisable( array $options, WebRequest $request, ?Title $title = null ) {
 		$canonicalTitle = $title ? $title->getRootTitle() : null;
 
 		$exclusions = $options[ 'exclude' ] ?? [];
