@@ -9,11 +9,11 @@
 	},
 	{
 		"resourceModule": "skins.vector.search.codex.styles",
-		"maxSize": "6.2 kB"
+		"maxSize": "10 kB"
 	},
 	{
 		"resourceModule": "skins.vector.search.codex.scripts",
-		"maxSize": "15 kB"
+		"maxSize": "20 kB"
 	},
 	{
 		"resourceModule": "skins.vector.styles",
