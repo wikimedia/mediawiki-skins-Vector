@@ -2,7 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Als-Holder",
-			"Amire80"
+			"Stefangrotz"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sproch|$1 Sproche}}",

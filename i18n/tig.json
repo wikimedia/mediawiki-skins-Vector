@@ -3,9 +3,11 @@
 		"authors": [
 			"Bbeshir",
 			"IdrisSeid",
-			"Kassala"
+			"Kassala",
+			"Osman Omera"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "ቨክቶር ናይ በዲር ትነፈዕ",
 	"vector-languages": "ሉቃት",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ህግያ|$1 ሀገጊት}}",
 	"vector-no-language-button-label": "ሉቃት ወስክ",
@@ -14,12 +16,16 @@
 	"vector-action-delete": "ምሰሕ",
 	"vector-action-move": "ኣግዕዝ",
 	"vector-action-protect": "ዕቀብ",
+	"vector-action-undelete": "ለትመሰሐ ብለስ",
 	"vector-action-unprotect": "ዕቅበት/ሕጌ/መድቢእ ቀይር",
 	"vector-view-create": "ምኔ",
 	"vector-view-edit": "አስነ",
 	"vector-view-history": "ታሪኽ ራኣው",
 	"vector-view-view": "ቅራእ",
 	"vector-view-viewsource": "ዒን ርኤ",
+	"vector-jumptonavigation": "አስክ ራብጥ ሐብሬ ተዐዴ",
+	"vector-jumptosearch": "አስክ ሒዘት ተዐዴ",
+	"vector-jumptocontent": "አስክ ጸብጥ ተዐዴ",
 	"vector-more-actions": "ዚያደት",
 	"vector-searchsuggest-containing": "ክኒ ለተሌ ለጸበጥ አግጸት ሕዜ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "ጽበጥ",

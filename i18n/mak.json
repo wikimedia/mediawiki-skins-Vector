@@ -17,7 +17,9 @@
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Maraengangna",
 	"vector-searchsuggest-containing": "Boya barambang na ambonei <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-main-menu-label": "Ulu barambang",
 	"vector-page-tools-label": "Parewa",
 	"vector-page-tools-general-label": "Ammang",
+	"vector-page-tools-actions-label": "Panggaukang",
 	"vector-unpin-element-label": "pacokkoi"
 }
