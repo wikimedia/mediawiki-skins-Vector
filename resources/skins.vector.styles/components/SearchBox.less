@@ -13,6 +13,12 @@
 }
 
 @media ( min-width: @min-width-breakpoint-desktop-wide ) {
+	// The CodexTypeaheadSearch when loaded will introduce a margin.
+	// To avoid a reflow of the UI, we duplicate this code here.
+	.client-js .cdx-typeahead-search--auto-expand-width {
+		margin-left: @size-search-expand;
+	}
+
 	.client-js & .vector-search-box.vector-search-box-auto-expand-width {
 		// Ensure search box is aligned with content when it autoexpands (i.e. search thumbnails)
 		margin-left: -@size-search-expand;

@@ -211,7 +211,6 @@
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"codexStyleOnly": true,
 			"codexComponents": [
-				"CdxTypeaheadSearch",
 				"CdxSearchInput",
 				"CdxButton",
 				"CdxRadio",
@@ -223,7 +222,6 @@
 				"skins.vector.search.codex.styles"
 			],
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexScriptOnly": true,
 			"codexComponents": [
 				"CdxTypeaheadSearch"
 			]
