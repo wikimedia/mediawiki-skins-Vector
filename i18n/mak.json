@@ -16,5 +16,6 @@
 	"vector-view-history": "Cinik riwayakna",
 	"vector-view-view": "Baca",
 	"vector-more-actions": "Maraengangna",
-	"vector-searchsuggest-containing": "Boya barambang na ambonei <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Boya barambang na ambonei <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Uru-uruna"
 }

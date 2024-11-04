@@ -2,7 +2,6 @@
 	"@metadata": {
 		"authors": [
 			"Acamicamacaraca",
-			"Amire80",
 			"BadDog",
 			"Milicevic01",
 			"Obsuser",
@@ -49,6 +48,7 @@
 	"vector-more-actions": "Више",
 	"vector-search-loader": "Учитавам предлоге претраге",
 	"vector-searchsuggest-containing": "Претражи странице које садрже <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Help:Introduction",
 	"vector-toc-heading": "Садржај",
 	"vector-toc-toggle-position-sidebar": "помери на страну",
 	"vector-toc-toggle-position-title": "сакриј",

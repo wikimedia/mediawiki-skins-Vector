@@ -2,15 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Albinus",
-			"Amire80",
 			"Manik Soren",
 			"Ramjit Tudu",
 			"Rocky 734",
 			"Samar88",
 			"Srabony90",
-			"ᱢᱩᱨᱢᱩ"
+			"ᱢᱩᱨᱢᱩ",
+			"ᱤᱧ ᱢᱟᱛᱟᱞ",
+			"ᱯᱨᱚᱯᱷᱮᱥᱥᱚᱨ"
 		]
 	},
+	"vector-languages": "ᱯᱟᱹᱨᱥᱤᱠᱚ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᱯᱟᱹᱨᱥᱤ|$1 ᱯᱟᱹᱨᱥᱤ ᱠᱚ}}",
 	"vector-no-language-button-label": "ᱯᱟᱹᱨᱥᱤ ᱥᱮᱞᱮᱫ",
 	"vector-action-addsection": "ᱥᱟᱛᱚᱢ ᱥᱮᱞᱮᱫ",
@@ -24,5 +26,7 @@
 	"vector-view-history": "ᱱᱟᱜᱟᱢ ᱧᱮᱞᱢᱮ",
 	"vector-view-view": "ᱯᱟᱲᱦᱟᱣᱢᱮ",
 	"vector-view-viewsource": "ᱯᱷᱮᱰᱟᱛ ᱧᱮᱞᱢᱮ",
-	"vector-more-actions": "ᱵᱟᱹᱲᱛᱤ"
+	"vector-more-actions": "ᱵᱟᱹᱲᱛᱤ",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ᱠᱚᱭ ᱫᱤᱯᱤᱞᱟᱠᱟᱫ ᱥᱟᱦᱴᱟᱠᱚ ᱥᱮᱸᱫᱽᱨᱟ",
+	"vector-toc-beginning": "ᱮᱛᱚᱦᱚᱵ"
 }
