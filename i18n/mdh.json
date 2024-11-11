@@ -20,6 +20,7 @@
 	"vector-view-view": "Batia",
 	"vector-view-viewsource": "Ilayn i ebpunan",
 	"vector-more-actions": "madakel pan",
+	"vector-searchsuggest-containing": "Mangilay sa manga salekat a aden dalem nin a <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Ebpunan",
 	"vector-site-nav-label": "Sayt"
 }

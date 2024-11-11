@@ -5,7 +5,14 @@
 		]
 	},
 	"vector-languages": "Bula",
+	"vector-language-button-label": "{{PLURAL:$1|$1 Bulli|$1 Bula}}",
+	"vector-no-language-button-label": "Zaŋ bula paasi",
+	"vector-action-addsection": "Zaŋin yaɣli paali ŋpaasi",
 	"vector-action-delete": "Nyesi",
+	"vector-action-move": "Vuuma",
+	"vector-action-protect": "Gur",
+	"vector-view-create": "Namma",
 	"vector-more-actions": "Din pasi",
-	"vector-toc-beginning": "Piligu"
+	"vector-searchsuggest-containing": "Guan bɔa yaɣshela din Mari<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Di Piligu"
 }
