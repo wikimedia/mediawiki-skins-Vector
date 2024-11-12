@@ -3,6 +3,7 @@
 		"authors": [
 			"Abdiafrizal",
 			"Boesenbergia",
+			"Munajad.MH",
 			"NoiX180"
 		]
 	},
@@ -38,5 +39,6 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Kaca rèya samanè ngangghuy okoran fon kènè'",
 	"vector-page-tools-label": "Pakakas",
 	"vector-page-tools-general-label": "Lomra",
+	"vector-page-tools-actions-label": "Tèngka",
 	"vector-unpin-element-label": "pangètek"
 }
