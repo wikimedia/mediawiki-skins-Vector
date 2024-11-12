@@ -3,7 +3,6 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Akeron",
-			"Amire80",
 			"Cigaryno",
 			"Crochet.david",
 			"DavidL",
@@ -26,7 +25,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Vikoula5",
-			"Wladek92"
+			"Wladek92",
+			"Mahabarata"
 		]
 	},
 	"skinname-vector": "Vector (ancienne version 2010)",
@@ -62,6 +62,7 @@
 	"vector-jumptocontent": "Aller au contenu",
 	"vector-more-actions": "Plus",
 	"vector-appearance-label": "Apparence",
+	"vector-appearance-tooltip": "Modifier l'apparence de la taille, de la largeur et de la couleur de la police de la page",
 	"vector-feature-limited-width-name": "Largeur",
 	"vector-feature-limited-width-0-label": "Large",
 	"vector-feature-limited-width-1-label": "Standard",
@@ -109,8 +110,10 @@
 	"vector-2022-beta-preview-label": "Accessibilité pour la lecture (Vector 2022)",
 	"vector-2022-beta-preview-description": "Bénéficiez d'un accès anticipé aux nouvelles fonctionnalités d'accessibilité à la lecture, telles que les améliorations de la typographie et le mode sombre.",
 	"vector-night-mode-gadget-warning": "Vous utilisez un gadget de mode sombre qui interfère avec cette fonctionnalité. [[Special:Preferences#mw-prefsection-gadgets|Désactivez le gadget]] pour utiliser le mode sombre.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Signalez lorsque les couleurs du mode sombre rendent les éléments difficiles à lire.",
 	"vector-night-mode-issue-reporting-link-label": "Signaler un problème avec le mode sombre",
 	"vector-night-mode-issue-reporting-link-notification": "Rapport reçu !",
 	"vector-night-mode-issue-reporting-preload-title": "Erreur de mode sombre $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstructions\nVeuillez décrire comment les couleurs du mode sombre rendent Wikipédia difficile à lire.\nVeuillez inclure la section de l'article où vous avez trouvé le problème.\n--> \n'''Description du problème'''",
 	"vector-night-mode-beta-tag": "(bêta)"
 }

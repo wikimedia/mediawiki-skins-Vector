@@ -4,7 +4,6 @@
 			"500000000006城",
 			"50829",
 			"AYZ04",
-			"Amire80",
 			"Anterdc99",
 			"Bo77le",
 			"Cookai1205",
@@ -40,7 +39,8 @@
 			"Yining Chen",
 			"沈澄心",
 			"落花有意12138",
-			"魔琴"
+			"魔琴",
+			"XtexChooser"
 		]
 	},
 	"skinname-vector": "旧版Vector（2010）",
@@ -75,6 +75,7 @@
 	"vector-jumptocontent": "跳转到内容",
 	"vector-more-actions": "更多",
 	"vector-appearance-label": "外观",
+	"vector-appearance-tooltip": "更改页面字体大小、宽度和颜色的外观",
 	"vector-feature-limited-width-name": "宽度",
 	"vector-feature-limited-width-0-label": "宽",
 	"vector-feature-limited-width-1-label": "标准",
@@ -122,6 +123,7 @@
 	"vector-2022-beta-preview-label": "无障碍阅读（Vector 2022）",
 	"vector-2022-beta-preview-description": "抢先使用新的阅读无障碍功能，例如排版改进和深色模式。",
 	"vector-night-mode-gadget-warning": "您正使用与此功能相冲突的深色模式小工具。请[[Special:Preferences#mw-prefsection-gadgets|关闭小工具]]以使用深色模式。",
+	"vector-night-mode-issue-reporting-notice-tooltip": "报告深色模式的颜色在何种情况下使内容难以阅读",
 	"vector-night-mode-issue-reporting-link-label": "报告深色模式问题",
 	"vector-night-mode-issue-reporting-link-notification": "已收到报告！",
 	"vector-night-mode-issue-reporting-preload-title": "$1的深色模式错误",
