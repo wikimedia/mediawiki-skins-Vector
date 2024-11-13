@@ -4,8 +4,8 @@
 			"Katelem"
 		]
 	},
-	"vector-languages": "Ebi kè Usem",
-	"vector-language-button-label": "{{PLURAL:$1|$1 usem}}",
+	"vector-languages": "Usem",
+	"vector-language-button-label": "{{PLURAL:$1|Usem $1}}",
 	"vector-no-language-button-label": "Tap usem sọkọ",
 	"vector-action-addsection": "Tap Ibot-ikọ gbaalek",
 	"vector-action-delete": "Chọk",
@@ -16,7 +16,7 @@
 	"vector-view-history": "Kpọ mfufuk",
 	"vector-view-view": "Fuk",
 	"vector-more-actions": "Ofifi si",
-	"vector-searchsuggest-containing": "Wèek ebi kè akpọk ìkakaan̄ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Wèek akpọk echi òkakaan̄ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Òkup me emen",
 	"vector-toc-beginning": "Ibebene",
 	"vector-main-menu-label": "Ibot Onineen̄",
