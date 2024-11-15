@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			".hecko",
 			"20kdc",
 			"Earldridge Jazzed Pineda",
 			"Frzzl",
@@ -16,7 +17,7 @@
 	},
 	"vector-languages": "toki",
 	"vector-language-button-label": "{{PLURAL:$1|toki $1}}",
-	"vector-no-language-button-label": "o sin e lipu toki",
+	"vector-no-language-button-label": "o pali pi toki ante",
 	"vector-action-addsection": "o toki sin",
 	"vector-action-delete": "o weka",
 	"vector-action-move": "o ante e nimi",
@@ -42,7 +43,7 @@
 	"vector-searchsuggest-containing": "o alasa e lipu ni: lipu li jo insa e <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "jo",
 	"vector-toc-beginning": "open",
-	"vector-main-menu-label": "ijo",
+	"vector-main-menu-label": "ijo suli",
 	"vector-feature-custom-font-size-exclusion-notice": "lipu ni li kepeken sitelen lili lon tenpo ale",
 	"vector-page-tools-label": "ilo",
 	"vector-page-tools-general-label": "ante",
