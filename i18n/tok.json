@@ -9,13 +9,16 @@
 			"Keenan Pepper",
 			"20kdc",
 			"Frzzl",
-			"Earldridge Jazzed Pineda"
+			"Earldridge Jazzed Pineda",
+			".hecko",
+			"Juwan",
+			"Tamzin"
 		]
 	},
 	"vector-languages": "toki",
 	"vector-language-button-label": "{{PLURAL:$1|toki $1}}",
-	"vector-no-language-button-label": "o sin e lipu toki",
-	"vector-action-addsection": "o pana e ijo toki sin",
+	"vector-no-language-button-label": "o pali pi toki ante",
+	"vector-action-addsection": "o toki sin",
 	"vector-action-delete": "o weka",
 	"vector-action-move": "o ante e nimi",
 	"vector-action-protect": "o awen",
