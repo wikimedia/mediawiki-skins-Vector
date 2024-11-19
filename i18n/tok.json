@@ -40,7 +40,7 @@
 	"skin-theme-night-label": "pimeja",
 	"skin-theme-os-label": "tan ilo",
 	"skin-theme-exclusion-notice": "lipu ni li walo lon tenpo ale.",
-	"vector-searchsuggest-containing": "o alasa e lipu ni: lipu li jo insa e <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "o alasa e lipu ni: nimi \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\" li lon ona li lon ona",
 	"vector-toc-label": "jo",
 	"vector-toc-beginning": "open",
 	"vector-main-menu-label": "ijo suli",
