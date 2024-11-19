@@ -27,7 +27,7 @@ use MediaWikiUnitTestCase;
 /**
  * @group Vector
  * @group Services
- * @covers  \MediaWiki\Skins\Vector\Services\LanguageService
+ * @covers \MediaWiki\Skins\Vector\Services\LanguageService
  */
 class LanguageServiceTest extends MediaWikiUnitTestCase {
 
