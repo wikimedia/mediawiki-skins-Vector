@@ -41,7 +41,7 @@
 	"vector-feature-limited-width-name": "Колонкалэн пасьталаез",
 	"vector-feature-custom-font-size-name": "Быдӟалалэн типез",
 	"vector-search-loader": "Утчан ӵектонъёсты инъян",
-	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-утчан_утчан-улӥ колонтитул__курон\">$1</strong>",
+	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help: Кутскон",
 	"vector-toc-label": "Пуштросэз",
 	"vector-toc-beginning": "Кутскон",

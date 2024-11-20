@@ -9,13 +9,16 @@
 			"Robin van der Vliet",
 			"Tbodt",
 			"שוקו מוקה",
-			"Earldridge Jazzed Pineda"
+			"Earldridge Jazzed Pineda",
+			".hecko",
+			"Juwan",
+			"Tamzin"
 		]
 	},
 	"vector-languages": "toki",
 	"vector-language-button-label": "{{PLURAL:$1|toki $1}}",
-	"vector-no-language-button-label": "o sin e lipu toki",
-	"vector-action-addsection": "o pana e ijo toki sin",
+	"vector-no-language-button-label": "o pali pi toki ante",
+	"vector-action-addsection": "o toki sin",
 	"vector-action-delete": "o weka",
 	"vector-action-move": "o ante e nimi",
 	"vector-action-protect": "o awen",
@@ -24,8 +27,12 @@
 	"vector-view-history": "o lukin e tenpo pini",
 	"vector-view-view": "o lukin",
 	"vector-more-actions": "ante",
-	"vector-searchsuggest-containing": "o alasa e lipu ni: lipu li jo insa e <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "o alasa e lipu ni: nimi \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\" li lon ona li lon ona",
+	"vector-toc-label": "jo",
 	"vector-toc-beginning": "open",
+	"vector-main-menu-label": "ijo suli",
 	"vector-page-tools-label": "ilo",
+	"vector-page-tools-general-label": "ante",
+	"vector-page-tools-actions-label": "pali",
 	"vector-unpin-element-label": "o len"
 }

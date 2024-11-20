@@ -39,7 +39,7 @@
 	"vector-feature-limited-width-name": "Fɔɔlaa yaloŋ",
 	"vector-feature-custom-font-size-name": "Sɛge yaloŋ",
 	"vector-search-loader": "Naŋ loodo la weɛroo teɛrɛ",
-	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:kyɛyuobo",
 	"vector-toc-label": "Yelbulo",
 	"vector-toc-beginning": "Piiluu",

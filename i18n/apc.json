@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"FunLater"
+			"FunLater",
+			"HitomiAkane"
 		]
 	},
 	"vector-languages": "لغات",
-	"vector-language-button-label": "لغات: $1",
+	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
 	"vector-no-language-button-label": "زيد لغات",
 	"vector-action-addsection": "زيد موضوع",
 	"vector-action-delete": "حذف",
@@ -20,5 +21,6 @@
 	"vector-main-menu-label": "المنيو الرئيسية",
 	"vector-page-tools-label": "أدوات",
 	"vector-page-tools-general-label": "عام",
+	"vector-page-tools-actions-label": "إجراءات",
 	"vector-unpin-element-label": "خبي"
 }
