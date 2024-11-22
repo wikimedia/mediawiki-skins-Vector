@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Danvintius Bookix",
 			"Qiorly"
 		]
 	},
@@ -34,5 +35,6 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Тута страница всегда употрєбјаје малы размєр фонта.",
 	"vector-page-tools-label": "Орудја",
 	"vector-page-tools-general-label": "Обче",
+	"vector-page-tools-actions-label": "Дєјанја",
 	"vector-unpin-element-label": "скрыти"
 }
