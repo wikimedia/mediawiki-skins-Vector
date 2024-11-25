@@ -23,5 +23,5 @@
 	"vector-view-view": "پڑھو",
 	"vector-view-viewsource": "سورس ویکھو",
 	"vector-more-actions": "ہور",
-	"vector-searchsuggest-containing": "اس ٹرم نوں صفحےآں وچ کھوجو <strong class=\"cdx-$1typeahead-search__search-footer__query\"></strong>"
+	"vector-searchsuggest-containing": "اس ٹرم نوں صفحےآں وچ کھوجو <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
 }

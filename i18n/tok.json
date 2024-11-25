@@ -27,6 +27,6 @@
 	"vector-view-history": "o lukin e tenpo pini",
 	"vector-view-view": "o lukin",
 	"vector-more-actions": "ante",
-	"vector-searchsuggest-containing": "o alasa e lipu ni: lipu li jo insa e <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "o alasa e lipu ni: nimi \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\" li lon ona li lon ona",
 	"vector-toc-beginning": "open"
 }

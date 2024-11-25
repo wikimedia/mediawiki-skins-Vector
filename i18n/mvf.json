@@ -15,6 +15,6 @@
 	"vector-view-history": "ᠲᠡᠦᠬᠡ",
 	"vector-view-view": "ᠤᠩᠰᠢᠬᠤ",
 	"vector-more-actions": "ᠳᠡᠯᠭᠡᠷᠡᠩᠭᠦᠢ",
-	"vector-searchsuggest-containing": "<strong class=\"cdx᠓᠆typeahead᠓᠆search__search᠓᠆footer__query\">$1</strong> ᠪᠢᠴᠢᠪᠦᠷᠢ ᠶ᠋ᠢ ᠠᠭᠤᠯᠤᠭᠰᠠᠨ ᠬᠠᠭᠤᠳᠠᠰᠤ ᠶ᠋ᠢ ᠬᠠᠶᠢᠬᠤ",
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ᠪᠢᠴᠢᠪᠦᠷᠢ ᠶ᠋ᠢ ᠠᠭᠤᠯᠤᠭᠰᠠᠨ ᠬᠠᠭᠤᠳᠠᠰᠤ ᠶ᠋ᠢ ᠬᠠᠶᠢᠬᠤ",
 	"vector-toc-beginning": "ᠡᢈᠢᠯᠡᠯ"
 }

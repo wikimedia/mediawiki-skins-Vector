@@ -38,7 +38,7 @@
 	"vector-jumptocontent": "Пуштросэз вылэ выжоно",
 	"vector-more-actions": "Эшшо",
 	"vector-search-loader": "Утчан ӵектонъёсты инъян",
-	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-утчан_утчан-улӥ колонтитул__курон\">$1</strong>",
+	"vector-searchsuggest-containing": "Утчано бамъёсты, кудъёсаз вань <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help: Кутскон",
 	"vector-toc-beginning": "Кутскон",
 	"vector-toc-toggle-button-label": "$1 юрттэт ёзэз переключить кароно",

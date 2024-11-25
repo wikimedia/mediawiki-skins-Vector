@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"FunLater"
+			"FunLater",
+			"HitomiAkane"
 		]
 	},
 	"vector-languages": "لغات",
-	"vector-language-button-label": "لغات: $1",
+	"vector-language-button-label": "{{PLURAL:$1|$1 لغة|$1 لغات}}",
 	"vector-no-language-button-label": "زيد لغات",
 	"vector-action-addsection": "زيد موضوع",
 	"vector-action-delete": "حذف",

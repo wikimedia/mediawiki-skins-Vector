@@ -36,7 +36,7 @@
 	"vector-jumptocontent": "Vare le yelbulo",
 	"vector-more-actions": "Yaga",
 	"vector-search-loader": "Naŋ loodo la weɛroo teɛrɛ",
-	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-sɛgebozu-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "Bɔ pɛllɛ naŋ taa <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:kyɛyuobo",
 	"vector-toc-beginning": "Piiluu",
 	"vector-toc-toggle-button-label": "ŋmɛɛle $1 gbuli bile",
