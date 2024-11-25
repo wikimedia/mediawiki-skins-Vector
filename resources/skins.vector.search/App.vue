@@ -59,9 +59,6 @@ const { CdxTypeaheadSearch } = mw.loader.require( 'skins.vector.search.codex.scr
 // @vue/component
 module.exports = exports = defineComponent( {
 	name: 'App',
-	compatConfig: {
-		MODE: 3
-	},
 	compilerOptions: {
 		whitespace: 'condense'
 	},
