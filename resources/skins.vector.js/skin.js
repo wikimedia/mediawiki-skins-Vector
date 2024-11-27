@@ -76,8 +76,7 @@ function main( window ) {
 	if ( appearanceMenuExists ) {
 		mw.loader.using( [
 			'skins.vector.clientPreferences',
-			'skins.vector.search.codex.styles',
-			'skins.vector.search.codex.scripts'
+			'skins.vector.search.codex.styles'
 		] ).then( () => {
 			const clientPreferences = require( /** @type {string} */ ( 'skins.vector.clientPreferences' ) );
 			const clientPreferenceConfig = ( require( './clientPreferences.json' ) );
