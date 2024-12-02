@@ -15,6 +15,6 @@
 	"vector-view-create": "Kufuka",
 	"vector-view-history": "Kumona maalu aa kala",
 	"vector-more-actions": "Malu makuabu",
-	"vector-searchsuggest-containing": "Kukebulula mabeji adi ne <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-searchsuggest-containing": "kuKeba pa mabeji adi ne <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Bangilu anyi ntuadijilu"
 }
