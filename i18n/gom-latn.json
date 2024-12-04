@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Isidore Dantas",
-			"The Discoverer"
+			"The Discoverer",
+			"QW90"
 		]
 	},
 	"vector-opt-out": "Adlea sworupant porot voch",
@@ -28,9 +29,11 @@
 	"vector-jumptosearch": "Soda khatir uddki mar",
 	"vector-jumptocontent": "Mozkuraxim uddki mar",
 	"vector-more-actions": "Anik",
+	"vector-search-loader": "Sodache suchovnio load zatat",
 	"vector-toc-label": "Vixoi suchi",
 	"vector-toc-beginning": "Survat",
 	"vector-toc-toggle-button-label": "$1 upvibhag dakhoi / lipoi",
+	"vector-anon-user-menu-pages": "Sotrarombhit naslele sompadokam khatir panam",
 	"vector-anon-user-menu-pages-learn": "odik xikun ghe",
 	"vector-anon-user-menu-pages-label": "Sompadona vixim odik xikun ghe",
 	"vector-main-menu-tooltip": "Mukhel volleri",

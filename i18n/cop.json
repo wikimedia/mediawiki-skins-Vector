@@ -5,11 +5,22 @@
 			"ⲁϩⲙⲉⲧ"
 		]
 	},
-	"vector-action-addsection": "ⲧⲟⲩϩⲟ ⲟⲩⲑⲉⲙⲁ",
+	"vector-languages": "Ϩⲁⲛⲁⲥⲡⲓ",
+	"vector-language-button-label": "{{PLURAL:$1|ⲟⲩⲁⲥⲡⲓ ⲛ̀ⲟⲩⲱⲧ|$1 ⲛ̀ⲁⲥⲡⲓ}}",
+	"vector-no-language-button-label": "Ⲧⲟⲩϩⲟ ⲛ̀ϩⲁⲛⲁⲥⲡⲓ",
+	"vector-action-addsection": "Ⲧⲟⲩϩⲟ ⲛ̀ⲟⲩϩⲩⲡⲟⲑⲉⲥⲓⲥ",
 	"vector-action-move": "Ⲕⲓⲙ",
-	"vector-view-create": "ⲑⲁⲙⲓⲟ",
+	"vector-view-create": "Ⲑⲁⲙⲓⲟ̀",
 	"vector-view-edit": "ϫⲓⲛⲫⲱⲛϩ",
-	"vector-view-history": "ⲁⲛⲁⲩ ⲉϯϩⲓⲥⲧⲟⲣⲓⲁ",
+	"vector-view-history": "Ⲁ̀ⲛⲁⲩ ⲉ̀ⲧϩⲓⲥⲧⲟⲣⲓⲁ̀",
 	"vector-view-view": "ⲱϣ",
-	"vector-more-actions": "ϩⲟⲩⲟ ⲉⲣⲟⲥ"
+	"vector-more-actions": "Ⲛ̀ϩⲟⲩⲟ",
+	"vector-searchsuggest-containing": "Ⲕⲱϯ ⲛ̀ⲥⲁϩⲟ ⲉ̀ⲥⲉⲱⲗⲓ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Ⲫⲙⲟϩ",
+	"vector-toc-beginning": "Ⲧⲁⲣⲭⲏ",
+	"vector-main-menu-label": "Ⲡⲓϩⲟⲩⲓⲧ ⲛ̀ⲕⲁⲧⲁⲗⲟⲅⲟⲥ",
+	"vector-page-tools-label": "Ϩⲁⲛⲥⲉⲑⲃⲁⲓⲟⲩ",
+	"vector-page-tools-general-label": "Ⲡⲅⲉⲛⲓⲕⲟⲥ",
+	"vector-page-tools-actions-label": "Ϩⲁⲛⲉⲣⲅⲟⲛ",
+	"vector-unpin-element-label": "ⲕⲱⲡ"
 }

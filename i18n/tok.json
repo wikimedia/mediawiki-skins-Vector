@@ -15,8 +15,11 @@
 			"Tamzin"
 		]
 	},
+	"skinname-vector": "selo Vector pini (2010)",
+	"skinname-vector-2022": "selo Vector (2022)",
+	"vector-specialversion-name": "selo Vector",
 	"prefs-vector-enable-vector-1-label": "o kepeken selo Legacy Vector",
-	"vector-opt-out": "o selo pini",
+	"vector-opt-out": "o kepeken selo pini",
 	"vector-action-toggle-sidebar": "o len ala e linja poka",
 	"vector-languages": "toki",
 	"vector-language-button-aria-label": "o tawa lipu lon toki ante. {{PLURAL:$1|toki $1}} li lon.",
