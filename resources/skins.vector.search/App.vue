@@ -213,7 +213,6 @@ module.exports = exports = defineComponent( {
 		 */
 		updateUIWithSearchClientResult( search, replaceResults ) {
 			const query = this.currentSearchQuery;
-			instrumentation.listeners.onFetchStart();
 
 			search.fetch
 				.then( ( data ) => {
