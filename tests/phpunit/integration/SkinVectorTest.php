@@ -35,25 +35,6 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @param string $nodeString an HTML of the node we want to verify
-	 * @param string $tag Tag of the element we want to check
-	 * @param string $attribute Attribute of the element we want to check
-	 * @param string $search Value of the attribute we want to verify
-	 * @return bool
-	 */
-	private function expectNodeAttribute( $nodeString, $tag, $attribute, $search ) {
-		$node = new \DOMDocument();
-		$node->loadHTML( $nodeString );
-		$element = $node->getElementsByTagName( $tag )->item( 0 );
-		if ( !$element ) {
-			return false;
-		}
-
-		$values = explode( ' ', $element->getAttribute( $attribute ) );
-		return in_array( $search, $values );
-	}
-
-	/**
 	 * @covers \MediaWiki\Skins\Vector\SkinVectorLegacy::getTemplateData
 	 */
 	public function testGetTemplateData() {
