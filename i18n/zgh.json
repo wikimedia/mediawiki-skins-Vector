@@ -6,7 +6,8 @@
 			"Brahim-essaidi",
 			"YesIn",
 			"ⵕⴰⵊⵉ",
-			"AguzulH"
+			"AguzulH",
+			"Mdb897"
 		]
 	},
 	"vector-languages": "ⵜⵓⵜⵍⴰⵢⵉⵏ",
@@ -28,5 +29,6 @@
 	"vector-main-menu-label": "ⵓⵎⵓⵖ ⴰⴷⵙⵍⴰⵏ",
 	"vector-page-tools-label": "ⵉⵎⴰⵙⵙⵏ",
 	"vector-page-tools-general-label": "ⴰⵎⴰⵜⴰⵢ",
+	"vector-page-tools-actions-label": "ⵜⵉⴳⴰⵡⵉⵏ",
 	"vector-unpin-element-label": "ⵙⵙⵏⵜⵍ"
 }
