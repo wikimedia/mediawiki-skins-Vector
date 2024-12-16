@@ -4,11 +4,14 @@
 			"Nertiks",
 			"Nērtiks Jōrgesuns",
 			"Peteris",
-			"Tīgelika"
+			"Tīgelika",
+			"Kxeo"
 		]
 	},
+	"vector-languages": "Billas",
 	"vector-language-button-aria-label": "Jaīs en artīkelin pra kittan billin. Preiēiminan en {{PLURAL:$1|$1 bilāmans|$1 billai|$1 bilāmans}}",
 	"vector-language-button-label": "$1 {{PLURAL:$1|billas|bilā|billas}}",
+	"vector-no-language-button-label": "Preidātun billas",
 	"vector-language-variant-switcher-label": "Kitawīdinais billas wariāntin",
 	"vector-action-addsection": "Preidāis tēman",
 	"vector-action-delete": "Āupausinais",

@@ -4,9 +4,11 @@
 			"Gott wisst",
 			"Heahwrita",
 			"JJohnson1701",
-			"Hogweard"
+			"Hogweard",
+			"Rocioun"
 		]
 	},
+	"vector-languages": "Geþeodu",
 	"vector-action-addsection": "Besettan mearcunge",
 	"vector-action-delete": "Forleos",
 	"vector-action-move": "Wegan",
@@ -15,7 +17,7 @@
 	"vector-action-unprotect": "Andwendan beorgunge",
 	"vector-view-create": "Scieppan",
 	"vector-view-edit": "Adiht",
-	"vector-view-history": "Seoh stær",
+	"vector-view-history": "Locian on cranice",
 	"vector-view-view": "Ræd",
 	"vector-view-viewsource": "Sēon fruman",
 	"vector-more-actions": "Ma"
