@@ -4,7 +4,8 @@
 			"Servien",
 			"Slomox",
 			"Wikiundeplattsnacker",
-			"Zylbath"
+			"Zylbath",
+			"Ameisenigel"
 		]
 	},
 	"vector-languages": "Spraken",
@@ -23,7 +24,12 @@
 	"vector-view-viewsource": "Borntext bekieken",
 	"vector-more-actions": "Mehr",
 	"vector-searchsuggest-containing": "Söök för Sieden mit <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Inholtsverteken",
+	"vector-toc-beginning": "Anfang",
+	"vector-anon-user-menu-pages": "Sieden för afmellt Brukers",
+	"vector-main-menu-label": "Hööftmenü",
 	"vector-page-tools-label": "Warktüüch",
 	"vector-page-tools-general-label": "Allmeen",
+	"vector-page-tools-actions-label": "Akschonen",
 	"vector-unpin-element-label": "versteken"
 }
