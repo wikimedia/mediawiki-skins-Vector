@@ -18,5 +18,6 @@
 	"vector-view-view": "ꠙꠠ",
 	"vector-more-actions": "ꠀꠞꠧ",
 	"vector-searchsuggest-containing": "ꠚꠣꠔꠣ ꠕꠥꠇꠣꠃꠇ꠆ꠇꠣ ꠎꠦꠘꠅ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "ꠀꠞꠝ꠆ꠛꠅ"
+	"vector-toc-beginning": "ꠀꠞꠝ꠆ꠛꠅ",
+	"vector-anon-user-menu-pages": "ꠛꠣꠞꠂꠎꠣꠅꠀ ꠟꠦꠈꠞꠣꠁꠘ꠆ꠔꠞ ꠟꠣꠉꠤ ꠙꠣꠔꠣꠁꠘ"
 }

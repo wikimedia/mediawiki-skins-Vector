@@ -15,5 +15,6 @@
 	"vector-view-history": "Nampak sajarah",
 	"vector-more-actions": "Lagi",
 	"vector-searchsuggest-containing": "Cari laman yang ada <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Mula"
+	"vector-toc-beginning": "Mula",
+	"vector-anon-user-menu-pages": "Laman untuk pengidit yang dikasih log keluar"
 }
