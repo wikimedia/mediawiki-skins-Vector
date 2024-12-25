@@ -6,6 +6,11 @@
 	},
 	"vector-languages": "Ла̄тӈыт",
 	"vector-no-language-button-label": "Ла̄тӈыт тув-нё̄тэн",
+	"vector-action-delete": "Э̄л урен",
+	"vector-action-move": "Мо̄т намыл ла̄вен",
 	"vector-more-actions": "Са̄внув",
-	"vector-page-tools-label": "Инструментыт"
+	"vector-main-menu-label": "Яныг меню",
+	"vector-page-tools-label": "Инструментыт",
+	"vector-page-tools-general-label": "Котляртке̄м",
+	"vector-unpin-element-label": "ёл тӯйтэн"
 }
