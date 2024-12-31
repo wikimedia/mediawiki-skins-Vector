@@ -5,6 +5,7 @@
 		]
 	},
 	"vector-languages": "Ла̄тӈыт",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ла̄тыӈ|$1 ла̄тӈыт}}",
 	"vector-no-language-button-label": "Ла̄тӈыт тув-нё̄тэн",
 	"vector-action-delete": "Э̄л урен",
 	"vector-action-move": "Мо̄т намыл ла̄вен",
@@ -14,7 +15,7 @@
 	"vector-feature-limited-width-0-label": "Па̄хвыӈ",
 	"vector-feature-limited-width-1-label": "Мо̄ртыс ва̄рмаль",
 	"vector-feature-custom-font-size-name": "Текст",
-	"vector-feature-custom-font-size-0-label": "Мань",
+	"vector-feature-custom-font-size-0-label": "Ма̄нь",
 	"vector-feature-custom-font-size-1-label": "Мо̄ртыс ва̄рмаль",
 	"vector-feature-custom-font-size-2-label": "Яныг",
 	"skin-theme-name": "Oспат",
@@ -22,7 +23,7 @@
 	"skin-theme-night-label": "Турман",
 	"skin-theme-exclusion-notice": "Ты нэ̄капн акваг посыӈ оспанэ о̄ньсиянэ.",
 	"vector-main-menu-label": "Яныг меню",
-	"vector-feature-custom-font-size-exclusion-notice": "Ты нэ̄пакн акваг мань буква янытэ о̄ньси",
+	"vector-feature-custom-font-size-exclusion-notice": "Ты нэ̄пакн акваг ма̄нь буква янытэ о̄ньси",
 	"vector-page-tools-label": "Инструментыт",
 	"vector-page-tools-general-label": "Котляртке̄м",
 	"vector-unpin-element-label": "ёл тӯйтэн"
