@@ -5,6 +5,7 @@
 		]
 	},
 	"vector-languages": "Ла̄тӈыт",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ла̄тыӈ|$1 ла̄тӈыт}}",
 	"vector-no-language-button-label": "Ла̄тӈыт тув-нё̄тэн",
 	"vector-action-delete": "Э̄л урен",
 	"vector-action-move": "Мо̄т намыл ла̄вен",
