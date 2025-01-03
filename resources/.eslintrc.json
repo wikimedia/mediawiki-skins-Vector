@@ -5,7 +5,7 @@
 	],
 	"extends": [
 		"plugin:no-jquery/all",
-		"wikimedia/client-es6",
+		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
