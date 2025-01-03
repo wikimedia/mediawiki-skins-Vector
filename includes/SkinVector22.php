@@ -372,6 +372,9 @@ class SkinVector22 extends SkinMustache {
 					'vector-page-titlebar-toc vector-button-flush-left',
 					// icon
 					'listBullet',
+					Html::expandAttributes( [
+						'title' => $this->msg( 'vector-toc-menu-tooltip' )->text(),
+					] )
 				),
 				'data-page-titlebar-toc-pinnable-container' => new VectorComponentPinnableContainer(
 					'vector-page-titlebar-toc',
@@ -457,7 +460,10 @@ class SkinVector22 extends SkinMustache {
 				VectorComponentMainMenu::ID . '-dropdown',
 				$this->msg( VectorComponentMainMenu::ID . '-label' )->text(),
 				VectorComponentMainMenu::ID . '-dropdown' . ' vector-button-flush-left vector-button-flush-right',
-				'menu'
+				'menu',
+				Html::expandAttributes( [
+					'title' => $this->msg( 'vector-main-menu-tooltip' )->text(),
+				] )
 			),
 			'data-page-tools' => new VectorComponentPageTools(
 				array_merge( [ $portlets['data-actions'] ?? [] ], $pageToolsMenu ),
