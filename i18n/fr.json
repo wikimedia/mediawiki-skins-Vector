@@ -63,6 +63,7 @@
 	"vector-more-actions": "Plus",
 	"vector-appearance-label": "Apparence",
 	"vector-appearance-tooltip": "Modifier l'apparence de la taille, de la largeur et de la couleur de la police de la page",
+	"vector-personal-tools-tooltip": "Modifier les paramètres personnels",
 	"vector-feature-limited-width-name": "Largeur",
 	"vector-feature-limited-width-0-label": "Large",
 	"vector-feature-limited-width-1-label": "Standard",
