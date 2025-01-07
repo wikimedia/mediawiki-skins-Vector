@@ -99,5 +99,6 @@
 	"vector-night-mode-issue-reporting-link-label": "Qaranlıq rejimlə bağlı problemi bildirin",
 	"vector-night-mode-issue-reporting-link-notification": "Göndərildi!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 qaranlıq rejim xətası",
-	"vector-night-mode-issue-reporting-preload-content": "<!--\nTəlimatlar\n\nQaranlıq rejim rənglərinin Vikipediyanın oxunmasını necə çətinləşdirdiyini təsvir edin. \nZəhmət olmasa məqalənin problemi tapdığınız bölməni daxil edin. \n-->\n'''Problemin təsviri'''"
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nTəlimatlar\n\nQaranlıq rejim rənglərinin Vikipediyanın oxunmasını necə çətinləşdirdiyini təsvir edin. \nZəhmət olmasa məqalənin problemi tapdığınız bölməni daxil edin. \n-->\n'''Problemin təsviri'''",
+	"vector-night-mode-beta-tag": "(beta)"
 }
