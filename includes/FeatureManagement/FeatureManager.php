@@ -232,7 +232,6 @@ class FeatureManager {
 				case Constants::FEATURE_LIMITED_WIDTH_CONTENT:
 				case Constants::FEATURE_LANGUAGE_IN_HEADER:
 				case Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER:
-				case Constants::FEATURE_STICKY_HEADER:
 					$suffixEnabled = 'enabled';
 					$suffixDisabled = 'disabled';
 					break;

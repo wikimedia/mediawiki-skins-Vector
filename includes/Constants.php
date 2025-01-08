@@ -77,21 +77,6 @@ final class Constants {
 	public const REQUIREMENT_LANGUAGE_IN_HEADER = 'LanguageInHeader';
 
 	/**
-	 * @var string
-	 */
-	public const CONFIG_STICKY_HEADER = 'VectorStickyHeader';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_STICKY_HEADER = 'StickyHeader';
-
-	/**
-	 * @var string
-	 */
-	public const FEATURE_STICKY_HEADER = 'StickyHeader';
-
-	/**
 	 * Defines whether an A/B test is running.
 	 *
 	 * @var string

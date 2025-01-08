@@ -653,13 +653,6 @@
 			},
 			"description": "@var When `VectorLanguageInHeader` is enabled, determines whether the Main Page's language button should be at the top or bottom of the content. The default position on the main page is at the bottom."
 		},
-		"VectorStickyHeader": {
-			"value": {
-				"logged_in": true,
-				"logged_out": false
-			},
-			"description": "@var array Enables a persistent header that allows quick access to user links, editing tools, search and other links while scrolling down a page"
-		},
 		"VectorWebABTestEnrollment": {
 			"value": {
 				"name": "skin-vector-unnamed",
