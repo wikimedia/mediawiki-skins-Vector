@@ -4,6 +4,9 @@
 			"Jagwar"
 		]
 	},
+	"vector-languages": "Fiteny",
+	"vector-language-button-label": "{{PLURAL:$1|fiteny tokana|fiteny $1}}",
+	"vector-no-language-button-label": "Hanampy fiteny",
 	"vector-action-addsection": "Hanampy lohahevitra",
 	"vector-action-delete": "Fafana",
 	"vector-action-move": "Hanolo anarana",
@@ -15,5 +18,8 @@
 	"vector-view-history": "Hijery ny tantara",
 	"vector-view-view": "Hamaky",
 	"vector-view-viewsource": "Hijery fango",
-	"vector-more-actions": "Be kokoa"
+	"vector-more-actions": "Be kokoa",
+	"vector-searchsuggest-containing": "Hikaroka ireo pejy misy <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Fiandohana",
+	"vector-anon-user-menu-pages": "Pejy ho an'ny mpikambana tsy niditra"
 }

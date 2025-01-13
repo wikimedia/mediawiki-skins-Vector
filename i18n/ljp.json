@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"DedeKurnn"
+		]
+	},
+	"vector-languages": "Bahasa",
+	"vector-language-button-label": "{{PLURAL:$1|$1|$1 bahasa}}",
+	"vector-no-language-button-label": "Tambah bahasa",
+	"vector-action-addsection": "Tambah topik",
+	"vector-action-delete": "Hapus",
+	"vector-action-move": "Alihko",
+	"vector-action-protect": "Lindungi",
+	"vector-view-create": "Guway",
+	"vector-view-history": "Liyak riwayat",
+	"vector-more-actions": "Baghihni",
+	"vector-searchsuggest-containing": "Sepok halaman say buisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Mula",
+	"vector-anon-user-menu-pages": "Halaman pakay pedandan say luwah log"
+}
