@@ -2,7 +2,6 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
-			"Amire80",
 			"Crt",
 			"MITO",
 			"Majavah",
@@ -77,7 +76,7 @@
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|Keskustelu]]",
 	"tooltip-vector-anon-user-menu-title": "Lisää valintoja",
 	"vector-page-tools-nav-label": "Sivutyökalut",
-	"vector-prefs-limited-width": "Ota rajoitettu leveystila käyttöön",
+	"vector-prefs-limited-width": "Ota käyttöön rajoitettu leveystila",
 	"vector-prefs-limited-width-help": "Ota käyttöön rajoitettu leveystila parantaaksesi lukukokemusta.",
 	"empty-language-selector-body": "Sivun sisältöä ei tueta muilla kielillä.",
 	"vector-toc-unpinned-popup": "Sisällysluettelo on siirretty tänne.",
