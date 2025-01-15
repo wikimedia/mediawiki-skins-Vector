@@ -5,6 +5,7 @@
 			"Cumbril",
 			"Ker",
 			"Pikne",
+			"Rivoz",
 			"WikedKentaur"
 		]
 	},
@@ -42,6 +43,7 @@
 	"vector-more-actions": "Veel",
 	"vector-appearance-label": "Ilme",
 	"vector-appearance-tooltip": "Muuda lehekülje kirjasuurust, laiust ja värvust",
+	"vector-personal-tools-tooltip": "Isiklikud seaded",
 	"vector-feature-limited-width-name": "Laius",
 	"vector-feature-limited-width-0-label": "Lai",
 	"vector-feature-limited-width-1-label": "Harilik",
