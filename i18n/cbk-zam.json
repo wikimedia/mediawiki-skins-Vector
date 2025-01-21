@@ -5,11 +5,22 @@
 			"Aristorkle"
 		]
 	},
+	"vector-action-addsection": "Omenta asunto",
 	"vector-view-create": "Hace",
 	"vector-view-edit": "Revisa",
 	"vector-view-history": "Mira el historia",
 	"vector-view-view": "Lee",
 	"vector-more-actions": "Mas",
+	"vector-feature-limited-width-0-label": "Ancho",
+	"vector-feature-custom-font-size-name": "Texto",
+	"vector-feature-custom-font-size-0-label": "Diutay",
+	"vector-feature-custom-font-size-2-label": "Grande",
+	"skin-theme-name": "Color",
+	"skin-theme-day-label": "Arde",
+	"skin-theme-night-label": "Escuro",
+	"skin-theme-os-label": "Automatico",
+	"skin-theme-exclusion-notice": "Este pagina y firme en modo arde.",
 	"vector-toc-beginning": "Principia",
-	"vector-page-tools-label": "Herramientas"
+	"vector-page-tools-label": "Herramientas",
+	"vector-unpin-element-label": "esconde"
 }

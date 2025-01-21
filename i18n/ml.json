@@ -3,7 +3,8 @@
 		"authors": [
 			"Akbarali",
 			"Anoopan",
-			"Praveenp"
+			"Praveenp",
+			"Jinoytommanjaly"
 		]
 	},
 	"skinname-vector": "വെക്റ്റർ പഴമ (2010)",
@@ -43,16 +44,20 @@
 	"skin-theme-day-label": "തെളിച്ചം",
 	"skin-theme-night-label": "ഇരുളിമ",
 	"skin-theme-os-label": "സ്വയം പ്രവർത്തിതം",
+	"skin-theme-exclusion-notice": "ഈ പേജ് എപ്പോഴും ലൈറ്റ് മോഡിലാണ്.",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> അടങ്ങിയ പേജുകൾക്കായി തിരയുക",
 	"vector-toc-label": "ഉള്ളടക്കം",
 	"vector-toc-beginning": "തുടക്കം",
+	"vector-anon-user-menu-pages": "ലോഗ് ഔട്ട് ചെയ്ത എഡിറ്റർമാർക്കുള്ള പേജുകൾ",
 	"vector-anon-user-menu-pages-learn": "കൂടുതൽ അറിയുക",
 	"vector-main-menu-tooltip": "പ്രധാന മെനു",
 	"vector-toc-menu-tooltip": "ഉള്ളടക്കപ്പട്ടിക",
 	"vector-site-nav-label": "സൈറ്റ്",
 	"vector-main-menu-label": "പ്രധാന മെനു",
+	"vector-feature-custom-font-size-exclusion-notice": "ഈ പേജ് എപ്പോഴും ചെറിയ ഫോണ്ട് സൈസ് ഉപയോഗിക്കുന്നു",
 	"vector-page-tools-label": "ഉപകരണങ്ങൾ",
 	"vector-page-tools-general-label": "സാർവത്രികം",
+	"vector-page-tools-actions-label": "പ്രവൃത്തികൾ",
 	"vector-pin-element-label": "സൈഡ്‌ബാറിലേക്ക് മാറ്റുക",
 	"vector-unpin-element-label": "മറയ്ക്കുക",
 	"tooltip-vector-anon-user-menu-title": "കൂടുതൽ ഐച്ഛികങ്ങൾ"
