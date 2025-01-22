@@ -3,13 +3,16 @@
 		"authors": [
 			"Enkhsaihan2005",
 			"Nikki",
-			"Wikibilig"
+			"Wikibilig",
+			"Anand.orkhon"
 		]
 	},
 	"vector-languages": "ᢈᠡᠯᠡ ᠨᠦ᠋ᢉᠦᠳ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᠬᠡᠯᠡ}}",
 	"vector-no-language-button-label": "ᢈᠡᠯᠡ ᠨᠡᠮᠡᢈᠦ",
 	"vector-action-addsection": "ᠰᠡᠳᠦᠪ ᠨᠡᠮᠡᠬᠦ",
+	"vector-action-delete": "ᠤᠰᠤᠳᠬᠠᠬᠤ",
+	"vector-action-protect": "ᠬᠠᠮᠠᠭᠠᠯᠬᠤ",
 	"vector-view-create": "ᠡᠭᠦᠰᠬᠡᠬᠦ",
 	"vector-view-edit": "ᠵᠠᠰᠠᠪᠤᠷᠢᠯᠠᠬᠤ",
 	"vector-view-history": "ᠲᠡᠦᠬᠡ",
@@ -18,8 +21,10 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ᠪᠢᠴᠢᠪᠦᠷᠢ ᠶ᠋ᠢ ᠠᠭᠤᠯᠤᠭᠰᠠᠨ ᠬᠠᠭᠤᠳᠠᠰᠤ ᠶ᠋ᠢ ᠬᠠᠶᠢᠬᠤ",
 	"vector-toc-label": "ᠭᠠᠷᠴᠠᠭ",
 	"vector-toc-beginning": "ᠡᢈᠢᠯᠡᠯ",
+	"vector-anon-user-menu-pages": "ᠭᠠᠷᠤᠭᠰᠠᠨ ᠵᠠᠰᠠᠪᠤᠷᠢᠯᠠᠭᠴᠢᠳ ‍ᠲᠤ ᠵᠣᠷᠢᠭᠤᠯᠤᠭᠰᠠᠨ ᠬᠠᠭᠤᠳᠠᠰᠤ",
 	"vector-main-menu-label": "ᠦᠨᠳᠦᠰᠦᠨ ᠼᠧᠰᠧ",
 	"vector-page-tools-label": "ᠬᠡᠷᠡᠭᠯᠡᠭᠦᠷ",
 	"vector-page-tools-general-label": "ᠶᠡᠷᠦᠩᢈᠡᠢ",
+	"vector-page-tools-actions-label": "ᠦᠢᠯᠡᠳᠦᠯ",
 	"vector-unpin-element-label": "ᠬᠤᠮᠢᠬᠤ"
 }

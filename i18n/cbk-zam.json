@@ -5,11 +5,13 @@
 			"Aristorkle"
 		]
 	},
+	"vector-action-addsection": "Omenta asunto",
 	"vector-view-create": "Hace",
 	"vector-view-edit": "Revisa",
 	"vector-view-history": "Mira el historia",
 	"vector-view-view": "Lee",
 	"vector-more-actions": "Mas",
 	"vector-toc-beginning": "Principia",
-	"vector-page-tools-label": "Herramientas"
+	"vector-page-tools-label": "Herramientas",
+	"vector-unpin-element-label": "esconde"
 }
