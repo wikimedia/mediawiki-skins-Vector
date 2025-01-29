@@ -5,12 +5,16 @@
 			"Aristorkle"
 		]
 	},
+	"vector-languages": "Maga lenguaje",
 	"vector-action-addsection": "Omenta asunto",
+	"vector-action-delete": "Borra",
+	"vector-action-move": "Mobé",
 	"vector-view-create": "Hace",
 	"vector-view-edit": "Revisa",
 	"vector-view-history": "Mira el historia",
 	"vector-view-view": "Lee",
 	"vector-more-actions": "Mas",
+	"vector-searchsuggest-containing": "Busca con el maga pagina aquel tiene <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Principia",
 	"vector-page-tools-label": "Herramientas",
 	"vector-unpin-element-label": "esconde"
