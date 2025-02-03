@@ -4,7 +4,8 @@
 			"Anjoeli9806",
 			"Kai theos en ho logos",
 			"Redhotchili23",
-			"Billie bb"
+			"Billie bb",
+			"Exec8"
 		]
 	},
 	"vector-languages": "Mga Lenguahe",
@@ -22,5 +23,7 @@
 	"vector-view-view": "Magbasa",
 	"vector-view-viewsource": "Lantawon ang ginhalinan",
 	"vector-more-actions": "Dugang Pa",
-	"vector-searchsuggest-containing": "Mangita sang mga panid nga nagasulod sang <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Mangita sang mga panid nga nagasulod sang <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Sa umpisa",
+	"vector-anon-user-menu-pages": "Mga pahina para sa mga naka-log out nga mga editor"
 }
