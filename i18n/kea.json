@@ -29,15 +29,16 @@
 	"vector-feature-limited-width-name": "Largura",
 	"vector-feature-limited-width-0-label": "Largu",
 	"vector-feature-limited-width-1-label": "Padron",
-	"vector-feature-custom-font-size-name": "Testu",
+	"vector-feature-custom-font-size-name": "Tamanhu di testu",
 	"vector-feature-custom-font-size-0-label": "Pikenu",
 	"vector-feature-custom-font-size-1-label": "Padron",
 	"vector-feature-custom-font-size-2-label": "Grandi",
-	"skin-theme-name": "Kor",
+	"skin-theme-name": "Kor di fundu",
 	"skin-theme-day-label": "Claru",
 	"skin-theme-night-label": "Sukuru",
 	"skin-theme-os-label": "Automátiku",
 	"vector-feature-custom-font-size-exclusion-notice": "Kel pájina li sempri ta uza tamanhu di letra pikenu",
 	"vector-page-tools-label": "Feramentas",
+	"vector-pin-element-label": "poi na bara lateral",
 	"vector-unpin-element-label": "sukundi"
 }
