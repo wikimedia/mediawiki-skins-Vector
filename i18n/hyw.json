@@ -24,8 +24,10 @@
 	"vector-searchsuggest-containing": "Որոնել էջեր որ կը ներառեն <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Բովանդակութիւն",
 	"vector-toc-beginning": "Սկսիլ",
+	"vector-anon-user-menu-pages": "Էջեր չգրանցուած խմբագիրներու համար",
 	"vector-main-menu-label": "Հիմնական ընտրացանկ",
 	"vector-page-tools-label": "Գործիքներ",
 	"vector-page-tools-general-label": "Ընհդանուր",
+	"vector-page-tools-actions-label": "Գործողութիւններ",
 	"vector-unpin-element-label": "պահել"
 }
