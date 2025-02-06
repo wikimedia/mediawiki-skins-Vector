@@ -4,7 +4,8 @@
 			"Anjoeli9806",
 			"Kai theos en ho logos",
 			"Redhotchili23",
-			"Billie bb"
+			"Billie bb",
+			"Exec8"
 		]
 	},
 	"vector-languages": "Mga Lenguahe",
@@ -22,15 +23,22 @@
 	"vector-view-view": "Magbasa",
 	"vector-view-viewsource": "Lantawon ang ginhalinan",
 	"vector-more-actions": "Dugang Pa",
+	"vector-feature-limited-width-name": "Kalapadon",
 	"vector-feature-custom-font-size-name": "Teks",
+	"vector-feature-limited-width-0-label": "Malapad",
+	"vector-feature-limited-width-1-label": "Istandard",
 	"vector-feature-custom-font-size-0-label": "Magamay",
 	"vector-feature-custom-font-size-1-label": "Istandard",
 	"vector-feature-custom-font-size-2-label": "Dako",
 	"skin-theme-name": "Kolor",
 	"skin-theme-os-label": "Awtomatiko",
 	"vector-searchsuggest-containing": "Mangita sang mga panid nga nagasulod sang <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Kaundan",
+	"vector-toc-beginning": "Sa umpisa",
+	"vector-anon-user-menu-pages": "Mga pahina para sa mga naka-log out nga mga editor",
 	"vector-main-menu-label": "Panguna nga menu",
 	"vector-page-tools-label": "Gamit",
 	"vector-page-tools-general-label": "Kabilogan",
+	"vector-page-tools-actions-label": "Mga aksyon",
 	"vector-unpin-element-label": "panago"
 }
