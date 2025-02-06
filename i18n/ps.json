@@ -42,10 +42,17 @@
 	"vector-toc-label": "منځپانگې",
 	"vector-toc-beginning": "پیل",
 	"vector-anon-user-menu-pages": "غونډال څخه وتليو سمونگرانو لپاره مخونه",
+	"vector-anon-user-menu-pages-learn": "نور مالومات",
+	"vector-main-menu-tooltip": "ارنۍ غورنۍ",
+	"vector-toc-menu-tooltip": "نيوليک",
+	"vector-site-nav-label": "وېب‌ځی",
 	"vector-main-menu-label": "ارنۍ غورنۍ",
 	"vector-feature-custom-font-size-exclusion-notice": "دا مخ تل د ليکبڼې کوچنۍ کچه کاروي",
 	"vector-page-tools-label": "اوزارونه",
 	"vector-page-tools-general-label": "ټولگړی",
 	"vector-page-tools-actions-label": "کړنې",
-	"vector-unpin-element-label": "پټول"
+	"vector-unpin-element-label": "پټول",
+	"tooltip-vector-anon-user-menu-title": "نورې خوښنې",
+	"vector-page-tools-nav-label": "د مخ اوزارونه",
+	"vector-night-mode-beta-tag": "(بیټا)"
 }
