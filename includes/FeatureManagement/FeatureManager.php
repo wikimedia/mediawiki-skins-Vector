@@ -123,7 +123,7 @@ class FeatureManager {
 			) );
 		}
 
-		Assert::parameterType( 'string|array', $requirements, 'requirements' );
+		Assert::parameterType( [ 'string', 'array' ], $requirements, 'requirements' );
 
 		$requirements = (array)$requirements;
 
