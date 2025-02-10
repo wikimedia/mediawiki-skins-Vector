@@ -2,7 +2,6 @@
 	"@metadata": {
 		"authors": [
 			"Abanima",
-			"Amire80",
 			"Bachounda",
 			"Beginneruser",
 			"Calak",
@@ -26,7 +25,11 @@
 			"MRidhaAJ",
 			"أيوب",
 			"Tar Lócesilion",
-			"عبد الإله صديقي"
+			"عبد الإله صديقي",
+			"Cigaryno",
+			"Mohammed Qays",
+			"Mohanad",
+			"Mohanad Kh"
 		]
 	},
 	"skinname-vector": "فكتور القديم (2010)",
@@ -54,7 +57,7 @@
 	"vector-action-undelete": "ألغِ الحذف",
 	"vector-action-unprotect": "غيِّر الحماية",
 	"vector-view-create": "أنشئ",
-	"vector-view-edit": "عدِّل",
+	"vector-view-edit": "عدّل",
 	"vector-view-history": "تاريخ",
 	"vector-view-view": "اقرأ",
 	"vector-view-viewsource": "اعرض المصدر",

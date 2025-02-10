@@ -28,5 +28,10 @@
 	"vector-more-actions": "نور",
 	"vector-searchsuggest-containing": "هغه مخونه پلټل چې<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> لري",
 	"vector-toc-beginning": "پیل",
-	"vector-anon-user-menu-pages": "غونډال څخه وتليو سمونگرانو لپاره مخونه"
+	"vector-anon-user-menu-pages": "غونډال څخه وتليو سمونگرانو لپاره مخونه",
+	"vector-anon-user-menu-pages-learn": "نور مالومات",
+	"vector-main-menu-tooltip": "ارنۍ غورنۍ",
+	"vector-toc-menu-tooltip": "نيوليک",
+	"vector-site-nav-label": "وېب‌ځی",
+	"tooltip-vector-anon-user-menu-title": "نورې خوښنې"
 }
