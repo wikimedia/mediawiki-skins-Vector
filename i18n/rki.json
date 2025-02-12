@@ -21,7 +21,12 @@
 	"vector-view-view": "ဖတ်ကြေ့ပါ",
 	"vector-more-actions": "ထပ်လို့",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>ပါဝင်ရေ စာမျက်နှာတိ ယှာဖွီရန်",
+	"vector-toc-label": "အကြောင်းအရာတိ",
+	"vector-toc-beginning": "အစ",
+	"vector-anon-user-menu-pages": "ထွက်ပြီးသား တည်းဖြတ်လူရို့အတွက် စာမျက်နှာတိ",
+	"vector-main-menu-label": "အဓိကမန်နူး",
 	"vector-page-tools-label": "ကိရိယာတိ",
 	"vector-page-tools-general-label": "အထွီအထွီ",
+	"vector-page-tools-actions-label": "လုပ်ဆောင်ချက်တိ",
 	"vector-unpin-element-label": "ဝှက်တေ"
 }

@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"MysticVoyager"
+		]
+	},
+	"vector-languages": "ᐅᖃᕐᕕᐅᑎᔪᑦ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ᐅᖃᐅᓯᖅ|$1 ᐅᖃᐅᓯᑦ}}",
+	"vector-no-language-button-label": "ᐅᖃᐅᓯᑦ ᐊᐃᑎᕐᓗᑎᑦ",
+	"vector-action-addsection": "ᐃᓚᓕᐅᑎᓗᒍ ᐅᖃᐅᓯᒃᓴᖅ",
+	"vector-action-delete": "ᐲᔭᖅᑕᐅᔪᖅ",
+	"vector-action-move": "ᐅᐊᔪᖅ",
+	"vector-action-protect": "ᓴᐳᔾᔨᓯᒪᓂᖅ",
+	"vector-view-create": "ᓴᓇᓗᑎᑦ",
+	"vector-view-history": "ᑕᑯᓗᒍ ᖃᓄᐃᓕᐅᕈᑕᐅᖃᑦᑕᖅᓯᒪᔪᖅ",
+	"vector-more-actions": "ᓱᓕᒃᑲᓐᓂᖅ",
+	"vector-searchsuggest-containing": "ᕿᓂᕐᓗᒋᑦ ᒪᒃᐱᒐᐃᑦ ᐃᓗᓕᖃᖅᑐᑦ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "ᐃᓗᓕᖏᑦ",
+	"vector-toc-beginning": "ᐱᓇᓱᐊᖅ",
+	"vector-anon-user-menu-pages": "ᒪᒃᐱᒐᐃᑦ ᐊᓂᓯᒪᔪᓄᑦ ᐋᖅᑭᒃᓱᐃᔨᓄᑦ",
+	"vector-main-menu-label": "ᓂᕆᔭᒃᓴᓪᓗᐊᑕᐃᑦ",
+	"vector-page-tools-label": "ᓴᓇᕐᕈᑎᑦ",
+	"vector-page-tools-general-label": "ᑭᓱᑐᐃᓐᓇᑦ",
+	"vector-page-tools-actions-label": "ᖃᓄᐃᓕᐅᕈᑕᐅᔪᑦ",
+	"vector-unpin-element-label": "ᐃᔨᖅᐳᖅ"
+}

@@ -1,6 +1,9 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"MysticVoyager"
+		]
 	},
-	"vector-view-edit": "Suqusiqpaa"
+	"vector-view-edit": "Suqusiqpaa",
+	"vector-unpin-element-label": "amirainga"
 }
