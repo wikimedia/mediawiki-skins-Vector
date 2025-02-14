@@ -20,7 +20,7 @@
 	"vector-opt-out": "Kthehu tek mbulesa e vjetër",
 	"vector-languages": "Gjuhë",
 	"vector-language-button-aria-label": "Shkoni te një artikull në një gjuhë tjetër. Gjendet në {{PLURAL:$1|$1 gjuhë|$1 gjuhë}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 gjuhë|$1 gjuhë}}",
+	"vector-language-button-label": "$1 gjuhë",
 	"vector-no-language-button-label": "Shtoni gjuhë",
 	"vector-no-language-button-aria-label": "Ky artikull ekziston vetëm në këtë gjuhë. Shto artikullin për gjuhë të tjera",
 	"vector-language-variant-switcher-label": "Ndërroni variantin e gjuhës",
