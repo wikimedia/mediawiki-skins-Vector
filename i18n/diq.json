@@ -48,5 +48,6 @@
 	"vector-searchsuggest-containing": "Pelanê tede <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> esto, cı geyre",
 	"vector-intro-page": "Help:Destpêkerdış",
 	"vector-toc-beginning": "Destpêkerdış",
-	"vector-toc-toggle-button-label": "Bınleteyê $1 bıvurnên"
+	"vector-toc-toggle-button-label": "Bınleteyê $1 bıvurnên",
+	"vector-anon-user-menu-pages": "Pelê seba vurnayoğanê cıraveciyayeyan"
 }

@@ -24,5 +24,7 @@
 	"vector-view-view": "Skaitāis",
 	"vector-view-viewsource": "Wīdais appun",
 	"vector-more-actions": "Tūls",
-	"vector-searchsuggest-containing": "Laukīs pāusans turīnts <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Laukīs pāusans turīnts <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Pagaūsenis",
+	"vector-anon-user-menu-pages": "Pausāi per izlōgitans redaktōrans"
 }
