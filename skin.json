@@ -474,6 +474,9 @@
 			]
 		},
 		"skins.vector.legacy.js": {
+			"styles": [
+				"resources/skins.vector.legacy.js/index.less"
+			],
 			"packageFiles": [
 				"resources/skins.vector.legacy.js/skin-legacy.js",
 				"resources/skins.vector.legacy.js/portlets.js",
