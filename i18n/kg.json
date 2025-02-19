@@ -4,12 +4,14 @@
 			"Rkupsala",
 			"Bergerdias",
 			"Cgmbo",
-			"CapitainAfrika"
+			"CapitainAfrika",
+			"BOKOBA VEROLY"
 		]
 	},
 	"vector-languages": "Bandinga",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ndinga|$1 bandinga}}",
 	"vector-no-language-button-label": "Yika bandinga",
+	"vector-action-addsection": "Add topic",
 	"vector-action-delete": "Kufwa",
 	"vector-action-move": "Nata",
 	"vector-action-protect": "Keba",
@@ -19,6 +21,12 @@
 	"vector-view-view": "Tânga",
 	"vector-more-actions": "Ya nkaka",
 	"vector-searchsuggest-containing": "Sosa balutiti ya kele ti <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Mambu ya kele na kati",
+	"vector-toc-beginning": "Luyantiku",
+	"vector-anon-user-menu-pages": "Ba lutiti ya bansoniki yina bo me katula na Internet",
+	"vector-main-menu-label": "Main menu",
 	"vector-page-tools-label": "Bisadilu",
+	"vector-page-tools-general-label": "General",
+	"vector-page-tools-actions-label": "Actions",
 	"vector-unpin-element-label": "bumba"
 }
