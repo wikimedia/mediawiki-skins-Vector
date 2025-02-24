@@ -3,7 +3,8 @@
 		"authors": [
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
 			"Amjad Khan",
-			"Af420"
+			"Af420",
+			"شاه زمان پټان"
 		]
 	},
 	"skinname-vector": "وېکټور",
@@ -32,6 +33,6 @@
 	"vector-anon-user-menu-pages-learn": "نور مالومات",
 	"vector-main-menu-tooltip": "ارنۍ غورنۍ",
 	"vector-toc-menu-tooltip": "نيوليک",
-	"vector-site-nav-label": "وېب‌ځی",
+	"vector-site-nav-label": "وېبځی",
 	"tooltip-vector-anon-user-menu-title": "نورې خوښنې"
 }

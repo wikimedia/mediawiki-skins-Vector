@@ -2,11 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Lam-ang",
-			"Saluyot"
+			"Saluyot",
+			"Exec8"
 		]
 	},
 	"vector-skin-desc": "Moderno a bersion ti MonoBook nga addaan iti baro a langa ken adu kadagiti naserbi a panagpasayaat",
+	"vector-languages": "Dagiti pagsasao",
 	"vector-language-button-label": "{{PLURAL:$1|$1 a pagsasao|dagiti $1 a pagsasao}}",
+	"vector-no-language-button-label": "Mainayon dagiti pagsasao",
 	"vector-action-addsection": "Agnayon iti topiko",
 	"vector-action-delete": "Ikkaten",
 	"vector-action-move": "Iyalis",
@@ -21,5 +24,7 @@
 	"vector-jumptonavigation": "Darsen a mapan iti pagdaliasatan",
 	"vector-jumptosearch": "Darsen a mapan agbiruk",
 	"vector-more-actions": "Adu pay",
-	"vector-searchsuggest-containing": "Agbiruk kadagiti panid nga nga aglaon iti <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Agbiruk kadagiti panid nga nga aglaon iti <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Rugi",
+	"vector-anon-user-menu-pages": "Dagiti panid para kadagiti nag-log out nga editor"
 }
