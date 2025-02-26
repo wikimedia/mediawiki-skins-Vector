@@ -3,7 +3,8 @@
 		"authors": [
 			"Af420",
 			"Ahmed-Najib-Biabani-Ibrahimkhel",
-			"Amjad Khan"
+			"Amjad Khan",
+			"شاه زمان پټان"
 		]
 	},
 	"skinname-vector": "وېکټور",
@@ -33,12 +34,12 @@
 	"vector-anon-user-menu-pages-learn": "نور مالومات",
 	"vector-main-menu-tooltip": "ارنۍ غورنۍ",
 	"vector-toc-menu-tooltip": "نيوليک",
-	"vector-site-nav-label": "وېب‌ځی",
+	"vector-site-nav-label": "وېبځی",
 	"vector-main-menu-label": "ارنۍ غورنۍ",
 	"vector-page-tools-label": "اوزارونه",
 	"vector-page-tools-general-label": "ټولگړی",
 	"vector-page-tools-actions-label": "کړنې",
 	"vector-unpin-element-label": "پټول",
 	"tooltip-vector-anon-user-menu-title": "نورې خوښنې",
-	"vector-page-tools-nav-label": "د مخ اوزارونه"
+	"vector-page-tools-nav-label": "مخ‌ اوزارونه"
 }
