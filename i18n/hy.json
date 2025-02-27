@@ -7,6 +7,7 @@
 			"Teak",
 			"Vadgt",
 			"Xelgen",
+			"Əkrəm",
 			"Դավիթ Սարոյան",
 			"Սերգեյ Սաֆարյան"
 		]
@@ -37,6 +38,10 @@
 	"vector-feature-custom-font-size-0-label": "Փոքր",
 	"vector-feature-custom-font-size-1-label": "Սովորական",
 	"vector-feature-custom-font-size-2-label": "Մեծ",
+	"skin-theme-name": "Գույն",
+	"skin-theme-day-label": "Բաց",
+	"skin-theme-night-label": "Մուգ",
+	"skin-theme-os-label": "Ավտոմատիկ",
 	"vector-intro-page": "Օգնություն:Գլխացանկ",
 	"vector-toc-label": "Բովանդակություն",
 	"vector-toc-beginning": "Ներածություն",

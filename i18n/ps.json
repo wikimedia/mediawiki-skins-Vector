@@ -85,5 +85,12 @@
 	"vector-main-menu-unpinned-popup": "ارنۍ غورنۍ دلته لېږدول شوې.",
 	"vector-appearance-unpinned-popup": "ونگبڼې نوملړ دلته لېږدول شوی.",
 	"vector-2022-beta-preview-label": "(وېکتور ۲۰۲۲) لوستلو ته لاسرسی",
+	"vector-2022-beta-preview-description": "د لوستلونوې ځانگړتياوو، لکه توريز چاپ ښيگڼې او تياره دود ته وار له مخکې لاسرسی ومومئ.",
+	"vector-night-mode-gadget-warning": "تاسو تياره حالت گجېت کاروئ، چې په دې ځانگړتيا کې مداخله کوي. د تياره حالت کارولو لپاره[[Special:Preferences#mw-prefsection-gadgets|ناچارن کړئ]].",
+	"vector-night-mode-issue-reporting-notice-tooltip": "کله چې تياره حالت رنگونه څيز لوستل ستونزمن کړي، راپور ورکړئ.",
+	"vector-night-mode-issue-reporting-link-label": "د تياره دود ستونزې راپور ورکول",
+	"vector-night-mode-issue-reporting-link-notification": "راپور ترلاسه شو!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 تياره اکر تېروتنه",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nلارښوونې\nمهرباني وکړئ، سپيناوی ورکړئ، چې څنګه تياره اکر د ويکيپډيا لوستل ستونزمنوي.\nمهرباني وکړئ، د ليکنې هغه برخه پکې ورگډه کړئ، چې دا ستونزه مو پکې وموندله.\n-->\n'''ستونزې سپيناوی'''",
 	"vector-night-mode-beta-tag": "(بيټا)"
 }
