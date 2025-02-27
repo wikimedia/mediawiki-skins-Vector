@@ -4,7 +4,10 @@
 			"MysticVoyager"
 		]
 	},
+	"vector-languages": "uqarviutijut",
 	"vector-view-edit": "Suqusiqpaa",
+	"vector-view-history": "takulugu qanuiliurutauqattaqsimajuq",
+	"vector-more-actions": "sulikkanniq",
 	"vector-feature-limited-width-name": "sivituninga",
 	"vector-feature-custom-font-size-name": "titiqqaq",
 	"vector-feature-limited-width-0-label": "siliktuq",
@@ -12,5 +15,9 @@
 	"vector-feature-custom-font-size-0-label": "mikittuq",
 	"vector-feature-custom-font-size-1-label": "saimmati",
 	"vector-feature-custom-font-size-2-label": "angijuq",
+	"vector-searchsuggest-containing": "qinirlugit makpigait iluliqaqtut <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-anon-user-menu-pages": "makpigait anisimajunut aaqqiksuijinut",
+	"vector-main-menu-label": "nirijaksait",
+	"vector-page-tools-actions-label": "qanuiliurniujut",
 	"vector-unpin-element-label": "amirainga"
 }
