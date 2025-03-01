@@ -507,7 +507,6 @@
 			"+ext.uls.compactlinks": "skinStyles/ext.uls.compactlinks.less",
 			"+ext.uls.interface": "skinStyles/ext.uls.interface.less",
 			"+ext.uls.pt": "skinStyles/ext.uls.pt.less",
-			"+ext.visualEditor.base": "skinStyles/ext.visualEditor.less",
 			"jquery.ui": [
 				"skinStyles/jquery.ui/jquery.ui.core.css",
 				"skinStyles/jquery.ui/jquery.ui.theme.css",
