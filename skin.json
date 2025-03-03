@@ -391,7 +391,6 @@
 			]
 		},
 		"skins.vector.js": {
-			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"styles": [
 				"resources/skins.vector.js/index.less"
 			],
