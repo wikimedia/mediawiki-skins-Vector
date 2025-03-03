@@ -24,6 +24,8 @@
 	"skin-theme-os-label": "ilagijaujjutit",
 	"skin-theme-exclusion-notice": "taanna makpigaq ikumainnaqtuq.",
 	"vector-searchsuggest-containing": "qinirlugit makpigait iluliqaqtut <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "ilulingit",
+	"vector-toc-beginning": "piliriaq",
 	"vector-anon-user-menu-pages": "makpigait anisimajunut aaqqiksuijinut",
 	"vector-main-menu-label": "nirijaksait",
 	"vector-feature-custom-font-size-exclusion-notice": "ullunga iqqanaijarnaup ulluqsiutiup nalunaiqtauninga",

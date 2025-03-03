@@ -76,7 +76,7 @@
 	"vector-unpin-element-label": "پټول",
 	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Discussion]",
 	"tooltip-vector-anon-user-menu-title": "نورې خوښنې",
-	"vector-page-tools-nav-label": "مخ‌ اوزارونه",
+	"vector-page-tools-nav-label": "مخ‌ توکي",
 	"vector-prefs-limited-width": "لنډتنگ پراخدود چارنول",
 	"vector-prefs-limited-width-help": "ښه لوست ازموينې لپاره لنډتنگ پراخدود چارنول.",
 	"empty-language-selector-body": "مخ منځپانگې په نورو ژبو کې نه ملاتړ کيږي.",
@@ -92,5 +92,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "راپور ترلاسه شو!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 تياره اکر تېروتنه",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nلارښوونې\nمهرباني وکړئ، سپيناوی ورکړئ، چې څنګه تياره اکر د ويکيپډيا لوستل ستونزمنوي.\nمهرباني وکړئ، د ليکنې هغه برخه پکې ورگډه کړئ، چې دا ستونزه مو پکې وموندله.\n-->\n'''ستونزې سپيناوی'''",
-	"vector-night-mode-beta-tag": "(بيټا)"
+	"vector-night-mode-beta-tag": "(بېټا)"
 }
