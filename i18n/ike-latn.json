@@ -5,8 +5,11 @@
 		]
 	},
 	"vector-languages": "uqarviutijut",
+	"vector-language-button-label": "{{PLURAL:$1|$1 uqausiq|$1 uqausiit}}",
+	"vector-no-language-button-label": "uqausiksait kajusijut",
 	"vector-view-edit": "Suqusiqpaa",
 	"vector-view-history": "takulugu qanuiliurutauqattaqsimajuq",
+	"vector-more-actions": "sulikkanniq",
 	"vector-searchsuggest-containing": "qinirlugit makpigait iluliqaqtut <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-anon-user-menu-pages": "makpigait anisimajunut aaqqiksuijinut"
 }
