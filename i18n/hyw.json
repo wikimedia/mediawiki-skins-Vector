@@ -9,6 +9,7 @@
 			"Շահէն"
 		]
 	},
+	"vector-opt-out": "Անցնիլ հին տեսքին",
 	"vector-languages": "Լեզուներ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 լեզու}}",
 	"vector-no-language-button-label": "Աւելցնել լեզուներ",
