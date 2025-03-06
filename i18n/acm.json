@@ -40,6 +40,7 @@
 	"vector-feature-custom-font-size-1-label": "نص ونص",
 	"vector-feature-custom-font-size-2-label": "جبير",
 	"skin-theme-name": "اللون",
+	"skin-theme-description": "[نسخه تجريبيه، احتمال چبير تواجه مشاكل] ينصي الضوه الطالع من الشاشه.",
 	"skin-theme-os-label": "اوتوماتيك",
 	"vector-search-loader": "تحميل اقتراحات البحث",
 	"vector-searchsuggest-containing": "ابحث صفحات بيهه <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
@@ -63,10 +64,12 @@
 	"vector-unpin-element-label": "ضم",
 	"vector-2022-prefs-talkpage": "[[mw:Talk:Reading/Web/Desktop_Improvements|مناقشة]]",
 	"tooltip-vector-anon-user-menu-title": "بعد اختيارات",
+	"vector-page-tools-nav-label": "شغلات الصفحه",
 	"vector-prefs-limited-width": "شعل وضع العرض المحدود",
 	"vector-prefs-limited-width-help": "فعل وضع العرض المحدود لتجربة قراءة محسنة.",
 	"empty-language-selector-body": "محتوى الصفحه مو موجود بغير لغات",
 	"vector-toc-unpinned-popup": "جدول المحتوى شال هنا.",
 	"vector-page-tools-unpinned-popup": "قائمة الأدوات شالت هنا",
-	"vector-main-menu-unpinned-popup": "الصفحه الرئيسيه شالت هنا."
+	"vector-main-menu-unpinned-popup": "الصفحه الرئيسيه شالت هنا.",
+	"vector-2022-beta-preview-label": "ميزة القراءه المتاحه (فيكتور 2022)"
 }

@@ -5,6 +5,8 @@
 		]
 	},
 	"vector-languages": "uqarviutijut",
+	"vector-language-button-label": "{{PLURAL:$1|$1 uqausiq|$1 uqausiit}}",
+	"vector-no-language-button-label": "uqausiksait kajusijut",
 	"vector-view-edit": "Suqusiqpaa",
 	"vector-view-history": "takulugu qanuiliurutauqattaqsimajuq",
 	"vector-more-actions": "sulikkanniq",
@@ -15,9 +17,15 @@
 	"vector-feature-custom-font-size-0-label": "mikittuq",
 	"vector-feature-custom-font-size-1-label": "saimmati",
 	"vector-feature-custom-font-size-2-label": "angijuq",
+	"skin-theme-name": "amiaq",
+	"skin-theme-os-label": "ilagijaujjutit",
 	"vector-searchsuggest-containing": "qinirlugit makpigait iluliqaqtut <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "ilulingit",
+	"vector-toc-beginning": "piliriaq",
 	"vector-anon-user-menu-pages": "makpigait anisimajunut aaqqiksuijinut",
 	"vector-main-menu-label": "nirijaksait",
+	"vector-page-tools-label": "sanarrutit",
+	"vector-page-tools-general-label": "kisutuinnat",
 	"vector-page-tools-actions-label": "qanuiliurniujut",
 	"vector-unpin-element-label": "amirainga"
 }
