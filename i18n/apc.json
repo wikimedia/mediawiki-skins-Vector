@@ -16,5 +16,6 @@
 	"vector-view-history": "شوف التاريخ",
 	"vector-more-actions": "أكتر",
 	"vector-searchsuggest-containing": "نبّش ع صفحات بتحتوى ع <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "المقدمة"
+	"vector-toc-beginning": "المقدمة",
+	"vector-anon-user-menu-pages": "صفحات للمحررين اللي سجَّلو خروج"
 }
