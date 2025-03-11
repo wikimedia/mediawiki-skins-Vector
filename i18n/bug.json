@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Kurniasan",
-			"Notanotheramy"
+			"Notanotheramy",
+			"Rdwnnr"
 		]
 	},
+	"vector-no-language-button-label": "Tambai basabasa",
+	"vector-action-addsection": "Tambai topiq",
 	"vector-action-move": "Paléccé'",
 	"vector-view-create": "Ebbu",
 	"vector-view-edit": "Padéccéng",
