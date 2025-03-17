@@ -1,8 +1,14 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Rdwnnr"
+		]
 	},
+	"vector-languages": "ᨅᨔᨅᨔ",
+	"vector-language-button-label": "$1 ᨅᨔ",
+	"vector-no-language-button-label": "ᨈᨅᨕᨗ ᨅᨔᨅᨔ",
 	"vector-view-create": "ᨆᨙᨅᨘ",
+	"vector-view-history": "ᨕᨗᨈ ᨑᨗᨓᨐ",
 	"vector-view-view": "ᨅᨌ",
 	"vector-more-actions": "ᨒᨕᨗᨊᨕᨙ"
 }
