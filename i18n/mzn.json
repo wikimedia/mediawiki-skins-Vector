@@ -26,9 +26,11 @@
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> دار صفحه‌ئون دله چرخه‌تو هکردن",
 	"vector-toc-label": "فهرست",
 	"vector-toc-beginning": "لید",
+	"vector-anon-user-menu-pages": "صفحه‌ئونی که بریم در-بورد دچی‌کَرون ره به‌درد خرنه",
 	"vector-main-menu-tooltip": "اصلی رج",
 	"vector-main-menu-label": "اصلی رج",
 	"vector-page-tools-label": "ابزارون",
 	"vector-page-tools-general-label": "عمومی",
+	"vector-page-tools-actions-label": "عمل‌کردون",
 	"vector-unpin-element-label": "پٮتی"
 }
