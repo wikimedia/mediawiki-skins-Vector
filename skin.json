@@ -21,7 +21,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "skin",
 	"requires": {
-		"MediaWiki": ">= 1.43"
+		"MediaWiki": ">= 1.44"
 	},
 	"attributes": {
 		"DarkMode": {
@@ -577,8 +577,16 @@
 				"exclude": {
 					"mainpage": false,
 					"pagetitles": [],
-					"namespaces": [ -1, 6, 14, 100, 710 ],
-					"querystring": { "action": "info|protect|delete|undelete|action|history" }
+					"namespaces": [
+						-1,
+						6,
+						14,
+						100,
+						710
+					],
+					"querystring": {
+						"action": "info|protect|delete|undelete|action|history"
+					}
 				},
 				"include": []
 			},
