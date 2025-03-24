@@ -4,5 +4,14 @@
 			"Zetareyy"
 		]
 	},
-	"vector-searchsuggest-containing": "Lawagun in manga gikap amu in awn <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-languages": "Manga bahasa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa}}",
+	"vector-no-language-button-label": "Magdugang sin bahasa",
+	"vector-action-addsection": "Magdugang sin pabissara",
+	"vector-view-create": "Paawnun",
+	"vector-view-history": "Kitaun in piyagba'guhan",
+	"vector-more-actions": "Mataud pa",
+	"vector-searchsuggest-containing": "Lawagun in manga gikap amu in awn <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "Pagtagna'",
+	"vector-anon-user-menu-pages": "Manga gikap ha manga magbaba'gu naka'logout"
 }
