@@ -5,7 +5,7 @@
 		]
 	},
 	"vector-languages": "Manga bahasa",
-	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa|$1 manga bahasa}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa}}",
 	"vector-no-language-button-label": "Magdugang sin bahasa",
 	"vector-action-addsection": "Magdugang sin pabissara",
 	"vector-view-create": "Paawnun",
