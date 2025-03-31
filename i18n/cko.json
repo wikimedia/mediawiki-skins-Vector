@@ -1,7 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Salifu Ramatu"
+			"Salifu Ramatu",
+			"Hasslaebetch"
 		]
-	}
+	},
+	"vector-no-language-button-label": "Bukasu Danfiɛ",
+	"vector-action-move": "Cin i kɔ",
+	"vector-view-create": "Teke fɔfɔrɛ"
 }
