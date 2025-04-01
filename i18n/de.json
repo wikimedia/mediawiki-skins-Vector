@@ -3,6 +3,7 @@
 		"authors": [
 			"Brettchenweber",
 			"CennoxX",
+			"Inkowik",
 			"Justman10000",
 			"Kghbln",
 			"Metalhead64",
@@ -66,7 +67,7 @@
 	"vector-toc-beginning": "Anfang",
 	"vector-toc-toggle-button-label": "Unterabschnitt $1 umschalten",
 	"vector-anon-user-menu-pages": "Seiten für abgemeldete Benutzer",
-	"vector-anon-user-menu-pages-learn": "Weitere Informationen",
+	"vector-anon-user-menu-pages-learn": "weitere Informationen",
 	"vector-anon-user-menu-pages-label": "Erfahre mehr über das Bearbeiten",
 	"vector-main-menu-tooltip": "Hauptmenü",
 	"vector-toc-menu-tooltip": "Inhaltsverzeichnis",
