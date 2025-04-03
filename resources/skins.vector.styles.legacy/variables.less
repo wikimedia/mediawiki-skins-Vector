@@ -95,17 +95,9 @@
 // TOC and Page tools Pinned elements
 @padding-top-pinned-element: unit( (( 30px - @padding-top-tabs ) / @font-size-browser), em );
 
-// Page Tools
-// 2.34 (height of #firstHeading) - the padding on the pinned element to allow
-// for 30px of space between the top of the pinned element and the top of the viewport.
-@margin-top-pinned-page-tools: ( @font-size-heading-1 * @line-height-xx-small ) - @padding-top-pinned-element;
-
 // TOC
 @spacing-subsection-toggle: 22px; // @size-toc-subsection-toggle-icon @ 12
 @size-toc-subsection-toggle-icon: 1.834em;
-// Add the top padding of .mw-body element to @margin-top-pinned-page-tools
-// since it starts higher on the page.
-@margin-top-pinned-toc: @margin-top-pinned-page-tools + @padding-top-content;
 
 // Search
 @max-width-search: unit( ( 500px / @font-size-browser / @font-size-small ), em ); // 35.71428571em @ 16 & 0.875em T270202
