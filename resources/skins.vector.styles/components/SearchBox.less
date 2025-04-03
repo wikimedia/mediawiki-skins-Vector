@@ -20,7 +20,8 @@
 
 @media ( min-width: @min-width-breakpoint-desktop-wide ) {
 	.client-js & .vector-search-box.vector-search-box-auto-expand-width {
-		// Ensure search box is aligned with content when it autoexpands (i.e. search thumbnails)
-		margin-left: -@size-search-expand;
+		// Ensure search box is aligned with content when it auto-expands (i.e. search thumbnails).
+		// Use `calc()` for negative calculation to not rely on Less, but standard CSS.
+		margin-left: calc( -1 * @size-search-expand );
 	}
 }
