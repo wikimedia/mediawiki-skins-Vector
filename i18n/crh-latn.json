@@ -41,5 +41,7 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Bu saife er vaqıt kiçkene yazı ölçusini qullana",
 	"vector-page-tools-label": "Aletler",
 	"vector-page-tools-general-label": "Umumiy",
+	"vector-page-tools-actions-label": "Areketler",
+	"vector-pin-element-label": "kenar paneline köçür",
 	"vector-unpin-element-label": "gizle"
 }
