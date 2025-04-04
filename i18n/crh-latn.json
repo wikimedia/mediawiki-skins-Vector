@@ -43,5 +43,7 @@
 	"vector-page-tools-general-label": "Umumiy",
 	"vector-page-tools-actions-label": "Areketler",
 	"vector-pin-element-label": "kenar paneline köçür",
-	"vector-unpin-element-label": "gizle"
+	"vector-unpin-element-label": "gizle",
+	"vector-prefs-limited-width": "Sıñırlı keñlik rejimini işlet",
+	"vector-prefs-limited-width-help": "Daa oñaytlı oqumaq içün sıñırlı keñlik rejimini işletiñiz."
 }
