@@ -125,9 +125,15 @@ function makeInputElement( type, featureName, value ) {
  */
 function makeLabelElement( featureName, value ) {
 	const label = document.createElement( 'label' );
-	// eslint-disable-next-line mediawiki/msg-doc
-	label.textContent = mw.msg( `${ featureName }-${ value }-label` );
+	label.classList.add( 'cdx-label' );
 	label.setAttribute( 'for', getInputId( featureName, value ) );
+
+	const labelText = document.createElement( 'span' );
+	labelText.classList.add( 'cdx-label__label__text' );
+	// eslint-disable-next-line mediawiki/msg-doc
+	labelText.textContent = mw.msg( `${ featureName }-${ value }-label` );
+
+	label.appendChild( labelText );
 	return label;
 }
 
