@@ -31,5 +31,6 @@
 	"vector-more-actions": "Tohu-tohunia",
 	"vector-search-loader": "Mama'anö duma-duma ni'alui",
 	"vector-searchsuggest-containing": "Alui nga'örö si so bakha <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Böröta"
+	"vector-toc-beginning": "Böröta",
+	"vector-anon-user-menu-pages": "Nga'örö ndra editor si no möi baero"
 }

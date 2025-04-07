@@ -5,8 +5,10 @@
 		]
 	},
 	"vector-languages": "Bahasa",
+	"vector-no-language-button-label": "Kase tamba bahasa",
 	"vector-action-delete": "Kase hapus",
 	"vector-action-move": "Kase pinda",
+	"vector-action-protect": "Kunci",
 	"vector-view-create": "Beking",
 	"vector-more-actions": "Yang laeng lagi"
 }
