@@ -6,6 +6,7 @@
 			"Zolgoyo"
 		]
 	},
+	"vector-opt-out": "Eski körünişke qayt",
 	"vector-languages": "Tiller",
 	"vector-language-button-label": "{{PLURAL:$1|$1 til|$1 tiller}}",
 	"vector-no-language-button-label": "Til qoş",
@@ -27,5 +28,9 @@
 	"vector-main-menu-label": "Esas menü",
 	"vector-page-tools-label": "Aletler",
 	"vector-page-tools-general-label": "Umumiy",
-	"vector-unpin-element-label": "gizle"
+	"vector-page-tools-actions-label": "Areketler",
+	"vector-pin-element-label": "kenar paneline köçür",
+	"vector-unpin-element-label": "gizle",
+	"vector-prefs-limited-width": "Sıñırlı keñlik rejimini işlet",
+	"vector-prefs-limited-width-help": "Daa oñaytlı oqumaq içün sıñırlı keñlik rejimini işletiñiz."
 }

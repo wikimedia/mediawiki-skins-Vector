@@ -6,7 +6,7 @@
 	},
 	"vector-languages": "ᨅᨔ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ᨅᨔ}}",
-	"vector-no-language-button-label": "ᨈᨅᨕᨗ ᨅᨔᨅᨔ",
+	"vector-no-language-button-label": "ᨈᨅᨕᨗ ᨅᨔ",
 	"vector-action-addsection": "ᨈᨅᨕᨗ ᨅᨅ",
 	"vector-action-move": "ᨒᨙᨌᨙ",
 	"vector-view-create": "ᨕᨙᨅᨘ",
@@ -21,5 +21,6 @@
 	"vector-page-tools-label": "ᨄᨀᨀᨔ",
 	"vector-page-tools-general-label": "ᨕᨘᨆᨘ",
 	"vector-page-tools-actions-label": "ᨁᨕᨀᨕᨘ",
-	"vector-unpin-element-label": "ᨔᨘᨅᨘ"
+	"vector-unpin-element-label": "ᨔᨘᨅᨘᨓᨗ",
+	"vector-page-tools-nav-label": "ᨄᨀᨀᨔ ᨒᨛᨇ"
 }
