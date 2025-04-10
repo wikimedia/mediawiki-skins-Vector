@@ -14,10 +14,13 @@
 			"Waldir",
 			"Waldyrious",
 			"Jdlrobson",
-			"Qgustavor"
+			"Qgustavor",
+			"Fúlvio"
 		]
 	},
 	"skinname-vector": "Vector antigo (2010)",
+	"skinname-vector-2022": "Vector (2022)",
+	"vector-specialversion-name": "Vector",
 	"vector-skin-desc": "Fornece 2 temas Vector:\n* 2011 - Versão moderna do MonoBook com um aspeto fresco e várias melhorias de usabilidade.\n* 2022 - O Vector criado como parte do projeto [[mw:Desktop Improvements|Melhoramentos do ambiente de trabalho]] da WMF.",
 	"prefs-vector-enable-vector-1-label": "Usar o Vector antigo",
 	"prefs-vector-enable-vector-1-help": "Durante os próximos anos iremos atualizar gradualmente o tema Vector. O Vetor antigo permitirá ver a versão antiga do tema Vector (a partir de dezembro de 2019). Para saber mais sobre as atualizações, consulte a  [[mw:Reading/Web/Desktop_Improvements|página do projeto]].",
