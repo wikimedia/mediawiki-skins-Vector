@@ -6,8 +6,9 @@
 			"Zolgoyo"
 		]
 	},
+	"vector-opt-out": "Eski körünişke qayt",
 	"vector-languages": "Tiller",
-	"vector-language-button-label": "{{PLURAL:$1|$1 til|$1 tiller}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 til}}",
 	"vector-no-language-button-label": "Til qoş",
 	"vector-action-addsection": "Mevzu qoş",
 	"vector-action-delete": "Yoq et",

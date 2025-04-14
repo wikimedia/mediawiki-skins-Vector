@@ -5,6 +5,7 @@
 		]
 	},
 	"vector-languages": "Bahasa",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahasa}}",
 	"vector-no-language-button-label": "Kase tamba bahasa",
 	"vector-action-delete": "Kase hapus",
 	"vector-action-move": "Kase pinda",
