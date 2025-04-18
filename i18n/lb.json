@@ -20,7 +20,7 @@
 	"vector-language-button-aria-label": "Op en Artikel an enger anerer Sprooch wiesselen. Disponibel an {{PLURAL:$1|enger Sprooch|$1 Sproochen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprooch|$1 Sproochen}}",
 	"vector-no-language-button-label": "Sproochen derbäisetzen",
-	"vector-no-language-button-aria-label": "Dësen Artikel gëtt et nëmmen an dëser Sprooch. Setzt den Artikel fir aner Sproochen derbäi",
+	"vector-no-language-button-aria-label": "Dësen Artikel ass nëmmen an dëser Sprooch disponibel. Setzt den Artikel fir aner Sproochen derbäi",
 	"vector-language-variant-switcher-label": "Sproochvariant änneren",
 	"vector-action-addsection": "Sujet derbäisetzen",
 	"vector-action-delete": "Läschen",

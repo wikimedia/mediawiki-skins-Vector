@@ -27,7 +27,7 @@
 	"vector-language-button-aria-label": "Zu einem Artikel in einer anderen Sprache gehen. Verfügbar in {{PLURAL:$1|$1 Sprache|$1 Sprachen}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 Sprache|$1 Sprachen}}",
 	"vector-no-language-button-label": "Sprachen hinzufügen",
-	"vector-no-language-button-aria-label": "Dieser Artikel existiert nur in dieser Sprache. Füge den Artikel für andere Sprachen hinzu",
+	"vector-no-language-button-aria-label": "Dieser Artikel ist nur in dieser Sprache vorhanden. Füge den Artikel für andere Sprachen hinzu",
 	"vector-language-variant-switcher-label": "Sprachvariante ändern",
 	"vector-action-addsection": "Abschnitt hinzufügen",
 	"vector-action-delete": "Löschen",
