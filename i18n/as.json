@@ -22,7 +22,7 @@
 	"vector-language-button-aria-label": "অন্য এটা ভাষাৰ প্ৰবন্ধলৈ যাওক। {{PLURAL:$1|$1টা ভাষাত}} উপলব্ধ।",
 	"vector-language-button-label": "{{PLURAL:$1|$1টা ভাষা}}",
 	"vector-no-language-button-label": "ভাষা যোগ কৰক",
-	"vector-no-language-button-aria-label": "এই প্ৰবন্ধটো কেৱল এই ভাষাতহে আছে। অন্য ভাষাত প্ৰবন্ধটো যোগ কৰক",
+	"vector-no-language-button-aria-label": "এই প্ৰবন্ধটো কেৱল এই ভাষাতহে উপলব্ধ। অন্য ভাষাত প্ৰবন্ধটো যোগ কৰক",
 	"vector-language-variant-switcher-label": "ভাষাৰ প্ৰকাৰ সলনি কৰক",
 	"vector-action-addsection": "বিষয় যোগ",
 	"vector-action-delete": "বিলোপ কৰক",
