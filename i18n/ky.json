@@ -25,7 +25,7 @@
 	"vector-language-button-aria-label": "Башка тилдеги макалага өтүү. {{PLURAL:$1|$1 тилде жеткиликтүү}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тил}}",
 	"vector-no-language-button-label": "Тилдерди кошуу",
-	"vector-no-language-button-aria-label": "Бул макала ушул тилде гана бар. Башка тилдеги макала кошуңуз",
+	"vector-no-language-button-aria-label": "Бул макала ушул тилде гана жеткиликтүү. Башка тилдеги макала кошуңуз",
 	"vector-language-variant-switcher-label": "Тилди өзгөртүү",
 	"vector-action-addsection": "Тема кошуу",
 	"vector-action-delete": "Өчүрүү",
