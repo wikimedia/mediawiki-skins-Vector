@@ -1,7 +1,7 @@
 <?php
 namespace MediaWiki\Skins\Vector;
 
-use FatalError;
+use MediaWiki\Exception\FatalError;
 
 /**
  * A namespace for Vector constants for internal Vector usage only. **Do not rely on this file as an

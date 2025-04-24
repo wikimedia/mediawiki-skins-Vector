@@ -6,6 +6,8 @@ use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageConverterFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Skin\SkinMustache;
+use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Vector\Components\VectorComponentAppearance;
 use MediaWiki\Skins\Vector\Components\VectorComponentButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
@@ -21,8 +23,6 @@ use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
 use RuntimeException;
-use SkinMustache;
-use SkinTemplate;
 
 /**
  * @ingroup Skins

@@ -8,12 +8,12 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
+use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 use RuntimeException;
-use SkinTemplate;
 
 /**
  * Presentation hook handlers for Vector skin.
