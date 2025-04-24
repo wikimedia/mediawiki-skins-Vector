@@ -32,7 +32,7 @@
 	"skin-theme-name": "Tüs",
 	"skin-theme-description": "[Deñev versiyası, problema çıqmasınıñ ihtimalı yüksektir] Cihaznıñ ekranı tarafından cayılğan yarığı eksilte.",
 	"skin-theme-os-label": "Avtomatik",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> içeren saifelerni qıdır",
+	"vector-searchsuggest-containing": "İçinde <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> olğan saifelerni qıdır",
 	"vector-toc-label": "Münderice",
 	"vector-toc-beginning": "Kiriş",
 	"vector-main-menu-label": "Esas menü",
