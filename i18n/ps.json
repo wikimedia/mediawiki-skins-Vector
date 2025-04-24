@@ -20,7 +20,7 @@
 	"vector-language-button-aria-label": "ليکنه په بله ژبه کې وگورئ. دا ليکنه په {{PLURAL:$1|$1 ژبه|$1 ژبو}} کې دلاسرسي وړ ده.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ژبه|$1 ژبې}}",
 	"vector-no-language-button-label": "ژبې ورگډول",
-	"vector-no-language-button-aria-label": "دا ليکنه يوازې په همدې ژبه کې شته. ليکنه په نورو ژبو کې ورگډه کړئ.",
+	"vector-no-language-button-aria-label": "دا ليکنه يوازې په همدې ژبه د لاسرسي وړه ده. په نورو ژبو کې دا ليکنه ورگډه کړئ",
 	"vector-language-variant-switcher-label": "ژب‌ډول بدلول",
 	"vector-action-addsection": "سرليک ورگډول",
 	"vector-action-delete": "ړنگول",
