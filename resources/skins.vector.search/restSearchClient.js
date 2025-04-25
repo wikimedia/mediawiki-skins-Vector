@@ -1,8 +1,10 @@
 // / <reference lib="@wikimedia/types" />
 /** @module restSearchClient */
+/**
+ * @typedef {import('./urlGenerator.js').UrlGenerator} UrlGenerator
+ */
 
 const fetchJson = require( './fetch.js' );
-const urlGenerator = require( './urlGenerator.js' );
 
 /**
  * @typedef {Object} RestResponse
@@ -27,14 +29,13 @@ function nullish( a, b ) {
 }
 
 /**
- * @param {MwMap} config
+ * @param {UrlGenerator} urlGeneratorInstance
  * @param {string} query
  * @param {RestResponse} restResponse
  * @param {boolean} showDescription
  * @return {SearchResponse}
  */
-function adaptApiResponse( config, query, restResponse, showDescription ) {
-	const urlGeneratorInstance = urlGenerator( config );
+function adaptApiResponse( urlGeneratorInstance, query, restResponse, showDescription ) {
 	return {
 		query,
 		results: restResponse.pages.map( ( page, index ) => {
@@ -87,18 +88,16 @@ function adaptApiResponse( config, query, restResponse, showDescription ) {
  */
 
 /**
- * @param {MwMap} config
+ * @param {string} searchApiUrl
+ * @param {UrlGenerator} urlGeneratorInstance
  * @return {SearchClient}
  */
-function restSearchClient( config ) {
-	return config.get( 'wgVectorSearchClient', {
+function restSearchClient( searchApiUrl, urlGeneratorInstance ) {
+	return {
 		/**
 		 * @type {fetchByTitle}
 		 */
 		fetchByTitle: ( q, limit = 10, showDescription = true ) => {
-			const searchApiUrl = config.get( 'wgVectorSearchApiUrl',
-				config.get( 'wgScriptPath' ) + '/rest.php'
-			);
 			const params = { q, limit: limit.toString() };
 			const search = new URLSearchParams( params );
 			const url = `${ searchApiUrl }/v1/search/title?${ search.toString() }`;
@@ -109,14 +108,14 @@ function restSearchClient( config ) {
 			} );
 			const searchResponsePromise = result.fetch
 				.then( ( /** @type {RestResponse} */ res ) => adaptApiResponse(
-					config, q, res, showDescription
+					urlGeneratorInstance, q, res, showDescription
 				) );
 			return {
 				abort: result.abort,
 				fetch: searchResponsePromise
 			};
 		}
-	} );
+	};
 }
 
 module.exports = restSearchClient;

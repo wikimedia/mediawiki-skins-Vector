@@ -20,25 +20,21 @@
 /**
  * Generates URLs for suggestions like those in MediaWiki's mediawiki.searchSuggest implementation.
  *
- * @param {MwMap} config
+ * @param {string} articlePath
  * @return {UrlGenerator}
  */
-function urlGenerator( config ) {
-	// TODO: This is a placeholder for enabling customization of the URL generator.
-	// wgVectorSearchUrlGenerator has not been defined as a config variable yet.
-	return config.get( 'wgVectorSearchUrlGenerator', {
+function urlGenerator( articlePath ) {
+	return {
 		/**
 		 * @param {RestResult|SearchResult|string} suggestion
 		 * @param {UrlParams} params
-		 * @param {string} articlePath
 		 * @return {string}
 		 */
 		generateUrl(
 			suggestion,
 			params = {
 				title: 'Special:Search'
-			},
-			articlePath = config.get( 'wgScript' )
+			}
 		) {
 			if ( typeof suggestion !== 'string' ) {
 				suggestion = suggestion.title;
@@ -56,7 +52,7 @@ function urlGenerator( config ) {
 			);
 			return `${ articlePath }?${ searchParams.toString() }`;
 		}
-	} );
+	};
 }
 
 /** @module urlGenerator */
