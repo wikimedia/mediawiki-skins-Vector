@@ -134,6 +134,7 @@ function init( window ) {
 			window.performance.timing.navigationStart
 		) {
 			mw.track( 'timing.Vector.ready', now - window.performance.timing.navigationStart ); // milliseconds
+			mw.track( 'stats.mediawiki_Vector_ready_seconds', now - window.performance.timing.navigationStart ); // milliseconds
 		}
 	} );
 }
