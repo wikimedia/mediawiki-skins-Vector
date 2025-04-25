@@ -67,8 +67,6 @@
 	"skin-theme-night-label": "Label for night theme (dark/night mode). \"Dark\" should be translated consistently with {{msg-mw|Skin-minerva-night-mode-launch-subtitle}}.",
 	"skin-theme-os-label": "Label for night theme (automatic mode which respects any operating system setting).",
 	"skin-theme-exclusion-notice": "Text that informs you that the page is always in light mode. The word \"light\" should be consistent with {{msg-mw|Skin-theme-day-label}}.",
-	"vector-search-loader": "Text to display below search input while the search suggestion module is loading",
-	"vector-searchsuggest-containing": "Label used in the special item of the search suggestions list which gives the user an option to perform a full text search for the term. Used in the Codex typeahead search component.",
 	"vector-intro-page": "Introduction or tutorial page for the wiki. Typically either Project/Help:Introduction ([[d:Q3945]]) or Project/Help:Tutorial ([[d:Q915263]]).",
 	"vector-toc-label": "Heading of table of contents\n\n{{Identical|Content}}",
 	"vector-toc-beginning": "Shown in the table of contents: Text of link to the beginning of the article.",

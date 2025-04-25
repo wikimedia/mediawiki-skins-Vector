@@ -2,23 +2,26 @@
 
 const
 	Vue = require( 'vue' ),
-	App = require( './App.vue' ),
+	{
+		App,
+		restSearchClient,
+		urlGenerator
+	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) ),
 	config = require( './config.json' );
 
-const client = require( './restSearchClient.js' );
 const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
 	mw.config.get( 'wgScriptPath' ) + '/rest.php'
 );
 // The config variables enable customization of the URL generator and search client
 // by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
 // read from LocalSettings.php
-const urlGenerator = mw.config.get(
+const urlGeneratorInstance = mw.config.get(
 	'wgVectorSearchUrlGenerator',
-	require( './urlGenerator.js' )( mw.config.get( 'wgScript' ) )
+	urlGenerator( mw.config.get( 'wgScript' ) )
 );
 const restClient = mw.config.get(
 	'wgVectorSearchClient',
-	client( searchApiUrl, urlGenerator )
+	restSearchClient( searchApiUrl, urlGeneratorInstance )
 );
 
 /**
@@ -49,7 +52,7 @@ function initApp( searchBox ) {
 			searchAccessKey: search.getAttribute( 'accessKey' ),
 			searchPageTitle,
 			restClient,
-			urlGenerator,
+			urlGenerator: urlGeneratorInstance,
 			searchTitle: search.getAttribute( 'title' ),
 			searchPlaceholder: search.getAttribute( 'placeholder' ),
 			searchQuery: search.value,

@@ -217,37 +217,18 @@
 				"CdxMessage"
 			]
 		},
-		"skins.vector.search.codex.scripts": {
-			"dependencies": [
-				"skins.vector.search.codex.styles"
-			],
-			"class": "MediaWiki\\ResourceLoader\\CodexModule",
-			"codexComponents": [
-				"CdxTypeaheadSearch"
-			]
-		},
 		"skins.vector.search": {
 			"dependencies": [
 				"web2017-polyfills",
 				"mediawiki.util",
-				"skins.vector.search.codex.scripts"
+				"mediawiki.skinning.typeaheadSearch"
 			],
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
-				"resources/skins.vector.search/instrumentation.js",
-				"resources/skins.vector.search/fetch.js",
-				"resources/skins.vector.search/restSearchClient.js",
-				"resources/skins.vector.search/urlGenerator.js",
-				"resources/skins.vector.search/App.vue",
 				{
 					"name": "resources/skins.vector.search/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorSearchResourceLoaderConfig"
 				}
-			],
-			"messages": [
-				"searchbutton",
-				"searchresults",
-				"vector-searchsuggest-containing"
 			]
 		},
 		"skins.vector.styles.legacy": {
@@ -460,7 +441,6 @@
 				"web2017-polyfills"
 			],
 			"messages": [
-				"vector-search-loader",
 				"vector-toc-beginning",
 				"vector-toc-label",
 				"vector-pin-element-label",
