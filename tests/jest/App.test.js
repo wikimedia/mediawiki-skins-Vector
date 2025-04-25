@@ -2,6 +2,7 @@ const VueTestUtils = require( '@vue/test-utils' );
 const App = require( '../../resources/skins.vector.search/App.vue' );
 
 const defaultProps = {
+	prefixClass: 'vector-',
 	id: 'searchform',
 	searchAccessKey: 'f',
 	searchTitle: 'search',

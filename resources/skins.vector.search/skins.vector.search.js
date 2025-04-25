@@ -25,6 +25,7 @@ function initApp( searchBox ) {
 	// @ts-ignore MediaWiki-specific function
 	Vue.createMwApp(
 		App, Object.assign( {
+			prefixClass: 'vector-',
 			id: searchForm.id,
 			autocapitalizeValue: search.getAttribute( 'autocapitalize' ),
 			autofocusInput: search === document.activeElement,

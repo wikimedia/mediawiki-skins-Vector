@@ -2,7 +2,6 @@
 	<cdx-typeahead-search
 		:id="id"
 		ref="searchForm"
-		class="vector-typeahead-search"
 		:class="rootClasses"
 		:search-results-label="$i18n( 'searchresults' ).text()"
 		:accesskey="searchAccessKey"
@@ -64,6 +63,10 @@ module.exports = exports = defineComponent( {
 	},
 	components: { CdxTypeaheadSearch },
 	props: {
+		prefixClass: {
+			type: String,
+			default: 'skin-'
+		},
 		id: {
 			type: String,
 			required: true
@@ -149,9 +152,11 @@ module.exports = exports = defineComponent( {
 	},
 	computed: {
 		rootClasses() {
+			const prefix = this.prefixClass;
 			return {
-				'vector-search-box-disable-transitions': this.disableTransitions,
-				'vector-typeahead-search--active': this.isFocused
+				[ `${ prefix }typeahead-search` ]: true,
+				[ `${ prefix }search-box-disable-transitions` ]: this.disableTransitions,
+				[ `${ prefix }typeahead-search--active` ]: this.isFocused
 			};
 		},
 		visibleItemLimit() {
