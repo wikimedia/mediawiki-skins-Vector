@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A100Star",
 			"Amire80",
 			"Guycn2",
 			"Rotemliss",
@@ -21,7 +22,7 @@
 	"vector-language-button-aria-label": "מעבר לערך בשפה אחרת. זמין {{PLURAL:$1|בשפה אחת|ב־$1 שפות}}",
 	"vector-language-button-label": "{{PLURAL:$1|שפה אחת|$1 שפות}}",
 	"vector-no-language-button-label": "הוספת שפות",
-	"vector-no-language-button-aria-label": "הערך הזה קיים רק בשפה הזאת. {{GENDER:|הוסף|הוסיפי|מוזמנים להוסיף}} את הערך לשפות אחרות",
+	"vector-no-language-button-aria-label": "הערך הזה זמין רק בשפה הזאת. {{GENDER:|הוסף|הוסיפי|מוזמנים להוסיף}} את הערך לשפות אחרות",
 	"vector-language-variant-switcher-label": "שינוי הגוון השפה",
 	"vector-action-addsection": "פסקה חדשה",
 	"vector-action-delete": "מחיקה",
