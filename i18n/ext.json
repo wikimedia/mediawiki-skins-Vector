@@ -8,6 +8,7 @@
 		]
 	},
 	"vector-languages": "Luengas",
+	"vector-language-button-label": "$1 idioma{{PLURAL:$1||s}}",
 	"vector-no-language-button-label": "Añidil idiomas",
 	"vector-action-addsection": "Añidil tema",
 	"vector-action-delete": "Aborral",
