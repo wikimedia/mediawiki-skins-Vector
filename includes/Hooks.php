@@ -122,12 +122,12 @@ class Hooks implements
 	 * @since 1.35
 	 * @param RL\Context $context
 	 * @param mixed[] &$config Associative array of configurable options
-	 * @return void This hook must not abort, it must return no value
+	 * @return bool|void True or no return value to continue or false to abort
 	 */
 	public function onSkinPageReadyConfig(
 		RL\Context $context,
 		array &$config
-	): void {
+	) {
 		// It's better to exit before any additional check
 		if ( !self::isVectorSkin( $context->getSkin() ) ) {
 			return;
@@ -139,7 +139,7 @@ class Hooks implements
 		// and from its point of view they are the same thing.
 		// Please see the modules `skins.vector.js` and `skins.vector.legacy.js`
 		// for the wire up of search.
-		$config['search'] = false;
+		$config['searchModule'] = 'skins.vector.search';
 	}
 
 	/**

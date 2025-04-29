@@ -4,7 +4,7 @@ const languageButton = require( './languageButton.js' ),
 	echo = require( './echo.js' ),
 	initExperiment = require( './AB.js' ),
 	ABTestConfig = require( /** @type {string} */ ( './activeABTest.json' ) ),
-	initSearchLoader = require( './searchLoader.js' ).initSearchLoader,
+	config = require( /** @type {string} */ ( './config.json' ) ),
 	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	tables = require( './tables.js' ).init,
@@ -53,7 +53,9 @@ function enableCssAnimations( document ) {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	initSearchLoader( document );
+	if ( config.VectorSearchApiUrl ) {
+		mw.config.set( 'wgVectorSearchApiUrl', config.VectorSearchApiUrl );
+	}
 	languageButton();
 	echo();
 	portletsManager.main();
