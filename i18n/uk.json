@@ -34,7 +34,7 @@
 	"vector-language-button-aria-label": "Перейдіть до статті іншою мовою. Доступний у {{PLURAL:$1|$1 мові|$1 мовах}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мова|$1 мови|$1 мов}}",
 	"vector-no-language-button-label": "Додати мови",
-	"vector-no-language-button-aria-label": "Ця стаття існує лише цією мовою. Додайте статтю для інших мов",
+	"vector-no-language-button-aria-label": "Ця стаття доступна лише цією мовою. Додайте статтю для інших мов",
 	"vector-language-variant-switcher-label": "Змінити варіант мови",
 	"vector-action-addsection": "Додати тему",
 	"vector-action-delete": "Вилучити",
