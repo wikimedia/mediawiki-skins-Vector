@@ -50,9 +50,6 @@
 <script>
 const { CdxTypeaheadSearch } = mw.loader.require( 'skins.vector.search.codex.scripts' ),
 	{ defineComponent, nextTick } = require( 'vue' ),
-	client = require( './restSearchClient.js' ),
-	restClient = client( mw.config ),
-	urlGenerator = require( './urlGenerator.js' )( mw.config ),
 	instrumentation = require( './instrumentation.js' );
 
 // @vue/component
@@ -63,6 +60,14 @@ module.exports = exports = defineComponent( {
 	},
 	components: { CdxTypeaheadSearch },
 	props: {
+		urlGenerator: {
+			type: Object,
+			required: true
+		},
+		restClient: {
+			type: Object,
+			required: true
+		},
 		prefixClass: {
 			type: String,
 			default: 'skin-'
@@ -163,7 +168,7 @@ module.exports = exports = defineComponent( {
 			// if the search client supports loading more results,
 			// show 7 out of 10 results at first (arbitrary number),
 			// so that scroll events are fired and trigger onLoadMore()
-			return restClient.loadMore ? 7 : null;
+			return this.restClient.loadMore ? 7 : null;
 		}
 	},
 	methods: {
@@ -184,7 +189,7 @@ module.exports = exports = defineComponent( {
 			}
 
 			this.updateUIWithSearchClientResult(
-				restClient.fetchByTitle( query, 10, this.showDescription ),
+				this.restClient.fetchByTitle( query, 10, this.showDescription ),
 				true
 			);
 		},
@@ -196,13 +201,13 @@ module.exports = exports = defineComponent( {
 		 * i.e. if the search client supports loading more results.
 		 */
 		onLoadMore() {
-			if ( !restClient.loadMore ) {
+			if ( !this.restClient.loadMore ) {
 				mw.log.warn( 'onLoadMore() should not have been called for this search client' );
 				return;
 			}
 
 			this.updateUIWithSearchClientResult(
-				restClient.loadMore(
+				this.restClient.loadMore(
 					this.currentSearchQuery,
 					this.suggestions.length,
 					10,
@@ -233,7 +238,7 @@ module.exports = exports = defineComponent( {
 								data.results, this.suggestions.length
 							)
 						);
-						this.searchFooterUrl = urlGenerator.generateUrl( query );
+						this.searchFooterUrl = this.urlGenerator.generateUrl( query );
 					}
 
 					const event = {

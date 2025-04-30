@@ -5,6 +5,22 @@ const
 	App = require( './App.vue' ),
 	config = require( './config.json' );
 
+const client = require( './restSearchClient.js' );
+const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
+	mw.config.get( 'wgScriptPath' ) + '/rest.php'
+);
+// The config variables enable customization of the URL generator and search client
+// by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
+// read from LocalSettings.php
+const urlGenerator = mw.config.get(
+	'wgVectorSearchUrlGenerator',
+	require( './urlGenerator.js' )( mw.config.get( 'wgScript' ) )
+);
+const restClient = mw.config.get(
+	'wgVectorSearchClient',
+	client( searchApiUrl, urlGenerator )
+);
+
 /**
  * @param {Element} searchBox
  * @return {void}
@@ -31,7 +47,9 @@ function initApp( searchBox ) {
 			autofocusInput: search === document.activeElement,
 			action: searchForm.getAttribute( 'action' ),
 			searchAccessKey: search.getAttribute( 'accessKey' ),
-			searchPageTitle: searchPageTitle,
+			searchPageTitle,
+			restClient,
+			urlGenerator,
 			searchTitle: search.getAttribute( 'title' ),
 			searchPlaceholder: search.getAttribute( 'placeholder' ),
 			searchQuery: search.value,
