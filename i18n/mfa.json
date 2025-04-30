@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lam Takuma",
+			"Mirlim"
+		]
+	},
+	"vector-languages": "Bahaso",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bahaso}}",
+	"vector-no-language-button-label": "Ttamboh bahaso",
+	"vector-action-addsection": "Tamboh topik",
+	"vector-action-delete": "Hapuh",
+	"vector-action-move": "Pindoh",
+	"vector-action-protect": "Lindóng",
+	"vector-view-create": "Buwak",
+	"vector-view-history": "Keléh sjaroh",
+	"vector-more-actions": "Lagi",
+	"vector-searchsuggest-containing": "Cari lame hok ado <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-label": "Kandónge",
+	"vector-toc-beginning": "Mulo-mulo",
+	"vector-anon-user-menu-pages": "Lame utók penyuténg hok log tubék",
+	"vector-main-menu-label": "Menu utamo",
+	"vector-page-tools-label": "Alakte",
+	"vector-page-tools-general-label": "Umung",
+	"vector-page-tools-actions-label": "Tindokke",
+	"vector-unpin-element-label": "susuk"
+}

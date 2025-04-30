@@ -5,7 +5,8 @@
 			"Chelin",
 			"Finizio",
 			"Ruthven",
-			"Sannita"
+			"Sannita",
+			"Cryptex nap"
 		]
 	},
 	"vector-skin-desc": "Verziona muderna 'e MonoBook cu n'aspetto nuovo nuovo e tante migliuramente d'uso",
@@ -26,6 +27,7 @@
 	"vector-more-actions": "'E 'cchiù",
 	"vector-searchsuggest-containing": "Truova 'e paggene ca teneno <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Cuntenute",
+	"vector-main-menu-label": "Menú princepale",
 	"vector-page-tools-label": "Strumiente",
 	"vector-page-tools-general-label": "Generale",
 	"vector-unpin-element-label": "annascunne"
