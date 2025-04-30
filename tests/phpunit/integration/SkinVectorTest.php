@@ -28,7 +28,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @return SkinVectorLegacy
 	 */
-	private function provideVectorTemplateObject() {
+	private function createVectorTemplateObject() {
 		$skinFactory = $this->getServiceContainer()->getSkinFactory();
 		$template = $skinFactory->makeSkin( 'vector' );
 		return $template;
@@ -46,7 +46,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$context->setAuthority( $this->mockAnonNullAuthority() );
 		$context->setLanguage( 'fr' );
 		$context->setActionName( 'view' );
-		$vectorTemplate = $this->provideVectorTemplateObject();
+		$vectorTemplate = $this->createVectorTemplateObject();
 		$vectorTemplate->setContext( $context );
 		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal',
 			static function ( &$skinTemplate, &$content_navigation ) {
