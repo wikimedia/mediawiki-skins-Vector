@@ -34,6 +34,7 @@
 	"vector-feature-custom-font-size-2-label": "Maraṅ",
 	"skin-theme-name": "Net́",
 	"skin-theme-os-label": "Apaćsala",
+	"vector-search-loader": "Nelsangar Suggestion ko aguoḱ tana",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> menaḱa Sakam nelsangarè",
 	"vector-intro-page": "Help:Eṭećupurum",
 	"vector-toc-label": "Olbalnaḱ",
@@ -53,5 +54,8 @@
 	"vector-pin-element-label": "Sidebar tenn",
 	"vector-unpin-element-label": "ukuè",
 	"tooltip-vector-anon-user-menu-title": "Onḍoḱ Salaeaḱ ko",
-	"vector-page-tools-nav-label": "Sakam Sataṕ ko"
+	"vector-page-tools-nav-label": "Sakam Sataṕ ko",
+	"vector-prefs-limited-width": "Limited Width Mode rika taa",
+	"vector-main-menu-unpinned-popup": "Epeṭeć Salasakam do nentaḱ te atom yana.",
+	"vector-2022-beta-preview-label": "Nelùrum lagit́ Accessibility (Vector 2022)"
 }
