@@ -31,7 +31,7 @@ use MediaWikiUnitTestCase;
  */
 class LanguageServiceTest extends MediaWikiUnitTestCase {
 
-	public function provideSplittableLanguages(): array {
+	public static function provideSplittableLanguages(): array {
 		return [
 			[ 'en', true ],
 			[ 'de', true ],

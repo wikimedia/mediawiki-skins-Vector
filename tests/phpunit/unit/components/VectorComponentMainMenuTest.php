@@ -69,7 +69,7 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 	/**
 	 * @return array[]
 	 */
-	public function provideMainMenuScenarios(): array {
+	public static function provideMainMenuScenarios(): array {
 		return [
 			'Main Menu Pinned' => [
 				'sidebarData' => [
