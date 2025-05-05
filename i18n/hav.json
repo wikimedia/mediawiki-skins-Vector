@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joeamj"
+		]
+	},
+	"vector-more-actions": "enkuru",
+	"vector-searchsuggest-containing": "Saka paji ziriho <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+}
