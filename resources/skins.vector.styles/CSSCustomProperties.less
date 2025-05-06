@@ -1,6 +1,6 @@
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
-// @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-reset.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-light.less';
 
 /**
  * T365764 - OOUI Icon classes for inverted dark-mode icons.
@@ -17,11 +17,11 @@
 	 * Applies the light mode color palette by default
 	 * or with the .skin-invert, or .notheme classes
 	 */
-	// :root,
-	// .skin-invert,
-	// .notheme {
-	// 	.cdx-mode-reset();
-	// }
+	:root,
+	.skin-invert,
+	.notheme {
+		.cdx-mode-light();
+	}
 
 	/**
 	 * Forced night mode.
