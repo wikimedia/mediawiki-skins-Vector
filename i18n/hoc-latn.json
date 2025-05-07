@@ -25,6 +25,7 @@
 	"vector-jumptosearch": "Nelsangar taḱ senoḱ",
 	"vector-jumptocontent": "Olbalnaḱ taḱ senoḱ",
 	"vector-more-actions": "Onḍoḱge",
+	"vector-search-loader": "Nelsangar Suggestion ko aguoḱ tana",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> menaḱa Sakam nelsangarè",
 	"vector-intro-page": "Help:Eṭećupurum",
 	"vector-toc-label": "Olbalnaḱ",
@@ -41,8 +42,9 @@
 	"vector-page-tools-label": "Sataṕ ko",
 	"vector-page-tools-general-label": "Jaoaḱ",
 	"vector-page-tools-actions-label": "Rinika ko",
-	"vector-pin-element-label": "Sidebar tenn",
-	"vector-unpin-element-label": "ukuè",
+	"vector-pin-element-label": "Sidebar re juaḱ taa",
+	"vector-unpin-element-label": "danaṅe",
 	"tooltip-vector-anon-user-menu-title": "Onḍoḱ Salaeaḱ ko",
-	"vector-page-tools-nav-label": "Sakam Sataṕ ko"
+	"vector-page-tools-nav-label": "Sakam Sataṕ ko",
+	"vector-prefs-limited-width": "Limited Width Mode rika taa"
 }

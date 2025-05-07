@@ -4,10 +4,12 @@
 			"Better",
 			"Crucifunked",
 			"HackerPunki",
-			"Julio Nepote"
+			"Julio Nepote",
+			"-jem-"
 		]
 	},
-	"vector-languages": "Luengas",
+	"vector-opt-out": "Mual ala aparencia anteriol",
+	"vector-languages": "Idiomas",
 	"vector-language-button-label": "$1 idioma{{PLURAL:$1||s}}",
 	"vector-no-language-button-label": "Añidil idiomas",
 	"vector-action-addsection": "Añidil tema",

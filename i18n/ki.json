@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Stephenwanjau"
+			"Stephenwanjau",
+			"Pwangai"
 		]
 	},
-	"vector-action-delete": "Futa"
+	"vector-languages": "Thiomi",
+	"vector-action-delete": "Futa",
+	"vector-toc-beginning": "Kĩambĩrĩria"
 }

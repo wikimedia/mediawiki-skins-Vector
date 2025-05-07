@@ -48,7 +48,7 @@
 	"vector-feature-custom-font-size-disabled-label": "Pequeno",
 	"vector-feature-custom-font-size-enabled-label": "Estándar",
 	"vector-search-loader": "Cargando as suxestións de busca",
-	"vector-searchsuggest-containing": "Procurar as páxinas que conteñan \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\"",
+	"vector-searchsuggest-containing": "Procurar as páxinas que conteñan «<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>»",
 	"vector-intro-page": "Help:Introdución",
 	"vector-toc-label": "Contidos",
 	"vector-toc-beginning": "Inicio",
