@@ -58,7 +58,7 @@
 	"skin-theme-night-label": "Noite",
 	"skin-theme-os-label": "Automática",
 	"vector-search-loader": "Cargando as suxestións de busca",
-	"vector-searchsuggest-containing": "Procurar as páxinas que conteñan \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\"",
+	"vector-searchsuggest-containing": "Procurar as páxinas que conteñan «<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>»",
 	"vector-intro-page": "Help:Introdución",
 	"vector-toc-label": "Contidos",
 	"vector-toc-beginning": "Inicio",

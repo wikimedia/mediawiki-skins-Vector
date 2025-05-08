@@ -4,10 +4,12 @@
 			"Better",
 			"Crucifunked",
 			"HackerPunki",
-			"Julio Nepote"
+			"Julio Nepote",
+			"-jem-"
 		]
 	},
-	"vector-languages": "Luengas",
+	"vector-opt-out": "Mual ala aparencia anteriol",
+	"vector-languages": "Idiomas",
 	"vector-language-button-label": "$1 idioma{{PLURAL:$1||s}}",
 	"vector-no-language-button-label": "Añidil idiomas",
 	"vector-action-addsection": "Añidil tema",
@@ -25,7 +27,9 @@
 	"vector-feature-limited-width-name": "Anchura",
 	"vector-feature-custom-font-size-name": "Testu",
 	"vector-feature-limited-width-0-label": "Anchu",
+	"vector-feature-limited-width-1-label": "Regulal",
 	"vector-feature-custom-font-size-0-label": "Chiqueninu",
+	"vector-feature-custom-font-size-1-label": "Regulal",
 	"vector-feature-custom-font-size-2-label": "Granderón",
 	"skin-theme-name": "Colol",
 	"skin-theme-os-label": "Utomática",
