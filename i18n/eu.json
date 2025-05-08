@@ -52,8 +52,6 @@
 	"skin-theme-night-label": "Iluna",
 	"skin-theme-os-label": "Automatikoa",
 	"skin-theme-exclusion-notice": "Orrialde hau modu argian dago beti.",
-	"vector-search-loader": "Bilaketa gomendioak kargatzen",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> duten orrialdeak bilatu",
 	"vector-intro-page": "Laguntza:Sarrera",
 	"vector-toc-label": "Edukiak",
 	"vector-toc-beginning": "⇈ Gora",

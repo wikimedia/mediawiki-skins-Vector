@@ -54,8 +54,6 @@
 	"skin-theme-night-label": "Цёмная",
 	"skin-theme-os-label": "Аўтаматычна",
 	"skin-theme-exclusion-notice": "Гэта старонка заўсёды знаходзіцца ў светлым рэжыме.",
-	"vector-search-loader": "Загрузка прапаноў пошуку",
-	"vector-searchsuggest-containing": "Шукаць старонкі, якія змяшчаюць <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Даведка",
 	"vector-toc-label": "Змест",
 	"vector-toc-beginning": "Пачатак",

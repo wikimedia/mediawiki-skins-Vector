@@ -63,8 +63,6 @@
 	"skin-theme-night-label": "Gelap",
 	"skin-theme-os-label": "Otomatis",
 	"skin-theme-exclusion-notice": "Halaman ini selalu menggunakan mode terang.",
-	"vector-search-loader": "Memuat saran pencarian",
-	"vector-searchsuggest-containing": "Cari halaman yang berisi <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Pengantar",
 	"vector-toc-label": "Daftar isi",
 	"vector-toc-beginning": "Awal",

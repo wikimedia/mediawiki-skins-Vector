@@ -53,8 +53,6 @@
 	"skin-theme-night-label": "Temno",
 	"skin-theme-os-label": "Samodejno",
 	"skin-theme-exclusion-notice": "Ta stran je vedno v svetlem načinu.",
-	"vector-search-loader": "Nalaganje predlogov za iskanje",
-	"vector-searchsuggest-containing": "Poišči strani, ki vsebujejo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Uvod",
 	"vector-toc-label": "Vsebina",
 	"vector-toc-beginning": "Začetek",

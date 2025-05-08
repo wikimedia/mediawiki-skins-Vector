@@ -68,8 +68,6 @@
 	"skin-theme-night-label": "تیره",
 	"skin-theme-os-label": "خودکار",
 	"skin-theme-exclusion-notice": "این صفحه همیشه در حالت روشن است.",
-	"vector-search-loader": "بارگیری پیشنهادهای جستجو",
-	"vector-searchsuggest-containing": "جستجو برای صفحه‌های دارای <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:مقدمه",
 	"vector-toc-label": "فهرست",
 	"vector-toc-beginning": "بخش آغازین",

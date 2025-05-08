@@ -57,8 +57,6 @@
 	"skin-theme-night-label": "Tume",
 	"skin-theme-os-label": "Automaatne",
 	"skin-theme-exclusion-notice": "See lehekülg on alati heledas režiimis.",
-	"vector-search-loader": "Otsisoovituste laadimine",
-	"vector-searchsuggest-containing": "Otsi lehekülgi, kus sisaldub <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Sissejuhatus",
 	"vector-toc-label": "Sisukord",
 	"vector-toc-beginning": "Algus",

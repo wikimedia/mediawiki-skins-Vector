@@ -63,8 +63,6 @@
 	"skin-theme-night-label": "আঁধার",
 	"skin-theme-os-label": "স্বয়ংক্রিয়",
 	"skin-theme-exclusion-notice": "এই পাতাটি সর্বদা উজ্জ্বল মোডে থাকে।",
-	"vector-search-loader": "অনুসন্ধানের পরামর্শ লোড করা হচ্ছে",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থাকা পাতাগুলিতে অনুসন্ধান করুন",
 	"vector-intro-page": "Help:ভূমিকা",
 	"vector-toc-label": "পরিচ্ছেদসমূহ",
 	"vector-toc-beginning": "সূচনা",

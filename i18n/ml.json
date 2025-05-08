@@ -55,8 +55,6 @@
 	"skin-theme-night-label": "ഇരുളിമ",
 	"skin-theme-os-label": "സ്വയം പ്രവർത്തിതം",
 	"skin-theme-exclusion-notice": "ഈ പേജ് എപ്പോഴും ലൈറ്റ് മോഡിലാണ്.",
-	"vector-search-loader": "തിരയൽ നിർദ്ദേശങ്ങൾ ശേഖരിക്കുന്നു",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> അടങ്ങിയ പേജുകൾക്കായി തിരയുക",
 	"vector-intro-page": "Help:ആമുഖം",
 	"vector-toc-label": "ഉള്ളടക്കം",
 	"vector-toc-beginning": "തുടക്കം",

@@ -58,8 +58,6 @@
 	"skin-theme-night-label": "गहरा",
 	"skin-theme-os-label": "स्वचालित",
 	"skin-theme-exclusion-notice": "यह पृष्ठ हमेशा प्रकाश मोड में रहता है।",
-	"vector-search-loader": "खोज सुझाव लोड हो रहे हैं",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> से युक्त पृष्ठ खोजें",
 	"vector-intro-page": "Help:परिचय",
 	"vector-toc-label": "सामग्री",
 	"vector-toc-beginning": "शुरुआत",

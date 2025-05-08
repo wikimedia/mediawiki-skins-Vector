@@ -55,8 +55,6 @@
 	"skin-theme-night-label": "E errët",
 	"skin-theme-os-label": "Automatike",
 	"skin-theme-exclusion-notice": "Kjo faqe është gjithmonë në modalitet të ndriçuar.",
-	"vector-search-loader": "Po ngarkojmë sugjerime të kërkimit",
-	"vector-searchsuggest-containing": "Kërkoni për faqe që përmbajnë <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Ndihmë:Hyrje",
 	"vector-toc-label": "Përmbajtja",
 	"vector-toc-beginning": "Kreu",

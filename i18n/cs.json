@@ -62,8 +62,6 @@
 	"skin-theme-night-label": "Tmavá",
 	"skin-theme-os-label": "Automaticky",
 	"skin-theme-exclusion-notice": "Tato stránka je vždy ve světlé barvě.",
-	"vector-search-loader": "Načítají se návrhy pro hledání",
-	"vector-searchsuggest-containing": "Vyhledat stránky obsahující „<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>“",
 	"vector-intro-page": "Help:Úvod",
 	"vector-toc-label": "Obsah",
 	"vector-toc-beginning": "Začátek",

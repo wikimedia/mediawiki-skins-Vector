@@ -66,8 +66,6 @@
 	"skin-theme-night-label": "다크",
 	"skin-theme-os-label": "자동",
 	"skin-theme-exclusion-notice": "이 페이지는 항상 라이트 모드입니다.",
-	"vector-search-loader": "검색 제안을 불러오는 중",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 항목이 포함된 글을 검색",
 	"vector-intro-page": "Help:소개",
 	"vector-toc-label": "목차",
 	"vector-toc-beginning": "처음 위치",

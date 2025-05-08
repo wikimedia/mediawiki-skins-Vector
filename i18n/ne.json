@@ -57,8 +57,6 @@
 	"skin-theme-night-label": "अँध्यारो",
 	"skin-theme-os-label": "स्वचालित",
 	"skin-theme-exclusion-notice": "यो पृष्ठ सधैँ लाइट मोडमा हुन्छ।",
-	"vector-search-loader": "खोज सुझावहरू खोल्दै",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> भएको पृष्ठहरू खोज्नुहोस्",
 	"vector-intro-page": "Help:स्वशिक्षा",
 	"vector-toc-label": "विषयसूची",
 	"vector-toc-beginning": "सुरुवात",

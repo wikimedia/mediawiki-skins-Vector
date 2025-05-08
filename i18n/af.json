@@ -43,8 +43,6 @@
 	"skin-theme-night-label": "Donker",
 	"skin-theme-os-label": "Outomaties",
 	"skin-theme-exclusion-notice": "Hierdie bladsy is altyd in ligte modus.",
-	"vector-search-loader": "Laai tans soekvoorstelle",
-	"vector-searchsuggest-containing": "Soek vir bladsye wat <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> bevat",
 	"vector-intro-page": "Help:Inleiding",
 	"vector-toc-label": "Inhoud",
 	"vector-toc-beginning": "Inleiding",

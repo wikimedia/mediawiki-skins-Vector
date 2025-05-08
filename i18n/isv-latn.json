@@ -47,8 +47,6 @@
 	"skin-theme-night-label": "Temna",
 	"skin-theme-os-label": "Avtomatična",
 	"skin-theme-exclusion-notice": "Tuta stranica vsegda izobražaje se v světloj temě.",
-	"vector-search-loader": "Včityvanje prědloženij za iskanje",
-	"vector-searchsuggest-containing": "Iskati stranice sodrživajuče <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Vvod",
 	"vector-toc-label": "Sodržanje",
 	"vector-toc-beginning": "Početok",

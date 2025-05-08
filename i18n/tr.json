@@ -66,8 +66,6 @@
 	"skin-theme-night-label": "Koyu",
 	"skin-theme-os-label": "Otomatik",
 	"skin-theme-exclusion-notice": "Bu sayfa her zaman açık kipindedir.",
-	"vector-search-loader": "Arama önerileri yükleniyor",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> içeren sayfaları ara",
 	"vector-intro-page": "Help:Giriş",
 	"vector-toc-label": "İçindekiler",
 	"vector-toc-beginning": "Giriş",

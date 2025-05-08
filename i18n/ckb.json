@@ -53,8 +53,6 @@
 	"skin-theme-night-label": "تاریک",
 	"skin-theme-os-label": "خۆگەڕ",
 	"skin-theme-exclusion-notice": "ئەم پەڕە ھەمیشە لە دۆخی ڕووناکدایە.",
-	"vector-search-loader": "پێشنیارەکانی گەڕان باردەکرێ",
-	"vector-searchsuggest-containing": "بەدوای ئەو پەڕانە بگەڕێ کە «<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>»یان تێدایە.",
 	"vector-intro-page": "ویکیپیدیا:ناساندن",
 	"vector-toc-label": "ناوەڕۆکەکان",
 	"vector-toc-beginning": "دەستپێک",

@@ -56,8 +56,6 @@
 	"skin-theme-night-label": "Dökkt",
 	"skin-theme-os-label": "Sjálfvirkt",
 	"skin-theme-exclusion-notice": "Þessi síða er alltaf í ljósum ham.",
-	"vector-search-loader": "Hleð inn leitar uppástungum",
-	"vector-searchsuggest-containing": "Leita að síðum sem innihalda <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-label": "Efni",
 	"vector-toc-beginning": "Byrjun",

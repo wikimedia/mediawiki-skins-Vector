@@ -55,8 +55,6 @@
 	"skin-theme-day-label": "淺色",
 	"skin-theme-night-label": "深色",
 	"skin-theme-os-label": "自動",
-	"vector-search-loader": "載入緊搜索提議",
-	"vector-searchsuggest-containing": "搵包含 <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> 嘅版",
 	"vector-intro-page": "Help:目錄",
 	"vector-toc-label": "目錄",
 	"vector-toc-beginning": "文頭",

@@ -14,6 +14,5 @@
 	"vector-view-edit": "ດັດແກ້",
 	"vector-view-history": "ເບິ່ງປະຫວັດ",
 	"vector-view-view": "ອ່ານ",
-	"vector-more-actions": "ເພີ່ມເຕີມ",
-	"vector-searchsuggest-containing": "ຊອກຫາໜ້າເວັບທີ່ມີ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-more-actions": "ເພີ່ມເຕີມ"
 }

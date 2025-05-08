@@ -55,8 +55,6 @@
 	"skin-theme-night-label": "আন্ধাৰ",
 	"skin-theme-os-label": "স্বয়ংক্ৰিয়",
 	"skin-theme-exclusion-notice": "এই পৃষ্ঠাটো সদায় পোহৰ অৱস্থাত থাকে।",
-	"vector-search-loader": "সন্ধান পৰামৰ্শ লোড কৰা হৈছে",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> থকা পৃষ্ঠাসমূহ সন্ধান কৰক",
 	"vector-intro-page": "Help:পৰিচয়",
 	"vector-toc-label": "সূচী",
 	"vector-toc-beginning": "পাতনি",

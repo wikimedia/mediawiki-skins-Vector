@@ -61,8 +61,6 @@
 	"skin-theme-night-label": "Fosc",
 	"skin-theme-os-label": "Automàtic",
 	"skin-theme-exclusion-notice": "Aquesta pàgina és sempre en mode clar.",
-	"vector-search-loader": "Carregant els suggeriments de cerca",
-	"vector-searchsuggest-containing": "Cerca les pàgines que continguin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introducció",
 	"vector-toc-label": "Contingut",
 	"vector-toc-beginning": "Inici",

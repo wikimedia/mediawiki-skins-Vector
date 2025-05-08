@@ -49,8 +49,6 @@
 	"skin-theme-night-label": "Obscur",
 	"skin-theme-os-label": "Automatic",
 	"skin-theme-exclusion-notice": "Iste pagina es sempre in modo clar.",
-	"vector-search-loader": "Cargante suggestiones de recerca",
-	"vector-searchsuggest-containing": "Cercar paginas que contine <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-label": "Contento",
 	"vector-toc-beginning": "Initio",

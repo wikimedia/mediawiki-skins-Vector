@@ -47,8 +47,6 @@
 	"skin-theme-night-label": "Tumša",
 	"skin-theme-os-label": "Automātiski",
 	"skin-theme-exclusion-notice": "Šī lapa vienmēr ir gaišajā režīmā.",
-	"vector-search-loader": "Ielādē meklēšanas ieteikumus",
-	"vector-searchsuggest-containing": "Meklēt lapas, kas satur <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Vikipēdija:Ievads",
 	"vector-toc-label": "Saturs",
 	"vector-toc-beginning": "Sākums",

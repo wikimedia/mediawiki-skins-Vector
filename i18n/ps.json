@@ -53,8 +53,6 @@
 	"skin-theme-night-label": "تياره",
 	"skin-theme-os-label": "خپلکاره",
 	"skin-theme-exclusion-notice": "دا مخ تل په روڼ ونگ‌ډول کې دی.",
-	"vector-search-loader": "لټون وړانديزونه بارېږي",
-	"vector-searchsuggest-containing": "هغه مخونه پلټل چې<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> لري",
 	"vector-intro-page": "Help:پېژندنه",
 	"vector-toc-label": "منځپانگې",
 	"vector-toc-beginning": "پیل",

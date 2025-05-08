@@ -36,8 +36,6 @@
 	"vector-feature-custom-font-size-name": "Textu",
 	"skin-theme-name": "Color",
 	"skin-theme-os-label": "Automatic",
-	"vector-search-loader": "Cargar suggestiones de sercha",
-	"vector-searchsuggest-containing": "Serchar págines contenent <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Contenetes",
 	"vector-main-menu-label": "Chef menú",
 	"vector-page-tools-label": "Utensiles",

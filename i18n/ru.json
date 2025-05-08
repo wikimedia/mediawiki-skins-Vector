@@ -81,8 +81,6 @@
 	"skin-theme-night-label": "Тёмная",
 	"skin-theme-os-label": "Автоматически",
 	"skin-theme-exclusion-notice": "Эта страница всегда находится в светлом режиме.",
-	"vector-search-loader": "Загружаются поисковые предложения",
-	"vector-searchsuggest-containing": "Поиск страниц, содержащих <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Введение",
 	"vector-toc-label": "Содержание",
 	"vector-toc-beginning": "Начало",

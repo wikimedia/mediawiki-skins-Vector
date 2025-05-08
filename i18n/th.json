@@ -63,8 +63,6 @@
 	"skin-theme-night-label": "มืด",
 	"skin-theme-os-label": "อัตโนมัติ",
 	"skin-theme-exclusion-notice": "หน้านี้อยู่ในโหมดสว่างเสมอ",
-	"vector-search-loader": "กำลังโหลดคำแนะนำการค้นหา",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:บทนำ",
 	"vector-toc-label": "สารบัญ",
 	"vector-toc-beginning": "บทนำ",

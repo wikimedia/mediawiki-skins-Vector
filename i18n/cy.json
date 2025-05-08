@@ -52,8 +52,6 @@
 	"skin-theme-night-label": "Tywyll",
 	"skin-theme-os-label": "Awtomatig",
 	"skin-theme-exclusion-notice": "Mae'r dudalen hon yn defnyddio modd golau bob tro.",
-	"vector-search-loader": "Wrthi'n llwytho awgrymiadau chwilio",
-	"vector-searchsuggest-containing": "Chwilio am dudalennau sy'n cynnwys <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Cyflwyniad",
 	"vector-toc-label": "Cynnwys",
 	"vector-toc-beginning": "Y dechrau",

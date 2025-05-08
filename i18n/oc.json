@@ -33,7 +33,6 @@
 	"vector-more-actions": "Mai",
 	"vector-appearance-label": "Aparéncia",
 	"vector-appearance-tooltip": "Modificar la dimension, la largor e la color del tèxte.",
-	"vector-searchsuggest-containing": "Cercar las paginas que contènon <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Somari",
 	"vector-toc-beginning": "Començament",
 	"vector-anon-user-menu-pages": "Paginas pels editors non registrats.",

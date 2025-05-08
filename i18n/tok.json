@@ -57,8 +57,6 @@
 	"skin-theme-night-label": "pimeja",
 	"skin-theme-os-label": "tan ilo",
 	"skin-theme-exclusion-notice": "lipu ni li walo lon tenpo ale.",
-	"vector-search-loader": "mi kama e alasa ken",
-	"vector-searchsuggest-containing": "o alasa e lipu ni: nimi \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\" li lon ona li lon ona",
 	"vector-intro-page": "Help:kama sin",
 	"vector-toc-label": "lipu ni la",
 	"vector-toc-beginning": "open",

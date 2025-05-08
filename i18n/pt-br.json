@@ -70,8 +70,6 @@
 	"skin-theme-night-label": "Noite",
 	"skin-theme-os-label": "Automático",
 	"skin-theme-exclusion-notice": "Esta página está sempre no modo claro.",
-	"vector-search-loader": "Carregando sugestões de pesquisa",
-	"vector-searchsuggest-containing": "Procurar pelas páginas contendo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-label": "Conteúdo",
 	"vector-toc-beginning": "Início",

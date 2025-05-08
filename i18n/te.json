@@ -45,7 +45,6 @@
 	"skin-theme-night-label": "చీకటిగా",
 	"skin-theme-os-label": "ఆటోమాటిగ్గా",
 	"skin-theme-exclusion-notice": "ఈ పేజీ ఎప్పుడూ ప్రకాశవంతం గానే ఉంటుంది.",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> కలిగి ఉన్న పేజీల కోసం వెతకండి",
 	"vector-toc-label": "విషయ సూచిక",
 	"vector-toc-beginning": "ప్రవేశిక",
 	"vector-toc-toggle-button-label": "$1 ఉపవర్గాన్ని టాగుల్ చెయ్యి",

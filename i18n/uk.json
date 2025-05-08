@@ -67,8 +67,6 @@
 	"skin-theme-night-label": "Темна",
 	"skin-theme-os-label": "Автоматична",
 	"skin-theme-exclusion-notice": "Ця сторінка завжди в світловому режимі.",
-	"vector-search-loader": "Завантажуються підказки пошуку",
-	"vector-searchsuggest-containing": "Знайдіть сторінки, що містять <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Вступ",
 	"vector-toc-label": "Зміст",
 	"vector-toc-beginning": "Вступ",

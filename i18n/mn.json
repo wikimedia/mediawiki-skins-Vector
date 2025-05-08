@@ -40,7 +40,6 @@
 	"skin-theme-night-label": "Харанхуй",
 	"skin-theme-os-label": "Автомат",
 	"skin-theme-exclusion-notice": "Энэ хуудас үргэлж гэрэлтэй горимд байдаг.",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> бичвэрийг агуулсан хуудсыг хайх",
 	"vector-toc-label": "Гарчиг",
 	"vector-toc-beginning": "Эхлэл",
 	"vector-toc-toggle-button-label": "$1 хэсгийг нээж хаах",

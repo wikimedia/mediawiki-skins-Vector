@@ -55,8 +55,6 @@
 	"skin-theme-night-label": "כהה",
 	"skin-theme-os-label": "אוטומטי",
 	"skin-theme-exclusion-notice": "הדף הזה תמיד במצב בהיר.",
-	"vector-search-loader": "טעינת הצעות חיפוש",
-	"vector-searchsuggest-containing": "חיפוש דפים שמכילים <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:ברוכים הבאים",
 	"vector-toc-label": "תוכן עניינים",
 	"vector-toc-beginning": "התחלה",

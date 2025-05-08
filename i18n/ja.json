@@ -80,8 +80,6 @@
 	"skin-theme-night-label": "ダーク",
 	"skin-theme-os-label": "自動",
 	"skin-theme-exclusion-notice": "このページは常にライトモードです。",
-	"vector-search-loader": "検索候補を読み込んでいます",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>を含むページを検索する",
 	"vector-intro-page": "Help:はじめに",
 	"vector-toc-label": "目次",
 	"vector-toc-beginning": "ページ先頭",

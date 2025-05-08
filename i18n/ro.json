@@ -55,8 +55,6 @@
 	"skin-theme-night-label": "Întunecat",
 	"skin-theme-os-label": "Automat",
 	"skin-theme-exclusion-notice": "Această pagină este mereu în modul luminos.",
-	"vector-search-loader": "Se încarcă sugestiile de căutare",
-	"vector-searchsuggest-containing": "Căutați după pagini care conțin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Cuprins",
 	"vector-toc-beginning": "Început",
 	"vector-anon-user-menu-pages": "Pagini pentru editorii neautentificați",

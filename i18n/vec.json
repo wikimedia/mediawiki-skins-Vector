@@ -49,8 +49,6 @@
 	"skin-theme-night-label": "Scuro",
 	"skin-theme-os-label": "Automàtego",
 	"skin-theme-exclusion-notice": "Sta pagina ła se vede senpre ciara.",
-	"vector-search-loader": "Carga sujerimenti de riserca",
-	"vector-searchsuggest-containing": "Serca pàzine che i contien <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Somario",
 	"vector-toc-beginning": "Scuminsio",
 	"vector-toc-toggle-button-label": "Mostra o scondi la sesion $1",

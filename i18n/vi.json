@@ -69,8 +69,6 @@
 	"skin-theme-night-label": "Tối",
 	"skin-theme-os-label": "Tự động",
 	"skin-theme-exclusion-notice": "Trang này mặc định luôn ở chế độ sáng.",
-	"vector-search-loader": "Đang tải gợi ý tìm kiếm",
-	"vector-searchsuggest-containing": "Tìm trang có <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Giới thiệu",
 	"vector-toc-label": "Nội dung",
 	"vector-toc-beginning": "Đầu",

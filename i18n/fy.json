@@ -41,8 +41,6 @@
 	"vector-jumptosearch": "Springe nei sykjen",
 	"vector-jumptocontent": "Springe nei ynhâld",
 	"vector-more-actions": "Mear",
-	"vector-search-loader": "Laden fan syksuggestjes",
-	"vector-searchsuggest-containing": "Siden sykje mei as ynhâld <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Yntroduksje",
 	"vector-toc-label": "Ynhâld",
 	"vector-toc-beginning": "Begjin",

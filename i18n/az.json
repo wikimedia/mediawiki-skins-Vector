@@ -63,8 +63,6 @@
 	"skin-theme-night-label": "Gecə",
 	"skin-theme-os-label": "Avtomatik",
 	"skin-theme-exclusion-notice": "Bu səhifə həmişə gündüz rejimindədir.",
-	"vector-search-loader": "Axtarış təklifləri yüklənir",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> ehtiva edən səhifələri axtar",
 	"vector-intro-page": "Help:Giriş",
 	"vector-toc-label": "Mündəricat",
 	"vector-toc-beginning": "Giriş",

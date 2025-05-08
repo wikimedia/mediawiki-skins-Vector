@@ -62,8 +62,6 @@
 	"skin-theme-night-label": "Σκοτεινό",
 	"skin-theme-os-label": "Αυτόματο",
 	"skin-theme-exclusion-notice": "Αυτή η σελίδα χρησιμοποιεί πάντα φωτεινό θέμα.",
-	"vector-search-loader": "Φόρτωση προτάσεων αναζήτησης",
-	"vector-searchsuggest-containing": "Αναζητήστε σελίδες που περιέχουν <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Εισαγωγή",
 	"vector-toc-label": "Περιεχόμενα",
 	"vector-toc-beginning": "Αρχή",

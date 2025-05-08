@@ -43,8 +43,6 @@
 	"vector-feature-custom-font-size-0-label": "Lita",
 	"vector-feature-custom-font-size-1-label": "Standard",
 	"vector-feature-custom-font-size-2-label": "Stor",
-	"vector-search-loader": "Hentar søkeforslag",
-	"vector-searchsuggest-containing": "Søk etter sider som inneheld <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduksjon",
 	"vector-toc-label": "Innhald",
 	"vector-toc-beginning": "Byrjinga",

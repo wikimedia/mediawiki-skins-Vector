@@ -56,8 +56,6 @@
 	"skin-theme-night-label": "Tmavá",
 	"skin-theme-os-label": "Automaticky",
 	"skin-theme-exclusion-notice": "Táto stránka je vždy v svetlom režime.",
-	"vector-search-loader": "Načítavajú sa návrhy pre vyhľadávanie",
-	"vector-searchsuggest-containing": "Hľadať stránky obsahujúce <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Obsah",
 	"vector-toc-beginning": "Začiatok",
 	"vector-anon-user-menu-pages": "Stránky pre odhlásených redaktorov",

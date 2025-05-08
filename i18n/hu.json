@@ -56,8 +56,6 @@
 	"skin-theme-night-label": "Sötét",
 	"skin-theme-os-label": "Automatikus",
 	"skin-theme-exclusion-notice": "Ez az oldal mindig világos színeket használ.",
-	"vector-search-loader": "Keresési javaslatok betöltése…",
-	"vector-searchsuggest-containing": "Olyan oldalak keresése, amelyek tartalmazzák a következőt: <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Bevezetés",
 	"vector-toc-label": "Tartalomjegyzék",
 	"vector-toc-beginning": "Bevezető",

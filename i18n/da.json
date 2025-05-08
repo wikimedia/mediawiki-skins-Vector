@@ -58,8 +58,6 @@
 	"skin-theme-night-label": "Mørk",
 	"skin-theme-os-label": "Automatisk",
 	"skin-theme-exclusion-notice": "Denne side er altid i lys tilstand.",
-	"vector-search-loader": "Henter søgeforslag",
-	"vector-searchsuggest-containing": "Søgning for sider der indeholder <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduktion",
 	"vector-toc-label": "Indhold",
 	"vector-toc-beginning": "Indledning",

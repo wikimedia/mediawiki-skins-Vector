@@ -60,8 +60,6 @@
 	"skin-theme-night-label": "Қараңғы",
 	"skin-theme-os-label": "Өздігінен",
 	"skin-theme-exclusion-notice": "Бұл бет үнемі жарық күйде көрінеді.",
-	"vector-search-loader": "Іздеу ұсыныстары жүктелуде",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">«$1»</strong> бар беттерді іздеу",
 	"vector-intro-page": "Жәрдем:Таныстыру",
 	"vector-toc-label": "Мазмұны",
 	"vector-toc-beginning": "Кіріспе",
