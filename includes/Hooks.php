@@ -13,7 +13,6 @@ use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
-use RuntimeException;
 
 /**
  * Presentation hook handlers for Vector skin.
@@ -50,45 +49,6 @@ class Hooks implements
 			$skinName === Constants::SKIN_NAME_LEGACY ||
 			$skinName === Constants::SKIN_NAME_MODERN
 		);
-	}
-
-	/**
-	 * @param RL\Context $context
-	 * @param Config $config
-	 * @return array
-	 */
-	public static function getActiveABTest(
-		RL\Context $context,
-		Config $config
-	) {
-		$ab = $config->get(
-			Constants::CONFIG_WEB_AB_TEST_ENROLLMENT
-		);
-		if ( count( $ab ) === 0 ) {
-			// If array is empty then no experiment and need to validate.
-			return $ab;
-		}
-		if ( !array_key_exists( 'buckets', $ab ) ) {
-			throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Must contain buckets key.' );
-		}
-		if ( !array_key_exists( 'unsampled', $ab['buckets'] ) ) {
-			throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Must define an `unsampled` bucket.' );
-		} else {
-			// check bucket values.
-			foreach ( $ab['buckets'] as $bucketName => $bucketDefinition ) {
-				if ( !is_array( $bucketDefinition ) ) {
-					throw new RuntimeException( 'Invalid VectorWebABTestEnrollment value: Buckets should be arrays' );
-				}
-				$samplingRate = $bucketDefinition['samplingRate'];
-				if ( is_string( $samplingRate ) ) {
-					throw new RuntimeException(
-						'Invalid VectorWebABTestEnrollment value: Sampling rate should be number between 0 and 1.'
-					);
-				}
-			}
-		}
-
-		return $ab;
 	}
 
 	/**

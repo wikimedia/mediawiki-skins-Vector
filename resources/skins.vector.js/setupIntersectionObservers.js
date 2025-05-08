@@ -2,14 +2,12 @@
 const
 	stickyHeader = require( './stickyHeader.js' ),
 	scrollObserver = require( './scrollObserver.js' ),
-	initExperiment = require( './AB.js' ),
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
 	popupNotification = require( './popupNotification.js' ),
 	features = require( './features.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
-	ABTestConfig = require( /** @type {string} */ ( './activeABTest.json' ) ),
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
@@ -50,46 +48,6 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) =>
 			changeActiveSection( `${ TOC_SECTION_ID_PREFIX }${ headline.id }` );
 		}
 	};
-
-/**
- * Initialize sticky header AB tests and determine whether to show the sticky header
- * based on which buckets the user is in.
- *
- * @typedef {Object} InitStickyHeaderABTests
- * @property {boolean} showStickyHeader - Should the sticky header be shown
- * @param {ABTestConfig} abConfig
- * @param {boolean} isStickyHeaderFeatureAllowed and the user is logged in
- * @param {function(ABTestConfig): initExperiment.WebABTest} getEnabledExperiment
- * @return {InitStickyHeaderABTests}
- */
-function initStickyHeaderABTests( abConfig, isStickyHeaderFeatureAllowed, getEnabledExperiment ) {
-	let showStickyHeader = isStickyHeaderFeatureAllowed,
-		stickyHeaderExperiment;
-
-	// One of the sticky header AB tests is specified in the config
-	const abTestName = abConfig.name,
-		isStickyHeaderExperiment = abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME;
-
-	// Determine if user is eligible for sticky header AB test
-	if (
-		isStickyHeaderFeatureAllowed && // The sticky header can be shown on the page
-		abConfig.enabled && // An AB test config is enabled
-		isStickyHeaderExperiment // The AB test is one of the sticky header experiments
-	) {
-		// If eligible, initialize the AB test
-		stickyHeaderExperiment = getEnabledExperiment( abConfig );
-
-		// If running initial or edit AB test, show sticky header to treatment groups
-		// only. Unsampled and control buckets do not see sticky header.
-		if ( abTestName === stickyHeader.STICKY_HEADER_EXPERIMENT_NAME ) {
-			showStickyHeader = stickyHeaderExperiment.isInTreatmentBucket();
-		}
-	}
-
-	return {
-		showStickyHeader
-	};
-}
 
 /*
  * Updates TOC's location in the DOM (in sidebar or sticky header)
@@ -300,27 +258,19 @@ const main = () => {
 		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
 		allowedAction = stickyHeader.isAllowedAction( mw.config.get( 'wgAction' ) );
 
-	const isStickyHeaderAllowed =
+	const showStickyHeader =
+		!mw.user.isAnon() &&
 		!!stickyHeaderElement &&
 		!!stickyIntersection &&
 		!!userLinksDropdown &&
 		allowedNamespace &&
 		allowedAction;
 
-	const { showStickyHeader } = initStickyHeaderABTests(
-		ABTestConfig,
-		isStickyHeaderAllowed && !mw.user.isAnon(),
-		( config ) => initExperiment(
-			config,
-			String( mw.user.getId() )
-		)
-	);
-
 	// Set up intersection observer for page title
 	// Used to show/hide sticky header and add class used by collapsible TOC (T307900)
 	const observer = scrollObserver.initScrollObserver(
 		() => {
-			if ( isStickyHeaderAllowed && showStickyHeader ) {
+			if ( showStickyHeader ) {
 				stickyHeader.show();
 				updateTocLocation();
 			}
@@ -331,7 +281,7 @@ const main = () => {
 			scrollObserver.firePageTitleScrollHook( 'down' );
 		},
 		() => {
-			if ( isStickyHeaderAllowed && showStickyHeader ) {
+			if ( showStickyHeader ) {
 				stickyHeader.hide();
 				updateTocLocation();
 			}
@@ -354,7 +304,7 @@ const main = () => {
 		stickyHeader.hide();
 	}
 
-	if ( isStickyHeaderAllowed && showStickyHeader ) {
+	if ( showStickyHeader ) {
 		stickyHeader.initStickyHeader( {
 			header: stickyHeaderElement,
 			userLinksDropdown,
@@ -370,7 +320,6 @@ module.exports = {
 	main,
 	test: {
 		setupTableOfContents,
-		initStickyHeaderABTests,
 		getHeadingIntersectionHandler
 	}
 };

@@ -6,9 +6,6 @@ window.matchMedia = window.matchMedia || function () {
 };
 
 const { test } = require( '../../../resources/skins.vector.js/setupIntersectionObservers.js' );
-const {
-	STICKY_HEADER_EXPERIMENT_NAME
-} = require( '../../../resources/skins.vector.js/stickyHeader.js' );
 describe( 'main.js', () => {
 	it( 'getHeadingIntersectionHandler', () => {
 		const content = document.createElement( 'div' );
@@ -43,72 +40,6 @@ describe( 'main.js', () => {
 			handler( node );
 			expect( fn ).toHaveBeenCalledWith( testCase[ 1 ] );
 		} );
-	} );
-
-	it( 'initStickyHeaderABTests', () => {
-		const STICKY_HEADER_AB = {
-			name: STICKY_HEADER_EXPERIMENT_NAME,
-			enabled: true
-		};
-		[
-			{
-				abConfig: STICKY_HEADER_AB,
-				isEnabled: false, // sticky header unavailable
-				isUserInTreatmentBucket: false, // not in treatment bucket
-				expectedResult: {
-					showStickyHeader: false
-				}
-			},
-			{
-				abConfig: STICKY_HEADER_AB,
-				isEnabled: true, // sticky header available
-				isUserInTreatmentBucket: false, // not in treatment bucket
-				expectedResult: {
-					showStickyHeader: false
-				}
-			},
-			{
-				abConfig: STICKY_HEADER_AB,
-				isEnabled: false, // sticky header is not available
-				isUserInTreatmentBucket: true, // but the user is in the treatment bucket
-				expectedResult: {
-					showStickyHeader: false
-				}
-			},
-			{
-				abConfig: STICKY_HEADER_AB,
-				isEnabled: true,
-				isUserInTreatmentBucket: true,
-				expectedResult: {
-					showStickyHeader: true
-				}
-			}
-		].forEach(
-			( {
-				abConfig,
-				isEnabled,
-				isUserInTreatmentBucket,
-				expectedResult
-			} ) => {
-				document.documentElement.classList.add( 'vector-sticky-header-enabled' );
-				const result = test.initStickyHeaderABTests(
-					abConfig,
-					// isStickyHeaderFeatureAllowed
-					isEnabled,
-					( experiment ) => ( {
-						name: experiment.name,
-						isInBucket: () => true,
-						isInSample: () => true,
-						getBucket: () => 'bucket',
-						isInTreatmentBucket: () => isUserInTreatmentBucket
-					} )
-				);
-				expect( result ).toMatchObject( expectedResult );
-				// Check that there are no side effects
-				expect(
-					document.documentElement.classList.contains( 'vector-sticky-header-enabled' )
-				).toBe( true );
-			} );
 	} );
 } );
 

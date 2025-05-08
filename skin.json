@@ -382,7 +382,6 @@
 				"resources/skins.vector.js/searchToggle.js",
 				"resources/skins.vector.js/stickyHeader.js",
 				"resources/skins.vector.js/scrollObserver.js",
-				"resources/skins.vector.js/AB.js",
 				"resources/skins.vector.js/tableOfContents.js",
 				"resources/skins.vector.js/sectionObserver.js",
 				"resources/skins.vector.js/deferUntilFrame.js",
@@ -391,10 +390,6 @@
 				"resources/skins.vector.js/features.js",
 				"resources/skins.vector.js/popupNotification.js",
 				"resources/skins.vector.js/clientPreferences.json",
-				{
-					"name": "resources/skins.vector.js/activeABTest.json",
-					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getActiveABTest"
-				},
 				{
 					"name": "resources/skins.vector.js/config.json",
 					"config": [

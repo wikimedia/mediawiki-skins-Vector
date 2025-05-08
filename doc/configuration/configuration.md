@@ -92,14 +92,6 @@ Do not rely on any of the feature flags documented here. They should not be cons
 
   - Removal ticket: [https://phabricator.wikimedia.org/T106463](https://phabricator.wikimedia.org/T106463)
 
-- wgVectorWebABTestEnrollment
-
-  - Configures web A/B test enrollment for the Vector skin. This is intended to only be used by developers, as it requires writing associated code.
-
-  - Specifies experiment details and sampling rates.
-
-  - Note: The assumption is that A/B testing will always be occurring in this skin so would never be removed unlike the other flags.
-
 - wgVectorWrapTablesTemporary
    - When enabled, certain tables will be wrapped in a div to make them horizontally scrollable when no
      space is available.
