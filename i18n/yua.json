@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"26agcp",
-			"Lorenzoitza"
+			"Lorenzoitza",
+			"ProtoplasmaKid"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|Junp'éel t'aan|$1 t'aano'ob}}",
@@ -10,5 +11,7 @@
 	"vector-view-edit": "K'eex",
 	"vector-view-history": "Ba'ax a ilmaj",
 	"vector-view-view": "Xook",
-	"vector-more-actions": "U la'ak'"
+	"vector-more-actions": "U la'ak'",
+	"vector-feature-custom-font-size-0-label": "Chiichám",
+	"skin-theme-night-label": "Boox"
 }
