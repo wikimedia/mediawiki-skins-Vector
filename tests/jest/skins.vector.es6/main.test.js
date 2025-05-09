@@ -15,24 +15,16 @@ describe( 'main.js', () => {
 		parserOutput.setAttribute( 'class', 'mw-parser-output' );
 		content.appendChild( parserOutput );
 
-		const headingOld = document.createElement( 'h2' );
-		const headlineOld = document.createElement( 'span' );
-		headlineOld.classList.add( 'mw-headline' );
-		headlineOld.setAttribute( 'id', 'headline-old' );
-		headingOld.appendChild( headlineOld );
-		parserOutput.appendChild( headingOld );
-
-		const headingNew = document.createElement( 'div' );
-		headingNew.classList.add( 'mw-heading' );
-		const headlineNew = document.createElement( 'h2' );
-		headlineNew.setAttribute( 'id', 'headline-new' );
-		headingNew.appendChild( headlineNew );
-		parserOutput.appendChild( headingNew );
+		const heading = document.createElement( 'div' );
+		heading.classList.add( 'mw-heading' );
+		const headline = document.createElement( 'h2' );
+		headline.setAttribute( 'id', 'headline' );
+		heading.appendChild( headline );
+		parserOutput.appendChild( heading );
 
 		[
 			[ content, 'toc-mw-content-text' ],
-			[ headingOld, 'toc-headline-old' ],
-			[ headingNew, 'toc-headline-new' ]
+			[ heading, 'toc-headline' ]
 		].forEach( ( testCase ) => {
 			const node = /** @type {HTMLElement} */ ( testCase[ 0 ] );
 			const fn = jest.fn();
