@@ -10,6 +10,7 @@ use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
+use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
@@ -29,13 +30,16 @@ class Hooks implements
 {
 	private Config $config;
 	private UserOptionsManager $userOptionsManager;
+	private FeatureManagerFactory $featureManagerFactory;
 
 	public function __construct(
 		Config $config,
-		UserOptionsManager $userOptionsManager
+		UserOptionsManager $userOptionsManager,
+		FeatureManagerFactory $featureManagerFactory
 	) {
 		$this->config = $config;
 		$this->userOptionsManager = $userOptionsManager;
+		$this->featureManagerFactory = $featureManagerFactory;
 	}
 
 	/**
@@ -483,9 +487,7 @@ class Hooks implements
 	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
 	 */
 	public function onGetPreferences( $user, &$prefs ): void {
-		$services = MediaWikiServices::getInstance();
-		$featureManagerFactory = $services->getService( 'Vector.FeatureManagerFactory' );
-		$featureManager = $featureManagerFactory->createFeatureManager( RequestContext::getMain() );
+		$featureManager = $this->featureManagerFactory->createFeatureManager( RequestContext::getMain() );
 		$isNightModeEnabled = $featureManager->isFeatureEnabled( Constants::FEATURE_NIGHT_MODE );
 
 		$vectorPrefs = [
