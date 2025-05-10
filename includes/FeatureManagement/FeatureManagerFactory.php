@@ -23,6 +23,7 @@
 namespace MediaWiki\Skins\Vector\FeatureManagement;
 
 use MediaWiki\Context\IContextSource;
+use MediaWiki\Skins\Vector\ConfigHelper;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\DynamicConfigRequirement;
 use MediaWiki\Skins\Vector\FeatureManagement\Requirements\LimitedWidthContentRequirement;
@@ -41,16 +42,19 @@ use MediaWiki\User\Options\UserOptionsLookup;
  */
 class FeatureManagerFactory {
 
+	private ConfigHelper $configHelper;
 	private UserOptionsLookup $userOptionsLookup;
 
 	public function __construct(
+		ConfigHelper $configHelper,
 		UserOptionsLookup $userOptionsLookup
 	) {
+		$this->configHelper = $configHelper;
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	public function createFeatureManager( IContextSource $context ): FeatureManager {
-		$featureManager = new FeatureManager( $this->userOptionsLookup, $context );
+		$featureManager = new FeatureManager( $this->configHelper, $this->userOptionsLookup, $context );
 
 		$request = $context->getRequest();
 		$config = $context->getConfig();
@@ -211,6 +215,7 @@ class FeatureManagerFactory {
 		$featureManager->registerRequirement(
 			new LimitedWidthContentRequirement(
 				$config,
+				$this->configHelper,
 				$request,
 				$title
 			)
