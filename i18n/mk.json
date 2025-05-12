@@ -20,7 +20,7 @@
 	"vector-language-button-aria-label": "Појдете на статија на друг јазик. Достапно на {{PLURAL:$1|$1 јазик|$1 јазици}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 јазик|$1 јазици}}",
 	"vector-no-language-button-label": "Додај јазици",
-	"vector-no-language-button-aria-label": "Оваа статија постои само на овој јазик. Додајте ја статијата за други јазици",
+	"vector-no-language-button-aria-label": "Статијава е достапна само на овој јазик. Додајте ја статијата за други јазици",
 	"vector-language-variant-switcher-label": "Менување на јазичната варијанта",
 	"vector-action-addsection": "Додај тема",
 	"vector-action-delete": "Избриши",
