@@ -11,6 +11,7 @@
 	"vector-opt-out": "Басрияб куцалде бачине",
 	"vector-languages": "МацӀал",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мацӀ}}",
+	"vector-no-language-button-label": "МацӀал тӀадежуразе",
 	"vector-action-addsection": "Тема жубазе",
 	"vector-action-delete": "Гилдизе",
 	"vector-action-move": "ЦӀар хисизе",

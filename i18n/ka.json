@@ -23,7 +23,7 @@
 	"vector-action-toggle-sidebar": "გვერდითა პანელის გადართვა",
 	"vector-languages": "ენები",
 	"vector-language-button-aria-label": "სხვაენოვან სტატიაზე გადასვლა. ხელმისაწვდომია {{PLURAL:$1|$1 ენაზე}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 ენა|$1 ენა}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 ენა}}",
 	"vector-no-language-button-label": "ენების დამატება",
 	"vector-no-language-button-aria-label": "ეს სტატია მხოლოდ ამ ენაზე არსებობს. დაამატეთ სტატია სხვა ენებისთვის",
 	"vector-language-redirect-to-top": "ამ საიტზე სხვა ენების ბმულები მოცემულია გვერდის დასაწყისში, სათაურის გასწვრივ. [[#p-lang-btn|დასაწყისთან გადასვლა]].",
