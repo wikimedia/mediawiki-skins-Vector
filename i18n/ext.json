@@ -4,15 +4,17 @@
 			"Better",
 			"Crucifunked",
 			"HackerPunki",
-			"Julio Nepote"
+			"Julio Nepote",
+			"-jem-"
 		]
 	},
+	"vector-opt-out": "Mual ala aparencia anteriol",
 	"vector-languages": "Idiomas",
 	"vector-language-button-label": "$1 idioma{{PLURAL:$1||s}}",
 	"vector-no-language-button-label": "Añidil idiomas",
 	"vector-action-addsection": "Añidil tema",
 	"vector-action-delete": "Aborral",
-	"vector-action-move": "Movel",
+	"vector-action-move": "Mual",
 	"vector-action-protect": "Afial",
 	"vector-action-undelete": "Esborral",
 	"vector-action-unprotect": "Mual proteción",
