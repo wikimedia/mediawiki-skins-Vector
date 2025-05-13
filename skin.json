@@ -418,7 +418,6 @@
 				"resources/skins.vector.js/dropdownMenus.js",
 				"resources/skins.vector.js/tables.js",
 				"resources/skins.vector.js/languageButton.js",
-				"resources/skins.vector.js/echo.js",
 				"resources/skins.vector.js/menuTabs.js",
 				"resources/skins.vector.js/disableNightModeIfGadget.js"
 			],

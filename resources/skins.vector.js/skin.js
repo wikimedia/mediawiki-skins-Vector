@@ -1,7 +1,6 @@
 const languageButton = require( './languageButton.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
 	searchToggle = require( './searchToggle.js' ),
-	echo = require( './echo.js' ),
 	config = require( /** @type {string} */ ( './config.json' ) ),
 	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
@@ -55,7 +54,6 @@ function main( window ) {
 		mw.config.set( 'wgVectorSearchApiUrl', config.VectorSearchApiUrl );
 	}
 	languageButton();
-	echo();
 	portletsManager.main();
 	watchstar();
 	// Initialize the search toggle for the main header only. The sticky header
