@@ -34,7 +34,9 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
 /** @phpcs-require-sorted-array */
 return [
 	'Vector.ConfigHelper' => static function ( MediaWikiServices $services ): ConfigHelper {
-		return new ConfigHelper();
+		return new ConfigHelper(
+			$services->getSpecialPageFactory()
+		);
 	},
 	'Vector.FeatureManagerFactory' => static function ( MediaWikiServices $services ): FeatureManagerFactory {
 		return new FeatureManagerFactory(
