@@ -43,3 +43,4 @@ Thumbs.db
 .eslintcache
 .vscode
 /.phpunit.result.cache
+/.stylelintcache
