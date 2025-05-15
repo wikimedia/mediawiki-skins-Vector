@@ -9,7 +9,7 @@
 		"lint:fix:js": "npm -s run lint:js -- --fix",
 		"lint:fix:styles": "npm -s run lint:styles -- --fix",
 		"lint:js": "eslint --cache .",
-		"lint:styles": "stylelint \"**/*.{less,css}\"",
+		"lint:styles": "stylelint --cache \"**/*.{less,css}\"",
 		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"doc": "echo 'N/A'",
 		"minify:svg": "svgo --config=.svgo.config.js --quiet --recursive --folder resources/",
