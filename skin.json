@@ -225,6 +225,14 @@
 			"packageFiles": [
 				"resources/skins.vector.search/skins.vector.search.js",
 				{
+					"name": "resources/skins.vector.search/searchConfig.json",
+					"config": [
+						"ContentNamespaces",
+						"VectorSearchRecommendationsApiUrl",
+						"VectorSearchApiUrl"
+					]
+				},
+				{
 					"name": "resources/skins.vector.search/config.json",
 					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorSearchResourceLoaderConfig"
 				}
@@ -392,7 +400,6 @@
 				{
 					"name": "resources/skins.vector.js/config.json",
 					"config": [
-						"VectorSearchApiUrl",
 						"VectorWrapTablesTemporary"
 					]
 				},
@@ -580,6 +587,10 @@
 		"VectorSearchApiUrl": {
 			"value": "",
 			"description": "To override the default search API, set this to the URL to rest.php on another wiki. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."
+		},
+		"VectorSearchRecommendationsApiUrl": {
+			"value": "",
+			"description": "Provide a recommendation service. $1 will be substituted with pagetitle e.g. '/w/rest.php/v1/search/page?q=$1&limit=20'"
 		},
 		"VectorUseIconWatch": {
 			"value": true
