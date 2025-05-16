@@ -194,7 +194,8 @@
 			"class": "MediaWiki\\Skins\\Vector\\Hooks",
 			"services": [
 				"MainConfig",
-				"UserOptionsManager"
+				"UserOptionsManager",
+				"Vector.FeatureManagerFactory"
 			]
 		}
 	},
