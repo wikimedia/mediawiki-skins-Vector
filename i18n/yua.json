@@ -3,13 +3,26 @@
 		"authors": [
 			"26agcp",
 			"Lorenzoitza",
-			"ProtoplasmaKid"
+			"ProtoplasmaKid",
+			"Abby95",
+			"ChenchoYucateco",
+			"Juanchuy0",
+			"Patoasado97",
+			"TSolange"
 		]
 	},
+	"vector-languages": "Jejeláas t'anilo'ob",
 	"vector-language-button-label": "{{PLURAL:$1|Junp'éel t'aan|$1 t'aano'ob}}",
+	"vector-no-language-button-label": "Ts'áa t'aano'ob",
+	"vector-action-addsection": "Ts'áa u yiit",
 	"vector-action-delete": "Tupej",
+	"vector-action-move": "P'eeks",
+	"vector-action-protect": "Kanan",
+	"vector-view-create": "Méent",
 	"vector-view-edit": "K'eex",
 	"vector-view-history": "Ba'ax a ilmaj",
 	"vector-view-view": "Xook",
-	"vector-more-actions": "U la'ak'"
+	"vector-more-actions": "U la'ak'",
+	"vector-toc-beginning": "Káasíik",
+	"vector-anon-user-menu-pages": "Wáal júuno'ob uti'al útskinajo'ob ma'a u káasmaj sesionobi'"
 }

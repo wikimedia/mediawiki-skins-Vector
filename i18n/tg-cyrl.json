@@ -3,11 +3,12 @@
 		"authors": [
 			"Ibrahim",
 			"ZulfiqorF",
-			"Darafsh"
+			"Darafsh",
+			"Farorud"
 		]
 	},
 	"vector-languages": "Забонҳо",
-	"vector-language-button-label": "{{PLURAL:$1|$1 забон|$1 забон}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 забон}}",
 	"vector-no-language-button-label": "Иловаи забонҳо",
 	"vector-action-addsection": "Иловаи унвон",
 	"vector-action-delete": "Ҳазф",
@@ -22,5 +23,6 @@
 	"vector-view-viewsource": "Намоиши манбаъ",
 	"vector-more-actions": "Бештар",
 	"vector-searchsuggest-containing": "Ҷустуҷӯи саҳифаҳои дорои <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Ибтидо"
+	"vector-toc-beginning": "Ибтидо",
+	"vector-anon-user-menu-pages": "Саҳифаҳо барои корбарони ворид наушда"
 }
