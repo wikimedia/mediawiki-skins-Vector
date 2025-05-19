@@ -11,14 +11,12 @@ const
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
-	// Support two variants of heading markup: (see T13555, T358452)
-	// (old) <h2> <span class="mw-headline" id="...">...</span> ... </h2>
-	// (new) <div class="mw-heading"> <h2 id="...">...</h2> ... </div>
-	// [more information: https://www.mediawiki.org/wiki/Heading_HTML_changes]
+	// Selectors that match heading markup, which looks like this:
+	//   <div class="mw-heading"> <h2 id="...">...</h2> ... </div>
 	HEADING_TAGS = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
-	HEADING_SELECTOR = [ '.mw-heading', ...HEADING_TAGS.map( ( tag ) => `${ tag }:not([id])` ) ]
+	HEADING_SELECTOR = [ '.mw-heading' ]
 		.map( ( sel ) => `.mw-parser-output ${ sel }` ).join( ', ' ),
-	HEADLINE_SELECTOR = [ '.mw-headline', ...HEADING_TAGS.map( ( tag ) => `${ tag }[id]` ) ]
+	HEADLINE_SELECTOR = [ ...HEADING_TAGS.map( ( tag ) => `${ tag }[id]` ) ]
 		.map( ( sel ) => `.mw-parser-output ${ sel }` ).join( ', ' ),
 	TOC_SECTION_ID_PREFIX = 'toc-',
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
