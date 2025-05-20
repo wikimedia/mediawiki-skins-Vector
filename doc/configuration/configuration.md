@@ -129,6 +129,19 @@ Different projects have different needs, so some configuration on the site level
 
   - Allows site to specify an alternative API for search queries. If not set uses default MediaWiki search. Mostly used for development purposes.
 
+- wgVectorSearchRecommendationsApiUrl
+
+  - Allows site to specify an alternative API for search queries. Disabled by default.
+
+  - Can be set to external service.
+
+  - Default: `null`
+
+Example:
+  ```
+  $wgVectorSearchRecommendationsApiUrl = 'https://en.wikipedia.org/w/rest.php/v1/search/page?q=morelike:$1&limit=20';
+  ```
+
 ## User Preference Options Glossary
 
 The following are interface elements or settings that users can customize within the Vector skin, such as toggling night mode, adjusting the width of the content area, or changing the font size.

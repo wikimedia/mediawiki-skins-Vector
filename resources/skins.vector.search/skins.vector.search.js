@@ -9,9 +9,14 @@ const
 	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) ),
 	config = require( './config.json' );
 
+const searchConfig = require( './searchConfig.json' );
+const inNamespace = searchConfig.ContentNamespaces.includes( mw.config.get( 'wgNamespaceNumber' ) );
 const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
-	mw.config.get( 'wgScriptPath' ) + '/rest.php'
+	searchConfig.VectorSearchApiUrl || mw.config.get( 'wgScriptPath' ) + '/rest.php'
 );
+const recommendationApiUrl = inNamespace ? searchConfig.VectorSearchRecommendationsApiUrl : null;
+// The param config must be defined for empty search recommendations to be enabled.
+const showEmptySearchRecommendations = inNamespace && recommendationApiUrl !== null;
 // The config variables enable customization of the URL generator and search client
 // by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
 // read from LocalSettings.php
@@ -21,7 +26,11 @@ const urlGeneratorInstance = mw.config.get(
 );
 const restClient = mw.config.get(
 	'wgVectorSearchClient',
-	restSearchClient( searchApiUrl, urlGeneratorInstance )
+	restSearchClient(
+		searchApiUrl,
+		urlGeneratorInstance,
+		recommendationApiUrl
+	)
 );
 
 /**
@@ -56,7 +65,8 @@ function initApp( searchBox ) {
 			searchTitle: search.getAttribute( 'title' ),
 			searchPlaceholder: search.getAttribute( 'placeholder' ),
 			searchQuery: search.value,
-			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false
+			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false,
+			showEmptySearchRecommendations
 		// Pass additional config from server.
 		}, config )
 	)

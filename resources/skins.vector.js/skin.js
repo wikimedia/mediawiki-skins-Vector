@@ -1,7 +1,6 @@
 const languageButton = require( './languageButton.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
 	searchToggle = require( './searchToggle.js' ),
-	config = require( /** @type {string} */ ( './config.json' ) ),
 	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
 	tables = require( './tables.js' ).init,
@@ -50,9 +49,6 @@ function enableCssAnimations( document ) {
  */
 function main( window ) {
 	enableCssAnimations( window.document );
-	if ( config.VectorSearchApiUrl ) {
-		mw.config.set( 'wgVectorSearchApiUrl', config.VectorSearchApiUrl );
-	}
 	languageButton();
 	portletsManager.main();
 	watchstar();
