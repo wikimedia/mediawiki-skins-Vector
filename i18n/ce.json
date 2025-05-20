@@ -22,7 +22,7 @@
 	"vector-language-button-aria-label": "Кхечу маттахь болу йаззаме хьажа. ТӀекхочу {{PLURAL:$1|$1 маттахь}}",
 	"vector-language-button-label": "{{PLURAL:$1|$1 мотт}}",
 	"vector-no-language-button-label": "ТӀетоха меттанаш",
-	"vector-no-language-button-aria-label": "ХӀара йаззам кху маттахь бен бац. ТӀетоха йаззам кхечу маттана",
+	"vector-no-language-button-aria-label": "ХӀара йаззам хӀокху маттахь бен бац. ТӀетоха йаззам кхечу меттанашна",
 	"vector-language-variant-switcher-label": "Меттан вариант хийца",
 	"vector-action-addsection": "Тема тӀетоха",
 	"vector-action-delete": "ДӀайаккхар",
