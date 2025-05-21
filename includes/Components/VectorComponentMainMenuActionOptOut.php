@@ -23,9 +23,6 @@ class VectorComponentMainMenuActionOptOut implements VectorComponent {
 	 */
 	private const OPT_OUT_LINK_TRACKING_CODE = 'vctw1';
 
-	/**
-	 * @param Skin $skin
-	 */
 	public function __construct( Skin $skin ) {
 		$this->skin = $skin;
 	}
