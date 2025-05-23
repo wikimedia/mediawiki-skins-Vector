@@ -98,6 +98,9 @@
 	.mw-body-content .cdx-message {
 		--font-size-medium: @font-size-small;
 		--line-height-medium: @line-height-small;
+		// Use for user-generated content that comes from outside of the design system.
+		// TODO: Remove once font size modes are fully integrated in Vector.
+		--line-height-content: 1.5714285;
 	}
 
 	html.vector-feature-custom-font-size-clientpref-1,
@@ -105,11 +108,17 @@
 	.vector-icon {
 		--font-size-medium: @font-size-medium;
 		--line-height-medium: @line-height-medium;
+		// Use for user-generated content that comes from outside of the design system.
+		// TODO: Remove once font size modes are fully integrated in Vector.
+		--line-height-content: 1.625;
 	}
 
 	html.vector-feature-custom-font-size-clientpref-2 {
 		--font-size-medium: @font-size-x-large;
 		--line-height-medium: 1.5;
+		// Use for user-generated content that comes from outside of the design system.
+		// TODO: Remove once font size modes are fully integrated in Vector.
+		--line-height-content: 1.55;
 	}
 }
 
