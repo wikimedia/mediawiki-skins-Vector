@@ -2,10 +2,25 @@
 	"@metadata": {
 		"authors": [
 			"Salifu Ramatu",
-			"Hasslaebetch"
+			"Hasslaebetch",
+			"Avenger",
+			"Biema",
+			"Miss Abah",
+			"Nachim",
+			"Y.B M",
+			"Yaw-kan"
 		]
 	},
+	"vector-languages": "Aniɛ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 aniɛ|$1 languages}}",
 	"vector-no-language-button-label": "Bukasu Danfiɛ",
+	"vector-action-addsection": "Buka nuaniɛ ti",
+	"vector-action-delete": "Nunuka i",
 	"vector-action-move": "Cin i kɔ",
-	"vector-view-create": "Teke fɔfɔrɛ"
+	"vector-action-protect": "Kan da",
+	"vector-view-create": "Teke fɔfɔrɛ",
+	"vector-view-history": "Niɛ nana jɔrɛ",
+	"vector-more-actions": "Dɔŋgu",
+	"vector-toc-beginning": "Bomboori",
+	"vector-anon-user-menu-pages": "Ɛditasifɔm teke fite dɛɛ bue"
 }
