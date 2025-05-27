@@ -33,7 +33,8 @@
 			"IZapico (WMF)",
 			"Superzerocool",
 			"HackerPunki",
-			"ProtoplasmaKid"
+			"ProtoplasmaKid",
+			"JaimeDes"
 		]
 	},
 	"skinname-vector": "Versión heredada de Vector (2010)",
@@ -117,6 +118,7 @@
 	"vector-2022-beta-preview-label": "Accesibilidad para la lectura (Vector 2022)",
 	"vector-2022-beta-preview-description": "Obtén acceso anticipado a las nuevas funciones de accesibilidad de lectura, como mejoras tipográficas y modo oscuro.",
 	"vector-night-mode-gadget-warning": "Estás usando un accesorio de modo oscuro que interfiere con esta funcionalidad. [[Special:Preferences#mw-prefsection-gadgets|Desactivar el accesorio]] para utilizar el modo oscuro.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Informar cuando los colores del modo oscuro dificultan la lectura.",
 	"vector-night-mode-issue-reporting-link-label": "Comunica un problema con el modo oscuro",
 	"vector-night-mode-issue-reporting-link-notification": "¡Reporte recibido!",
 	"vector-night-mode-issue-reporting-preload-title": "Error de modo oscuro $1",
