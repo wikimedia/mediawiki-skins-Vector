@@ -54,6 +54,10 @@ class SkinVector22 extends SkinMustache {
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		// For now: disable icons on view menu.
+		foreach ( $content_navigation['views'] as $key => $view ) {
+			$content_navigation['views'][ $key ]['icon'] = null;
+		}
 		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
 	}
 
