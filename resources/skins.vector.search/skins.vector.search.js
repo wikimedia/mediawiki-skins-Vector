@@ -17,27 +17,39 @@ const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
 const recommendationApiUrl = inNamespace ? searchConfig.VectorSearchRecommendationsApiUrl : null;
 // The param config must be defined for empty search recommendations to be enabled.
 const showEmptySearchRecommendations = inNamespace && recommendationApiUrl !== null;
-// The config variables enable customization of the URL generator and search client
-// by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
-// read from LocalSettings.php
-const urlGeneratorInstance = mw.config.get(
-	'wgVectorSearchUrlGenerator',
-	urlGenerator( mw.config.get( 'wgScript' ) )
-);
-const restClient = mw.config.get(
-	'wgVectorSearchClient',
-	restSearchClient(
-		searchApiUrl,
-		urlGeneratorInstance,
-		recommendationApiUrl
-	)
-);
 
 /**
  * @param {Element} searchBox
+ * @param {Object} [restClient]
+ * @param {Object} [urlGeneratorInstance]
  * @return {void}
  */
-function initApp( searchBox ) {
+function initApp( searchBox, restClient, urlGeneratorInstance ) {
+	// The config variables enable customization of the URL generator and search client
+	// by Wikidata. Note: These must be defined by Wikidata in the page HTML and are not
+	// read from LocalSettings.php
+	const urlGeneratorConfig = mw.config.get(
+		'wgVectorSearchUrlGenerator'
+	);
+	const searchClientConfig = mw.config.get(
+		'wgVectorSearchClient'
+	);
+	if ( urlGeneratorConfig ) {
+		mw.log.warn( `Use of mw.config.get( "wgVectorSearchUrlGenerator") is deprecated.
+Use SkinPageReadyConfig hook to replace the search module (T395641).` );
+	}
+	if ( searchClientConfig ) {
+		mw.log.warn( `Use of mw.config.get( "wgVectorSearchClient") is deprecated.
+Use SkinPageReadyConfig hook to replace the search module (T395641).` );
+	}
+	urlGeneratorInstance = urlGeneratorInstance || urlGeneratorConfig ||
+		urlGenerator( mw.config.get( 'wgScript' ) );
+	restClient = restClient || searchClientConfig ||
+		restSearchClient(
+			searchApiUrl,
+			urlGeneratorInstance,
+			recommendationApiUrl
+		);
 	const searchForm = searchBox.querySelector( '.cdx-search-input' ),
 		titleInput = /** @type {HTMLInputElement|null} */ (
 			searchBox.querySelector( 'input[name=title]' )
@@ -74,10 +86,26 @@ function initApp( searchBox ) {
 }
 /**
  * @param {Document} document
+ * @param {Object} [restClient]
+ * @param {Object} [urlGeneratorInstance]
  * @return {void}
  */
-function main( document ) {
+function main( document, restClient, urlGeneratorInstance ) {
 	document.querySelectorAll( '.vector-search-box' )
-		.forEach( initApp );
+		.forEach( ( node ) => {
+			initApp( node, restClient, urlGeneratorInstance );
+		} );
 }
-main( document );
+
+/**
+ * @ignore
+ * @param {Object} [restClient] used by Wikidata to configure the search API
+ * @param {Object} [urlGeneratorInstance] used by Wikidata to configure the search API
+ */
+function init( restClient, urlGeneratorInstance ) {
+	main( document, restClient, urlGeneratorInstance );
+}
+
+module.exports = {
+	init
+};
