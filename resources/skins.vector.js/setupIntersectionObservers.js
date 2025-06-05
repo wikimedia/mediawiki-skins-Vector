@@ -8,6 +8,7 @@ const
 	popupNotification = require( './popupNotification.js' ),
 	features = require( './features.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
+	STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled',
 	STICKY_HEADER_VISIBLE_CLASS = 'vector-sticky-header-visible',
 	TOC_ID = 'vector-toc',
 	BODY_CONTENT_ID = 'bodyContent',
@@ -300,6 +301,7 @@ const main = () => {
 
 	if ( !showStickyHeader ) {
 		stickyHeader.hide();
+		document.documentElement.classList.remove( STICKY_HEADER_ENABLED_CLASS );
 	}
 
 	if ( showStickyHeader ) {
