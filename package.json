@@ -21,10 +21,10 @@
 		"@types/jquery": "3.5.19",
 		"@types/mustache": "4.2.2",
 		"@types/node-fetch": "2.6.5",
-		"@vue/test-utils": "2.4.1",
+		"@vue/test-utils": "2.4.6",
 		"@vue/vue3-jest": "27.0.0",
-		"@wikimedia/codex": "1.16.0",
-		"@wikimedia/codex-icons": "1.16.0",
+		"@wikimedia/codex": "2.0.0",
+		"@wikimedia/codex-icons": "2.0.0",
 		"@wikimedia/mw-node-qunit": "7.2.0",
 		"@wikimedia/types-wikimedia": "0.4.4",
 		"eslint-config-wikimedia": "0.29.1",
@@ -41,6 +41,6 @@
 		"svgo": "3.2.0",
 		"ts-jest": "27.1.5",
 		"typescript": "4.9.5",
-		"vue": "3.4.27"
+		"vue": "3.5.13"
 	}
 }
