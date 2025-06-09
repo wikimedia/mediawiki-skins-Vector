@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BukhariSaeed",
 			"Calak",
 			"Istabani",
 			"Muhammad Shuaib",
@@ -38,6 +39,7 @@
 	"vector-jumptosearch": "خانۂ تلاش میں جائیں",
 	"vector-jumptocontent": "مندرجات کا رخ کریں",
 	"vector-more-actions": "مزید",
+	"skin-theme-description": "[تجرباتی نسخہ، غیر متوقع مشکلات کا قوی امکان ہے] ڈیوائس کی اسکرین سے خارج ہونے والی روشنی کو کم کرتا ہے۔",
 	"vector-intro-page": "Help:تعارف",
 	"vector-toc-label": "مندرجات",
 	"vector-toc-beginning": "دیباچہ",
