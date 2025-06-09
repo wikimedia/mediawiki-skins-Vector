@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"고솜"
+			"고솜",
+			"Whatback11"
 		]
 	},
+	"vector-languages": "언어",
+	"vector-language-button-label": "{{PLURAL:$1|$1개 말}}",
+	"vector-no-language-button-label": "말 추가",
 	"vector-action-addsection": "새 이왁거리",
 	"vector-action-delete": "밀기",
 	"vector-action-move": "웽기기",
@@ -12,5 +16,7 @@
 	"vector-view-edit": "바꼬기",
 	"vector-view-history": "이력 베리기",
 	"vector-view-view": "익기",
-	"vector-more-actions": "더 베리기"
+	"vector-more-actions": "더 베리기",
+	"vector-toc-beginning": "처엄 자리",
+	"vector-anon-user-menu-pages": "자국나간 씀꾼이 보도로기 ᄒᆞ는 문세"
 }

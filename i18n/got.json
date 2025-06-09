@@ -10,7 +10,7 @@
 	"vector-action-addsection": "𐌰𐌽𐌰𐌰𐌹𐌰𐌿𐌺 𐍄𐌰𐌿𐍀𐌹𐌺𐌰",
 	"vector-action-delete": "𐍆𐍂𐌰𐌵𐌹𐍃𐍄𐌴𐌹",
 	"vector-action-move": "𐌼𐌹𐌸𐍃𐌰𐍄𐌴𐌹",
-	"vector-action-protect": "𐍆𐍂𐌹𐌸",
+	"vector-action-protect": "𐍆𐍂𐌹𐌸𐍉",
 	"vector-view-create": "𐍃𐌺𐌰𐍀𐌴𐌹",
 	"vector-view-edit": "𐌹𐌽𐌼𐌰𐌹𐌳𐌴𐌹",
 	"vector-view-history": "𐍃𐌰𐌹 𐍃𐍀𐌹𐌻𐌻",
@@ -18,5 +18,6 @@
 	"vector-view-viewsource": "𐍃𐌰𐌹𐍈 𐌱𐍂𐌿𐌽𐌽𐌰𐌽",
 	"vector-more-actions": "𐌼𐌰𐌹𐍃",
 	"vector-searchsuggest-containing": "𐍃𐍉𐌺𐌴𐌹 𐌰𐌻𐌻𐌰𐌽𐍃 𐌻𐌰𐌿𐌱𐌰𐌽𐍃 𐌸𐌰𐌽𐌶𐌴𐌹 𐌷𐌰𐌱𐌰𐌽𐌳 <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐍃"
+	"vector-toc-beginning": "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐍃",
+	"vector-anon-user-menu-pages": "𐌻𐌰𐌿𐌱𐍉𐍃 𐌰𐍆𐌻𐌴𐌹𐌸𐌰𐌽𐌰𐌹𐌼 𐌹𐌽𐌼𐌰𐌹𐌳𐌾𐌰𐌽𐌳𐌰𐌼"
 }

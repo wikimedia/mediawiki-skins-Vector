@@ -26,5 +26,6 @@
 	"vector-view-viewsource": "مەنبەنى كۆرسەت",
 	"vector-more-actions": "تېخىمۇ كۆپ",
 	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> نى ئۆز ئىچىگە ئالغان بەتلەرنى ئىزدە",
-	"vector-toc-beginning": "كىرىش سۆز"
+	"vector-toc-beginning": "كىرىش سۆز",
+	"vector-anon-user-menu-pages": "تىزىمدىن چىققان تەھرىرنىڭ بېتى"
 }
