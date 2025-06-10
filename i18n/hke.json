@@ -4,9 +4,11 @@
 			"Muisha wiki hke"
 		]
 	},
-	"prefs-vector-enable-vector-1-help": "Mya bianiro byabihika, twendehingya ashushani ya Vector. Vector ya mira inakuasikya kwelola koro ashushani ya Vector yabaa mu buhindire 2019. Kwemenya bingi, uye kwa [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements kashashali ka poroshe].",
+	"vector-skin-desc": "Inabwerekya shushani 2 ya Vector skins:\n* 2011 - Ashushani ya kahiye, ya MonoBook na bihyábíhya bingi. \n* 2022 - Vector ya nyihya, yoyakolwaa mwa poroshe WMF [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements] poroshe.",
+	"prefs-vector-enable-vector-1-label": "Kolesa Miomba ya Vector",
+	"prefs-vector-enable-vector-1-help": "Mwa bianiro byabihika, twendehingya ashushani ya Vector. Vector ya mira inakuasikya kwelola koro ashushani ya Vector yabaa mu buhindire 2019. Kwemenya bingi, uye kwa [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements kashashali ka poroshe].",
 	"vector-opt-out": "Uye kwa shushani ya mira",
-	"vector-opt-out-tooltip": "Hingya asasetingi sawe kwe xuba kwa shushani ya mira ya skin(Vector Legasi)",
+	"vector-opt-out-tooltip": "Hingya asasetingi sawe kwe xuba kwa shushani ya mira ya skin(miomba ya Vector)",
 	"vector-action-toggle-sidebar": "Bwerekya/bisha \"bare\" ya ku lunda",
 	"vector-languages": "Mineenere",
 	"vector-language-button-aria-label": "Ya ku article mu undi muneenere.  Ingabonekya mu {{PLURAL:$1|$1 muneenere|$1 mineenere}}",
@@ -29,10 +31,10 @@
 	"vector-more-actions": "Nakandi",
 	"vector-appearance-label": "Nshushanyo",
 	"vector-appearance-tooltip": "Hingya ashushani ya bunene, yalyerangi, n'abunene bwa maandiko kwa kashashali",
-	"vector-feature-limited-width-name": "Bunene??",
+	"vector-feature-limited-width-name": "Bunene",
 	"vector-feature-limited-width-0-label": "Ngǎli",
 	"vector-feature-limited-width-1-label": "Ndáhínga",
-	"vector-feature-custom-font-size-name": "Bunene bw'amaandiko",
+	"vector-feature-custom-font-size-name": "Maandiko",
 	"vector-feature-custom-font-size-0-label": "Maandiko makemake",
 	"vector-feature-custom-font-size-1-label": "Ndáhínga",
 	"vector-feature-custom-font-size-2-label": "Maandiko manenemanene",
@@ -50,6 +52,7 @@
 	"vector-anon-user-menu-pages-learn": "soma bingi",
 	"vector-anon-user-menu-pages-label": "soma bingi kuluenda arehingya",
 	"vector-main-menu-tooltip": "Meni ya ndangiriro",
+	"vector-toc-menu-tooltip": "Byobirimo",
 	"vector-toc-collapsible-button-label": "Bwerekya/Bisha byobirimo",
 	"vector-site-nav-label": "Site",
 	"vector-main-menu-label": "Meni ya ndangiriro",
@@ -59,6 +62,7 @@
 	"vector-page-tools-general-label": "Ngulukulu",
 	"vector-page-tools-actions-label": "Mikolere",
 	"vector-unpin-element-label": "bisha",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Discussion]",
 	"empty-language-selector-body": "Byobiri mwa kashashali bitakola mu indi mineenere.",
 	"vector-toc-unpinned-popup": "Byobirimo byametsimibwa"
 }
