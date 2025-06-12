@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Apzp79",
 			"Bluehill",
 			"Ellif",
@@ -15,7 +14,9 @@
 			"Revi",
 			"Ykhwong",
 			"메이",
-			"아라"
+			"아라",
+			"Markingdots",
+			"Whatback11"
 		]
 	},
 	"skinname-vector": "벡터 레거시 (2010)",
@@ -52,7 +53,7 @@
 	"vector-more-actions": "더 보기",
 	"vector-client-prefs-label": "보이기",
 	"vector-feature-limited-width-name": "너비",
-	"vector-feature-custom-font-size-name": "텍스트",
+	"vector-feature-custom-font-size-name": "글",
 	"vector-feature-limited-width-0-label": "넓게",
 	"vector-feature-limited-width-1-label": "표준",
 	"vector-feature-custom-font-size-0-label": "작음",

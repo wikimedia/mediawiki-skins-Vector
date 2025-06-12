@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sauit"
+		]
+	},
+	"vector-languages": "Тыллар",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тыл|$1 тыллар}}",
+	"vector-no-language-button-label": "Тылы эп",
+	"vector-view-create": "Тэрий",
+	"vector-view-history": "Историятын көрүү",
+	"vector-more-actions": "Өссүө",
+	"vector-feature-limited-width-name": "Иэнэ",
+	"vector-feature-custom-font-size-name": "Тиэкис",
+	"vector-feature-limited-width-0-label": "Иэнэ",
+	"vector-feature-limited-width-1-label": "Стандарт",
+	"vector-feature-custom-font-size-0-label": "Кыра",
+	"vector-feature-custom-font-size-1-label": "Стандартнай",
+	"vector-feature-custom-font-size-2-label": "Бөдөӈ",
+	"skin-theme-name": "Һибиэт",
+	"skin-theme-os-label": "Автомааттыы",
+	"vector-toc-label": "Ис коһооно",
+	"vector-toc-beginning": "Сагаланыы",
+	"vector-main-menu-label": "Һүрүн меню",
+	"vector-page-tools-label": "Һэптэр",
+	"vector-page-tools-general-label": "Уопсай",
+	"vector-page-tools-actions-label": "Действиялар",
+	"vector-unpin-element-label": "кистээ"
+}
