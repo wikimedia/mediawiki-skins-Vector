@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sauit"
+		]
+	},
+	"vector-languages": "Тыллар",
+	"vector-language-button-label": "{{PLURAL:$1|$1 тыл|$1 тыллар}}",
+	"vector-no-language-button-label": "Тылы эп",
+	"vector-action-addsection": "Тиэмэни эп",
+	"vector-view-create": "Тэрий",
+	"vector-view-history": "Историятын көрүү",
+	"vector-more-actions": "Өссүө",
+	"vector-toc-beginning": "Сагаланыы"
+}

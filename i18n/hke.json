@@ -4,8 +4,9 @@
 			"Muisha wiki hke"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Kolesa Miomba ya Vector",
 	"vector-opt-out": "Uye kwa shushani ya mira",
-	"vector-opt-out-tooltip": "Hingya asasetingi sawe kwe xuba kwa shushani ya mira ya skin(Vector Legasi)",
+	"vector-opt-out-tooltip": "Hingya asasetingi sawe kwe xuba kwa shushani ya mira ya skin(miomba ya Vector)",
 	"vector-action-toggle-sidebar": "Bwerekya/bisha \"bare\" ya ku lunda",
 	"vector-languages": "Mineenere",
 	"vector-language-button-aria-label": "Ya ku article mu undi muneenere.  Ingabonekya mu {{PLURAL:$1|$1 muneenere|$1 mineenere}}",
@@ -34,6 +35,7 @@
 	"vector-anon-user-menu-pages-learn": "soma bingi",
 	"vector-anon-user-menu-pages-label": "soma bingi kuluenda arehingya",
 	"vector-main-menu-tooltip": "Meni ya ndangiriro",
+	"vector-toc-menu-tooltip": "Byobirimo",
 	"vector-toc-collapsible-button-label": "Bwerekya/Bisha byobirimo",
 	"vector-site-nav-label": "Site"
 }
