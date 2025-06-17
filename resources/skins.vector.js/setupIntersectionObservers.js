@@ -83,18 +83,20 @@ const updateTocLocation = () => {
 };
 
 /**
- * Return the computed value of the `scroll-margin-top` CSS property of the document element
- * which is also used for the scroll intersection threshold (T317661).
+ * Return the combined scroll offset for headings, adding together
+ * the computed value of the `scroll-padding-top` CSS property of the document element
+ * and the `scroll-margin-top` CSS property of the headings.
+ * This is also used for the scroll intersection threshold (T317661).
  *
- * @return {number} Value of scroll-margin-top OR 75 if falsy.
- * 75 derived from @scroll-padding-top LESS variable
- * https://gerrit.wikimedia.org/r/c/mediawiki/skins/Vector/+/894696/3/resources/common/variables.less ?
+ * @return {number} Combined heading scroll offset
  */
-function getDocumentScrollPaddingTop() {
-	const defaultScrollPaddingTop = 75;
+function getHeadingScrollOffset() {
+	// This value matches the @scroll-margin-heading LESS variable
+	const scrollMarginHeading = 75;
 	const documentStyles = getComputedStyle( document.documentElement );
 	const scrollPaddingTopString = documentStyles.getPropertyValue( 'scroll-padding-top' );
-	return ( parseInt( scrollPaddingTopString, 10 ) || defaultScrollPaddingTop );
+	const scrollPaddingTop = scrollPaddingTopString === 'auto' ? 0 : parseInt( scrollPaddingTopString, 10 );
+	return scrollPaddingTop + scrollMarginHeading;
 }
 
 /**
@@ -173,7 +175,7 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 
 	const sectionObserver = initSectionObserverFn( {
 		elements: elements(),
-		topMargin: getDocumentScrollPaddingTop(),
+		topMargin: getHeadingScrollOffset(),
 		onIntersection: getHeadingIntersectionHandler( tableOfContents.changeActiveSection )
 	} );
 	const updateElements = () => {
