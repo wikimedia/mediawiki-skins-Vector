@@ -8,8 +8,12 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 тыл|$1 тыллар}}",
 	"vector-no-language-button-label": "Тылы эп",
 	"vector-action-addsection": "Тиэмэни эп",
+	"vector-action-delete": "Һоттор",
+	"vector-action-move": "Аатын уларыт",
+	"vector-action-protect": "Көмүскээ",
 	"vector-view-create": "Тэрий",
 	"vector-view-history": "Историятын көрүү",
 	"vector-more-actions": "Өссүө",
-	"vector-toc-beginning": "Сагаланыы"
+	"vector-toc-beginning": "Сагаланыы",
+	"vector-anon-user-menu-pages": "Киирбэтэк кыттыылаактар һырайдара"
 }
