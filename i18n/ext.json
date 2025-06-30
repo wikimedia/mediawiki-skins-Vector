@@ -16,15 +16,15 @@
 	"vector-action-delete": "Aborral",
 	"vector-action-move": "Mual",
 	"vector-action-protect": "Afial",
-	"vector-action-undelete": "Esborral",
-	"vector-action-unprotect": "Mual proteción",
+	"vector-action-undelete": "Restoral",
+	"vector-action-unprotect": "Mual afíu",
 	"vector-view-create": "Crial",
-	"vector-view-edit": "Edital",
+	"vector-view-edit": "Adital",
 	"vector-view-history": "Vél estorial",
 	"vector-view-view": "Leyel",
 	"vector-view-viewsource": "Guipal cóigu",
 	"vector-more-actions": "Más",
 	"vector-searchsuggest-containing": "Precural páginas que recadin <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Prencipiu",
-	"vector-anon-user-menu-pages": "Páginas pa ditoris desenganchaus."
+	"vector-anon-user-menu-pages": "Páginas p'aditoris que no prencipiarun sessión."
 }
