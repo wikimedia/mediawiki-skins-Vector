@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Aefgh39622",
-			"Lookruk"
+			"Lookruk",
+			"RenKtv"
 		]
 	},
+	"vector-languages": "ພາສາ",
 	"vector-language-button-label": "{{PLURAL:$1|$1 ພາສາ}}",
+	"vector-no-language-button-label": "ເພີ່ມພາສາ",
 	"vector-action-addsection": "ເພີ່ມຫົວຂໍ້",
 	"vector-action-delete": "ລຶບ",
 	"vector-action-move": "ຍ້າຍ",
@@ -15,5 +18,6 @@
 	"vector-view-history": "ເບິ່ງປະຫວັດ",
 	"vector-view-view": "ອ່ານ",
 	"vector-more-actions": "ເພີ່ມເຕີມ",
-	"vector-searchsuggest-containing": "ຊອກຫາໜ້າເວັບທີ່ມີ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "ຊອກຫາໜ້າເວັບທີ່ມີ <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-toc-beginning": "ທຳອິດ"
 }
