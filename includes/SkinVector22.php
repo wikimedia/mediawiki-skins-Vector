@@ -474,7 +474,7 @@ class SkinVector22 extends SkinMustache {
 				'',
 				'appearance',
 				Html::expandAttributes( [
-					'title' => $this->msg( 'vector-appearance-tooltip' ),
+					'title' => $this->msg( 'vector-appearance-tooltip' )->text(),
 				] )
 			),
 			'data-vector-sticky-header' => new VectorComponentStickyHeader(

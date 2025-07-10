@@ -91,7 +91,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		}
 
 		$tooltip = Html::expandAttributes( [
-			'title' => $this->msg( 'vector-personal-tools-tooltip' ),
+			'title' => $this->msg( 'vector-personal-tools-tooltip' )->text(),
 		] );
 		$icon = $this->userIcon;
 		if ( $icon === '' && $userLinksCount ) {
