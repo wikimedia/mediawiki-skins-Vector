@@ -3,11 +3,12 @@
 		"authors": [
 			"Gaison001",
 			"Habila Dachollom",
+			"Kambai Akau",
 			"Rwang PS"
 		]
 	},
 	"vector-languages": "Bechen",
-	"vector-language-button-label": "{{Pyak:$1|$1 Lem|$1 Balem",
+	"vector-language-button-label": "{{PLURAL:$1|Lem $1|Balem $1}}",
 	"vector-no-language-button-label": "Wuna be lem",
 	"vector-action-addsection": "Gwe toh ha",
 	"vector-action-move": "Ke",
