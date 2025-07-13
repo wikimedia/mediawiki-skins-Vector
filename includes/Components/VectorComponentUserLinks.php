@@ -152,7 +152,7 @@ class VectorComponentUserLinks implements VectorComponent {
 					$anonUserMenuData['html-label'] = $this->msg( 'vector-anon-user-menu-pages' )->escaped() .
 						" " . $anonEditorLabelLinkHtml;
 					$anonUserMenuData['label'] = null;
-				} catch ( MalformedTitleException $e ) {
+				} catch ( MalformedTitleException ) {
 					// ignore (T340220)
 				}
 				$dropdownMenus[] = new VectorComponentMenu( $anonUserMenuData );

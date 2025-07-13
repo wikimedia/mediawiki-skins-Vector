@@ -278,10 +278,9 @@ class Hooks implements
 	 * Echo has styles that control icons rendering in places we don't want them.
 	 * This code works around T343838.
 	 *
-	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
 	 */
-	private static function fixEcho( $sk, &$content_navigation ) {
+	private static function fixEcho( &$content_navigation ) {
 		if ( isset( $content_navigation['notifications'] ) ) {
 			foreach ( $content_navigation['notifications'] as &$item ) {
 				$icon = $item['icon'] ?? null;
@@ -316,7 +315,7 @@ class Hooks implements
 			// users in legacy Vector.
 			unset( $content_navigation['user-page'] );
 		} else {
-			self::fixEcho( $sk, $content_navigation );
+			self::fixEcho( $content_navigation );
 			self::updateUserLinksDropdownItems( $sk, $content_navigation );
 		}
 	}
