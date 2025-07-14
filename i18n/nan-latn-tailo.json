@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"SupaplexTW"
+			"SupaplexTW",
+			"Winston Sung"
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Su-iōng kū-pán Vector",
 	"vector-opt-out": "Tshiat-uānn kū guā-kuan",
 	"vector-languages": "Gú-giân",
-	"vector-language-button-label": "{{PLURAL:$1|$1 tsióng gú-giân}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 tsióng gí-giân}}",
 	"vector-no-language-button-label": "Ka-thiam gú-giân",
 	"vector-action-addsection": "Ke tsi̍t-ê tuān-lo̍h",
 	"vector-action-delete": "Thâi",

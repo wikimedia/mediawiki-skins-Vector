@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"CROIX2"
+		]
+	},
+	"vector-languages": "Langwij dem",
+	"vector-language-button-label": "{{PLURAL:$1|$1 langwij|$1 langwij dem}}",
+	"vector-no-language-button-label": "Add langwij dem",
+	"vector-action-addsection": "Put tapik",
+	"vector-action-delete": "Deeleet",
+	"vector-action-move": "Muuv",
+	"vector-action-protect": "Protek",
+	"vector-view-create": "Mek",
+	"vector-view-history": "Luk a istori",
+	"vector-more-actions": "Muo",
+	"vector-toc-beginning": "Staat",
+	"vector-anon-user-menu-pages": "Piej dem fu edita weh dem log aat"
+}
