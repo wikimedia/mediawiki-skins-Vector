@@ -7,8 +7,8 @@
 		]
 	},
 	"vector-languages": "A̱ru̱ryem",
-	"vector-language-button-label": "{{PLURAL:$1|duryem $1|a̱ruryem $1}}",
-	"vector-no-language-button-label": "mbrang nwap",
+	"vector-language-button-label": "{{PLURAL:$1|du̱ryem $1|a̱ru̱ryem $1}}",
+	"vector-no-language-button-label": "Mbrang nwap",
 	"vector-action-addsection": "Mbrang du̱ccu̱ ba̱ryat",
 	"vector-action-delete": "Shok",
 	"vector-action-move": "Shek a̱u shyei",

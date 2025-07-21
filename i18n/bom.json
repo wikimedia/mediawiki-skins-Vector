@@ -4,17 +4,23 @@
 			"Gaison001",
 			"Habila Dachollom",
 			"Kambai Akau",
-			"Rwang PS"
+			"Rwang PS",
+			"Kimfom01",
+			"Sarah Niya Danbwarang"
 		]
 	},
-	"vector-languages": "Bechen",
-	"vector-language-button-label": "{{PLURAL:$1|Lem $1|Balem $1}}",
-	"vector-no-language-button-label": "Wuna be lem",
+	"vector-languages": "Balem",
+	"vector-language-button-label": "{{PLURAL:$1|lêm $1|balêm $1}}",
+	"vector-no-language-button-label": "Wuna balem",
 	"vector-action-addsection": "Gwe toh ha",
+	"vector-action-delete": "Pat éjey",
 	"vector-action-move": "Ke",
+	"vector-action-protect": "Ye gyìp",
 	"vector-view-create": "Yong",
+	"vector-view-edit": "Yong",
 	"vector-view-history": "Beh pye da ye kwere",
-	"vector-more-actions": "gwe",
+	"vector-view-view": "Basà",
+	"vector-more-actions": "Gwe",
 	"vector-toc-beginning": "Susu",
 	"vector-anon-user-menu-pages": "Lang wu pat mwad yong jek"
 }
