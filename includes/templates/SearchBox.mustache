@@ -14,7 +14,7 @@
 					<div class="cdx-text-input cdx-text-input--has-start-icon">
 						{{! mw-searchInput is needed to make sure that core loads the search code on focus}}
 						<input
-							class="cdx-text-input__input mw-searchInput"
+							class="cdx-text-input__input mw-searchInput" autocomplete="off"
 							{{#is-primary}}{{{html-input-attributes}}} id="searchInput"{{/is-primary}}
 							{{^is-primary}}type="search" name="search" placeholder="{{msg-searchsuggest-search}}"{{/is-primary}}>
 						<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
