@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"NikolasKHF"
+		]
+	},
+	"vector-languages": "Base",
+	"vector-no-language-button-label": "Tambah base",
+	"vector-view-history": "Èngat riwayat",
+	"vector-appearance-label": "Ruen",
+	"vector-feature-custom-font-size-0-label": "Kocét",
+	"vector-feature-custom-font-size-1-label": "Biase",
+	"vector-feature-custom-font-size-2-label": "Beléq",
+	"skin-theme-name": "Warne",
+	"skin-theme-day-label": "Menah",
+	"skin-theme-night-label": "Peteng",
+	"vector-page-tools-label": "Alat",
+	"vector-unpin-element-label": "seboq"
+}
