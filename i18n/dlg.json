@@ -4,6 +4,8 @@
 			"Sauit"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Vector-2010 туттуу",
+	"vector-opt-out": "Эргэ көстүүгэ көс",
 	"vector-languages": "Тыллар",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тыл}}",
 	"vector-no-language-button-label": "Тылы эп",
@@ -11,8 +13,13 @@
 	"vector-action-delete": "Һоттор",
 	"vector-action-move": "Аатын уларыт",
 	"vector-action-protect": "Көмүскээ",
+	"vector-action-undelete": "Төннөр",
+	"vector-action-unprotect": "Көмүскээһинин уларыт",
 	"vector-view-create": "Тэрий",
+	"vector-view-edit": "Уларыт",
 	"vector-view-history": "Историятын көрүү",
+	"vector-view-view": "Аагыы",
+	"vector-view-viewsource": "Куоду көрүү",
 	"vector-more-actions": "Өссүө",
 	"vector-toc-beginning": "Һагаланыы",
 	"vector-anon-user-menu-pages": "Киирбэтэк кыттыылаактар һырайдара"
