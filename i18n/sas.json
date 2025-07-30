@@ -7,9 +7,11 @@
 	"vector-languages": "Base",
 	"vector-language-button-label": "{{PLURAL:$1|$1 base}}",
 	"vector-no-language-button-label": "Tambah base",
+	"vector-action-addsection": "Romboq raosan",
 	"vector-action-delete": "Apus",
 	"vector-view-create": "Piaq",
 	"vector-view-history": "Èngat riwayat",
+	"vector-more-actions": "Haq lain",
 	"vector-appearance-label": "Ruen",
 	"vector-feature-limited-width-1-label": "Biase",
 	"vector-feature-custom-font-size-0-label": "Kocét",
@@ -18,6 +20,10 @@
 	"skin-theme-name": "Warne",
 	"skin-theme-day-label": "Menah",
 	"skin-theme-night-label": "Peteng",
-	"vector-page-tools-label": "Alat",
+	"skin-theme-exclusion-notice": "Halaman ni selalu kadu ruén menah.",
+	"vector-toc-beginning": "Awal",
+	"vector-feature-custom-font-size-exclusion-notice": "Halaman ni selalu kadu urup kocét",
+	"vector-page-tools-label": "Pekakas",
+	"vector-page-tools-general-label": "Awam",
 	"vector-unpin-element-label": "seboq"
 }
