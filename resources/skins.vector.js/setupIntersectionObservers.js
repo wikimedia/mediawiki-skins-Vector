@@ -95,7 +95,8 @@ function getHeadingScrollOffset() {
 	const scrollMarginHeading = 75;
 	const documentStyles = getComputedStyle( document.documentElement );
 	const scrollPaddingTopString = documentStyles.getPropertyValue( 'scroll-padding-top' );
-	// 'auto' is the default value, '' is returned by browsers not supporting this property (T398521)
+	// 'auto' is the default value, '' is returned by browsers not supporting
+	// this property (T398521).
 	const scrollPaddingTop = ( scrollPaddingTopString === 'auto' || scrollPaddingTopString === '' ) ?
 		0 : parseInt( scrollPaddingTopString, 10 );
 	return scrollPaddingTop + scrollMarginHeading;
