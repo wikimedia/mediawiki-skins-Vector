@@ -74,10 +74,8 @@
 	// TODO: Remove this when the we-3-2-3-donate-ab-test-1 test is over.
 	// Color the donate link progressive equivalent to a fake quiet progressive
 	// Codex Button, see T395716.
-	.xlab-experiment-we-3-2-3-donate-ab-test-1-treatment & .re-experiment-vector-donate-entry-point-variation .cdx-button {
-		background-color: @background-color-progressive-subtle;
+	.xlab-experiment-we-3-2-3-donate-ab-test-1-treatment & .re-experiment-vector-donate-entry-point-variation .cdx-button--fake-button--enabled.cdx-button--weight-quiet {
 		color: @color-progressive;
-		border-color: @border-color-progressive;
 
 		.mw-ui-icon-heart {
 			background-color: @background-color-progressive;
@@ -86,7 +84,6 @@
 		&:hover {
 			background-color: @background-color-progressive-subtle--hover;
 			color: @color-progressive--hover;
-			border-color: @border-color-progressive--hover;
 
 			.mw-ui-icon-heart {
 				background-color: @background-color-progressive--hover;
@@ -97,7 +94,6 @@
 		&.cdx-button--is-active {
 			background-color: @background-color-progressive-subtle--active;
 			color: @color-progressive--active;
-			border-color: @border-color-progressive--active;
 
 			.mw-ui-icon-heart {
 				background-color: @background-color-progressive--active;
