@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kakonjo"
+			"Kakonjo",
+			"Owobusingye"
 		]
 	},
+	"vector-languages": "Endimi",
 	"vector-language-button-label": "{{PLURAL:$1|$1 orurimi|$1 endimi}}",
+	"vector-no-language-button-label": "Okwongyera endimi",
 	"vector-action-addsection": "Taho omuhajaano",
 	"vector-action-delete": "Sangura",
 	"vector-action-move": "Tambuza",
@@ -14,5 +17,7 @@
 	"vector-view-history": "Reba ebi'kozirwe",
 	"vector-view-view": "Shoma",
 	"vector-more-actions": "Ebikukiraho",
-	"vector-toc-toggle-button-label": "Rabyamu $1 Akacweeka"
+	"vector-toc-beginning": "Obutandikiro",
+	"vector-toc-toggle-button-label": "Rabyamu $1 Akacweeka",
+	"vector-anon-user-menu-pages": "Eby'ashunshuzi abarugire omu Wiki"
 }

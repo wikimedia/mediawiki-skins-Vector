@@ -5,6 +5,13 @@
 		]
 	},
 	"vector-languages": "Base",
+	"vector-language-button-label": "{{PLURAL:$1|$1 base}}",
 	"vector-no-language-button-label": "Tambah base",
-	"vector-view-history": "Èngat riwayat"
+	"vector-action-addsection": "Romboq raosan",
+	"vector-action-delete": "Apus",
+	"vector-action-move": "Alih",
+	"vector-view-create": "Piaq",
+	"vector-view-history": "Èngat riwayat",
+	"vector-more-actions": "Haq lain",
+	"vector-toc-beginning": "Awal"
 }
