@@ -6,17 +6,16 @@ const
 		App,
 		restSearchClient,
 		urlGenerator
-	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) ),
-	config = require( './config.json' );
+	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) );
 
 const searchConfig = require( './searchConfig.json' );
 const inNamespace = searchConfig.ContentNamespaces.includes( mw.config.get( 'wgNamespaceNumber' ) );
-const searchApiUrl = mw.config.get( 'wgVectorSearchApiUrl',
-	searchConfig.VectorSearchApiUrl || mw.config.get( 'wgScriptPath' ) + '/rest.php'
-);
-const recommendationApiUrl = inNamespace ? searchConfig.VectorSearchRecommendationsApiUrl : null;
+// apiUrl defaults to /rest.php if not set
+const searchApiUrl = searchConfig.VectorTypeahead.apiUrl || mw.config.get( 'wgScriptPath' ) + '/rest.php';
+const recommendationApiUrl = inNamespace ? searchConfig.VectorTypeahead.recommendationApiUrl : '';
+const searchOptions = searchConfig.VectorTypeahead.options;
 // The param config must be defined for empty search recommendations to be enabled.
-const showEmptySearchRecommendations = inNamespace && recommendationApiUrl !== null;
+const showEmptySearchRecommendations = inNamespace && recommendationApiUrl;
 
 /**
  * @param {Element} searchBox
@@ -80,7 +79,7 @@ Use SkinPageReadyConfig hook to replace the search module (T395641).` );
 			autoExpandWidth: searchBox ? searchBox.classList.contains( 'vector-search-box-auto-expand-width' ) : false,
 			showEmptySearchRecommendations
 		// Pass additional config from server.
-		}, config )
+		}, searchOptions )
 	)
 		.mount( searchContainer );
 }

@@ -1,6 +1,12 @@
 {
 	"@doc": "This file describes the configuration for Vector Search, including empty search recommendations.",
-	"VectorSearchRecommendationsApiUrl": "",
-	"ContentNamespaces": [ 0 ],
-	"VectorSearchApiUrl": ""
+	"VectorTypeahead": {
+		"apiUrl": "",
+		"recommendationApiUrl": "",
+		"options": {
+			"showThumbnail": true,
+			"showDescription": true
+		}
+	},
+	"ContentNamespaces": [ 0 ]
 }

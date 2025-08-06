@@ -67,15 +67,17 @@ class Hooks implements
 		RL\Context $context,
 		Config $config
 	): array {
-		$vectorSearchConfig = [
+		$additionalSearchOptions = [
 			'highlightQuery' =>
 				VectorServices::getLanguageService()->canWordsBeSplitSafely( $context->getLanguage() )
 		];
 
 		$hookRunner = new HookRunner( MediaWikiServices::getInstance()->getHookContainer() );
-		$hookRunner->onVectorSearchResourceLoaderConfig( $vectorSearchConfig );
+		$hookRunner->onVectorSearchResourceLoaderConfig( $additionalSearchOptions );
 
-		return array_merge( $config->get( 'VectorWvuiSearchOptions' ), $vectorSearchConfig );
+		$vectorTypeahead = $config->get( 'VectorTypeahead' );
+		$vectorTypeahead['options'] = array_merge( $vectorTypeahead['options'], $additionalSearchOptions );
+		return $vectorTypeahead;
 	}
 
 	/**
@@ -96,7 +98,6 @@ class Hooks implements
 		if ( !self::isVectorSkin( $context->getSkin() ) ) {
 			return;
 		}
-
 		// Tell the `mediawiki.page.ready` module not to wire up search.
 		// This allows us to use the new Vue implementation.
 		// Context has no knowledge of legacy / modern Vector

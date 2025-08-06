@@ -228,13 +228,8 @@
 					"name": "resources/skins.vector.search/searchConfig.json",
 					"config": [
 						"ContentNamespaces",
-						"VectorSearchRecommendationsApiUrl",
-						"VectorSearchApiUrl"
+						"VectorTypeahead"
 					]
-				},
-				{
-					"name": "resources/skins.vector.search/config.json",
-					"callback": "MediaWiki\\Skins\\Vector\\Hooks::getVectorSearchResourceLoaderConfig"
 				}
 			]
 		},
@@ -584,13 +579,16 @@
 			},
 			"description": "@var array determines which pages are compatible with night mode"
 		},
-		"VectorSearchApiUrl": {
-			"value": "",
-			"description": "To override the default search API, set this to the URL to rest.php on another wiki. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production."
-		},
-		"VectorSearchRecommendationsApiUrl": {
-			"value": "",
-			"description": "Provide a recommendation service. $1 will be substituted with pagetitle e.g. '/w/rest.php/v1/search/page?q=$1&limit=20'"
+		"VectorTypeahead": {
+			"value": {
+				"apiUrl": null,
+				"recommendationApiUrl": null,
+				"options": {
+					"showThumbnail": true,
+					"showDescription": true
+				}
+			},
+			"description": "apiUrl - To override the default search API, set this to the URL to rest.php on another wiki. Can be used with $wgDisableTextSearch and $wgSearchForwardUrl to mimic user experience on production. recommendationApi - Provides a recommendation service. $1 will be substituted with pagetitle e.g. '/w/rest.php/v1/search/page?q=$1&limit=20'"
 		},
 		"VectorUseIconWatch": {
 			"value": true
@@ -625,12 +623,6 @@
 		"VectorDefaultSkinVersionForNewAccounts": {
 			"value": null,
 			"description": "@var string|null The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersionForExistingAccounts) and only ever executed once at new account creation time. If it is null, no user preference will be set."
-		},
-		"VectorWvuiSearchOptions": {
-			"value": {
-				"showThumbnail": true,
-				"showDescription": true
-			}
 		},
 		"VectorLanguageInHeader": {
 			"value": {
