@@ -6,7 +6,7 @@
 		]
 	},
 	"vector-languages": "bòo",
-	"vector-language-button-label": "{{PLURAL:$1|$1 bòo|$1 bòo}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bòo}}",
 	"vector-no-language-button-label": "Sauwadi yare",
 	"vector-action-addsection": "Sauwidi labar",
 	"vector-action-delete": "Gogo",
