@@ -39,7 +39,8 @@ class VectorComponentSearchBox implements VectorComponent {
 	 * Note this is only relevant for Vue search experience (not legacy search).
 	 */
 	private function doesSearchHaveThumbnails(): bool {
-		return $this->getConfig()->get( 'VectorWvuiSearchOptions' )['showThumbnail'];
+		$searchOptions = $this->getConfig()->get( 'VectorTypeahead' )['options'];
+		return $searchOptions['showThumbnail'];
 	}
 
 	/**
