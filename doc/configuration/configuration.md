@@ -80,12 +80,6 @@ Do not rely on any of the feature flags documented here. They should not be cons
 
   - Removal ticket: [https://phabricator.wikimedia.org/T179159](https://phabricator.wikimedia.org/T179159)
 
-- wgVectorNightMode
-
-  - Enables the night mode feature in client preferences
-
-  - Removal ticket: [https://phabricator.wikimedia.org/T179159](https://phabricator.wikimedia.org/T179159)
-
 - wgVectorResponsive
 
   - Enables an experimental responsive version of the Vector 2022 skin.

@@ -266,26 +266,6 @@ class FeatureManagerFactory {
 			]
 		);
 
-		// Feature: Night mode (T355065)
-		// ============================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$config,
-				$user,
-				$request,
-				Constants::CONFIG_KEY_NIGHT_MODE,
-				Constants::REQUIREMENT_NIGHT_MODE
-			)
-		);
-
-		$featureManager->registerFeature(
-			Constants::FEATURE_NIGHT_MODE,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_NIGHT_MODE
-			]
-		);
-
 		// Preference: Night mode (T355065)
 		// ============================================
 		$featureManager->registerRequirement(
@@ -303,7 +283,6 @@ class FeatureManagerFactory {
 			Constants::PREF_NIGHT_MODE,
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_NIGHT_MODE,
 				Constants::REQUIREMENT_PREF_NIGHT_MODE
 			]
 		);

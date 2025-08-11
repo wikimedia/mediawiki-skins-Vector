@@ -87,7 +87,8 @@ module.exports = function sectionObserver( props ) {
 		} );
 
 		const closestTag =
-			/** @type {HTMLElement | undefined} */ ( closestNegativeEntry ? closestNegativeEntry.target :
+			/** @type {HTMLElement | undefined} */ ( closestNegativeEntry ?
+				closestNegativeEntry.target :
 				closestPositiveEntry ? closestPositiveEntry.target : undefined );
 
 		// If the intersection is new, fire the `onIntersection` callback.

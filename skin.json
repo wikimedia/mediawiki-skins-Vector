@@ -200,8 +200,7 @@
 		"CentralAuthIsUIReloadRecommended": "VectorCentralAuthHooks",
 		"GetPreferences": "VectorHooks",
 		"LocalUserCreated": "VectorHooks",
-		"SkinPageReadyConfig": "VectorHooks",
-		"GetBetaFeaturePreferences": "VectorHooks"
+		"SkinPageReadyConfig": "VectorHooks"
 	},
 	"@note": "When modifying skins.vector.styles definition, make sure the installer still works",
 	"ResourceModules": {
@@ -536,14 +535,6 @@
 		"VectorWrapTablesTemporary": {
 			"value": false,
 			"description": "@var bool temporary config variable for controlling role out of tables. When enabled certain tables will be wrapped with a div"
-		},
-		"VectorNightMode": {
-			"value": {
-				"logged_out": false,
-				"logged_in": true,
-				"beta": false
-			},
-			"description": "@var array enables dark/night mode."
 		},
 		"VectorFontSizeConfigurableOptions": {
 			"value": {

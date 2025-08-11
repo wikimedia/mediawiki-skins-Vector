@@ -94,8 +94,6 @@
 	"vector-page-tools-unpinned-popup": "Text to show in popup body when Page Tools ({{msg-mw|vector-page-tools-label}}) has been moved.",
 	"vector-main-menu-unpinned-popup": "Text to show in popup body when Main menu ({{msg-mw|vector-main-menu-label}}) has been moved.",
 	"vector-appearance-unpinned-popup": "Text to show in popup body when Appearance menu ({{msg-mw|vector-appearance-label}}) has been moved.",
-	"vector-2022-beta-preview-label": "label for beta feature preview link in beta features under special preferences",
-	"vector-2022-beta-preview-description": "label for beta feature preview description in beta features under special preferences",
 	"vector-night-mode-gadget-names": "pipe-separated list of gadget names associated with the night mode gadget",
 	"vector-night-mode-gadget-warning": "a notice that night mode has been disabled due to a conflicting gadget, with a link to the gadgets page to disable",
 	"vector-night-mode-issue-reporting-notice-url": "A URL to be configured on the site-level {{notranslate}}",

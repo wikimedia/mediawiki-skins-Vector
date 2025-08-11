@@ -228,7 +228,6 @@ class FeatureManager {
 				// Server side only feature flags.
 				// Note these classes are fixed and cannot be changed at runtime by JavaScript,
 				// only via modification to LocalSettings.php.
-				case Constants::FEATURE_NIGHT_MODE:
 				case Constants::FEATURE_LIMITED_WIDTH_CONTENT:
 				case Constants::FEATURE_LANGUAGE_IN_HEADER:
 				case Constants::FEATURE_LANGUAGE_IN_MAIN_PAGE_HEADER:
