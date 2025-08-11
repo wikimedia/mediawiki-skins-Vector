@@ -1,9 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"R12ntech"
+			"R12ntech",
+			"Peterxy12"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Ꭰ",
+	"vector-opt-out": "ᎠᎴ ᎢᏤ ᏥᎪᎯ ᎢᎬᏁᎸᎯ",
+	"vector-opt-out-tooltip": "ᏗᏨᏂᏗᏳ ᎨᏒ ᏕᏥᏁᏤᎲ ᎤᏃᏅᎯ ᎦᎾᏍᏓᏁᎸᎯ;",
+	"vector-action-toggle-sidebar": "ᎤᎾᏛ",
+	"vector-languages": "ᎦᏬᏂᎯᏍᏗ",
 	"vector-action-delete": "ᎧᎵ ᎠᏍᎪᎸᏛᎯ",
 	"vector-action-move": "ᎯᎲᎾ",
 	"vector-action-protect": "ᎠᏓᎦᏎᏍᏙᏗ",

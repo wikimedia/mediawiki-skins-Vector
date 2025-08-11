@@ -1,20 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
-			"El-hussain14"
+			"El-hussain14",
+			"Mbfika"
 		]
 	},
 	"vector-languages": "bòo",
-	"vector-language-button-label": "{{PLURAL:$1|$1 harshe|$1 bòo}}",
-	"vector-no-language-button-label": "Sauwadi yare",
-	"vector-action-addsection": "Sawwai labar",
+	"vector-language-button-label": "{{PLURAL:$1|$1 bòo}}",
+	"vector-no-language-button-label": "Sauwadi boo",
+	"vector-action-addsection": "Sauwidi labar",
 	"vector-action-delete": "Gogo",
 	"vector-action-move": "Zame",
 	"vector-action-protect": "deito",
-	"vector-view-create": "Algino",
-	"vector-view-history": "Beyi ewe tarihi",
-	"vector-more-actions": "Sauwadi",
+	"vector-view-create": "Ƙirƙiro",
+	"vector-view-history": "Ewe tarihi",
+	"vector-more-actions": "Sauwii",
 	"vector-searchsuggest-containing": "Inne ngafeka lagani gah<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-beginning": "Zalshe",
-	"vector-anon-user-menu-pages": "Shafe Fite nramu"
+	"vector-anon-user-menu-pages": "Peji pete anramu"
 }
