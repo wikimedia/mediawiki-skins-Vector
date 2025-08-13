@@ -27,7 +27,7 @@
 	"vector-language-button-aria-label": "去睇另一種語文嘅文章。有{{PLURAL:$1|$1種語言版本}}。",
 	"vector-language-button-label": "{{PLURAL:$1|$1種語言}}",
 	"vector-no-language-button-label": "加語言",
-	"vector-no-language-button-aria-label": "呢篇文淨係喺呢種語言先有提供。喺第種語言開呢篇文。",
+	"vector-no-language-button-aria-label": "呢篇文淨係喺呢種語言先有。喺第種語言開呢篇文。",
 	"vector-language-variant-switcher-label": "改語言變體",
 	"vector-action-addsection": "加主題",
 	"vector-action-delete": "剷走",
