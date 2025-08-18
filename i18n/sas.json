@@ -10,8 +10,10 @@
 	"vector-action-addsection": "Romboq raosan",
 	"vector-action-delete": "Apus",
 	"vector-action-move": "Alih",
+	"vector-action-protect": "Jagaq",
 	"vector-view-create": "Piaq",
 	"vector-view-history": "Èngat riwayat",
 	"vector-more-actions": "Haq lain",
-	"vector-toc-beginning": "Awal"
+	"vector-toc-beginning": "Awal",
+	"vector-anon-user-menu-pages": "Halaman pengerisaq haq wah sugul"
 }
