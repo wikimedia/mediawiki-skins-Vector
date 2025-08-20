@@ -206,6 +206,24 @@ class Hooks implements
 	}
 
 	/**
+	 * @internal used inside ::updateUserLinksDropdownItems
+	 * @param array $content_navigation
+	 * @return bool
+	 */
+	private static function isReadingListEnabled( $content_navigation ) {
+		return isset( $content_navigation['user-menu']['readinglists'] );
+	}
+
+	/**
+	 * @internal used inside ::updateUserLinksDropdownItems
+	 * @param array $content_navigation
+	 * @return bool
+	 */
+	private static function isWatchListEnabled( $content_navigation ) {
+		return isset( $content_navigation['user-menu']['watchlist'] );
+	}
+
+	/**
 	 * Updates personal navigation menu (user links) dropdown for modern Vector:
 	 *  - Adds icons
 	 *  - Makes user page and watchlist collapsible
@@ -223,7 +241,10 @@ class Hooks implements
 			$content_navigation['user-menu']['userpage']['collapsible'] = true;
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
-			if ( isset( $content_navigation['user-menu']['watchlist'] ) ) {
+			if ( self::isReadingListEnabled( $content_navigation ) ) {
+				$content_navigation['user-menu']['readinglists']['collapsible'] = true;
+			}
+			if ( self::isWatchlistEnabled( $content_navigation ) ) {
 				$content_navigation['user-menu']['watchlist']['collapsible'] = true;
 			}
 
@@ -236,7 +257,7 @@ class Hooks implements
 			}
 			$content_navigation['user-menu-logout'] = $logoutMenu;
 
-			self::updateMenuItems( $content_navigation, 'user-menu' );
+			self::updateMenuItems( $content_navigation, 'user-menu', false );
 			self::updateMenuItems( $content_navigation, 'user-menu-logout' );
 		} else {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
@@ -410,10 +431,11 @@ class Hooks implements
 	 *
 	 * @param array &$content_navigation
 	 * @param string $menu identifier
+	 * @param bool $unsetIcon should the icon field be unset?
 	 */
-	private static function updateMenuItems( &$content_navigation, $menu ) {
+	private static function updateMenuItems( &$content_navigation, $menu, $unsetIcon = true ) {
 		foreach ( $content_navigation[$menu] as &$item ) {
-			$item = self::updateMenuItemData( $item );
+			$item = self::updateMenuItemData( $item, $unsetIcon );
 		}
 	}
 
@@ -464,7 +486,10 @@ class Hooks implements
 		$title = $sk->getRelevantTitle();
 		if (
 			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
-			$title && $title->canExist()
+			$title && $title->canExist() &&
+			// Only move the watchstar if bookmark not detected
+			// T402352
+			!self::isReadingListEnabled( $content_navigation )
 		) {
 			self::updateActionsMenu( $content_navigation );
 		}

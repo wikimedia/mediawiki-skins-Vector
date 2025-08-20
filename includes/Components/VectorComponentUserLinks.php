@@ -275,10 +275,6 @@ class VectorComponentUserLinks implements VectorComponent {
 				static function ( $item ) {
 					// Since we're creating duplicate icons
 					$item['id'] .= '-2';
-					// Restore icon removed in hooks.
-					if ( $item['name'] === 'watchlist' ) {
-						$item['icon'] = 'watchlist';
-					}
 					return $item;
 				},
 				// array_filter preserves keys so use array_values to restore array.
@@ -287,11 +283,14 @@ class VectorComponentUserLinks implements VectorComponent {
 						$portletData['data-user-menu']['array-items'] ?? [],
 						static function ( $item ) {
 							// Only certain items get promoted to the overflow menu:
+							// * readinglist
 							// * watchlist
 							// * login
 							// * create account
+							// * donate
 							$name = $item['name'];
 							return in_array( $name, [
+								'readinglists',
 								'watchlist',
 								'createaccount',
 								'login',
