@@ -6,7 +6,8 @@
 			"Joystick",
 			"פוילישער",
 			"Pacha Tchernof",
-			"וויקיפּעדלער"
+			"וויקיפּעדלער",
+			"Shvermer"
 		]
 	},
 	"skinname-vector": "וועקטאר אלט (2010)",
@@ -32,6 +33,7 @@
 	"vector-searchsuggest-containing": "זוכן בלעטער מיט<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-heading": "אינהאַלט",
 	"vector-toc-beginning": "אָנפֿאַנג",
+	"vector-anon-user-menu-pages": "בלעטער פאַר ארויסגעלאָגטע רעדאַקטאָרן",
 	"vector-main-menu-tooltip": "הויפט־מעניו",
 	"vector-toc-menu-tooltip": "אינהאַלט טאַבעלע"
 }
