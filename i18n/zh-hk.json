@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"C933103",
+			"Lakejason0",
 			"LuciferianThomas",
 			"StarrySky",
 			"Winston Sung",
@@ -15,5 +16,5 @@
 	"vector-view-view": "閱讀",
 	"vector-more-actions": "更多",
 	"vector-toc-label": "目次",
-	"vector-toc-beginning": "序言"
+	"vector-toc-beginning": "首段"
 }
