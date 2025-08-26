@@ -3,7 +3,8 @@
 		"authors": [
 			"Freeyak",
 			"Phurbutsering",
-			"ཁ་བཏགས་ནག་པོ"
+			"ཁ་བཏགས་ནག་པོ",
+			"Tenzin Thoesam"
 		]
 	},
 	"vector-action-addsection": "བརྗོད་གཞི་ཁ་སྣོན།",
@@ -17,5 +18,6 @@
 	"vector-view-history": "ལོ་རྒྱུས་ལ་ལྟ་བ།",
 	"vector-view-view": "ཀློག་པ།",
 	"vector-view-viewsource": "ཁུངས་ལ་ལྟ་བ།",
-	"vector-more-actions": "དེ་ལས་མང་བ།"
+	"vector-more-actions": "དེ་ལས་མང་བ།",
+	"vector-page-tools-actions-label": "བྱེད་སྒོ་"
 }
