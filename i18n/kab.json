@@ -9,6 +9,7 @@
 	},
 	"vector-skin-desc": "Lqem atrar n MonoBook s wudem ilemẓi akked ddeqs n usnerni ucbiḥ",
 	"vector-languages": "Tutlayin",
+	"vector-language-button-label": "{{PLURAL:$1|$1 n tutlayt|$1 n tutlayin}}",
 	"vector-no-language-button-label": "Rnu tutlayin",
 	"vector-action-addsection": "Rnu-d asentel",
 	"vector-action-delete": "Mḥu",

@@ -7,6 +7,8 @@
 			"Tenzin Thoesam"
 		]
 	},
+	"vector-languages": "སྐད་སྣ་",
+	"vector-no-language-button-label": "སྐད་ཡིག་གཞན་སྣོན།",
 	"vector-action-addsection": "བརྗོད་གཞི་ཁ་སྣོན།",
 	"vector-action-delete": "སུབས།",
 	"vector-action-move": "སྤོར་བ།",
@@ -18,5 +20,7 @@
 	"vector-view-history": "ལོ་རྒྱུས་ལ་ལྟ་བ།",
 	"vector-view-view": "ཀློག་པ།",
 	"vector-view-viewsource": "ཁུངས་ལ་ལྟ་བ།",
-	"vector-more-actions": "དེ་ལས་མང་བ།"
+	"vector-more-actions": "དེ་ལས་མང་བ།",
+	"vector-toc-beginning": "མགོ་ཚུགས་",
+	"vector-anon-user-menu-pages": "ཐོ་འགོད་མེད་པའི་ཞུ་དག་པའི་ཤོག་ངོས།"
 }

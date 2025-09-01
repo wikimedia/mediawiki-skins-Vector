@@ -5,7 +5,7 @@
 			"咽頭べさ"
 		]
 	},
-	"vector-opt-out": "မပြံၚ်ဗလေတ်ထောံဗီုတြေံ",
+	"vector-opt-out": "ကလေင်ပြံင် ဗီုပြင်တြေံ",
 	"vector-languages": "အရေဝ်ဘာသာဂမၠိုင်",
 	"vector-language-button-label": "{{PLURAL:$1|အရေဝ်ဘာသာ $1 ဘာသာ|အရေဝ်ဘာသာ $1 ဘာသာဂမၠိုၚ်}}",
 	"vector-no-language-button-label": "စုတ် အရေဝ်ဘာသာဂမၠိုင်",
@@ -22,7 +22,7 @@
 	"vector-searchsuggest-containing": "ဂၠာဲသွက်မုက်လိက်လုပ်အဝေါၚ် <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>ဂမၠိုၚ်",
 	"vector-toc-beginning": "စနူကၠာ",
 	"vector-anon-user-menu-pages-learn": "ထပ်ဆက်လ္ၚတ်အာ",
-	"vector-main-menu-tooltip": "မဳနူ တံသ္ဇိုၚ်",
+	"vector-main-menu-tooltip": "မာတိကာတမ်",
 	"vector-toc-menu-tooltip": "မာတိကာ",
 	"vector-toc-collapsible-button-label": "မလှာဲစရၚ်နကဵုမာတိကာဂမၠိုၚ်",
 	"vector-site-nav-label": "ဂအာၚ်",
