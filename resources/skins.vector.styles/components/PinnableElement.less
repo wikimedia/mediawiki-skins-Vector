@@ -26,8 +26,6 @@
 	// Work around sticky-positioned layers disabling subpixel text rendering (T327460, T373066).
 	// This must be applied to the possible parent elements of .vector-sticky-pinned-container.
 	contain: paint;
-	// Draw on top of body text, so that overlaps don't disable subpixel text rendering (T390802, T390803).
-	z-index: 1;
 }
 
 .vector-sticky-pinned-container {
