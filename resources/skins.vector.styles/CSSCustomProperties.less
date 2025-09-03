@@ -120,6 +120,17 @@
 		// TODO: Remove once font size modes are fully integrated in Vector.
 		--line-height-content: 1.55;
 	}
+
+	// Fix height of Message icon, this uses `--line-height-medium` but doesn't accept a
+	// unitless value as set in Vector's 'mediawiki.skin.variables.less' file. (T401457).
+	// TODO: Remove once the `--line-height-medium` override in above
+	// `.vector-icon` is removed.
+	.mw-body-content .cdx-message {
+		.cdx-message__icon,
+		.cdx-message__icon--vue {
+			height: 1.625rem;
+		}
+	}
 }
 
 /**
