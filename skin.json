@@ -77,8 +77,6 @@
 					],
 					"messages": [
 						"tooltip-p-logo",
-						"vector-opt-out-tooltip",
-						"vector-opt-out",
 						"vector-action-toggle-sidebar",
 						"vector-main-menu-tooltip",
 						"vector-jumptosearch",
@@ -136,8 +134,6 @@
 					],
 					"messages": [
 						"tooltip-p-logo",
-						"vector-opt-out-tooltip",
-						"vector-opt-out",
 						"navigation-heading",
 						"vector-action-toggle-sidebar",
 						"vector-main-menu-tooltip",
