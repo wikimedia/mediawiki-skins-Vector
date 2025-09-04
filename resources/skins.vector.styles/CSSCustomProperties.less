@@ -123,9 +123,11 @@
 
 	// Fix height of Message icon, this uses `--line-height-medium` but doesn't accept a
 	// unitless value as set in Vector's 'mediawiki.skin.variables.less' file. (T401457).
+	// Note, that this has to be set on `.skin-vector-2022` to also fix Messages outside of
+	// `.mw-body-content`, like teleported one for example.
 	// TODO: Remove once the `--line-height-medium` override in above
 	// `.vector-icon` is removed.
-	.mw-body-content .cdx-message {
+	.skin-vector-2022 .cdx-message {
 		.cdx-message__icon,
 		.cdx-message__icon--vue {
 			height: 1.625rem;
