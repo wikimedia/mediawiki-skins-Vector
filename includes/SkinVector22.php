@@ -34,19 +34,15 @@ class SkinVector22 extends SkinMustache {
 	/** @var null|array for caching purposes */
 	private $languages;
 
-	private LanguageConverterFactory $languageConverterFactory;
-	private FeatureManagerFactory $featureManagerFactory;
 	private ?FeatureManager $featureManager = null;
 
 	public function __construct(
-		LanguageConverterFactory $languageConverterFactory,
-		FeatureManagerFactory $featureManagerFactory,
+		private readonly LanguageConverterFactory $languageConverterFactory,
+		private readonly FeatureManagerFactory $featureManagerFactory,
 		array $options
 	) {
 		parent::__construct( $options );
-		$this->languageConverterFactory = $languageConverterFactory;
 		// Cannot use the context in the constructor, setContext is called after construction
-		$this->featureManagerFactory = $featureManagerFactory;
 	}
 
 	/**

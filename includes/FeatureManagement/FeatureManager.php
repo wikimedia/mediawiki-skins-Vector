@@ -64,18 +64,11 @@ class FeatureManager {
 	 */
 	private $requirements = [];
 
-	private ConfigHelper $configHelper;
-	private UserOptionsLookup $userOptionsLookup;
-	private IContextSource $context;
-
 	public function __construct(
-		ConfigHelper $configHelper,
-		UserOptionsLookup $userOptionsLookup,
-		IContextSource $context
+		private readonly ConfigHelper $configHelper,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly IContextSource $context,
 	) {
-		$this->configHelper = $configHelper;
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->context = $context;
 	}
 
 	/**

@@ -42,15 +42,10 @@ use MediaWiki\User\Options\UserOptionsLookup;
  */
 class FeatureManagerFactory {
 
-	private ConfigHelper $configHelper;
-	private UserOptionsLookup $userOptionsLookup;
-
 	public function __construct(
-		ConfigHelper $configHelper,
-		UserOptionsLookup $userOptionsLookup
+		private readonly ConfigHelper $configHelper,
+		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		$this->configHelper = $configHelper;
-		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	public function createFeatureManager( IContextSource $context ): FeatureManager {

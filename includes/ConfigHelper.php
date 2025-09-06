@@ -11,12 +11,9 @@ use MediaWiki\Title\Title;
  * @see doc/adr/0004-code-sharing-between-vector-and-minerva.md
  */
 class ConfigHelper {
-	private SpecialPageFactory $specialPageFactory;
-
 	public function __construct(
-		SpecialPageFactory $specialPageFactory
+		private readonly SpecialPageFactory $specialPageFactory,
 	) {
-		$this->specialPageFactory = $specialPageFactory;
 	}
 
 	/**

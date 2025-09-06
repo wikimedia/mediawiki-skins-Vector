@@ -28,18 +28,11 @@ class Hooks implements
 	LocalUserCreatedHook,
 	SkinPageReadyConfigHook
 {
-	private Config $config;
-	private UserOptionsManager $userOptionsManager;
-	private FeatureManagerFactory $featureManagerFactory;
-
 	public function __construct(
-		Config $config,
-		UserOptionsManager $userOptionsManager,
-		FeatureManagerFactory $featureManagerFactory
+		private readonly Config $config,
+		private readonly UserOptionsManager $userOptionsManager,
+		private readonly FeatureManagerFactory $featureManagerFactory,
 	) {
-		$this->config = $config;
-		$this->userOptionsManager = $userOptionsManager;
-		$this->featureManagerFactory = $featureManagerFactory;
 	}
 
 	/**
