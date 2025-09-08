@@ -5,7 +5,7 @@
 		]
 	},
 	"vector-languages": "Senney",
-	"vector-language-button-label": "{{PLURAL:$1|senni $1|senni $1}}",
+	"vector-language-button-label": "{{PLURAL:$1|senni}}",
 	"vector-no-language-button-label": "Senney tonton",
 	"vector-action-addsection": "Furari tonton",
 	"vector-action-delete": "Tuusu",
