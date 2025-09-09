@@ -99,11 +99,19 @@
 	display: block;
 
 	a::before {
+		// Support: Chrome <= 76, Firefox <= 127, Safari <= 17.3.
 		content: '@{msg-parentheses-start}';
+		// Add alternative empty text for generated parentheses in assistive technology.
+		// Support: modern browsers.
+		// Refer to https://caniuse.com/mdn-css_properties_content_alt_text
+		content: '@{msg-parentheses-start}' / '';
 	}
 
 	a::after {
+		// Support: Chrome <= 76, Firefox <= 127, Safari <= 17.3.
 		content: '@{msg-parentheses-end}';
+		// Support: modern browsers.
+		content: '@{msg-parentheses-end}' / '';
 	}
 }
 
