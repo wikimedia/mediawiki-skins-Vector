@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A R King",
+			"AliciaMarroquín",
 			"TimumachtikanNawat"
 		]
 	},
@@ -31,6 +32,7 @@
 	"skin-theme-night-label": "Kunyua",
 	"skin-theme-os-label": "Isel muchiwa",
 	"skin-theme-exclusion-notice": "Ini amat ishtikaya kipia tawil",
+	"vector-anon-user-menu-pages": "ajamat pal ne tamawawasuani ka kisa",
 	"vector-main-menu-label": "Achtu shulun",
 	"vector-feature-custom-font-size-exclusion-notice": "Ini amat ishtikaya yawi iwan chikitik tajkwilulchin",
 	"vector-page-tools-label": "Tay iwan?",
