@@ -231,7 +231,10 @@ class Hooks implements
 		$user = $sk->getUser();
 		if ( $user->isRegistered() ) {
 			// Remove user page from personal menu dropdown for logged in use
-			$content_navigation['user-menu']['userpage']['collapsible'] = true;
+			// Note check that the user page exists as it wont for temporary users
+			if ( isset( $content_navigation['user-menu']['userpage'] ) ) {
+				$content_navigation['user-menu']['userpage']['collapsible'] = true;
+			}
 			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
 			// See [[phab:T299671]]
 			if ( self::isReadingListEnabled( $content_navigation ) ) {
