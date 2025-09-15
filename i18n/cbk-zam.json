@@ -19,5 +19,6 @@
 	"vector-view-view": "Lee",
 	"vector-more-actions": "Tiene pa",
 	"vector-searchsuggest-containing": "Busca con el maga pagina aquel tiene <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Principio"
+	"vector-toc-beginning": "Principio",
+	"vector-anon-user-menu-pages": "Maga pagina de maga editor  que ya man log out"
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"A R King",
-			"TimumachtikanNawat"
+			"TimumachtikanNawat",
+			"AliciaMarroquín"
 		]
 	},
 	"vector-languages": "Tajtaketzalis",
@@ -18,5 +19,6 @@
 	"vector-view-view": "Shiamatachia",
 	"vector-view-viewsource": "Shikita ne codigoj",
 	"vector-more-actions": "Ukchupi",
-	"vector-searchsuggest-containing": "Shiktemu amat iwan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>"
+	"vector-searchsuggest-containing": "Shiktemu amat iwan <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-anon-user-menu-pages": "ajamat pal ne tamawawasuani ka kisa"
 }

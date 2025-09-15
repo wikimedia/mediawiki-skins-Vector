@@ -4,9 +4,15 @@
 			"Jagwar"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Ampiasao ny Vector Taloha",
+	"vector-opt-out": "Mivadika amin'ny endrika taloha",
+	"vector-opt-out-tooltip": "Ovao ny fikirakirana mba hiverenanao amin'ny endrika taloha (Vector taloha)",
+	"vector-action-toggle-sidebar": "Haneho/Hanafina ny bara sisiny",
 	"vector-languages": "Fiteny",
+	"vector-language-button-aria-label": "Mandehana any amin'ny lahatsoratra amin'ny fiteny hafa. Misy amin'ny {{PLURAL:$1}}fiteny $1",
 	"vector-language-button-label": "{{PLURAL:$1|fiteny tokana|fiteny $1}}",
 	"vector-no-language-button-label": "Hanampy fiteny",
+	"vector-language-variant-switcher-label": "Hanova ny karazan-teny",
 	"vector-action-addsection": "Hanampy lohahevitra",
 	"vector-action-delete": "Fafana",
 	"vector-action-move": "Hanolo anarana",
@@ -18,8 +24,20 @@
 	"vector-view-history": "Hijery ny tantara",
 	"vector-view-view": "Hamaky",
 	"vector-view-viewsource": "Hijery fango",
+	"vector-jumptonavigation": "Hankany amin'ny fitetezana",
+	"vector-jumptosearch": "Hankany amin'ny fikarohana",
+	"vector-jumptocontent": "Hankany amin'ny vontoatiny",
 	"vector-more-actions": "Be kokoa",
 	"vector-searchsuggest-containing": "Hikaroka ireo pejy misy <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
+	"vector-intro-page": "Help:Fampidirana",
 	"vector-toc-beginning": "Fiandohana",
-	"vector-anon-user-menu-pages": "Pejy ho an'ny mpikambana tsy niditra"
+	"vector-toc-toggle-button-label": "Hanafina/Haneho ny fizarana $1",
+	"vector-anon-user-menu-pages": "Pejy ho an'ny mpikambana tsy niditra",
+	"vector-anon-user-menu-pages-learn": "Hahafantatra be kokoa",
+	"vector-anon-user-menu-pages-label": "Hahalala bebe kokoa momba ny fanovana",
+	"vector-main-menu-tooltip": "Menio fotony",
+	"vector-toc-menu-tooltip": "Ambangovangom-pizarana",
+	"vector-toc-collapsible-button-label": "Ampifamadiho ny ambangovangom-pizarana",
+	"vector-site-nav-label": "Tranonkala",
+	"tooltip-vector-anon-user-menu-title": "Safidy bebe kokoa"
 }
