@@ -83,37 +83,6 @@
 			display: none;
 		}
 	}
-
-	// Donate A/B test.
-	// TODO: Remove this when the we-3-2-3-donate-ab-test-1 test is over.
-	// Color the donate link progressive equivalent to a fake quiet progressive
-	// Codex Button, see T395716.
-	.xlab-experiment-we-3-2-3-donate-ab-test-1-treatment & .re-experiment-vector-donate-entry-point-variation .cdx-button--fake-button--enabled.cdx-button--weight-quiet {
-		color: @color-progressive;
-
-		.mw-ui-icon-heart {
-			background-color: @background-color-progressive;
-		}
-
-		&:hover {
-			background-color: @background-color-progressive-subtle--hover;
-			color: @color-progressive--hover;
-
-			.mw-ui-icon-heart {
-				background-color: @background-color-progressive--hover;
-			}
-		}
-
-		&:active,
-		&.cdx-button--is-active {
-			background-color: @background-color-progressive-subtle--active;
-			color: @color-progressive--active;
-
-			.mw-ui-icon-heart {
-				background-color: @background-color-progressive--active;
-			}
-		}
-	}
 }
 
 /**
