@@ -12,7 +12,8 @@
 			"שוקו מוקה",
 			".hecko",
 			"Juwan",
-			"Tamzin"
+			"Tamzin",
+			"Ne"
 		]
 	},
 	"skinname-vector": "selo Vector pini (2010)",
@@ -60,7 +61,7 @@
 	"vector-search-loader": "mi kama e alasa ken",
 	"vector-searchsuggest-containing": "o alasa e lipu ni: nimi \"<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>\" li lon ona li lon ona",
 	"vector-intro-page": "Help:kama sin",
-	"vector-toc-label": "lipu ni la",
+	"vector-toc-label": "ijo pi lipu ni",
 	"vector-toc-beginning": "open",
 	"vector-toc-toggle-button-label": "o suli e kipisi $1",
 	"vector-anon-user-menu-pages": "lipu tawa jan pi sijelo ala",
@@ -70,7 +71,7 @@
 	"vector-toc-menu-tooltip": "jo lipu",
 	"vector-toc-collapsible-button-label": "o suli e jo lipu",
 	"vector-site-nav-label": "lipu",
-	"vector-main-menu-label": "ijo suli",
+	"vector-main-menu-label": "poki nasin",
 	"vector-feature-custom-font-size-exclusion-notice": "lipu ni li kepeken sitelen lili lon tenpo ale",
 	"vector-feature-limited-width-exclusion-notice": "sitelen li suli ale tawa ilo lukin sina.",
 	"vector-page-tools-label": "ilo",
