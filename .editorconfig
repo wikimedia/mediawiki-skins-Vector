@@ -1,0 +1,33 @@
+# Root EditorConfig file.
+# EditorConfig: https://editorconfig.org
+root = true
+
+# Unix-style newlines with a newline ending every file.
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Match multiple files with brace expansion notation.
+[*.{js,json,less,svg,ts,vue,yml}]
+charset = utf-8
+indent_style = tab
+indent_size = 4
+max_line_length = 100
+trim_trailing_whitespace = true
+tab_width = 4
+end_of_line = lf
+insert_final_newline = true
+
+# Common directory or language overrides.
+[.git/**]
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Ensure text editors don't turn leading spaces into tabs,
+# e.g. in multi-line bullet list items.
+charset = utf-8
+# Limit line length to 100 characters in Markdown files.
+max_line_length = 100
+# Keep intentional trailing spaces for Markdown line breaks.
+trim_trailing_whitespace = false
