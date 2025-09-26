@@ -226,7 +226,6 @@
 				{
 					"name": "resources/skins.vector.search/searchConfig.json",
 					"config": [
-						"ContentNamespaces",
 						"VectorTypeahead"
 					]
 				}

@@ -9,13 +9,12 @@ const
 	} = require( /** @type {string} */ ( 'mediawiki.skinning.typeaheadSearch' ) );
 
 const searchConfig = require( './searchConfig.json' );
-const inNamespace = searchConfig.ContentNamespaces.includes( mw.config.get( 'wgNamespaceNumber' ) );
 // apiUrl defaults to /rest.php if not set
 const searchApiUrl = searchConfig.VectorTypeahead.apiUrl || mw.config.get( 'wgScriptPath' ) + '/rest.php';
-const recommendationApiUrl = inNamespace ? searchConfig.VectorTypeahead.recommendationApiUrl : '';
+const recommendationApiUrl = searchConfig.VectorTypeahead.recommendationApiUrl;
 const searchOptions = searchConfig.VectorTypeahead.options;
 // The param config must be defined for empty search recommendations to be enabled.
-const showEmptySearchRecommendations = inNamespace && recommendationApiUrl;
+const showEmptySearchRecommendations = !!recommendationApiUrl;
 
 /**
  * @param {Element} searchBox
