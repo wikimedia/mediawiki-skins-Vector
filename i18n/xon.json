@@ -2,9 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Hasslaebetch",
-			"Abdul Fatawu 352"
+			"Abdul Fatawu 352",
+			"Alidu Yakubu",
+			"Andani Inusah",
+			"Nurul deen"
 		]
 	},
+	"vector-languages": "Bɔɔlɛŋtɔɔ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 n-yɛli|$1 n-yɛli kpaleŋ}}",
+	"vector-no-language-button-label": "“Suŋ n-yɛli” ✅",
+	"vector-action-addsection": "Yiŋ taali yɛlbuŋ",
+	"vector-action-delete": "Kpɛŋ",
+	"vector-action-move": "Bɔŋ",
+	"vector-action-protect": "Gbɛŋ",
 	"vector-view-create": "kpankpan",
-	"vector-more-actions": "Sɩna"
+	"vector-view-history": "Nyɛ kabia",
+	"vector-more-actions": "Sɩna",
+	"vector-toc-beginning": "Bɔhira",
+	"vector-anon-user-menu-pages": "\"Tiŋkpang kɔli ni ba naŋ kɔli yɛri kpɛma\""
 }

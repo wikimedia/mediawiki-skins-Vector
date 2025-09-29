@@ -3,18 +3,23 @@
 		"authors": [
 			"ChoiChong",
 			"Kyoww",
-			"春春眠眠"
+			"春春眠眠",
+			"さきじょーぐー"
 		]
 	},
+	"vector-languages": "言葉",
 	"vector-language-button-label": "{{PLURAL:$1|$1ぬ口}}",
+	"vector-no-language-button-label": "言葉追加すん",
 	"vector-action-addsection": "話題追加",
 	"vector-action-delete": "ちゃーすん",
 	"vector-action-move": "移動",
 	"vector-action-protect": "保護",
 	"vector-view-create": "ちゅくゆん",
-	"vector-view-edit": "直すん",
+	"vector-view-edit": "編集すん",
 	"vector-view-history": "履歴んーじゅん",
 	"vector-view-view": "読むん",
 	"vector-more-actions": "うぬ他",
-	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>含むページ検索すん"
+	"vector-searchsuggest-containing": "<strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>含むページ検索すん",
+	"vector-toc-beginning": "ページ先頭",
+	"vector-anon-user-menu-pages": "ログアウトさたる編集者ぬページ"
 }

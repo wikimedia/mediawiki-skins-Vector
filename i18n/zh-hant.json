@@ -21,7 +21,8 @@
 			"Tar Lócesilion",
 			"魔琴",
 			"SCP-2000",
-			"Lakejason0"
+			"Lakejason0",
+			"Ericliu1912"
 		]
 	},
 	"skinname-vector": "舊版Vector（2010）",
@@ -62,7 +63,7 @@
 	"vector-toc-heading": "目次",
 	"vector-toc-toggle-position-sidebar": "移至側邊欄",
 	"vector-toc-toggle-position-title": "隱藏",
-	"vector-toc-beginning": "首段",
+	"vector-toc-beginning": "（首段）",
 	"vector-toc-toggle-button-label": "切換 $1 子章節",
 	"vector-anon-user-menu-pages": "用於已登出編輯者的頁面",
 	"vector-anon-user-menu-pages-learn": "了解更多",

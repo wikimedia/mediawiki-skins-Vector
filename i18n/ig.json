@@ -12,7 +12,8 @@
 			"Karen",
 			"Goodymeraj",
 			"King ChristLike",
-			"Sayvhior"
+			"Sayvhior",
+			"Iwuala Lucy"
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Jiri Vector Legacy",
@@ -21,7 +22,7 @@
 	"vector-action-toggle-sidebar": "Gbanwee ogwe akụkụ",
 	"vector-languages": "Asụsụ",
 	"vector-language-button-aria-label": "Gaa na akụkọ na asụsụ ọzọ. Dị na {{PLURAL:$1|$1 asụsụ|$1 asụsụ}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ|$1 asụsụ}}",
+	"vector-language-button-label": "{{PLURAL:$1|$1 asụsụ}}",
 	"vector-no-language-button-label": "Tinye asụsụ gasị",
 	"vector-no-language-button-aria-label": "Edemede a dị naanị n'asụsụ a. Tinye akụkọ maka asụsụ ndị ọzọ",
 	"vector-language-variant-switcher-label": "Gbanwee ụdị asụsụ",
