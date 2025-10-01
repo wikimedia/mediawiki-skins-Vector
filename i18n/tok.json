@@ -44,7 +44,8 @@
 	"vector-jumptocontent": "o tawa jo lipu",
 	"vector-more-actions": "ante",
 	"vector-appearance-label": "selo",
-	"vector-appearance-tooltip": "ilo li ante e suli sitelen, e suli lipu, e kule.",
+	"vector-appearance-tooltip": "o ante e suli sitelen e suli poka e kule",
+	"vector-personal-tools-tooltip": "ijo sina",
 	"vector-feature-limited-width-name": "suli poka",
 	"vector-feature-limited-width-0-label": "suli",
 	"vector-feature-limited-width-1-label": "lili",
@@ -53,7 +54,7 @@
 	"vector-feature-custom-font-size-1-label": "insa",
 	"vector-feature-custom-font-size-2-label": "suli",
 	"skin-theme-name": "kule",
-	"skin-theme-description": "[ilo li namako, li ken pakala] ilo li pimeja e selo lipu.",
+	"skin-theme-description": "[ilo ni li sin li ken pakala] ilo li pimeja e selo lipu.",
 	"skin-theme-day-label": "walo",
 	"skin-theme-night-label": "pimeja",
 	"skin-theme-os-label": "tan ilo",
@@ -91,5 +92,5 @@
 	"vector-night-mode-issue-reporting-link-notification": "toki sina li kama!",
 	"vector-night-mode-issue-reporting-preload-title": "lipu $1 la pakala pi selo pijema",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\no sona:\no toki pona e ni: selo pimeja li pakala e lukin lon seme?\no toki e kipisi lipu ni: pakala li lon.\n-->\n'''sona pakala'''",
-	"vector-night-mode-beta-tag": "(namako)"
+	"vector-night-mode-beta-tag": "(ilo sin)"
 }
