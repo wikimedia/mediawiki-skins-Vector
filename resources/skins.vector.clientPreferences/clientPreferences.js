@@ -279,7 +279,7 @@ function appendToggleSwitch(
 
 /**
  * @param {string} className
- * @return {Element}
+ * @return {HTMLElement}
  */
 function createRow( className ) {
 	const row = document.createElement( 'div' );

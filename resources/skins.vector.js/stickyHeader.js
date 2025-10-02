@@ -410,13 +410,13 @@ function addVisualEditorHooks( stickyIntersection, observer ) {
  * itself collapses at low resolutions) and updates click tracking event names. Also wires up the
  * logout link so it works in a single click.
  *
- * @param {Element} userLinksDropdown
- * @return {Element} cloned userLinksDropdown
+ * @param {HTMLElement} userLinksDropdown
+ * @return {HTMLElement} cloned userLinksDropdown
  */
 function prepareUserLinksDropdown( userLinksDropdown ) {
 	const
 		// Type declaration needed because of https://github.com/Microsoft/TypeScript/issues/3734#issuecomment-118934518
-		userLinksDropdownClone = /** @type {Element} */( userLinksDropdown.cloneNode( true ) ),
+		userLinksDropdownClone = /** @type {HTMLElement} */( userLinksDropdown.cloneNode( true ) ),
 		userLinksDropdownStickyElementsWithIds = userLinksDropdownClone.querySelectorAll( '[ id ], [ data-event-name ]' );
 	// Update all ids of the cloned user menu to make them unique.
 	makeNodeTrackable( userLinksDropdownClone );
@@ -447,10 +447,10 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
 /**
  * Makes sticky header functional for modern Vector.
  *
- * @param {Element} header
- * @param {Element} userLinksDropdown
+ * @param {HTMLElement} header
+ * @param {HTMLElement} userLinksDropdown
  * @param {IntersectionObserver} stickyObserver
- * @param {Element} stickyIntersection
+ * @param {HTMLElement} stickyIntersection
  */
 function makeStickyHeaderFunctional(
 	header,
@@ -560,10 +560,10 @@ function isAllowedAction( action ) {
 
 /**
  * @typedef {Object} StickyHeaderProps
- * @property {Element} header
- * @property {Element} userLinksDropdown
+ * @property {HTMLElement} header
+ * @property {HTMLElement} userLinksDropdown
  * @property {IntersectionObserver} observer
- * @property {Element} stickyIntersection
+ * @property {HTMLElement} stickyIntersection
  */
 
 /**
