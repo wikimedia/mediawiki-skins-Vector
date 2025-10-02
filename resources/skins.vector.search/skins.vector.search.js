@@ -17,7 +17,7 @@ const searchOptions = searchConfig.VectorTypeahead.options;
 const showEmptySearchRecommendations = !!recommendationApiUrl;
 
 /**
- * @param {Element} searchBox
+ * @param {HTMLElement} searchBox
  * @param {Object} [restClient]
  * @param {Object} [urlGeneratorInstance]
  * @return {void}
@@ -89,10 +89,11 @@ Use SkinPageReadyConfig hook to replace the search module (T395641).` );
  * @return {void}
  */
 function main( document, restClient, urlGeneratorInstance ) {
-	document.querySelectorAll( '.vector-search-box' )
-		.forEach( ( node ) => {
-			initApp( node, restClient, urlGeneratorInstance );
-		} );
+	/** @type {NodeListOf<HTMLElement>} */
+	const searchBoxes = document.querySelectorAll( '.vector-search-box' );
+	searchBoxes.forEach( ( node ) => {
+		initApp( node, restClient, urlGeneratorInstance );
+	} );
 }
 
 /**

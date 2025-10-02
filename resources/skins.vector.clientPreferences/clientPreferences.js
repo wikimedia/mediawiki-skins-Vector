@@ -167,7 +167,7 @@ function makeBetaInfoTag() {
 }
 
 /**
- * @param {Element} parent
+ * @param {HTMLElement} parent
  * @param {string} featureName
  * @param {string} value
  * @param {string} currentValue
@@ -247,7 +247,7 @@ function makeFeedbackLink( betaMessageElement ) {
 }
 
 /**
- * @param {Element} form
+ * @param {HTMLElement} form
  * @param {string} featureName
  * @param {HTMLElement} labelElement
  * @param {string} currentValue
@@ -302,7 +302,7 @@ const getFeatureLabelMsg = ( featureName ) => mw.message( `${ featureName }-name
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} userPreferences
- * @return {Element|null}
+ * @return {HTMLElement|null}
  */
 function makeControl( featureName, config, userPreferences ) {
 	const pref = config[ featureName ];
@@ -348,7 +348,7 @@ function makeControl( featureName, config, userPreferences ) {
 }
 
 /**
- * @param {Element} parent
+ * @param {HTMLElement} parent
  * @param {string} featureName
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} userPreferences
@@ -430,20 +430,21 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
  * @param {string} selector of element to fill with client preferences
  * @param {Record<string,ClientPreference>} config
  * @param {UserPreferencesApi} [userPreferences]
- * @return {Promise<Node>}
+ * @return {Promise<HTMLElement>}
  */
 function render( selector, config, userPreferences ) {
-	const node = document.querySelector( selector );
-	if ( !node ) {
+	/** @type {HTMLElement|null} */
+	const el = document.querySelector( selector );
+	if ( !el ) {
 		return Promise.reject();
 	}
 	return new Promise( ( resolve ) => {
 		getVisibleClientPreferences( config ).forEach( ( pref ) => {
 			userPreferences = userPreferences || new mw.Api();
-			makeClientPreference( node, pref, config, userPreferences );
+			makeClientPreference( el, pref, config, userPreferences );
 		} );
 		mw.requestIdleCallback( () => {
-			resolve( node );
+			resolve( el );
 		} );
 	} );
 }

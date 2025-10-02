@@ -54,6 +54,7 @@ function main( window ) {
 	watchstar();
 	// Initialize the search toggle for the main header only. The sticky header
 	// toggle is initialized after Codex search loads.
+	/** @type {HTMLElement|null} */
 	const searchToggleElement = document.querySelector( '.mw-header .search-toggle' );
 	if ( searchToggleElement ) {
 		searchToggle( searchToggleElement );

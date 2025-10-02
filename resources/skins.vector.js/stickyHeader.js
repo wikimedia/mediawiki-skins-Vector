@@ -521,12 +521,12 @@ function makeStickyHeaderFunctional(
  * @param {HTMLElement} header
  */
 function setupSearchIfNeeded( header ) {
-	const
-		searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
-
 	if ( !document.body.classList.contains( 'skin-vector-search-vue' ) ) {
 		return;
 	}
+
+	/** @type {HTMLElement|null} */
+	const searchToggle = header.querySelector( SEARCH_TOGGLE_SELECTOR );
 
 	if ( searchToggle ) {
 		initSearchToggle( searchToggle );
