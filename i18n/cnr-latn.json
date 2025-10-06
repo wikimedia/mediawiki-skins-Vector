@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bellatrix10"
+			"Bellatrix10",
+			"ITZQing"
 		]
 	},
+	"vector-languages": "Jezici",
+	"vector-language-button-label": "{{PLURAL:$1|Još jedan|Još $1}}",
+	"vector-no-language-button-label": "Dodaj jezike",
 	"vector-action-addsection": "Dodaj temu",
 	"vector-action-delete": "Izbriši",
 	"vector-action-move": "Premjesti",
@@ -12,5 +16,7 @@
 	"vector-view-edit": "Uredi",
 	"vector-view-history": "Pregledaj istoriju",
 	"vector-view-view": "Čitaj",
-	"vector-more-actions": "Više"
+	"vector-more-actions": "Više",
+	"vector-toc-beginning": "Početak",
+	"vector-anon-user-menu-pages": "Stranice za odjavljene urednike"
 }

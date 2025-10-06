@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"AnakngAraw",
 			"GinawaSaHapon",
 			"Ianlopez1115",
 			"Sky Harbor",
-			"Jojit fb"
+			"Jojit fb",
+			"Filipinayzd",
+			"Qwrop"
 		]
 	},
 	"skinname-vector": "Legacy na Vector (2010)",
@@ -27,7 +28,7 @@
 	"vector-no-language-button-aria-label": "Mayroon lamang ang artikulong ito sa wikang ito. Idagdag ang artikulo sa ibang mga wika",
 	"vector-language-redirect-to-top": "Sa {{SITENAME}} na ito, ang mga link ng wika ay nasa itaas ng pahina sa may bandang pamagat ng artikulo. [[#p-lang-btn|Pumunta sa itaas]].",
 	"vector-language-variant-switcher-label": "Ibahin ang baryante o variant ng wika",
-	"vector-action-addsection": "Magdagdag ng paksa",
+	"vector-action-addsection": "Bagong paksa",
 	"vector-action-delete": "Burahin",
 	"vector-action-move": "Ilipat",
 	"vector-action-protect": "Protektahan",
