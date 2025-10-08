@@ -88,6 +88,7 @@
 	"vector-appearance-unpinned-popup": "A megjelenés menü ide került.",
 	"vector-2022-beta-preview-label": "Akadálymentes az olvasáshoz (Vector 2022)",
 	"vector-2022-beta-preview-description": "Korán hozzáférhetsz az új olvasási akadálymentesítési funkciókhoz, például a tipográfiai fejlesztésekhez és az éjszakai módhoz.",
+	"vector-night-mode-issue-reporting-notice-tooltip": "Jelentés küldése, ha a sötét mód színei megnehezítik az olvasást.",
 	"vector-night-mode-issue-reporting-link-label": "Sötét móddal kapcsolatos probléma jelentése",
 	"vector-night-mode-issue-reporting-link-notification": "Jelentés küldve!",
 	"vector-night-mode-beta-tag": "(béta)"
