@@ -12,8 +12,6 @@
 	"vector-skin-desc": "Przidŏwŏ dwie skōrki Wektor:\n* 2011 – Ôdświyżōnŏ wersyjŏ ôd skōrki MonoBook, z nowym wyglōndym i poprŏwkami.\n* 2022 – Skōrka Wektor zbudowanŏ kej tajla projektu [[mw:Desktop Improvements]] ôd Fundacyje Wikimedia.",
 	"prefs-vector-enable-vector-1-label": "Użyj Legacy Vector",
 	"prefs-vector-enable-vector-1-help": "Over the next few years, we will be gradually updating the Vector skin. Legacy Vector will allow you to view the old version of Vector (as of December 2019). To learn more about the updates, go to our [[mw:Reading/Web/Desktop_Improvements|project page]].",
-	"vector-opt-out": "Przeszaltruj na stary widok",
-	"vector-opt-out-tooltip": "Zmiyń ustawiyniŏ, coby wrōcić sie do starego wyglōndu skōrki (legacy Vector)",
 	"vector-action-toggle-sidebar": "Przeszaltruj bocznŏ lajsta",
 	"vector-languages": "Gŏdki",
 	"vector-language-button-aria-label": "Pōdź do artikla w inkszyj gŏdce. Dostympne we {{PLURAL:$1|$1 godce|$1 godkach}}",

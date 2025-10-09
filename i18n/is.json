@@ -15,8 +15,6 @@
 	"vector-skin-desc": "Kemur með tvö Vector-þemu:\n* 2011 - Nútímaútgáfan af MonoBook með fersku útliti og einfaldara í notkun.\n* 2022 - Vector-útgáfan sem var gerð sem hluti af WMF [[mw:Desktop Improvements]] verkefninu.",
 	"prefs-vector-enable-vector-1-label": "Nota eldra Vector-skinn",
 	"prefs-vector-enable-vector-1-help": "Á næstu árum munum við smátt og smátt uppfæra Vector-skinnið. Eldra Vector-skinn mun gera þér kleift að sjá eldri útgáfu Vector (eins og hún var í desember 2019). Til að sjá meira um þessar uppfærslur, geturðu farið á [[mw:Reading/Web/Desktop_Improvements|verkefnissíðuna]].",
-	"vector-opt-out": "Skipta yfir í gamla útlitið",
-	"vector-opt-out-tooltip": "Breyta stillingunum mínum til að fara aftur í eldra útlit (gamla Vektor)",
 	"vector.css": "/* Allt CSS sem sett er hér mun  hafa áhrif á alla notendur Vektor-skinnsins. */",
 	"vector.js": "/* Allt JavaScript sem sett er hér mun hafa áhrif á notendur Vektor-skinnsins. */",
 	"vector-action-toggle-sidebar": "Víxla hliðarstiku af/á",

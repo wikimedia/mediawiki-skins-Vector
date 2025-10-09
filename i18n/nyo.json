@@ -7,8 +7,6 @@
 	"vector-skin-desc": "Empu 2 za Vekitoli ziheebwa:\n* 2011 - Omulingo omuhyaka gwa MonoKitabu ogwina enzooka empyaka n'enkiza nyingi y'okukozesa.\n* 2022 - Vekitoli eyombeka omu kwehinyira kwa WMF [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements].",
 	"prefs-vector-enable-vector-1-label": "Kozesa Vekitoli y'Ekirale",
 	"prefs-vector-enable-vector-1-help": "Omu myaka mitaito y'okwongeraho, tuliba nitubaziiramu oruhu rwa Vekitoli. Vekitoli y'Ekirale erikwikiriza kurora omulingo omukuru gwa Vekitoli (gw'Okwa ikumi n'abiri 2019). Kwega muno enkora, genda [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements ha rupapura rw'okwehinyira] rwaitu.",
-	"vector-opt-out": "Kozesa ensisana enkuru",
-	"vector-opt-out-tooltip": "Foora ebikiraanurwa byawe kugaruka ensisana enkuru y'oruhu (Vekitoli y'ekirale)",
 	"vector-action-toggle-sidebar": "Hinduliza omusorongo ha rubaju",
 	"vector-languages": "Endimi",
 	"vector-language-button-aria-label": "Genda endugaho omu rulimi rundi. Eroho omu {{PLURAL:$1|rulimi $1|ndimi $1}}",

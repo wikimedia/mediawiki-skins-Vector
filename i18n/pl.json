@@ -19,8 +19,6 @@
 	"vector-skin-desc": "Dodaje dwie skórki Wektor:\n* 2011 – Odświeżona wersja skórki Książka, z nowym wyglądem i usprawnieniami.\n* 2022 – Skórka Wektor zbudowana jako część projektu [https://www.mediawiki.org/wiki/Desktop_Improvements ulepszania interfejsu] Fundacji Wikimedia.",
 	"prefs-vector-enable-vector-1-label": "Użyj starego Wektora",
 	"prefs-vector-enable-vector-1-help": "W ciągu najbliższych kilku lat będziemy stopniowo aktualizować skórkę Wektor. Stary Wektor umożliwi ci używanie poprzedniej wersji skórki (na grudzień 2019). Aby dowiedzieć się więcej o aktualizacjach przejdź do naszej [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements strony projektu].",
-	"vector-opt-out": "Przełącz na stary widok",
-	"vector-opt-out-tooltip": "Zmień ustawienia, aby powrócić do starego wyglądu skórki (stary Wektor)",
 	"vector.css": "/* Umieszczony tutaj kod CSS zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany przez użytkowników korzystających ze skórki Wektor */",
 	"vector-action-toggle-sidebar": "Przełącz panel boczny",

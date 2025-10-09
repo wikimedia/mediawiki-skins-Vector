@@ -19,8 +19,6 @@
 	"vector-skin-desc": "Pruža dve Vektorske teme:\n* 2011 - Savremena verzija Monobuka sa svežim izgledom i mnogo korisnih poboljšanja.\n* 2022 - Novi Vektor napravljen u okviru projekta [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements].",
 	"prefs-vector-enable-vector-1-label": "Koristi stariju vektorsku temu",
 	"prefs-vector-enable-vector-1-help": "U narednom periodu postepeno ćemo ažurirati vektorsku temu. Izaberite opciju iznad kako biste se vratili na stariji izgled teme (decembar 2019). [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements Detaljnije o ažuriranjima]",
-	"vector-opt-out": "Vrati se na stari izgled",
-	"vector-opt-out-tooltip": "Promenite podešavanja da biste se vratili starom izgledu teme (starija vektorska)",
 	"vector.css": "/* CSS postavljen ovde učitaće se svim korisnicima vektorske teme */",
 	"vector.js": "/* JavaScript postavljen ovde učitaće se svim korisnicima vektorske teme */",
 	"vector-action-toggle-sidebar": "Prikaži/sakrij bočnu traku",

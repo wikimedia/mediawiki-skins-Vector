@@ -5,8 +5,6 @@
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Vector-2010 туттуу",
-	"vector-opt-out": "Эргэ көстүүгэ көс",
-	"vector-opt-out-tooltip": "Эргэ көстүүгэ көһөргө настройкаларгын уларыт (эргэ Вектор)",
 	"vector-languages": "Тыллар",
 	"vector-language-button-aria-label": "Атын тылынан һуруллубут һырайга көс. {{PLURAL:$1|$1 тылга}} баар.",
 	"vector-language-button-label": "{{PLURAL:$1|$1 тыл}}",

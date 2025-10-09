@@ -18,8 +18,6 @@
 	"vector-skin-desc": "提供2隻Vector外觀：\n* 2011 - MonoBook嘅摩登版，有新嘅樣，又有好多功能改進。\n* 2022 - 由維基媒體基金會[https://www.mediawiki.org/wiki/Desktop_Improvements 桌面改善]計劃搞出嚟嘅Vector版本。",
 	"prefs-vector-enable-vector-1-label": "用舊版Vector",
 	"prefs-vector-enable-vector-1-help": "來緊幾年，我哋會逐步更新Vector外觀。揀舊版Vector畀你用返Vector嘅舊版本（2019年12月版）。要瞭解更新詳情，請去我哋嘅[https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements 計畫專頁]。",
-	"vector-opt-out": "轉返舊貌",
-	"vector-opt-out-tooltip": "改你嘅設定用返舊款外觀（舊版Vector）",
 	"vector.css": "/* 響頁面載入時，用Vector外觀嘅用戶都會載入呢度任何嘅CSS */",
 	"vector.js": "/* 響頁面載入時，用Vector外觀嘅用戶都會載入呢度任何嘅JavaScript */",
 	"vector-action-toggle-sidebar": "邊欄開閂",

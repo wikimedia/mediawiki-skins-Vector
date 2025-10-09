@@ -14,8 +14,6 @@
 	"vector-skin-desc": "2 rûyên Vectorê peyda dike:\n* 2011 - Guhartoya nûjen a MonoBook bi dîmeneke nû û gelek çêtirkirinên bikaranînê.\n* 2022 - Vektora ku wekî beşeke ji projeya WMF ya [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements] hatiye çêkirin.",
 	"prefs-vector-enable-vector-1-label": "Legacy Vector Bi Kar Bîne",
 	"prefs-vector-enable-vector-1-help": "Di nav çend salên pêşî de, em ê hêdî hêdî rûyê Vectorê nû bikin. Legacy Vector dê bihêle ku hûn guhartoya kevn a Vectorê (ji kanûna pêşîn 2019an ve) bibînin. Ji bo bêtir agahdarî li ser nûkirinan, herin [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements rûpela projeyê].",
-	"vector-opt-out": "Rûyê kevn biemilîne",
-	"vector-opt-out-tooltip": "Mîhengên xwe biguhêre ji bo vegerîna rûyê kevn (legacy Vector)",
 	"vector.css": "/* Hemû CSS-a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
 	"vector.js": "/* Hemû JavaScript -a li vir dê ji bo bikarhênerên rûyê Vectorê were barkirin */",
 	"vector-action-toggle-sidebar": "Menuya kêlekê bigire/veke",

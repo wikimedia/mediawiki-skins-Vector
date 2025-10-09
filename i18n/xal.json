@@ -7,8 +7,6 @@
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Хуучна Vector ашглх",
-	"vector-opt-out": "Хуучн хүвлврт шилҗх",
-	"vector-opt-out-tooltip": "Сайтын скиниг хуучн хүвлврт шилҗүлх (legacy Vector)",
 	"vector-action-toggle-sidebar": "Хаҗуһин цесиг нееҗ хаах",
 	"vector-languages": "Келмүд",
 	"vector-language-button-label": "{{PLURAL:$1|$1 келәр}}",

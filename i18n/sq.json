@@ -18,8 +18,6 @@
 	"vector-skin-desc": "Ofron dy mbulesa vizuale Vector:\n* 2011 - Varianti Modern i MonoBook-ut me një pamje të freskët dhe shumë përmirësime të përdorimit.\n* 2022 - Vector-i i ndërtuar si pjesë e [https://www.mediawiki.org/wiki/Desktop_Improvements Përmirësimeve të Desktopit] për projektin WMF.",
 	"prefs-vector-enable-vector-1-label": "Përdor Vector-in e vjetër",
 	"prefs-vector-enable-vector-1-help": "Gjatë viteve në vijim, ne do të aktualizojmë gradualisht mbulesën Vector. Vector i Vjetër do t'ju lejojë të shikoni versionin e vjetër të Vector (që nga dhjetori 2019). Për të mësuar më shumë rreth përditësimeve, shkoni te [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements faqen e projektit].",
-	"vector-opt-out": "Kalo te pamja e vjetër",
-	"vector-opt-out-tooltip": "Ndryshoni parametrat që t'i ktheheni petkut të vjetër (Vector i vjetër)",
 	"vector-action-toggle-sidebar": "Aktivizoni shiritin",
 	"vector-languages": "Gjuhët",
 	"vector-language-button-aria-label": "Shko te një artikull në një gjuhë tjetër. I disponueshëm në {{PLURAL:$1|$1 gjuhë}}",

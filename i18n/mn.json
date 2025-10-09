@@ -9,8 +9,6 @@
 		]
 	},
 	"prefs-vector-enable-vector-1-label": "Хуучны Vector ашиглах",
-	"vector-opt-out": "Хуучин хувилбарт шилжих",
-	"vector-opt-out-tooltip": "Сайтын скинийг хуучин хувилбарт шилжүүлэх (legacy Vector)",
 	"vector-action-toggle-sidebar": "Хажуугийн цэсийг нээж хаах",
 	"vector-languages": "Хэлнүүд",
 	"vector-language-button-label": "{{PLURAL:$1|$1 хэлээр}}",

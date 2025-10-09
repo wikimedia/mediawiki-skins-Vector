@@ -9,8 +9,6 @@
 		]
 	},
 	"skinname-vector": "Vector (version 2010)",
-	"vector-opt-out": "Cambiar a l'ancian aspècte",
-	"vector-opt-out-tooltip": "Cambiar la configuracion per tornar a l'ancian aspècte de l'aparéncia (Vector eretat)",
 	"vector.css": "/* Lo CSS plaçat aicí afectarà los utilizaires de l’abilhatge Vector */",
 	"vector.js": "/* Tot JavaScript aicí serà cargat amb las paginas accedidas pels utilizaires de l’abilhatge Vector unicament. */",
 	"vector-languages": "Lengas",
