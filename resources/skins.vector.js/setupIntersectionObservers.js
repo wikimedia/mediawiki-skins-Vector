@@ -262,7 +262,7 @@ const main = () => {
 		allowedNamespace = stickyHeader.isAllowedNamespace( mw.config.get( 'wgNamespaceNumber' ) ),
 		allowedAction = stickyHeader.isAllowedAction( mw.config.get( 'wgAction' ) );
 
-	const showStickyHeader =
+	const stickyHeaderAllowed =
 		!mw.user.isAnon() &&
 		!!stickyHeaderElement &&
 		!!stickyIntersection &&
@@ -270,12 +270,17 @@ const main = () => {
 		allowedNamespace &&
 		allowedAction;
 
+	let scrolledPastPageTitle = false;
+
 	// Set up intersection observer for page title
 	// Used to show/hide sticky header and add class used by collapsible TOC (T307900)
 	const observer = scrollObserver.initScrollObserver(
 		() => {
-			if ( showStickyHeader ) {
-				stickyHeader.show();
+			if ( stickyHeaderAllowed ) {
+				scrolledPastPageTitle = true;
+				if ( !belowDesktopMedia.matches ) {
+					stickyHeader.show();
+				}
 				updateTocLocation();
 			}
 			document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
@@ -285,8 +290,11 @@ const main = () => {
 			scrollObserver.firePageTitleScrollHook( 'down' );
 		},
 		() => {
-			if ( showStickyHeader ) {
-				stickyHeader.hide();
+			if ( stickyHeaderAllowed ) {
+				scrolledPastPageTitle = false;
+				if ( !belowDesktopMedia.matches ) {
+					stickyHeader.hide();
+				}
 				updateTocLocation();
 			}
 			document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
@@ -297,19 +305,25 @@ const main = () => {
 		}
 	);
 
-	// Handle toc location when sticky header is hidden on lower viewports
 	belowDesktopMedia.onchange = () => {
+		// Handle TOC location when sticky header is hidden on lower viewports
 		updateTocLocation();
+		// Handle show/hide of sticky header on viewport resize
+		if ( !belowDesktopMedia.matches && scrolledPastPageTitle ) {
+			stickyHeader.show();
+		} else {
+			stickyHeader.hide();
+		}
 	};
 
 	updateTocLocation();
 
-	if ( !showStickyHeader ) {
+	if ( !stickyHeaderAllowed ) {
 		stickyHeader.hide();
 		document.documentElement.classList.remove( STICKY_HEADER_ENABLED_CLASS );
 	}
 
-	if ( showStickyHeader ) {
+	if ( stickyHeaderAllowed ) {
 		stickyHeader.initStickyHeader( {
 			header: stickyHeaderElement,
 			userLinksDropdown,
