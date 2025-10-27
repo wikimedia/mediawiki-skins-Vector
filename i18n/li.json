@@ -23,5 +23,6 @@
 	"vector-view-viewsource": "Bekiek bróntèks",
 	"vector-more-actions": "Mieë",
 	"vector-searchsuggest-containing": "Zeuk veur pagina's mitte teks <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
-	"vector-toc-beginning": "Begin"
+	"vector-toc-beginning": "Begin",
+	"vector-anon-user-menu-pages": "Pagina's veur oetgelogdje bewirkers"
 }
