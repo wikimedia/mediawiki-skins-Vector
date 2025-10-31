@@ -13,5 +13,9 @@
 		"betaMessage": "vector-night-mode-beta-tag",
 		"linkLabelMessage": "vector-night-mode-issue-reporting-link-label",
 		"linkLabelUrl": "vector-night-mode-issue-reporting-notice-url"
+	},
+	"wp25eastereggs-enable": {
+		"options": [ "0", "1" ],
+		"preferenceKey": "wp25eastereggs-enable"
 	}
 }
