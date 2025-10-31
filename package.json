@@ -5,6 +5,7 @@
 		"test": "npm -s run lint && tsc && npm run test:unit",
 		"test:unit": "jest --silent",
 		"test:unit:updateSnapshot": "jest --updateSnapshot",
+		"coverage": "npm run test:unit",
 		"lint": "npm -s run lint:js && npm -s run lint:styles && npm -s run lint:i18n",
 		"lint:fix:js": "npm -s run lint:js -- --fix",
 		"lint:fix:styles": "npm -s run lint:styles -- --fix",
