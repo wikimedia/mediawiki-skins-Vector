@@ -15,7 +15,8 @@
 			"Caiofernandes",
 			"Jdlrobson",
 			"Qgustavor",
-			"Fúlvio"
+			"Fúlvio",
+			"Mansil alfalb"
 		]
 	},
 	"skinname-vector": "Vector antigo (2010)",
@@ -29,10 +30,10 @@
 	"vector.css": "/* Todo o código CSS colocado aqui será carregado para os utilizadores do tema Vector */",
 	"vector.js": "/* Todo o código Javascript colocado aqui será carregado para os utilizadores do tema Vector */",
 	"vector-action-toggle-sidebar": "Alternar barra lateral",
-	"vector-languages": "Línguas",
+	"vector-languages": "Idiomas",
 	"vector-language-button-aria-label": "Ir para um artigo noutra língua. Disponível em {{PLURAL:$1|$1 língua|$1 línguas}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 língua|$1 línguas}}",
-	"vector-no-language-button-label": "Adicionar línguas",
+	"vector-language-button-label": "{{PLURAL:$1|$1 idioma|$1 idiomas}}",
+	"vector-no-language-button-label": "Adicionar idiomas",
 	"vector-no-language-button-aria-label": "Este artigo só existe nesta língua. Adicione o artigo noutras línguas",
 	"vector-language-redirect-to-top": "Na wiki {{SITENAME}} as hiperligações interlínguas estão localizadas no topo da página do lado oposto ao título. [[#p-lang-btn|Ir para o topo]].",
 	"vector-language-variant-switcher-label": "Mudar a variante da língua",
@@ -59,7 +60,7 @@
 	"vector-toc-toggle-position-title": "ocultar",
 	"vector-toc-beginning": "Início",
 	"vector-toc-toggle-button-label": "Alternar a subsecção $1",
-	"vector-anon-user-menu-pages": "Páginas para editores sem sessão iniciada",
+	"vector-anon-user-menu-pages": "Páginas para editores não autenticados",
 	"vector-anon-user-menu-pages-learn": "saber mais",
 	"vector-anon-user-menu-pages-label": "Saiba mais sobre edição",
 	"vector-main-menu-tooltip": "Menu principal",

@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bennylin"
+		]
+	},
+	"vector-languages": "ꦧꦱ",
+	"vector-language-button-label": "$1ꦧꦱ",
+	"vector-no-language-button-label": "ꦠꦩ꧀ꦧꦃ​ꦧꦱ",
+	"vector-action-addsection": "ꦠꦩ꧀ꦧꦃ​ꦉꦩ꧀ꦧꦸꦒ꧀",
+	"vector-action-delete": "ꦧꦸꦱꦏ꧀",
+	"vector-action-move": "ꦭꦶꦃ",
+	"vector-action-protect": "ꦉꦏ꧀ꦱ",
+	"vector-view-create": "ꦒꦮꦺ",
+	"vector-view-history": "ꦢꦼꦊꦁ​ꦱꦗꦫꦃ",
+	"vector-more-actions": "ꦭꦶꦪꦤꦺ",
+	"vector-toc-beginning": "ꦮꦶꦮꦶꦠ꧀ꦠꦤ꧀",
+	"vector-anon-user-menu-pages": "ꦏꦕ​ꦥꦩ꧀ꦧꦼꦱꦸꦠ꧀ꦏꦁ​ꦩꦼꦠꦸ​ꦭꦺꦴꦒ꧀"
+}
