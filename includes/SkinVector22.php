@@ -299,6 +299,19 @@ class SkinVector22 extends SkinMustache {
 		}
 	}
 
+	/**
+	 * @param array $portlets
+	 * @return bool
+	 */
+	private function isReadingListsEnabled( array $portlets ): bool {
+		foreach ( $portlets['data-user-menu']['array-items'] as $item ) {
+			if ( $item['id'] === 'pt-readinglists' ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public function getTemplateData(): array {
 		$parentData = parent::getTemplateData();
 		$parentData = $this->mergeViewOverflowIntoActions( $parentData );
@@ -486,7 +499,8 @@ class SkinVector22 extends SkinMustache {
 						],
 						'quiet'
 					) : null,
-				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] )
+				$this->isVisualEditorTabPositionFirst( $portlets[ 'data-views' ] ),
+				$this->isReadingListsEnabled( $portlets )
 			),
 		];
 
