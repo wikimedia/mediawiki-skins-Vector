@@ -32,7 +32,7 @@
 	"vector-action-toggle-sidebar": "Kenar çubuğunu aç/kapat",
 	"vector-languages": "Diller",
 	"vector-language-button-aria-label": "Başka bir dildeki sayfaya gidin. {{PLURAL:$1|$1 dilde}} mevcut",
-	"vector-language-button-label": "{{PLURAL:$1|dil}}",
+	"vector-language-button-label": "{{PLURAL:$1 dil|$1 dil}}",
 	"vector-no-language-button-label": "Dil ekle",
 	"vector-no-language-button-aria-label": "Bu madde yalnızca bu dilde mevcuttur. Maddeyi diğer dillere ekleyin",
 	"vector-language-variant-switcher-label": "Dil varyantını değiştir",
