@@ -15,7 +15,8 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Αντιγόνη"
+			"Αντιγόνη",
+			"Jimkats"
 		]
 	},
 	"vector-skin-desc": "Παρέχει 2 Vector θέματα:\n* 2011 - Τη σύγχρονη έκδοση του MonoBook με φρέσκια εμφάνιση και πολλές βελτιώσεις στη χρηστικότητα.\n* 2022 - Το Vector που δημιουργήθηκε ως μέρος του έργου [https://www.mediawiki.org/wiki/Desktop_Improvements Desktop Improvements] του WMF.",
@@ -48,7 +49,7 @@
 	"vector-jumptocontent": "Μετάβαση στο περιεχόμενο",
 	"vector-more-actions": "Περισσότερα",
 	"vector-appearance-label": "Εμφάνιση",
-	"vector-personal-tools-tooltip": "Αλλαγή προσωπικών ρυθμίσεων",
+	"vector-personal-tools-tooltip": "Προσωπικές ρυθμίσεις",
 	"vector-feature-limited-width-name": "Πλάτος",
 	"vector-feature-limited-width-0-label": "Πλατύ",
 	"vector-feature-limited-width-1-label": "Κανονικό",
