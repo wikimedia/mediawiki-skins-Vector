@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
+			"IOIOI",
 			"Matma Rex",
 			"Msz2001",
 			"Nux",
@@ -61,7 +62,7 @@
 	"skin-theme-exclusion-notice": "Ta strona zawsze jest wyświetlana w motywie jasnym.",
 	"vector-intro-page": "Help:Pierwsze kroki",
 	"vector-toc-label": "Spis treści",
-	"vector-toc-beginning": "Początek",
+	"vector-toc-beginning": "Wstęp",
 	"vector-toc-toggle-button-label": "Przełącz podsekcję $1",
 	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",
 	"vector-anon-user-menu-pages-learn": "dowiedz się więcej",
