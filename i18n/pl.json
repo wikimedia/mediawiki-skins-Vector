@@ -10,7 +10,8 @@
 			"Sp5uhe",
 			"Tar Lócesilion",
 			"WaldiSt",
-			"Woytecr"
+			"Woytecr",
+			"IOIOI"
 		]
 	},
 	"skinname-vector": "Stary Wektor (2010)",
@@ -65,7 +66,7 @@
 	"vector-searchsuggest-containing": "Szukaj stron zawierających <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Pierwsze kroki",
 	"vector-toc-label": "Spis treści",
-	"vector-toc-beginning": "Początek",
+	"vector-toc-beginning": "Wstęp",
 	"vector-toc-toggle-button-label": "Przełącz podsekcję $1",
 	"vector-anon-user-menu-pages": "Strony dla anonimowych edytorów",
 	"vector-anon-user-menu-pages-learn": "dowiedz się więcej",
