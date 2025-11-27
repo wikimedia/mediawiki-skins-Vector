@@ -27,7 +27,7 @@
 	"vector-language-button-aria-label": "Przejdź do artykułu w innym języku. Treść dostępna w {{PLURAL:$1|$1 języku|$1 językach}}",
 	"vector-language-button-label": "$1 {{PLURAL:$1|język|języki|języków}}",
 	"vector-no-language-button-label": "Dodaj języki",
-	"vector-no-language-button-aria-label": "Ten artykuł istnieje tylko w tym języku. Dodaj artykuły w innych językach.",
+	"vector-no-language-button-aria-label": "Ten artykuł jest dostępny tylko w tym języku. Dodaj artykuły w innych językach.",
 	"vector-language-variant-switcher-label": "Zmień wariant języka",
 	"vector-action-addsection": "Dodaj temat",
 	"vector-action-delete": "Usuń",
