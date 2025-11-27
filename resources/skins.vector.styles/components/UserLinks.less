@@ -87,6 +87,14 @@
  */
 .vector-user-menu-logged-in .vector-dropdown-label {
 	.mixin-vector-arrowed-dropdown-toggle();
+
+	// With the dropdown arrow, the min-width is no longer enough
+	// so use equivalent horizontal padding.
+	padding: 0 @spacing-35;
+
+	@media ( max-width: @max-width-breakpoint-tablet ) {
+		padding: 0 @spacing-75;
+	}
 }
 
 /**
