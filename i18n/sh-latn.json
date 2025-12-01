@@ -11,6 +11,8 @@
 			"Aca"
 		]
 	},
+	"skinname-vector": "Vector 2010",
+	"skinname-vector-2022": "Vector 2022",
 	"vector-skin-desc": "Pruža dvije varijante Vectora:\n* 2011 – Savremena verzija MonoBooka s osvježenim izgledom i mnogim poboljšanjima.\n* 2022 – Vector izrađen kao dio projekta [[mw:Desktop Improvements|Poboljšanja računarskog prikaza]] Fondacije Wikimedia.",
 	"prefs-vector-enable-vector-1-label": "Koristi stari Vector",
 	"prefs-vector-enable-vector-1-help": "Kroz narednih nekoliko godina postepeno ćemo ažurirati Vektorsku temu. Njegova stara upotreba pružit će Vam mogućnost da koristite raniju verziju (decembar 2019). Za detalje o ažuriranjima, posjetite našu [[mw:Reading/Web/Desktop_Improvements|stranicu  projekta]].",
