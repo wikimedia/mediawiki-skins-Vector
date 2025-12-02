@@ -51,7 +51,7 @@
 	"skin-theme-day-label": "Svijetla",
 	"skin-theme-night-label": "Tamna",
 	"skin-theme-os-label": "Automatska",
-	"skin-theme-exclusion-notice": "Ova je stranica uvijek svijetla.",
+	"skin-theme-exclusion-notice": "Stranica je uvijek u svijetloj temi.",
 	"vector-search-loader": "Učitavam prijedloge pretrage",
 	"vector-searchsuggest-containing": "Pretraži stranice koje sadrže <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Pomoć:Uvod",

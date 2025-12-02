@@ -5,7 +5,8 @@
 			"Nieszczarda2",
 			"Red Winged Duck",
 			"Renessaince",
-			"Wizardist"
+			"Wizardist",
+			"Ucukor"
 		]
 	},
 	"skinname-vector": "Стары Вэктар (2010)",
@@ -35,7 +36,7 @@
 	"vector-view-edit": "Рэдагаваць",
 	"vector-view-history": "Паказаць гісторыю",
 	"vector-view-view": "Чытаць",
-	"vector-view-viewsource": "Паказаць крыніцу",
+	"vector-view-viewsource": "Прагляд коду",
 	"vector-jumptonavigation": "Перайсьці да навігацыі",
 	"vector-jumptosearch": "Перайсьці да пошуку",
 	"vector-jumptocontent": "Перайсьці да зьместу",
