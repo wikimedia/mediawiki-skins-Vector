@@ -69,12 +69,27 @@ final class Constants {
 	/**
 	 * @var string
 	 */
+	public const FEATURE_LANGUAGE_IN_MAIN_MENU = 'LanguageInMainMenu';
+
+	/**
+	 * @var string
+	 */
 	public const CONFIG_KEY_LANGUAGE_IN_HEADER = 'VectorLanguageInHeader';
 
 	/**
 	 * @var string
 	 */
 	public const REQUIREMENT_LANGUAGE_IN_HEADER = 'LanguageInHeader';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_LANGUAGE_IN_MAIN_MENU = 'VectorLanguageInMainMenu';
+
+	/**
+	 * @var string
+	 */
+	public const REQUIREMENT_LANGUAGE_IN_MAIN_MENU = 'LanguageInMainMenu';
 
 	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads

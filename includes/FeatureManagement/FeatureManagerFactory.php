@@ -75,6 +75,15 @@ class FeatureManagerFactory {
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER
 			)
 		);
+		$featureManager->registerRequirement(
+			new OverridableConfigRequirement(
+				$config,
+				$user,
+				$request,
+				Constants::CONFIG_KEY_LANGUAGE_IN_MAIN_MENU,
+				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_MENU
+			)
+		);
 
 		// ---
 
@@ -83,6 +92,15 @@ class FeatureManagerFactory {
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+			]
+		);
+
+		$featureManager->registerFeature(
+			Constants::FEATURE_LANGUAGE_IN_MAIN_MENU,
+			[
+				Constants::REQUIREMENT_FULLY_INITIALISED,
+				Constants::REQUIREMENT_LANGUAGE_IN_HEADER,
+				Constants::REQUIREMENT_LANGUAGE_IN_MAIN_MENU
 			]
 		);
 

@@ -11,6 +11,8 @@ use MessageLocalizer;
  * VectorComponentMainMenu component
  */
 class VectorComponentMainMenu implements VectorComponent {
+	/** @var bool */
+	private $includeLanguages;
 	private readonly bool $isPinned;
 	private readonly VectorComponentPinnableHeader $pinnableHeader;
 	/** @var string */
@@ -25,6 +27,8 @@ class VectorComponentMainMenu implements VectorComponent {
 		Skin $skin,
 	) {
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_MAIN_MENU_PINNED );
+		$this->includeLanguages = $featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_MENU ) ||
+			!$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_HEADER );
 
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$this->localizer,
@@ -53,6 +57,7 @@ class VectorComponentMainMenu implements VectorComponent {
 			'array-portlets-rest' => $portletsRest,
 			'data-pinnable-header' => $this->pinnableHeader->getTemplateData(),
 			'data-languages' => $languageMenu->getTemplateData(),
+			'is-languages-included' => $this->includeLanguages,
 		];
 	}
 }

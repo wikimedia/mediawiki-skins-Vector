@@ -623,6 +623,13 @@
 			"value": null,
 			"description": "@var string|null The version ('2' for latest, '1' for legacy) of the Vector skin to **set** for newly created user accounts. **The value is persisted as a user preference.** This configuration is not used for preexisting accounts (see VectorDefaultSkinVersionForExistingAccounts) and only ever executed once at new account creation time. If it is null, no user preference will be set."
 		},
+		"VectorLanguageInMainMenu": {
+			"value": {
+				"logged_in": false,
+				"logged_out": false
+			},
+			"description": "@var array Use to force the languages to show in sidebar as well even when $wgVectorLanguageInHeader is set."
+		},
 		"VectorLanguageInHeader": {
 			"value": {
 				"logged_in": true,
