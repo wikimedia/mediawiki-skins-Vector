@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"122112ê",
-			"Protostar"
+			"Protostar",
+			"AmazingJus"
 		]
 	},
 	"vector-languages": "Langwejdɛm",
@@ -38,5 +39,6 @@
 	"vector-feature-custom-font-size-exclusion-notice": "Dis pej de yuz smɔl fɔnt sayz ɔltɛm",
 	"vector-page-tools-label": "Tuldɛm",
 	"vector-page-tools-general-label": "Jɛnɛral",
+	"vector-page-tools-actions-label": "Akshɔn dɛn",
 	"vector-unpin-element-label": "ayd"
 }
