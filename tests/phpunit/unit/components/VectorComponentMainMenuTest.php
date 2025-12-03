@@ -87,6 +87,16 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 				'languageData' => [],
 				'isPinned' => false,
 			],
+			'Main menu contains languages when no languages' => [
+				'sidebarData' => [
+					'data-portlets-first' => [],
+					'array-portlets-rest' => [],
+				],
+				'languageData' => [],
+				'isPinned' => false,
+				'isLanguageSidebar' => true,
+				'isLanguageInHeader' => true,
+			],
 		];
 	}
 
@@ -94,17 +104,26 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 	 * @covers ::getTemplateData
 	 * @dataProvider provideMainMenuScenarios
 	 */
-	public function testGetTemplateData( array $sidebarData, array $languageData, bool $isPinned ) {
+	public function testGetTemplateData(
+		array $sidebarData, array $languageData, bool $isPinned,
+		bool $isLanguageSidebar = false, bool $isLanguageInHeader = false
+	) {
 		// Mock the MessageLocalizer, UserIdentity, FeatureManager, and Skin classes
 		$localizerMock = $this->createMock( MessageLocalizer::class );
 		$userMock = $this->createMock( UserIdentity::class );
 		$featureManagerMock = $this->createMock( FeatureManager::class );
 
 		// Mock the isFeatureEnabled method
-		$featureManagerMock->expects( $this->once() )
+		$featureManagerMock->expects( $this->any() )
 			->method( 'isFeatureEnabled' )
-			->with( Constants::FEATURE_MAIN_MENU_PINNED )
-			->willReturn( $isPinned );
+			->willReturnCallback( static function ( $feature ) use ( $isPinned ) {
+				switch ( $feature ) {
+					case Constants::FEATURE_MAIN_MENU_PINNED:
+						return $isPinned;
+					default:
+						return false;
+				}
+			} );
 
 		// Mock the Skin class
 		$skinMock = $this->createMock( Skin::class );
@@ -125,6 +144,8 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		// Assert main menu id and pin status
 		$this->assertSame( 'vector-main-menu', $templateData['id'] );
 		$this->assertSame( $isPinned, $templateData['is-pinned'] );
+		$this->assertSame( $isLanguageSidebar || !$isLanguageInHeader,
+			$templateData['is-languages-included'] );
 
 		// Assert the structure and types of expected keys
 		$this->assertIsArray( $templateData['data-portlets-first'] );

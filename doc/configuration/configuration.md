@@ -115,6 +115,12 @@ Different projects have different needs, so some configuration on the site level
 
   - Configurable for different wikis. This is currently used on projects like Wikimedia Commons, MediaWiki and Wikidata which do not have separate language sites.
 
+- wgVectorLanguageInMainMenu
+
+  - When enabled languaged appear in the sidebar regardless of value of wgVectorLanguageInHeader.
+
+  - This configuration is unstable and strictly for use in Russian Wikipedia only.
+
 - wgVectorTypeahead
 
   - Configures Typeahead Search APIs including an alternative API for search queries and search recommendations. The alternative search queries API is mostly used for development purposes, as if it's not set, it uses default MediaWiki search. The recommendations API is disabled by default.
