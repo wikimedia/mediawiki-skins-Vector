@@ -5,9 +5,13 @@
 			"Thushara",
 			"දසනැබළයෝ",
 			"පසිඳු කාවින්ද",
-			"සුරනිමල"
+			"සුරනිමල",
+			"BuddhikaW88"
 		]
 	},
+	"vector-languages": "භාෂා",
+	"vector-language-button-label": "{{PLURAL:$1| භාෂාව $1 | භාෂා $1 }}",
+	"vector-no-language-button-label": "භාෂා එකතු කිරීම",
 	"vector-action-addsection": "මාතෘකාවක් එක්කරන්න",
 	"vector-action-delete": "මකන්න",
 	"vector-action-move": "ගෙනයන්න",
@@ -19,5 +23,7 @@
 	"vector-view-history": "ඉතිහාසය බලන්න",
 	"vector-view-view": "කියවන්න",
 	"vector-view-viewsource": "මූලාශ්‍රය නරඹන්න",
-	"vector-more-actions": "තවත්"
+	"vector-more-actions": "තවත්",
+	"vector-toc-beginning": "ආරම්භය",
+	"vector-anon-user-menu-pages": "නික්මූ සංස්කාරකවරුන් සඳහා පිටු"
 }
