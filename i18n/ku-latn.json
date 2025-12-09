@@ -5,7 +5,8 @@
 			"Bikarhêner",
 			"Ferhengvan",
 			"George Animal",
-			"Gomada"
+			"Gomada",
+			"Guherto"
 		]
 	},
 	"skinname-vector": "Vector legacy (2010)",
@@ -53,6 +54,7 @@
 	"skin-theme-day-label": "Ron",
 	"skin-theme-night-label": "Tarî",
 	"skin-theme-os-label": "Otomatîk",
+	"skin-theme-exclusion-notice": "Ev rûpel her car di moda ron de ye.",
 	"vector-search-loader": "Pêşniyazên lêgerînê tê barkirin",
 	"vector-searchsuggest-containing": "Li rûpelên ku <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> dihewînin bigere",
 	"vector-intro-page": "Help:Gavên pêşîn",
