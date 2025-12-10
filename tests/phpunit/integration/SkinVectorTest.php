@@ -53,7 +53,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				$content_navigation['actions'] = [
 					'action-1' => []
 				];
-				$content_navigation['namespaces'] = [
+				$content_navigation['associated-pages'] = [
 					'ns-1' => []
 				];
 				$content_navigation['variants'] = [
@@ -75,7 +75,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 		$props = $openVectorTemplate->getTemplateData()['data-portlets'];
 		$views = $props['data-views'];
-		$namespaces = $props['data-namespaces'];
+		$namespaces = $props['data-associated-pages'];
 
 		// The mediawiki core specification might change at any time
 		// so let's limit the values we test to those we are aware of.
@@ -109,7 +109,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$variants = $props['data-variants'];
 		$actions = $props['data-actions'];
 		$this->assertSame(
-			'mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy',
+			'mw-portlet mw-portlet-associated-pages vector-menu-tabs vector-menu-tabs-legacy',
 			$namespaces['class']
 		);
 		$this->assertSame(
@@ -122,7 +122,7 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		);
 		$this->assertSame(
 			'mw-portlet mw-portlet-personal vector-user-menu-legacy',
-			$props['data-personal']['class']
+			$props['data-user-menu']['class']
 		);
 	}
 
