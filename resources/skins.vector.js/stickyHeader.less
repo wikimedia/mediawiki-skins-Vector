@@ -124,17 +124,8 @@
 // T298836 Sticky header is only shown at higher resolutions
 @media ( min-width: @min-width-breakpoint-desktop ) {
 	.client-js.vector-sticky-header-enabled {
-		// T290518: When the sticky header is enabled (feature flag is on, js is
-		// enabled, and viewport is at higher resolutions), add scroll padding to the
-		// root element. This is needed so that the sticky header does not overlap the
-		// top of an element when the URI has a hash fragment (e.g. when the user clicks
-		// a jump link) and when the user tabs through elements in reverse order.
-		//
-		// Please note that this class must be independent of the
-		// .vector-sticky-header-visible class to correctly handle situations where the
-		// sticky header isn't visible yet but we still need scroll padding applied
-		// (e.g. when the user navigates to a page with a hash fragment in the URI).
-		scroll-padding-top: @height-header;
+		// scroll-padding-top is set in screen.less so it is ready before
+		// JS runs for hash fragment navigation
 
 		.vector-sticky-header-container {
 			// Sticky header is only enabled for js users and when feature flag is enabled
