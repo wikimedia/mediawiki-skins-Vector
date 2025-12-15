@@ -5,16 +5,21 @@
 			"Shimmin Beg"
 		]
 	},
+	"vector-languages": "Çhengaghyn",
+	"vector-language-button-label": "{{PLURAL:$1|$1 çhengey}}",
+	"vector-no-language-button-label": "Cur çhengaghyn rish",
 	"vector-action-addsection": "Cur cooish noa rish",
 	"vector-action-delete": "Scryss",
 	"vector-action-move": "Scugh",
 	"vector-action-protect": "Coadee",
 	"vector-action-undelete": "Jee-scryss",
-	"vector-action-unprotect": "Caghlaa coadey",
+	"vector-action-unprotect": "Ceaghil coadey",
 	"vector-view-create": "Croo",
 	"vector-view-edit": "Reagh",
 	"vector-view-history": "Jeeagh er shennaghys",
 	"vector-view-view": "Lhaih",
 	"vector-view-viewsource": "Jeeagh er bun",
-	"vector-toc-beginning": "Toshiaght"
+	"vector-more-actions": "Tooilley",
+	"vector-toc-beginning": "Toshiaght",
+	"vector-anon-user-menu-pages": "Duillagyn da reagheydyeryn ta loggit magh"
 }
