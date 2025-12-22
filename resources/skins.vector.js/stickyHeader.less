@@ -39,7 +39,7 @@
 	}
 
 	// Apply nowrap to title and buttons
-	// Must apply to &-ccontext-bar-primary rather than &-context-bar or &-start
+	// Must apply to &-context-bar-primary rather than &-context-bar or &-start
 	// to avoid applying nowrap to the collapsed TOC menu
 	&-context-bar-primary,
 	&-end {
@@ -51,13 +51,17 @@
 	//
 	&-context-bar {
 		border-left: @border-subtle;
-		padding-left: @spacing-search-title-divider;
 		min-width: 0;
 		margin-left: @spacing-search-title-divider;
+		flex-grow: 1;
 	}
 
 	&-context-bar-primary {
 		overflow: hidden;
+		// T349436 Avoid clipping letters with wide kerns (e.g. overhanging swashes on italic 'ʄ').
+		// Add start padding and use flex-grow to ensure there is space on the end.
+		padding-left: @spacing-search-title-divider;
+		flex-grow: 1;
 		font-family: @font-family-serif;
 		// T296320 closest standardized option to 22px (24px)
 		font-size: @font-size-heading-2;
