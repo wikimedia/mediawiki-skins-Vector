@@ -86,8 +86,6 @@
 	"vector-page-tools-unpinned-popup": "ხელსაწყოების მენიუ აქ გადმოვიდა.",
 	"vector-main-menu-unpinned-popup": "მთავარი მენიუ აქ გადმოვიდა.",
 	"vector-appearance-unpinned-popup": "იერსახის მენიუ აქ გადმოვიდა.",
-	"vector-2022-beta-preview-label": "წაკითხვის ხელმისაწვდომობა (ვექტორული 2022)",
-	"vector-2022-beta-preview-description": "ვექტორული იერსახის (2022) წაკითხვის ხელმისაწვდომობის ახალ ფუნქციებზე ადრეული წვდომის მიღება. ამ ფუნქციებს შორისაა ტიპოგრაფიის გაუმჯობესებები და ბნელი რეჟიმი.",
 	"vector-night-mode-gadget-warning": "თქვენ იყენებთ გაჯეტს ბნელ რეჟიმში, რაც ხელს უშლის ამ ფუნქციას. ბნელი რეჟიმის გამოსაყენებლად [[Special:Preferences#mw-prefsection-gadgets|გამორთეთ გაჯეტი]].",
 	"vector-night-mode-issue-reporting-notice-tooltip": "შეგვატყობინეთ, როდესაც ბნელი რეჟიმის ფერები ართულებს წაკითხვას.",
 	"vector-night-mode-issue-reporting-link-label": "პრობლემის შეტყობინება ბნელ რეჟიმთან დაკავშირებით",

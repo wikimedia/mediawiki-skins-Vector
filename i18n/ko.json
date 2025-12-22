@@ -94,8 +94,6 @@
 	"vector-page-tools-unpinned-popup": "도구 메뉴가 여기로 이동되었습니다.",
 	"vector-main-menu-unpinned-popup": "주 메뉴가 여기로 이동되었습니다.",
 	"vector-appearance-unpinned-popup": "보이기 메뉴는 이곳으로 이동되었습니다.",
-	"vector-2022-beta-preview-label": "읽기 접근성 (벡터 2022)",
-	"vector-2022-beta-preview-description": "타이포그래피 개선 및 다크 모드 등 새로운 읽기 접근성 기능을 미리 사용해보세요.",
 	"vector-night-mode-gadget-warning": "이 기능에 방해를 주는 다크 모드 소도구를 사용하고 있습니다. 다크 모드를 사용하려면 [[Special:Preferences#mw-prefsection-gadgets|소도구를 비활성화]]하십시오.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "다크 모드 색상으로 인해 읽기 어려운 경우 보고해 주세요.",
 	"vector-night-mode-issue-reporting-link-label": "다크 모드 문제 보고하기",

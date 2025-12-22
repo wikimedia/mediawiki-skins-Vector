@@ -88,8 +88,6 @@
 	"vector-page-tools-unpinned-popup": "ย้ายเมนูเครื่องมือมาที่นี่",
 	"vector-main-menu-unpinned-popup": "ย้ายเมนูหลักมาที่นี่",
 	"vector-appearance-unpinned-popup": "ย้ายเมนูหน้าตามาที่นี่",
-	"vector-2022-beta-preview-label": "การเข้าถึงสำหรับการอ่าน (เวกเตอร์ 2565)",
-	"vector-2022-beta-preview-description": "รับสิทธิเข้าถึงคุณลักษณะการเข้าถึงการอ่านใหม่ ๆ ก่อนใคร เช่นการปรับปรุงตัวอักษรและโหมดมืด",
 	"vector-night-mode-gadget-warning": "คุณกำลังใช้แกดเจ็ตโหมดมืดที่รบกวนคุณลักษณะนี้[[Special:Preferences#mw-prefsection-gadgets|ปิดการใช้งานแกดเจ็ต]]เพื่อใช้โหมดมืด",
 	"vector-night-mode-issue-reporting-link-label": "แจ้งปัญหาเกี่ยวกับโหมดมืด",
 	"vector-night-mode-issue-reporting-link-notification": "ได้รับรายงานแล้ว!",

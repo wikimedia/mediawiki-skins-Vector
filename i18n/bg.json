@@ -81,8 +81,6 @@
 	"vector-page-tools-unpinned-popup": "Главното меню е преместено тук.",
 	"vector-main-menu-unpinned-popup": "Главното меню е преместено тук.",
 	"vector-appearance-unpinned-popup": "Менюто на облика е преместено тук.",
-	"vector-2022-beta-preview-label": "Достъпност за четене (Vector 2022)",
-	"vector-2022-beta-preview-description": "Получаване на ранен достъп до новите възможности за достъпност при четене, като например подобрения в типографията и тъмен режим.",
 	"vector-night-mode-gadget-warning": "Използвате джаджа за тъмен режим, която пречи на тази функция. [[Special:Preferences#mw-prefsection-gadgets|Деактивирайте джаджата]], за да използвате тъмния режим.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Докладвайте, когато цветовете на тъмния режим затрудняват четенето.",
 	"vector-night-mode-issue-reporting-link-label": "Докладване на проблем с тъмния режим",

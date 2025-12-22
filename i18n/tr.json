@@ -94,8 +94,6 @@
 	"vector-page-tools-unpinned-popup": "Araçlar menüsü buraya taşındı.",
 	"vector-main-menu-unpinned-popup": "Ana menü buraya taşındı.",
 	"vector-appearance-unpinned-popup": "Görünüm menüsü buraya taşındı.",
-	"vector-2022-beta-preview-label": "Okuma için Erişilebilirlik (Vector 2022)",
-	"vector-2022-beta-preview-description": "Basım iyileştirmeleri ve koyu kip gibi yeni okuma erişilebilirlik özelliklerine erken erişim sağlayın.",
 	"vector-night-mode-gadget-warning": "Bu özellikle çakışan bir koyu kip küçük aracı {{#FORMAL:kullanıyorsun|kullanıyorsunuz}}. Koyu kipi kullanmak için [[Special:Preferences#mw-prefsection-gadgets|küçük aracı devre dışı {{#FORMAL:bırak|bırakın}}]].",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Koyu kip renklerinin okumayı zorlaştırdığı durumlarda bildirin.",
 	"vector-night-mode-issue-reporting-link-label": "Koyu kipe dair bir sorun bildirin",

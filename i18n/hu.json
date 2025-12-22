@@ -86,8 +86,6 @@
 	"vector-page-tools-unpinned-popup": "Az eszközök menü ide került.",
 	"vector-main-menu-unpinned-popup": "A főmenü ide került.",
 	"vector-appearance-unpinned-popup": "A megjelenés menü ide került.",
-	"vector-2022-beta-preview-label": "Akadálymentes az olvasáshoz (Vector 2022)",
-	"vector-2022-beta-preview-description": "Korán hozzáférhetsz az új olvasási akadálymentesítési funkciókhoz, például a tipográfiai fejlesztésekhez és az sötét módhoz.",
 	"vector-night-mode-gadget-warning": "A funkciót megzavarja a sötétmód-segédeszköz amit használsz. [[Special:Preferences#mw-prefsection-gadgets|Kapcsold ki a segédeszközt]] a sötét mód használatához.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Jelentés küldése, ha a sötét mód színei megnehezítik az olvasást.",
 	"vector-night-mode-issue-reporting-link-label": "Sötét móddal kapcsolatos probléma jelentése",

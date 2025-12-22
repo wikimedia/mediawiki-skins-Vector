@@ -99,8 +99,6 @@
 	"vector-page-tools-unpinned-popup": "工具選單已移至此處。",
 	"vector-main-menu-unpinned-popup": "主選單已移至此處。",
 	"vector-appearance-unpinned-popup": "外觀選單已移至此處。",
-	"vector-2022-beta-preview-label": "無障礙閱讀（Vector 2022）",
-	"vector-2022-beta-preview-description": "搶先取得新的無障礙閱讀功能，像是排版改善或深色閱讀模式。",
 	"vector-night-mode-gadget-warning": "您使用的深色模式小工具會干擾此功能。[[Special:Preferences#mw-prefsection-gadgets|停用小工具]]來使用深色模式。",
 	"vector-night-mode-issue-reporting-notice-tooltip": "報告深色模式的顏色在何種情況下讓內容難以閱讀。",
 	"vector-night-mode-issue-reporting-link-label": "回報深色模式問題",

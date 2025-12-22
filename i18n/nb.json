@@ -82,8 +82,6 @@
 	"vector-page-tools-unpinned-popup": "Verktøymenyen har flyttet hit.",
 	"vector-main-menu-unpinned-popup": "Hovedmenyen har flyttet hit.",
 	"vector-appearance-unpinned-popup": "Utseendemenyen har flyttet hit.",
-	"vector-2022-beta-preview-label": "Lesetilgjengelighet (Vector 2022)",
-	"vector-2022-beta-preview-description": "Få tidlig tilgang til nye funksjoner for lesetilgjengelighet, som typografiske forbedringer og mørk modus.",
 	"vector-night-mode-gadget-warning": "Du bruker en tilleggsfunksjon for mørk modus som forstyrrer denne funksjonen. [[Special:Preferences#mw-prefsection-gadgets|Deaktiver tilleggsfunksjonen]] for å bruke mørk modus.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Rapporter når fargene i mørk modus gjør det vanskelig å lese.",
 	"vector-night-mode-issue-reporting-link-label": "Rapporter et problem med mørk modus",

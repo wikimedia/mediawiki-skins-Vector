@@ -88,7 +88,5 @@
 	"vector-page-tools-unpinned-popup": "El menú d'eines s'ha traslladat aquí.",
 	"vector-main-menu-unpinned-popup": "El menú principal s'ha traslladat aquí.",
 	"vector-appearance-unpinned-popup": "El menú d'aparença s'ha traslladat aquí.",
-	"vector-2022-beta-preview-label": "Accessibilitat en la lectura (Vector 2022)",
-	"vector-2022-beta-preview-description": "Aconseguiu accés anticipat a les noves funcions d'accessibilitat de lectura, com ara les millores de tipografia i el mode fosc.",
 	"vector-night-mode-gadget-warning": "Esteu utilitzant un giny de mode fosc que interfereix amb aquesta funció. [[Special:Preferences#mw-prefsection-gadgets|Desactiveu el giny]] per utilitzar el nou mode fosc."
 }

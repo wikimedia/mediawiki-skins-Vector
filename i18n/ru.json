@@ -109,8 +109,6 @@
 	"vector-page-tools-unpinned-popup": "Меню инструментов было перемещено сюда.",
 	"vector-main-menu-unpinned-popup": "Главное меню перенесено сюда.",
 	"vector-appearance-unpinned-popup": "Меню оформления переехало сюда.",
-	"vector-2022-beta-preview-label": "Доступность для чтения (Vector 2022)",
-	"vector-2022-beta-preview-description": "Получите ранний доступ к новым функциям специальных возможностей для чтения, таким как улучшения типографики и тёмный режим.",
 	"vector-night-mode-gadget-warning": "Вы используете гаджет тёмной темы, который мешает работе этой функции. [[Special:Preferences#mw-prefsection-gadgets|Отключить гаджет]] для использования тёмной темы.",
 	"vector-night-mode-issue-reporting-notice-tooltip": "Сообщите, когда цвета тёмной темы затрудняют чтение.",
 	"vector-night-mode-issue-reporting-link-label": "Сообщить о проблеме с темным режимом",

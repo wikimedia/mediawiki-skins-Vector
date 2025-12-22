@@ -107,8 +107,6 @@
 	"vector-page-tools-unpinned-popup": "ツールメニューはここに移動しました。",
 	"vector-main-menu-unpinned-popup": "メインメニューはここに移動しました。",
 	"vector-appearance-unpinned-popup": "外観メニューはこちらに移動しました。",
-	"vector-2022-beta-preview-label": "閲覧アクセス性の向上（2022年版ベクター）",
-	"vector-2022-beta-preview-description": "タイポグラフィの改善やダークモードなど、新しい閲覧アクセス性向上機能を早期にご活用いただけます。",
 	"vector-night-mode-gadget-warning": "この機能と干渉するダークモードガジェットを使用しています。ダークモードを使用するには[[Special:Preferences#mw-prefsection-gadgets|ガジェットを無効化]]してください。",
 	"vector-night-mode-issue-reporting-notice-tooltip": "ダークモードの色で読みにくくなっている場合に報告します。",
 	"vector-night-mode-issue-reporting-link-label": "ダークモードの問題を報告",
