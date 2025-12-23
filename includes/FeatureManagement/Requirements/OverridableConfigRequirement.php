@@ -65,15 +65,7 @@ use MediaWiki\User\UserIdentity;
  */
 class OverridableConfigRequirement implements Requirement {
 
-	private Config $config;
-
-	private UserIdentity $user;
-
-	private string $configName;
-
-	private string $requirementName;
-
-	private OverrideableRequirementHelper $helper;
+	private readonly OverrideableRequirementHelper $helper;
 
 	/**
 	 * This constructor accepts all dependencies needed to determine whether
@@ -86,16 +78,12 @@ class OverridableConfigRequirement implements Requirement {
 	 * @param string $requirementName The name of the requirement presented to FeatureManager.
 	 */
 	public function __construct(
-		Config $config,
-		UserIdentity $user,
+		private readonly Config $config,
+		private readonly UserIdentity $user,
 		WebRequest $request,
-		string $configName,
-		string $requirementName
+		private readonly string $configName,
+		private readonly string $requirementName,
 	) {
-		$this->config = $config;
-		$this->user = $user;
-		$this->configName = $configName;
-		$this->requirementName = $requirementName;
 		$this->helper = new OverrideableRequirementHelper( $request, $requirementName );
 	}
 

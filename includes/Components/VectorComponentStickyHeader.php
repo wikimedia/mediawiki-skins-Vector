@@ -67,38 +67,13 @@ class VectorComponentStickyHeader implements VectorComponent {
 		'class' => ''
 	];
 
-	/** @var MessageLocalizer */
-	private $localizer;
-	/** @var VectorComponent */
-	private $search;
-	/** @var VectorComponent|null */
-	private $langButton;
-
-	/** @var bool */
-	private $visualEditorTabPositionFirst;
-
-	/** @var bool */
-	private bool $isReadingListsEnabled;
-
-	/**
-	 * @param MessageLocalizer $localizer
-	 * @param VectorComponent $searchBox
-	 * @param VectorComponent|null $langButton
-	 * @param bool $visualEditorTabPositionFirst
-	 * @param bool $isReadingListsEnabled
-	 */
 	public function __construct(
-		MessageLocalizer $localizer,
-		VectorComponent $searchBox,
-		$langButton = null,
-		bool $visualEditorTabPositionFirst = false,
-		bool $isReadingListsEnabled = false
+		private readonly MessageLocalizer $localizer,
+		private readonly VectorComponent $search,
+		private readonly ?VectorComponent $langButton = null,
+		private readonly bool $visualEditorTabPositionFirst = false,
+		private readonly bool $isReadingListsEnabled = false,
 	) {
-		$this->search = $searchBox;
-		$this->langButton = $langButton;
-		$this->localizer = $localizer;
-		$this->visualEditorTabPositionFirst = $visualEditorTabPositionFirst;
-		$this->isReadingListsEnabled = $isReadingListsEnabled;
 	}
 
 	/**

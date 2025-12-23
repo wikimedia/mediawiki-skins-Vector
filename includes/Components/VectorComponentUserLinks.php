@@ -19,17 +19,6 @@ class VectorComponentUserLinks implements VectorComponent {
 		. 'cdx-button--fake-button--enabled cdx-button--weight-quiet';
 	private const ICON_ONLY_BUTTON_CLASS = 'cdx-button--icon-only';
 
-	/** @var MessageLocalizer */
-	private $localizer;
-	/** @var UserIdentity */
-	private $user;
-	/** @var array */
-	private $portletData;
-	/** @var array */
-	private $linkOptions;
-	/** @var string */
-	private $userIcon;
-
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param UserIdentity $user
@@ -38,17 +27,12 @@ class VectorComponentUserLinks implements VectorComponent {
 	 * @param string $userIcon that represents the current type of user
 	 */
 	public function __construct(
-		MessageLocalizer $localizer,
-		UserIdentity $user,
-		array $portletData,
-		array $linkOptions,
-		string $userIcon = 'userAvatar'
+		private readonly MessageLocalizer $localizer,
+		private readonly UserIdentity $user,
+		private readonly array $portletData,
+		private readonly array $linkOptions,
+		private readonly string $userIcon = 'userAvatar',
 	) {
-		$this->localizer = $localizer;
-		$this->user = $user;
-		$this->portletData = $portletData;
-		$this->linkOptions = $linkOptions;
-		$this->userIcon = $userIcon;
 	}
 
 	/**

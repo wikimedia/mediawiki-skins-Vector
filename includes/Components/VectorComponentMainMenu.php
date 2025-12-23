@@ -11,38 +11,19 @@ use MessageLocalizer;
  * VectorComponentMainMenu component
  */
 class VectorComponentMainMenu implements VectorComponent {
-	/** @var array */
-	private $sidebarData;
-	/** @var array */
-	private $languageData;
-	/** @var MessageLocalizer */
-	private $localizer;
-	/** @var bool */
-	private $isPinned;
-	/** @var VectorComponentPinnableHeader|null */
-	private $pinnableHeader;
+	private readonly bool $isPinned;
+	private readonly ?VectorComponentPinnableHeader $pinnableHeader;
 	/** @var string */
 	public const ID = 'vector-main-menu';
 
-	/**
-	 * @param array $sidebarData
-	 * @param array $languageData
-	 * @param MessageLocalizer $localizer
-	 * @param UserIdentity $user
-	 * @param FeatureManager $featureManager
-	 * @param Skin $skin
-	 */
 	public function __construct(
-		array $sidebarData,
-		array $languageData,
-		MessageLocalizer $localizer,
-		UserIdentity $user,
-		FeatureManager $featureManager,
-		Skin $skin
+		private readonly array $sidebarData,
+		private readonly array $languageData,
+		private readonly MessageLocalizer $localizer,
+		private readonly UserIdentity $user,
+		private readonly FeatureManager $featureManager,
+		Skin $skin,
 	) {
-		$this->sidebarData = $sidebarData;
-		$this->languageData = $languageData;
-		$this->localizer = $localizer;
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_MAIN_MENU_PINNED );
 
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
