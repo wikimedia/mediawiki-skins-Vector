@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"AmazingJus",
 			"Peter57770"
 		]
 	},
 	"vector-view-edit": "Wayútȟokeča",
 	"vector-view-history": "Takú eháŋni blawá",
-	"vector-view-view": "Yawá yo/ye",
+	"vector-view-view": "Yawá {{GENDER:|yo|ye|yo/ye}}",
 	"vector-more-actions": "Táku kȟó"
 }
