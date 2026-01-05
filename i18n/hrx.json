@@ -22,5 +22,6 @@
 	"vector-view-viewsource": "Quelltext oonzeiche",
 	"vector-more-actions": "Meh",
 	"vector-searchsuggest-containing": "Suche noh Seite wo <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> enthelld.",
-	"vector-toc-beginning": "Aanfang"
+	"vector-toc-beginning": "Aanfang",
+	"vector-anon-user-menu-pages": "Seite fer abgemellde Benutzer"
 }
