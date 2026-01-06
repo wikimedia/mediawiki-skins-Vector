@@ -12,7 +12,7 @@ use MessageLocalizer;
  */
 class VectorComponentMainMenu implements VectorComponent {
 	private readonly bool $isPinned;
-	private readonly ?VectorComponentPinnableHeader $pinnableHeader;
+	private readonly VectorComponentPinnableHeader $pinnableHeader;
 	/** @var string */
 	public const ID = 'vector-main-menu';
 
@@ -38,8 +38,6 @@ class VectorComponentMainMenu implements VectorComponent {
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
-		$pinnableHeader = $this->pinnableHeader;
-
 		$portletsRest = [];
 		foreach ( $this->sidebarData[ 'array-portlets-rest' ] as $data ) {
 			$portletsRest[] = ( new VectorComponentMenu( $data ) )->getTemplateData();
@@ -53,7 +51,7 @@ class VectorComponentMainMenu implements VectorComponent {
 		return $pinnableElement->getTemplateData() + $pinnableContainer->getTemplateData() + [
 			'data-portlets-first' => $firstPortlet->getTemplateData(),
 			'array-portlets-rest' => $portletsRest,
-			'data-pinnable-header' => $pinnableHeader ? $pinnableHeader->getTemplateData() : null,
+			'data-pinnable-header' => $this->pinnableHeader->getTemplateData(),
 			'data-languages' => $languageMenu->getTemplateData(),
 		];
 	}
