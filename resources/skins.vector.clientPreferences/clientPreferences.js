@@ -59,6 +59,7 @@ function getVisibleClientPreferences( config ) {
 function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 	const pref = config[ featureName ];
 	const callback = pref.callback || ( () => {} );
+	const hook = mw.hook( 'skin-client-preference.change' );
 	if ( mw.user.isNamed() ) {
 		// FIXME: Ideally this would be done in mw.user.clientprefs API.
 		// mw.user.clientPrefs.get is marked as being only stable for anonymous and temporary users.
@@ -87,6 +88,7 @@ function toggleDocClassAndSave( featureName, value, config, userPreferences ) {
 		mw.user.clientPrefs.set( featureName, value );
 		callback();
 	}
+	hook.fire( featureName, value );
 }
 
 /**
