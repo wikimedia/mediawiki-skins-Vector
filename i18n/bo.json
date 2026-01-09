@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Freeyak",
+			"Pecha-Tsewang",
 			"Phurbutsering",
 			"Tenzin Thoesam",
 			"ཁ་བཏགས་ནག་པོ"
 		]
 	},
 	"vector-languages": "སྐད་སྣ་",
+	"vector-language-button-label": "{{PLURAL:$1|$1 སྐད་རིགས།}}",
 	"vector-no-language-button-label": "སྐད་ཡིག་གཞན་སྣོན།",
 	"vector-action-addsection": "བརྗོད་གཞི་ཁ་སྣོན།",
 	"vector-action-delete": "སུབས།",
