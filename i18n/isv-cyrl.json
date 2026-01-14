@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Danvintius Bookix",
-			"Qiorly"
+			"Qiorly",
+			"IJzeren Jan"
 		]
 	},
 	"vector-languages": "Језыкы",
@@ -31,6 +32,7 @@
 	"vector-searchsuggest-containing": "Искати странице содрживајуче <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-toc-label": "Содржање",
 	"vector-toc-beginning": "Почеток",
+	"vector-anon-user-menu-pages": "Странице за пепријавјеных учестников",
 	"vector-main-menu-label": "Главно менју",
 	"vector-feature-custom-font-size-exclusion-notice": "Тута страница всегда употрєбјаје малы размєр фонта.",
 	"vector-page-tools-label": "Орудја",
