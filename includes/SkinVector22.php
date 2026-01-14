@@ -57,6 +57,18 @@ class SkinVector22 extends SkinMustache {
 				$content_navigation['views'][ $key ]['icon'] = null;
 			}
 		}
+		$userPage = $content_navigation['user-page']['userpage'] ?? null;
+		if ( $userPage ) {
+			if ( isset( $userPage['class'] ) ) {
+				$userPage['class'] .= ' user-links-collapsible-item';
+			} else {
+				$userPage['class'] = ' user-links-collapsible-item';
+			}
+
+			$content_navigation['user-menu'] = [
+				'user-page' => $userPage,
+			] + $content_navigation['user-menu'];
+		}
 		Hooks::onSkinTemplateNavigation( $skin, $content_navigation );
 	}
 
