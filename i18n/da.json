@@ -22,7 +22,7 @@
 	"vector-action-toggle-sidebar": "Vis/skjul venstremenuen",
 	"vector-languages": "Sprog",
 	"vector-language-button-aria-label": "Gå til en artikel på et andet sprog. Tilgængelig på {{PLURAL:$1|$1 sprog}}",
-	"vector-language-button-label": "{{PLURAL:$1|$1 sprog}}",
+	"vector-language-button-label": "{{PLURAL:$1|Ét|$1}} sprog",
 	"vector-no-language-button-label": "Tilføj sprog",
 	"vector-no-language-button-aria-label": "Denne artikel findes kun på dette sprog. Tilføj artiklen til andre sprog",
 	"vector-language-variant-switcher-label": "Ændr sprogvariant",
