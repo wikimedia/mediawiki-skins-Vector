@@ -1,4 +1,3 @@
-@spacing-search-title-divider: 30px;
 @font-size-sticky-header-links: unit( ( 14 / @font-size-browser ), em ); // Equals `0.875em`.
 @import '../skins.vector.styles/variables.less';
 
@@ -39,9 +38,9 @@
 	}
 
 	// Apply nowrap to title and buttons
-	// Must apply to &-context-bar-primary rather than &-context-bar or &-start
+	// Must apply to .mw-page-title-main rather than &-context-bar or &-start
 	// to avoid applying nowrap to the collapsed TOC menu
-	&-context-bar-primary,
+	.mw-page-title-main,
 	&-end {
 		white-space: nowrap;
 	}
@@ -49,19 +48,29 @@
 	//
 	// Components
 	//
-	&-context-bar {
-		border-left: @border-subtle;
-		min-width: 0;
-		margin-left: @spacing-search-title-divider;
-		flex-grow: 1;
+	&-icon-start {
+		border-right: @border-subtle;
+		// Account for padding-left the title, so the spacing to the left and right
+		// of the border is consistent
+		margin-right: calc( @spacing-125 - @spacing-50 );
+		padding-right: @spacing-125;
 	}
 
-	&-context-bar-primary {
+	&-context-bar > * {
+		// T349436 Apply padding to avoid clipping the title when it contains characters
+		// with wide kerns (e.g. overhanging swashes on italic 'ʄ').
+		// Applies to children of `.vector-sticky-header-context-bar` so spacing is consistent
+		padding-left: @spacing-50;
+	}
+
+	.vector-sticky-header-toc {
+		// Override `.vector-button-flush-left` and `.mixin-toc-unpinned()` styles
+		/* stylelint-disable-next-line declaration-no-important */
+		margin: 0 !important;
+	}
+
+	.mw-page-title-main {
 		overflow: hidden;
-		// T349436 Avoid clipping letters with wide kerns (e.g. overhanging swashes on italic 'ʄ').
-		// Add start padding and use flex-grow to ensure there is space on the end.
-		padding-left: @spacing-search-title-divider;
-		flex-grow: 1;
 		font-family: @font-family-serif;
 		// T296320 closest standardized option to 22px (24px)
 		font-size: @font-size-heading-2;
@@ -99,7 +108,7 @@
 		// [2] see https://gerrit.wikimedia.org/r/plugins/gitiles/design/codex/+/refs/tags/v0.1.0-alpha.8/packages/codex/src/components/typeahead-search/TypeaheadSearch.vue#708
 		@margin-start-search-box-with-thumbnail: -9px;
 
-		.vector-sticky-header-search-toggle,
+		.vector-sticky-header-icon-start,
 		.vector-sticky-header-context-bar {
 			display: none;
 		}
@@ -113,10 +122,6 @@
 		// icon's increased start position when the search component has thumbnails.
 		.vector-search-box-show-thumbnail {
 			margin-left: @margin-start-search-box-with-thumbnail;
-
-			.cdx-text-input__start-icon {
-				color: @color-base;
-			}
 		}
 	}
 }
