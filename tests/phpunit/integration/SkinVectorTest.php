@@ -1,8 +1,8 @@
 <?php
 namespace MediaWiki\Skins\Vector\Tests\Integration;
 
-use MediaWiki\Cache\LinkCache;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Page\LinkCache;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\Title\Title;
