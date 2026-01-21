@@ -42,6 +42,7 @@
 	"skin-theme-day-label": "Swětła",
 	"skin-theme-night-label": "Ćmowa",
 	"skin-theme-os-label": "Awtomatiska",
+	"skin-theme-exclusion-notice": "Tuta strona je přeco w swětłym modusu.",
 	"vector-search-loader": "Pytanske namjety začitać",
 	"vector-searchsuggest-containing": "Pytaj za stronami, kotrež <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong> wobsahuja.",
 	"vector-toc-label": "Wobsah",
