@@ -503,7 +503,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			Hooks::class,
 			'updateUserLinksDropdownItems'
 		);
-		$updateUserLinksDropdownItems->setAccessible( true );
 
 		// Anon users
 		$skin = new SkinVector22(
@@ -627,7 +626,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			Hooks::class,
 			'appendClassToItem'
 		);
-		$appendClassToItem->setAccessible( true );
 		$appendClassToItem->invokeArgs( null, [ &$item, $classes ] );
 		$this->assertEquals( $expected, $item );
 	}
@@ -720,7 +718,6 @@ class VectorHooksTest extends MediaWikiIntegrationTestCase {
 			Hooks::class,
 			'updateItemData'
 		);
-		$updateItemData->setAccessible( true );
 		$data = $updateItemData->invokeArgs( null, [ $item, $buttonClassProp, $iconHtmlProp ] );
 		$this->assertArraySubmapSame( $expected, $data );
 	}
