@@ -5,6 +5,7 @@
 			"Merrahtar"
 		]
 	},
+	"skinname-vector": "Вектор, вуамма (2010)",
 	"vector-languages": "Кӣл",
 	"vector-language-button-label": "{{PLURAL:$1|$1 кӣлл|$1 кӣл|$1 кӣллэ}}",
 	"vector-no-language-button-label": "Лажьхэ кӣлэтҍ",
@@ -18,7 +19,7 @@
 	"vector-view-view": "Ло̄гкэ",
 	"vector-more-actions": "Вя̄л",
 	"vector-appearance-label": "Ка̄ввь",
-	"vector-feature-limited-width-name": "Коа̄ммтвудт",
+	"vector-feature-limited-width-name": "Ко̄ммтвудт",
 	"vector-feature-limited-width-0-label": "Ко̄ммьтэсь",
 	"vector-feature-limited-width-1-label": "А̄рркъесь",
 	"vector-feature-custom-font-size-0-label": "Ме̄вв",
@@ -41,6 +42,8 @@
 	"vector-page-tools-actions-label": "Лыһкмуж",
 	"vector-pin-element-label": "лыгксаһтӭ е̄ҏҏьт паннле",
 	"vector-unpin-element-label": "пе̄ҋҋтэ",
+	"vector-2022-prefs-talkpage": "[https://www.mediawiki.org/wiki/Talk:Reading/Web/Desktop_Improvements Са̄ррнмушш]",
+	"vector-prefs-limited-width": "Ре̄ввьнлаһтма ко̄ммтвуд режим ключчье",
 	"vector-toc-unpinned-popup": "Сыська выгкъювэ тэсса.",
 	"vector-page-tools-unpinned-popup": "Тӯййшэмкоа̄вьнэ меню адтҍ тэсьт лӣ.",
 	"vector-appearance-unpinned-popup": "Ка̄вь меню тэсса выгкъювэ.",
