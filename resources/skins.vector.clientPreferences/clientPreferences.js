@@ -2,7 +2,12 @@
  * @typedef {Object} ClientPreference
  * @property {string[]} options that are valid for this client preference
  * @property {string} preferenceKey for registered users.
- * @property {string} betaMessage whether to show a notice indicating this feature is in beta.
+ * @property {string} [betaMessage] whether to show a notice indicating this feature is in beta.
+ * @property {string} [linkLabelMessage] message key for link label.
+ * @property {string} [linkLabelUrl] URL for link label.
+ * @property {string} [linkLabelTooltip] tooltip for link label.
+ * @property {string} [linkLabelUrlParameter] message key for URL parameter (which itself takes
+ * a URL to the current page)
  * @property {string} [type] defaults to radio. Supported: radio, switch
  * @property {Function} [callback] callback executed after a client preference has been modified.
  */
@@ -157,13 +162,15 @@ function makeExclusionNotice( featureName ) {
 }
 
 /**
+ * @param {string} messageKey
  * @return {HTMLElement}
  */
-function makeBetaInfoTag() {
+function makeBetaInfoTag( messageKey ) {
 	const infoTag = document.createElement( 'span' );
 	// custom style to avoid moving heading bottom border.
 	const infoTagText = document.createElement( 'span' );
-	infoTagText.textContent = mw.message( 'vector-night-mode-beta-tag' ).text();
+	/* eslint-disable-next-line mediawiki/msg-doc */
+	infoTagText.textContent = mw.message( messageKey ).text();
 	infoTag.appendChild( infoTagText );
 	return infoTag;
 }
@@ -212,20 +219,34 @@ function appendRadioToggle( parent, featureName, value, currentValue, config, us
 }
 
 /**
- * @param {HTMLElement} betaMessageElement
+ * @param {HTMLElement} linkContainer
+ * @param {ClientPreference} feature
  */
-function makeFeedbackLink( betaMessageElement ) {
-	if ( !mw.msg( 'vector-night-mode-issue-reporting-notice-url' ) ) {
+function makeLink( linkContainer, feature ) {
+	const urlKey = feature.linkLabelUrl;
+	const labelKey = feature.linkLabelMessage;
+	const linkLabelTooltip = feature.linkLabelTooltip;
+	const urlParamMsgKey = feature.linkLabelUrlParameter;
+	if ( !labelKey || !urlKey || !mw.msg( urlKey ) ) {
 		return;
 	}
-	const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
-	const preloadTitle = mw.message( 'vector-night-mode-issue-reporting-preload-title', pageWikiLink ).text();
-	const link = mw.msg( 'vector-night-mode-issue-reporting-notice-url', window.location.host, preloadTitle );
-	const linkLabel = mw.message( 'vector-night-mode-issue-reporting-link-label' ).text();
+	let urlParam = '';
+	if ( urlParamMsgKey ) {
+		const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
+		/* eslint-disable-next-line mediawiki/msg-doc */
+		urlParam = mw.message( urlParamMsgKey, pageWikiLink ).text();
+	}
+	/* eslint-disable-next-line mediawiki/msg-doc */
+	const link = mw.msg( urlKey, window.location.host, urlParam );
+	/* eslint-disable-next-line mediawiki/msg-doc */
+	const linkLabel = mw.message( labelKey ).text();
 	const anchor = document.createElement( 'a' );
 	anchor.setAttribute( 'href', link );
 	anchor.setAttribute( 'target', '_blank' );
-	anchor.setAttribute( 'title', mw.msg( 'vector-night-mode-issue-reporting-notice-tooltip' ) );
+	if ( linkLabelTooltip ) {
+		/* eslint-disable-next-line mediawiki/msg-doc */
+		anchor.setAttribute( 'title', mw.msg( linkLabelTooltip ) );
+	}
 	anchor.textContent = linkLabel;
 
 	/**
@@ -244,8 +265,10 @@ function makeFeedbackLink( betaMessageElement ) {
 		anchor.prepend( icon );
 		anchor.removeEventListener( 'click', showSuccessFeedback );
 	};
-	anchor.addEventListener( 'click', ( event ) => showSuccessFeedback( event ) );
-	betaMessageElement.appendChild( anchor );
+	if ( feature.linkLabelUrlParameter ) {
+		anchor.addEventListener( 'click', ( event ) => showSuccessFeedback( event ) );
+	}
+	linkContainer.appendChild( anchor );
 }
 
 /**
@@ -357,6 +380,7 @@ function makeControl( featureName, config, userPreferences ) {
  */
 function makeClientPreference( parent, featureName, config, userPreferences ) {
 	const labelMsg = getFeatureLabelMsg( featureName );
+	const feature = config[ featureName ];
 	// If the user is not debugging messages and no language exists,
 	// exit as its a hidden client preference.
 	if ( !labelMsg.exists() && mw.config.get( 'wgUserLanguage' ) !== 'qqx' ) {
@@ -366,8 +390,8 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 		// @ts-ignore TODO: upstream patch URL
 		const portlet = mw.util.addPortlet( id, labelMsg.text() );
 
-		if ( config[ featureName ].betaMessage ) {
-			const betaInfoTag = makeBetaInfoTag();
+		if ( feature.betaMessage ) {
+			const betaInfoTag = makeBetaInfoTag( feature.betaMessage );
 			if ( !portlet.querySelector( '.vector-menu-heading span' ) ) {
 				portlet.querySelector( '.vector-menu-heading' ).textContent += ' ';
 				portlet.querySelector( '.vector-menu-heading' ).appendChild( betaInfoTag );
@@ -382,7 +406,8 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 		if ( descriptionMsg.exists() ) {
 			const desc = document.createElement( 'span' );
 			desc.classList.add( 'skin-client-pref-description' );
-			desc.textContent = descriptionMsg.text();
+			// Description can include links so parse rather than text.
+			desc.innerHTML = descriptionMsg.parse();
 			if ( labelElement && labelElement.parentNode ) {
 				labelElement.appendChild( desc );
 			}
@@ -413,14 +438,14 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 				}
 			}
 
-			if ( config[ featureName ].betaMessage && !isFeatureExcluded( featureName ) ) {
-				const betaMessageElement = document.createElement( 'span' );
-				betaMessageElement.id = `${ featureName }-beta-notice`;
+			if ( config[ featureName ].linkLabelUrl && !isFeatureExcluded( featureName ) ) {
+				const linkContainer = document.createElement( 'span' );
+				linkContainer.id = `${ featureName }-beta-notice`;
 				// per requirements: only logged in users can report errors (T372754)
 				if ( !mw.user.isAnon() ) {
-					makeFeedbackLink( betaMessageElement );
+					makeLink( linkContainer, feature );
 				}
-				row.appendChild( betaMessageElement );
+				row.appendChild( linkContainer );
 			}
 		}
 	}

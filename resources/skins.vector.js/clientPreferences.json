@@ -12,10 +12,14 @@
 		"preferenceKey": "vector-theme",
 		"betaMessage": "vector-night-mode-beta-tag",
 		"linkLabelMessage": "vector-night-mode-issue-reporting-link-label",
-		"linkLabelUrl": "vector-night-mode-issue-reporting-notice-url"
+		"linkLabelTooltip": "vector-night-mode-issue-reporting-notice-tooltip",
+		"linkLabelUrl": "vector-night-mode-issue-reporting-notice-url",
+		"linkLabelUrlParameter": "vector-night-mode-issue-reporting-preload-title"
 	},
 	"wp25eastereggs-enable": {
 		"options": [ "0", "1" ],
+		"linkLabelMessage": "wp25eastereggs-enable-learn-more-link-label",
+		"linkLabelUrl": "wp25eastereggs-enable-learn-more-link-url",
 		"preferenceKey": "wp25eastereggs-enable"
 	}
 }
