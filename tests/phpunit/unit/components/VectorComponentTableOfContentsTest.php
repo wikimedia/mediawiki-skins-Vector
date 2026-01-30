@@ -117,7 +117,9 @@ class VectorComponentTableOfContentsTest extends \MediaWikiUnitTestCase {
 				'label' => 'vector-toc-label',
 				'unpin-label' => 'vector-unpin-element-label',
 				'pin-label' => 'vector-pin-element-label',
-				'label-tag-name' => 'h2'
+				'label-tag-name' => 'h2',
+				'data-unpinned-container-id' => 'vector-toc-unpinned-container',
+				'data-pinned-container-id' => 'vector-toc-pinned-container'
 			]
 		];
 		$expectedNestedTocData = array_merge( $nestedTocData, $expectedConfigData );

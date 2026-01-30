@@ -30,7 +30,6 @@ class VectorComponentTableOfContents implements VectorComponent {
 			$this->isPinned,
 			self::ID,
 			'toc-pinned',
-			false,
 			'h2'
 		);
 	}

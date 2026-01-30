@@ -5,7 +5,6 @@ const
 	initSectionObserver = require( './sectionObserver.js' ),
 	initTableOfContents = require( './tableOfContents.js' ),
 	pinnableElement = require( './pinnableElement.js' ),
-	popupNotification = require( './popupNotification.js' ),
 	features = require( './features.js' ),
 	deferUntilFrame = require( './deferUntilFrame.js' ),
 	STICKY_HEADER_ENABLED_CLASS = 'vector-sticky-header-enabled',
@@ -23,6 +22,10 @@ const
 	PAGE_TITLE_INTERSECTION_CLASS = 'vector-below-page-title';
 
 const belowDesktopMedia = window.matchMedia( '(max-width: 1119px)' );
+
+/**
+ * @typedef {ReturnType<import('./tableOfContents.js')>} TableOfContents
+ */
 
 /**
  * @callback OnIntersection
@@ -48,38 +51,32 @@ const getHeadingIntersectionHandler = ( changeActiveSection ) =>
 		}
 	};
 
-/*
- * Updates TOC's location in the DOM (in sidebar or sticky header)
- * depending on if the TOC is collapsed and if the sticky header is visible
+/**
+ * Updates TOC's location in the DOM depending on if the TOC is collapsed and if the
+ * sticky header is visible
  *
+ * @param {HTMLElement|null} pinnableHeader
  * @return {void}
  */
-const updateTocLocation = () => {
-	const isPinned = features.isEnabled( 'toc-pinned' );
+const updateTocLocation = ( pinnableHeader ) => {
+	if ( !pinnableHeader ) {
+		return;
+	}
+
 	const isStickyHeaderVisible = document.body.classList.contains( STICKY_HEADER_VISIBLE_CLASS );
 	const isBelowDesktop = belowDesktopMedia.matches;
 
-	const pinnedContainerId = 'vector-toc-pinned-container';
+	// Default is for the TOC unpinned container to be in the page titlebar
 	const stickyHeaderUnpinnedContainerId = 'vector-sticky-header-toc-unpinned-container';
 	const pageTitlebarUnpinnedContainerId = 'vector-page-titlebar-toc-unpinned-container';
+	const unpinnedContainerId = ( isStickyHeaderVisible && !isBelowDesktop ) ?
+		stickyHeaderUnpinnedContainerId : pageTitlebarUnpinnedContainerId;
+	pinnableHeader.dataset.unpinnedContainerId = unpinnedContainerId;
 
-	let newContainerId = '';
-	if ( isPinned ) {
-		if ( isBelowDesktop ) {
-			// Automatically move the ToC into the page titlebar when pinned on smaller resolutions
-			newContainerId = pageTitlebarUnpinnedContainerId;
-		} else {
-			newContainerId = pinnedContainerId;
-		}
-	} else {
-		if ( isStickyHeaderVisible && !isBelowDesktop ) {
-			newContainerId = stickyHeaderUnpinnedContainerId;
-		} else {
-			newContainerId = pageTitlebarUnpinnedContainerId;
-		}
-	}
-
-	pinnableElement.movePinnableElement( TOC_ID, newContainerId );
+	// Call `updatePinnableState` to move the TOC to the correct container based on the
+	// new unpinned container id
+	const isPinned = features.isEnabled( 'toc-pinned' );
+	pinnableElement.updatePinnableState( pinnableHeader, isPinned );
 };
 
 /**
@@ -103,19 +100,12 @@ function getHeadingScrollOffset() {
 }
 
 /**
- * @param {HTMLElement|null} tocElement
- * @param {HTMLElement|null} bodyContent
+ * @param {HTMLElement} tocElement
+ * @param {HTMLElement} bodyContent
  * @param {initSectionObserver} initSectionObserverFn
- * @return {tableOfContents|null}
+ * @return {TableOfContents}
  */
 const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) => {
-	if ( !(
-		tocElement &&
-		bodyContent
-	) ) {
-		return null;
-	}
-
 	const handleTocSectionChange = () => {
 		// eslint-disable-next-line no-use-before-define
 		sectionObserver.pause();
@@ -149,30 +139,7 @@ const setupTableOfContents = ( tocElement, bodyContent, initSectionObserverFn ) 
 	const tableOfContents = initTableOfContents( {
 		container: tocElement,
 		onHeadingClick: handleTocSectionChange,
-		onHashChange: handleTocSectionChange,
-		onTogglePinned: () => {
-			updateTocLocation();
-			pinnableElement.setFocusAfterToggle( TOC_ID );
-			if ( !features.isEnabled( 'toc-pinned' ) ) {
-				const isStickyHeaderVisible = document.body.classList
-					.contains( STICKY_HEADER_VISIBLE_CLASS );
-				const containerSelector = !isStickyHeaderVisible ?
-					'.vector-page-titlebar .vector-toc-landmark' : '#vector-sticky-header .vector-toc-landmark';
-				const container = /** @type {HTMLElement} */(
-					document.querySelector( containerSelector )
-				);
-				if ( container ) {
-					const containerId = !isStickyHeaderVisible ? 'toc-page-titlebar' : 'toc-sticky-header';
-					popupNotification.add( container, mw.message( 'vector-toc-unpinned-popup' ).text(), containerId )
-						.then( ( popupWidget ) => {
-							if ( popupWidget ) {
-								popupNotification.show( popupWidget );
-							}
-						} );
-				}
-			}
-
-		}
+		onHashChange: handleTocSectionChange
 	} );
 	const elements = () => bodyContent.querySelectorAll( `${ HEADING_SELECTOR }, .mw-body-content` );
 
@@ -250,7 +217,19 @@ const main = () => {
 	//
 	const tocElement = document.getElementById( TOC_ID );
 	const bodyContent = document.getElementById( BODY_CONTENT_ID );
-	const tableOfContents = setupTableOfContents( tocElement, bodyContent, initSectionObserver );
+	const tocPinnableHeader = /** @type {HTMLElement|null} */ (
+		document.querySelector( '.vector-toc-pinnable-header' )
+	);
+
+	/** @type {TableOfContents | null} */
+	let tableOfContents = null;
+	if ( !tocElement || !bodyContent || !tocPinnableHeader ) {
+		// eslint-disable-next-line no-console
+		console.warn( 'setupIntersectionObservers: Table of contents initialization failed: Required elements not found.' );
+	} else {
+		tableOfContents = setupTableOfContents( tocElement, bodyContent, initSectionObserver );
+		updateTocLocation( tocPinnableHeader );
+	}
 
 	//
 	// Sticky header
@@ -281,7 +260,9 @@ const main = () => {
 				if ( !belowDesktopMedia.matches ) {
 					stickyHeader.show();
 				}
-				updateTocLocation();
+				if ( tableOfContents ) {
+					updateTocLocation( tocPinnableHeader );
+				}
 			}
 			document.body.classList.add( PAGE_TITLE_INTERSECTION_CLASS );
 			if ( tableOfContents ) {
@@ -295,7 +276,9 @@ const main = () => {
 				if ( !belowDesktopMedia.matches ) {
 					stickyHeader.hide();
 				}
-				updateTocLocation();
+				if ( tableOfContents ) {
+					updateTocLocation( tocPinnableHeader );
+				}
 			}
 			document.body.classList.remove( PAGE_TITLE_INTERSECTION_CLASS );
 			if ( tableOfContents ) {
@@ -313,11 +296,11 @@ const main = () => {
 			stickyHeader.hide();
 		}
 
-		// Handle TOC location when sticky header is hidden on lower viewports
-		updateTocLocation();
+		if ( tableOfContents ) {
+			// Handle unpinned container when sticky header is hidden on lower viewports
+			updateTocLocation( tocPinnableHeader );
+		}
 	};
-
-	updateTocLocation();
 
 	if ( !stickyHeaderAllowed ) {
 		stickyHeader.hide();

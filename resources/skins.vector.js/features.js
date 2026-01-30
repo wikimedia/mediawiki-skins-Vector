@@ -106,4 +106,4 @@ function getClass( name, featureEnabled, isClientPreference ) {
 	}
 }
 
-module.exports = { getClass, isEnabled, toggle, toggleDocClasses };
+module.exports = { getClass, isEnabled, toggle, toggleDocClasses, save };

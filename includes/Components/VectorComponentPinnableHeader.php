@@ -16,8 +16,6 @@ class VectorComponentPinnableHeader implements VectorComponent {
 	 * persist for logged-in users by leveraging features.js to manage the user
 	 * preference storage and the toggling of the body class. This name should NOT
 	 * contain the "vector-" prefix.
-	 * @param bool|null $moveElement Flag controlling if the pinnable element should be
-	 *   automatically moved in the DOM when pinned/unpinned
 	 * @param string|null $labelTagName Element type of the label. Either a 'div' or a 'h2'
 	 *   in the case of the pinnable ToC.
 	 */
@@ -26,7 +24,6 @@ class VectorComponentPinnableHeader implements VectorComponent {
 		private readonly bool $pinned,
 		private readonly string $id,
 		private readonly string $featureName,
-		private readonly ?bool $moveElement = true,
 		private readonly ?string $labelTagName = 'div',
 	) {
 	}
@@ -43,15 +40,11 @@ class VectorComponentPinnableHeader implements VectorComponent {
 			'pin-label' => $messageLocalizer->msg( 'vector-pin-element-label' ),
 			'unpin-label' => $messageLocalizer->msg( 'vector-unpin-element-label' ),
 			'data-pinnable-element-id' => $this->id,
-			'data-feature-name' => $this->featureName
-		];
-		if ( $this->moveElement ) {
+			'data-feature-name' => $this->featureName,
 			// Assumes consistent naming standard for pinnable elements and their containers
-			$data = array_merge( $data, [
-				'data-unpinned-container-id' => $this->id . '-unpinned-container',
-				'data-pinned-container-id' => $this->id . '-pinned-container',
-			] );
-		}
+			'data-unpinned-container-id' => $this->id . '-unpinned-container',
+			'data-pinned-container-id' => $this->id . '-pinned-container'
+		];
 		return $data;
 	}
 }
