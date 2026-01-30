@@ -1,5 +1,5 @@
 const languageButton = require( './languageButton.js' ),
-	pinnableElement = require( './pinnableElement.js' ),
+	pinnableElement = require( './pinnableElement.js' ).init,
 	searchToggle = require( './searchToggle.js' ),
 	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
@@ -59,7 +59,7 @@ function main( window ) {
 	if ( searchToggleElement ) {
 		searchToggle( searchToggleElement );
 	}
-	pinnableElement.initPinnableElement();
+	pinnableElement();
 	// Initializes the TOC and sticky header, behaviour of which depend on scroll behaviour.
 	setupIntersectionObservers.main();
 	// Apply body styles to teleported elements

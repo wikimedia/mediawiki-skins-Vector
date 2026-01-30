@@ -240,19 +240,6 @@ function bindBreakpoint( headers ) {
 	}
 }
 
-function initPinnableElement() {
-	const pinnableHeaders = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
-	pinnableHeaders.forEach( ( header ) => {
-		if ( header.dataset.featureName && header.dataset.pinnableElementId ) {
-			bindToggleButtons( header );
-			updatePinnableState( header, isPinned( header ) );
-			// Set saved pinned state for narrow breakpoint behaviour.
-			savePinnedState( header );
-		}
-	} );
-	bindBreakpoint( pinnableHeaders );
-}
-
 // T349924: Remove hasPinnedElements after one cycle of analyticsPinnedState() merge.
 /**
  * Checks if at least one of the elements in the HTML document is pinned based on CSS class names.
@@ -280,11 +267,60 @@ function analyticsPinnedState() {
 	return htmlElement.classList.contains( 'vector-feature-main-menu-pinned-enabled' ) || htmlElement.classList.contains( 'vector-feature-page-tools-pinned-enabled' );
 }
 
+/**
+ * A hook handler for ve.hideVectorColumns hook.
+ *
+ * Force-unpins appearance, tools, main menu, and ToC features,
+ * without affecting user preferences.
+ */
+function hideVectorColumnsHandler() {
+	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
+	pinnableHeader.forEach( ( header ) => {
+		updatePinnableState( header, false, false );
+		// Overriding the pinned state temporarily, so we hide the buttons to prevent users from changing the state
+		header.classList.add( 'vector-pinnable-header-override' );
+	} );
+}
+
+/**
+ * A hook handler for ve.restoreVectorColumns hook.
+ *
+ * Restores appearance, tools, and main menu features' pinned states
+ * according to user preferences.
+ */
+function restoreVectorColumnsHandler() {
+	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
+	pinnableHeader.forEach( ( header ) => {
+		const savedPinnedState = JSON.parse( header.dataset.savedPinnedState || 'false' );
+		updatePinnableState( header, savedPinnedState, false );
+		// Removing the override class to restore pin/unpin button functionality
+		header.classList.remove( 'vector-pinnable-header-override' );
+	} );
+}
+
+function init() {
+	const pinnableHeaders = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
+	pinnableHeaders.forEach( ( header ) => {
+		if ( header.dataset.featureName && header.dataset.pinnableElementId ) {
+			bindToggleButtons( header );
+			updatePinnableState( header, isPinned( header ) );
+			// Set saved pinned state for narrow breakpoint behaviour.
+			savePinnedState( header );
+		}
+	} );
+	bindBreakpoint( pinnableHeaders );
+
+	mw.hook( 've.hideVectorColumns' ).add( hideVectorColumnsHandler );
+	mw.hook( 've.restoreVectorColumns' ).add( restoreVectorColumnsHandler );
+}
+
 module.exports = {
+	init,
+	hideVectorColumnsHandler,
+	restoreVectorColumnsHandler,
 	// T349924: Remove hasPinnedElements.
 	hasPinnedElements,
 	analyticsPinnedState,
-	initPinnableElement,
 	updatePinnableState,
 	isPinned,
 	PINNED_HEADER_CLASS,

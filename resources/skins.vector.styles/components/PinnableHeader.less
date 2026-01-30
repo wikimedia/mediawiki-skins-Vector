@@ -33,6 +33,11 @@
 	&:hover {
 		background-color: @background-color-secondary--modern;
 	}
+
+	.vector-pinnable-header-override & {
+		/* stylelint-disable-next-line declaration-no-important */
+		display: none !important;
+	}
 }
 
 // Pin/unpin buttons are only enabled when JS is enabled and when not overriden
