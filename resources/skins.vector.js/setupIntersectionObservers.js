@@ -306,14 +306,15 @@ const main = () => {
 	);
 
 	belowDesktopMedia.onchange = () => {
-		// Handle TOC location when sticky header is hidden on lower viewports
-		updateTocLocation();
 		// Handle show/hide of sticky header on viewport resize
 		if ( !belowDesktopMedia.matches && scrolledPastPageTitle ) {
 			stickyHeader.show();
 		} else {
 			stickyHeader.hide();
 		}
+
+		// Handle TOC location when sticky header is hidden on lower viewports
+		updateTocLocation();
 	};
 
 	updateTocLocation();
