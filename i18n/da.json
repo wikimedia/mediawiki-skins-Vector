@@ -95,5 +95,6 @@
 	"vector-night-mode-issue-reporting-notice-tooltip": "Rapportér, når mørke tilstandsfarver gør tingene svære at læse.",
 	"vector-night-mode-issue-reporting-link-label": "Rapporter et problem med mørk tilstand",
 	"vector-night-mode-issue-reporting-link-notification": "Rapport modtaget!",
-	"vector-night-mode-issue-reporting-preload-title": "$1 mørk tilstandsfejl"
+	"vector-night-mode-issue-reporting-preload-title": "$1 mørk tilstandsfejl",
+	"vector-night-mode-beta-tag": "(beta)"
 }
