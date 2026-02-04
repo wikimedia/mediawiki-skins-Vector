@@ -56,11 +56,20 @@
 		padding-right: @spacing-125;
 	}
 
+	&-context-bar {
+		min-width: 0;
+	}
+
 	&-context-bar > * {
-		// T349436 Apply padding to avoid clipping the title when it contains characters
-		// with wide kerns (e.g. overhanging swashes on italic 'ʄ').
-		// Applies to children of `.vector-sticky-header-context-bar` so spacing is consistent
+		// T414993 Applies to children of `.vector-sticky-header-context-bar` so spacing is consistent
 		padding-left: @spacing-50;
+	}
+
+	&-context-bar > &-context-bar-primary {
+		// T349436 Apply padding on both sides to avoid clipping the title when it contains characters
+		// with wide kerns (e.g. overhanging swashes on italic 'f'). To avoid that issue, this must be
+		// 'padding' inside this element, not 'margin', nor 'gap' on the parent.
+		padding: 0 @spacing-50;
 	}
 
 	.vector-sticky-header-toc {
