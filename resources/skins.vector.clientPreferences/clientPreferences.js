@@ -4,6 +4,8 @@
  * @property {string} preferenceKey for registered users.
  * @property {string} [betaMessage] whether to show a notice indicating this feature is in beta.
  * @property {string} [linkLabelMessage] message key for link label.
+ * @property {boolean} [linkLabelLoggedInOnly] whether the link label should only be shown to
+ *  logged in users.
  * @property {string} [linkLabelUrl] URL for link label.
  * @property {string} [linkLabelTooltip] tooltip for link label.
  * @property {string} [linkLabelUrlParameter] message key for URL parameter (which itself takes
@@ -227,7 +229,9 @@ function makeLink( linkContainer, feature ) {
 	const labelKey = feature.linkLabelMessage;
 	const linkLabelTooltip = feature.linkLabelTooltip;
 	const urlParamMsgKey = feature.linkLabelUrlParameter;
-	if ( !labelKey || !urlKey || !mw.msg( urlKey ) ) {
+	// per requirements: only logged in users can report errors (T372754)
+	const isDisplayed = feature.linkLabelLoggedInOnly ? !mw.user.isAnon() : true;
+	if ( !labelKey || !urlKey || !mw.msg( urlKey ) || !isDisplayed ) {
 		return;
 	}
 	let urlParam = '';
@@ -441,10 +445,7 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 			if ( config[ featureName ].linkLabelUrl && !isFeatureExcluded( featureName ) ) {
 				const linkContainer = document.createElement( 'span' );
 				linkContainer.id = `${ featureName }-beta-notice`;
-				// per requirements: only logged in users can report errors (T372754)
-				if ( !mw.user.isAnon() ) {
-					makeLink( linkContainer, feature );
-				}
+				makeLink( linkContainer, feature );
 				row.appendChild( linkContainer );
 			}
 		}
