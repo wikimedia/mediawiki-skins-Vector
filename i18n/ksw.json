@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Jaeminlovetaejoon",
+			"SawEKP",
 			"SawJaemin"
 		]
 	},
@@ -14,5 +15,7 @@
 	"vector-view-history": "ကွၢ်တၢ်စံၣ်စိၤတဲစိၤ",
 	"vector-view-view": "ဖး",
 	"vector-more-actions": "အါထီၣ်",
+	"vector-toc-label": "တၢ်ဂ့ၢ်ခိၣ်တီ",
+	"vector-page-tools-label": "တၢ်ပီတၢ်လီ",
 	"tooltip-vector-anon-user-menu-title": "တၢ်ဃုထၢအါထီၣ်"
 }
