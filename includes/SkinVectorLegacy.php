@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Languages\LanguageConverterFactory;
+use MediaWiki\Skin\SkinComponentUtils;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
@@ -35,9 +36,18 @@ class SkinVectorLegacy extends SkinMustache {
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		// For temp users, add createaccount right after user-page (before notifications)
+		$createAccountItem = [];
+		if ( $skin->getUser()->isTemp() ) {
+			$returnto = SkinComponentUtils::getReturnToParam(
+				$skin->getTitle(), $skin->getRequest(), $skin->getAuthority()
+			);
+			$createAccountItem['createaccount'] = $skin->buildCreateAccountData( $returnto );
+		}
 		$content_navigation['user-menu'] = array_merge(
 			$content_navigation['user-interface-preferences'],
 			$content_navigation['user-page'],
+			$createAccountItem,
 			$content_navigation['notifications'],
 			$content_navigation['user-menu']
 		);

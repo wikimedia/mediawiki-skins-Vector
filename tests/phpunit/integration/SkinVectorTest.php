@@ -5,8 +5,10 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Page\LinkCache;
 use MediaWiki\Skins\Vector\SkinVectorLegacy;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
+use MediaWiki\Tests\User\TempUser\TempUserTestTrait;
 use MediaWiki\Title\Title;
 use MediaWiki\User\TalkPageNotificationManager;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\TestingAccessWrapper;
 
@@ -17,6 +19,7 @@ use Wikimedia\TestingAccessWrapper;
  */
 class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	use MockAuthorityTrait;
+	use TempUserTestTrait;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -123,6 +126,63 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame(
 			'mw-portlet mw-portlet-personal vector-user-menu-legacy',
 			$props['data-user-menu']['class']
+		);
+	}
+
+	/**
+	 * @covers \MediaWiki\Skins\Vector\SkinVectorLegacy::runOnSkinTemplateNavigationHooks
+	 */
+	public function testTempUserCreateAccountLink() {
+		$this->enableAutoCreateTempUser();
+
+		$title = Title::makeTitle( NS_MAIN, 'SkinVector' );
+		$title->resetArticleID( 0 );
+
+		$tempUser = $this->createMock( User::class );
+		$tempUser->method( 'isTemp' )->willReturn( true );
+		$tempUser->method( 'isRegistered' )->willReturn( true );
+
+		$context = new RequestContext();
+		$context->setTitle( $title );
+		$context->setLanguage( 'en' );
+		$context->setActionName( 'view' );
+
+		$skin = $this->createVectorTemplateObject();
+		$skin->setContext( $context );
+
+		// Create a second skin instance to pass as $skin parameter.
+		// Set context with the temp user so isTemp() returns true.
+		$innerSkin = $this->createVectorTemplateObject();
+		$tempContext = new RequestContext();
+		$tempContext->setTitle( $title );
+		$tempContext->setUser( $tempUser );
+		$tempContext->setLanguage( 'en' );
+		$tempContext->setActionName( 'view' );
+		$innerSkin->setContext( $tempContext );
+
+		$content_navigation = [
+			'user-interface-preferences' => [],
+			'user-page' => [ 'userpage' => [ 'text' => '~2026-1' ] ],
+			'notifications' => [],
+			'user-menu' => [],
+			'associated-pages' => [ 'ns-1' => [] ],
+			'actions' => [],
+			'views' => [],
+			'variants' => [],
+		];
+
+		$method = new \ReflectionMethod( $skin, 'runOnSkinTemplateNavigationHooks' );
+		$args = [ $innerSkin, &$content_navigation ];
+		$method->invokeArgs( $skin, $args );
+
+		$this->assertArrayHasKey(
+			'createaccount',
+			$content_navigation['user-menu'],
+			'Temp user menu should include a createaccount item'
+		);
+		$this->assertSame(
+			'pt-createaccount',
+			$content_navigation['user-menu']['createaccount']['single-id']
 		);
 	}
 
