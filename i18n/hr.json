@@ -53,7 +53,7 @@
 	"vector-feature-custom-font-size-1-label": "Uobičajen",
 	"vector-feature-custom-font-size-2-label": "Povećan",
 	"skin-theme-name": "Boje",
-	"skin-theme-description": "[Probna inačica s mogućnošću pojavljivanja problema] Smanjuje osvijetljenost zaslona.",
+	"skin-theme-description": "Smanjuje osvijetljenost zaslona.",
 	"skin-theme-day-label": "Svijetle",
 	"skin-theme-night-label": "Tamne",
 	"skin-theme-os-label": "Automatski izbor",
@@ -94,6 +94,5 @@
 	"vector-night-mode-issue-reporting-link-label": "Prijavite probleme s tamnom temom",
 	"vector-night-mode-issue-reporting-link-notification": "Primili smo prijavu!",
 	"vector-night-mode-issue-reporting-preload-title": "Pogreška u tamnoj temi na stranici »$1«",
-	"vector-night-mode-issue-reporting-preload-content": "<!--\nOpišite kako boje u temnoj temi smanjuju čitljivost teksta. Napišite naslov odjeljka u kojemu ste naišli na problem.\n--> \n'''Opis problema'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nOpišite kako boje u temnoj temi smanjuju čitljivost teksta. Napišite naslov odjeljka u kojemu ste naišli na problem.\n--> \n'''Opis problema'''"
 }
