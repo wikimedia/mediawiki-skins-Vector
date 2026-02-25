@@ -7,6 +7,8 @@
 	"vector-languages": "Afof",
 	"vector-language-button-label": "{{PLURAL:$1|$1 af|$1 afah}}",
 	"vector-no-language-button-label": "Afah os",
+	"vector-action-addsection": "Magaro os",
+	"vector-view-create": "Gin",
 	"vector-view-history": "Tillabtem ubul",
 	"vector-more-actions": "Ziyaada",
 	"vector-appearance-label": "Xibare",
