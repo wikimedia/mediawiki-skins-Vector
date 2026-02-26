@@ -2,11 +2,27 @@
 	"@metadata": {
 		"authors": [
 			"Peter57770",
-			"AmazingJus"
+			"AmazingJus",
+			"Tuwewanzi"
 		]
 	},
+	"vector-languages": "Iyápi",
+	"vector-no-language-button-label": "Iyápi sáƞpȟa",
+	"vector-action-delete": "Pažúžu",
+	"vector-view-create": "Káǧa",
 	"vector-view-edit": "Wayútȟokeča",
 	"vector-view-history": "Takú eháŋni blawá",
 	"vector-view-view": "Yawá {{GENDER:|yo|ye|yo/ye}}",
-	"vector-more-actions": "Táku kȟó"
+	"vector-more-actions": "Táku kȟó",
+	"vector-feature-limited-width-1-label": "Ikčé",
+	"vector-feature-custom-font-size-name": "Wičhóiye",
+	"vector-feature-custom-font-size-0-label": "Čístila",
+	"vector-feature-custom-font-size-1-label": "Ikčé",
+	"vector-feature-custom-font-size-2-label": "Tȟáƞka",
+	"skin-theme-name": "Oówa",
+	"skin-theme-day-label": "Ožáƞžaƞ",
+	"skin-theme-night-label": "Okpáza",
+	"vector-toc-beginning": "Otȟókahe",
+	"vector-page-tools-label": "Wíkhičhaŋye",
+	"vector-unpin-element-label": "naȟmá"
 }
