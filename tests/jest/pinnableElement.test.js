@@ -57,7 +57,7 @@ const initializeHTML = ( headerData ) => {
 			${ headerData[ 'is-pinned' ] ? pinnableElementHTML : '' }
 		</div>
 		<div class="vector-dropdown">
-			<input type="checkbox" id="checkbox" class="vector-menu-checkbox">
+			<input type="checkbox" id="checkbox" class="vector-dropdown-checkbox">
 			<label for="checkbox" class="vector-menu-heading ">
 				<span class="vector-menu-heading-label">Dropdown</span>
 			</label>

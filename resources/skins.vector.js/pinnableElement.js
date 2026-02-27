@@ -139,7 +139,7 @@ function setFocusAfterToggle( header ) {
 			focusElement = /** @type {HTMLElement|null} */ ( pinnableElement.querySelector( '.vector-pinnable-header-unpin-button' ) );
 		} else {
 			const dropdown = pinnableElement.closest( '.vector-dropdown' );
-			focusElement = /** @type {HTMLInputElement|null} */ ( dropdown && dropdown.querySelector( '.vector-menu-checkbox' ) );
+			focusElement = /** @type {HTMLInputElement|null} */ ( dropdown && dropdown.querySelector( '.vector-dropdown-checkbox' ) );
 		}
 		if ( focusElement ) {
 			focusElement.focus();
