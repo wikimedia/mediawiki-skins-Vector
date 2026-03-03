@@ -3,6 +3,7 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Skin\SkinComponentLink;
 use MediaWiki\Title\MalformedTitleException;
@@ -233,6 +234,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$portletData = $this->portletData;
+		$user = $this->user;
 
 		$userLinksCount = count( $portletData['data-user-menu']['array-items'] );
 		$isDefaultAnonUserLinks = $userLinksCount <= 3;
@@ -254,6 +256,30 @@ class VectorComponentUserLinks implements VectorComponent {
 			[ 'talk-alert' ]
 		);
 
+		// Only certain items get promoted to the overflow menu:
+		// * readinglist
+		// * watchlist
+		// * login
+		// * create account
+		// * donate
+		$overflowKeys = [
+			'readinglists',
+			'watchlist',
+			'createaccount',
+			'login',
+			'login-private',
+			'sitesupport',
+		];
+		if ( MediaWikiServices::getInstance()->getUserNameUtils()->isTemp( $user->getName() ) ) {
+			// Temporary accounts don't show the account items in overflow
+			$overflowKeys = array_diff(
+				$overflowKeys, [
+					'createaccount',
+					'login',
+					'login-private',
+				]
+			);
+		}
 		$overflow = $this->makeItemsCollapsible(
 			array_map(
 				static function ( $item ) {
@@ -265,22 +291,9 @@ class VectorComponentUserLinks implements VectorComponent {
 				array_values(
 					array_filter(
 						$portletData['data-user-menu']['array-items'] ?? [],
-						static function ( $item ) {
-							// Only certain items get promoted to the overflow menu:
-							// * readinglist
-							// * watchlist
-							// * login
-							// * create account
-							// * donate
+						static function ( $item ) use ( $overflowKeys ) {
 							$name = $item['name'];
-							return in_array( $name, [
-								'readinglists',
-								'watchlist',
-								'createaccount',
-								'login',
-								'login-private',
-								'sitesupport'
-							] );
+							return in_array( $name, $overflowKeys );
 						}
 					)
 				)
