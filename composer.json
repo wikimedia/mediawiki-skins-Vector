@@ -49,7 +49,7 @@
 			"@phpcs",
 			"minus-x check ."
 		],
-		"test:size": "php ../../vendor/phpunit/phpunit/phpunit -c ../../phpunit.xml.dist tests/phpunit/structure/BundleSizeTest.php",
+		"test:size": "@composer -d ../../ phpunit skins/Vector/tests/phpunit/structure/BundleSizeTest.php",
 		"phan": "phan -d . --long-progress-bar",
 		"phpcs": "phpcs -sp --cache"
 	},
