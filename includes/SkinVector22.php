@@ -367,7 +367,7 @@ class SkinVector22 extends SkinMustache {
 				'data-page-titlebar-toc-dropdown' => new VectorComponentDropdown(
 					'vector-page-titlebar-toc',
 					// label
-					$this->msg( 'vector-toc-collapsible-button-label' ),
+					$this->msg( 'vector-toc-collapsible-button-label' )->text(),
 					// class
 					'vector-page-titlebar-toc vector-button-flush-left',
 					// icon
@@ -383,7 +383,7 @@ class SkinVector22 extends SkinMustache {
 				'data-sticky-header-toc-dropdown' => new VectorComponentDropdown(
 					'vector-sticky-header-toc',
 					// label
-					$this->msg( 'vector-toc-collapsible-button-label' ),
+					$this->msg( 'vector-toc-collapsible-button-label' )->text(),
 					// class
 					'mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc vector-button-flush-left',
 					// icon
@@ -418,7 +418,7 @@ class SkinVector22 extends SkinMustache {
 				$this->languageConverterFactory,
 				$portlets['data-variants'],
 				$title->getPageLanguage(),
-				$this->msg( 'vector-language-variant-switcher-label' )
+				$this->msg( 'vector-language-variant-switcher-label' )->text()
 			),
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,

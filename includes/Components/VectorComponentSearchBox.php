@@ -79,7 +79,7 @@ class VectorComponentSearchBox implements VectorComponent {
 		// We'll wire this up in a later task T284242.
 		$collapseIconAttrs = Linker::tooltipAndAccesskeyAttribs( 'search' );
 		$searchButton = new VectorComponentButton(
-			$this->localizer->msg( 'search' ),
+			$this->localizer->msg( 'search' )->text(),
 			'search',
 			null,
 			'search-toggle',

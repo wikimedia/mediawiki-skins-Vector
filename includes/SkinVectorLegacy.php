@@ -151,7 +151,7 @@ class SkinVectorLegacy extends SkinMustache {
 				$this->languageConverterFactory,
 				$portletData,
 				$this->getTitle()->getPageLanguage(),
-				$this->msg( 'vector-language-variant-switcher-label' )
+				$this->msg( 'vector-language-variant-switcher-label' )->text()
 			);
 			$portletData[ 'label' ] = $variant->getTemplateData()[ 'data-variants-dropdown' ][ 'label' ];
 		}

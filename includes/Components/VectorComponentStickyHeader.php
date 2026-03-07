@@ -150,7 +150,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 	 */
 	private function getSearchButton( $searchBoxData ) {
 		return new VectorComponentButton(
-			$this->msg( 'search' ),
+			$this->msg( 'search' )->text(),
 			'search',
 			null,
 			'vector-sticky-header-search-toggle',
