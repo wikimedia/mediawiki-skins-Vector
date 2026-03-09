@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Davidzdh",
 			"Itsmine",
 			"Justincheng12345",
 			"Nemo bis",
@@ -25,7 +26,7 @@
 	"vector-action-unprotect": "啟",
 	"vector-view-create": "立",
 	"vector-view-edit": "纂",
-	"vector-view-history": "覽史",
+	"vector-view-history": "覽誌",
 	"vector-view-view": "閱",
 	"vector-view-viewsource": "覽源",
 	"vector-more-actions": "餘",
