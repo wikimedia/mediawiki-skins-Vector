@@ -223,10 +223,7 @@ const main = () => {
 
 	/** @type {TableOfContents | null} */
 	let tableOfContents = null;
-	if ( !tocElement || !bodyContent || !tocPinnableHeader ) {
-		// eslint-disable-next-line no-console
-		console.warn( 'setupIntersectionObservers: Table of contents initialization failed: Required elements not found.' );
-	} else {
+	if ( tocElement && bodyContent && tocPinnableHeader ) {
 		tableOfContents = setupTableOfContents( tocElement, bodyContent, initSectionObserver );
 		updateTocLocation( tocPinnableHeader );
 	}
