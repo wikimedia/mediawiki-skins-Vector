@@ -1,5 +1,6 @@
 const languageButton = require( './languageButton.js' ),
-	pinnableElement = require( './pinnableElement.js' ).init,
+	// Note: the entire module is exported later for use inside WikimediaEvents
+	pinnableElement = require( './pinnableElement.js' ),
 	searchToggle = require( './searchToggle.js' ),
 	portletsManager = require( './portlets.js' ),
 	dropdownMenus = require( './dropdownMenus.js' ).dropdownMenus,
@@ -59,7 +60,7 @@ function main( window ) {
 	if ( searchToggleElement ) {
 		searchToggle( searchToggleElement );
 	}
-	pinnableElement();
+	pinnableElement.init();
 	// Initializes the TOC and sticky header, behaviour of which depend on scroll behaviour.
 	setupIntersectionObservers.main();
 	// Apply body styles to teleported elements
