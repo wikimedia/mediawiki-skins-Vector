@@ -46,7 +46,6 @@
 					"wrapSiteNotice": true,
 					"templateDirectory": "includes/templates",
 					"template": "skin",
-					"tempUserBanner": true,
 					"responsive": true,
 					"toc": false,
 					"link": {

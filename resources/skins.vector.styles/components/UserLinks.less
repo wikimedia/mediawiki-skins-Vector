@@ -72,12 +72,18 @@
 	display: flex;
 	align-items: center;
 
+	// The user page menu may have after-portal content (e.g. temp user info button).
+	.vector-menu-content {
+		display: flex;
+	}
+
 	.vector-menu-content-list {
 		display: flex;
 		align-items: center;
 		font-size: @font-size-small;
 	}
 
+	.after-portlet-user-page,
 	.user-links-collapsible-item {
 		@media ( max-width: @max-width-breakpoint-mobile ) {
 			display: none;

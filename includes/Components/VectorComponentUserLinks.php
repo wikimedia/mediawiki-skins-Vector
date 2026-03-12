@@ -247,8 +247,9 @@ class VectorComponentUserLinks implements VectorComponent {
 			),
 			false
 		);
+		$userPageData = $portletData[ 'data-user-page' ];
 		$userPage = $this->makeItemsCollapsible(
-			$this->stripIcons( $portletData[ 'data-user-page' ]['array-items'] ?? [] )
+			$this->stripIcons( $userPageData['array-items'] ?? [] )
 		);
 		$notifications = $this->makeLinksButtons(
 			$portletData[ 'data-notifications' ]['array-items'] ?? [],
@@ -319,6 +320,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			'label' => null,
 			'html-items' => null,
 			'array-list-items' => $userPage,
+			'html-after-portal' => $userPageData['html-after-portal'] ?? '',
 		] );
 		$notificationsMenu = new VectorComponentMenu( [
 			'id' => 'p-vector-user-menu-notifications',
