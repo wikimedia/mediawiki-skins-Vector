@@ -27,8 +27,10 @@ class VectorComponentMainMenu implements VectorComponent {
 		Skin $skin,
 	) {
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_MAIN_MENU_PINNED );
-		$this->includeLanguages = $featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_MENU ) ||
-			!$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_HEADER );
+		$this->includeLanguages = $languageData && (
+			$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_MAIN_MENU ) ||
+			!$featureManager->isFeatureEnabled( Constants::FEATURE_LANGUAGE_IN_HEADER )
+		);
 
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
 			$this->localizer,

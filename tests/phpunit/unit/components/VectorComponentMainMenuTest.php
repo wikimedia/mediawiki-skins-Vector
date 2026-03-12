@@ -144,7 +144,7 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		// Assert main menu id and pin status
 		$this->assertSame( 'vector-main-menu', $templateData['id'] );
 		$this->assertSame( $isPinned, $templateData['is-pinned'] );
-		$this->assertSame( $isLanguageSidebar || !$isLanguageInHeader,
+		$this->assertSame( ( $isLanguageSidebar || !$isLanguageInHeader ) && $languageData,
 			$templateData['is-languages-included'] );
 
 		// Assert the structure and types of expected keys
