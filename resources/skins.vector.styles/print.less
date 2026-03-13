@@ -60,7 +60,7 @@ img {
 // Headings
 .firstHeading,
 .mw-heading2,
-h2 {
+:not( .mw-heading2 ) h2 {
 	// To avoid the bottom border of section headings with floated elements
 	overflow: hidden;
 	border-bottom: 2px solid @color-emphasized;
