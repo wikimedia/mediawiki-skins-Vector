@@ -130,7 +130,6 @@ class Hooks implements
 	 * @param bool $isLegacy is this the legacy Vector skin?
 	 */
 	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
-		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		foreach ( $content_navigation['views'] as &$item ) {
 			$icon = $item['icon'] ?? null;
 			if ( $icon ) {
