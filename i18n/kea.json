@@ -13,6 +13,7 @@
 	"vector-specialversion-name": "Vector",
 	"vector-skin-desc": "E ta furnisi 2 téma Vector:\n* 2011 - Verson mudérnu di MonoBook ku aspétu frésku i ku txeu midjoria ki torna uzu más faxi.\n* 2022 - Vector kiriadu kuma párti di prujétu [https://www.mediawiki.org/wiki/Desktop_Improvements Midjorias di Verson pa Kunputador] di Fundason Uikimídia.",
 	"prefs-vector-enable-vector-1-label": "Uza Vector Bédju",
+	"prefs-vector-enable-vector-1-help": "Na dikorer di óns siginti, gran-gran nu ta bai atualiza téma Vector. Ku Vector Bédju, ta kuntinua ta udjadu verson antigu di es téma (kel ki ta izistiba na dizénbru di 2019). Pa sabe más sobri tudu atualizason, bai pa nos [https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements pájina di prujétu].",
 	"vector-action-toggle-sidebar": "Alterna bara lateral",
 	"vector-languages": "Lingas",
 	"vector-language-button-aria-label": "Bai pa un artigu na un otu linga.\nDispunívi na {{PLURAL:$1|linga}}",
