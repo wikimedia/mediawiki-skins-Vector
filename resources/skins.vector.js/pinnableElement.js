@@ -2,6 +2,10 @@ const features = require( './features.js' );
 const PINNED_HEADER_CLASS = 'vector-pinnable-header-pinned';
 const UNPINNED_HEADER_CLASS = 'vector-pinnable-header-unpinned';
 const popupNotification = require( './popupNotification.js' );
+/** @type {MediaQueryList|null} */
+let pinnableBreakpoint = null;
+/** @type {(function(MediaQueryListEvent): void)|null} */
+let breakpointHandler = null;
 
 /**
  * Pinnable elements are UI elements (typically menus) that can be pinned to the
@@ -207,7 +211,7 @@ function bindToggleButtons( header ) {
  * @param {NodeListOf<HTMLElement>} headers
  * @param {MediaQueryList|MediaQueryListEvent} e
  */
-function disablePinningAtBreakpoint( headers, e ) {
+function updatePinningAtBreakpoint( headers, e ) {
 	headers.forEach( ( header ) => {
 		const savedPinnedState = JSON.parse( header.dataset.savedPinnedState || 'false' );
 
@@ -225,18 +229,19 @@ function disablePinningAtBreakpoint( headers, e ) {
  * @param {NodeListOf<HTMLElement>} headers
  */
 function bindBreakpoint( headers ) {
-	const pinnableBreakpoint = window.matchMedia( '(max-width: 1119px)' );
+	pinnableBreakpoint = window.matchMedia( '(max-width: 1119px)' );
+	breakpointHandler = updatePinningAtBreakpoint.bind( null, headers );
 
 	// Check the breakpoint in case an override is needed on pageload.
-	disablePinningAtBreakpoint( headers, pinnableBreakpoint );
+	updatePinningAtBreakpoint( headers, pinnableBreakpoint );
 
 	// Add match media handler.
 	if ( pinnableBreakpoint.addEventListener ) {
-		pinnableBreakpoint.addEventListener( 'change', disablePinningAtBreakpoint.bind( null, headers ) );
+		pinnableBreakpoint.addEventListener( 'change', breakpointHandler );
 	} else {
 		// Before Safari 14, MediaQueryList is based on EventTarget,
 		// so you must use addListener() and removeListener() to observe media query lists.
-		pinnableBreakpoint.addListener( disablePinningAtBreakpoint.bind( null, headers ) );
+		pinnableBreakpoint.addListener( breakpointHandler );
 	}
 }
 
@@ -274,12 +279,22 @@ function analyticsPinnedState() {
  * without affecting user preferences.
  */
 function hideVectorColumnsHandler() {
-	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
-	pinnableHeader.forEach( ( header ) => {
+	const pinnableHeaders = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
+	pinnableHeaders.forEach( ( header ) => {
 		updatePinnableState( header, false, false );
 		// Overriding the pinned state temporarily, so we hide the buttons to prevent users from changing the state
 		header.classList.add( 'vector-pinnable-header-override' );
 	} );
+	// temporarily unbind the pinnable breakpoint so that none of the header states respond to screen-resizing
+	if ( pinnableBreakpoint && breakpointHandler ) {
+		if ( pinnableBreakpoint.removeEventListener ) {
+			pinnableBreakpoint.removeEventListener( 'change', breakpointHandler );
+		} else {
+			pinnableBreakpoint.removeListener( breakpointHandler );
+		}
+		pinnableBreakpoint = null;
+		breakpointHandler = null;
+	}
 }
 
 /**
@@ -289,13 +304,14 @@ function hideVectorColumnsHandler() {
  * according to user preferences.
  */
 function restoreVectorColumnsHandler() {
-	const pinnableHeader = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
-	pinnableHeader.forEach( ( header ) => {
+	const pinnableHeaders = /** @type {NodeListOf<HTMLElement>} */ ( document.querySelectorAll( '.vector-pinnable-header' ) );
+	pinnableHeaders.forEach( ( header ) => {
 		const savedPinnedState = JSON.parse( header.dataset.savedPinnedState || 'false' );
 		updatePinnableState( header, savedPinnedState, false );
 		// Removing the override class to restore pin/unpin button functionality
 		header.classList.remove( 'vector-pinnable-header-override' );
 	} );
+	bindBreakpoint( pinnableHeaders );
 }
 
 function init() {
