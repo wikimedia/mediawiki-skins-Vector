@@ -284,9 +284,6 @@ class Hooks implements
 				unset( $content_navigation['user-menu']['anontalk'] );
 			}
 			$content_navigation['user-menu-anon-editor'] = $anonEditorMenu;
-
-			// Only show icons for anon menu items (login and create account).
-			self::updateMenuItems( $content_navigation, 'user-menu' );
 		}
 	}
 

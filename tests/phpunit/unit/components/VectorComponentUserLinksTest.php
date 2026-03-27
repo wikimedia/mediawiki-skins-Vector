@@ -62,6 +62,20 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		],
 		'text' => 'Login',
 	];
+	private const LOGIN_LINK_NO_ICON = [
+		'icon' => null,
+		'array-attributes' => [
+			[
+				'key' => 'href',
+				'value' => '/login',
+			],
+			[
+				'key' => 'class',
+				'value' => '',
+			]
+		],
+		'text' => 'Login',
+	];
 	private const DONATE_LINK = [
 		'icon' => 'heart',
 		'array-attributes' => [
@@ -109,6 +123,16 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		'class' => 'mw-list-item',
 		'array-links' => [
 			self::LOGIN_LINK,
+		],
+	];
+	private const LOGIN_ITEM_NO_ICON = [
+		'html-item' => 'ignore',
+		'name' => 'login',
+		'html' => 'Login',
+		'id' => 'pt-login-2',
+		'class' => 'mw-list-item',
+		'array-links' => [
+			self::LOGIN_LINK_NO_ICON,
 		],
 	];
 	private const DONATE_ITEM = [
@@ -205,13 +229,12 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		return [
 			'label' => null,
 			'class' => $isCollapsible ? ' user-links-collapsible-item' : '',
-			'array-items' => $items,
 			'html-tooltip' => '',
 			'label-class' => '',
 			'html-before-portal' => '',
 			'html-items' => '',
 			'html-after-portal' => '',
-			'array-list-items' => null,
+			'array-list-items' => $items,
 		];
 	}
 
@@ -263,9 +286,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 						'overflow',
 						[
 							self::helperAlterItem(
-								[
-									'id' => 'pt-login-2',
-								] + self::LOGIN_ITEM,
+								self::LOGIN_ITEM_NO_ICON,
 								true
 							)
 						]
@@ -398,6 +419,9 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 			$linkOptions,
 			self::ICON
 		);
-		$this->assertEquals( $expected, $userLinks->getTemplateData() );
+		$this->assertEquals(
+			$expected,
+			$userLinks->getTemplateData()
+		);
 	}
 }

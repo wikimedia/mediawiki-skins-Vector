@@ -19,6 +19,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	private const BUTTON_CLASSES = 'cdx-button cdx-button--fake-button '
 		. 'cdx-button--fake-button--enabled cdx-button--weight-quiet';
 	private const ICON_ONLY_BUTTON_CLASS = 'cdx-button--icon-only';
+	private const COLLAPSIBLE_CLASS = 'user-links-collapsible-item';
 
 	/**
 	 * @param MessageLocalizer $localizer
@@ -65,7 +66,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		// Hide entire user links dropdown on larger viewports if it only contains
 		// create account & login link, which are only shown on smaller viewports
 		if ( $isAnon && $isDefaultAnonUserLinks && !$isAnonEditorLinksEnabled ) {
-			$linkclass = ' user-links-collapsible-item';
+			$linkclass = ' ' . self::COLLAPSIBLE_CLASS;
 
 			if ( $userLinksCount === 0 ) {
 				// The user links can be completely empty when even login is not possible
@@ -110,12 +111,13 @@ class VectorComponentUserLinks implements VectorComponent {
 		// FIXME: Replace array_merge with an add class helper function
 		$userMenuClass = $portletData[ 'data-user-menu' ][ 'class' ] ?? '';
 		$userMenuClass = $isAnon && $isDefaultAnonUserLinks ?
-			$userMenuClass . ' user-links-collapsible-item' : $userMenuClass;
+			$userMenuClass . ' ' . self::COLLAPSIBLE_CLASS : $userMenuClass;
 		$dropdownMenus = [
 			new VectorComponentMenu( [
 				'label' => null,
-				'class' => $userMenuClass
-			] + $portletData[ 'data-user-menu' ] )
+				'class' => $userMenuClass,
+				'array-list-items' => $portletData[ 'data-user-menu' ]['array-items'] ?? [],
+			] )
 		];
 
 		if ( $isAnon ) {
@@ -159,39 +161,41 @@ class VectorComponentUserLinks implements VectorComponent {
 	}
 
 	/**
-	 * Strips icons from the menu.
+	 * Update menu item styling based of default menu styles and overrides
+	 * Style options include: 'button', 'collapsible', 'icon'
+	 * 'button' can be boolean or an array with button options, e.g. ['iconOnly' => true]
 	 *
-	 * @param array $arrayListItems
+	 * @param array $menuItems
+	 * @param array $menuStyles all menu items will use these default styles unless there's an item specific override
+	 * @param array $overrides styles for individual menu items keyed by item id, which will override $menuStyles
 	 * @return array
 	 */
-	private static function stripIcons( array $arrayListItems ) {
-		return array_map( static function ( $item ) {
-			$item['array-links'] = array_map( static function ( $link ) {
-				$link['icon'] = null;
-				return $link;
-			}, $item['array-links'] );
-			return $item;
-		}, $arrayListItems );
-	}
+	private static function updateMenuItemStyles( $menuItems, $menuStyles, $overrides = [] ) {
+		return array_map( static function ( $item ) use ( $menuStyles, $overrides ) {
+			$id = $item['id'];
+			$hasOverrides = $id && isset( $overrides[ $id ] );
+			$styles = $hasOverrides ? $overrides[ $id ] : $menuStyles;
 
-	/**
-	 * Converts links to button icons
-	 *
-	 * @param array $arrayListItems
-	 * @param bool $iconOnlyButton whether label should be visible.
-	 * @param array $exceptions list of names of items that should not be converted.
-	 * @return array
-	 */
-	private static function makeLinksButtons( $arrayListItems, $iconOnlyButton = true, $exceptions = [] ) {
-		return array_map( static function ( $item ) use ( $iconOnlyButton, $exceptions ) {
-			if ( in_array( $item[ 'name'], $exceptions ) ) {
-				return $item;
+			$isCollapsible = $styles['collapsible'] ?? false;
+			// collapsible class is added to the item (LI element) class
+			if ( $isCollapsible ) {
+				$class = $item['class'] ?? '';
+				$item['class'] = $class . ' ' . self::COLLAPSIBLE_CLASS;
 			}
-			$item['array-links'] = array_map( static function ( $link ) use ( $iconOnlyButton ) {
-				$link['array-attributes'] = array_map( static function ( $attribute ) use ( $iconOnlyButton ) {
+			// Update link classes
+			$item['array-links'] = array_map( static function ( $link ) use ( $styles ) {
+				if ( array_key_exists( 'icon', $styles ) ) {
+					$link['icon'] = $styles['icon'];
+				}
+				$link['array-attributes'] = array_map( static function ( $attribute ) use ( $styles ) {
 					if ( $attribute['key'] === 'class' ) {
-						$newClass = $attribute['value'] . ' ' . self::BUTTON_CLASSES;
-						if ( $iconOnlyButton ) {
+						$newClass = $attribute['value'];
+						$isButton = $styles['button'] ?? false;
+						$isIconOnlyButton = $styles['button' ]['iconOnly'] ?? false;
+						if ( $isButton ) {
+							$newClass .= ' ' . self::BUTTON_CLASSES;
+						}
+						if ( $isIconOnlyButton ) {
 							$newClass .= ' ' . self::ICON_ONLY_BUTTON_CLASS;
 						}
 						$attribute['value'] = $newClass;
@@ -201,20 +205,7 @@ class VectorComponentUserLinks implements VectorComponent {
 				return $link;
 			}, $item['array-links'] );
 			return $item;
-		}, $arrayListItems );
-	}
-
-	/**
-	 * Makes all menu items collapsible at lower resolutions.
-	 *
-	 * @param array $arrayListItems
-	 * @return array
-	 */
-	private static function makeItemsCollapsible( $arrayListItems ) {
-		return array_map( static function ( $item ) {
-			$item['class'] .= ' user-links-collapsible-item';
-			return $item;
-		}, $arrayListItems );
+		}, $menuItems );
 	}
 
 	/**
@@ -243,71 +234,102 @@ class VectorComponentUserLinks implements VectorComponent {
 		$isAnonEditorLinksEnabled = isset( $portletData['data-user-menu-anon-editor']['is-empty'] )
 			&& !$portletData['data-user-menu-anon-editor']['is-empty'];
 
-		$userInterfacePreferences = $this->makeLinksButtons(
-			$this->makeItemsCollapsible(
-				$portletData[ 'data-user-interface-preferences' ]['array-items'] ?? []
-			),
-			false
-		);
-		$userPageData = $portletData[ 'data-user-page' ] ?? [];
-		$userPage = $this->makeItemsCollapsible(
-			$this->stripIcons( $userPageData['array-items'] ?? [] )
-		);
-		$notifications = $this->makeLinksButtons(
-			$portletData[ 'data-notifications' ]['array-items'] ?? [],
-			true,
-			[ 'talk-alert' ]
+		$userInterfacePreferences = $this->updateMenuItemStyles(
+			$portletData[ 'data-user-interface-preferences' ]['array-items'] ?? [],
+			// applies to all menu items
+			[
+				'button' => true,
+				'collapsible' => true,
+			]
 		);
 
-		// Only certain items get promoted to the overflow menu:
-		// * readinglist
-		// * watchlist
-		// * login
-		// * create account
-		// * donate
-		$overflowKeys = [
-			'readinglists',
-			'watchlist',
+		$userPage = $this->updateMenuItemStyles(
+			$portletData[ 'data-user-page' ]['array-items'] ?? [],
+			// applies to all menu items
+			[
+				'collapsible' => true,
+				'icon' => null,
+			]
+		);
+
+		$notifications = $this->updateMenuItemStyles(
+			$portletData[ 'data-notifications' ]['array-items'] ?? [],
+			// applies to all menu items
+			[
+				'button' => [
+					'iconOnly' => true,
+				],
+			]
+		);
+
+		$accountKeys = [
 			'createaccount',
 			'login',
 			'login-private',
+		];
+		// Keys we anticipate the user will need more.
+		$powerKeys = [
+			'readinglists',
+			'watchlist',
 			'sitesupport',
 		];
+		// Only certain items get promoted to the overflow menu:
+		$overflowKeys = array_merge( $powerKeys, $accountKeys );
 		if ( $this->userNameUtils->isTemp( $user->getName() ) ) {
 			// Temporary accounts don't show the account items in overflow
 			$overflowKeys = array_diff(
-				$overflowKeys, [
-					'createaccount',
-					'login',
-					'login-private',
-				]
+				$overflowKeys, $accountKeys
 			);
 		}
-		$overflow = $this->makeItemsCollapsible(
-			array_map(
-				static function ( $item ) {
-					// Since we're creating duplicate icons
-					$item['id'] .= '-2';
-					return $item;
-				},
-				// array_filter preserves keys so use array_values to restore array.
-				array_values(
-					array_filter(
-						$portletData['data-user-menu']['array-items'] ?? [],
-						static function ( $item ) use ( $overflowKeys ) {
-							$name = $item['name'];
-							return in_array( $name, $overflowKeys );
-						}
-					)
+
+		$overflow = array_map(
+			static function ( $item ) {
+				// Since we're creating duplicate icons
+				$item['id'] .= '-2';
+				return $item;
+			},
+			// array_filter preserves keys so use array_values to restore array.
+			array_values(
+				array_filter(
+					$portletData['data-user-menu']['array-items'] ?? [],
+					static function ( $item ) use ( $overflowKeys ) {
+						$name = $item['name'];
+						return in_array( $name, $overflowKeys );
+					}
 				)
 			)
 		);
-		// Convert to buttons for logged in users.
-		// For anons these will remain as links.
-		// Note: This list is empty for temporary users currently.
-		if ( $this->user->isRegistered() ) {
-			$overflow = $this->makeLinksButtons( $overflow );
+
+		// Logged in overflow menu items are icon only buttons
+		// Styles for anon overflow menu is generally collapsible with no icon
+		// the overflow donate link (pt-sitesupport-2) is an exception
+		$overflowDefaultStyle = $this->user->isRegistered() ? [
+			'button' => [
+				'iconOnly' => true,
+			],
+			'collapsible' => true,
+		] : [
+			'button' => true,
+			'collapsible' => true,
+		];
+
+		// Disable buttons and hide icons for the account actions:
+		$overrides = [];
+		foreach ( $accountKeys as $key ) {
+			$overrides['pt-' . $key . '-2'] = [
+				'button' => false,
+				'icon' => null,
+				'collapsible' => true,
+			];
 		}
+
+		$overflow = $this->updateMenuItemStyles(
+			$overflow,
+			// applies to all menu items
+			$overflowDefaultStyle,
+			// item specific overrides
+			$overrides,
+		);
 
 		$preferencesMenu = new VectorComponentMenu( [
 			'id' => 'p-vector-user-menu-preferences',
@@ -322,7 +344,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			'label' => null,
 			'html-items' => null,
 			'array-list-items' => $userPage,
-			'html-after-portal' => $userPageData['html-after-portal'] ?? '',
+			'html-after-portal' => $portletData[ 'data-user-page' ]['html-after-portal'] ?? '',
 		] );
 		$notificationsMenu = new VectorComponentMenu( [
 			'id' => 'p-vector-user-menu-notifications',
