@@ -21,6 +21,17 @@ class VectorComponentUserLinks implements VectorComponent {
 	private const ICON_ONLY_BUTTON_CLASS = 'cdx-button--icon-only';
 	private const COLLAPSIBLE_CLASS = 'user-links-collapsible-item';
 
+	private const ACCOUNT_MENU_ITEM_KEYS = [
+		'createaccount',
+		'login',
+		'login-private',
+	];
+	private const OVERFLOW_MENU_ITEM_KEYS = [
+		'readinglists',
+		'watchlist',
+		'sitesupport',
+	];
+
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param UserIdentity $user
@@ -97,6 +108,26 @@ class VectorComponentUserLinks implements VectorComponent {
 	}
 
 	/**
+	 * @param UserIdentity $user
+	 * @return array
+	 */
+	private function getOverflowKeys( $user ) {
+		// Only certain items get promoted to the overflow menu:
+		// * readinglist
+		// * watchlist
+		// * (account keys)
+		if ( $this->userNameUtils->isTemp( $user->getName() ) ) {
+			// Temporary accounts don't show the account items in overflow
+			return array_diff(
+				self::OVERFLOW_MENU_ITEM_KEYS,
+				self::ACCOUNT_MENU_ITEM_KEYS
+			);
+		} else {
+			return array_merge( self::OVERFLOW_MENU_ITEM_KEYS, self::ACCOUNT_MENU_ITEM_KEYS );
+		}
+	}
+
+	/**
 	 * @param bool $isDefaultAnonUserLinks
 	 * @param bool $isAnonEditorLinksEnabled
 	 * @return array
@@ -112,11 +143,28 @@ class VectorComponentUserLinks implements VectorComponent {
 		$userMenuClass = $portletData[ 'data-user-menu' ][ 'class' ] ?? '';
 		$userMenuClass = $isAnon && $isDefaultAnonUserLinks ?
 			$userMenuClass . ' ' . self::COLLAPSIBLE_CLASS : $userMenuClass;
+
+		$overflowKeys = self::getOverflowKeys( $user );
+		$userMenuData = $portletData[ 'data-user-menu' ][ 'array-items' ];
+		$userMenuOverrides = [];
+		// Construct overrides for any menu item that is duplicated in the overflow menu
+		foreach ( $overflowKeys as $key ) {
+			$menuItem = array_filter( $userMenuData, static function ( $item ) use ( $key ) {
+				return $item['name'] === $key;
+			} );
+
+			if ( $menuItem ) {
+				$menuItem = array_values( $menuItem )[0];
+				$userMenuOverrides[ $menuItem[ 'id' ] ] = [ 'collapsible' => true ];
+			}
+		}
+		$userMenu = $this->updateMenuItemStyles( $userMenuData, [], $userMenuOverrides );
+
 		$dropdownMenus = [
 			new VectorComponentMenu( [
 				'label' => null,
 				'class' => $userMenuClass,
-				'array-list-items' => $portletData[ 'data-user-menu' ]['array-items'] ?? [],
+				'array-list-items' => $userMenu
 			] )
 		];
 
@@ -262,26 +310,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			]
 		);
 
-		$accountKeys = [
-			'createaccount',
-			'login',
-			'login-private',
-		];
-		// Keys we anticipate the user will need more.
-		$powerKeys = [
-			'readinglists',
-			'watchlist',
-			'sitesupport',
-		];
-		// Only certain items get promoted to the overflow menu:
-		$overflowKeys = array_merge( $powerKeys, $accountKeys );
-		if ( $this->userNameUtils->isTemp( $user->getName() ) ) {
-			// Temporary accounts don't show the account items in overflow
-			$overflowKeys = array_diff(
-				$overflowKeys, $accountKeys
-			);
-		}
-
+		$overflowKeys = self::getOverflowKeys( $user );
 		$overflow = array_map(
 			static function ( $item ) {
 				// Since we're creating duplicate icons
@@ -315,7 +344,7 @@ class VectorComponentUserLinks implements VectorComponent {
 
 		// Disable buttons and hide icons for the account actions:
 		$overrides = [];
-		foreach ( $accountKeys as $key ) {
+		foreach ( self::ACCOUNT_MENU_ITEM_KEYS as $key ) {
 			$overrides['pt-' . $key . '-2'] = [
 				'button' => false,
 				'icon' => null,

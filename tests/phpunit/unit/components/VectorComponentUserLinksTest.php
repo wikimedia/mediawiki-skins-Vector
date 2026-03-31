@@ -314,7 +314,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 								),
 								self::helperAlterItem(
 									self::LOGIN_ITEM,
-									false
+									true
 								),
 							]
 						),
@@ -350,7 +350,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 				true,
 				[
 					'data-user-menu' => self::helperMakePortletData( [
-						self::WATCHLIST_ITEM,
+						self::WATCHLIST_ITEM
 					] ),
 					'data-user-interface-preferences' => self::helperMakePortletData( [] ),
 				],
@@ -377,7 +377,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 							[
 								self::helperAlterItem(
 									self::WATCHLIST_ITEM,
-									false
+									true
 								),
 							],
 							false

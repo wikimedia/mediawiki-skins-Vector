@@ -206,42 +206,17 @@ class Hooks implements
 	}
 
 	/**
-	 * @internal used inside ::updateUserLinksDropdownItems
-	 * @param array $content_navigation
-	 * @return bool
-	 */
-	private static function isWatchListEnabled( $content_navigation ) {
-		return isset( $content_navigation['user-menu']['watchlist'] );
-	}
-
-	/**
 	 * Updates personal navigation menu (user links) dropdown for modern Vector:
 	 *  - Adds icons
-	 *  - Makes user page and watchlist collapsible
 	 *
 	 * @internal used inside ::updateUserLinksItems
 	 * @param SkinTemplate $sk
 	 * @param array &$content_navigation
-	 * @suppress PhanTypeInvalidDimOffset
 	 */
 	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
 		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
 		$user = $sk->getUser();
 		if ( $user->isRegistered() ) {
-			// Remove user page from personal menu dropdown for logged in use
-			// Note check that the user page exists as it wont for temporary users
-			if ( isset( $content_navigation['user-menu']['userpage'] ) ) {
-				$content_navigation['user-menu']['userpage']['collapsible'] = true;
-			}
-			// watchlist may be disabled if $wgGroupPermissions['*']['viewmywatchlist'] = false;
-			// See [[phab:T299671]]
-			if ( self::isReadingListEnabled( $content_navigation ) ) {
-				$content_navigation['user-menu']['readinglists']['collapsible'] = true;
-			}
-			if ( self::isWatchlistEnabled( $content_navigation ) ) {
-				$content_navigation['user-menu']['watchlist']['collapsible'] = true;
-			}
-
 			// Anon editor links handled manually in new anon editor menu
 			$logoutMenu = [];
 			if ( isset( $content_navigation['user-menu']['logout'] ) ) {
@@ -256,20 +231,6 @@ class Hooks implements
 		} else {
 			// Remove "Not logged in" from personal menu dropdown for anon users.
 			unset( $content_navigation['user-menu']['anonuserpage'] );
-
-			// Make login and create account collapsible
-			if ( isset( $content_navigation['user-menu']['login'] ) ) {
-				$content_navigation['user-menu']['login']['collapsible'] = true;
-			}
-			if ( isset( $content_navigation['user-menu']['login-private'] ) ) {
-				$content_navigation['user-menu']['login-private']['collapsible'] = true;
-			}
-			if ( isset( $content_navigation['user-menu']['createaccount'] ) ) {
-				$content_navigation['user-menu']['createaccount']['collapsible'] = true;
-			}
-			if ( isset( $content_navigation['user-menu']['sitesupport'] ) ) {
-				$content_navigation['user-menu']['sitesupport']['collapsible'] = true;
-			}
 
 			// Anon editor links handled manually in new anon editor menu
 			$anonEditorMenu = [];
@@ -372,18 +333,13 @@ class Hooks implements
 	) {
 		$hasButton = $item['button'] ?? false;
 		$hideText = $item['text-hidden'] ?? false;
-		$isCollapsible = $item['collapsible'] ?? false;
 		$icon = $item['icon'] ?? '';
 		if ( $unsetIcon ) {
 			unset( $item['icon'] );
 		}
 		unset( $item['button'] );
 		unset( $item['text-hidden'] );
-		unset( $item['collapsible'] );
 
-		if ( $isCollapsible ) {
-			self::makeMenuItemCollapsible( $item );
-		}
 		if ( $hasButton ) {
 			// Hardcoded button classes, this should be fixed by replacing Hooks.php with VectorComponentButton.php
 			self::appendClassToItem( $item[ $buttonClassProp ], [
