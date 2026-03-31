@@ -4,6 +4,7 @@ namespace MediaWiki\Skins\Vector;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageConverterFactory;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
@@ -423,6 +424,7 @@ class SkinVector22 extends SkinMustache {
 			'data-vector-user-links' => new VectorComponentUserLinks(
 				$localizer,
 				$user,
+				MediaWikiServices::getInstance()->getUserNameUtils(),
 				$portlets,
 				$this->getOptions()['link'],
 				$userPage[ 'icon' ] ?? ''

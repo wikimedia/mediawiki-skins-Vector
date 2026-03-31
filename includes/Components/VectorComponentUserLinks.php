@@ -3,12 +3,12 @@ namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Skin\SkinComponentLink;
 use MediaWiki\Title\MalformedTitleException;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserNameUtils;
 use MessageLocalizer;
 
 /**
@@ -23,6 +23,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	/**
 	 * @param MessageLocalizer $localizer
 	 * @param UserIdentity $user
+	 * @param UserNameUtils $userNameUtils
 	 * @param array $portletData
 	 * @param array $linkOptions
 	 * @param string $userIcon that represents the current type of user
@@ -30,6 +31,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	public function __construct(
 		private readonly MessageLocalizer $localizer,
 		private readonly UserIdentity $user,
+		private readonly UserNameUtils $userNameUtils,
 		private readonly array $portletData,
 		private readonly array $linkOptions,
 		private readonly string $userIcon = 'userAvatar',
@@ -106,7 +108,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		// Hide default user menu on larger viewports if it only contains
 		// create account & login link, which are only shown on smaller viewports
 		// FIXME: Replace array_merge with an add class helper function
-		$userMenuClass = $portletData[ 'data-user-menu' ][ 'class' ];
+		$userMenuClass = $portletData[ 'data-user-menu' ][ 'class' ] ?? '';
 		$userMenuClass = $isAnon && $isDefaultAnonUserLinks ?
 			$userMenuClass . ' user-links-collapsible-item' : $userMenuClass;
 		$dropdownMenus = [
@@ -247,7 +249,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			),
 			false
 		);
-		$userPageData = $portletData[ 'data-user-page' ];
+		$userPageData = $portletData[ 'data-user-page' ] ?? [];
 		$userPage = $this->makeItemsCollapsible(
 			$this->stripIcons( $userPageData['array-items'] ?? [] )
 		);
@@ -271,7 +273,7 @@ class VectorComponentUserLinks implements VectorComponent {
 			'login-private',
 			'sitesupport',
 		];
-		if ( MediaWikiServices::getInstance()->getUserNameUtils()->isTemp( $user->getName() ) ) {
+		if ( $this->userNameUtils->isTemp( $user->getName() ) ) {
 			// Temporary accounts don't show the account items in overflow
 			$overflowKeys = array_diff(
 				$overflowKeys, [
