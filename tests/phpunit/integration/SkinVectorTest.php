@@ -21,6 +21,11 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 	use MockAuthorityTrait;
 	use TempUserTestTrait;
 
+	private const ASSOCIATED_PAGE = [
+		'text' => 'Associated page 1',
+		'href' => '/url/to/associated/page/1',
+	];
+
 	protected function setUp(): void {
 		parent::setUp();
 		// Mock TalkPageNotificationManager to avoid DB queries
@@ -54,10 +59,13 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 		$this->setTemporaryHook( 'SkinTemplateNavigation::Universal',
 			static function ( &$skinTemplate, &$content_navigation ) {
 				$content_navigation['actions'] = [
-					'action-1' => []
+					'action-1' => [
+						'href' => '/action/',
+						'text' => 'action 1'
+					]
 				];
 				$content_navigation['associated-pages'] = [
-					'ns-1' => []
+					'ns-1' => self::ASSOCIATED_PAGE,
 				];
 				$content_navigation['variants'] = [
 					[
@@ -70,7 +78,10 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 				];
 				$content_navigation['views'] = [];
 				$content_navigation['user-menu'] = [
-					'pt-1' => [ 'text' => 'pt1' ],
+					'pt-1' => [
+						'href' => '/wiki/',
+						'text' => 'pt1'
+					],
 				];
 			}
 		);
@@ -162,10 +173,17 @@ class SkinVectorTest extends MediaWikiIntegrationTestCase {
 
 		$content_navigation = [
 			'user-interface-preferences' => [],
-			'user-page' => [ 'userpage' => [ 'text' => '~2026-1' ] ],
+			'user-page' => [
+				'userpage' => [
+					'href' => '/wiki/User:Example',
+					'text' => '~2026-1'
+				]
+			],
 			'notifications' => [],
 			'user-menu' => [],
-			'associated-pages' => [ 'ns-1' => [] ],
+			'associated-pages' => [
+				'ns-1' => self::ASSOCIATED_PAGE,
+			],
 			'actions' => [],
 			'views' => [],
 			'variants' => [],

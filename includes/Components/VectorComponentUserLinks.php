@@ -4,9 +4,6 @@ namespace MediaWiki\Skins\Vector\Components;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;
-use MediaWiki\Skin\SkinComponentLink;
-use MediaWiki\Title\MalformedTitleException;
-use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserNameUtils;
 use MessageLocalizer;
@@ -15,7 +12,6 @@ use MessageLocalizer;
  * VectorComponentUserLinks component
  */
 class VectorComponentUserLinks implements VectorComponent {
-
 	private const BUTTON_CLASSES = 'cdx-button cdx-button--fake-button '
 		. 'cdx-button--fake-button--enabled cdx-button--weight-quiet';
 	private const ICON_ONLY_BUTTON_CLASS = 'cdx-button--icon-only';
@@ -37,7 +33,6 @@ class VectorComponentUserLinks implements VectorComponent {
 	 * @param UserIdentity $user
 	 * @param UserNameUtils $userNameUtils
 	 * @param array $portletData
-	 * @param array $linkOptions
 	 * @param string $userIcon that represents the current type of user
 	 */
 	public function __construct(
@@ -45,7 +40,6 @@ class VectorComponentUserLinks implements VectorComponent {
 		private readonly UserIdentity $user,
 		private readonly UserNameUtils $userNameUtils,
 		private readonly array $portletData,
-		private readonly array $linkOptions,
 		private readonly string $userIcon = 'userAvatar',
 	) {
 	}
@@ -60,11 +54,10 @@ class VectorComponentUserLinks implements VectorComponent {
 
 	/**
 	 * @param bool $isDefaultAnonUserLinks
-	 * @param bool $isAnonEditorLinksEnabled
 	 * @param int $userLinksCount
 	 * @return VectorComponentDropdown
 	 */
-	private function getDropdown( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled, $userLinksCount ) {
+	private function getDropdown( $isDefaultAnonUserLinks, $userLinksCount ) {
 		$user = $this->user;
 		$isAnon = !$user->isRegistered();
 
@@ -76,7 +69,7 @@ class VectorComponentUserLinks implements VectorComponent {
 
 		// Hide entire user links dropdown on larger viewports if it only contains
 		// create account & login link, which are only shown on smaller viewports
-		if ( $isAnon && $isDefaultAnonUserLinks && !$isAnonEditorLinksEnabled ) {
+		if ( $isAnon && $isDefaultAnonUserLinks ) {
 			$linkclass = ' ' . self::COLLAPSIBLE_CLASS;
 
 			if ( $userLinksCount === 0 ) {
@@ -129,10 +122,9 @@ class VectorComponentUserLinks implements VectorComponent {
 
 	/**
 	 * @param bool $isDefaultAnonUserLinks
-	 * @param bool $isAnonEditorLinksEnabled
 	 * @return array
 	 */
-	private function getMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) {
+	private function getMenus( $isDefaultAnonUserLinks ) {
 		$user = $this->user;
 		$isAnon = !$user->isRegistered();
 		$portletData = $this->portletData;
@@ -160,7 +152,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		}
 		$userMenu = $this->updateMenuItemStyles( $userMenuData, [], $userMenuOverrides );
 
-		$dropdownMenus = [
+		return [
 			new VectorComponentMenu( [
 				'id' => 'p-personal',
 				'label' => null,
@@ -168,45 +160,6 @@ class VectorComponentUserLinks implements VectorComponent {
 				'array-list-items' => $userMenu
 			] )
 		];
-
-		if ( $isAnon ) {
-			// T317789: The `anontalk` and `anoncontribs` links will not be added to
-			// the menu if `$wgGroupPermissions['*']['edit']` === false which can
-			// leave the menu empty due to our removal of other user menu items in
-			// `Hooks::updateUserLinksDropdownItems`. In this case, we do not want
-			// to render the anon "learn more" link.
-			if ( $isAnonEditorLinksEnabled ) {
-				$anonUserMenuData = $portletData[ 'data-user-menu-anon-editor' ];
-				try {
-					$anonEditorLabelLinkData = [
-						'text' => $this->msg( 'vector-anon-user-menu-pages-learn' )->text(),
-						'href' => Title::newFromTextThrow( $this->msg( 'vector-intro-page' )->text() )->getLocalURL(),
-						'aria-label' => $this->msg( 'vector-anon-user-menu-pages-label' )->text(),
-					];
-					$anonEditorLabelLink = new SkinComponentLink(
-						'', $anonEditorLabelLinkData, $this->localizer, $this->linkOptions
-					);
-					$anonEditorLabelLinkHtml = $anonEditorLabelLink->getTemplateData()[ 'html' ];
-					$anonUserMenuData['html-label'] = $this->msg( 'vector-anon-user-menu-pages' )->escaped() .
-						" " . $anonEditorLabelLinkHtml;
-					$anonUserMenuData['label'] = null;
-				} catch ( MalformedTitleException ) {
-					// ignore (T340220)
-				}
-				$dropdownMenus[] = new VectorComponentMenu( $anonUserMenuData );
-			}
-		} else {
-			// Logout isn't enabled for temp users, who are considered still considered registered
-			$isLogoutLinkEnabled = isset( $portletData[ 'data-user-menu-logout' ][ 'is-empty' ] ) &&
-				!$portletData[ 'data-user-menu-logout'][ 'is-empty' ];
-			if ( $isLogoutLinkEnabled ) {
-				$dropdownMenus[] = new VectorComponentMenu( [
-					'label' => null
-				] + $portletData[ 'data-user-menu-logout' ] );
-			}
-		}
-
-		return $dropdownMenus;
 	}
 
 	/**
@@ -250,7 +203,7 @@ class VectorComponentUserLinks implements VectorComponent {
 						$attribute['value'] = $newClass;
 					}
 					return $attribute;
-				}, $link['array-attributes'] );
+				}, $link['array-attributes'] ?? [] );
 				return $link;
 			}, $item['array-links'] );
 			return $item;
@@ -280,9 +233,6 @@ class VectorComponentUserLinks implements VectorComponent {
 
 		$userLinksCount = count( $portletData['data-user-menu']['array-items'] );
 		$isDefaultAnonUserLinks = $userLinksCount <= 3;
-		$isAnonEditorLinksEnabled = isset( $portletData['data-user-menu-anon-editor']['is-empty'] )
-			&& !$portletData['data-user-menu-anon-editor']['is-empty'];
-
 		$userInterfacePreferences = $this->updateMenuItemStyles(
 			$portletData[ 'data-user-interface-preferences' ]['array-items'] ?? [],
 			// applies to all menu items
@@ -406,10 +356,10 @@ class VectorComponentUserLinks implements VectorComponent {
 			'data-user-links-preferences' => $preferencesMenu->getTemplateData(),
 			'data-user-links-user-page' => $userPageMenu->getTemplateData(),
 			'data-user-links-dropdown' => $this->getDropdown(
-				$isDefaultAnonUserLinks, $isAnonEditorLinksEnabled, $userLinksCount )->getTemplateData(),
+				$isDefaultAnonUserLinks, $userLinksCount )->getTemplateData(),
 			'data-user-links-menus' => array_map( static function ( $menu ) {
 				return $menu->getTemplateData();
-			}, $this->getMenus( $isDefaultAnonUserLinks, $isAnonEditorLinksEnabled ) ),
+			}, $this->getMenus( $isDefaultAnonUserLinks ) ),
 		];
 	}
 }
