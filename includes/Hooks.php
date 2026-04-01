@@ -9,7 +9,6 @@ use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Hook\SkinPageReadyConfigHook;
-use MediaWiki\Skins\Vector\FeatureManagement\FeatureManagerFactory;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
 use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
@@ -30,7 +29,6 @@ class Hooks implements
 	public function __construct(
 		private readonly Config $config,
 		private readonly UserOptionsManager $userOptionsManager,
-		private readonly FeatureManagerFactory $featureManagerFactory,
 	) {
 	}
 
@@ -206,107 +204,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Updates personal navigation menu (user links) dropdown for modern Vector:
-	 *  - Adds icons
-	 *
-	 * @internal used inside ::updateUserLinksItems
-	 * @param SkinTemplate $sk
-	 * @param array &$content_navigation
-	 */
-	private static function updateUserLinksDropdownItems( $sk, &$content_navigation ) {
-		// For logged-in users in modern Vector, rearrange some links in the personal toolbar.
-		$user = $sk->getUser();
-		if ( $user->isRegistered() ) {
-			// Anon editor links handled manually in new anon editor menu
-			$logoutMenu = [];
-			if ( isset( $content_navigation['user-menu']['logout'] ) ) {
-				$logoutMenu['logout'] = $content_navigation['user-menu']['logout'];
-				$logoutMenu['logout']['id'] = 'pt-logout';
-				unset( $content_navigation['user-menu']['logout'] );
-			}
-			$content_navigation['user-menu-logout'] = $logoutMenu;
-
-			self::updateMenuItems( $content_navigation, 'user-menu', false );
-			self::updateMenuItems( $content_navigation, 'user-menu-logout' );
-		} else {
-			// Remove "Not logged in" from personal menu dropdown for anon users.
-			unset( $content_navigation['user-menu']['anonuserpage'] );
-
-			// Anon editor links handled manually in new anon editor menu
-			$anonEditorMenu = [];
-			if ( isset( $content_navigation['user-menu']['anoncontribs'] ) ) {
-				$anonEditorMenu['anoncontribs'] = $content_navigation['user-menu']['anoncontribs'];
-				$anonEditorMenu['anoncontribs']['id'] = 'pt-anoncontribs';
-				unset( $content_navigation['user-menu']['anoncontribs'] );
-			}
-			if ( isset( $content_navigation['user-menu']['anontalk'] ) ) {
-				$anonEditorMenu['anontalk'] = $content_navigation['user-menu']['anontalk'];
-				$anonEditorMenu['anontalk']['id'] = 'pt-anontalk';
-				unset( $content_navigation['user-menu']['anontalk'] );
-			}
-			$content_navigation['user-menu-anon-editor'] = $anonEditorMenu;
-		}
-	}
-
-	/**
-	 * Echo has styles that control icons rendering in places we don't want them.
-	 * This code works around T343838.
-	 *
-	 * @param array &$content_navigation
-	 */
-	private static function fixEcho( &$content_navigation ) {
-		if ( isset( $content_navigation['notifications'] ) ) {
-			foreach ( $content_navigation['notifications'] as &$item ) {
-				$icon = $item['icon'] ?? null;
-				if ( $icon ) {
-					$linkClass = $item['link-class'] ?? [];
-					$newLinkClass = [
-						// Allows Echo to react to clicks
-						'mw-echo-notification-badge-nojs'
-					];
-					if ( in_array( 'mw-echo-unseen-notifications', $linkClass ) ) {
-						$newLinkClass[] = 'mw-echo-unseen-notifications';
-					}
-					$item['link-class'] = $newLinkClass;
-				}
-			}
-		}
-	}
-
-	/**
-	 * Updates personal navigation menu (user links) for modern Vector wherein user page, create account and login links
-	 * are removed from the dropdown to be handled separately. In legacy Vector, the custom "user-page" bucket is
-	 * removed to preserve existing behavior.
-	 *
-	 * @internal used inside Hooks::onSkinTemplateNavigation
-	 * @param SkinTemplate $sk
-	 * @param array &$content_navigation
-	 */
-	private static function updateUserLinksItems( $sk, &$content_navigation ) {
-		$skinName = $sk->getSkinName();
-		if ( self::isSkinVersionLegacy( $skinName ) ) {
-			// Remove user page from personal toolbar since it will be inside the personal menu for logged-in
-			// users in legacy Vector.
-			unset( $content_navigation['user-page'] );
-		} else {
-			self::fixEcho( $content_navigation );
-			self::updateUserLinksDropdownItems( $sk, $content_navigation );
-		}
-	}
-
-	/**
-	 * Modifies list item to make it collapsible.
-	 *
-	 * @internal used in ::updateItemData and ::createMoreOverflowMenu
-	 * @param array &$item
-	 * @param string $prefix defaults to user-links-
-	 */
-	private static function makeMenuItemCollapsible( array &$item, string $prefix = 'user-links-' ) {
-		$collapseMenuItemClass = $prefix . 'collapsible-item';
-		self::appendClassToItem( $item[ 'class' ], $collapseMenuItemClass );
-	}
-
-	/**
 	 * Make an icon
 	 *
 	 * @internal for use inside Vector skin.
@@ -319,7 +216,7 @@ class Hooks implements
 	}
 
 	/**
-	 * Update template data to include classes and html that handle buttons, icons, and collapsible items.
+	 * Update template data to include classes and html that handle buttons and icons.
 	 *
 	 * @internal used in ::updateMenuItemData
 	 * @param array $item data to update
@@ -374,19 +271,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Updates user interface preferences for modern Vector to upgrade icon/button menu items.
-	 *
-	 * @param array &$content_navigation
-	 * @param string $menu identifier
-	 * @param bool $unsetIcon should the icon field be unset?
-	 */
-	private static function updateMenuItems( &$content_navigation, $menu, $unsetIcon = true ) {
-		foreach ( $content_navigation[$menu] as &$item ) {
-			$item = self::updateMenuItemData( $item, $unsetIcon );
-		}
-	}
-
-	/**
 	 * Vector 2022 only:
 	 * Creates an additional menu that will be injected inside the more (cactions)
 	 * dropdown menu. This menu is a clone of `views` and this menu will only be
@@ -403,10 +287,7 @@ class Hooks implements
 		$clonedViews = [];
 		foreach ( $content_navigation['views'] ?? [] as $key => $item ) {
 			$newItem = $item;
-			self::makeMenuItemCollapsible(
-				$newItem,
-				'vector-more-'
-			);
+			self::appendClassToItem( $newItem[ 'class' ], 'vector-more-collapsible-item' );
 			$clonedViews['more-' . $key] = $newItem;
 		}
 		// Inject collapsible menu items ahead of existing actions.
@@ -441,7 +322,6 @@ class Hooks implements
 			self::updateActionsMenu( $content_navigation );
 		}
 
-		self::updateUserLinksItems( $sk, $content_navigation );
 		if ( $skinName === Constants::SKIN_NAME_MODERN ) {
 			self::createMoreOverflowMenu( $content_navigation );
 		}
