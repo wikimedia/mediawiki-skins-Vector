@@ -302,10 +302,16 @@ class VectorComponentUserLinks implements VectorComponent {
 
 		$notifications = $this->updateMenuItemStyles(
 			$portletData[ 'data-notifications' ]['array-items'] ?? [],
-			// applies to all menu items
+			// applies to all menu items EXCEPT the "You have a talk page message" (pt-talk-alert)
 			[
 				'button' => [
 					'iconOnly' => true,
+				],
+			],
+			[
+				'pt-talk-alert' => [
+					'button' => false,
+					'icon' => null,
 				],
 			]
 		);
