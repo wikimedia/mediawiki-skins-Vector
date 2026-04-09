@@ -10,6 +10,7 @@
 	"vector-language-button-label": "{{PLURAL:$1|$1 tóól|$1 tóólen}}",
 	"vector-no-language-button-label": "Tóólen taufaugen",
 	"vector-action-addsection": "Ofsnid taufaugen",
+	"vector-action-move": "Ferskuuven",
 	"vector-view-create": "Erstellen",
 	"vector-view-edit": "Beaarbaiden",
 	"vector-view-history": "Wersjoonshistoorje",
