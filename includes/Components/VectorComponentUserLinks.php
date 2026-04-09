@@ -162,6 +162,7 @@ class VectorComponentUserLinks implements VectorComponent {
 
 		$dropdownMenus = [
 			new VectorComponentMenu( [
+				'id' => 'p-personal',
 				'label' => null,
 				'class' => $userMenuClass,
 				'array-list-items' => $userMenu

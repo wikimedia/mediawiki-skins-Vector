@@ -227,6 +227,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 
 	private static function helperMakeMenu( array $items = [], bool $isCollapsible = true ) {
 		return [
+			'id' => 'p-personal',
 			'label' => null,
 			'class' => $isCollapsible ? ' user-links-collapsible-item' : '',
 			'html-tooltip' => '',
