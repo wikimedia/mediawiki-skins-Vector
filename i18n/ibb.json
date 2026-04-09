@@ -7,7 +7,8 @@
 			"Ekemini5",
 			"Okon Ibiono",
 			"Uduakj",
-			"Uduakumana"
+			"Uduakumana",
+			"Andikan Efiok Eduok"
 		]
 	},
 	"vector-languages": "Ikọ",
@@ -20,10 +21,12 @@
 	"vector-view-create": "Nam",
 	"vector-view-history": "Se mkpo ini edem",
 	"vector-more-actions": "afen",
+	"vector-feature-custom-font-size-2-label": "Ekamba",
 	"vector-toc-label": "Si sine",
 	"vector-toc-beginning": "Ntak",
 	"vector-main-menu-label": "Ata usung",
 	"vector-page-tools-label": "Mkpo utom",
 	"vector-page-tools-general-label": "Uked",
+	"vector-page-tools-actions-label": "Adinam",
 	"vector-unpin-element-label": "dịbe"
 }
