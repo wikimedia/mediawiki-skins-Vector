@@ -245,6 +245,43 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
+	/**
+	 * @covers ::getTemplateData
+	 */
+	public function testGetTemplateDataPreservesUserMenuTooltip() {
+		$localizer = $this->createMock( MessageLocalizer::class );
+		$userMock = $this->createMock( UserIdentity::class );
+		$userMock->method( 'isRegistered' )->willReturn( false );
+		$userNameUtilsMock = $this->createMock( UserNameUtils::class );
+		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
+			$msg = $this->createMock( Message::class );
+			$msg->method( '__toString' )->willReturn( $key );
+			$msg->method( 'escaped' )->willReturn( $key );
+			$msg->method( 'rawParams' )->willReturnSelf();
+			$msg->method( 'text' )->willReturn( $key );
+			return $msg;
+		} );
+
+		$userLinks = new VectorComponentUserLinks(
+			$localizer,
+			$userMock,
+			$userNameUtilsMock,
+			[
+				'data-user-menu' => [
+					'array-items' => [],
+					'html-tooltip' => ' title="User Menu"',
+				],
+				'data-user-interface-preferences' => self::helperMakePortletData( [] ),
+			],
+			self::ICON
+		);
+
+		$this->assertSame(
+			' title="User Menu"',
+			$userLinks->getTemplateData()['data-user-links-menus'][0]['html-tooltip']
+		);
+	}
+
 	public static function provideGetData() {
 		return [
 			// When zero links

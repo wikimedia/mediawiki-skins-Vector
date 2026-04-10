@@ -157,6 +157,7 @@ class VectorComponentUserLinks implements VectorComponent {
 				'id' => 'p-personal',
 				'label' => null,
 				'class' => $userMenuClass,
+				'html-tooltip' => $portletData[ 'data-user-menu' ][ 'html-tooltip' ] ?? '',
 				'array-list-items' => $userMenu
 			] )
 		];
