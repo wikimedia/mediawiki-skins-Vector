@@ -255,6 +255,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					'data-user-menu' => self::helperMakePortletData( [] ),
 					'data-user-interface-preferences' => self::helperMakePortletData( [] ),
 				],
+				[],
 				[
 					'is-wide' => false,
 					'data-user-links-notifications' => self::helperMakePortlet( 'notifications' ),
@@ -278,6 +279,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					] ),
 					'data-user-interface-preferences' => self::helperMakePortletData( [] ),
 				],
+				[],
 				[
 					'is-wide' => true,
 					'data-user-links-notifications' => self::helperMakePortlet( 'notifications' ),
@@ -328,6 +330,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					'data-user-menu' => self::helperMakePortletData( [] ),
 					'data-user-interface-preferences' => self::helperMakePortletData( [ self::ULS_ITEM ] ),
 				],
+				[],
 				[
 					'is-wide' => true,
 					'data-user-links-notifications' => self::helperMakePortlet( 'notifications' ),
@@ -352,6 +355,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					] ),
 					'data-user-interface-preferences' => self::helperMakePortletData( [] ),
 				],
+				[],
 				[
 					'is-wide' => true,
 					'data-user-links-notifications' => self::helperMakePortlet( 'notifications' ),
@@ -392,6 +396,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 	public function testGetTemplateData(
 		bool $isRegistered,
 		array $portletData,
+		array $linkOptions,
 		array $expected
 	) {
 		$localizer = $this->createMock( MessageLocalizer::class );
@@ -412,6 +417,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 			$userMock,
 			$userNameUtilsMock,
 			$portletData,
+			$linkOptions,
 			self::ICON
 		);
 		$this->assertEquals(

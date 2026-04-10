@@ -426,6 +426,7 @@ class SkinVector22 extends SkinMustache {
 				$user,
 				MediaWikiServices::getInstance()->getUserNameUtils(),
 				$portlets,
+				$this->getOptions()['link'],
 				$userPage[ 'icon' ] ?? ''
 			),
 			'data-lang-dropdown' => $langData ? new VectorComponentLanguageDropdown(
