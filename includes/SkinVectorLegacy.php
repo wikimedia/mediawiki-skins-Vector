@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Skins\Vector;
 
-use MediaWiki\Languages\LanguageConverterFactory;
-use MediaWiki\Skin\SkinComponentUtils;
+use MediaWiki\Exception\MWException;
+use MediaWiki\Language\LanguageConverterFactory;
+use MediaWiki\Skin\Components\SkinComponentUtils;
 use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Skin\SkinTemplate;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentVariants;
-use MWException;
 
 /**
  * @ingroup Skins

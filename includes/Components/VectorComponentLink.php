@@ -2,8 +2,8 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Html\Html;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Linker\Linker;
-use MessageLocalizer;
 
 /**
  * VectorComponentLink component

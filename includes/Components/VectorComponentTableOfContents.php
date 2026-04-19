@@ -2,9 +2,9 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Config\Config;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
-use MessageLocalizer;
 
 /**
  * VectorComponentTableOfContents component

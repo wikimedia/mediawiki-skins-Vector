@@ -21,6 +21,7 @@
 
 namespace MediaWiki\Skins\Vector\Tests\Unit\Components;
 
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Skin\Skin;
 use MediaWiki\Skins\Vector\Components\VectorComponent;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
@@ -28,7 +29,6 @@ use MediaWiki\Skins\Vector\Constants;
 use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
 use MediaWiki\User\UserIdentity;
 use MediaWikiUnitTestCase;
-use MessageLocalizer;
 
 /**
  * @group Vector

@@ -2,7 +2,7 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Language\Language;
-use MediaWiki\Languages\LanguageConverterFactory;
+use MediaWiki\Language\LanguageConverterFactory;
 use MediaWiki\StubObject\StubUserLang;
 
 /**

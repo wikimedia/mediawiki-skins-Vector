@@ -2,11 +2,11 @@
 namespace MediaWiki\Skins\Vector\Components;
 
 use MediaWiki\Html\Html;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserNameUtils;
-use MessageLocalizer;
 
 /**
  * VectorComponentUserLinks component
