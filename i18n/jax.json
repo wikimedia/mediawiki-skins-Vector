@@ -1,13 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Muhamad Izzul Fiqih",
 			"Pitchrigi"
 		]
 	},
 	"vector-languages": "Baso",
-	"vector-language-button-label": "$1 baso",
+	"vector-language-button-label": "$1 bahaso",
 	"vector-no-language-button-label": "Tamboi baso",
 	"vector-action-addsection": "Bagian baru",
+	"vector-action-move": "Pindahin",
 	"vector-view-create": "Buat",
 	"vector-view-history": "Tengok riwayat",
 	"vector-more-actions": "Lengkapnyo",
