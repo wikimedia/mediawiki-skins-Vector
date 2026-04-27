@@ -32,6 +32,15 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
  * @coversDefaultClass \MediaWiki\Skins\Vector\Components\VectorComponentPageTools
  */
 class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
+	private const EMPTY_FIELDS = [
+		'class' => '',
+		'html-items' => '',
+		'html-before-portal' => '',
+		'html-after-portal' => '',
+		'html-tooltip' => '',
+		'label-class' => '',
+	];
+
 	public static function getPinnableHeaderData( $data = [] ) {
 		return array_merge( [
 			'is-pinned' => false,
@@ -47,24 +56,34 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 	}
 
 	public static function provideConstructorData() {
+		$deleteLink = [
+			'id' => 'ca-delete',
+			'icon' => 'trash',
+			'html-item' => "<li><a><span>Delete</span></a></li>"
+		];
+		$whatLinksHereLink = [
+			'id' => 't-whatlinkshere',
+			'html-item' => "<li><a><span>What links here</span></a></li>"
+		];
 		$menus = [ [
 			'id' => 'p-cactions',
-			'array-items' => [ [
-				'id' => 'ca-delete',
-				'html-item' => "<li><a><span>Delete</span></a></li>"
-			] ]
+			'array-items' => [ $deleteLink ]
 		], [
 			'id' => 'p-tb',
-			'array-items' => [ [
-				'id' => 't-whatlinkshere',
-				'html-item' => "<li><a><span>What links here</span></a></li>"
-			] ]
+			'array-items' => [ $whatLinksHereLink ]
 		] ];
 
 		$expectedMenus = $menus;
-		$expectedMenus[ 0 ][ 'label' ] = 'vector-page-tools-actions-label';
-		$expectedMenus[ 1 ][ 'label' ] = 'vector-page-tools-general-label';
-
+		$expectedMenus[ 0 ] = array_merge( self::EMPTY_FIELDS, $expectedMenus[ 0 ], [
+			'array-list-items' => [
+				$deleteLink
+			],
+			'label' => 'vector-page-tools-actions-label',
+		] );
+		unset( $expectedMenus[ 0 ][ 'array-items' ] );
+		$expectedMenus[ 1 ] = array_merge( $expectedMenus[ 1 ], [
+			'label' => 'vector-page-tools-general-label',
+		] );
 		return [
 			[
 				$menus,
