@@ -48,8 +48,14 @@ class VectorComponentPageTools implements VectorComponent {
 					$menu['label'] = $this->localizer->msg( 'vector-page-tools-general-label' )->text();
 					break;
 				case self::ACTIONS_ID:
-					$menu['label'] = $this->localizer->msg( 'vector-page-tools-actions-label' )->text();
-					break;
+					$menuComponent = new VectorComponentMenu( [
+						'id' => $menu['id'],
+						'class' => $menu['class'] ?? '',
+						'label' => $this->localizer->msg( 'vector-page-tools-actions-label' )->text(),
+						'array-list-items' => $menu['array-items'],
+						'html-after-portal' => $menu['html-after-portal'] ?? '',
+					] );
+					return $menuComponent->getTemplateData();
 			}
 
 			return $menu;

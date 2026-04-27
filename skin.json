@@ -318,6 +318,10 @@
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"useMaskImage": true,
 			"icons": [
+				"trash",
+				"move",
+				"lock",
+				"unLock",
 				"tray",
 				"bell",
 				"menu",
