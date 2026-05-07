@@ -52,6 +52,9 @@
 
 	// Used to hide collapsible items inside the dropdown menu
 	// as well as the dropdown menu itself when the menu is empty
+	// TODO: Remove user-links-collapsible-item after I12cdb5c2a3dff638d59066b2c2c9597133855dee is in prod for 2 weeks
+	.vector-menu-item--collapsible,
+	&.vector-user-links-dropdown--collapsible,
 	&.user-links-collapsible-item,
 	.user-links-collapsible-item {
 		@media ( min-width: @min-width-breakpoint-tablet ) {
@@ -83,7 +86,9 @@
 		font-size: @font-size-small;
 	}
 
+	// TODO: Remove user-links-collapsible-item after I12cdb5c2a3dff638d59066b2c2c9597133855dee is in prod for 2 weeks
 	.after-portlet-user-page,
+	.vector-menu-item--collapsible,
 	.user-links-collapsible-item {
 		@media ( max-width: @max-width-breakpoint-mobile ) {
 			display: none;

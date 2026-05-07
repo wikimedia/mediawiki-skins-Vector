@@ -159,9 +159,11 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 	private static function helperAlterItem(
 		array $item, $isCollapsible = false, $isButton = false, $isIconOnly = false
 	) {
+		// TODO: Remove user-links-collapsible-item after I12cdb5c2a3dff638d59066b2c2c9597133855dee
+		// is in prod for 2 weeks
 		$newItem = array_merge( $item, [] );
 		if ( $isCollapsible ) {
-			$newItem['class'] .= ' user-links-collapsible-item';
+			$newItem['class'] .= ' user-links-collapsible-item vector-menu-item--collapsible';
 		}
 		if ( $isButton ) {
 			$attributes = $newItem['array-links'][0]['array-attributes'];
@@ -205,8 +207,10 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		$loginStatusClass = 'vector-user-menu-logged-';
 		$loginStatusClass .= $isRegistered ? 'in' : 'out';
 		$dropdownClass = 'vector-user-menu vector-button-flush-right ' . $loginStatusClass;
+		// TODO: Remove user-links-dropdown--collapsible after I12cdb5c2a3dff638d59066b2c2c9597133855dee
+		// is in prod for 2 weeks
 		if ( $isCollapsible ) {
-			$dropdownClass .= ' user-links-collapsible-item';
+			$dropdownClass .= ' vector-user-links-dropdown--collapsible user-links-collapsible-item';
 			if ( empty( $items ) ) {
 				$dropdownClass .= '--none';
 			}
@@ -225,11 +229,11 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 		];
 	}
 
-	private static function helperMakeMenu( array $items = [], bool $isCollapsible = true ) {
+	private static function helperMakeMenu( array $items = [] ) {
 		return [
 			'id' => 'p-personal',
 			'label' => null,
-			'class' => $isCollapsible ? ' user-links-collapsible-item' : '',
+			'class' => '',
 			'html-tooltip' => '',
 			'label-class' => '',
 			'html-before-portal' => '',
@@ -241,6 +245,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 
 	private static function helperMakePortletData( $items = [] ) {
 		return [
+			'class'	=> '',
 			'array-items' => $items,
 		];
 	}
@@ -268,6 +273,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 			$userNameUtilsMock,
 			[
 				'data-user-menu' => [
+					'class' => '',
 					'array-items' => [],
 					'html-tooltip' => ' title="User Menu"',
 				],
@@ -284,8 +290,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 
 	public static function provideGetData() {
 		return [
-			// When zero links
-			[
+			"When zero links" => [
 				// anonymous user
 				false,
 				[
@@ -304,8 +309,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					],
 				]
 			],
-			// Overflowing links
-			[
+			"Overflow links" => [
 				// anonymous user
 				false,
 				[
@@ -357,8 +361,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					],
 				]
 			],
-			// user interface preferences link makes wider menu
-			[
+			"User interface preferences" => [
 				// anonymous user
 				false,
 				[
@@ -380,8 +383,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 					],
 				]
 			],
-			// logged in user
-			[
+			"Loggedin user" => [
 				true,
 				[
 					'data-user-menu' => self::helperMakePortletData( [
@@ -413,8 +415,7 @@ class VectorComponentUserLinksTest extends \MediaWikiUnitTestCase {
 									self::WATCHLIST_ITEM,
 									true
 								),
-							],
-							false
+							]
 						),
 					],
 				]

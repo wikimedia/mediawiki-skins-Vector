@@ -12,11 +12,8 @@ use MediaWiki\User\UserNameUtils;
  * VectorComponentUserLinks component
  */
 class VectorComponentUserLinks implements VectorComponent {
-	private const BUTTON_CLASSES = 'cdx-button cdx-button--fake-button '
-		. 'cdx-button--fake-button--enabled cdx-button--weight-quiet';
-	private const ICON_ONLY_BUTTON_CLASS = 'cdx-button--icon-only';
-	private const COLLAPSIBLE_CLASS = 'user-links-collapsible-item';
-
+	// TODO: Remove user-links-collapsible-item after I12cdb5c2a3dff638d59066b2c2c9597133855dee is in prod for 2 weeks
+	private const COLLAPSIBLE_CLASS = 'vector-user-links-dropdown--collapsible user-links-collapsible-item';
 	private const ACCOUNT_MENU_ITEM_KEYS = [
 		'createaccount',
 		'login',
@@ -121,21 +118,11 @@ class VectorComponentUserLinks implements VectorComponent {
 	}
 
 	/**
-	 * @param bool $isDefaultAnonUserLinks
 	 * @return array
 	 */
-	private function getMenus( $isDefaultAnonUserLinks ) {
+	private function getMenus() {
 		$user = $this->user;
-		$isAnon = !$user->isRegistered();
 		$portletData = $this->portletData;
-
-		// Hide default user menu on larger viewports if it only contains
-		// create account & login link, which are only shown on smaller viewports
-		// FIXME: Replace array_merge with an add class helper function
-		$userMenuClass = $portletData[ 'data-user-menu' ][ 'class' ] ?? '';
-		$userMenuClass = $isAnon && $isDefaultAnonUserLinks ?
-			$userMenuClass . ' ' . self::COLLAPSIBLE_CLASS : $userMenuClass;
-
 		$overflowKeys = self::getOverflowKeys( $user );
 		$userMenuData = $portletData[ 'data-user-menu' ][ 'array-items' ];
 		$userMenuOverrides = [];
@@ -150,65 +137,16 @@ class VectorComponentUserLinks implements VectorComponent {
 				$userMenuOverrides[ $menuItem[ 'id' ] ] = [ 'collapsible' => true ];
 			}
 		}
-		$userMenu = $this->updateMenuItemStyles( $userMenuData, [], $userMenuOverrides );
 
 		return [
 			new VectorComponentMenu( [
 				'id' => 'p-personal',
 				'label' => null,
-				'class' => $userMenuClass,
+				'class' => $portletData[ 'data-user-menu' ][ 'class' ],
 				'html-tooltip' => $portletData[ 'data-user-menu' ][ 'html-tooltip' ] ?? '',
-				'array-list-items' => $userMenu
-			] )
+				'array-list-items' => $userMenuData
+			], [], $userMenuOverrides )
 		];
-	}
-
-	/**
-	 * Update menu item styling based of default menu styles and overrides
-	 * Style options include: 'button', 'collapsible', 'icon'
-	 * 'button' can be boolean or an array with button options, e.g. ['iconOnly' => true]
-	 *
-	 * @param array $menuItems
-	 * @param array $menuStyles all menu items will use these default styles unless there's an item specific override
-	 * @param array $overrides styles for individual menu items keyed by item id, which will override $menuStyles
-	 * @return array
-	 */
-	private static function updateMenuItemStyles( $menuItems, $menuStyles, $overrides = [] ) {
-		return array_map( static function ( $item ) use ( $menuStyles, $overrides ) {
-			$id = $item['id'];
-			$hasOverrides = $id && isset( $overrides[ $id ] );
-			$styles = $hasOverrides ? $overrides[ $id ] : $menuStyles;
-
-			$isCollapsible = $styles['collapsible'] ?? false;
-			// collapsible class is added to the item (LI element) class
-			if ( $isCollapsible ) {
-				$class = $item['class'] ?? '';
-				$item['class'] = $class . ' ' . self::COLLAPSIBLE_CLASS;
-			}
-			// Update link classes
-			$item['array-links'] = array_map( static function ( $link ) use ( $styles ) {
-				if ( array_key_exists( 'icon', $styles ) ) {
-					$link['icon'] = $styles['icon'];
-				}
-				$link['array-attributes'] = array_map( static function ( $attribute ) use ( $styles ) {
-					if ( $attribute['key'] === 'class' ) {
-						$newClass = $attribute['value'];
-						$isButton = $styles['button'] ?? false;
-						$isIconOnlyButton = $styles['button' ]['iconOnly'] ?? false;
-						if ( $isButton ) {
-							$newClass .= ' ' . self::BUTTON_CLASSES;
-						}
-						if ( $isIconOnlyButton ) {
-							$newClass .= ' ' . self::ICON_ONLY_BUTTON_CLASS;
-						}
-						$attribute['value'] = $newClass;
-					}
-					return $attribute;
-				}, $link['array-attributes'] ?? [] );
-				return $link;
-			}, $item['array-links'] );
-			return $item;
-		}, $menuItems );
 	}
 
 	/**
@@ -231,45 +169,54 @@ class VectorComponentUserLinks implements VectorComponent {
 	public function getTemplateData(): array {
 		$portletData = $this->portletData;
 		$user = $this->user;
-
 		$userLinksCount = count( $portletData['data-user-menu']['array-items'] );
 		$isDefaultAnonUserLinks = $userLinksCount <= 3;
-		$userInterfacePreferences = $this->updateMenuItemStyles(
-			$portletData[ 'data-user-interface-preferences' ]['array-items'] ?? [],
-			// applies to all menu items
-			[
-				'button' => true,
-				'collapsible' => true,
-			]
-		);
 
-		$userPage = $this->updateMenuItemStyles(
-			$portletData[ 'data-user-page' ]['array-items'] ?? [],
-			// applies to all menu items
-			[
-				'collapsible' => true,
-				'icon' => null,
-			]
-		);
+		$preferencesData = $portletData[ 'data-user-interface-preferences' ]['array-items'] ?? [];
+		$preferencesMenu = new VectorComponentMenu( [
+			'id' => 'p-vector-user-menu-preferences',
+			'class' => self::getOverflowMenuClass( $preferencesData ),
+			'label' => null,
+			'html-items' => null,
+			'array-list-items' => $preferencesData,
+		], [
+			'button' => true,
+			'collapsible' => true,
+		] );
 
-		$notifications = $this->updateMenuItemStyles(
-			$portletData[ 'data-notifications' ]['array-items'] ?? [],
-			// applies to all menu items EXCEPT the "You have a talk page message" (pt-talk-alert)
-			[
-				'button' => [
-					'iconOnly' => true,
-				],
+		$userPageData = $portletData[ 'data-user-page' ]['array-items'] ?? [];
+		$userPageMenu = new VectorComponentMenu( [
+			'id' => 'p-vector-user-menu-userpage',
+			'class' => self::getOverflowMenuClass( $userPageData ),
+			'label' => null,
+			'html-items' => null,
+			'array-list-items' => $userPageData,
+			'html-after-portal' => $portletData[ 'data-user-page' ]['html-after-portal'] ?? '',
+		], [
+			'collapsible' => true,
+			'icon' => null,
+		] );
+
+		$notificationsData = $portletData[ 'data-notifications' ]['array-items'] ?? [];
+		$notificationsMenu = new VectorComponentMenu( [
+			'id' => 'p-vector-user-menu-notifications',
+			'class' => self::getOverflowMenuClass( $notificationsData ),
+			'label' => null,
+			'html-items' => null,
+			'array-list-items' => $notificationsData,
+		], [
+			'button' => [
+				'iconOnly' => true,
 			],
-			[
-				'pt-talk-alert' => [
-					'button' => false,
-					'icon' => null,
-				],
-			]
-		);
+		], [
+			'pt-talk-alert' => [
+				'button' => false,
+				'icon' => null,
+			],
+		] );
 
 		$overflowKeys = self::getOverflowKeys( $user );
-		$overflow = array_map(
+		$overflowData = array_map(
 			static function ( $item ) {
 				// Since we're creating duplicate icons
 				$item['id'] .= '-2';
@@ -290,7 +237,7 @@ class VectorComponentUserLinks implements VectorComponent {
 		// Logged in overflow menu items are icon only buttons
 		// Styles for anon overflow menu is generally collapsible with no icon
 		// the overflow donate link (pt-sitesupport-2) is an exception
-		$overflowDefaultStyle = $this->user->isRegistered() ? [
+		$overflowStyles = $this->user->isRegistered() ? [
 			'button' => [
 				'iconOnly' => true,
 			],
@@ -301,63 +248,32 @@ class VectorComponentUserLinks implements VectorComponent {
 		];
 
 		// Disable buttons and hide icons for the account actions:
-		$overrides = [];
+		$overflowOverrides = [];
 		foreach ( self::ACCOUNT_MENU_ITEM_KEYS as $key ) {
-			$overrides['pt-' . $key . '-2'] = [
+			$overflowOverrides['pt-' . $key . '-2'] = [
 				'button' => false,
 				'icon' => null,
 				'collapsible' => true,
 			];
 		}
-
 		// also disable button and hide icon for donate (T425721)
-		$overrides['pt-sitesupport-2'] = [
+		$overflowOverrides['pt-sitesupport-2'] = [
 			'button' => false,
 			'icon' => null,
 			'collapsible' => true,
 		];
 
-		$overflow = $this->updateMenuItemStyles(
-			$overflow,
-			// applies to all menu items
-			$overflowDefaultStyle,
-			// item specific overrides
-			$overrides,
-		);
-
-		$preferencesMenu = new VectorComponentMenu( [
-			'id' => 'p-vector-user-menu-preferences',
-			'class' => self::getOverflowMenuClass( $userInterfacePreferences ),
-			'label' => null,
-			'html-items' => null,
-			'array-list-items' => $userInterfacePreferences,
-		] );
-		$userPageMenu = new VectorComponentMenu( [
-			'id' => 'p-vector-user-menu-userpage',
-			'class' => self::getOverflowMenuClass( $userPage ),
-			'label' => null,
-			'html-items' => null,
-			'array-list-items' => $userPage,
-			'html-after-portal' => $portletData[ 'data-user-page' ]['html-after-portal'] ?? '',
-		] );
-		$notificationsMenu = new VectorComponentMenu( [
-			'id' => 'p-vector-user-menu-notifications',
-			'class' => self::getOverflowMenuClass( $notifications ),
-			'label' => null,
-			'html-items' => null,
-			'array-list-items' => $notifications,
-		] );
 		$overflowMenu = new VectorComponentMenu( [
 			'id' => 'p-vector-user-menu-overflow',
-			'class' => self::getOverflowMenuClass( $overflow ),
+			'class' => self::getOverflowMenuClass( $overflowData ),
 			'label' => null,
 			'html-items' => null,
-			'array-list-items' => $overflow,
-		] );
+			'array-list-items' => $overflowData,
+		], $overflowStyles, $overflowOverrides );
 
 		return [
 			'is-wide' => array_filter(
-				[ $overflow, $notifications, $userPage, $userInterfacePreferences ]
+				[ $overflowData, $notificationsData, $userPageData, $preferencesData ]
 			) !== [],
 			'data-user-links-notifications' => $notificationsMenu->getTemplateData(),
 			'data-user-links-overflow' => $overflowMenu->getTemplateData(),
@@ -367,7 +283,7 @@ class VectorComponentUserLinks implements VectorComponent {
 				$isDefaultAnonUserLinks, $userLinksCount )->getTemplateData(),
 			'data-user-links-menus' => array_map( static function ( $menu ) {
 				return $menu->getTemplateData();
-			}, $this->getMenus( $isDefaultAnonUserLinks ) ),
+			}, $this->getMenus() ),
 		];
 	}
 }

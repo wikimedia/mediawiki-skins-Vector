@@ -423,9 +423,14 @@ function prepareUserLinksDropdown( userLinksDropdown ) {
 	userLinksDropdownStickyElementsWithIds.forEach( makeNodeTrackable );
 	// Remove portlet links added by gadgets using mw.util.addPortletLink, T291426
 	removeNodes( userLinksDropdownClone.querySelectorAll( '.mw-list-item-js' ) );
+	// TODO: Remove after I12cdb5c2a3dff638d59066b2c2c9597133855dee is in prod for 2 weeks
 	removeClassFromNodes(
 		userLinksDropdownClone.querySelectorAll( '.user-links-collapsible-item' ),
 		'user-links-collapsible-item'
+	);
+	removeClassFromNodes(
+		userLinksDropdownClone.querySelectorAll( '.vector-menu-item--collapsible' ),
+		'vector-menu-item--collapsible'
 	);
 	// Prevents user menu from being focusable, T290201
 	const userLinksDropdownCheckbox = userLinksDropdownClone.querySelector( 'input' );

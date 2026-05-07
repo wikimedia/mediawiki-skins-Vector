@@ -39,6 +39,7 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 		'html-after-portal' => '',
 		'html-tooltip' => '',
 		'label-class' => '',
+		'array-list-items' => null,
 	];
 
 	public static function getPinnableHeaderData( $data = [] ) {
@@ -59,11 +60,13 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 		$deleteLink = [
 			'id' => 'ca-delete',
 			'icon' => 'trash',
-			'html-item' => "<li><a><span>Delete</span></a></li>"
+			'html-item' => "<li><a><span>Delete</span></a></li>",
+			'array-links' => []
 		];
 		$whatLinksHereLink = [
 			'id' => 't-whatlinkshere',
-			'html-item' => "<li><a><span>What links here</span></a></li>"
+			'html-item' => "<li><a><span>What links here</span></a></li>",
+			'array-links' => []
 		];
 		$menus = [ [
 			'id' => 'p-cactions',
@@ -88,7 +91,6 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 			[
 				$menus,
 				false,
-				false,
 				[
 					'id' => 'vector-page-tools',
 					'is-pinned' => false,
@@ -98,7 +100,6 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 			],
 			[
 				$menus,
-				false,
 				true,
 				[
 					'id' => 'vector-page-tools',
@@ -111,7 +112,6 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 			],
 			[
 				$menus,
-				true,
 				false,
 				[
 					'id' => 'vector-page-tools',
@@ -129,7 +129,6 @@ class VectorComponentPageToolsTest extends \MediaWikiUnitTestCase {
 	 */
 	public function testGetTemplateData(
 		array $menus,
-		bool $isRegistered,
 		bool $isPinned,
 		array $expected
 	) {
