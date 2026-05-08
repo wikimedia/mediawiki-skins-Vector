@@ -310,6 +310,13 @@ class VectorComponentUserLinks implements VectorComponent {
 			];
 		}
 
+		// also disable button and hide icon for donate (T425721)
+		$overrides['pt-sitesupport-2'] = [
+			'button' => false,
+			'icon' => null,
+			'collapsible' => true,
+		];
+
 		$overflow = $this->updateMenuItemStyles(
 			$overflow,
 			// applies to all menu items
