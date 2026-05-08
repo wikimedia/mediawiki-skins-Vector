@@ -6,9 +6,11 @@
 			"Tuwewanzi"
 		]
 	},
+	"prefs-vector-enable-vector-1-label": "Legacy Vector uŋ {{GENDER:|wo|we|wo/we}}",
 	"vector-languages": "Iyápi",
 	"vector-language-button-label": "{{PLURAL:$1|$1 iyápi}}",
 	"vector-no-language-button-label": "Iyápi sáƞpȟa",
+	"vector-language-variant-switcher-label": "Iyápi owéčhaže yutȟókeča {{GENDER:|yo|ye|yo/ye}}",
 	"vector-action-addsection": "Wóiwoglake yeyá {{GENDER:|yo|ye|yo/ye}}",
 	"vector-action-delete": "Iháƞgya {{GENDER:|yo|ye|yo/ye}}",
 	"vector-action-move": "Tȟokšu̇ {{GENDER:|wo|we|wo/we}}",
@@ -52,5 +54,6 @@
 	"tooltip-vector-anon-user-menu-title": "Wóigluštaŋ sáŋpȟa",
 	"vector-page-tools-nav-label": "Oyúblaye wíkhičhaŋye",
 	"vector-night-mode-issue-reporting-link-notification": "Wóel'igle uŋkíčupi!",
+	"vector-night-mode-issue-reporting-preload-title": "$1 okpáza owáƞyaƞke wóglušna",
 	"vector-night-mode-beta-tag": "(wíkhičhaŋye su)"
 }

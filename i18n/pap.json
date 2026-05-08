@@ -2,17 +2,41 @@
 	"@metadata": {
 		"authors": [
 			"Irus",
-			"ObaTango"
+			"ObaTango",
+			"Kallmemel"
 		]
 	},
+	"vector-languages": "Idiomanan",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma}}",
+	"vector-no-language-button-label": "Vug idioma",
 	"vector-action-addsection": "Añadí un tópiko",
 	"vector-action-delete": "Kita",
 	"vector-action-move": "Move",
 	"vector-action-protect": "Protehá",
 	"vector-view-create": "Krea",
 	"vector-view-edit": "Editá",
-	"vector-view-history": "Bista di e historia",
+	"vector-view-history": "Bista di historia",
 	"vector-view-view": "Lesa",
-	"vector-more-actions": "Mas"
+	"vector-more-actions": "Mas",
+	"vector-appearance-label": "Aparensia",
+	"vector-feature-limited-width-name": "Anchura",
+	"vector-feature-limited-width-0-label": "Anchu",
+	"vector-feature-limited-width-1-label": "Standart",
+	"vector-feature-custom-font-size-name": "Teksto",
+	"vector-feature-custom-font-size-0-label": "Chikitu",
+	"vector-feature-custom-font-size-1-label": "Standart",
+	"vector-feature-custom-font-size-2-label": "Grandi",
+	"skin-theme-name": "Kólo",
+	"skin-theme-day-label": "Lus",
+	"skin-theme-night-label": "Skur",
+	"skin-theme-os-label": "Outomátiko",
+	"skin-theme-exclusion-notice": "E página aki semper ta den modo di lus.",
+	"vector-toc-label": "Kontenido",
+	"vector-toc-beginning": "Kuminsamentu",
+	"vector-main-menu-label": "Menú prinsipal",
+	"vector-feature-custom-font-size-exclusion-notice": "E página aki semper ta usa tipo di lèter di tamaño chikitu",
+	"vector-page-tools-label": "Hèrmènt",
+	"vector-page-tools-general-label": "General",
+	"vector-page-tools-actions-label": "Akshon",
+	"vector-unpin-element-label": "skonde"
 }
