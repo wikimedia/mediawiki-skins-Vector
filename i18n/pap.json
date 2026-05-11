@@ -8,7 +8,7 @@
 	},
 	"vector-languages": "Idiomanan",
 	"vector-language-button-label": "{{PLURAL:$1|$1 idioma}}",
-	"vector-no-language-button-label": "Vug idioma",
+	"vector-no-language-button-label": "Añadí idioma",
 	"vector-action-addsection": "Vug tópiko",
 	"vector-action-delete": "Kita",
 	"vector-action-move": "Move",
@@ -38,5 +38,6 @@
 	"vector-page-tools-label": "Hèrmènt",
 	"vector-page-tools-general-label": "General",
 	"vector-page-tools-actions-label": "Akshon",
+	"vector-pin-element-label": "move pa balki di sèi",
 	"vector-unpin-element-label": "skonde"
 }
