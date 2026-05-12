@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Arcstur"
+		]
+	},
+	"vector-languages": "Vẽnh vĩ ũ",
+	"vector-appearance-label": "Ve ũ",
+	"vector-feature-limited-width-name": "Téj nỹ",
+	"vector-feature-limited-width-0-label": "Mag kar",
+	"vector-feature-limited-width-1-label": "Rike kỹr",
+	"vector-feature-custom-font-size-name": "Ti rá",
+	"skin-theme-name": "Kor",
+	"skin-theme-day-label": "Kurã ve",
+	"skin-theme-night-label": "Kuty ve",
+	"skin-theme-os-label": "Vỹsóki rán",
+	"skin-theme-exclusion-notice": "Ti ve tag vỹ kurã ve kãnĩg tĩ",
+	"vector-toc-label": "Ti ki nénũ",
+	"vector-toc-beginning": "Pẽnjẽg",
+	"vector-feature-custom-font-size-exclusion-notice": "Ti ve tag vỹ vẽnh rá kẽsir ta han tĩ"
+}
