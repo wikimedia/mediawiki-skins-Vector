@@ -52,12 +52,6 @@ class SkinVector22 extends SkinMustache {
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
-		// For now: disable most icons on view menu.
-		foreach ( $content_navigation['views'] as $key => $view ) {
-			if ( !in_array( $key, [ 'bookmark', 'watch', 'unwatch', 'wikilove' ] ) ) {
-				$content_navigation['views'][ $key ]['icon'] = null;
-			}
-		}
 		$userPage = $content_navigation['user-page']['userpage'] ?? null;
 		if ( $userPage ) {
 			// TODO: Remove user-links-collapsible-item after

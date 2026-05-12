@@ -28,6 +28,11 @@
 			"Disabled": [
 				"vector-2022"
 			]
+		},
+		"VisualEditor": {
+			"IconSkins": [
+				"vector-2022"
+			]
 		}
 	},
 	"ValidSkinNames": {
@@ -318,6 +323,7 @@
 			"class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
 			"useMaskImage": true,
 			"icons": [
+				"eye",
 				"trash",
 				"move",
 				"lock",

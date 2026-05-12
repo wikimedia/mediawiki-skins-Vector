@@ -4,6 +4,9 @@
 // smaller and will start horizontal scrolling instead.
 @min-width-supported: unit( ( 300px / @font-size-browser ), em );
 
+// Defines the breakpoint at which the page tools dropdown is shown.
+@min-width-breakpoint-page-tools-dropdown: @min-width-breakpoint-tablet;
+
 // Sizing calculation primitives.
 @font-size-root: 100%;
 @font-size-browser: 16; // Assumed browser default of `16px`
@@ -58,7 +61,7 @@
 
 // Tabs
 @padding-horizontal-tabs: 8px;
-@padding-top-tabs: 12px;
+@padding-top-tabs: 10px;
 @padding-vertical-tabs: @padding-top-tabs 0 7px 0;
 
 // Content boxes

@@ -8,14 +8,25 @@
 .vector-page-tools .vector-more-collapsible-item {
 	display: block;
 
-	@media ( min-width: @min-width-breakpoint-tablet ) {
+	@media ( min-width: @min-width-breakpoint-page-tools-dropdown ) {
 		display: none;
 	}
 }
 
 // Make sure pcactions is displayed on lower resolutions (even if .emptyPortlet present)
 .vector-page-tools .vector-has-collapsible-items {
-	@media ( max-width: @max-width-breakpoint-mobile ) {
+	@media ( max-width: @min-width-breakpoint-page-tools-dropdown ) {
 		display: block;
+	}
+}
+
+// Limit icons to mobile viewports.
+.vector-page-toolbar-container .vector-page-tools {
+	.vector-icon {
+		display: block;
+
+		@media ( min-width: @min-width-breakpoint-page-tools-dropdown ) {
+			display: none;
+		}
 	}
 }

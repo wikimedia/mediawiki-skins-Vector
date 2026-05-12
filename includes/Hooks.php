@@ -115,7 +115,13 @@ class Hooks implements
 		// Promote watch link from actions to views and add an icon
 		// The second check to isset is pointless but shuts up phan.
 		if ( $key !== null && isset( $content_navigation['actions'][ $key ] ) ) {
+			$bookmarkItem = $content_navigation['views']['bookmark'] ?? null;
+			unset( $content_navigation['views']['bookmark'] );
+			// If bookmark item exists we reposition it at end.
 			$content_navigation['views'][$key] = $content_navigation['actions'][$key];
+			if ( $bookmarkItem ) {
+				$content_navigation['views']['bookmark'] = $bookmarkItem;
+			}
 			unset( $content_navigation['actions'][$key] );
 		}
 	}
@@ -128,27 +134,47 @@ class Hooks implements
 	 * @param bool $isLegacy is this the legacy Vector skin?
 	 */
 	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
-		foreach ( $content_navigation['views'] as &$item ) {
+		foreach ( $content_navigation['views'] as $key => &$item ) {
 			$icon = $item['icon'] ?? null;
+			$itemClass = $item['class'] ?? '';
 			if ( $icon ) {
 				if ( $isLegacy ) {
 					self::appendClassToItem(
-						$item['class'],
+						$itemClass,
 						[ 'icon' ]
 					);
 				} else {
-					// Force the item as a button with hidden text.
-					$item['button'] = true;
-					$item['text-hidden'] = true;
-					$item = self::updateMenuItemData( $item, false );
+
+					if ( in_array( $key, [ 'watch', 'unwatch' ] ) ) {
+						// Watch star is a icon-link
+						$item['button'] = false;
+						$item['text-hidden'] = false;
+						self::appendClassToItem(
+							$itemClass,
+							[ 'vector-tab-noicon' ]
+						);
+						$item = self::updateMenuItemData( $item, false );
+					} elseif ( in_array( $key, [ 'bookmark', 'wikilove' ] ) ) {
+						// Force the item as a button with hidden text.
+						$item['button'] = true;
+						$item['text-hidden'] = true;
+						$item = self::updateMenuItemData( $item, false );
+					} else {
+						// The vector-tab-noicon class is only used in Vector-22.
+						self::appendClassToItem(
+							$itemClass,
+							[ 'vector-tab-noicon' ]
+						);
+					}
 				}
 			} elseif ( !$isLegacy ) {
 				// The vector-tab-noicon class is only used in Vector-22.
 				self::appendClassToItem(
-					$item['class'],
+					$itemClass,
 					[ 'vector-tab-noicon' ]
 				);
 			}
+			$item['class'] = $itemClass;
 		}
 	}
 
@@ -170,7 +196,7 @@ class Hooks implements
 	/**
 	 * Adds class to a property
 	 *
-	 * @param array|string &$item to update
+	 * @param array|string|bool &$item to update
 	 * @param array|string $classes to add to the item
 	 */
 	private static function appendClassToItem( &$item, $classes ) {
@@ -314,10 +340,7 @@ class Hooks implements
 		$title = $sk->getRelevantTitle();
 		if (
 			$sk->getConfig()->get( 'VectorUseIconWatch' ) &&
-			$title && $title->canExist() &&
-			// Only move the watchstar if bookmark not detected
-			// T402352
-			!self::isReadingListEnabled( $content_navigation )
+			$title && $title->canExist()
 		) {
 			self::updateActionsMenu( $content_navigation );
 		}
