@@ -252,6 +252,10 @@ class SkinVector22 extends SkinMustache {
 			$data['data-portlets']['data-actions']['class'] .= ' vector-has-collapsible-items';
 		}
 		$data['data-portlets']['data-actions']['html-items'] = $overflow['html-items'] . $actions['html-items'];
+		$data['data-portlets']['data-actions']['array-items'] = array_merge(
+			$overflow['array-items'] ?? [],
+			$actions['array-items'] ?? []
+		);
 		return $data;
 	}
 
