@@ -39,15 +39,17 @@ class VectorComponentPageTools implements VectorComponent {
 	}
 
 	/**
-	 * Revises the labels of the p-tb and p-cactions menus.
+	 * Revise the p-tb and p-cactions menus.
 	 */
 	private function getMenus(): array {
 		return array_map( function ( $menu ) {
 			switch ( $menu['id'] ?? '' ) {
 				case self::TOOLBOX_ID:
+					// Update the label.
 					$menu['label'] = $this->localizer->msg( 'vector-page-tools-general-label' )->text();
 					break;
 				case self::ACTIONS_ID:
+					// Convert to VectorComponentMenu to enable use of icons.
 					$menuComponent = new VectorComponentMenu( [
 						'id' => $menu['id'],
 						'class' => $menu['class'] ?? '',
