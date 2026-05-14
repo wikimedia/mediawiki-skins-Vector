@@ -39,10 +39,10 @@
 	"vector-feature-custom-font-size-2-label": "Grandi",
 	"skin-theme-name": "Kólo",
 	"skin-theme-description": "[Version eksperimental, probabilidat altu di eksperensia problema] Ta redusí e lus emití dor di e aparato su pantaya.",
-	"skin-theme-day-label": "Lus",
-	"skin-theme-night-label": "Skur",
+	"skin-theme-day-label": "Kla",
+	"skin-theme-night-label": "Sukú",
 	"skin-theme-os-label": "Outomátiko",
-	"skin-theme-exclusion-notice": "E página aki semper ta den modo di lus.",
+	"skin-theme-exclusion-notice": "E página aki semper ta den modo kla.",
 	"vector-intro-page": "Help:Introdukshon",
 	"vector-toc-label": "Kontenido",
 	"vector-toc-beginning": "Tòp",
@@ -58,7 +58,7 @@
 	"vector-pin-element-label": "move pa balk'i sèi",
 	"vector-unpin-element-label": "skonde",
 	"tooltip-vector-anon-user-menu-title": "Mas opshon",
-	"vector-night-mode-issue-reporting-preload-title": "Eror den modo skur riba $1",
-	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrukshon\nPor fabor deskribí kon kolónan den modo skur ta hasi'é difisil pa lesa Wikipedia.\nPor fabor inkluí e sekshon di artíkulo kaminda e problema ta surgí.\n-->\n'''Deskripshon di problema'''",
+	"vector-night-mode-issue-reporting-preload-title": "Eror den modo sukú riba $1",
+	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrukshon\nPor fabor deskribí kon kolónan den modo sukú ta hasi'é difisil pa lesa Wikipedia.\nPor fabor inkluí e sekshon di artíkulo kaminda e problema ta surgí.\n-->\n'''Deskripshon di problema'''",
 	"vector-night-mode-beta-tag": "(bèta)"
 }
