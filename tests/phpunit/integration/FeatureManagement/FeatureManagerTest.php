@@ -86,28 +86,4 @@ class FeatureManagerTest extends \MediaWikiIntegrationTestCase {
 		$this->assertEquals( [ $expected ], $featureManager->getFeatureBodyClass() );
 	}
 
-	/** ensure the class is present when disabled and absent when not */
-	public static function provideGetFeatureBodyClassNightModeDisabled() {
-		return [
-			[ true ], [ false ]
-		];
-	}
-
-	/**
-	 * @dataProvider provideGetFeatureBodyClassNightModeDisabled
-	 * @covers ::getFeatureBodyClass pref night mode specifics - disabled pages
-	 */
-	public function testGetFeatureBodyClassNightModeDisabled( $disabled ) {
-		$featureManager = $this->newFeatureManager();
-		$featureManager->registerFeature( CONSTANTS::PREF_NIGHT_MODE, [] );
-
-		$context = RequestContext::getMain();
-		$context->setTitle( Title::makeTitle( NS_MAIN, 'Main Page' ) );
-
-		$this->overrideConfigValues( [ 'VectorNightModeOptions' => [ 'exclude' => [ 'mainpage' => $disabled ] ] ] );
-		$this->assertEquals(
-			in_array( 'skin-theme-clientpref--excluded', $featureManager->getFeatureBodyClass() ),
-			$disabled
-		);
-	}
 }

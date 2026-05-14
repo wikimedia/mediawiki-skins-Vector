@@ -569,18 +569,6 @@
 			},
 			"description": "@var array determines on which pages the font size is configurable."
 		},
-		"VectorNightModeOptions": {
-			"value": {
-				"exclude": {
-					"mainpage": false,
-					"pagetitles": [],
-					"namespaces": [],
-					"querystring": {}
-				},
-				"include": []
-			},
-			"description": "@var array determines which pages are compatible with night mode"
-		},
 		"VectorTypeahead": {
 			"value": {
 				"apiUrl": null,

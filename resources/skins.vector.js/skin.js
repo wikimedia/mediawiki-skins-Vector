@@ -76,11 +76,6 @@ function main( window ) {
 		] ).then( () => {
 			const clientPreferences = require( /** @type {string} */ ( 'skins.vector.clientPreferences' ) );
 			const clientPreferenceConfig = ( require( './clientPreferences.json' ) );
-			// Can be removed once wgVectorNightMode is removed.
-			if ( document.documentElement.classList.contains( 'vector-feature-night-mode-disabled' ) ) {
-				// @ts-ignore issues relating to delete operator are not relevant here.
-				delete clientPreferenceConfig[ 'skin-theme' ];
-			}
 
 			// while we're in beta, temporarily check if the night mode gadget is installed and
 			// disable our night mode if so

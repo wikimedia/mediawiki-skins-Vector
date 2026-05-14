@@ -187,19 +187,11 @@ class FeatureManager {
 					$suffixEnabled = 'clientpref-' . $this->getUserPreferenceValue( CONSTANTS::PREF_KEY_FONT_SIZE );
 					$suffixDisabled = 'clientpref-0';
 					break;
-				// This feature has 4 possible states: day, night, os and -excluded.
+				// This feature has 3 possible states: day, night, os.
+				// A 4th state (-excluded) may be applied client-side by
+				// disableNightModeIfGadget.js when a conflicting gadget is active.
 				// It persists for all users.
 				case CONSTANTS::PREF_NIGHT_MODE:
-					// if night mode is disabled for the page, add the exclude class instead and return early
-					if ( $this->configHelper->shouldDisable(
-						$config->get( 'VectorNightModeOptions' ),
-						$request,
-						$title
-					) ) {
-						// The additional "-" prefix, makes this an invalid client preference for anonymous users.
-						return 'skin-theme-clientpref--excluded';
-					}
-
 					$prefix = '';
 					$valueRequest = $request->getRawVal( 'vectornightmode' );
 					// If night mode query string is used, hardcode pref value to the night mode value
