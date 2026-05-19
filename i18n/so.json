@@ -2,9 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Abdullahi",
-			"Maax"
+			"Maax",
+			"AhmedG612"
 		]
 	},
+	"vector-languages": "Luqadaha",
+	"vector-language-button-label": "{{PLURAL:$1|$1 luqad|$1 luqadood}}",
+	"vector-no-language-button-label": "Ku dar luqadaha",
 	"vector-action-addsection": "Hadal ku dar",
 	"vector-action-delete": "Tirtir",
 	"vector-action-move": "Wareeji",
@@ -16,5 +20,21 @@
 	"vector-view-history": "Fiiri taariikhda",
 	"vector-view-view": "Akhri",
 	"vector-view-viewsource": "Itusi xogta",
-	"vector-more-actions": "Dheeraad"
+	"vector-more-actions": "Dheeraad",
+	"vector-appearance-label": "Muuqaal",
+	"vector-feature-custom-font-size-name": "Qoraal",
+	"vector-feature-custom-font-size-0-label": "Yar",
+	"vector-feature-custom-font-size-1-label": "Heerka caadiga ah",
+	"vector-feature-custom-font-size-2-label": "Weyn",
+	"skin-theme-day-label": "Iftiin",
+	"skin-theme-night-label": "Madow",
+	"skin-theme-os-label": "Toos ah",
+	"skin-theme-exclusion-notice": "Boggan mar walba wuxuu ku jiraa qaab iftiin ah.",
+	"vector-main-menu-label": "Liiska ugu weyn",
+	"vector-feature-custom-font-size-exclusion-notice": "Boggan had iyo jeer wuxuu isticmaalaa cabbir font yar",
+	"vector-page-tools-label": "Qalabka",
+	"vector-page-tools-general-label": "Guud",
+	"vector-page-tools-actions-label": "Tallaabooyin",
+	"vector-unpin-element-label": "qari",
+	"empty-language-selector-body": "Nuxurka bogan laguma taageero luqado kale."
 }
