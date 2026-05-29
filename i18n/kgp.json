@@ -5,6 +5,12 @@
 		]
 	},
 	"vector-languages": "Vẽnh vĩ ũ",
+	"vector-language-button-label": "{{PLURAL:$1|$1 vĩ|$1 vĩ ag}}",
+	"vector-no-language-button-label": "Vĩ ũ ag vin",
+	"vector-action-addsection": "Venhrá ta jagma hã vin",
+	"vector-view-create": "Jẽ'ỹn",
+	"vector-view-history": "Vãme ve",
+	"vector-more-actions": "Ũ ke gé",
 	"vector-appearance-label": "Ve ũ",
 	"vector-feature-limited-width-name": "Téj nỹ",
 	"vector-feature-limited-width-0-label": "Mag kar",
@@ -17,5 +23,10 @@
 	"skin-theme-exclusion-notice": "Ti ve tag vỹ kurã ve kãnĩg tĩ",
 	"vector-toc-label": "Ti ki nénũ",
 	"vector-toc-beginning": "Pẽnjẽg",
-	"vector-feature-custom-font-size-exclusion-notice": "Ti ve tag vỹ vẽnh rá kẽsir ta han tĩ"
+	"vector-main-menu-label": "Mẽnũ pẽ",
+	"vector-feature-custom-font-size-exclusion-notice": "Ti ve tag vỹ vẽnh rá kẽsir ta han tĩ",
+	"vector-page-tools-label": "Kyfé ag",
+	"vector-page-tools-general-label": "Ti kar",
+	"vector-page-tools-actions-label": "Han ke",
+	"vector-unpin-element-label": "Péju"
 }
