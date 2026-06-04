@@ -9,6 +9,14 @@ use MediaWiki\Skins\Vector\FeatureManagement\FeatureManager;
  * VectorPageActions component
  */
 class VectorComponentPageToolbar implements VectorComponent {
+	private const ICON_LINK = [];
+	private const ICON_ONLY_BUTTON = [
+		'class' => '',
+		'button' => [
+			'iconOnly' => true,
+		],
+	];
+
 	public function __construct(
 		private readonly MessageLocalizer $localizer,
 		private readonly FeatureManager $featureManager,
@@ -50,6 +58,39 @@ class VectorComponentPageToolbar implements VectorComponent {
 	}
 
 	/**
+	 * Creates a toolbar actions menu using data-views
+	 * ensuring only watch, wikilove and bookmark appear
+	 * with icons.
+	 */
+	private function getToolbarActions(): array {
+		$views = $this->portletData['data-views'] ?? [];
+		if ( !$views ) {
+			return [];
+		}
+		$actionsMenu = new VectorComponentMenu(
+			[
+				'id' => $views['id'] ?? 'p-views',
+				'class' => $views['class'] ?? '',
+				'label' => null,
+				'html-items' => null,
+				'array-list-items' => $views['array-items'],
+			],
+			[
+				'class' => 'vector-tab-noicon',
+				'collapsible' => true,
+				'icon' => false,
+			],
+			[
+				'ca-unwatch' => self::ICON_LINK,
+				'ca-watch' => self::ICON_LINK,
+				'ca-wikilove' => self::ICON_ONLY_BUTTON,
+				'ca-bookmark' => self::ICON_ONLY_BUTTON,
+			]
+		);
+		return $actionsMenu->getTemplateData();
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTemplateData(): array {
@@ -68,6 +109,7 @@ class VectorComponentPageToolbar implements VectorComponent {
 			$this->featureManager
 		);
 		return [
+			'data-toolbar-actions' => $this->getToolbarActions(),
 			'data-page-tools' => $pageToolsMenu->getTemplateData(),
 			'data-portlets' => $portlets,
 			'data-page-tools-dropdown' => $toolsDropdown->getTemplateData(),

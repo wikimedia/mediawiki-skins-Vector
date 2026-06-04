@@ -127,51 +127,19 @@ class Hooks implements
 	}
 
 	/**
-	 * Adds icons to items in the "views" menu.
+	 * Adds icons to items in the "views" menu in Legacy Vector.
 	 *
 	 * @internal used inside Hooks::onSkinTemplateNavigation
 	 * @param array &$content_navigation
-	 * @param bool $isLegacy is this the legacy Vector skin?
 	 */
-	private static function updateViewsMenuIcons( &$content_navigation, $isLegacy ) {
+	private static function updateViewsMenuIconsLegacyVector( &$content_navigation ) {
 		foreach ( $content_navigation['views'] as $key => &$item ) {
 			$icon = $item['icon'] ?? null;
 			$itemClass = $item['class'] ?? '';
 			if ( $icon ) {
-				if ( $isLegacy ) {
-					self::appendClassToItem(
-						$itemClass,
-						[ 'icon' ]
-					);
-				} else {
-
-					if ( in_array( $key, [ 'watch', 'unwatch' ] ) ) {
-						// Watch star is a icon-link
-						$item['button'] = false;
-						$item['text-hidden'] = false;
-						self::appendClassToItem(
-							$itemClass,
-							[ 'vector-tab-noicon' ]
-						);
-						$item = self::updateMenuItemData( $item, false );
-					} elseif ( in_array( $key, [ 'bookmark', 'wikilove' ] ) ) {
-						// Force the item as a button with hidden text.
-						$item['button'] = true;
-						$item['text-hidden'] = true;
-						$item = self::updateMenuItemData( $item, false );
-					} else {
-						// The vector-tab-noicon class is only used in Vector-22.
-						self::appendClassToItem(
-							$itemClass,
-							[ 'vector-tab-noicon' ]
-						);
-					}
-				}
-			} elseif ( !$isLegacy ) {
-				// The vector-tab-noicon class is only used in Vector-22.
 				self::appendClassToItem(
 					$itemClass,
-					[ 'vector-tab-noicon' ]
+					[ 'icon' ]
 				);
 			}
 			$item['class'] = $itemClass;
@@ -242,61 +210,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Update template data to include classes and html that handle buttons and icons.
-	 *
-	 * @internal used in ::updateMenuItemData
-	 * @param array $item data to update
-	 * @param string $buttonClassProp property to append button classes
-	 * @param string $iconHtmlProp property to set icon HTML
-	 * @param bool $unsetIcon should the icon field be unset?
-	 * @return array $item Updated data
-	 */
-	private static function updateItemData(
-		$item, $buttonClassProp, $iconHtmlProp, $unsetIcon = true
-	) {
-		$hasButton = $item['button'] ?? false;
-		$hideText = $item['text-hidden'] ?? false;
-		$icon = $item['icon'] ?? '';
-		if ( $unsetIcon ) {
-			unset( $item['icon'] );
-		}
-		unset( $item['button'] );
-		unset( $item['text-hidden'] );
-
-		if ( $hasButton ) {
-			// Hardcoded button classes, this should be fixed by replacing Hooks.php with VectorComponentButton.php
-			self::appendClassToItem( $item[ $buttonClassProp ], [
-				'cdx-button',
-				'cdx-button--fake-button',
-				'cdx-button--fake-button--enabled',
-				'cdx-button--weight-quiet'
-			] );
-		}
-		if ( $icon ) {
-			if ( $hideText && $hasButton ) {
-				self::appendClassToItem( $item[ $buttonClassProp ], [ 'cdx-button--icon-only' ] );
-			}
-
-			$item[ $iconHtmlProp ] = self::makeIcon( $icon );
-		}
-		return $item;
-	}
-
-	/**
-	 * Updates template data for Vector menu items.
-	 *
-	 * @internal used inside Hooks::updateMenuItems ::updateViewsMenuIcons and ::updateUserLinksDropdownItems
-	 * @param array $item menu item data to update
-	 * @param bool $unsetIcon should the icon field be unset?
-	 * @return array $item Updated menu item data
-	 */
-	private static function updateMenuItemData( $item, $unsetIcon = true ) {
-		$buttonClassProp = 'link-class';
-		$iconHtmlProp = 'link-html';
-		return self::updateItemData( $item, $buttonClassProp, $iconHtmlProp, $unsetIcon );
-	}
-
-	/**
 	 * Vector 2022 only:
 	 * Creates an additional menu that will be injected inside the more (cactions)
 	 * dropdown menu. This menu is a clone of `views` and this menu will only be
@@ -351,7 +264,9 @@ class Hooks implements
 
 		// The updating of the views menu happens /after/ the overflow menu has been created
 		// this avoids icons showing in the more overflow menu.
-		self::updateViewsMenuIcons( $content_navigation, self::isSkinVersionLegacy( $skinName ) );
+		if ( self::isSkinVersionLegacy( $skinName ) ) {
+			self::updateViewsMenuIconsLegacyVector( $content_navigation );
+		}
 		self::updateAssociatedPagesMenuIcons( $content_navigation );
 	}
 

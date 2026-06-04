@@ -62,7 +62,7 @@ class VectorComponentMenu implements VectorComponent, Countable {
 
 	/**
 	 * Update menu item styling based of default menu styles and overrides
-	 * Style options include: 'button', 'collapsible', 'icon'
+	 * Style options include: 'button', 'collapsible', 'icon', 'class'
 	 * 'button' can be boolean or an array with button options, e.g. ['iconOnly' => true]
 	 *
 	 * @param array $menuItems
@@ -82,6 +82,12 @@ class VectorComponentMenu implements VectorComponent, Countable {
 				$class = $item['class'] ?? '';
 				$item['class'] = $class . ' ' . self::COLLAPSIBLE_CLASS;
 			}
+
+			$customClass = $menuItemStyleOverrides[ $id ]['class'] ?? $menuItemStyles['class'] ?? '';
+			if ( $customClass ) {
+				$item['class'] = trim( $item['class'] . ' ' . $customClass );
+			}
+
 			// Update link classes
 			$item['array-links'] = array_map( static function ( $link ) use ( $styles ) {
 				if ( array_key_exists( 'icon', $styles ) ) {

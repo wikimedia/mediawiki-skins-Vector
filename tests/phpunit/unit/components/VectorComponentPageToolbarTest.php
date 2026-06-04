@@ -119,11 +119,103 @@ class VectorComponentPageToolbarTest extends \MediaWikiUnitTestCase {
 	}
 
 	public static function provideGetTemplateData() {
+		$iconOnlyClass = ' cdx-button cdx-button--fake-button cdx-button--fake-button--enabled '
+			. 'cdx-button--weight-quiet cdx-button--icon-only';
 		return [
 			[
 				[],
 				[],
-				true
+				true,
+				[]
+			],
+			[
+				[
+					'data-views' => [
+						'id' => 'p-views',
+						'class' => 'foo',
+						'array-items' => [
+							[
+								'id' => 'ca-edit',
+								'class' => '',
+								'array-links' => [
+									[
+										'array-attributes' => [],
+										'text' => 'edit',
+									]
+								],
+							],
+							[
+								'id' => 'ca-unwatch',
+								'class' => '',
+								'array-links' => [
+									[
+										'icon' => 'unStar',
+										'array-attributes' => [],
+										'text' => 'watch',
+									]
+								],
+							],
+							[
+								'id' => 'ca-bookmark',
+								'class' => '',
+								'array-links' => [
+									[
+										'array-attributes' => [
+											[
+												'key' => 'class',
+												'value' => '',
+											]
+										],
+										'icon' => 'bookmark',
+										'text' => 'bookmark',
+									]
+								],
+							],
+						]
+					],
+				],
+				[],
+				true,
+				[
+					[
+						'id' => 'ca-edit',
+						'class' => 'user-links-collapsible-item vector-menu-item--collapsible vector-tab-noicon',
+						'array-links' => [
+							[
+								'array-attributes' => [],
+								'text' => 'edit',
+								'icon' => false,
+							]
+						],
+					],
+					[
+						'id' => 'ca-unwatch',
+						'class' => 'vector-tab-noicon',
+						'array-links' => [
+							[
+								'icon' => 'unStar',
+								'array-attributes' => [],
+								'text' => 'watch',
+							]
+						],
+					],
+					[
+						'id' => 'ca-bookmark',
+						'class' => '',
+						'array-links' => [
+							[
+								'array-attributes' => [
+									[
+										'key' => 'class',
+										'value' => $iconOnlyClass,
+									]
+								],
+								'icon' => 'bookmark',
+								'text' => 'bookmark'
+							]
+						],
+					]
+				]
 			]
 		];
 	}
@@ -132,7 +224,7 @@ class VectorComponentPageToolbarTest extends \MediaWikiUnitTestCase {
 	 * @covers ::getTemplateData
 	 * @dataProvider provideGetTemplateData
 	 */
-	public function testGetTemplateData( $portletData, $sidebar, $isFeatureEnabled ) {
+	public function testGetTemplateData( $portletData, $sidebar, $isFeatureEnabled, $expectedToolbarActions ) {
 		$localizer = $this->createMock( MessageLocalizer::class );
 		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
 			$msg = $this->createMock( Message::class );
@@ -152,5 +244,9 @@ class VectorComponentPageToolbarTest extends \MediaWikiUnitTestCase {
 		$this->assertArrayHasKey( 'data-page-tools', $data );
 		$this->assertArrayHasKey( 'data-portlets', $data );
 		$this->assertArrayHasKey( 'data-page-tools-dropdown', $data );
+		$this->assertSame(
+			$expectedToolbarActions,
+			$data[ 'data-toolbar-actions' ]['array-list-items'] ?? []
+		);
 	}
 }
