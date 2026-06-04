@@ -41,7 +41,9 @@
 		<div class="mw-content-container">
 			<main id="content" class="mw-body">
 				{{>PageTitlebar}}
+				{{#data-page-toolbar}}
 				{{>PageToolbar}}
+				{{/data-page-toolbar}}
 				{{>ColumnEnd}}
 				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
 					{{>BeforeContent}}
