@@ -62,4 +62,9 @@
 	// Codex styles, the proper styles are overridden, this corrects that.
 	min-width: @min-size-interactive-pointer;
 	min-height: @min-size-interactive-pointer;
+
+	@media ( max-width: @max-width-breakpoint-tablet ) {
+		min-width: @min-size-interactive-touch;
+		min-height: @min-size-interactive-touch;
+	}
 }
