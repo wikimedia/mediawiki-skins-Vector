@@ -45,8 +45,11 @@ class VectorComponentMainMenu implements VectorComponent {
 	 */
 	public function getTemplateData(): array {
 		$portletsRest = [];
-		foreach ( $this->sidebarData[ 'array-portlets-rest' ] as $data ) {
-			$portletsRest[] = ( new VectorComponentMenu( $data ) )->getTemplateData();
+		foreach ( $this->sidebarData[ 'array-portlets-rest' ] as $key => $data ) {
+			// Make sure the toolbox is removed from the main menu
+			if ( $data['id'] !== 'p-tb' ) {
+				$portletsRest[] = ( new VectorComponentMenu( $data ) )->getTemplateData();
+			}
 		}
 		$firstPortlet = new VectorComponentMenu( $this->sidebarData['data-portlets-first'] );
 		$languageMenu = new VectorComponentMenu( $this->languageData );

@@ -90,7 +90,13 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 			'Main menu contains languages when no languages' => [
 				'sidebarData' => [
 					'data-portlets-first' => [],
-					'array-portlets-rest' => [],
+					'array-portlets-rest' => [
+						// The TOOLBOX is inside the sidebar. It should be dropped
+						// by the component.
+						[
+							'id' => 'p-tb',
+						]
+					],
 				],
 				'languageData' => [],
 				'isPinned' => false,
@@ -146,6 +152,8 @@ class VectorComponentMainMenuTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $isPinned, $templateData['is-pinned'] );
 		$this->assertSame( ( $isLanguageSidebar || !$isLanguageInHeader ) && $languageData,
 			$templateData['is-languages-included'] );
+		// Assert removal of page tools from main menu (T428649)
+		$this->assertSame( [], $templateData['array-portlets-rest'] );
 
 		// Assert the structure and types of expected keys
 		$this->assertIsArray( $templateData['data-portlets-first'] );

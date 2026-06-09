@@ -13,7 +13,7 @@ use MediaWiki\Skins\Vector\Components\VectorComponentButton;
 use MediaWiki\Skins\Vector\Components\VectorComponentDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentLanguageDropdown;
 use MediaWiki\Skins\Vector\Components\VectorComponentMainMenu;
-use MediaWiki\Skins\Vector\Components\VectorComponentPageTools;
+use MediaWiki\Skins\Vector\Components\VectorComponentPageToolbar;
 use MediaWiki\Skins\Vector\Components\VectorComponentPinnableContainer;
 use MediaWiki\Skins\Vector\Components\VectorComponentSearchBox;
 use MediaWiki\Skins\Vector\Components\VectorComponentStickyHeader;
@@ -269,30 +269,6 @@ class SkinVector22 extends SkinMustache {
 	}
 
 	/**
-	 * Pulls the page tools menu out of $sidebar into $pageToolsMenu
-	 *
-	 * @param array &$sidebar
-	 * @param array &$pageToolsMenu
-	 */
-	private static function extractPageToolsFromSidebar( array &$sidebar, array &$pageToolsMenu ) {
-		$restPortlets = $sidebar[ 'array-portlets-rest' ] ?? [];
-		$toolboxMenuIndex = array_search(
-			VectorComponentPageTools::TOOLBOX_ID,
-			array_column(
-				$restPortlets,
-				'id'
-			)
-		);
-
-		if ( $toolboxMenuIndex !== false ) {
-			// Splice removes the toolbox menu from the $restPortlets array
-			// and current returns the first value of array_splice, i.e. the $toolbox menu data.
-			$pageToolsMenu = array_splice( $restPortlets, $toolboxMenuIndex );
-			$sidebar['array-portlets-rest'] = $restPortlets;
-		}
-	}
-
-	/**
 	 * Get the ULS button label, accounting for the number of available
 	 * languages.
 	 */
@@ -335,8 +311,6 @@ class SkinVector22 extends SkinMustache {
 		$featureManager = $this->getFeatureManager();
 
 		$sidebar = $parentData[ 'data-portlets-sidebar' ];
-		$pageToolsMenu = [];
-		self::extractPageToolsFromSidebar( $sidebar, $pageToolsMenu );
 
 		$hasAddTopicButton = $config->get( 'VectorPromoteAddTopic' ) &&
 			$this->removeAddTopicButton( $parentData );
@@ -466,15 +440,11 @@ class SkinVector22 extends SkinMustache {
 					'title' => $this->msg( 'vector-main-menu-tooltip' )->text(),
 				] )
 			),
-			'data-page-tools' => new VectorComponentPageTools(
-				array_merge( [ $portlets['data-actions'] ?? [] ], $pageToolsMenu ),
+			'data-page-toolbar' => new VectorComponentPageToolbar(
 				$localizer,
-				$featureManager
-			),
-			'data-page-tools-dropdown' => new VectorComponentDropdown(
-				VectorComponentPageTools::ID . '-dropdown',
-				$this->msg( 'toolbox' )->text(),
-				VectorComponentPageTools::ID . '-dropdown',
+				$featureManager,
+				$portlets,
+				$sidebar
 			),
 			'data-appearance' => new VectorComponentAppearance( $localizer, $featureManager ),
 			'data-appearance-dropdown' => new VectorComponentDropdown(
