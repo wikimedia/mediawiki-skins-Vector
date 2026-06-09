@@ -5,7 +5,7 @@
 	},
 	{
 		"resourceModule": "skins.vector.styles",
-		"maxSize": "14.0 kB"
+		"maxSize": "14.4 kB"
 	},
 	{
 		"resourceModule": "skins.vector.js",
@@ -25,7 +25,7 @@
 	},
 	{
 		"resourceModule": "skins.vector.clientPreferences",
-		"maxSizeUncompressed": "13.4 kB"
+		"maxSizeUncompressed": "13.6 kB"
 	},
 	{
 		"resourceModule": "skins.vector.icons.js",
