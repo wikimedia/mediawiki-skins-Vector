@@ -7,7 +7,9 @@
 			</nav>
 		</div>
 		<div id="right-navigation" class="vector-collapsible">
-			{{>PageToolbarActions}}
+			<nav aria-label="{{msg-views}}">
+				{{#data-portlets}}{{#data-views}}{{>Tabs}}{{/data-views}}{{/data-portlets}}
+			</nav>
 
 			<nav class="vector-page-tools-landmark" aria-label="{{msg-vector-page-tools-nav-label}}">
 				{{#data-page-tools-dropdown}}{{>Dropdown/Open}}{{/data-page-tools-dropdown}}
