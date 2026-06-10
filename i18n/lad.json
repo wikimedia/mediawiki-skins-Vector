@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chabi1",
+			"Maor X",
 			"Universal Life"
 		]
 	},
@@ -16,5 +17,6 @@
 	"vector-view-history": "Ver la istoria",
 	"vector-view-view": "Meldar",
 	"vector-view-viewsource": "Ver su manadero",
-	"vector-more-actions": "Mas"
+	"vector-more-actions": "Mas",
+	"vector-page-tools-actions-label": "Aksiones"
 }
