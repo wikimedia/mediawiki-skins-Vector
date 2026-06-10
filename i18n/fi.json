@@ -70,7 +70,7 @@
 	"vector-searchsuggest-containing": "Hae sivuja, jotka sisältävät <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
 	"vector-toc-label": "Sisällysluettelo",
-	"vector-toc-beginning": "Johdanto",
+	"vector-toc-beginning": "Alku",
 	"vector-toc-toggle-button-label": "Vaihda alaosio $1",
 	"vector-anon-user-menu-pages": "Sivut kirjautumattomille muokkaajille",
 	"vector-anon-user-menu-pages-learn": "lue lisää",
