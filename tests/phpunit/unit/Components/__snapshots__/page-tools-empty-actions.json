@@ -1,0 +1,41 @@
+{
+    "id": "vector-page-tools",
+    "is-pinned": false,
+    "data-pinnable-header": {
+        "is-pinned": false,
+        "label": "vector-page-tools-label",
+        "label-tag-name": "div",
+        "pin-label": "vector-pin-element-label",
+        "unpin-label": "vector-unpin-element-label",
+        "pin-aria-label": "vector-pin-element-aria-label",
+        "unpin-aria-label": "vector-unpin-element-aria-label",
+        "data-pinnable-element-id": "vector-page-tools",
+        "data-feature-name": "page-tools-pinned",
+        "data-unpinned-container-id": "vector-page-tools-unpinned-container",
+        "data-pinned-container-id": "vector-page-tools-pinned-container"
+    },
+    "data-menus": [
+        {
+            "id": "p-cactions",
+            "class": "",
+            "label": "vector-page-tools-actions-label",
+            "array-list-items": [],
+            "html-after-portal": "",
+            "html-tooltip": "",
+            "label-class": "",
+            "html-before-portal": "",
+            "html-items": ""
+        },
+        {
+            "id": "p-tb",
+            "array-items": [
+                {
+                    "id": "t-whatlinkshere",
+                    "html-item": "<li><a><span>What links here<\/span><\/a><\/li>",
+                    "array-links": []
+                }
+            ],
+            "label": "vector-page-tools-general-label"
+        }
+    ]
+}

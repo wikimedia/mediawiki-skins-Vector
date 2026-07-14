@@ -91,6 +91,25 @@ class VectorComponentPageToolsTest extends VectorComponentSnapshotTestCase {
 		$expectedMenus[ 1 ] = array_merge( $expectedMenus[ 1 ], [
 			'label' => 'vector-page-tools-general-label',
 		] );
+		$menusEmptyActions = [ [
+			'id' => 'p-cactions',
+			'array-items' => []
+		], [
+			'id' => 'p-tb',
+			'array-items' => [ $whatLinksHereLink ]
+		] ];
+
+		$menusEmptyActionsWithViews = [ [
+			'id' => 'p-cactions',
+			'array-items' => []
+		], [
+			'id' => 'p-views',
+			'array-items' => [ $whatLinksHereLink ]
+		], [
+			'id' => 'p-tb',
+			'array-items' => [ $whatLinksHereLink ]
+		] ];
+
 		return [
 			[
 				$menus,
@@ -106,6 +125,17 @@ class VectorComponentPageToolsTest extends VectorComponentSnapshotTestCase {
 				$menus,
 				false,
 				'page-tools-3.json'
+			],
+			[
+				$menusEmptyActions,
+				false,
+				'page-tools-empty-actions.json'
+			],
+			[
+				$menusEmptyActionsWithViews,
+				false,
+				'page-tools-empty-actions-with-views.json',
+				true
 			]
 		];
 	}
@@ -117,7 +147,8 @@ class VectorComponentPageToolsTest extends VectorComponentSnapshotTestCase {
 	public function testGetTemplateData(
 		array $menus,
 		bool $isPinned,
-		string $snapshotName
+		string $snapshotName,
+		bool $hasCollapsibleElements = false
 	) {
 		$localizer = $this->createMock( MessageLocalizer::class );
 		$localizer->method( 'msg' )->willReturnCallback( function ( $key, ...$params ) {
@@ -132,7 +163,8 @@ class VectorComponentPageToolsTest extends VectorComponentSnapshotTestCase {
 		$pageTools = new VectorComponentPageTools(
 			$menus,
 			$localizer,
-			$featureManager
+			$featureManager,
+			$hasCollapsibleElements
 		);
 		$data = $pageTools->getTemplateData();
 		$this->assertEqualsSnapshot(
