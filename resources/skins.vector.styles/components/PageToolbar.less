@@ -1,15 +1,36 @@
 .toolbars-expand-to-two-lines() {
 	flex-flow: column;
 
-	/* Push the bookmark and watchlist to the right. */
-	#ca-history,
-	/* has query caters for non existent pages which do not have history link.
-	This is equivalent to LAST vector-tab-noicon element.
-	Since this is not a common case, has browser support is acceptable. */
-	.vector-tab-noicon:not( :has( ~ .vector-tab-noicon ) ) {
-		flex: 1;
+	#left-navigation {
+		// Necessary to make the ::after pseudo-element full-width below the menu items.
+		flex-wrap: wrap;
+
+		// Add a border effect between the two lines of the toolbar. Not using an actual border on
+		// #left-navigation because it has a negative margin so a border would overflow the layout.
+		&::after {
+			background-color: @border-color-subtle;
+			content: '';
+			height: 1px;
+			// Account for negative horizontal margins on #left-navigation.
+			width: calc( 100% - ( @spacing-horizontal-tabs * 2 ) );
+			margin-left: @spacing-horizontal-tabs;
+		}
 	}
 
+	// Align right nav to the start of the toolbar when on a separate line.
+	#right-navigation .vector-menu-content-list {
+		justify-content: flex-start;
+	}
+
+	// Push the bookmark to the right.
+	// The bookmark is the only item in the "Views" nav that should be shown on the right. If the
+	// bookmark isn't present on a page, the tools overflow menu and any gadgets in the toolbar will
+	// still be aligned to the left.
+	#ca-bookmark {
+		margin-left: auto;
+	}
+
+	// Hide "view" link, unless the page is in edit mode.
 	#ca-view {
 		display: none;
 
@@ -30,12 +51,14 @@
 	// Add bottom margin to account for box-shadow
 	margin-bottom: 1px;
 
-	html.vector-feature-navigation-update-enabled.vector-feature-main-menu-pinned-enabled.vector-feature-appearance-pinned-clientpref-1 &,
-	html.vector-feature-navigation-update-enabled.vector-feature-toc-pinned-clientpref-1.vector-feature-appearance-pinned-clientpref-1 &,
-	html.vector-feature-navigation-update-enabled.vector-feature-toc-pinned-clientpref-1.vector-feature-page-tools-pinned-enabled &,
-	html.vector-feature-navigation-update-enabled.vector-feature-main-menu-pinned-enabled.vector-feature-page-tools-pinned-enabled & {
+	// Between the mobile and desktop breakpoints, expand the toolbar to 2 lines if there is not
+	// enough room for all items on one line.
+	// Below `@max-width-breakpoint-mobile`, most items get collapsed into the tools menu.
+	@media ( min-width: @max-width-breakpoint-mobile ) {
 		@media ( max-width: @max-width-breakpoint-desktop ) {
-			.toolbars-expand-to-two-lines();
+			&--expand {
+				.toolbars-expand-to-two-lines();
+			}
 		}
 	}
 
@@ -56,14 +79,6 @@
 	@media ( max-width: @min-width-breakpoint-page-tools-dropdown ) {
 		.mw-portlet-views .vector-menu-item--collapsible {
 			display: none;
-		}
-	}
-}
-
-@media ( min-width: @max-width-breakpoint-mobile ) {
-	@media ( max-width: @max-width-breakpoint-tablet ) {
-		html.vector-feature-navigation-update-enabled .vector-page-toolbar-container {
-			.toolbars-expand-to-two-lines();
 		}
 	}
 }

@@ -8,6 +8,7 @@ const languageButton = require( './languageButton.js' ),
 	watchstar = require( './watchstar.js' ).init,
 	setupIntersectionObservers = require( './setupIntersectionObservers.js' ),
 	menuTabs = require( './menuTabs.js' ),
+	pageToolbar = require( './pageToolbar.js' ),
 	userPreferences = require( './userPreferences.js' ),
 	{ isNightModeGadgetEnabled, disableNightModeForGadget, alterExclusionMessage, removeBetaNotice } = require( './disableNightModeIfGadget.js' ),
 	teleportTarget = /** @type {HTMLElement} */require( /** @type {string} */ ( 'mediawiki.page.ready' ) ).teleportTarget;
@@ -99,6 +100,7 @@ function main( window ) {
 	// tab menu to a dropdown.
 	menuTabs();
 	tables();
+	pageToolbar();
 }
 
 if ( document.readyState === 'interactive' || document.readyState === 'complete' ) {
