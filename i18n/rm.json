@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Albinfo",
 			"Gion-andri",
 			"Terfili"
 		]
@@ -16,5 +17,6 @@
 	"vector-view-history": "Cronologia",
 	"vector-view-view": "Leger",
 	"vector-view-viewsource": "Mussar il code",
-	"vector-more-actions": "dapli"
+	"vector-more-actions": "dapli",
+	"vector-page-tools-actions-label": "Acziuns"
 }
