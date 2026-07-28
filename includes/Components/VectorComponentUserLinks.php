@@ -84,10 +84,10 @@ class VectorComponentUserLinks implements VectorComponent {
 		$icon = $this->userIcon;
 		if ( $icon === '' && $userLinksCount ) {
 			$icon = 'userAvatar';
-			// T287494 We use tooltip messages to provide title attributes on hover over certain menu icons.
-			// For modern Vector, the "tooltip-p-personal" key is set to "User menu" which is appropriate for
-			// the user icon (dropdown indicator for user links menu) for logged-in users.
-			// This overrides the tooltip for the user links menu icon which was an ellipsis for anonymous users.
+			// T287494 We use tooltips to provide title attributes on hover over certain menu icons.
+			// For modern Vector, the "tooltip-p-personal" key is set to "User menu" which is
+			// appropriate for the dropdown indicator for the user links menu for logged-in users.
+			// For anonymous users the menu also contains a donate link so we override the message.
 			$tooltip = Linker::tooltip( 'vector-anon-user-menu-title' ) ?? '';
 		}
 
