@@ -5,6 +5,7 @@
 			"Adam N.",
 			"Armando-Martin",
 			"Avengium",
+			"Axolitl",
 			"Cenzontle25",
 			"Crazymadlover",
 			"Dalton2",
@@ -119,5 +120,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "¡Reporte recibido!",
 	"vector-night-mode-issue-reporting-preload-title": "Error de modo oscuro $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstrucciones\nPor favor, describe cómo los colores del modo oscuro dificultan la lectura de Wikipedia.\nPor favor, incluye la sección del artículo donde encontraste el problema.\n-->\n'''Descripción del problema'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-pin-element-aria-label": "Mover $1 a la barra lateral",
+	"vector-unpin-element-aria-label": "Ocultar $1"
 }
