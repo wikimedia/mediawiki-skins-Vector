@@ -9,7 +9,8 @@
 			"魔琴",
 			"Ouclie",
 			"Davidzdh",
-			"Vjfjng"
+			"Vjfjng",
+			"XiaoAnIsMe"
 		]
 	},
 	"skinname-vector": "經典向量（庚寅年）",
@@ -33,6 +34,8 @@
 	"vector-more-actions": "多寶",
 	"vector-appearance-label": "觀",
 	"vector-feature-limited-width-name": "寬",
+	"vector-feature-limited-width-0-label": "寬",
+	"vector-feature-limited-width-1-label": "常",
 	"vector-feature-custom-font-size-name": "文",
 	"vector-feature-custom-font-size-0-label": "小",
 	"vector-feature-custom-font-size-1-label": "常",
@@ -42,6 +45,8 @@
 	"skin-theme-night-label": "緇",
 	"skin-theme-os-label": "自動",
 	"skin-theme-exclusion-notice": "卷常素色。",
+	"vector-toc-label": "章",
+	"vector-toc-beginning": "序",
 	"vector-main-menu-label": "卷首",
 	"vector-feature-custom-font-size-exclusion-notice": "䈎固用小字",
 	"vector-page-tools-label": "多寶",
