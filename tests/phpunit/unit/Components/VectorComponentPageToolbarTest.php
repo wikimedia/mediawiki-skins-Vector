@@ -59,15 +59,8 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 				[
 					'array-items' => []
 				],
-				[
-					'array-items' => [
-						[ 'name' => 'edit' ],
-						[ 'name' => 'history' ],
-					]
-				],
-				[
-					'array-items' => []
-				],
+				'move-watch-link-views-no-actions.json',
+				'move-watch-link-actions-no-actions.json',
 			],
 			[
 				// Test case: Watch link exists in actions data
@@ -82,16 +75,8 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 						[ 'name' => 'watch' ]
 					]
 				],
-				[
-					'array-items' => [
-						[ 'name' => 'edit' ],
-						[ 'name' => 'history' ],
-						[ 'name' => 'watch' ]
-					]
-				],
-				[
-					'array-items' => []
-				],
+				'move-watch-link-views-watch.json',
+				'move-watch-link-actions-watch.json',
 			], [
 				// Test case: Unwatch link exists in actions data
 				[
@@ -105,16 +90,8 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 						[ 'name' => 'unwatch' ]
 					]
 				],
-				[
-					'array-items' => [
-						[ 'name' => 'edit' ],
-						[ 'name' => 'history' ],
-						[ 'name' => 'unwatch' ]
-					]
-				],
-				[
-					'array-items' => []
-				],
+				'move-watch-link-views-unwatch.json',
+				'move-watch-link-actions-unwatch.json',
 			],
 			[
 				// Test case: No watch/unwatch links in actions data
@@ -129,17 +106,8 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 						[ 'name' => 'delete' ],
 					]
 				],
-				[
-					'array-items' => [
-						[ 'name' => 'edit' ],
-						[ 'name' => 'history' ],
-					]
-				],
-				[
-					'array-items' => [
-						[ 'name' => 'delete' ],
-					]
-				],
+				'move-watch-link-views-no-watch-and-delete.json',
+				'move-watch-link-actions-no-watch-and-delete.json',
 			]
 		];
 	}
@@ -148,14 +116,16 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 	 * @covers ::moveWatchLinkToViews
 	 * @dataProvider provideMoveWatchLinkToViews
 	 */
-	public function testMoveWatchLinkToViews( $viewsData, $actionsData, $expectedViewsData, $expectedActionsData ) {
+	public function testMoveWatchLinkToViews(
+		$viewsData, $actionsData, $expectedViewsSnapshot, $expectedActionsSnapshot
+	) {
 		$moveWatchLinkToViews = new ReflectionMethod(
 			VectorComponentPageToolbar::class,
 			'moveWatchLinkToViews'
 		);
 		$moveWatchLinkToViews->invokeArgs( null, [ &$viewsData, &$actionsData ] );
-		$this->assertEquals( $expectedViewsData, $viewsData );
-		$this->assertEquals( $expectedActionsData, $actionsData );
+		$this->assertEqualsSnapshot( $expectedViewsSnapshot, $viewsData );
+		$this->assertEqualsSnapshot( $expectedActionsSnapshot, $actionsData );
 	}
 
 	public static function provideExtractToolboxFromSidebar() {

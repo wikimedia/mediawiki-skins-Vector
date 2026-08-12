@@ -1,0 +1,57 @@
+{
+    "data-associated-pages": {
+        "id": "p-associated-pages",
+        "class": "",
+        "html-items": null,
+        "array-list-items": [],
+        "label": "",
+        "html-tooltip": "",
+        "label-class": "",
+        "html-before-portal": "",
+        "html-after-portal": ""
+    },
+    "data-toolbar-actions": {
+        "id": "p-views",
+        "class": "foo",
+        "label": null,
+        "html-items": null,
+        "array-list-items": [],
+        "html-tooltip": "",
+        "label-class": "",
+        "html-before-portal": "",
+        "html-after-portal": ""
+    },
+    "data-page-tools": {
+        "id": "vector-page-tools",
+        "is-pinned": false,
+        "data-pinnable-header": {
+            "is-pinned": false,
+            "label": "vector-page-tools-label",
+            "label-tag-name": "div",
+            "pin-label": "vector-pin-element-label",
+            "unpin-label": "vector-unpin-element-label",
+            "pin-aria-label": "vector-pin-element-aria-label",
+            "unpin-aria-label": "vector-unpin-element-aria-label",
+            "data-pinnable-element-id": "vector-page-tools",
+            "data-feature-name": "page-tools-pinned",
+            "data-unpinned-container-id": "vector-page-tools-unpinned-container",
+            "data-pinned-container-id": "vector-page-tools-pinned-container"
+        },
+        "data-menus": [
+            {
+                "array-list-items": []
+            }
+        ]
+    },
+    "data-page-tools-dropdown": {
+        "id": "vector-page-tools-dropdown",
+        "label": "toolbox",
+        "label-class": "cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only ",
+        "icon": "verticalEllipsis",
+        "html-vector-menu-label-attributes": "",
+        "html-vector-menu-checkbox-attributes": "",
+        "class": "vector-page-tools-dropdown",
+        "html-tooltip": "",
+        "checkbox-class": ""
+    }
+}
