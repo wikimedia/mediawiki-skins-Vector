@@ -15,4 +15,11 @@
 			display: none;
 		}
 	}
+
+	// [T432149] Display `#p-cactions` on lower resolutions (even if .emptyPortlet present).
+	.vector-has-collapsible-items {
+		@media ( max-width: @min-width-breakpoint-page-tools-dropdown ) {
+			display: block;
+		}
+	}
 }

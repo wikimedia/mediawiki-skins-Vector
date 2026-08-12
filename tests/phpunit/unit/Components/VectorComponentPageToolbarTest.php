@@ -327,6 +327,23 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 				'page-toolbar-dontmove-ca-addsection.json',
 				false
 			],
+			[
+				[
+					'data-views' => [
+						'id' => 'p-views',
+						'class' => 'foo',
+						'array-items' => [],
+					],
+					'data-actions' => [
+						'id' => 'p-cactions',
+						'array-items' => [],
+					],
+				],
+				[],
+				false,
+				'page-toolbar-specialpage.json',
+				false
+			]
 		];
 	}
 

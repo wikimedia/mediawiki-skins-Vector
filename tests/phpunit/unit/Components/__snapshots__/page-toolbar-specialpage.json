@@ -39,7 +39,15 @@
         },
         "data-menus": [
             {
-                "array-list-items": []
+                "id": "p-cactions",
+                "class": " emptyPortlet",
+                "label": "vector-page-tools-actions-label",
+                "array-list-items": [],
+                "html-after-portal": "",
+                "html-tooltip": "",
+                "label-class": "",
+                "html-before-portal": "",
+                "html-items": ""
             }
         ]
     },

@@ -76,6 +76,11 @@ class VectorComponentPageToolbar implements VectorComponent {
 				}
 			}
 		}
+		// Check if moving it made the menu empty.
+		$className = $actionsData['class'] ?? '';
+		if ( strpos( $className, 'emptyPortlet' ) === false && !count( $actionsData[ 'array-items' ] ?? [] ) ) {
+			$actionsData['class'] = $className . ' emptyPortlet';
+		}
 	}
 
 	/**
@@ -167,6 +172,7 @@ class VectorComponentPageToolbar implements VectorComponent {
 		self::extractToolboxFromSidebar( $this->sidebar, $toolbarData );
 		self::moveWatchLinkToViews( $viewsData, $actionsData );
 		$viewsMoreData = self::createViewsMoreMenu( $viewsData );
+		$hasCollapsibleElements = count( $viewsMoreData[ 'array-items' ] ?? [] ) > 0;
 
 		$toolsDropdown = new VectorComponentDropdown(
 			VectorComponentPageTools::ID . '-dropdown',
@@ -174,10 +180,12 @@ class VectorComponentPageToolbar implements VectorComponent {
 			VectorComponentPageTools::ID . '-dropdown',
 			'verticalEllipsis'
 		);
+
 		$pageToolsMenu = new VectorComponentPageTools(
 			array_merge( [ $viewsMoreData ], [ $actionsData ], $toolbarData ),
 			$this->localizer,
-			$this->featureManager
+			$this->featureManager,
+			$hasCollapsibleElements
 		);
 		return [
 			'data-associated-pages' => $this->getAssociatedPages(),

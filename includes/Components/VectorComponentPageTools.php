@@ -25,10 +25,18 @@ class VectorComponentPageTools implements VectorComponent {
 	/** @var string */
 	private const VIEWS_ID = 'p-views';
 
+	/**
+	 * @param array $menus
+	 * @param MessageLocalizer $localizer
+	 * @param FeatureManager $featureManager
+	 * @param bool $hasCollapsibleElements whether the more menu contains collapsible elements
+	 *  that are revealed at lower resolutions
+	 */
 	public function __construct(
 		private readonly array $menus,
 		private readonly MessageLocalizer $localizer,
 		FeatureManager $featureManager,
+		private readonly bool $hasCollapsibleElements = false
 	) {
 		$this->isPinned = $featureManager->isFeatureEnabled( Constants::FEATURE_PAGE_TOOLS_PINNED );
 		$this->pinnableHeader = new VectorComponentPinnableHeader(
@@ -49,6 +57,7 @@ class VectorComponentPageTools implements VectorComponent {
 	private function getMenus(): array {
 		$pageToolsMenus = [];
 		$viewsMenuData = [];
+		$collapsibleClass = $this->hasCollapsibleElements ? ' vector-has-collapsible-items' : '';
 		foreach ( $this->menus as $menu ) {
 			switch ( $menu['id'] ?? '' ) {
 				case self::TOOLBOX_ID:
@@ -59,7 +68,10 @@ class VectorComponentPageTools implements VectorComponent {
 				case self::ACTIONS_ID:
 					$menuComponent = new VectorComponentMenu( [
 						'id' => $menu['id'],
-						'class' => $menu['class'] ?? '',
+						'class' => ( $menu['class'] ?? '' ) .
+							// [T432149] This ensures that views is displayed on lower resolutions
+							// (even if .emptyPortlet present). Do not remove!
+							$collapsibleClass,
 						'label' => $this->localizer->msg( 'vector-page-tools-actions-label' )->text(),
 						'array-list-items' => $menu['array-items'],
 						'html-after-portal' => $menu['html-after-portal'] ?? '',
