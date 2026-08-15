@@ -26,7 +26,7 @@ class VectorComponentSnapshotTestCase extends MediaWikiUnitTestCase {
 
 	public function updateSnapshot( $snapshotName, $data ) {
 		$snapshotPath = __DIR__ . '/__snapshots__/' . $snapshotName;
-		file_put_contents( $snapshotPath, json_encode( $data, JSON_PRETTY_PRINT ) );
+		file_put_contents( $snapshotPath, json_encode( $data, JSON_PRETTY_PRINT ) . "\n" );
 	}
 
 	public function assertEqualsSnapshot( $snapshotName, $data, $msg = '' ) {
