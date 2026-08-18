@@ -85,18 +85,6 @@ class FeatureManagerFactory {
 			)
 		);
 
-		// Feature: Navigation update
-		// ================================
-		$featureManager->registerRequirement(
-			new OverridableConfigRequirement(
-				$config,
-				$user,
-				$request,
-				Constants::CONFIG_KEY_NAVIGATION_UPDATE,
-				Constants::REQUIREMENT_NAVIGATION_UPDATE
-			)
-		);
-
 		// ---
 
 		$featureManager->registerFeature(
@@ -314,16 +302,6 @@ class FeatureManagerFactory {
 			[
 				Constants::REQUIREMENT_FULLY_INITIALISED,
 				Constants::REQUIREMENT_PREF_NIGHT_MODE
-			]
-		);
-
-		// Feature: Navigation update
-		// ================================
-		$featureManager->registerFeature(
-			Constants::FEATURE_NAVIGATION_UPDATE,
-			[
-				Constants::REQUIREMENT_FULLY_INITIALISED,
-				Constants::REQUIREMENT_NAVIGATION_UPDATE
 			]
 		);
 

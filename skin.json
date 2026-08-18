@@ -617,13 +617,6 @@
 			},
 			"description": "options for configuring where where max-width should and should not apply. More details can be found in Hooks::shouldDisableMaxWidth PHP documentation."
 		},
-		"VectorNavigationUpdateTemporary": {
-			"value": {
-				"logged_in": false,
-				"logged_out": false
-			},
-			"description": "@var boolean updates Vector 2022 page tools for better responsiv.e"
-		},
 		"VectorResponsive": {
 			"value": false,
 			"description": "@var boolean turn Vector-2022 into a responsive skin by applying a view port and disabling the min-width"

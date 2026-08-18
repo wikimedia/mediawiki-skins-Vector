@@ -75,21 +75,6 @@ final class Constants {
 	public const REQUIREMENT_LANGUAGE_IN_MAIN_MENU = 'LanguageInMainMenu';
 
 	/**
-	 * @var string
-	 */
-	public const FEATURE_NAVIGATION_UPDATE = 'NavigationUpdate';
-
-	/**
-	 * @var string
-	 */
-	public const CONFIG_KEY_NAVIGATION_UPDATE = 'VectorNavigationUpdateTemporary';
-
-	/**
-	 * @var string
-	 */
-	public const REQUIREMENT_NAVIGATION_UPDATE = 'NavigationUpdate';
-
-	/**
 	 * The `mediawiki.searchSuggest` protocol piece of the SearchSatisfaction instrumention reads
 	 * the value of an element with the "data-search-loc" attribute and set the event's
 	 * `inputLocation` property accordingly.
