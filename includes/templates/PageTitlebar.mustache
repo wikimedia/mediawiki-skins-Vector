@@ -17,16 +17,5 @@
 		{{#data-page-titlebar-toc-dropdown}}{{>Dropdown/Close}}{{/data-page-titlebar-toc-dropdown}}
 	</nav>
 	{{/data-toc}}
-	{{{html-title-heading}}}
-	{{#has-buttons-in-content-top}}
-		{{#data-lang-dropdown}}
-			{{>LanguageDropdown}}
-		{{/data-lang-dropdown}}
-		{{#data-add-topic-button}}
-			{{>Button}}
-		{{/data-add-topic-button}}
-	{{/has-buttons-in-content-top}}
-	{{^has-buttons-in-content-top}}
-		{{>Indicators}}
-	{{/has-buttons-in-content-top}}
+	{{>PageTitle}}
 </header>
