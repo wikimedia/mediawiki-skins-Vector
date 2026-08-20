@@ -109,8 +109,8 @@ class VectorComponentPageToolbar implements VectorComponent {
 
 	/**
 	 * Creates a toolbar actions menu using data-views
-	 * ensuring only watch, wikilove and bookmark appear
-	 * with icons.
+	 * ensuring only watch, wikilove, bookmark and the
+	 * user info card appear with icons.
 	 *
 	 * If present the add section item is removed as it
 	 * is being rendered outside the component.
@@ -141,6 +141,7 @@ class VectorComponentPageToolbar implements VectorComponent {
 				'ca-watch' => self::ICON_BUTTON,
 				'ca-wikilove' => self::ICON_ONLY_BUTTON,
 				'ca-bookmark' => self::ICON_ONLY_BUTTON,
+				'ca-checkuser-userinfocard' => self::ICON_ONLY_BUTTON,
 			]
 		);
 		return $actionsMenu->getTemplateData();
