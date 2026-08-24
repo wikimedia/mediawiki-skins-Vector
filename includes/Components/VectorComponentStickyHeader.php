@@ -95,7 +95,10 @@ class VectorComponentStickyHeader implements VectorComponent {
 			self::SUBJECT_ICON,
 			self::HISTORY_ICON
 		];
-		$icons[] = $this->isReadingListsEnabled ? self::BOOKMARK_ICON : self::WATCHSTAR_ICON;
+		$icons[] = self::WATCHSTAR_ICON;
+		if ( $this->isReadingListsEnabled ) {
+			$icons[] = self::BOOKMARK_ICON;
+		}
 		$icons[] = $this->visualEditorTabPositionFirst ? self::EDIT_VE_ICON : self::EDIT_WIKITEXT_ICON;
 		$icons[] = $this->visualEditorTabPositionFirst ? self::EDIT_WIKITEXT_ICON : self::EDIT_VE_ICON;
 		$icons[] = self::EDIT_PROTECTED_ICON;
