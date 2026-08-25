@@ -58,6 +58,26 @@ class VectorComponentPageToolbar implements VectorComponent {
 	}
 
 	/**
+	 * Return the index where the watchstar should be inserted.
+	 *
+	 * @param string[] $viewNames
+	 * @return int
+	 */
+	private static function findWatchstarInsertIndex( array $viewNames ): int {
+		$historyIndex = array_search( 'history', $viewNames, true );
+		if ( $historyIndex !== false ) {
+			return $historyIndex + 1;
+		}
+
+		$bookmarkIndex = array_search( 'bookmark', $viewNames, true );
+		if ( $bookmarkIndex !== false ) {
+			return $bookmarkIndex;
+		}
+
+		return count( $viewNames );
+	}
+
+	/**
 	 * Promote watch link from actions to views and add an icon
 	 *
 	 * @param array &$viewsData
@@ -66,14 +86,14 @@ class VectorComponentPageToolbar implements VectorComponent {
 	private static function moveWatchLinkToViews( array &$viewsData, array &$actionsData ): void {
 		foreach ( $actionsData[ 'array-items' ] ?? [] as $action ) {
 			if ( $action[ 'name' ] === 'watch' || $action[ 'name' ] === 'unwatch' ) {
-				// Insert after history
-				$historyId = array_search( 'history', array_column( $viewsData[ 'array-items' ] ?? [], 'name' ) );
-				if ( $historyId ) {
-					array_splice( $viewsData[ 'array-items' ], $historyId + 1, 0, [ $action ] );
-					// Remove from actions
-					$actionId = array_search( $action['name'], array_column( $actionsData[ 'array-items' ], 'name' ) );
-					array_splice( $actionsData[ 'array-items' ], $actionId, 1 );
-				}
+				$viewsData[ 'array-items' ] ??= [];
+				$viewNames = array_column( $viewsData[ 'array-items' ], 'name' );
+				$insertIndex = self::findWatchstarInsertIndex( $viewNames );
+				array_splice( $viewsData[ 'array-items' ], $insertIndex, 0, [ $action ] );
+
+				// Remove from actions
+				$actionId = array_search( $action['name'], array_column( $actionsData[ 'array-items' ], 'name' ) );
+				array_splice( $actionsData[ 'array-items' ], $actionId, 1 );
 			}
 		}
 		// Check if moving it made the menu empty.

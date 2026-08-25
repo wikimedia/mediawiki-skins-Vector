@@ -128,6 +128,67 @@ class VectorComponentPageToolbarTest extends VectorComponentSnapshotTestCase {
 		$this->assertEqualsSnapshot( $expectedActionsSnapshot, $actionsData );
 	}
 
+	public static function provideMoveWatchLinkToViewsPosition() {
+		$emptyActions = [ 'array-items' => [], 'class' => ' emptyPortlet' ];
+		return [
+			'insert into empty views' => [
+				[],
+				[ [ 'name' => 'watch' ] ],
+				[ 'array-items' => [ [ 'name' => 'watch' ] ] ],
+				$emptyActions,
+			],
+			'append when nothing follows' => [
+				[ [ 'name' => 'create' ] ],
+				[ [ 'name' => 'watch' ] ],
+				[ 'array-items' => [ [ 'name' => 'create' ], [ 'name' => 'watch' ] ] ],
+				$emptyActions,
+			],
+			'insert before bookmark' => [
+				[ [ 'name' => 'create' ], [ 'name' => 'bookmark' ] ],
+				[ [ 'name' => 'watch' ] ],
+				[ 'array-items' => [ [ 'name' => 'create' ], [ 'name' => 'watch' ], [ 'name' => 'bookmark' ] ] ],
+				$emptyActions,
+			],
+			'other actions stay when watch moves' => [
+				[ [ 'name' => 'create' ] ],
+				[ [ 'name' => 'delete' ], [ 'name' => 'watch' ] ],
+				[ 'array-items' => [ [ 'name' => 'create' ], [ 'name' => 'watch' ] ] ],
+				[ 'array-items' => [ [ 'name' => 'delete' ] ] ],
+			],
+			'history wins over bookmark' => [
+				[ [ 'name' => 'edit' ], [ 'name' => 'history' ], [ 'name' => 'bookmark' ] ],
+				[ [ 'name' => 'watch' ] ],
+				[ 'array-items' => [
+					[ 'name' => 'edit' ], [ 'name' => 'history' ], [ 'name' => 'watch' ], [ 'name' => 'bookmark' ]
+				] ],
+				$emptyActions,
+			],
+		];
+	}
+
+	/**
+	 * @covers ::findWatchstarInsertIndex
+	 * @covers ::moveWatchLinkToViews
+	 * @dataProvider provideMoveWatchLinkToViewsPosition
+	 */
+	public function testMoveWatchLinkToViewsPosition(
+		array $viewItems, array $actionItems, array $expectedViewsData, array $expectedActionsData
+	) {
+		$viewsData = [
+			'array-items' => $viewItems,
+		];
+		$actionsData = [
+			'array-items' => $actionItems,
+		];
+		$moveWatchLinkToViews = new ReflectionMethod(
+			VectorComponentPageToolbar::class,
+			'moveWatchLinkToViews'
+		);
+		$moveWatchLinkToViews->invokeArgs( null, [ &$viewsData, &$actionsData ] );
+		$this->assertSame( $expectedViewsData, $viewsData );
+		$this->assertSame( $expectedActionsData, $actionsData );
+	}
+
 	public static function provideExtractToolboxFromSidebar() {
 		return [
 			[
