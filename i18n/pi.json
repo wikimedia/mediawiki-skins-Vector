@@ -1,8 +1,36 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hemant wikikosh1"
+			"Hemant wikikosh1",
+			"咽頭べさ"
 		]
 	},
-	"vector-view-create": "रचेतु"
+	"vector-languages": "भाषा",
+	"vector-language-button-label": "{{PLURAL:$1|$1 भाषा|$1 भाषारो}}",
+	"vector-no-language-button-label": "भासायोजन",
+	"vector-action-addsection": "अधिकारं उपदहतु",
+	"vector-view-create": "रचेतु",
+	"vector-view-history": "इतिहासं पस्सतु",
+	"vector-more-actions": "अधिकं",
+	"vector-appearance-label": "रूपं परिवत्तेतु",
+	"vector-feature-limited-width-name": "सुवित्थत",
+	"vector-feature-limited-width-0-label": "वित्थत",
+	"vector-feature-limited-width-1-label": "मूलपमाण",
+	"vector-feature-custom-font-size-name": "लेखं",
+	"vector-feature-custom-font-size-0-label": "खुद्दक",
+	"vector-feature-custom-font-size-1-label": "मूलपमाण",
+	"vector-feature-custom-font-size-2-label": "विपुल",
+	"skin-theme-name": "वण्णा",
+	"skin-theme-day-label": "उज्जल",
+	"skin-theme-night-label": "अन्धकार",
+	"skin-theme-os-label": "अत्तनोमय",
+	"skin-theme-exclusion-notice": "इदं पिट्ठं सदा आलोकरूपं युञ्जति॥",
+	"vector-toc-label": "विसयपरिच्छेद",
+	"vector-toc-beginning": "आदिं पस्सतु",
+	"vector-main-menu-label": "मुख्यं मेनू",
+	"vector-feature-custom-font-size-exclusion-notice": "इदं पिट्ठं सदा खुद्दकाक्खरपमाणं युञ्जति",
+	"vector-page-tools-label": "उपकरणानि",
+	"vector-page-tools-general-label": "समञ्ञ",
+	"vector-page-tools-actions-label": "किरियानि",
+	"vector-unpin-element-label": "लियन"
 }

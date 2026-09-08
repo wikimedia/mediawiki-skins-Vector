@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrisportelli",
 			"Leli Forte",
-			"ToniSant"
+			"ToniSant",
+			"JiodoJ"
 		]
 	},
 	"skinname-vector": "Verżjoni antika tal-Vector (2010)",
@@ -49,11 +50,11 @@
 	"skin-theme-day-label": "Ċar",
 	"skin-theme-night-label": "Skur",
 	"skin-theme-os-label": "Awtomatiku",
-	"skin-theme-exclusion-notice": "Din il-paġna dejjem tidher fil-modalità ċara.",
+	"skin-theme-exclusion-notice": "Dil-paġna dejjem tuża' modalità ċara.",
 	"vector-search-loader": "Is-suġġerimenti għat-tfittxija tegħlin",
 	"vector-searchsuggest-containing": "Fittex għal paġni li għandhom <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-intro-page": "Help:Introduction",
-	"vector-toc-label": "Kontenut",
+	"vector-toc-label": "Kontenuti",
 	"vector-toc-beginning": "Bidu",
 	"vector-toc-toggle-button-label": "Uri jew aħbi s-sottosezzjoni $1",
 	"vector-anon-user-menu-pages": "Il-paġni għal edituri anonimi",
@@ -63,8 +64,8 @@
 	"vector-toc-menu-tooltip": "Werrej",
 	"vector-toc-collapsible-button-label": "Aħbi jew uri l-werrej",
 	"vector-site-nav-label": "Sit",
-	"vector-main-menu-label": "Menu prinċipali",
-	"vector-feature-custom-font-size-exclusion-notice": "Din il-paġna dejjem tuża' daqs tat-tipa żgħir",
+	"vector-main-menu-label": "Menù prinċipali",
+	"vector-feature-custom-font-size-exclusion-notice": "Dil-paġna dejjem tuża' tipa żgħira",
 	"vector-feature-limited-width-exclusion-notice": "Il-kontenut huwa estiż sal-limiti tat-tieqa tal-brawżer.",
 	"vector-page-tools-label": "Għodda",
 	"vector-page-tools-general-label": "Ġenerali",
