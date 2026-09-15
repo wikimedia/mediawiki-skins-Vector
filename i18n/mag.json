@@ -77,5 +77,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "रिपोर्ट प्राप्त भेलै !",
 	"vector-night-mode-issue-reporting-preload-title": "$1 अन्हार मोड त्रुटि",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nअनुदेश\nकृपया विवरण देथिन जे अन्हार योजनाके रङ्ग कौनो प्रकारसे विकिपीडियाके पढ़ल कठिन बनावैत हे ।\nकृपया लेखके ऊ अनुभाग सम्मिलित करथिन जने अपनेके समस्या आएल ।\n-->\n'''समस्याके विवरण'''",
-	"vector-night-mode-beta-tag": "(बीटा)"
+	"vector-night-mode-beta-tag": "(बीटा)",
+	"vector-pin-element-aria-label": "$1 के साइडबार पर ले जैथिन",
+	"vector-unpin-element-aria-label": "$1 लुकावथिन"
 }
