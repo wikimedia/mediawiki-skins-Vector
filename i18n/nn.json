@@ -68,5 +68,6 @@
 	"vector-page-tools-unpinned-popup": "Verktøymenyen har vorte flytt hit.",
 	"vector-main-menu-unpinned-popup": "Hovudmenyen har flytta hit.",
 	"vector-appearance-unpinned-popup": "Utsjånadsmenyen har flytta hit.",
-	"vector-night-mode-issue-reporting-link-label": "Rapporter eit problem med mørk modus"
+	"vector-night-mode-issue-reporting-link-label": "Rapporter eit problem med mørk modus",
+	"vector-unpin-element-aria-label": "Gøym $1"
 }
