@@ -46,6 +46,13 @@
 		}
 	}
 
+	// Space between adjacent titlebar actions (e.g. Add topic + language) (T430719).
+	> .cdx-button + .mw-portlet-lang,
+	> .mw-portlet-lang + .cdx-button,
+	> .cdx-button + .cdx-button {
+		margin-inline-start: @spacing-50;
+	}
+
 	// The language button sometimes appears as an icon only button, in which
 	// case we need to flush differently. See an empty user page for an example of
 	// where this is used.
