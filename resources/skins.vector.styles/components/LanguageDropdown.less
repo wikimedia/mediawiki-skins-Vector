@@ -61,6 +61,14 @@
 
 	.mw-portlet-lang-heading-empty {
 		.mixin-vector-arrowed-dropdown-toggle();
+
+		// Match the horizontal padding of Codex buttons, which subtracts the
+		// border width from the desired spacing (T430719).
+		padding: 0 @spacing-horizontal-button-icon-only;
+
+		@media ( max-width: @max-width-breakpoint-tablet ) {
+			padding: 0 @spacing-horizontal-button;
+		}
 	}
 
 	// styles for less prominent Language button (without label) to be used for non-content pages (see T316559)
