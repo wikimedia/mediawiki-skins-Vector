@@ -38,6 +38,11 @@
 		"jsdoc/no-undefined-types": "off",
 		"compat/compat": "off",
 		"mediawiki/class-doc": "off",
-		"vue/dot-location": "off"
+		"vue/dot-location": "off",
+		"no-use-before-define": "warn",
+		"@stylistic/type-annotation-spacing": "warn",
+		"space-in-parens": "warn",
+		"@stylistic/member-delimiter-style": "warn",
+		"quotes": "warn"
 	}
 }

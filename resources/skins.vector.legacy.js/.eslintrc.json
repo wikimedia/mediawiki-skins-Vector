@@ -10,6 +10,7 @@
 		"jquery/no-each": "off",
 		"jquery/no-css": "off",
 		"jquery/no-data": "off",
-		"jquery/no-parent": "off"
+		"jquery/no-parent": "off",
+		"no-trailing-spaces": "warn"
 	}
 }
