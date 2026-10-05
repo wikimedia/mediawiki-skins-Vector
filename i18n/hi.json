@@ -67,7 +67,7 @@
 	"vector-toc-collapsible-button-label": "विषयसूची को टॉगल करें",
 	"vector-site-nav-label": "साइट",
 	"vector-main-menu-label": "मुख्य मेन्यू",
-	"vector-feature-custom-font-size-exclusion-notice": "यह पृष्ठ हमेशा छोटे फ़ॉन्ट आकार का उपयोग करता है",
+	"vector-feature-custom-font-size-exclusion-notice": "इस पृष्ठ पर फ़ॉण्ट का आकार हमेशा छोटा रहता है",
 	"vector-feature-limited-width-exclusion-notice": "सामग्री आपके ब्राउज़र विंडो के लिए यथासंभव चौड़ी है।",
 	"vector-page-tools-label": "उपकरण",
 	"vector-page-tools-general-label": "सामान्य",
@@ -90,5 +90,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "रिपोर्ट प्राप्त हुई!",
 	"vector-night-mode-issue-reporting-preload-title": "$1 गहरे मोड में त्रुटि",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nअनुदेश\nकृपया व्याख्या करें कि गहरे मोड के रंग किस प्रकार विकिपीडिया को पढ़ना मुश्किल बना रहे हैं।\nकृपया लेख का वह अनुभाग शामिल करें जहाँ आपको समस्या आई।\n-->\n'''समस्या की व्याख्या'''",
-	"vector-night-mode-beta-tag": "(बीटा)"
+	"vector-night-mode-beta-tag": "(बीटा)",
+	"vector-pin-element-aria-label": "$1 को साइडबार पर ले जाएँ",
+	"vector-unpin-element-aria-label": "$1 को छिपाएँ"
 }
