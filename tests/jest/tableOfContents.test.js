@@ -129,15 +129,9 @@ describe( 'Table of contents', () => {
 	 * @type {module:TableOfContents~TableOfContents}
 	 */
 	let toc;
-	let stubbedScrollIntoView = false;
 
 	beforeEach( () => {
 		global.window.matchMedia = jest.fn( () => ( {} ) );
-		// Workaround https://github.com/jsdom/jsdom/issues/1695;
-		if ( !window.HTMLElement.prototype.scrollIntoView ) {
-			window.HTMLElement.prototype.scrollIntoView = () => {};
-			stubbedScrollIntoView = true;
-		}
 	} );
 
 	afterEach( () => {
@@ -147,9 +141,6 @@ describe( 'Table of contents', () => {
 		}
 
 		mw.util.getTargetFromFragment = undefined;
-		if ( stubbedScrollIntoView ) {
-			window.HTMLElement.prototype.scrollIntoView = undefined;
-		}
 	} );
 
 	describe( 'renders', () => {
