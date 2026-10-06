@@ -154,13 +154,6 @@ module.exports = function tableOfContents( props ) {
 		}
 		activeSubSection = selectedTocSection;
 		activeSubSection.classList.add( ACTIVE_SECTION_CLASS );
-		// T426952 Scroll the ToC too when the active section changes
-		activeSubSection.scrollIntoView( {
-			behavior: 'smooth',
-			// @ts-ignore https://github.com/microsoft/TypeScript/issues/62803
-			container: 'nearest',
-			block: 'nearest'
-		} );
 	}
 
 	/**
