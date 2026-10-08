@@ -29,6 +29,14 @@
 				"vector-2022"
 			]
 		},
+		"UniversalLanguageSelector": {
+			"SkinConfig": {
+				"vector-2022": {
+					"LanguageInHeaderConfig": "VectorLanguageInHeader",
+					"LanguageInMainMenuConfig": "VectorLanguageInMainMenu"
+				}
+			}
+		},
 		"VisualEditor": {
 			"IconSkins": [
 				"vector-2022"
