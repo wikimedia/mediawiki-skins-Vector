@@ -80,5 +80,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "Segnalaçión reçevûaǃ",
 	"vector-night-mode-issue-reporting-preload-title": "Erô da modalitæ néutte $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nInstruçioìn\nPe piâxéi, scrîvi cómme i coî da modalitæ néutte réndan a Wikipedia conpricâ da lêze.\nPe piâxéi, inclùddi a seçión da pàgina dónde ti t'æ trovòu o problêma ascì.\n-->\n'''Descriçión do problêma'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-pin-element-aria-label": "Méscia $1 inta bâra laterâle",
+	"vector-unpin-element-aria-label": "Ascóndi $1"
 }
