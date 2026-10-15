@@ -84,5 +84,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "Докладът е получен!",
 	"vector-night-mode-issue-reporting-preload-title": "Грешка в тъмния режим $1",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nИнструкции\nМоля, опишете как цветовете в тъмния режим затрудняват четенето на Уикипедия.\nМоля, включете раздела от статията, където сте открили проблема.\n--> \n'''Описание на проблема'''",
-	"vector-night-mode-beta-tag": "(бета)"
+	"vector-night-mode-beta-tag": "(бета)",
+	"vector-pin-element-aria-label": "Преместване на $1 в страничната лента",
+	"vector-unpin-element-aria-label": "Скриване на $1"
 }
