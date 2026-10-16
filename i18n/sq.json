@@ -56,7 +56,7 @@
 	"skin-theme-night-label": "E errët",
 	"skin-theme-os-label": "Automatike",
 	"skin-theme-exclusion-notice": "Kjo faqe është gjithmonë në modalitetin e ndriçuar.",
-	"vector-intro-page": "Ndihmë:Hyrje",
+	"vector-intro-page": "Ndihmë:Hyrja",
 	"vector-toc-label": "Përmbajtjet",
 	"vector-toc-beginning": "Kreu",
 	"vector-toc-toggle-button-label": "Shfaq/fshih nënpjesën $1",
@@ -88,5 +88,7 @@
 	"vector-night-mode-issue-reporting-link-notification": "Raportimi u mor!",
 	"vector-night-mode-issue-reporting-preload-title": "Gabim i $1 në modalitetin e errët",
 	"vector-night-mode-issue-reporting-preload-content": "<!--\nUdhëzime\nJu lutemi përshkruani se si ngjyrat e modës së errët po e bëjnë Wikipedinë më të vështirë për të lexuar.\nJu lutemi ta bashkangjitni seksionin e artikullit ku hasët në këtë problem.\n--> \n'''Përshkrimi i çështjes'''",
-	"vector-night-mode-beta-tag": "(beta)"
+	"vector-night-mode-beta-tag": "(beta)",
+	"vector-pin-element-aria-label": "Zhvendos $1 në shiritin anësor",
+	"vector-unpin-element-aria-label": "Fshih $1"
 }
