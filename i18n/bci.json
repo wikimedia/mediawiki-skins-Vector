@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kjeanclaude"
+			"Kjeanclaude",
+			"Mahuton"
 		]
 	},
 	"vector-languages": "Aniein moun",
@@ -19,5 +20,6 @@
 	"vector-searchsuggest-containing": "Kounndè floué boué moun nga liké nga wo noun: <strong class=\"cdx-typeahead-search__search-footer__query\">$1</strong>",
 	"vector-page-tools-label": "Liké moun",
 	"vector-page-tools-general-label": "Lika ngba (liké kounndèlè)",
+	"vector-page-tools-actions-label": "Aeliè moun",
 	"vector-unpin-element-label": "fa fia"
 }
