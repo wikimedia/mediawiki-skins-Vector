@@ -456,8 +456,7 @@
 				"mediawiki.experiments",
 				"skins.vector.icons.js",
 				"mediawiki.util",
-				"mediawiki.jqueryMsg",
-				"web2017-polyfills"
+				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"vector-toc-beginning",
