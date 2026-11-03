@@ -98,7 +98,7 @@ class VectorComponentUserLinks implements VectorComponent {
 
 	/**
 	 * @param UserIdentity $user
-	 * @return array
+	 * @return string[]
 	 */
 	private function getOverflowKeys( $user ) {
 		// Only certain items get promoted to the overflow menu:
@@ -117,7 +117,7 @@ class VectorComponentUserLinks implements VectorComponent {
 	}
 
 	/**
-	 * @return array
+	 * @return VectorComponentMenu[]
 	 */
 	private function getMenus() {
 		$user = $this->user;

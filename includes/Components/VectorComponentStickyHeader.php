@@ -87,7 +87,7 @@ class VectorComponentStickyHeader implements VectorComponent {
 	/**
 	 * Creates array of Button components in the sticky header
 	 *
-	 * @return array
+	 * @return VectorComponentButton[]
 	 */
 	private function getIconButtons() {
 		$icons = [

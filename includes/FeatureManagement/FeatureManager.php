@@ -161,7 +161,7 @@ class FeatureManager {
 	/**
 	 * Return a list of classes that should be added to the body tag
 	 *
-	 * @return array
+	 * @return string[]
 	 */
 	public function getFeatureBodyClass() {
 		return array_map( function ( $featureName ) {
