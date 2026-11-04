@@ -8,7 +8,6 @@ use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader as RL;
 use MediaWiki\Skin\Hook\SkinPageReadyConfigHook;
 use MediaWiki\Skins\Vector\Hooks\HookRunner;
-use MediaWiki\User\Options\UserOptionsManager;
 use MediaWiki\User\User;
 
 /**
@@ -23,12 +22,6 @@ class Hooks implements
 	GetPreferencesHook,
 	SkinPageReadyConfigHook
 {
-	public function __construct(
-		private readonly Config $config,
-		private readonly UserOptionsManager $userOptionsManager,
-	) {
-	}
-
 	/**
 	 * Checks if the current skin is a variant of Vector
 	 *
