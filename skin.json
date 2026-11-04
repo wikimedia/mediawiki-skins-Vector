@@ -217,12 +217,7 @@
 			]
 		},
 		"VectorHooks": {
-			"class": "MediaWiki\\Skins\\Vector\\Hooks",
-			"services": [
-				"MainConfig",
-				"UserOptionsManager",
-				"Vector.FeatureManagerFactory"
-			]
+			"class": "MediaWiki\\Skins\\Vector\\Hooks"
 		}
 	},
 	"Hooks": {
