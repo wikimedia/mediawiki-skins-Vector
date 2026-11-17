@@ -39,13 +39,13 @@
 	"skin-theme-day-label": "Licht",
 	"skin-theme-night-label": "Daurk",
 	"skin-theme-os-label": "Automatic",
-	"skin-theme-exclusion-notice": "This page is aye licht style",
+	"skin-theme-exclusion-notice": "This page is aye shawn licht.",
 	"vector-toc-label": "Contents",
 	"vector-toc-beginning": "Beginnin",
 	"vector-main-menu-label": "Main menu",
-	"vector-feature-custom-font-size-exclusion-notice": "This page always uses wee font size",
-	"vector-page-tools-label": "Tuils",
+	"vector-feature-custom-font-size-exclusion-notice": "This page always uses sma font size",
+	"vector-page-tools-label": "Tools",
 	"vector-page-tools-general-label": "General",
 	"vector-page-tools-actions-label": "Actions",
-	"vector-unpin-element-label": "Dern"
+	"vector-unpin-element-label": "hide"
 }
