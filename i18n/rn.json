@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gilbert Ndihokubwayo"
+			"Gilbert Ndihokubwayo",
+			"Afrib"
 		]
 	},
 	"vector-language-button-label": "{{PLURAL:$1|$1 ururimi|$1 indimi}}",
