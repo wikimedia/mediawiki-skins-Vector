@@ -88,5 +88,6 @@
 	"vector-appearance-unpinned-popup": "Мени за приказ је премештен овде.",
 	"vector-night-mode-issue-reporting-link-label": "Пријавите проблем са тамним режимом",
 	"vector-night-mode-issue-reporting-link-notification": "Извештај примљен!",
-	"vector-night-mode-beta-tag": "(бета)"
+	"vector-night-mode-beta-tag": "(бета)",
+	"vector-unpin-element-aria-label": "Сакриј $1"
 }
