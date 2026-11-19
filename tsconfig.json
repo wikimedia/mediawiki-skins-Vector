@@ -1,6 +1,7 @@
 {
 	"exclude": [
 		"docs",
+		"eslint.config.js",
 		"jest.setup.js",
 		"vendor",
 		"coverage",

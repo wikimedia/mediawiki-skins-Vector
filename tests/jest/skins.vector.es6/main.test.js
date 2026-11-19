@@ -82,9 +82,8 @@ describe( 'Table of contents re-rendering', () => {
 		const tocElement = document.createElement( 'div' );
 		const bodyContent = document.createElement( 'article' );
 		const toc = test.setupTableOfContents( tocElement, bodyContent, sectionObserverFn );
+		expect( toc ).not.toBe( null );
 		if ( !toc ) {
-			// something went wrong
-			expect( true ).toBe( false );
 			return;
 		}
 		const spy = jest.spyOn( toc, 'reloadTableOfContents' ).mockImplementation( () => Promise.resolve() );

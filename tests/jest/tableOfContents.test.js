@@ -170,18 +170,18 @@ describe( 'Table of contents', () => {
 			const heading = /** @type {HTMLElement} */ ( document.querySelector( `#toc-foo .${ toc.LINK_CLASS }` ) );
 			heading.click();
 
-			expect( onToggleClick ).not.toBeCalled();
-			expect( onHashChange ).not.toBeCalled();
-			expect( onHeadingClick ).toBeCalled();
+			expect( onToggleClick ).not.toHaveBeenCalled();
+			expect( onHashChange ).not.toHaveBeenCalled();
+			expect( onHeadingClick ).toHaveBeenCalled();
 		} );
 		test( 'for onToggleClick', () => {
 			toc = mount();
 			const toggle = /** @type {HTMLElement} */ ( document.querySelector( `#toc-bar .${ toc.TOGGLE_CLASS }` ) );
 			toggle.click();
 
-			expect( onHeadingClick ).not.toBeCalled();
-			expect( onHashChange ).not.toBeCalled();
-			expect( onToggleClick ).toBeCalled();
+			expect( onHeadingClick ).not.toHaveBeenCalled();
+			expect( onHashChange ).not.toHaveBeenCalled();
+			expect( onToggleClick ).toHaveBeenCalled();
 		} );
 		test( 'for onHashChange', () => {
 			mw.util.getTargetFromFragment = jest.fn().mockImplementation( ( hash ) => hash === 'toc-foo' ? fooSection : null );
@@ -194,9 +194,9 @@ describe( 'Table of contents', () => {
 				newURL: 'http://example.com#foo'
 			} ) );
 
-			expect( onHeadingClick ).not.toBeCalled();
-			expect( onToggleClick ).not.toBeCalled();
-			expect( onHashChange ).toBeCalled();
+			expect( onHeadingClick ).not.toHaveBeenCalled();
+			expect( onToggleClick ).not.toHaveBeenCalled();
+			expect( onHashChange ).toHaveBeenCalled();
 		} );
 	} );
 
