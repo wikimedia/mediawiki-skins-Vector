@@ -19,7 +19,8 @@
 			"Veracious",
 			"William Surya Permana",
 			"Penyuwangi",
-			"Hidayatsrf"
+			"Hidayatsrf",
+			"Exploraz"
 		]
 	},
 	"skinname-vector": "Vektor",
@@ -51,6 +52,7 @@
 	"vector-jumptocontent": "Lompat ke isi",
 	"vector-more-actions": "Lainnya",
 	"vector-appearance-label": "Tampilan",
+	"vector-personal-tools-tooltip": "Setelan pribadi",
 	"vector-feature-limited-width-name": "Lebar",
 	"vector-feature-limited-width-0-label": "Lebar",
 	"vector-feature-limited-width-1-label": "Standar",
