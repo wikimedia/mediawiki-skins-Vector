@@ -18,8 +18,8 @@
 		position: absolute;
 		// Use `calc()` for negative calculation to not rely on Less, but standard CSS.
 		left: calc( -1 * @size-toc-subsection-toggle / 2 );
-		// Visual centering.
-		top: 1px;
+		// Visual centering (T405066).
+		top: 3px;
 		// Override .cdx-button styles
 		min-width: @size-toc-subsection-toggle; // ~22px @ 12
 		min-height: @size-toc-subsection-toggle;
