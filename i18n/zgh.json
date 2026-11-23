@@ -45,5 +45,6 @@
 	"vector-page-tools-actions-label": "ⵜⵉⴳⴰⵡⵉⵏ",
 	"vector-pin-element-label": "ⵙⵎⴰⵜⵜⵉ ⵖⵔ ⴰⴼⴳⴳⴰⴳ ⴰⵙⴳⵡⴰⵏ",
 	"vector-unpin-element-label": "ⵙⵙⵏⵜⵍ",
-	"vector-unpin-element-aria-label": "ⵙⵙⵏⵜⵍ$1"
+	"vector-pin-element-aria-label": "ⵙⵎⴰⵜⵜⵉ $1 ⵖⵔ ⴰⴼⴳⴳⴰⴳ ⴰⵙⴳⵡⴰⵏ",
+	"vector-unpin-element-aria-label": "ⵙⵙⵏⵜⵍ $1"
 }
