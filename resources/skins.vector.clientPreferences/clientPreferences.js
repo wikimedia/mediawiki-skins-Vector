@@ -139,7 +139,6 @@ function makeLabelElement( featureName, value ) {
 
 	const labelText = document.createElement( 'span' );
 	labelText.classList.add( 'cdx-label__label__text' );
-	// eslint-disable-next-line mediawiki/msg-doc
 	labelText.textContent = mw.msg( `${ featureName }-${ value }-label` );
 
 	label.appendChild( labelText );
@@ -156,7 +155,6 @@ function makeLabelElement( featureName, value ) {
  */
 function makeExclusionNotice( featureName ) {
 	const p = document.createElement( 'p' );
-	// eslint-disable-next-line mediawiki/msg-doc
 	const noticeMessage = mw.message( `${ featureName }-exclusion-notice` );
 	p.classList.add( 'exclusion-notice', `${ featureName }-exclusion-notice` );
 	p.textContent = noticeMessage.text();
@@ -171,7 +169,6 @@ function makeBetaInfoTag( messageKey ) {
 	const infoTag = document.createElement( 'span' );
 	// custom style to avoid moving heading bottom border.
 	const infoTagText = document.createElement( 'span' );
-	/* eslint-disable-next-line mediawiki/msg-doc */
 	infoTagText.textContent = mw.message( messageKey ).text();
 	infoTag.appendChild( infoTagText );
 	return infoTag;
@@ -237,18 +234,14 @@ function makeLink( linkContainer, feature ) {
 	let urlParam = '';
 	if ( urlParamMsgKey ) {
 		const pageWikiLink = `[https://${ window.location.hostname + mw.util.getUrl( mw.config.get( 'wgPageName' ) ) } ${ mw.config.get( 'wgTitle' ) }]`;
-		/* eslint-disable-next-line mediawiki/msg-doc */
 		urlParam = mw.message( urlParamMsgKey, pageWikiLink ).text();
 	}
-	/* eslint-disable-next-line mediawiki/msg-doc */
 	const link = mw.msg( urlKey, window.location.host, urlParam );
-	/* eslint-disable-next-line mediawiki/msg-doc */
 	const linkLabel = mw.message( labelKey ).text();
 	const anchor = document.createElement( 'a' );
 	anchor.setAttribute( 'href', link );
 	anchor.setAttribute( 'target', '_blank' );
 	if ( linkLabelTooltip ) {
-		/* eslint-disable-next-line mediawiki/msg-doc */
 		anchor.setAttribute( 'title', mw.msg( linkLabelTooltip ) );
 	}
 	anchor.textContent = linkLabel;
@@ -322,7 +315,6 @@ function createRow( className ) {
  * @param {string} featureName
  * @return {MwMessage}
  */
-// eslint-disable-next-line mediawiki/msg-doc
 const getFeatureLabelMsg = ( featureName ) => mw.message( `${ featureName }-name` );
 
 /**
@@ -405,7 +397,6 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 		const labelElement = portlet.querySelector( 'label' );
 
 		// Add additional description for mobile
-		// eslint-disable-next-line mediawiki/msg-doc
 		const descriptionMsg = mw.message( `${ featureName }-description` );
 		if ( descriptionMsg.exists() ) {
 			const desc = document.createElement( 'span' );
@@ -418,7 +409,6 @@ function makeClientPreference( parent, featureName, config, userPreferences ) {
 		}
 
 		// Add exclusion notice for desktop
-		// eslint-disable-next-line mediawiki/msg-doc
 		const exclusionNoticeMsg = mw.message( `${ featureName }-exclusion-notice` );
 		if ( exclusionNoticeMsg.exists() ) {
 			const content = portlet.querySelector( '.vector-menu-content' );
